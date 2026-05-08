@@ -5,32 +5,63 @@ provider: Deel
 providerId: deel
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
-- HR
-- Payroll
-- Global Hiring
-- EOR
-- Contractors
-- Rate Limiting
-- Quotas
-- Throttling
-description: Placeholder rate-limit artifact for Deel. Replace with real limits once the pipeline
-  researches the provider's rate-limit documentation.
-notes: Initial scaffold — limits have not yet been reconciled against the provider's documentation.
+  - HR
+  - Payroll
+  - Global Hiring
+  - EOR
+  - Contractors
+  - Rate Limiting
+  - Throttling
+description: >-
+  Deel exposes per-token request limits documented in their developer docs.
+  When a limit is exceeded, the API returns HTTP 429 and clients are expected
+  to honor the Retry-After header with exponential backoff and jitter.
 sources:
-- https://www.deel.com/
+  - https://developer.deel.com/
+  - https://developer.deel.com/docs/rate-limit
+notes: >-
+  Deel does not publish a single fixed numeric limit; production limits are
+  applied per access token and per endpoint family, and may be tuned per
+  customer. Bulk or list endpoints generally have stricter limits than item
+  endpoints. Validate the live X-RateLimit-* and Retry-After headers in
+  responses for the authoritative values for your token.
 responseCodes:
   throttled: 429
 limits:
-- name: Default
-  scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  - name: Per Token Default
+    scope: token
+    metric: requests
+    notes: >-
+      Default sliding-window limit applied per API token. Clients receive
+      429 Too Many Requests with Retry-After when exceeded.
+  - name: Bulk / Listing Endpoints
+    scope: token
+    metric: requests
+    notes: >-
+      List and search endpoints (e.g. GET /people, GET /contracts) carry
+      tighter limits than item-level endpoints; paginate aggressively.
+  - name: Webhook Delivery
+    scope: subscription
+    metric: events
+    notes: >-
+      Outbound webhook deliveries are batched per subscription with retries
+      on 5xx responses; clients must respond within the timeout window.
 policies:
-- name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  - name: Backoff Strategy
+    description: >-
+      Implement exponential backoff with jitter on 429 responses; honor the
+      Retry-After header and avoid retrying with the same Idempotency-Key
+      until the backoff window has elapsed.
+  - name: Idempotency
+    description: >-
+      Use Idempotency-Key header on POST/PATCH state-changing operations to
+      safely retry without creating duplicate resources.
+  - name: Pagination
+    description: >-
+      Use cursor or page-based pagination on list endpoints to stay within
+      list-endpoint limits.
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com

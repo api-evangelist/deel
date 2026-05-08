@@ -5,38 +5,258 @@ provider: Deel
 providerId: deel
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
-- HR
-- Payroll
-- Global Hiring
-- EOR
-- Contractors
-- Plans
-description: Placeholder plans/pricing artifact for Deel. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled against the provider's documentation.
+  - HR
+  - Payroll
+  - Global Hiring
+  - EOR
+  - Contractors
+  - Plans
+description: >-
+  Deel commercial plans across Contractor management, Employer of Record,
+  Global Payroll, US PEO, Deel HR, and Deel IT. Pricing is per-worker-month
+  unless noted; the API itself is included with paid product tiers.
 sources:
-- https://www.deel.com/
+  - https://www.deel.com/pricing/
+  - https://developer.deel.com/
 plans:
-- id: deel-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers (Free / Pro / Enterprise / pay-as-you-go,
-    etc.) once pricing is reconciled.
-  entries:
-  - label: API Access
-    name: api_access
-    type: flat
-    metric: varies
-    limit: -1
-    timeFrame: usage
-    geo: global
-    unit: 1
-    price: see https://www.deel.com/
-    userMultiplied: false
-  elements:
-  - name: Pending Reconciliation
+  - id: deel-contractors-standard
+    name: Contractors — Standard
+    type: per-seat
+    description: Compliant contractor management with localized contracts and global payouts.
+    entries:
+      - label: Per Contractor / Month
+        name: contractor_seat
+        type: flat
+        metric: contractors
+        timeFrame: monthly
+        unit: 1
+        price: '49'
+        currency: USD
+        userMultiplied: true
+    elements:
+      - name: Localized contractor agreements in 150+ countries
+      - name: Multi-currency contractor payouts
+      - name: API and webhooks access
+  - id: deel-contractor-of-record
+    name: Contractor of Record
+    type: per-seat
+    description: Deel acts as the legal contracting entity, eliminating misclassification risk.
+    entries:
+      - label: Per Contractor / Month
+        name: contractor_of_record_seat
+        type: flat
+        metric: contractors
+        timeFrame: monthly
+        unit: 1
+        price: '325'
+        currency: USD
+        userMultiplied: true
+    elements:
+      - name: Deel as the legal contracting entity
+      - name: Misclassification protection
+  - id: deel-eor-standard
+    name: Employer of Record — Standard
+    type: per-seat
+    description: Full legal employment in 110+ countries with payroll, taxes, and benefits.
+    entries:
+      - label: Per Employee / Month
+        name: eor_seat
+        type: flat
+        metric: employees
+        timeFrame: monthly
+        unit: 1
+        price: '599'
+        currency: USD
+        userMultiplied: true
+    elements:
+      - name: Local legal entity, payroll, and tax handling
+      - name: Statutory and supplemental benefits
+      - name: API access
+  - id: deel-eor-enterprise
+    name: Employer of Record — Enterprise
+    type: per-seat
+    description: EOR with dedicated onboarding manager and legal response guarantees.
+    entries:
+      - label: Per Employee / Month
+        name: eor_enterprise_seat
+        type: flat
+        metric: employees
+        timeFrame: monthly
+        unit: 1
+        price: '899'
+        currency: USD
+        userMultiplied: true
+    elements:
+      - name: Dedicated onboarding manager
+      - name: Legal response SLAs
+      - name: Premium support
+  - id: deel-us-peo
+    name: US PEO
+    type: per-seat
+    description: Co-employment PEO across all 50 US states with payroll and compliance.
+    entries:
+      - label: Per Employee / Month (starting)
+        name: us_peo_seat
+        type: flat
+        metric: employees
+        timeFrame: monthly
+        unit: 1
+        price: '125'
+        currency: USD
+        userMultiplied: true
+  - id: deel-global-payroll
+    name: Managed Global Payroll
+    type: per-seat
+    description: Fully managed in-country payroll for entities Deel does not employ for.
+    entries:
+      - label: Per Employee / Month
+        name: global_payroll_seat
+        type: flat
+        metric: employees
+        timeFrame: monthly
+        unit: 1
+        price: '29'
+        currency: USD
+        userMultiplied: true
+  - id: deel-us-payroll
+    name: Managed US Payroll
+    type: per-seat
+    description: Managed US payroll across all 50 states.
+    entries:
+      - label: Per Employee / Month
+        name: us_payroll_seat
+        type: flat
+        metric: employees
+        timeFrame: monthly
+        unit: 1
+        price: '29'
+        currency: USD
+        userMultiplied: true
+  - id: deel-hr-core
+    name: Deel HR — Core
+    type: per-seat
+    description: Core HRIS module with people, org structure, time off, and reporting.
+    entries:
+      - label: Per Employee / Month
+        name: hr_core_seat
+        type: flat
+        metric: employees
+        timeFrame: monthly
+        unit: 1
+        price: '5'
+        currency: USD
+        userMultiplied: true
+  - id: deel-hr-recruit
+    name: Deel HR — Recruit
+    type: per-seat
+    description: Applicant tracking and recruiting workflows on top of Deel HR.
+    entries:
+      - label: Per Employee / Month
+        name: hr_recruit_seat
+        type: flat
+        metric: employees
+        timeFrame: monthly
+        unit: 1
+        price: '14'
+        currency: USD
+        userMultiplied: true
+  - id: deel-hr-develop
+    name: Deel HR — Develop
+    type: per-seat
+    description: Performance, learning, and development on top of Deel HR.
+    entries:
+      - label: Per Employee / Month
+        name: hr_develop_seat
+        type: flat
+        metric: employees
+        timeFrame: monthly
+        unit: 1
+        price: '22'
+        currency: USD
+        userMultiplied: true
+  - id: deel-hr-full
+    name: Deel HR — Full Solution
+    type: per-seat
+    description: Bundled Deel HR Core + Recruit + Develop + Engage suite.
+    entries:
+      - label: Per Employee / Month
+        name: hr_full_seat
+        type: flat
+        metric: employees
+        timeFrame: monthly
+        unit: 1
+        price: '56'
+        currency: USD
+        userMultiplied: true
+  - id: deel-it-platform
+    name: Deel IT — Platform Only
+    type: per-seat
+    description: Device-management platform without bundled hardware services.
+    entries:
+      - label: Per User / Month
+        name: it_platform_seat
+        type: flat
+        metric: users
+        timeFrame: monthly
+        unit: 1
+        price: '10'
+        currency: USD
+        userMultiplied: true
+  - id: deel-it-starter
+    name: Deel IT — Starter
+    type: per-seat
+    entries:
+      - label: Per User / Month
+        name: it_starter_seat
+        type: flat
+        metric: users
+        timeFrame: monthly
+        unit: 1
+        price: '45'
+        currency: USD
+        userMultiplied: true
+  - id: deel-it-growth
+    name: Deel IT — Growth
+    type: per-seat
+    entries:
+      - label: Per User / Month
+        name: it_growth_seat
+        type: flat
+        metric: users
+        timeFrame: monthly
+        unit: 1
+        price: '125'
+        currency: USD
+        userMultiplied: true
+  - id: deel-it-scale
+    name: Deel IT — Scale
+    type: per-seat
+    entries:
+      - label: Per User / Month
+        name: it_scale_seat
+        type: flat
+        metric: users
+        timeFrame: monthly
+        unit: 1
+        price: '133'
+        currency: USD
+        userMultiplied: true
+  - id: deel-talent-recruitment
+    name: Talent Recruitment
+    type: per-event
+    description: Sourced-hire fee plus recruitment fees.
+    entries:
+      - label: Per Hire
+        name: per_hire_fee
+        type: flat
+        metric: hires
+        timeFrame: usage
+        unit: 1
+        price: '99'
+        currency: USD
+        userMultiplied: false
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com

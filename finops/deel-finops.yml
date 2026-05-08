@@ -5,22 +5,24 @@ provider: Deel
 providerId: deel
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
-- HR
-- Payroll
-- Global Hiring
-- EOR
-- Contractors
-- FinOps
-- Cost Management
-- FOCUS
-description: FOCUS-aligned FinOps placeholder for Deel. Pipeline will replace with the provider's
-  real billing-model details once researched.
-notes: Initial scaffold — billing model has not yet been reconciled.
+  - HR
+  - Payroll
+  - Global Hiring
+  - EOR
+  - Contractors
+  - FinOps
+  - FOCUS
+description: >-
+  Deel's commercial billing model is predominantly per-worker-month pricing
+  across Contractor, EOR, US PEO, Global/US Payroll, Deel HR, and Deel IT
+  product lines, with pass-through costs for benefits, immigration, and
+  recruitment events. This artifact maps Deel charges to FOCUS columns for
+  FinOps allocation and reporting.
 sources:
-- https://www.deel.com/
-- https://focus.finops.org/focus-specification/v1-3/
+  - https://www.deel.com/pricing/
+  - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -30,13 +32,14 @@ alignedWith:
 publisherName: Deel
 serviceCategory: HR
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Subscription Per Seat
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
-  - Usage
-  - Purchase
-  - Adjustment
+    - Usage
+    - Purchase
+    - Adjustment
+    - Tax
 focusColumns:
   ServiceName: Deel
   ServiceCategory: HR
@@ -46,22 +49,89 @@ focusColumns:
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation against the provider's published metering.
-  unit: varies
-  aggregation: sum
-  dimensions:
-  - account
-  - resource
+  - name: contractor_seats
+    description: Active contractors managed under Deel Contractor or CoR plans.
+    unit: contractor-month
+    aggregation: sum
+    dimensions:
+      - legal_entity
+      - country
+      - cost_center
+  - name: eor_seats
+    description: Active EOR employees billed at Standard or Enterprise tier.
+    unit: employee-month
+    aggregation: sum
+    dimensions:
+      - country
+      - tier
+      - cost_center
+  - name: us_peo_seats
+    description: Active US PEO co-employees.
+    unit: employee-month
+    aggregation: sum
+    dimensions:
+      - state
+      - cost_center
+  - name: managed_payroll_seats
+    description: Active employees on Deel Global or US managed payroll.
+    unit: employee-month
+    aggregation: sum
+    dimensions:
+      - country
+      - cost_center
+  - name: hr_module_seats
+    description: Active employees with Deel HR Core / Recruit / Develop / Full bundles.
+    unit: employee-month
+    aggregation: sum
+    dimensions:
+      - module
+      - cost_center
+  - name: it_seats
+    description: Active users on Deel IT plans (Platform / Starter / Growth / Scale).
+    unit: user-month
+    aggregation: sum
+    dimensions:
+      - tier
+      - cost_center
+  - name: device_management
+    description: MDM, endpoint protection, and device lifecycle management add-ons.
+    unit: device-month
+    aggregation: sum
+    dimensions:
+      - service
+      - cost_center
+  - name: per_hire_fees
+    description: One-time recruitment fees for sourced hires.
+    unit: hires
+    aggregation: count
+    dimensions:
+      - role
+      - country
+  - name: pass_through_costs
+    description: Benefits premiums, immigration filings, background checks, and equipment costs.
+    unit: events
+    aggregation: sum
+    dimensions:
+      - service
+      - country
 principles:
-- name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
-- name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
-- name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
-- name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  - name: Visibility
+    description: >-
+      Pull Deel monthly invoices and usage exports; tag invoice line items by
+      legal entity, country, and cost center for attribution.
+  - name: Allocation
+    description: >-
+      Allocate per-seat charges to consuming business units via cost-center
+      tags; allocate pass-through costs (benefits, immigration) to the worker
+      and team.
+  - name: Optimization
+    description: >-
+      Audit headcount monthly to remove inactive contractors and right-size
+      EOR vs. local entity vs. CoR options; consolidate HR module bundles.
+  - name: Accountability
+    description: >-
+      Assign a Deel contract owner; review billing against negotiated terms,
+      especially Enterprise EOR thresholds and bundle discounts.
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
