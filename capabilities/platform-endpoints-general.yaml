@@ -1,0 +1,85 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints
+  description: 'Endpoints. 1 operations. Lead operation: Profiles. Self-contained Naftiko capability covering one Deel business
+    surface.'
+  tags:
+  - Deel
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-general
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints business capability. Self-contained, no shared references.
+    resources:
+    - name: profiles
+      path: /profiles
+      operations:
+      - name: profiles
+        method: PATCH
+        description: Profiles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-general-rest
+    port: 8080
+    description: REST adapter for Endpoints. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/profiles
+      name: profiles
+      description: REST surface for profiles.
+      operations:
+      - method: PATCH
+        name: profiles
+        description: Profiles
+        call: platform-endpoints-general.profiles
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-general-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints. One tool per consumed operation, routed inline through this capability's consumes
+      block.
+    tools:
+    - name: profiles
+      description: Profiles
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-general.profiles
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

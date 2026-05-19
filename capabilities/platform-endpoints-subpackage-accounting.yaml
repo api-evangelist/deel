@@ -1,0 +1,407 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_accounting
+  description: 'Endpoints — subpackage_accounting. 6 operations. Lead operation: Retrieve invoices. Self-contained Naftiko
+    capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_accounting
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-accounting
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_accounting business capability. Self-contained, no shared references.
+    resources:
+    - name: invoices
+      path: /invoices
+      operations:
+      - name: retrieveinvoices
+        method: GET
+        description: Retrieve invoices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: issued_from_date
+          in: query
+          type: string
+          description: Filter invoices issued on or after the specified date.
+        - name: issued_to_date
+          in: query
+          type: string
+          description: Filter invoices issued before the specified date.
+        - name: status
+          in: query
+          type: string
+          description: If status query has value of all, all invoices will be returned. Otherwise only paid invoices will
+            be fetched.
+        - name: limit
+          in: query
+          type: number
+          description: Number of records to retrieve per page.
+        - name: offset
+          in: query
+          type: integer
+          description: Index of the first record to return.
+        - name: cursor
+          in: query
+          type: string
+          description: Return next page of results after the given cursor.
+        - name: include
+          in: query
+          type: string
+          description: Will include invoices from COR workers in the response.
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: invoices-deel
+      path: /invoices/deel
+      operations:
+      - name: retrievedeelinvoices
+        method: GET
+        description: Retrieve Deel invoices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: string
+          description: Return a page of results with given number of records; NOTE technically ALL query parameters are strings
+            or array of strings
+        - name: offset
+          in: query
+          type: string
+          description: Return a page of results after given index of row; NOTE technically ALL query parameters are strings
+            or array of strings'
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: invoices-id-download
+      path: /invoices/{id}/download
+      operations:
+      - name: getbillinginvoicedownloadlink
+        method: GET
+        description: Download invoice PDF
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The invoice ID used to identify the invoice to be downloaded.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: invoices-invoice_id
+      path: /invoices/{invoice_id}
+      operations:
+      - name: getinvoicebyidv20260101
+        method: GET
+        description: Get invoice by id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: invoice_id
+          in: path
+          type: string
+          description: The invoice ID used to identify the invoice to be retireved.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: payments
+      path: /payments
+      operations:
+      - name: retrievepaymentreceiptsv20260101
+        method: GET
+        description: Retrieve payment receipts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: date_from
+          in: query
+          type: string
+          description: Filters results to include payments created on or after this date (in ISO 8601 format).
+        - name: date_to
+          in: query
+          type: string
+          description: Filters results to include payments created before this date (in ISO 8601 format).
+        - name: cursor
+          in: query
+          type: string
+          description: A cursor for pagination. Use the value returned in the 'next_cursor' field to get the next page of
+            results.
+        - name: currencies
+          in: query
+          type: string
+          description: Filters payments by their currency codes. Can be a single currency code or an array of codes.
+        - name: entities
+          in: query
+          type: string
+          description: Filters payments by legal entity type (e.g., 'individual' or 'company'). Can be a single entity type
+            or an array.
+        - name: statuses
+          in: query
+          type: string
+          description: Filters payments by their status (e.g., 'paid' or 'processing'). Can be a single status type or an
+            array.
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: payments-payment_id-breakdown
+      path: /payments/{payment_id}/breakdown
+      operations:
+      - name: retrieveapaymentbreakdownv20260101
+        method: GET
+        description: Retrieve a payment breakdown
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: payment_id
+          in: path
+          type: string
+          description: Unique identifier for the payment to retrieve the breakdown.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-accounting-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_accounting. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/invoices
+      name: invoices
+      description: REST surface for invoices.
+      operations:
+      - method: GET
+        name: retrieveinvoices
+        description: Retrieve invoices
+        call: platform-endpoints-subpackage-accounting.retrieveinvoices
+        with:
+          issued_from_date: rest.issued_from_date
+          issued_to_date: rest.issued_to_date
+          status: rest.status
+          limit: rest.limit
+          offset: rest.offset
+          cursor: rest.cursor
+          include: rest.include
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/invoices/deel
+      name: invoices-deel
+      description: REST surface for invoices-deel.
+      operations:
+      - method: GET
+        name: retrievedeelinvoices
+        description: Retrieve Deel invoices
+        call: platform-endpoints-subpackage-accounting.retrievedeelinvoices
+        with:
+          limit: rest.limit
+          offset: rest.offset
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/invoices/{id}/download
+      name: invoices-id-download
+      description: REST surface for invoices-id-download.
+      operations:
+      - method: GET
+        name: getbillinginvoicedownloadlink
+        description: Download invoice PDF
+        call: platform-endpoints-subpackage-accounting.getbillinginvoicedownloadlink
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/invoices/{invoice-id}
+      name: invoices-invoice-id
+      description: REST surface for invoices-invoice_id.
+      operations:
+      - method: GET
+        name: getinvoicebyidv20260101
+        description: Get invoice by id
+        call: platform-endpoints-subpackage-accounting.getinvoicebyidv20260101
+        with:
+          invoice_id: rest.invoice_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/payments
+      name: payments
+      description: REST surface for payments.
+      operations:
+      - method: GET
+        name: retrievepaymentreceiptsv20260101
+        description: Retrieve payment receipts
+        call: platform-endpoints-subpackage-accounting.retrievepaymentreceiptsv20260101
+        with:
+          date_from: rest.date_from
+          date_to: rest.date_to
+          cursor: rest.cursor
+          currencies: rest.currencies
+          entities: rest.entities
+          statuses: rest.statuses
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/payments/{payment-id}/breakdown
+      name: payments-payment-id-breakdown
+      description: REST surface for payments-payment_id-breakdown.
+      operations:
+      - method: GET
+        name: retrieveapaymentbreakdownv20260101
+        description: Retrieve a payment breakdown
+        call: platform-endpoints-subpackage-accounting.retrieveapaymentbreakdownv20260101
+        with:
+          payment_id: rest.payment_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-accounting-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_accounting. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: retrieve-invoices
+      description: Retrieve invoices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-accounting.retrieveinvoices
+      with:
+        issued_from_date: tools.issued_from_date
+        issued_to_date: tools.issued_to_date
+        status: tools.status
+        limit: tools.limit
+        offset: tools.offset
+        cursor: tools.cursor
+        include: tools.include
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-deel-invoices
+      description: Retrieve Deel invoices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-accounting.retrievedeelinvoices
+      with:
+        limit: tools.limit
+        offset: tools.offset
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: download-invoice-pdf
+      description: Download invoice PDF
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-accounting.getbillinginvoicedownloadlink
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-invoice-id
+      description: Get invoice by id
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-accounting.getinvoicebyidv20260101
+      with:
+        invoice_id: tools.invoice_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-payment-receipts
+      description: Retrieve payment receipts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-accounting.retrievepaymentreceiptsv20260101
+      with:
+        date_from: tools.date_from
+        date_to: tools.date_to
+        cursor: tools.cursor
+        currencies: tools.currencies
+        entities: tools.entities
+        statuses: tools.statuses
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-payment-breakdown
+      description: Retrieve a payment breakdown
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-accounting.retrieveapaymentbreakdownv20260101
+      with:
+        payment_id: tools.payment_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

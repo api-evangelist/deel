@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: EOR Worker Endpoints — subpackage_eorWorkerBenefits
+  description: 'EOR Worker Endpoints — subpackage_eorWorkerBenefits. 1 operations. Lead operation: Retrieve Benefits for Employee.
+    Self-contained Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_eorWorkerBenefits
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: eor-worker-endpoints-subpackage-eorworkerbenefits
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: EOR Worker Endpoints — subpackage_eorWorkerBenefits business capability. Self-contained, no shared references.
+    resources:
+    - name: eor-worker-benefits
+      path: /eor/worker/benefits
+      operations:
+      - name: geteorworkerbenefits
+        method: GET
+        description: Retrieve Benefits for Employee
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: eor-worker-endpoints-subpackage-eorworkerbenefits-rest
+    port: 8080
+    description: REST adapter for EOR Worker Endpoints — subpackage_eorWorkerBenefits. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/eor/worker/benefits
+      name: eor-worker-benefits
+      description: REST surface for eor-worker-benefits.
+      operations:
+      - method: GET
+        name: geteorworkerbenefits
+        description: Retrieve Benefits for Employee
+        call: eor-worker-endpoints-subpackage-eorworkerbenefits.geteorworkerbenefits
+        with:
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: eor-worker-endpoints-subpackage-eorworkerbenefits-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for EOR Worker Endpoints — subpackage_eorWorkerBenefits. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: retrieve-benefits-employee
+      description: Retrieve Benefits for Employee
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eor-worker-endpoints-subpackage-eorworkerbenefits.geteorworkerbenefits
+      with:
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

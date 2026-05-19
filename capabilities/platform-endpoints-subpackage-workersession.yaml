@@ -1,0 +1,136 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_workerSession
+  description: 'Endpoints — subpackage_workerSession. 2 operations. Lead operation: Create worker access token. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_workerSession
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-workersession
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_workerSession business capability. Self-contained, no shared references.
+    resources:
+    - name: workers-session
+      path: /workers/session
+      operations:
+      - name: createworkeraccesstoken
+        method: POST
+        description: Create worker access token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: workers-worker_id-session
+      path: /workers/{worker_id}/session
+      operations:
+      - name: deleteworkeraccesstoken
+        method: DELETE
+        description: Delete worker access token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: worker_id
+          in: path
+          type: string
+          description: The ID of the worker whose access token you want to delete.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-workersession-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_workerSession. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/workers/session
+      name: workers-session
+      description: REST surface for workers-session.
+      operations:
+      - method: POST
+        name: createworkeraccesstoken
+        description: Create worker access token
+        call: platform-endpoints-subpackage-workersession.createworkeraccesstoken
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workers/{worker-id}/session
+      name: workers-worker-id-session
+      description: REST surface for workers-worker_id-session.
+      operations:
+      - method: DELETE
+        name: deleteworkeraccesstoken
+        description: Delete worker access token
+        call: platform-endpoints-subpackage-workersession.deleteworkeraccesstoken
+        with:
+          worker_id: rest.worker_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-workersession-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_workerSession. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: create-worker-access-token
+      description: Create worker access token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-workersession.createworkeraccesstoken
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-worker-access-token
+      description: Delete worker access token
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: platform-endpoints-subpackage-workersession.deleteworkeraccesstoken
+      with:
+        worker_id: tools.worker_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

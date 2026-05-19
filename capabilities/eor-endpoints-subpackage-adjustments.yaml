@@ -1,0 +1,336 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: EOR Endpoints — subpackage_adjustments
+  description: 'EOR Endpoints — subpackage_adjustments. 6 operations. Lead operation: Create a new adjustment. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_adjustments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: eor-endpoints-subpackage-adjustments
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: EOR Endpoints — subpackage_adjustments business capability. Self-contained, no shared references.
+    resources:
+    - name: adjustments
+      path: /adjustments
+      operations:
+      - name: createcontractadjustment
+        method: POST
+        description: Create a new adjustment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: adjustments-categories
+      path: /adjustments/categories
+      operations:
+      - name: getadjustmentcategories
+        method: GET
+        description: Retrieve categories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_types
+          in: query
+          type: array
+          description: array of contract types to filter categories
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: adjustments-id
+      path: /adjustments/{id}
+      operations:
+      - name: deletecontractadjustment
+        method: DELETE
+        description: Delete an adjustment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Deel adjustment id.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+      - name: getcontractadjustment
+        method: GET
+        description: Retrieve an adjustment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Deel adjustment id.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+      - name: updatecontractadjustment
+        method: PATCH
+        description: Update an adjustment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Deel adjustment id.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: contracts-contract_id-adjustments
+      path: /contracts/{contract_id}/adjustments
+      operations:
+      - name: getcontractadjustments
+        method: GET
+        description: Retrieve adjustments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: Deel adjustment id.
+          required: true
+        - name: from
+          in: query
+          type: string
+          description: Filter adjustments by start date.
+        - name: to
+          in: query
+          type: string
+          description: Filter adjustments by end date.
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: eor-endpoints-subpackage-adjustments-rest
+    port: 8080
+    description: REST adapter for EOR Endpoints — subpackage_adjustments. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/adjustments
+      name: adjustments
+      description: REST surface for adjustments.
+      operations:
+      - method: POST
+        name: createcontractadjustment
+        description: Create a new adjustment
+        call: eor-endpoints-subpackage-adjustments.createcontractadjustment
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/adjustments/categories
+      name: adjustments-categories
+      description: REST surface for adjustments-categories.
+      operations:
+      - method: GET
+        name: getadjustmentcategories
+        description: Retrieve categories
+        call: eor-endpoints-subpackage-adjustments.getadjustmentcategories
+        with:
+          contract_types: rest.contract_types
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/adjustments/{id}
+      name: adjustments-id
+      description: REST surface for adjustments-id.
+      operations:
+      - method: DELETE
+        name: deletecontractadjustment
+        description: Delete an adjustment
+        call: eor-endpoints-subpackage-adjustments.deletecontractadjustment
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getcontractadjustment
+        description: Retrieve an adjustment
+        call: eor-endpoints-subpackage-adjustments.getcontractadjustment
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatecontractadjustment
+        description: Update an adjustment
+        call: eor-endpoints-subpackage-adjustments.updatecontractadjustment
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/contracts/{contract-id}/adjustments
+      name: contracts-contract-id-adjustments
+      description: REST surface for contracts-contract_id-adjustments.
+      operations:
+      - method: GET
+        name: getcontractadjustments
+        description: Retrieve adjustments
+        call: eor-endpoints-subpackage-adjustments.getcontractadjustments
+        with:
+          contract_id: rest.contract_id
+          from: rest.from
+          to: rest.to
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: eor-endpoints-subpackage-adjustments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for EOR Endpoints — subpackage_adjustments. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: create-new-adjustment
+      description: Create a new adjustment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eor-endpoints-subpackage-adjustments.createcontractadjustment
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-categories
+      description: Retrieve categories
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eor-endpoints-subpackage-adjustments.getadjustmentcategories
+      with:
+        contract_types: tools.contract_types
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-adjustment
+      description: Delete an adjustment
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: eor-endpoints-subpackage-adjustments.deletecontractadjustment
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-adjustment
+      description: Retrieve an adjustment
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eor-endpoints-subpackage-adjustments.getcontractadjustment
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-adjustment
+      description: Update an adjustment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: eor-endpoints-subpackage-adjustments.updatecontractadjustment
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-adjustments
+      description: Retrieve adjustments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eor-endpoints-subpackage-adjustments.getcontractadjustments
+      with:
+        contract_id: tools.contract_id
+        from: tools.from
+        to: tools.to
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

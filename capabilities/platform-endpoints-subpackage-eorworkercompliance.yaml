@@ -1,0 +1,283 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_eorWorkerCompliance
+  description: 'Endpoints — subpackage_eorWorkerCompliance. 5 operations. Lead operation: List of employee compliance documents.
+    Self-contained Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_eorWorkerCompliance
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-eorworkercompliance
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_eorWorkerCompliance business capability. Self-contained, no shared references.
+    resources:
+    - name: eor-workers-compliance-documents
+      path: /eor/workers/compliance-documents
+      operations:
+      - name: geteorworkercompliancedocuments
+        method: GET
+        description: List of employee compliance documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: eor-workers-compliance-documents-document_id
+      path: /eor/workers/compliance-documents/{document_id}
+      operations:
+      - name: uploadeorworkercompliancedocument
+        method: POST
+        description: Upload employee compliance document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: Unique identifier for a compliance document in Deel.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: eor-workers-compliance-documents-document_id-acknowledgement
+      path: /eor/workers/compliance-documents/{document_id}/acknowledgement
+      operations:
+      - name: createcompliancedocumentacknowledgement
+        method: POST
+        description: Acknowledge a compliance document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: The unique identifier of the compliance document.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: eor-workers-compliance-documents-document_id-download
+      path: /eor/workers/compliance-documents/{document_id}/download
+      operations:
+      - name: downloadcompliancedocument
+        method: GET
+        description: Download submitted compliance document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: Unique identifier for a compliance document in Deel.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: eor-workers-compliance-documents-document_id-templates-download
+      path: /eor/workers/compliance-documents/{document_id}/templates/download
+      operations:
+      - name: downloadcompliancedocumenttemplate
+        method: GET
+        description: Download employee compliance document template
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: Unique identifier for a compliance document in Deel.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-eorworkercompliance-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_eorWorkerCompliance. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/eor/workers/compliance-documents
+      name: eor-workers-compliance-documents
+      description: REST surface for eor-workers-compliance-documents.
+      operations:
+      - method: GET
+        name: geteorworkercompliancedocuments
+        description: List of employee compliance documents
+        call: platform-endpoints-subpackage-eorworkercompliance.geteorworkercompliancedocuments
+        with:
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/workers/compliance-documents/{document-id}
+      name: eor-workers-compliance-documents-document-id
+      description: REST surface for eor-workers-compliance-documents-document_id.
+      operations:
+      - method: POST
+        name: uploadeorworkercompliancedocument
+        description: Upload employee compliance document
+        call: platform-endpoints-subpackage-eorworkercompliance.uploadeorworkercompliancedocument
+        with:
+          document_id: rest.document_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/workers/compliance-documents/{document-id}/acknowledgement
+      name: eor-workers-compliance-documents-document-id-acknowledgement
+      description: REST surface for eor-workers-compliance-documents-document_id-acknowledgement.
+      operations:
+      - method: POST
+        name: createcompliancedocumentacknowledgement
+        description: Acknowledge a compliance document
+        call: platform-endpoints-subpackage-eorworkercompliance.createcompliancedocumentacknowledgement
+        with:
+          document_id: rest.document_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/workers/compliance-documents/{document-id}/download
+      name: eor-workers-compliance-documents-document-id-download
+      description: REST surface for eor-workers-compliance-documents-document_id-download.
+      operations:
+      - method: GET
+        name: downloadcompliancedocument
+        description: Download submitted compliance document
+        call: platform-endpoints-subpackage-eorworkercompliance.downloadcompliancedocument
+        with:
+          document_id: rest.document_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/workers/compliance-documents/{document-id}/templates/download
+      name: eor-workers-compliance-documents-document-id-templates-download
+      description: REST surface for eor-workers-compliance-documents-document_id-templates-download.
+      operations:
+      - method: GET
+        name: downloadcompliancedocumenttemplate
+        description: Download employee compliance document template
+        call: platform-endpoints-subpackage-eorworkercompliance.downloadcompliancedocumenttemplate
+        with:
+          document_id: rest.document_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-eorworkercompliance-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_eorWorkerCompliance. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-employee-compliance-documents
+      description: List of employee compliance documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-eorworkercompliance.geteorworkercompliancedocuments
+      with:
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: upload-employee-compliance-document
+      description: Upload employee compliance document
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-eorworkercompliance.uploadeorworkercompliancedocument
+      with:
+        document_id: tools.document_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: acknowledge-compliance-document
+      description: Acknowledge a compliance document
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-eorworkercompliance.createcompliancedocumentacknowledgement
+      with:
+        document_id: tools.document_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: download-submitted-compliance-document
+      description: Download submitted compliance document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-eorworkercompliance.downloadcompliancedocument
+      with:
+        document_id: tools.document_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: download-employee-compliance-document-template
+      description: Download employee compliance document template
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-eorworkercompliance.downloadcompliancedocumenttemplate
+      with:
+        document_id: tools.document_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

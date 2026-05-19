@@ -1,0 +1,155 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_hrxDocuments
+  description: 'Endpoints — subpackage_hrxDocuments. 2 operations. Lead operation: Retrieve HRX documents. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_hrxDocuments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-hrxdocuments
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_hrxDocuments business capability. Self-contained, no shared references.
+    resources:
+    - name: eor-contracts-contract_id-hrx-documents
+      path: /eor/contracts/{contract_id}/hrx-documents
+      operations:
+      - name: retrievehrxdocuments
+        method: GET
+        description: Retrieve HRX documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique identifier of the employee contract.
+          required: true
+        - name: cursor
+          in: query
+          type: string
+          description: Cursor for pagination. Use the cursor from the previous response to get the next page of results.
+        - name: limit
+          in: query
+          type: integer
+          description: Number of items to return per page. Maximum is 100, default is 20.
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: eor-contracts-contract_id-hrx-documents-document_id
+      path: /eor/contracts/{contract_id}/hrx-documents/{document_id}
+      operations:
+      - name: downloadhrxdocuments
+        method: GET
+        description: Download HRX documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique identifier of the employee contract.
+          required: true
+        - name: document_id
+          in: path
+          type: string
+          description: The unique identifier of the document to download.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-hrxdocuments-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_hrxDocuments. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/eor/contracts/{contract-id}/hrx-documents
+      name: eor-contracts-contract-id-hrx-documents
+      description: REST surface for eor-contracts-contract_id-hrx-documents.
+      operations:
+      - method: GET
+        name: retrievehrxdocuments
+        description: Retrieve HRX documents
+        call: platform-endpoints-subpackage-hrxdocuments.retrievehrxdocuments
+        with:
+          contract_id: rest.contract_id
+          cursor: rest.cursor
+          limit: rest.limit
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/contracts/{contract-id}/hrx-documents/{document-id}
+      name: eor-contracts-contract-id-hrx-documents-document-id
+      description: REST surface for eor-contracts-contract_id-hrx-documents-document_id.
+      operations:
+      - method: GET
+        name: downloadhrxdocuments
+        description: Download HRX documents
+        call: platform-endpoints-subpackage-hrxdocuments.downloadhrxdocuments
+        with:
+          contract_id: rest.contract_id
+          document_id: rest.document_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-hrxdocuments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_hrxDocuments. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: retrieve-hrx-documents
+      description: Retrieve HRX documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-hrxdocuments.retrievehrxdocuments
+      with:
+        contract_id: tools.contract_id
+        cursor: tools.cursor
+        limit: tools.limit
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: download-hrx-documents
+      description: Download HRX documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-hrxdocuments.downloadhrxdocuments
+      with:
+        contract_id: tools.contract_id
+        document_id: tools.document_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

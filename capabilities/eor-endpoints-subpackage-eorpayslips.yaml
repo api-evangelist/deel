@@ -1,0 +1,87 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: EOR Endpoints — subpackage_eorPayslips
+  description: 'EOR Endpoints — subpackage_eorPayslips. 1 operations. Lead operation: Retrieve employee payslip records. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_eorPayslips
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: eor-endpoints-subpackage-eorpayslips
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: EOR Endpoints — subpackage_eorPayslips business capability. Self-contained, no shared references.
+    resources:
+    - name: eor-workers-worker_id-payslips
+      path: /eor/workers/{worker_id}/payslips
+      operations:
+      - name: getworkerpayslips
+        method: GET
+        description: Retrieve employee payslip records
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: worker_id
+          in: path
+          type: string
+          description: The ID of the worker whose payslips are being retrieved.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: eor-endpoints-subpackage-eorpayslips-rest
+    port: 8080
+    description: REST adapter for EOR Endpoints — subpackage_eorPayslips. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/eor/workers/{worker-id}/payslips
+      name: eor-workers-worker-id-payslips
+      description: REST surface for eor-workers-worker_id-payslips.
+      operations:
+      - method: GET
+        name: getworkerpayslips
+        description: Retrieve employee payslip records
+        call: eor-endpoints-subpackage-eorpayslips.getworkerpayslips
+        with:
+          worker_id: rest.worker_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: eor-endpoints-subpackage-eorpayslips-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for EOR Endpoints — subpackage_eorPayslips. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: retrieve-employee-payslip-records
+      description: Retrieve employee payslip records
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eor-endpoints-subpackage-eorpayslips.getworkerpayslips
+      with:
+        worker_id: tools.worker_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

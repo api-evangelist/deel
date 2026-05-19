@@ -1,0 +1,728 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_contracts
+  description: 'Endpoints — subpackage_contracts. 12 operations. Lead operation: Retrieve contract templates. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_contracts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-contracts
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_contracts business capability. Self-contained, no shared references.
+    resources:
+    - name: contract-templates
+      path: /contract-templates
+      operations:
+      - name: getcontracttemplates
+        method: GET
+        description: Retrieve contract templates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: contracts
+      path: /contracts
+      operations:
+      - name: createiccontract
+        method: POST
+        description: Create a new contract
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: getcontracts
+        method: GET
+        description: List of contracts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: after_cursor
+          in: query
+          type: string
+          description: Return next page of results after the given cursor.
+        - name: limit
+          in: query
+          type: string
+          description: Return a page of results with the given number of records.
+        - name: order_direction
+          in: query
+          type: string
+          description: Order direction of results; ascending or descending.
+        - name: types
+          in: query
+          type: array
+          description: Filter contracts by type. A contract is included in the results if its type is in this list.
+        - name: statuses
+          in: query
+          type: array
+          description: Filter contracts by current status. A contract is included in the results if its status is in this
+            list.
+        - name: team_id
+          in: query
+          type: string
+          description: 'Filter contracts for the given team ID. NOTE: All query parameters are technically strings or arrays
+            of strings.'
+        - name: external_id
+          in: query
+          type: string
+          description: Filter contracts for the given external ID.
+        - name: external_id_absent
+          in: query
+          type: string
+          description: Filter contracts by external ID presence. When true, returns contracts without an external ID. When
+            false, returns contracts with an external ID. Cannot be used
+        - name: countries
+          in: query
+          type: array
+          description: Filter contracts by country codes.
+        - name: currencies
+          in: query
+          type: string
+          description: Filter contracts by currency codes.
+        - name: search
+          in: query
+          type: string
+          description: Include a contract if its name or the contractor's name contains the given search term.
+        - name: sort_by
+          in: query
+          type: string
+          description: Sort contracts by the given field name.
+        - name: expand
+          in: query
+          type: string
+          description: Include cost centers in the response.
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: contracts-contract_id
+      path: /contracts/{contract_id}
+      operations:
+      - name: updateiccontract
+        method: PATCH
+        description: Add external Id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: Deel contract id.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: getcontract
+        method: GET
+        description: Retrieve a single contract
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: Unique identifier of the contract.
+          required: true
+        - name: expand
+          in: query
+          type: string
+          description: Include cost centers in the response.
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: contracts-contract_id-equity_withholding_estimate
+      path: /contracts/{contract_id}/equity_withholding_estimate
+      operations:
+      - name: getcontractequitywithholdingamount
+        method: GET
+        description: Get an estimate of withholding amount given an equity event.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: Deel contract id.
+          required: true
+        - name: event_value
+          in: query
+          type: string
+          description: The monetary value of the equity event.
+          required: true
+        - name: event_currency
+          in: query
+          type: string
+          description: Three-letter currency code for the payment, following ISO 4217.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: equity-exercise
+      path: /equity/exercise
+      operations:
+      - name: createarequesttoexerciseequityv20260101
+        method: POST
+        description: Create a request to exercise equity.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: equity-exercise-public_id
+      path: /equity/exercise/{public_id}
+      operations:
+      - name: approveanequityexercisev20260101
+        method: PATCH
+        description: Approve an equity exercise
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: public_id
+          in: path
+          type: string
+          description: Equity exercise public ID.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: workers-amendments-amendment_id-sign
+      path: /workers/amendments/{amendment_id}/sign
+      operations:
+      - name: signamendment
+        method: POST
+        description: Sign amendment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: amendment_id
+          in: path
+          type: string
+          description: The unique identifier of the amendment to sign
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: workers-contracts-contract_id-pdf
+      path: /workers/contracts/{contract_id}/pdf
+      operations:
+      - name: retrievecontractpdfdownloadlink
+        method: GET
+        description: Retrieve contract PDF download link
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique public identifier of the contract.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: workers-contracts-contract_id-reject
+      path: /workers/contracts/{contract_id}/reject
+      operations:
+      - name: rejectcontract
+        method: POST
+        description: Reject contract
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique public identifier of the contract to reject. This is the contract's public ID that can be
+            used to identify the specific contract in the system.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: workers-contracts-contract_id-signatures
+      path: /workers/contracts/{contract_id}/signatures
+      operations:
+      - name: signworkercontract
+        method: POST
+        description: Sign worker contract
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique identifier of the contract.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-contracts-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_contracts. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/contract-templates
+      name: contract-templates
+      description: REST surface for contract-templates.
+      operations:
+      - method: GET
+        name: getcontracttemplates
+        description: Retrieve contract templates
+        call: platform-endpoints-subpackage-contracts.getcontracttemplates
+        with:
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/contracts
+      name: contracts
+      description: REST surface for contracts.
+      operations:
+      - method: POST
+        name: createiccontract
+        description: Create a new contract
+        call: platform-endpoints-subpackage-contracts.createiccontract
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getcontracts
+        description: List of contracts
+        call: platform-endpoints-subpackage-contracts.getcontracts
+        with:
+          after_cursor: rest.after_cursor
+          limit: rest.limit
+          order_direction: rest.order_direction
+          types: rest.types
+          statuses: rest.statuses
+          team_id: rest.team_id
+          external_id: rest.external_id
+          external_id_absent: rest.external_id_absent
+          countries: rest.countries
+          currencies: rest.currencies
+          search: rest.search
+          sort_by: rest.sort_by
+          expand: rest.expand
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/contracts/{contract-id}
+      name: contracts-contract-id
+      description: REST surface for contracts-contract_id.
+      operations:
+      - method: PATCH
+        name: updateiccontract
+        description: Add external Id
+        call: platform-endpoints-subpackage-contracts.updateiccontract
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getcontract
+        description: Retrieve a single contract
+        call: platform-endpoints-subpackage-contracts.getcontract
+        with:
+          contract_id: rest.contract_id
+          expand: rest.expand
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/contracts/{contract-id}/equity-withholding-estimate
+      name: contracts-contract-id-equity-withholding-estimate
+      description: REST surface for contracts-contract_id-equity_withholding_estimate.
+      operations:
+      - method: GET
+        name: getcontractequitywithholdingamount
+        description: Get an estimate of withholding amount given an equity event.
+        call: platform-endpoints-subpackage-contracts.getcontractequitywithholdingamount
+        with:
+          contract_id: rest.contract_id
+          event_value: rest.event_value
+          event_currency: rest.event_currency
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/equity/exercise
+      name: equity-exercise
+      description: REST surface for equity-exercise.
+      operations:
+      - method: POST
+        name: createarequesttoexerciseequityv20260101
+        description: Create a request to exercise equity.
+        call: platform-endpoints-subpackage-contracts.createarequesttoexerciseequityv20260101
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/equity/exercise/{public-id}
+      name: equity-exercise-public-id
+      description: REST surface for equity-exercise-public_id.
+      operations:
+      - method: PATCH
+        name: approveanequityexercisev20260101
+        description: Approve an equity exercise
+        call: platform-endpoints-subpackage-contracts.approveanequityexercisev20260101
+        with:
+          public_id: rest.public_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workers/amendments/{amendment-id}/sign
+      name: workers-amendments-amendment-id-sign
+      description: REST surface for workers-amendments-amendment_id-sign.
+      operations:
+      - method: POST
+        name: signamendment
+        description: Sign amendment
+        call: platform-endpoints-subpackage-contracts.signamendment
+        with:
+          amendment_id: rest.amendment_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workers/contracts/{contract-id}/pdf
+      name: workers-contracts-contract-id-pdf
+      description: REST surface for workers-contracts-contract_id-pdf.
+      operations:
+      - method: GET
+        name: retrievecontractpdfdownloadlink
+        description: Retrieve contract PDF download link
+        call: platform-endpoints-subpackage-contracts.retrievecontractpdfdownloadlink
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workers/contracts/{contract-id}/reject
+      name: workers-contracts-contract-id-reject
+      description: REST surface for workers-contracts-contract_id-reject.
+      operations:
+      - method: POST
+        name: rejectcontract
+        description: Reject contract
+        call: platform-endpoints-subpackage-contracts.rejectcontract
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workers/contracts/{contract-id}/signatures
+      name: workers-contracts-contract-id-signatures
+      description: REST surface for workers-contracts-contract_id-signatures.
+      operations:
+      - method: POST
+        name: signworkercontract
+        description: Sign worker contract
+        call: platform-endpoints-subpackage-contracts.signworkercontract
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-contracts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_contracts. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: retrieve-contract-templates
+      description: Retrieve contract templates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-contracts.getcontracttemplates
+      with:
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-new-contract
+      description: Create a new contract
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-contracts.createiccontract
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-contracts
+      description: List of contracts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-contracts.getcontracts
+      with:
+        after_cursor: tools.after_cursor
+        limit: tools.limit
+        order_direction: tools.order_direction
+        types: tools.types
+        statuses: tools.statuses
+        team_id: tools.team_id
+        external_id: tools.external_id
+        external_id_absent: tools.external_id_absent
+        countries: tools.countries
+        currencies: tools.currencies
+        search: tools.search
+        sort_by: tools.sort_by
+        expand: tools.expand
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-external-id
+      description: Add external Id
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-contracts.updateiccontract
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-single-contract
+      description: Retrieve a single contract
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-contracts.getcontract
+      with:
+        contract_id: tools.contract_id
+        expand: tools.expand
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-estimate-withholding-amount-given
+      description: Get an estimate of withholding amount given an equity event.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-contracts.getcontractequitywithholdingamount
+      with:
+        contract_id: tools.contract_id
+        event_value: tools.event_value
+        event_currency: tools.event_currency
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-request-exercise-equity
+      description: Create a request to exercise equity.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-contracts.createarequesttoexerciseequityv20260101
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: approve-equity-exercise
+      description: Approve an equity exercise
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-contracts.approveanequityexercisev20260101
+      with:
+        public_id: tools.public_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sign-amendment
+      description: Sign amendment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-contracts.signamendment
+      with:
+        amendment_id: tools.amendment_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-contract-pdf-download-link
+      description: Retrieve contract PDF download link
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-contracts.retrievecontractpdfdownloadlink
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: reject-contract
+      description: Reject contract
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-contracts.rejectcontract
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sign-worker-contract
+      description: Sign worker contract
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-contracts.signworkercontract
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,1477 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_ats
+  description: 'Endpoints — subpackage_ats. 23 operations. Lead operation: Retrieve a list of ATS application sources. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_ats
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-ats
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_ats business capability. Self-contained, no shared references.
+    resources:
+    - name: ats-application-sources
+      path: /ats/application-sources
+      operations:
+      - name: retrievealistofatsapplicationsources
+        method: GET
+        description: Retrieve a list of ATS application sources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cursor
+          in: query
+          type: string
+          description: The cursor for pagination
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of records returned in one response
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: ats-applications
+      path: /ats/applications
+      operations:
+      - name: createatsapplicationv20260101
+        method: POST
+        description: Create ATS Application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: retrievealistofatsapplicationsv20260101
+        method: GET
+        description: Retrieve a list of ATS applications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cursor
+          in: query
+          type: string
+          description: Cursor for pagination. Use the nextCursor value from the previous response to get the next page of
+            results.
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of applications to return per page
+        - name: search_text
+          in: query
+          type: string
+          description: Search text to filter applications by candidate name or email
+        - name: job_id
+          in: query
+          type: string
+          description: Filter applications by specific job ID
+        - name: interview_plan_stage_ids
+          in: query
+          type: array
+          description: Filter applications by specific interview plan stage IDs
+        - name: candidate_tag_ids
+          in: query
+          type: array
+          description: Filter applications by candidate tag IDs
+        - name: source_slugs
+          in: query
+          type: array
+          description: Filter applications by source slugs
+        - name: job_criterias_matchings
+          in: query
+          type: array
+          description: Filter applications by job criteria matching state. Each object specifies a job criteria ID and whether
+            the candidate matches it.
+        - name: current_stage_category_type_slugs
+          in: query
+          type: array
+          description: Filter applications by current stage category type slugs
+        - name: current_stage_default_type_slugs
+          in: query
+          type: array
+          description: Filter applications by current stage default type slugs. Use 'others' for custom stages.
+        - name: updated_after
+          in: query
+          type: string
+          description: Filter applications updated after this timestamp (ISO 8601 format)
+        - name: sort_by
+          in: query
+          type: string
+          description: Field to sort applications by
+        - name: sort_order
+          in: query
+          type: string
+          description: Sort order for applications
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: ats-applications-application_id
+      path: /ats/applications/{application_id}
+      operations:
+      - name: retrieveatsapplicationv20260101
+        method: GET
+        description: Retrieve ATS application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: application_id
+          in: path
+          type: string
+          description: Unique identifier of the application to retrieve
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: ats-applications-application_id-interview-plan-stages
+      path: /ats/applications/{application_id}/interview-plan-stages
+      operations:
+      - name: associateapplicationwithaninterviewplanstagev20260101
+        method: POST
+        description: Associate application with an interview plan stage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: application_id
+          in: path
+          type: string
+          description: ID of the application to be associated with the interview plan stage
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: ats-applications-application_id-notes
+      path: /ats/applications/{application_id}/notes
+      operations:
+      - name: addnotetoanapplicationv20260101
+        method: POST
+        description: Add note to an application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: application_id
+          in: path
+          type: string
+          description: Id of the application which the note will be added
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: ats-attachments-attachable_type_slug-attachable_id-attachment_type_slug
+      path: /ats/attachments/{attachable_type_slug}/{attachable_id}/{attachment_type_slug}
+      operations:
+      - name: retrievepaginatedlistofatsattachmentfilesv20260101
+        method: GET
+        description: Retrieve paginated list of ATS attachment files
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: attachable_id
+          in: path
+          type: string
+          description: Unique identifier for the attachable entity
+          required: true
+        - name: attachment_type_slug
+          in: path
+          type: string
+          description: Type of the attachment
+          required: true
+        - name: attachable_type_slug
+          in: path
+          type: string
+          description: Type of the attachable entity
+          required: true
+        - name: cursor
+          in: query
+          type: string
+          description: The cursor for pagination
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of records returned in one response
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: ats-candidates
+      path: /ats/candidates
+      operations:
+      - name: createatscandidatev20260101
+        method: POST
+        description: Create ATS Candidate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: retrievepaginatedlistofatscandidatesv20260101
+        method: GET
+        description: Retrieve paginated list of ATS Candidates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cursor
+          in: query
+          type: string
+          description: The cursor for pagination
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of records returned in one response
+        - name: search
+          in: query
+          type: string
+          description: Search text for filtering candidates
+        - name: job_ids
+          in: query
+          type: array
+          description: Filter candidates by job IDs
+        - name: department_ids
+          in: query
+          type: array
+          description: Filter candidates by department IDs
+        - name: tag_ids
+          in: query
+          type: array
+          description: Filter candidates by tag IDs
+        - name: current_stage_category_type_slugs
+          in: query
+          type: array
+          description: Filter candidates by current stage category type slugs
+        - name: current_stage_default_type_slugs
+          in: query
+          type: array
+          description: Filter candidates by current stage default type slugs
+        - name: updated_after
+          in: query
+          type: string
+          description: Filter applications updated after this timestamp (ISO 8601 format)
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: ats-candidates-candidate_id-tags
+      path: /ats/candidates/{candidate_id}/tags
+      operations:
+      - name: createcandidatetagsv20260227
+        method: POST
+        description: Create candidate tags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: candidate_id
+          in: path
+          type: string
+          description: The unique identifier of the candidate.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: ats-departments
+      path: /ats/departments
+      operations:
+      - name: retrievealistofatsdepartments
+        method: GET
+        description: Retrieve a list of ATS departments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cursor
+          in: query
+          type: string
+          description: The cursor for pagination
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of records returned in one response
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: ats-email-templates
+      path: /ats/email-templates
+      operations:
+      - name: retrievealistofpublishedatsemailtemplatesv20260211
+        method: GET
+        description: Retrieve a list of published ATS email templates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cursor
+          in: query
+          type: string
+          description: Cursor for pagination. Use the nextCursor value from the previous response to get the next page of
+            results.
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of email templates to return per page
+        - name: updated_after
+          in: query
+          type: string
+          description: Return only email templates that were updated after this timestamp (ISO 8601 format)
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: ats-employment-types
+      path: /ats/employment-types
+      operations:
+      - name: retrievealistofatsemploymenttypes
+        method: GET
+        description: Retrieve a list of ATS employment types
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cursor
+          in: query
+          type: string
+          description: The cursor for pagination
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of records returned in one response
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: ats-hiring-members
+      path: /ats/hiring-members
+      operations:
+      - name: retrieveatshiringmembers
+        method: GET
+        description: Retrieve ATS hiring members
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cursor
+          in: query
+          type: string
+          description: The cursor for pagination
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of records returned in one response
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: ats-job-boards-job_board_id-job-postings
+      path: /ats/job-boards/{job_board_id}/job-postings
+      operations:
+      - name: retrievealistofatsjobpostings
+        method: GET
+        description: Retrieve a list of ATS job postings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: job_board_id
+          in: path
+          type: string
+          description: Job Board ID must be a valid UUID
+          required: true
+        - name: cursor
+          in: query
+          type: string
+          description: The cursor for pagination (optional)
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of records returned in one response (optional)
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: ats-job-postings
+      path: /ats/job-postings
+      operations:
+      - name: retrieveatsjobpostingsv20260410
+        method: GET
+        description: Retrieve ATS job postings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: job_board_id
+          in: query
+          type: string
+          description: Job board to list postings from (UUID).
+        - name: job_id
+          in: query
+          type: string
+          description: When set, only postings for this job are returned (UUID).
+        - name: cursor
+          in: query
+          type: string
+          description: Opaque cursor for pagination. Use the value from next_cursor of the previous response to fetch the
+            next page.
+        - name: limit
+          in: query
+          type: integer
+          description: 'Maximum number of job postings to return per page (min: 1, max: 100).'
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: ats-job-postings-job_posting_id
+      path: /ats/job-postings/{job_posting_id}
+      operations:
+      - name: retrieveatsjobposting
+        method: GET
+        description: Retrieve ATS job posting
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: job_posting_id
+          in: path
+          type: string
+          description: Unique identifier of the job posting to retrieve
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: ats-jobs
+      path: /ats/jobs
+      operations:
+      - name: createatsjob
+        method: POST
+        description: Create ATS Job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: retrievealistofatsjobs
+        method: GET
+        description: Retrieve a list of ATS jobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cursor
+          in: query
+          type: string
+          description: The cursor for pagination
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of records returned in one response
+        - name: search
+          in: query
+          type: string
+          description: Text to search for in job records (optional)
+        - name: interview_plan_id
+          in: query
+          type: string
+          description: Interview plan UUID (optional)
+        - name: location_ids
+          in: query
+          type: array
+          description: Array of location UUIDs (optional)
+        - name: team_ids
+          in: query
+          type: array
+          description: Array of team UUIDs (optional)
+        - name: employment_type_ids
+          in: query
+          type: array
+          description: Array of employment type UUIDs (optional)
+        - name: department_ids
+          in: query
+          type: array
+          description: Array of department UUIDs (optional)
+        - name: updated_after
+          in: query
+          type: string
+          description: Filter jobs updated after this timestamp (ISO 8601 format)
+        - name: status
+          in: query
+          type: array
+          description: Array of job status values (optional)
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: ats-locations
+      path: /ats/locations
+      operations:
+      - name: retrievealistofatslocationsv20260101
+        method: GET
+        description: Retrieve a list of ATS locations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cursor
+          in: query
+          type: string
+          description: The cursor for pagination
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of records returned in one response
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: ats-offers
+      path: /ats/offers
+      operations:
+      - name: retrievealistofatsoffersv20260101
+        method: GET
+        description: Retrieve a list of ATS offers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: ats-reasons
+      path: /ats/reasons
+      operations:
+      - name: retrievepaginatedlistofatsrejectionarchivationreasonsv20260101
+        method: GET
+        description: Retrieve paginated list of ATS Rejection/Archivation reasons
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cursor
+          in: query
+          type: string
+          description: The cursor for pagination
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of records returned in one response
+        - name: search
+          in: query
+          type: string
+          description: Search text for filtering candidates
+        - name: reason_group_slug
+          in: query
+          type: string
+          description: Reason group enum
+        - name: include_counts
+          in: query
+          type: string
+          description: If sent true, it will fetch result with counts
+        - name: subgroup_slug
+          in: query
+          type: string
+          description: Reason subgroup enum
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: ats-tags
+      path: /ats/tags
+      operations:
+      - name: listtagsv20260227
+        method: GET
+        description: List tags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: search_text
+          in: query
+          type: string
+          description: Filter tags by label (case-insensitive partial match)
+        - name: tag_group_slug
+          in: query
+          type: string
+          description: Filter by tag group. Use CANDIDATE for candidate tags.
+        - name: include_counts
+          in: query
+          type: string
+          description: When true, each tag includes candidates_count (number of candidates with that tag)
+        - name: cursor
+          in: query
+          type: string
+          description: Opaque cursor for pagination. Use the value from next_cursor of the previous response to fetch the
+            next page.
+        - name: limit
+          in: query
+          type: integer
+          description: 'Maximum number of tags to return per page (default: 20, max: 100).'
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-ats-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_ats. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/ats/application-sources
+      name: ats-application-sources
+      description: REST surface for ats-application-sources.
+      operations:
+      - method: GET
+        name: retrievealistofatsapplicationsources
+        description: Retrieve a list of ATS application sources
+        call: platform-endpoints-subpackage-ats.retrievealistofatsapplicationsources
+        with:
+          cursor: rest.cursor
+          limit: rest.limit
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/applications
+      name: ats-applications
+      description: REST surface for ats-applications.
+      operations:
+      - method: POST
+        name: createatsapplicationv20260101
+        description: Create ATS Application
+        call: platform-endpoints-subpackage-ats.createatsapplicationv20260101
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: retrievealistofatsapplicationsv20260101
+        description: Retrieve a list of ATS applications
+        call: platform-endpoints-subpackage-ats.retrievealistofatsapplicationsv20260101
+        with:
+          cursor: rest.cursor
+          limit: rest.limit
+          search_text: rest.search_text
+          job_id: rest.job_id
+          interview_plan_stage_ids: rest.interview_plan_stage_ids
+          candidate_tag_ids: rest.candidate_tag_ids
+          source_slugs: rest.source_slugs
+          job_criterias_matchings: rest.job_criterias_matchings
+          current_stage_category_type_slugs: rest.current_stage_category_type_slugs
+          current_stage_default_type_slugs: rest.current_stage_default_type_slugs
+          updated_after: rest.updated_after
+          sort_by: rest.sort_by
+          sort_order: rest.sort_order
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/applications/{application-id}
+      name: ats-applications-application-id
+      description: REST surface for ats-applications-application_id.
+      operations:
+      - method: GET
+        name: retrieveatsapplicationv20260101
+        description: Retrieve ATS application
+        call: platform-endpoints-subpackage-ats.retrieveatsapplicationv20260101
+        with:
+          application_id: rest.application_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/applications/{application-id}/interview-plan-stages
+      name: ats-applications-application-id-interview-plan-stages
+      description: REST surface for ats-applications-application_id-interview-plan-stages.
+      operations:
+      - method: POST
+        name: associateapplicationwithaninterviewplanstagev20260101
+        description: Associate application with an interview plan stage
+        call: platform-endpoints-subpackage-ats.associateapplicationwithaninterviewplanstagev20260101
+        with:
+          application_id: rest.application_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/applications/{application-id}/notes
+      name: ats-applications-application-id-notes
+      description: REST surface for ats-applications-application_id-notes.
+      operations:
+      - method: POST
+        name: addnotetoanapplicationv20260101
+        description: Add note to an application
+        call: platform-endpoints-subpackage-ats.addnotetoanapplicationv20260101
+        with:
+          application_id: rest.application_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/attachments/{attachable-type-slug}/{attachable-id}/{attachment-type-slug}
+      name: ats-attachments-attachable-type-slug-attachable-id-attachment-type-slug
+      description: REST surface for ats-attachments-attachable_type_slug-attachable_id-attachment_type_slug.
+      operations:
+      - method: GET
+        name: retrievepaginatedlistofatsattachmentfilesv20260101
+        description: Retrieve paginated list of ATS attachment files
+        call: platform-endpoints-subpackage-ats.retrievepaginatedlistofatsattachmentfilesv20260101
+        with:
+          attachable_id: rest.attachable_id
+          attachment_type_slug: rest.attachment_type_slug
+          attachable_type_slug: rest.attachable_type_slug
+          cursor: rest.cursor
+          limit: rest.limit
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/candidates
+      name: ats-candidates
+      description: REST surface for ats-candidates.
+      operations:
+      - method: POST
+        name: createatscandidatev20260101
+        description: Create ATS Candidate
+        call: platform-endpoints-subpackage-ats.createatscandidatev20260101
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: retrievepaginatedlistofatscandidatesv20260101
+        description: Retrieve paginated list of ATS Candidates
+        call: platform-endpoints-subpackage-ats.retrievepaginatedlistofatscandidatesv20260101
+        with:
+          cursor: rest.cursor
+          limit: rest.limit
+          search: rest.search
+          job_ids: rest.job_ids
+          department_ids: rest.department_ids
+          tag_ids: rest.tag_ids
+          current_stage_category_type_slugs: rest.current_stage_category_type_slugs
+          current_stage_default_type_slugs: rest.current_stage_default_type_slugs
+          updated_after: rest.updated_after
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/candidates/{candidate-id}/tags
+      name: ats-candidates-candidate-id-tags
+      description: REST surface for ats-candidates-candidate_id-tags.
+      operations:
+      - method: POST
+        name: createcandidatetagsv20260227
+        description: Create candidate tags
+        call: platform-endpoints-subpackage-ats.createcandidatetagsv20260227
+        with:
+          candidate_id: rest.candidate_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/departments
+      name: ats-departments
+      description: REST surface for ats-departments.
+      operations:
+      - method: GET
+        name: retrievealistofatsdepartments
+        description: Retrieve a list of ATS departments
+        call: platform-endpoints-subpackage-ats.retrievealistofatsdepartments
+        with:
+          cursor: rest.cursor
+          limit: rest.limit
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/email-templates
+      name: ats-email-templates
+      description: REST surface for ats-email-templates.
+      operations:
+      - method: GET
+        name: retrievealistofpublishedatsemailtemplatesv20260211
+        description: Retrieve a list of published ATS email templates
+        call: platform-endpoints-subpackage-ats.retrievealistofpublishedatsemailtemplatesv20260211
+        with:
+          cursor: rest.cursor
+          limit: rest.limit
+          updated_after: rest.updated_after
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/employment-types
+      name: ats-employment-types
+      description: REST surface for ats-employment-types.
+      operations:
+      - method: GET
+        name: retrievealistofatsemploymenttypes
+        description: Retrieve a list of ATS employment types
+        call: platform-endpoints-subpackage-ats.retrievealistofatsemploymenttypes
+        with:
+          cursor: rest.cursor
+          limit: rest.limit
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/hiring-members
+      name: ats-hiring-members
+      description: REST surface for ats-hiring-members.
+      operations:
+      - method: GET
+        name: retrieveatshiringmembers
+        description: Retrieve ATS hiring members
+        call: platform-endpoints-subpackage-ats.retrieveatshiringmembers
+        with:
+          cursor: rest.cursor
+          limit: rest.limit
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/job-boards/{job-board-id}/job-postings
+      name: ats-job-boards-job-board-id-job-postings
+      description: REST surface for ats-job-boards-job_board_id-job-postings.
+      operations:
+      - method: GET
+        name: retrievealistofatsjobpostings
+        description: Retrieve a list of ATS job postings
+        call: platform-endpoints-subpackage-ats.retrievealistofatsjobpostings
+        with:
+          job_board_id: rest.job_board_id
+          cursor: rest.cursor
+          limit: rest.limit
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/job-postings
+      name: ats-job-postings
+      description: REST surface for ats-job-postings.
+      operations:
+      - method: GET
+        name: retrieveatsjobpostingsv20260410
+        description: Retrieve ATS job postings
+        call: platform-endpoints-subpackage-ats.retrieveatsjobpostingsv20260410
+        with:
+          job_board_id: rest.job_board_id
+          job_id: rest.job_id
+          cursor: rest.cursor
+          limit: rest.limit
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/job-postings/{job-posting-id}
+      name: ats-job-postings-job-posting-id
+      description: REST surface for ats-job-postings-job_posting_id.
+      operations:
+      - method: GET
+        name: retrieveatsjobposting
+        description: Retrieve ATS job posting
+        call: platform-endpoints-subpackage-ats.retrieveatsjobposting
+        with:
+          job_posting_id: rest.job_posting_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/jobs
+      name: ats-jobs
+      description: REST surface for ats-jobs.
+      operations:
+      - method: POST
+        name: createatsjob
+        description: Create ATS Job
+        call: platform-endpoints-subpackage-ats.createatsjob
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: retrievealistofatsjobs
+        description: Retrieve a list of ATS jobs
+        call: platform-endpoints-subpackage-ats.retrievealistofatsjobs
+        with:
+          cursor: rest.cursor
+          limit: rest.limit
+          search: rest.search
+          interview_plan_id: rest.interview_plan_id
+          location_ids: rest.location_ids
+          team_ids: rest.team_ids
+          employment_type_ids: rest.employment_type_ids
+          department_ids: rest.department_ids
+          updated_after: rest.updated_after
+          status: rest.status
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/locations
+      name: ats-locations
+      description: REST surface for ats-locations.
+      operations:
+      - method: GET
+        name: retrievealistofatslocationsv20260101
+        description: Retrieve a list of ATS locations
+        call: platform-endpoints-subpackage-ats.retrievealistofatslocationsv20260101
+        with:
+          cursor: rest.cursor
+          limit: rest.limit
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/offers
+      name: ats-offers
+      description: REST surface for ats-offers.
+      operations:
+      - method: GET
+        name: retrievealistofatsoffersv20260101
+        description: Retrieve a list of ATS offers
+        call: platform-endpoints-subpackage-ats.retrievealistofatsoffersv20260101
+        with:
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/reasons
+      name: ats-reasons
+      description: REST surface for ats-reasons.
+      operations:
+      - method: GET
+        name: retrievepaginatedlistofatsrejectionarchivationreasonsv20260101
+        description: Retrieve paginated list of ATS Rejection/Archivation reasons
+        call: platform-endpoints-subpackage-ats.retrievepaginatedlistofatsrejectionarchivationreasonsv20260101
+        with:
+          cursor: rest.cursor
+          limit: rest.limit
+          search: rest.search
+          reason_group_slug: rest.reason_group_slug
+          include_counts: rest.include_counts
+          subgroup_slug: rest.subgroup_slug
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ats/tags
+      name: ats-tags
+      description: REST surface for ats-tags.
+      operations:
+      - method: GET
+        name: listtagsv20260227
+        description: List tags
+        call: platform-endpoints-subpackage-ats.listtagsv20260227
+        with:
+          search_text: rest.search_text
+          tag_group_slug: rest.tag_group_slug
+          include_counts: rest.include_counts
+          cursor: rest.cursor
+          limit: rest.limit
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-ats-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_ats. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: retrieve-list-ats-application-sources
+      description: Retrieve a list of ATS application sources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.retrievealistofatsapplicationsources
+      with:
+        cursor: tools.cursor
+        limit: tools.limit
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-ats-application
+      description: Create ATS Application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-ats.createatsapplicationv20260101
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-list-ats-applications
+      description: Retrieve a list of ATS applications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.retrievealistofatsapplicationsv20260101
+      with:
+        cursor: tools.cursor
+        limit: tools.limit
+        search_text: tools.search_text
+        job_id: tools.job_id
+        interview_plan_stage_ids: tools.interview_plan_stage_ids
+        candidate_tag_ids: tools.candidate_tag_ids
+        source_slugs: tools.source_slugs
+        job_criterias_matchings: tools.job_criterias_matchings
+        current_stage_category_type_slugs: tools.current_stage_category_type_slugs
+        current_stage_default_type_slugs: tools.current_stage_default_type_slugs
+        updated_after: tools.updated_after
+        sort_by: tools.sort_by
+        sort_order: tools.sort_order
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-ats-application
+      description: Retrieve ATS application
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.retrieveatsapplicationv20260101
+      with:
+        application_id: tools.application_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: associate-application-interview-plan-stage
+      description: Associate application with an interview plan stage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-ats.associateapplicationwithaninterviewplanstagev20260101
+      with:
+        application_id: tools.application_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-note-application
+      description: Add note to an application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-ats.addnotetoanapplicationv20260101
+      with:
+        application_id: tools.application_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-paginated-list-ats-attachment
+      description: Retrieve paginated list of ATS attachment files
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.retrievepaginatedlistofatsattachmentfilesv20260101
+      with:
+        attachable_id: tools.attachable_id
+        attachment_type_slug: tools.attachment_type_slug
+        attachable_type_slug: tools.attachable_type_slug
+        cursor: tools.cursor
+        limit: tools.limit
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-ats-candidate
+      description: Create ATS Candidate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-ats.createatscandidatev20260101
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-paginated-list-ats-candidates
+      description: Retrieve paginated list of ATS Candidates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.retrievepaginatedlistofatscandidatesv20260101
+      with:
+        cursor: tools.cursor
+        limit: tools.limit
+        search: tools.search
+        job_ids: tools.job_ids
+        department_ids: tools.department_ids
+        tag_ids: tools.tag_ids
+        current_stage_category_type_slugs: tools.current_stage_category_type_slugs
+        current_stage_default_type_slugs: tools.current_stage_default_type_slugs
+        updated_after: tools.updated_after
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-candidate-tags
+      description: Create candidate tags
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-ats.createcandidatetagsv20260227
+      with:
+        candidate_id: tools.candidate_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-list-ats-departments
+      description: Retrieve a list of ATS departments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.retrievealistofatsdepartments
+      with:
+        cursor: tools.cursor
+        limit: tools.limit
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-list-published-ats-email
+      description: Retrieve a list of published ATS email templates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.retrievealistofpublishedatsemailtemplatesv20260211
+      with:
+        cursor: tools.cursor
+        limit: tools.limit
+        updated_after: tools.updated_after
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-list-ats-employment-types
+      description: Retrieve a list of ATS employment types
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.retrievealistofatsemploymenttypes
+      with:
+        cursor: tools.cursor
+        limit: tools.limit
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-ats-hiring-members
+      description: Retrieve ATS hiring members
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.retrieveatshiringmembers
+      with:
+        cursor: tools.cursor
+        limit: tools.limit
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-list-ats-job-postings
+      description: Retrieve a list of ATS job postings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.retrievealistofatsjobpostings
+      with:
+        job_board_id: tools.job_board_id
+        cursor: tools.cursor
+        limit: tools.limit
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-ats-job-postings
+      description: Retrieve ATS job postings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.retrieveatsjobpostingsv20260410
+      with:
+        job_board_id: tools.job_board_id
+        job_id: tools.job_id
+        cursor: tools.cursor
+        limit: tools.limit
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-ats-job-posting
+      description: Retrieve ATS job posting
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.retrieveatsjobposting
+      with:
+        job_posting_id: tools.job_posting_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-ats-job
+      description: Create ATS Job
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-ats.createatsjob
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-list-ats-jobs
+      description: Retrieve a list of ATS jobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.retrievealistofatsjobs
+      with:
+        cursor: tools.cursor
+        limit: tools.limit
+        search: tools.search
+        interview_plan_id: tools.interview_plan_id
+        location_ids: tools.location_ids
+        team_ids: tools.team_ids
+        employment_type_ids: tools.employment_type_ids
+        department_ids: tools.department_ids
+        updated_after: tools.updated_after
+        status: tools.status
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-list-ats-locations
+      description: Retrieve a list of ATS locations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.retrievealistofatslocationsv20260101
+      with:
+        cursor: tools.cursor
+        limit: tools.limit
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-list-ats-offers
+      description: Retrieve a list of ATS offers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.retrievealistofatsoffersv20260101
+      with:
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-paginated-list-ats-rejection
+      description: Retrieve paginated list of ATS Rejection/Archivation reasons
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.retrievepaginatedlistofatsrejectionarchivationreasonsv20260101
+      with:
+        cursor: tools.cursor
+        limit: tools.limit
+        search: tools.search
+        reason_group_slug: tools.reason_group_slug
+        include_counts: tools.include_counts
+        subgroup_slug: tools.subgroup_slug
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-tags
+      description: List tags
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-ats.listtagsv20260227
+      with:
+        search_text: tools.search_text
+        tag_group_slug: tools.tag_group_slug
+        include_counts: tools.include_counts
+        cursor: tools.cursor
+        limit: tools.limit
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

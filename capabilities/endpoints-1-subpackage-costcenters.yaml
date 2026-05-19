@@ -1,0 +1,87 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_costCenters
+  description: 'Endpoints — subpackage_costCenters. 1 operations. Lead operation: Get cost centers by legal entity. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_costCenters
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: endpoints-1-subpackage-costcenters
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_costCenters business capability. Self-contained, no shared references.
+    resources:
+    - name: legal-entities-legal_entity_id-cost-centers
+      path: /legal-entities/{legal_entity_id}/cost-centers
+      operations:
+      - name: getlegalentitycostcenters
+        method: GET
+        description: Get cost centers by legal entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: legal_entity_id
+          in: path
+          type: string
+          description: Legal entity id
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: endpoints-1-subpackage-costcenters-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_costCenters. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/legal-entities/{legal-entity-id}/cost-centers
+      name: legal-entities-legal-entity-id-cost-centers
+      description: REST surface for legal-entities-legal_entity_id-cost-centers.
+      operations:
+      - method: GET
+        name: getlegalentitycostcenters
+        description: Get cost centers by legal entity
+        call: endpoints-1-subpackage-costcenters.getlegalentitycostcenters
+        with:
+          legal_entity_id: rest.legal_entity_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: endpoints-1-subpackage-costcenters-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_costCenters. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-cost-centers-legal-entity
+      description: Get cost centers by legal entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: endpoints-1-subpackage-costcenters.getlegalentitycostcenters
+      with:
+        legal_entity_id: tools.legal_entity_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

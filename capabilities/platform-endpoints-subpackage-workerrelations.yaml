@@ -1,0 +1,986 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_workerRelations
+  description: 'Endpoints — subpackage_workerRelations. 20 operations. Lead operation: Create a worker relation. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_workerRelations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-workerrelations
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_workerRelations business capability. Self-contained, no shared references.
+    resources:
+    - name: hris-worker_relations-profile
+      path: /hris/worker_relations/profile
+      operations:
+      - name: createworkerrelationprofile
+        method: POST
+        description: Create a worker relation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: hris-worker_relations-profile-external
+      path: /hris/worker_relations/profile/external
+      operations:
+      - name: createworkerrelationprofilebyexternalid
+        method: POST
+        description: Create worker relation with external Ids
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: hris-worker_relations-profile-external-profileId
+      path: /hris/worker_relations/profile/external/{profileId}
+      operations:
+      - name: deleteworkerrelationprofilebyexternalid
+        method: DELETE
+        description: Delete a worker relation by external id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: profileId
+          in: path
+          type: string
+          description: Worker Relation external ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+      - name: getworkerrelationprofilebyexternalid
+        method: GET
+        description: Get Worker Relation Profile By External Id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: profileId
+          in: path
+          type: string
+          required: true
+    - name: hris-worker_relations-profile-external-profileId-child
+      path: /hris/worker_relations/profile/external/{profileId}/child
+      operations:
+      - name: addworkerrelationchildbyexternalid
+        method: PUT
+        description: Create child worker relation with external Id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: profileId
+          in: path
+          type: string
+          description: HrisProfile external ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: hris-worker_relations-profile-external-profileId-parent
+      path: /hris/worker_relations/profile/external/{profileId}/parent
+      operations:
+      - name: addworkerrelationparentbyexternalid
+        method: PUT
+        description: Add Worker Relation Parent By External Id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: profileId
+          in: path
+          type: string
+          required: true
+    - name: hris-worker_relations-profile-external-profile_id
+      path: /hris/worker_relations/profile/external/{profile_id}
+      operations:
+      - name: fetchworkerrelationsofagivenhrisprofilebyexternalidv20260101
+        method: GET
+        description: Fetch Worker Relations of a given HrisProfile by external id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: profile_id
+          in: path
+          type: string
+          description: HrisProfile external ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: hris-worker_relations-profile-external-profile_id-parent
+      path: /hris/worker_relations/profile/external/{profile_id}/parent
+      operations:
+      - name: createaparentworkerrelationwithexternalidv20260101
+        method: PUT
+        description: Create a parent worker relation with external id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: profile_id
+          in: path
+          type: string
+          description: HrisProfile external ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: hris-worker_relations-profile-hrisProfileOid
+      path: /hris/worker_relations/profile/{hrisProfileOid}
+      operations:
+      - name: deleteworkerrelationprofile
+        method: DELETE
+        description: Delete a worker relation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hrisProfileOid
+          in: path
+          type: string
+          description: Worker Relation ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+      - name: getworkerrelationprofile
+        method: GET
+        description: List of worker relations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hrisProfileOid
+          in: path
+          type: string
+          description: HrisProfile ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: hris-worker_relations-profile-hrisProfileOid-child
+      path: /hris/worker_relations/profile/{hrisProfileOid}/child
+      operations:
+      - name: addworkerrelationchild
+        method: PUT
+        description: Add Worker Relation Child
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hrisProfileOid
+          in: path
+          type: string
+          required: true
+    - name: hris-worker_relations-profile-hrisProfileOid-parent
+      path: /hris/worker_relations/profile/{hrisProfileOid}/parent
+      operations:
+      - name: addworkerrelationparent
+        method: PUT
+        description: Create a parent worker relation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hrisProfileOid
+          in: path
+          type: string
+          description: HrisProfile ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: hris-worker_relations-profile-hris_profile_oid-child
+      path: /hris/worker_relations/profile/{hris_profile_oid}/child
+      operations:
+      - name: createchildworkerrelationv20260101
+        method: PUT
+        description: Create child worker relation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hris_profile_oid
+          in: path
+          type: string
+          description: HrisProfile ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: hris-worker_relations-types
+      path: /hris/worker_relations/types
+      operations:
+      - name: createworkerrelationtype
+        method: POST
+        description: Create worker relation type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: getworkerrelationtypes
+        method: GET
+        description: Retrieve all worker relation types
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: hris-worker_relations-types-external-externalId
+      path: /hris/worker_relations/types/external/{externalId}
+      operations:
+      - name: deleteworkerrelationtypebyexternalid
+        method: DELETE
+        description: Delete a worker relation type by external id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: externalId
+          in: path
+          type: string
+          description: Worker Relation Type external ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+      - name: updateworkerrelationtypebyexternalid
+        method: PATCH
+        description: Update a worker relation type by external id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: externalId
+          in: path
+          type: string
+          description: Worker Relation Type external ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: hris-worker_relations-types-typeId
+      path: /hris/worker_relations/types/{typeId}
+      operations:
+      - name: deleteworkerrelationtype
+        method: DELETE
+        description: Delete Worker Relation Type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: typeId
+          in: path
+          type: string
+          required: true
+      - name: updateworkerrelationtype
+        method: PATCH
+        description: Update a worker relation type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: typeId
+          in: path
+          type: string
+          description: Worker Relation Type id
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: hris-worker_relations-types-type_id
+      path: /hris/worker_relations/types/{type_id}
+      operations:
+      - name: deleteaworkerrelationtypev20260101
+        method: DELETE
+        description: Delete a worker relation type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: type_id
+          in: path
+          type: string
+          description: Worker Relation Type ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-workerrelations-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_workerRelations. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/hris/worker-relations/profile
+      name: hris-worker-relations-profile
+      description: REST surface for hris-worker_relations-profile.
+      operations:
+      - method: POST
+        name: createworkerrelationprofile
+        description: Create a worker relation
+        call: platform-endpoints-subpackage-workerrelations.createworkerrelationprofile
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hris/worker-relations/profile/external
+      name: hris-worker-relations-profile-external
+      description: REST surface for hris-worker_relations-profile-external.
+      operations:
+      - method: POST
+        name: createworkerrelationprofilebyexternalid
+        description: Create worker relation with external Ids
+        call: platform-endpoints-subpackage-workerrelations.createworkerrelationprofilebyexternalid
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hris/worker-relations/profile/external/{profileid}
+      name: hris-worker-relations-profile-external-profileid
+      description: REST surface for hris-worker_relations-profile-external-profileId.
+      operations:
+      - method: DELETE
+        name: deleteworkerrelationprofilebyexternalid
+        description: Delete a worker relation by external id
+        call: platform-endpoints-subpackage-workerrelations.deleteworkerrelationprofilebyexternalid
+        with:
+          profileId: rest.profileId
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getworkerrelationprofilebyexternalid
+        description: Get Worker Relation Profile By External Id
+        call: platform-endpoints-subpackage-workerrelations.getworkerrelationprofilebyexternalid
+        with:
+          profileId: rest.profileId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hris/worker-relations/profile/external/{profileid}/child
+      name: hris-worker-relations-profile-external-profileid-child
+      description: REST surface for hris-worker_relations-profile-external-profileId-child.
+      operations:
+      - method: PUT
+        name: addworkerrelationchildbyexternalid
+        description: Create child worker relation with external Id
+        call: platform-endpoints-subpackage-workerrelations.addworkerrelationchildbyexternalid
+        with:
+          profileId: rest.profileId
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hris/worker-relations/profile/external/{profileid}/parent
+      name: hris-worker-relations-profile-external-profileid-parent
+      description: REST surface for hris-worker_relations-profile-external-profileId-parent.
+      operations:
+      - method: PUT
+        name: addworkerrelationparentbyexternalid
+        description: Add Worker Relation Parent By External Id
+        call: platform-endpoints-subpackage-workerrelations.addworkerrelationparentbyexternalid
+        with:
+          profileId: rest.profileId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hris/worker-relations/profile/external/{profile-id}
+      name: hris-worker-relations-profile-external-profile-id
+      description: REST surface for hris-worker_relations-profile-external-profile_id.
+      operations:
+      - method: GET
+        name: fetchworkerrelationsofagivenhrisprofilebyexternalidv20260101
+        description: Fetch Worker Relations of a given HrisProfile by external id
+        call: platform-endpoints-subpackage-workerrelations.fetchworkerrelationsofagivenhrisprofilebyexternalidv20260101
+        with:
+          profile_id: rest.profile_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hris/worker-relations/profile/external/{profile-id}/parent
+      name: hris-worker-relations-profile-external-profile-id-parent
+      description: REST surface for hris-worker_relations-profile-external-profile_id-parent.
+      operations:
+      - method: PUT
+        name: createaparentworkerrelationwithexternalidv20260101
+        description: Create a parent worker relation with external id
+        call: platform-endpoints-subpackage-workerrelations.createaparentworkerrelationwithexternalidv20260101
+        with:
+          profile_id: rest.profile_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hris/worker-relations/profile/{hrisprofileoid}
+      name: hris-worker-relations-profile-hrisprofileoid
+      description: REST surface for hris-worker_relations-profile-hrisProfileOid.
+      operations:
+      - method: DELETE
+        name: deleteworkerrelationprofile
+        description: Delete a worker relation
+        call: platform-endpoints-subpackage-workerrelations.deleteworkerrelationprofile
+        with:
+          hrisProfileOid: rest.hrisProfileOid
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getworkerrelationprofile
+        description: List of worker relations
+        call: platform-endpoints-subpackage-workerrelations.getworkerrelationprofile
+        with:
+          hrisProfileOid: rest.hrisProfileOid
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hris/worker-relations/profile/{hrisprofileoid}/child
+      name: hris-worker-relations-profile-hrisprofileoid-child
+      description: REST surface for hris-worker_relations-profile-hrisProfileOid-child.
+      operations:
+      - method: PUT
+        name: addworkerrelationchild
+        description: Add Worker Relation Child
+        call: platform-endpoints-subpackage-workerrelations.addworkerrelationchild
+        with:
+          hrisProfileOid: rest.hrisProfileOid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hris/worker-relations/profile/{hrisprofileoid}/parent
+      name: hris-worker-relations-profile-hrisprofileoid-parent
+      description: REST surface for hris-worker_relations-profile-hrisProfileOid-parent.
+      operations:
+      - method: PUT
+        name: addworkerrelationparent
+        description: Create a parent worker relation
+        call: platform-endpoints-subpackage-workerrelations.addworkerrelationparent
+        with:
+          hrisProfileOid: rest.hrisProfileOid
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hris/worker-relations/profile/{hris-profile-oid}/child
+      name: hris-worker-relations-profile-hris-profile-oid-child
+      description: REST surface for hris-worker_relations-profile-hris_profile_oid-child.
+      operations:
+      - method: PUT
+        name: createchildworkerrelationv20260101
+        description: Create child worker relation
+        call: platform-endpoints-subpackage-workerrelations.createchildworkerrelationv20260101
+        with:
+          hris_profile_oid: rest.hris_profile_oid
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hris/worker-relations/types
+      name: hris-worker-relations-types
+      description: REST surface for hris-worker_relations-types.
+      operations:
+      - method: POST
+        name: createworkerrelationtype
+        description: Create worker relation type
+        call: platform-endpoints-subpackage-workerrelations.createworkerrelationtype
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getworkerrelationtypes
+        description: Retrieve all worker relation types
+        call: platform-endpoints-subpackage-workerrelations.getworkerrelationtypes
+        with:
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hris/worker-relations/types/external/{externalid}
+      name: hris-worker-relations-types-external-externalid
+      description: REST surface for hris-worker_relations-types-external-externalId.
+      operations:
+      - method: DELETE
+        name: deleteworkerrelationtypebyexternalid
+        description: Delete a worker relation type by external id
+        call: platform-endpoints-subpackage-workerrelations.deleteworkerrelationtypebyexternalid
+        with:
+          externalId: rest.externalId
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateworkerrelationtypebyexternalid
+        description: Update a worker relation type by external id
+        call: platform-endpoints-subpackage-workerrelations.updateworkerrelationtypebyexternalid
+        with:
+          externalId: rest.externalId
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hris/worker-relations/types/{typeid}
+      name: hris-worker-relations-types-typeid
+      description: REST surface for hris-worker_relations-types-typeId.
+      operations:
+      - method: DELETE
+        name: deleteworkerrelationtype
+        description: Delete Worker Relation Type
+        call: platform-endpoints-subpackage-workerrelations.deleteworkerrelationtype
+        with:
+          typeId: rest.typeId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateworkerrelationtype
+        description: Update a worker relation type
+        call: platform-endpoints-subpackage-workerrelations.updateworkerrelationtype
+        with:
+          typeId: rest.typeId
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hris/worker-relations/types/{type-id}
+      name: hris-worker-relations-types-type-id
+      description: REST surface for hris-worker_relations-types-type_id.
+      operations:
+      - method: DELETE
+        name: deleteaworkerrelationtypev20260101
+        description: Delete a worker relation type
+        call: platform-endpoints-subpackage-workerrelations.deleteaworkerrelationtypev20260101
+        with:
+          type_id: rest.type_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-workerrelations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_workerRelations. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: create-worker-relation
+      description: Create a worker relation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-workerrelations.createworkerrelationprofile
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-worker-relation-external-ids
+      description: Create worker relation with external Ids
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-workerrelations.createworkerrelationprofilebyexternalid
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-worker-relation-external-id
+      description: Delete a worker relation by external id
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.deleteworkerrelationprofilebyexternalid
+      with:
+        profileId: tools.profileId
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-worker-relation-profile-external
+      description: Get Worker Relation Profile By External Id
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.getworkerrelationprofilebyexternalid
+      with:
+        profileId: tools.profileId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-child-worker-relation-external
+      description: Create child worker relation with external Id
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.addworkerrelationchildbyexternalid
+      with:
+        profileId: tools.profileId
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-worker-relation-parent-external
+      description: Add Worker Relation Parent By External Id
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.addworkerrelationparentbyexternalid
+      with:
+        profileId: tools.profileId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fetch-worker-relations-given-hrisprofile
+      description: Fetch Worker Relations of a given HrisProfile by external id
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.fetchworkerrelationsofagivenhrisprofilebyexternalidv20260101
+      with:
+        profile_id: tools.profile_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-parent-worker-relation-external
+      description: Create a parent worker relation with external id
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.createaparentworkerrelationwithexternalidv20260101
+      with:
+        profile_id: tools.profile_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-worker-relation
+      description: Delete a worker relation
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.deleteworkerrelationprofile
+      with:
+        hrisProfileOid: tools.hrisProfileOid
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-worker-relations
+      description: List of worker relations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.getworkerrelationprofile
+      with:
+        hrisProfileOid: tools.hrisProfileOid
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-worker-relation-child
+      description: Add Worker Relation Child
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.addworkerrelationchild
+      with:
+        hrisProfileOid: tools.hrisProfileOid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-parent-worker-relation
+      description: Create a parent worker relation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.addworkerrelationparent
+      with:
+        hrisProfileOid: tools.hrisProfileOid
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-child-worker-relation
+      description: Create child worker relation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.createchildworkerrelationv20260101
+      with:
+        hris_profile_oid: tools.hris_profile_oid
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-worker-relation-type
+      description: Create worker relation type
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-workerrelations.createworkerrelationtype
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-all-worker-relation-types
+      description: Retrieve all worker relation types
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.getworkerrelationtypes
+      with:
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-worker-relation-type-external
+      description: Delete a worker relation type by external id
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.deleteworkerrelationtypebyexternalid
+      with:
+        externalId: tools.externalId
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-worker-relation-type-external
+      description: Update a worker relation type by external id
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.updateworkerrelationtypebyexternalid
+      with:
+        externalId: tools.externalId
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-worker-relation-type
+      description: Delete Worker Relation Type
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.deleteworkerrelationtype
+      with:
+        typeId: tools.typeId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-worker-relation-type
+      description: Update a worker relation type
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.updateworkerrelationtype
+      with:
+        typeId: tools.typeId
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-worker-relation-type-2
+      description: Delete a worker relation type
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: platform-endpoints-subpackage-workerrelations.deleteaworkerrelationtypev20260101
+      with:
+        type_id: tools.type_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

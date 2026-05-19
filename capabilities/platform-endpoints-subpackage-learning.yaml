@@ -1,0 +1,104 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_learning
+  description: 'Endpoints — subpackage_learning. 1 operations. Lead operation: Retrieve worker''s actionable journeys. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_learning
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-learning
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_learning business capability. Self-contained, no shared references.
+    resources:
+    - name: engage-learning-actionable-journeys
+      path: /engage/learning/actionable-journeys
+      operations:
+      - name: retrieveworkersactionablejourneys
+        method: GET
+        description: Retrieve worker's actionable journeys
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: journey_ids
+          in: query
+          type: array
+          description: Filter by Journey IDs.
+        - name: journey_assignment_ids
+          in: query
+          type: array
+          description: Filter by JourneyAssignment IDs.
+        - name: limit
+          in: query
+          type: number
+          description: Return a page of results with given number of records.
+        - name: cursor
+          in: query
+          type: string
+          description: Cursor to the next page of results. If not provided, the first page will be returned.
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-learning-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_learning. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/engage/learning/actionable-journeys
+      name: engage-learning-actionable-journeys
+      description: REST surface for engage-learning-actionable-journeys.
+      operations:
+      - method: GET
+        name: retrieveworkersactionablejourneys
+        description: Retrieve worker's actionable journeys
+        call: platform-endpoints-subpackage-learning.retrieveworkersactionablejourneys
+        with:
+          journey_ids: rest.journey_ids
+          journey_assignment_ids: rest.journey_assignment_ids
+          limit: rest.limit
+          cursor: rest.cursor
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-learning-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_learning. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: retrieve-worker-s-actionable-journeys
+      description: Retrieve worker's actionable journeys
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-learning.retrieveworkersactionablejourneys
+      with:
+        journey_ids: tools.journey_ids
+        journey_assignment_ids: tools.journey_assignment_ids
+        limit: tools.limit
+        cursor: tools.cursor
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

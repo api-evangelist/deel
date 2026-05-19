@@ -1,0 +1,87 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: EOR Worker Endpoints — subpackage_eorWorkerMailboxes
+  description: 'EOR Worker Endpoints — subpackage_eorWorkerMailboxes. 1 operations. Lead operation: Change EOR Mailbox Password.
+    Self-contained Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_eorWorkerMailboxes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: eor-worker-endpoints-subpackage-eorworkermailboxes
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: EOR Worker Endpoints — subpackage_eorWorkerMailboxes business capability. Self-contained, no shared references.
+    resources:
+    - name: eor-mailboxes-change-password
+      path: /eor/mailboxes/change-password
+      operations:
+      - name: changepassword
+        method: POST
+        description: Change EOR Mailbox Password
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: eor-worker-endpoints-subpackage-eorworkermailboxes-rest
+    port: 8080
+    description: REST adapter for EOR Worker Endpoints — subpackage_eorWorkerMailboxes. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/eor/mailboxes/change-password
+      name: eor-mailboxes-change-password
+      description: REST surface for eor-mailboxes-change-password.
+      operations:
+      - method: POST
+        name: changepassword
+        description: Change EOR Mailbox Password
+        call: eor-worker-endpoints-subpackage-eorworkermailboxes.changepassword
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: eor-worker-endpoints-subpackage-eorworkermailboxes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for EOR Worker Endpoints — subpackage_eorWorkerMailboxes. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: change-eor-mailbox-password
+      description: Change EOR Mailbox Password
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eor-worker-endpoints-subpackage-eorworkermailboxes.changepassword
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,87 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_eorContractDocuments
+  description: 'Endpoints — subpackage_eorContractDocuments. 1 operations. Lead operation: Fetch EOR contract documents. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_eorContractDocuments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-eorcontractdocuments
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_eorContractDocuments business capability. Self-contained, no shared references.
+    resources:
+    - name: eor-contracts-contract_id-documents
+      path: /eor/contracts/{contract_id}/documents
+      operations:
+      - name: geteorcontractdocuments
+        method: GET
+        description: Fetch EOR contract documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: EOR contract ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-eorcontractdocuments-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_eorContractDocuments. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/eor/contracts/{contract-id}/documents
+      name: eor-contracts-contract-id-documents
+      description: REST surface for eor-contracts-contract_id-documents.
+      operations:
+      - method: GET
+        name: geteorcontractdocuments
+        description: Fetch EOR contract documents
+        call: platform-endpoints-subpackage-eorcontractdocuments.geteorcontractdocuments
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-eorcontractdocuments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_eorContractDocuments. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: fetch-eor-contract-documents
+      description: Fetch EOR contract documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-eorcontractdocuments.geteorcontractdocuments
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

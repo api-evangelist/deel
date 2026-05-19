@@ -1,0 +1,360 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_screenings
+  description: 'Endpoints — subpackage_screenings. 6 operations. Lead operation: Get entity screening details. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_screenings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-screenings
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_screenings business capability. Self-contained, no shared references.
+    resources:
+    - name: screenings-aml-entity_type-entity_id
+      path: /screenings/aml/{entity_type}/{entity_id}
+      operations:
+      - name: getamldetails
+        method: GET
+        description: Get entity screening details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: entity_type
+          in: path
+          type: string
+          description: The type of entity to screen. Only 'profile', 'hris_profile', 'legal_entity' are accepted.
+          required: true
+        - name: entity_id
+          in: path
+          type: string
+          description: UUID v4 of the entity
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: screenings-kyc-details
+      path: /screenings/kyc/details
+      operations:
+      - name: getkycdetails
+        method: GET
+        description: Get worker's KYC details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: worker_profile_id
+          in: query
+          type: string
+          description: Worker's HRIS profile public ID client requests to fetch KYC details for. This parameter is mutually
+            exclusive with profile_id
+        - name: contract_id
+          in: query
+          type: string
+          description: 'Worker''s contract ID. This parameter is required in case there are multiple profiles associated to
+            the target worker. For example, when worker used to work for '
+        - name: profile_id
+          in: query
+          type: string
+          description: Worker's profile public ID client requests to fetch KYC details for, This parameter is mutually exclusive
+            with worker_profile_id
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: screenings-kyc-external
+      path: /screenings/kyc/external
+      operations:
+      - name: submitexternalkyc
+        method: POST
+        description: Submit external KYC
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: screenings-manual-verification
+      path: /screenings/manual-verification
+      operations:
+      - name: createmanualverification
+        method: POST
+        description: Create manual verification screening
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: screenings-verification-method
+      path: /screenings/verification-method
+      operations:
+      - name: getverificationmethod
+        method: GET
+        description: Get verification method
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: country
+          in: query
+          type: string
+          description: The document's issuing country code (ISO 3166-1 alpha-2)
+          required: true
+        - name: document_type
+          in: query
+          type: string
+          description: The document to be provided during KYC
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: veriff-session
+      path: /veriff/session
+      operations:
+      - name: createveriffsession
+        method: POST
+        description: Create Veriff session
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-screenings-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_screenings. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/screenings/aml/{entity-type}/{entity-id}
+      name: screenings-aml-entity-type-entity-id
+      description: REST surface for screenings-aml-entity_type-entity_id.
+      operations:
+      - method: GET
+        name: getamldetails
+        description: Get entity screening details
+        call: platform-endpoints-subpackage-screenings.getamldetails
+        with:
+          entity_type: rest.entity_type
+          entity_id: rest.entity_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/screenings/kyc/details
+      name: screenings-kyc-details
+      description: REST surface for screenings-kyc-details.
+      operations:
+      - method: GET
+        name: getkycdetails
+        description: Get worker's KYC details
+        call: platform-endpoints-subpackage-screenings.getkycdetails
+        with:
+          worker_profile_id: rest.worker_profile_id
+          contract_id: rest.contract_id
+          profile_id: rest.profile_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/screenings/kyc/external
+      name: screenings-kyc-external
+      description: REST surface for screenings-kyc-external.
+      operations:
+      - method: POST
+        name: submitexternalkyc
+        description: Submit external KYC
+        call: platform-endpoints-subpackage-screenings.submitexternalkyc
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/screenings/manual-verification
+      name: screenings-manual-verification
+      description: REST surface for screenings-manual-verification.
+      operations:
+      - method: POST
+        name: createmanualverification
+        description: Create manual verification screening
+        call: platform-endpoints-subpackage-screenings.createmanualverification
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/screenings/verification-method
+      name: screenings-verification-method
+      description: REST surface for screenings-verification-method.
+      operations:
+      - method: GET
+        name: getverificationmethod
+        description: Get verification method
+        call: platform-endpoints-subpackage-screenings.getverificationmethod
+        with:
+          country: rest.country
+          document_type: rest.document_type
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/veriff/session
+      name: veriff-session
+      description: REST surface for veriff-session.
+      operations:
+      - method: POST
+        name: createveriffsession
+        description: Create Veriff session
+        call: platform-endpoints-subpackage-screenings.createveriffsession
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-screenings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_screenings. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-entity-screening-details
+      description: Get entity screening details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-screenings.getamldetails
+      with:
+        entity_type: tools.entity_type
+        entity_id: tools.entity_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-worker-s-kyc-details
+      description: Get worker's KYC details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-screenings.getkycdetails
+      with:
+        worker_profile_id: tools.worker_profile_id
+        contract_id: tools.contract_id
+        profile_id: tools.profile_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: submit-external-kyc
+      description: Submit external KYC
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-screenings.submitexternalkyc
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-manual-verification-screening
+      description: Create manual verification screening
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-screenings.createmanualverification
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-verification-method
+      description: Get verification method
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-screenings.getverificationmethod
+      with:
+        country: tools.country
+        document_type: tools.document_type
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-veriff-session
+      description: Create Veriff session
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-screenings.createveriffsession
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

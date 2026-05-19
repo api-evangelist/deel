@@ -1,0 +1,94 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_eorWorkerPayslips
+  description: 'Endpoints — subpackage_eorWorkerPayslips. 1 operations. Lead operation: Retrieve payslip PDF download link.
+    Self-contained Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_eorWorkerPayslips
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-eorworkerpayslips
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_eorWorkerPayslips business capability. Self-contained, no shared references.
+    resources:
+    - name: eor-workers-worker_id-payslips-payslip_id-download
+      path: /eor/workers/{worker_id}/payslips/{payslip_id}/download
+      operations:
+      - name: getworkerpayslipsdownload
+        method: GET
+        description: Retrieve payslip PDF download link
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: worker_id
+          in: path
+          type: string
+          description: The ID of the worker whose payslip download link is being requested.
+          required: true
+        - name: payslip_id
+          in: path
+          type: string
+          description: The ID of the specific payslip to download.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-eorworkerpayslips-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_eorWorkerPayslips. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/eor/workers/{worker-id}/payslips/{payslip-id}/download
+      name: eor-workers-worker-id-payslips-payslip-id-download
+      description: REST surface for eor-workers-worker_id-payslips-payslip_id-download.
+      operations:
+      - method: GET
+        name: getworkerpayslipsdownload
+        description: Retrieve payslip PDF download link
+        call: platform-endpoints-subpackage-eorworkerpayslips.getworkerpayslipsdownload
+        with:
+          worker_id: rest.worker_id
+          payslip_id: rest.payslip_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-eorworkerpayslips-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_eorWorkerPayslips. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: retrieve-payslip-pdf-download-link
+      description: Retrieve payslip PDF download link
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-eorworkerpayslips.getworkerpayslipsdownload
+      with:
+        worker_id: tools.worker_id
+        payslip_id: tools.payslip_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

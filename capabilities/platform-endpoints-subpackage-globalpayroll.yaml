@@ -1,0 +1,228 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_globalPayroll
+  description: 'Endpoints — subpackage_globalPayroll. 3 operations. Lead operation: Get Payroll Report. Self-contained Naftiko
+    capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_globalPayroll
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-globalpayroll
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_globalPayroll business capability. Self-contained, no shared references.
+    resources:
+    - name: cycles-cycle_id-payroll-report
+      path: /cycles/{cycle_id}/payroll-report
+      operations:
+      - name: getpayrollreportv20260330
+        method: GET
+        description: Get Payroll Report
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cycle_id
+          in: path
+          type: string
+          description: Payroll event/cycle id.
+          required: true
+        - name: contract_oids
+          in: query
+          type: array
+          description: Contract OID(s) to filter report rows.
+        - name: search
+          in: query
+          type: string
+          description: Filter by employee name.
+        - name: employee_status
+          in: query
+          type: array
+          description: Employee status filter.
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of report rows.
+        - name: cursor
+          in: query
+          type: string
+          description: Cursor for pagination.
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: forms-gp-worker-additional-fields-country_code
+      path: /forms/gp/worker-additional-fields/{country_code}
+      operations:
+      - name: retrieveadditionalinformationfieldsforgpworkersbycountryv20260101
+        method: GET
+        description: Retrieve additional information fields for GP workers by country
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: country_code
+          in: path
+          type: string
+          description: ISO 3166-1 alpha-2 country code for which to retrieve GP worker additional fields.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: gp-workers-id-payslips-payslip_id-download
+      path: /gp/workers/{id}/payslips/{payslip_id}/download
+      operations:
+      - name: downloadagpworkerpayslipv20260101
+        method: GET
+        description: Download a GP worker payslip
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Unique identifier for the worker.
+          required: true
+        - name: payslipId
+          in: path
+          type: string
+          description: Unique identifier for the payslip.
+          required: true
+        - name: payslip_id
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-globalpayroll-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_globalPayroll. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/cycles/{cycle-id}/payroll-report
+      name: cycles-cycle-id-payroll-report
+      description: REST surface for cycles-cycle_id-payroll-report.
+      operations:
+      - method: GET
+        name: getpayrollreportv20260330
+        description: Get Payroll Report
+        call: platform-endpoints-subpackage-globalpayroll.getpayrollreportv20260330
+        with:
+          cycle_id: rest.cycle_id
+          contract_oids: rest.contract_oids
+          search: rest.search
+          employee_status: rest.employee_status
+          limit: rest.limit
+          cursor: rest.cursor
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/forms/gp/worker-additional-fields/{country-code}
+      name: forms-gp-worker-additional-fields-country-code
+      description: REST surface for forms-gp-worker-additional-fields-country_code.
+      operations:
+      - method: GET
+        name: retrieveadditionalinformationfieldsforgpworkersbycountryv20260101
+        description: Retrieve additional information fields for GP workers by country
+        call: platform-endpoints-subpackage-globalpayroll.retrieveadditionalinformationfieldsforgpworkersbycountryv20260101
+        with:
+          country_code: rest.country_code
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/gp/workers/{id}/payslips/{payslip-id}/download
+      name: gp-workers-id-payslips-payslip-id-download
+      description: REST surface for gp-workers-id-payslips-payslip_id-download.
+      operations:
+      - method: GET
+        name: downloadagpworkerpayslipv20260101
+        description: Download a GP worker payslip
+        call: platform-endpoints-subpackage-globalpayroll.downloadagpworkerpayslipv20260101
+        with:
+          id: rest.id
+          payslipId: rest.payslipId
+          payslip_id: rest.payslip_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-globalpayroll-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_globalPayroll. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-payroll-report
+      description: Get Payroll Report
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-globalpayroll.getpayrollreportv20260330
+      with:
+        cycle_id: tools.cycle_id
+        contract_oids: tools.contract_oids
+        search: tools.search
+        employee_status: tools.employee_status
+        limit: tools.limit
+        cursor: tools.cursor
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-additional-information-fields-gp
+      description: Retrieve additional information fields for GP workers by country
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-globalpayroll.retrieveadditionalinformationfieldsforgpworkersbycountryv20260101
+      with:
+        country_code: tools.country_code
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: download-gp-worker-payslip
+      description: Download a GP worker payslip
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-globalpayroll.downloadagpworkerpayslipv20260101
+      with:
+        id: tools.id
+        payslipId: tools.payslipId
+        payslip_id: tools.payslip_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,744 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_timeOff
+  description: 'Endpoints — subpackage_timeOff. 12 operations. Lead operation: Create time-off request. Self-contained Naftiko
+    capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_timeOff
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: custom-fields-endpoints-subpackage-timeoff
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_timeOff business capability. Self-contained, no shared references.
+    resources:
+    - name: time_offs
+      path: /time_offs
+      operations:
+      - name: createtimeoffrequest
+        method: POST
+        description: Create time-off request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: time_offs-dailies
+      path: /time_offs/dailies
+      operations:
+      - name: gettimeoffdailies
+        method: GET
+        description: Get Work Schedule and Holidays
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: Start date of non working days date range
+        - name: end_date
+          in: query
+          type: string
+          description: End date of non working days date range
+        - name: hris_profile_ids
+          in: query
+          type: array
+          description: HRIS profile ids
+        - name: countries
+          in: query
+          type: array
+          description: List of countries to be fetched
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: time_offs-global-payroll-sync
+      path: /time_offs/global-payroll/sync
+      operations:
+      - name: synctimeoffglobalpayroll
+        method: POST
+        description: External HR Time Off Synchronization
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: time_offs-policy-validation-templates
+      path: /time_offs/policy-validation-templates
+      operations:
+      - name: gettimeoffpolicyvalidationtemplates
+        method: GET
+        description: Retrieve policy validation templates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: countries
+          in: query
+          type: array
+          description: List of countries (ISO 3166-1 alpha-2 codes) to fetch policy templates and types for.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: time_offs-profile-hris_profile_id
+      path: /time_offs/profile/{hris_profile_id}
+      operations:
+      - name: gettimeoffprofile
+        method: GET
+        description: List time-off requests
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hris_profile_id
+          in: path
+          type: string
+          description: HRIS profile id
+          required: true
+        - name: status
+          in: query
+          type: array
+          description: Time off status
+        - name: time_off_ids
+          in: query
+          type: array
+          description: Time off ids
+        - name: start_date
+          in: query
+          type: string
+          description: Start date of time off
+        - name: end_date
+          in: query
+          type: string
+          description: End date of time off
+        - name: approval_start_date
+          in: query
+          type: string
+          description: Approval start date
+        - name: approval_end_date
+          in: query
+          type: string
+          description: Approval end date
+        - name: updated_start_date
+          in: query
+          type: string
+          description: Updated start date
+        - name: updated_end_date
+          in: query
+          type: string
+          description: Updated end date
+        - name: page_size
+          in: query
+          type: integer
+          description: Page size
+        - name: policy_types
+          in: query
+          type: array
+          description: Policy types
+        - name: next
+          in: query
+          type: string
+          description: Next page
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: time_offs-profile-hris_profile_id-entitlements
+      path: /time_offs/profile/{hris_profile_id}/entitlements
+      operations:
+      - name: gettimeoffentitlements
+        method: GET
+        description: Get Profile Entitlements
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hris_profile_id
+          in: path
+          type: string
+          description: HRIS profile ID
+          required: true
+        - name: policy_type_name
+          in: query
+          type: string
+        - name: tracking_period_date
+          in: query
+          type: string
+          description: Tracking period date
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: time_offs-profile-hris_profile_id-policies
+      path: /time_offs/profile/{hris_profile_id}/policies
+      operations:
+      - name: gettimeoffpolicies
+        method: GET
+        description: List policies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hris_profile_id
+          in: path
+          type: string
+          description: hrisProfileId id.
+          required: true
+        - name: policy_type_name
+          in: query
+          type: string
+          description: Policy type name.
+        - name: policy_type_id
+          in: query
+          type: string
+          description: policy type id
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: time_offs-review
+      path: /time_offs/review
+      operations:
+      - name: reviewtimeoffrequest
+        method: POST
+        description: Approve/Reject time-off requests
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: time_offs-time-off-events
+      path: /time_offs/time-off-events
+      operations:
+      - name: gettimeoffevents
+        method: GET
+        description: Get Time Off Events for Profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hris_profile_id
+          in: query
+          type: string
+          description: Worker hris profile id
+          required: true
+        - name: time_off_type_id
+          in: query
+          type: string
+          description: Time off type id
+        - name: policy_id
+          in: query
+          type: string
+          description: Policy id
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: time_offs-validate
+      path: /time_offs/validate
+      operations:
+      - name: validatetimeoff
+        method: POST
+        description: Validate time-off request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: time_offs-time_off_id
+      path: /time_offs/{time_off_id}
+      operations:
+      - name: deletetimeoffrequest
+        method: DELETE
+        description: Cancel time-off request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: time_off_id
+          in: path
+          type: string
+          description: Time off request id
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+      - name: updatetimeoffrequest
+        method: PATCH
+        description: Update time-off request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: time_off_id
+          in: path
+          type: string
+          description: Time off request id
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: custom-fields-endpoints-subpackage-timeoff-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_timeOff. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/time-offs
+      name: time-offs
+      description: REST surface for time_offs.
+      operations:
+      - method: POST
+        name: createtimeoffrequest
+        description: Create time-off request
+        call: custom-fields-endpoints-subpackage-timeoff.createtimeoffrequest
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/time-offs/dailies
+      name: time-offs-dailies
+      description: REST surface for time_offs-dailies.
+      operations:
+      - method: GET
+        name: gettimeoffdailies
+        description: Get Work Schedule and Holidays
+        call: custom-fields-endpoints-subpackage-timeoff.gettimeoffdailies
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          hris_profile_ids: rest.hris_profile_ids
+          countries: rest.countries
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/time-offs/global-payroll/sync
+      name: time-offs-global-payroll-sync
+      description: REST surface for time_offs-global-payroll-sync.
+      operations:
+      - method: POST
+        name: synctimeoffglobalpayroll
+        description: External HR Time Off Synchronization
+        call: custom-fields-endpoints-subpackage-timeoff.synctimeoffglobalpayroll
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/time-offs/policy-validation-templates
+      name: time-offs-policy-validation-templates
+      description: REST surface for time_offs-policy-validation-templates.
+      operations:
+      - method: GET
+        name: gettimeoffpolicyvalidationtemplates
+        description: Retrieve policy validation templates
+        call: custom-fields-endpoints-subpackage-timeoff.gettimeoffpolicyvalidationtemplates
+        with:
+          countries: rest.countries
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/time-offs/profile/{hris-profile-id}
+      name: time-offs-profile-hris-profile-id
+      description: REST surface for time_offs-profile-hris_profile_id.
+      operations:
+      - method: GET
+        name: gettimeoffprofile
+        description: List time-off requests
+        call: custom-fields-endpoints-subpackage-timeoff.gettimeoffprofile
+        with:
+          hris_profile_id: rest.hris_profile_id
+          status: rest.status
+          time_off_ids: rest.time_off_ids
+          start_date: rest.start_date
+          end_date: rest.end_date
+          approval_start_date: rest.approval_start_date
+          approval_end_date: rest.approval_end_date
+          updated_start_date: rest.updated_start_date
+          updated_end_date: rest.updated_end_date
+          page_size: rest.page_size
+          policy_types: rest.policy_types
+          next: rest.next
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/time-offs/profile/{hris-profile-id}/entitlements
+      name: time-offs-profile-hris-profile-id-entitlements
+      description: REST surface for time_offs-profile-hris_profile_id-entitlements.
+      operations:
+      - method: GET
+        name: gettimeoffentitlements
+        description: Get Profile Entitlements
+        call: custom-fields-endpoints-subpackage-timeoff.gettimeoffentitlements
+        with:
+          hris_profile_id: rest.hris_profile_id
+          policy_type_name: rest.policy_type_name
+          tracking_period_date: rest.tracking_period_date
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/time-offs/profile/{hris-profile-id}/policies
+      name: time-offs-profile-hris-profile-id-policies
+      description: REST surface for time_offs-profile-hris_profile_id-policies.
+      operations:
+      - method: GET
+        name: gettimeoffpolicies
+        description: List policies
+        call: custom-fields-endpoints-subpackage-timeoff.gettimeoffpolicies
+        with:
+          hris_profile_id: rest.hris_profile_id
+          policy_type_name: rest.policy_type_name
+          policy_type_id: rest.policy_type_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/time-offs/review
+      name: time-offs-review
+      description: REST surface for time_offs-review.
+      operations:
+      - method: POST
+        name: reviewtimeoffrequest
+        description: Approve/Reject time-off requests
+        call: custom-fields-endpoints-subpackage-timeoff.reviewtimeoffrequest
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/time-offs/time-off-events
+      name: time-offs-time-off-events
+      description: REST surface for time_offs-time-off-events.
+      operations:
+      - method: GET
+        name: gettimeoffevents
+        description: Get Time Off Events for Profile
+        call: custom-fields-endpoints-subpackage-timeoff.gettimeoffevents
+        with:
+          hris_profile_id: rest.hris_profile_id
+          time_off_type_id: rest.time_off_type_id
+          policy_id: rest.policy_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/time-offs/validate
+      name: time-offs-validate
+      description: REST surface for time_offs-validate.
+      operations:
+      - method: POST
+        name: validatetimeoff
+        description: Validate time-off request
+        call: custom-fields-endpoints-subpackage-timeoff.validatetimeoff
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/time-offs/{time-off-id}
+      name: time-offs-time-off-id
+      description: REST surface for time_offs-time_off_id.
+      operations:
+      - method: DELETE
+        name: deletetimeoffrequest
+        description: Cancel time-off request
+        call: custom-fields-endpoints-subpackage-timeoff.deletetimeoffrequest
+        with:
+          time_off_id: rest.time_off_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatetimeoffrequest
+        description: Update time-off request
+        call: custom-fields-endpoints-subpackage-timeoff.updatetimeoffrequest
+        with:
+          time_off_id: rest.time_off_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: custom-fields-endpoints-subpackage-timeoff-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_timeOff. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: create-time-off-request
+      description: Create time-off request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: custom-fields-endpoints-subpackage-timeoff.createtimeoffrequest
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-work-schedule-and-holidays
+      description: Get Work Schedule and Holidays
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-timeoff.gettimeoffdailies
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        hris_profile_ids: tools.hris_profile_ids
+        countries: tools.countries
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: external-hr-time-off-synchronization
+      description: External HR Time Off Synchronization
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: custom-fields-endpoints-subpackage-timeoff.synctimeoffglobalpayroll
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-policy-validation-templates
+      description: Retrieve policy validation templates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-timeoff.gettimeoffpolicyvalidationtemplates
+      with:
+        countries: tools.countries
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-time-off-requests
+      description: List time-off requests
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-timeoff.gettimeoffprofile
+      with:
+        hris_profile_id: tools.hris_profile_id
+        status: tools.status
+        time_off_ids: tools.time_off_ids
+        start_date: tools.start_date
+        end_date: tools.end_date
+        approval_start_date: tools.approval_start_date
+        approval_end_date: tools.approval_end_date
+        updated_start_date: tools.updated_start_date
+        updated_end_date: tools.updated_end_date
+        page_size: tools.page_size
+        policy_types: tools.policy_types
+        next: tools.next
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-profile-entitlements
+      description: Get Profile Entitlements
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-timeoff.gettimeoffentitlements
+      with:
+        hris_profile_id: tools.hris_profile_id
+        policy_type_name: tools.policy_type_name
+        tracking_period_date: tools.tracking_period_date
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-policies
+      description: List policies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-timeoff.gettimeoffpolicies
+      with:
+        hris_profile_id: tools.hris_profile_id
+        policy_type_name: tools.policy_type_name
+        policy_type_id: tools.policy_type_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: approve-reject-time-off-requests
+      description: Approve/Reject time-off requests
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: custom-fields-endpoints-subpackage-timeoff.reviewtimeoffrequest
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-time-off-events-profile
+      description: Get Time Off Events for Profile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-timeoff.gettimeoffevents
+      with:
+        hris_profile_id: tools.hris_profile_id
+        time_off_type_id: tools.time_off_type_id
+        policy_id: tools.policy_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: validate-time-off-request
+      description: Validate time-off request
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: custom-fields-endpoints-subpackage-timeoff.validatetimeoff
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cancel-time-off-request
+      description: Cancel time-off request
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-timeoff.deletetimeoffrequest
+      with:
+        time_off_id: tools.time_off_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-time-off-request
+      description: Update time-off request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-timeoff.updatetimeoffrequest
+      with:
+        time_off_id: tools.time_off_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

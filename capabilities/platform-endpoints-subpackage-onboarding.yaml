@@ -1,0 +1,274 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_onboarding
+  description: 'Endpoints — subpackage_onboarding. 3 operations. Lead operation: List onboarding employees. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_onboarding
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-onboarding
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_onboarding business capability. Self-contained, no shared references.
+    resources:
+    - name: onboarding-tracker
+      path: /onboarding/tracker
+      operations:
+      - name: listonboardingemployeesv20260101
+        method: GET
+        description: List onboarding employees
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: search
+          in: query
+          type: string
+          description: Search term to filter contracts by name or other attributes
+        - name: contractOid
+          in: query
+          type: array
+          description: Search attribute to filter onboarding list by contract id
+        - name: hiringTypes
+          in: query
+          type: array
+          description: Search attribute to filter onboarding list by hiring type
+        - name: progressStatuses
+          in: query
+          type: array
+          description: Search attribute to filter onboarding list by progress status
+        - name: countries
+          in: query
+          type: array
+          description: Search attribute to filter onboarding list by country
+        - name: teams
+          in: query
+          type: array
+          description: Search attribute to filter onboarding list by team
+        - name: legalEntities
+          in: query
+          type: array
+          description: Search attribute to filter onboarding list by legal entity
+        - name: hrisDirectManagers
+          in: query
+          type: array
+          description: Search attribute to filter onboarding list by HRIS direct manager
+        - name: fromDate
+          in: query
+          type: string
+          description: Start date for filtering contracts
+        - name: toDate
+          in: query
+          type: string
+          description: End date for filtering contracts
+        - name: actions
+          in: query
+          type: array
+          description: Onboarding actions
+        - name: limit
+          in: query
+          type: integer
+          description: Number of results to return per page
+        - name: sort_by
+          in: query
+          type: string
+          description: Field to sort by
+        - name: sort_order
+          in: query
+          type: string
+          description: Sorting order
+        - name: cursor
+          in: query
+          type: string
+          description: Cursor for pagination
+        - name: include_overview
+          in: query
+          type: boolean
+          description: Include an overview of the contract
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: onboarding-tracker-hris_profile-hris_profile_id
+      path: /onboarding/tracker/hris_profile/{hris_profile_id}
+      operations:
+      - name: getonboardingdetailsbyemployeehrisprofileidv20260101
+        method: GET
+        description: Get onboarding details by employee HRIS profile ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hris_profile_id
+          in: path
+          type: string
+          description: The unique identifier of the employee HRIS profile.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: onboarding-tracker-tracker_id
+      path: /onboarding/tracker/{tracker_id}
+      operations:
+      - name: getonboardingdetailsbyonboardingtrackeridv20260101
+        method: GET
+        description: Get onboarding details by onboarding tracker ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: tracker_id
+          in: path
+          type: string
+          description: The unique identifier of the onboarding tracker.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-onboarding-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_onboarding. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/onboarding/tracker
+      name: onboarding-tracker
+      description: REST surface for onboarding-tracker.
+      operations:
+      - method: GET
+        name: listonboardingemployeesv20260101
+        description: List onboarding employees
+        call: platform-endpoints-subpackage-onboarding.listonboardingemployeesv20260101
+        with:
+          search: rest.search
+          contractOid: rest.contractOid
+          hiringTypes: rest.hiringTypes
+          progressStatuses: rest.progressStatuses
+          countries: rest.countries
+          teams: rest.teams
+          legalEntities: rest.legalEntities
+          hrisDirectManagers: rest.hrisDirectManagers
+          fromDate: rest.fromDate
+          toDate: rest.toDate
+          actions: rest.actions
+          limit: rest.limit
+          sort_by: rest.sort_by
+          sort_order: rest.sort_order
+          cursor: rest.cursor
+          include_overview: rest.include_overview
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/onboarding/tracker/hris-profile/{hris-profile-id}
+      name: onboarding-tracker-hris-profile-hris-profile-id
+      description: REST surface for onboarding-tracker-hris_profile-hris_profile_id.
+      operations:
+      - method: GET
+        name: getonboardingdetailsbyemployeehrisprofileidv20260101
+        description: Get onboarding details by employee HRIS profile ID
+        call: platform-endpoints-subpackage-onboarding.getonboardingdetailsbyemployeehrisprofileidv20260101
+        with:
+          hris_profile_id: rest.hris_profile_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/onboarding/tracker/{tracker-id}
+      name: onboarding-tracker-tracker-id
+      description: REST surface for onboarding-tracker-tracker_id.
+      operations:
+      - method: GET
+        name: getonboardingdetailsbyonboardingtrackeridv20260101
+        description: Get onboarding details by onboarding tracker ID
+        call: platform-endpoints-subpackage-onboarding.getonboardingdetailsbyonboardingtrackeridv20260101
+        with:
+          tracker_id: rest.tracker_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-onboarding-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_onboarding. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-onboarding-employees
+      description: List onboarding employees
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-onboarding.listonboardingemployeesv20260101
+      with:
+        search: tools.search
+        contractOid: tools.contractOid
+        hiringTypes: tools.hiringTypes
+        progressStatuses: tools.progressStatuses
+        countries: tools.countries
+        teams: tools.teams
+        legalEntities: tools.legalEntities
+        hrisDirectManagers: tools.hrisDirectManagers
+        fromDate: tools.fromDate
+        toDate: tools.toDate
+        actions: tools.actions
+        limit: tools.limit
+        sort_by: tools.sort_by
+        sort_order: tools.sort_order
+        cursor: tools.cursor
+        include_overview: tools.include_overview
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-onboarding-details-employee-hris
+      description: Get onboarding details by employee HRIS profile ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-onboarding.getonboardingdetailsbyemployeehrisprofileidv20260101
+      with:
+        hris_profile_id: tools.hris_profile_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-onboarding-details-onboarding-tracker
+      description: Get onboarding details by onboarding tracker ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-onboarding.getonboardingdetailsbyonboardingtrackeridv20260101
+      with:
+        tracker_id: tools.tracker_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

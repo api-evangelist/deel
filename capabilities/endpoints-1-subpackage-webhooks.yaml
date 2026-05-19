@@ -1,0 +1,301 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_webhooks
+  description: 'Endpoints — subpackage_webhooks. 6 operations. Lead operation: Create a webhook. Self-contained Naftiko capability
+    covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_webhooks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: endpoints-1-subpackage-webhooks
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_webhooks business capability. Self-contained, no shared references.
+    resources:
+    - name: webhooks
+      path: /webhooks
+      operations:
+      - name: createwebhook
+        method: POST
+        description: Create a webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: getwebhooks
+        method: GET
+        description: List of webhooks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: webhooks-events-types
+      path: /webhooks/events/types
+      operations:
+      - name: getwebhookevents
+        method: GET
+        description: List of webhook event types
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: webhooks-id
+      path: /webhooks/{id}
+      operations:
+      - name: deletewebhook
+        method: DELETE
+        description: Delete a webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+      - name: updatewebhook
+        method: PATCH
+        description: Edit a webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: getwebhook
+        method: GET
+        description: Retrieve a single webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: endpoints-1-subpackage-webhooks-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_webhooks. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/webhooks
+      name: webhooks
+      description: REST surface for webhooks.
+      operations:
+      - method: POST
+        name: createwebhook
+        description: Create a webhook
+        call: endpoints-1-subpackage-webhooks.createwebhook
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getwebhooks
+        description: List of webhooks
+        call: endpoints-1-subpackage-webhooks.getwebhooks
+        with:
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/webhooks/events/types
+      name: webhooks-events-types
+      description: REST surface for webhooks-events-types.
+      operations:
+      - method: GET
+        name: getwebhookevents
+        description: List of webhook event types
+        call: endpoints-1-subpackage-webhooks.getwebhookevents
+        with:
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/webhooks/{id}
+      name: webhooks-id
+      description: REST surface for webhooks-id.
+      operations:
+      - method: DELETE
+        name: deletewebhook
+        description: Delete a webhook
+        call: endpoints-1-subpackage-webhooks.deletewebhook
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatewebhook
+        description: Edit a webhook
+        call: endpoints-1-subpackage-webhooks.updatewebhook
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getwebhook
+        description: Retrieve a single webhook
+        call: endpoints-1-subpackage-webhooks.getwebhook
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: endpoints-1-subpackage-webhooks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_webhooks. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: create-webhook
+      description: Create a webhook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: endpoints-1-subpackage-webhooks.createwebhook
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-webhooks
+      description: List of webhooks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: endpoints-1-subpackage-webhooks.getwebhooks
+      with:
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-webhook-event-types
+      description: List of webhook event types
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: endpoints-1-subpackage-webhooks.getwebhookevents
+      with:
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-webhook
+      description: Delete a webhook
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: endpoints-1-subpackage-webhooks.deletewebhook
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: edit-webhook
+      description: Edit a webhook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: endpoints-1-subpackage-webhooks.updatewebhook
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-single-webhook
+      description: Retrieve a single webhook
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: endpoints-1-subpackage-webhooks.getwebhook
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

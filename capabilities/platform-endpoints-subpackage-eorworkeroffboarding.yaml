@@ -1,0 +1,303 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_eorWorkerOffboarding
+  description: 'Endpoints — subpackage_eorWorkerOffboarding. 5 operations. Lead operation: Request contract resignation. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_eorWorkerOffboarding
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-eorworkeroffboarding
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_eorWorkerOffboarding business capability. Self-contained, no shared references.
+    resources:
+    - name: eor-contracts-contract_id-offboarding-resignation
+      path: /eor/contracts/{contract_id}/offboarding/resignation
+      operations:
+      - name: createemployeeresignation
+        method: POST
+        description: Request contract resignation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique identifier of the employee contract.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: eor-workers-contracts-contract_id-offboarding
+      path: /eor/workers/contracts/{contract_id}/offboarding
+      operations:
+      - name: submiteorworkerresignation
+        method: POST
+        description: Submit EOR Worker Resignation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique identifier of the employee contract.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: eor-workers-contracts-contract_id-offboarding-resignation-letter
+      path: /eor/workers/contracts/{contract_id}/offboarding/resignation-letter
+      operations:
+      - name: downloademployeeresignationletter
+        method: GET
+        description: Preview Resignation Letter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique identifier of the employee contract.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: eor-workers-contracts-contract_id-offboarding-resignation-letter-sign
+      path: /eor/workers/contracts/{contract_id}/offboarding/resignation-letter/sign
+      operations:
+      - name: signemployeeresignationletter
+        method: POST
+        description: Sign Resignation Letter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique identifier of the employee contract.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: eor-workers-resignations
+      path: /eor/workers/resignations
+      operations:
+      - name: getemployeeresignations
+        method: GET
+        description: Retrieve worker resignations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: status
+          in: query
+          type: string
+          description: Filter by resignation letter status
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-eorworkeroffboarding-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_eorWorkerOffboarding. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/eor/contracts/{contract-id}/offboarding/resignation
+      name: eor-contracts-contract-id-offboarding-resignation
+      description: REST surface for eor-contracts-contract_id-offboarding-resignation.
+      operations:
+      - method: POST
+        name: createemployeeresignation
+        description: Request contract resignation
+        call: platform-endpoints-subpackage-eorworkeroffboarding.createemployeeresignation
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/workers/contracts/{contract-id}/offboarding
+      name: eor-workers-contracts-contract-id-offboarding
+      description: REST surface for eor-workers-contracts-contract_id-offboarding.
+      operations:
+      - method: POST
+        name: submiteorworkerresignation
+        description: Submit EOR Worker Resignation
+        call: platform-endpoints-subpackage-eorworkeroffboarding.submiteorworkerresignation
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/workers/contracts/{contract-id}/offboarding/resignation-letter
+      name: eor-workers-contracts-contract-id-offboarding-resignation-letter
+      description: REST surface for eor-workers-contracts-contract_id-offboarding-resignation-letter.
+      operations:
+      - method: GET
+        name: downloademployeeresignationletter
+        description: Preview Resignation Letter
+        call: platform-endpoints-subpackage-eorworkeroffboarding.downloademployeeresignationletter
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/workers/contracts/{contract-id}/offboarding/resignation-letter/sign
+      name: eor-workers-contracts-contract-id-offboarding-resignation-letter-sign
+      description: REST surface for eor-workers-contracts-contract_id-offboarding-resignation-letter-sign.
+      operations:
+      - method: POST
+        name: signemployeeresignationletter
+        description: Sign Resignation Letter
+        call: platform-endpoints-subpackage-eorworkeroffboarding.signemployeeresignationletter
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/workers/resignations
+      name: eor-workers-resignations
+      description: REST surface for eor-workers-resignations.
+      operations:
+      - method: GET
+        name: getemployeeresignations
+        description: Retrieve worker resignations
+        call: platform-endpoints-subpackage-eorworkeroffboarding.getemployeeresignations
+        with:
+          status: rest.status
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-eorworkeroffboarding-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_eorWorkerOffboarding. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: request-contract-resignation
+      description: Request contract resignation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-eorworkeroffboarding.createemployeeresignation
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: submit-eor-worker-resignation
+      description: Submit EOR Worker Resignation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-eorworkeroffboarding.submiteorworkerresignation
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: preview-resignation-letter
+      description: Preview Resignation Letter
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-eorworkeroffboarding.downloademployeeresignationletter
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sign-resignation-letter
+      description: Sign Resignation Letter
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-eorworkeroffboarding.signemployeeresignationletter
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-worker-resignations
+      description: Retrieve worker resignations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-eorworkeroffboarding.getemployeeresignations
+      with:
+        status: tools.status
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,229 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_offboarding
+  description: 'Endpoints — subpackage_offboarding. 3 operations. Lead operation: Retrieve offboarding list. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_offboarding
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-offboarding
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_offboarding business capability. Self-contained, no shared references.
+    resources:
+    - name: offboarding-tracker
+      path: /offboarding/tracker
+      operations:
+      - name: retrieveoffboardinglist
+        method: GET
+        description: Retrieve offboarding list
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: search
+          in: query
+          type: string
+          description: Search term to filter contracts by name or other attributes
+        - name: hiring_types
+          in: query
+          type: array
+        - name: progress_statuses
+          in: query
+          type: array
+        - name: limit
+          in: query
+          type: integer
+          description: Number of results to return per page
+        - name: sort_by
+          in: query
+          type: string
+          description: Field to sort by
+        - name: sort_order
+          in: query
+          type: string
+          description: Sorting order
+        - name: pagination
+          in: query
+          type: string
+        - name: include_overview
+          in: query
+          type: boolean
+          description: Include an overview of the contract
+        - name: ignore_date_range
+          in: query
+          type: boolean
+          description: Ignore the default 45-day date range and retrieve all terminations
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: offboarding-tracker-hris_profile-oid
+      path: /offboarding/tracker/hris_profile/{oid}
+      operations:
+      - name: retrieveterminationdetailsbyhrisprofileidentifier
+        method: GET
+        description: Retrieve termination details by HRIS profile identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: oid
+          in: path
+          type: string
+          description: Unique hris profile oid
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: offboarding-tracker-id
+      path: /offboarding/tracker/{id}
+      operations:
+      - name: retrieveterminationdetails
+        method: GET
+        description: Retrieve termination details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Unique onboarding tracker identifier
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-offboarding-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_offboarding. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/offboarding/tracker
+      name: offboarding-tracker
+      description: REST surface for offboarding-tracker.
+      operations:
+      - method: GET
+        name: retrieveoffboardinglist
+        description: Retrieve offboarding list
+        call: platform-endpoints-subpackage-offboarding.retrieveoffboardinglist
+        with:
+          search: rest.search
+          hiring_types: rest.hiring_types
+          progress_statuses: rest.progress_statuses
+          limit: rest.limit
+          sort_by: rest.sort_by
+          sort_order: rest.sort_order
+          pagination: rest.pagination
+          include_overview: rest.include_overview
+          ignore_date_range: rest.ignore_date_range
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/offboarding/tracker/hris-profile/{oid}
+      name: offboarding-tracker-hris-profile-oid
+      description: REST surface for offboarding-tracker-hris_profile-oid.
+      operations:
+      - method: GET
+        name: retrieveterminationdetailsbyhrisprofileidentifier
+        description: Retrieve termination details by HRIS profile identifier
+        call: platform-endpoints-subpackage-offboarding.retrieveterminationdetailsbyhrisprofileidentifier
+        with:
+          oid: rest.oid
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/offboarding/tracker/{id}
+      name: offboarding-tracker-id
+      description: REST surface for offboarding-tracker-id.
+      operations:
+      - method: GET
+        name: retrieveterminationdetails
+        description: Retrieve termination details
+        call: platform-endpoints-subpackage-offboarding.retrieveterminationdetails
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-offboarding-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_offboarding. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: retrieve-offboarding-list
+      description: Retrieve offboarding list
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-offboarding.retrieveoffboardinglist
+      with:
+        search: tools.search
+        hiring_types: tools.hiring_types
+        progress_statuses: tools.progress_statuses
+        limit: tools.limit
+        sort_by: tools.sort_by
+        sort_order: tools.sort_order
+        pagination: tools.pagination
+        include_overview: tools.include_overview
+        ignore_date_range: tools.ignore_date_range
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-termination-details-hris-profile
+      description: Retrieve termination details by HRIS profile identifier
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-offboarding.retrieveterminationdetailsbyhrisprofileidentifier
+      with:
+        oid: tools.oid
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-termination-details
+      description: Retrieve termination details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-offboarding.retrieveterminationdetails
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

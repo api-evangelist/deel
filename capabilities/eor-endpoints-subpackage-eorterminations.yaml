@@ -1,0 +1,262 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: EOR Endpoints — subpackage_eorTerminations
+  description: 'EOR Endpoints — subpackage_eorTerminations. 4 operations. Lead operation: Initiate EOR contract termination
+    request. Self-contained Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_eorTerminations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: eor-endpoints-subpackage-eorterminations
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: EOR Endpoints — subpackage_eorTerminations business capability. Self-contained, no shared references.
+    resources:
+    - name: eor-contracts-contract_id-offboarding-termination
+      path: /eor/contracts/{contract_id}/offboarding/termination
+      operations:
+      - name: createoffboardingtermination
+        method: POST
+        description: Initiate EOR contract termination request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique identifier of the employee contract.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: eor-oid-terminations-regular
+      path: /eor/{oid}/terminations/regular
+      operations:
+      - name: createregulartermination
+        method: POST
+        description: Termination Request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: oid
+          in: path
+          type: string
+          description: Public contract id
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: eor-oid-terminations-resignation
+      path: /eor/{oid}/terminations/resignation
+      operations:
+      - name: createresignation
+        method: POST
+        description: Request EOR Contract Resignation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: oid
+          in: path
+          type: string
+          description: Public contract oid
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: eor-oid-terminations-terminationId
+      path: /eor/{oid}/terminations/{terminationId}
+      operations:
+      - name: gettermination
+        method: GET
+        description: Get termination
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: oid
+          in: path
+          type: string
+          description: Public contract oid
+          required: true
+        - name: terminationId
+          in: path
+          type: string
+          description: Termination id
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: eor-endpoints-subpackage-eorterminations-rest
+    port: 8080
+    description: REST adapter for EOR Endpoints — subpackage_eorTerminations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/eor/contracts/{contract-id}/offboarding/termination
+      name: eor-contracts-contract-id-offboarding-termination
+      description: REST surface for eor-contracts-contract_id-offboarding-termination.
+      operations:
+      - method: POST
+        name: createoffboardingtermination
+        description: Initiate EOR contract termination request
+        call: eor-endpoints-subpackage-eorterminations.createoffboardingtermination
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/{oid}/terminations/regular
+      name: eor-oid-terminations-regular
+      description: REST surface for eor-oid-terminations-regular.
+      operations:
+      - method: POST
+        name: createregulartermination
+        description: Termination Request
+        call: eor-endpoints-subpackage-eorterminations.createregulartermination
+        with:
+          oid: rest.oid
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/{oid}/terminations/resignation
+      name: eor-oid-terminations-resignation
+      description: REST surface for eor-oid-terminations-resignation.
+      operations:
+      - method: POST
+        name: createresignation
+        description: Request EOR Contract Resignation
+        call: eor-endpoints-subpackage-eorterminations.createresignation
+        with:
+          oid: rest.oid
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/{oid}/terminations/{terminationid}
+      name: eor-oid-terminations-terminationid
+      description: REST surface for eor-oid-terminations-terminationId.
+      operations:
+      - method: GET
+        name: gettermination
+        description: Get termination
+        call: eor-endpoints-subpackage-eorterminations.gettermination
+        with:
+          oid: rest.oid
+          terminationId: rest.terminationId
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: eor-endpoints-subpackage-eorterminations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for EOR Endpoints — subpackage_eorTerminations. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: initiate-eor-contract-termination-request
+      description: Initiate EOR contract termination request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eor-endpoints-subpackage-eorterminations.createoffboardingtermination
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: termination-request
+      description: Termination Request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eor-endpoints-subpackage-eorterminations.createregulartermination
+      with:
+        oid: tools.oid
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: request-eor-contract-resignation
+      description: Request EOR Contract Resignation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eor-endpoints-subpackage-eorterminations.createresignation
+      with:
+        oid: tools.oid
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-termination
+      description: Get termination
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eor-endpoints-subpackage-eorterminations.gettermination
+      with:
+        oid: tools.oid
+        terminationId: tools.terminationId
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,177 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_positions
+  description: 'Endpoints — subpackage_positions. 3 operations. Lead operation: Apply changes to positions.. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_positions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-positions
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_positions business capability. Self-contained, no shared references.
+    resources:
+    - name: hris-positions-apply_changes
+      path: /hris/positions/apply_changes
+      operations:
+      - name: applypositionchanges
+        method: POST
+        description: Apply changes to positions.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: hris-positions-profile-hrisProfileId
+      path: /hris/positions/profile/{hrisProfileId}
+      operations:
+      - name: getpositionsbyprofile
+        method: GET
+        description: Get Positions By Profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hrisProfileId
+          in: path
+          type: string
+          required: true
+    - name: hris-positions-profile-hris_profile_id
+      path: /hris/positions/profile/{hris_profile_id}
+      operations:
+      - name: fetchhrispositionsfromahrisprofilev20260101
+        method: GET
+        description: Fetch HrisPositions from a HrisProfile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hris_profile_id
+          in: path
+          type: string
+          description: HRIS Profile ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-positions-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_positions. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/hris/positions/apply-changes
+      name: hris-positions-apply-changes
+      description: REST surface for hris-positions-apply_changes.
+      operations:
+      - method: POST
+        name: applypositionchanges
+        description: Apply changes to positions.
+        call: platform-endpoints-subpackage-positions.applypositionchanges
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hris/positions/profile/{hrisprofileid}
+      name: hris-positions-profile-hrisprofileid
+      description: REST surface for hris-positions-profile-hrisProfileId.
+      operations:
+      - method: GET
+        name: getpositionsbyprofile
+        description: Get Positions By Profile
+        call: platform-endpoints-subpackage-positions.getpositionsbyprofile
+        with:
+          hrisProfileId: rest.hrisProfileId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hris/positions/profile/{hris-profile-id}
+      name: hris-positions-profile-hris-profile-id
+      description: REST surface for hris-positions-profile-hris_profile_id.
+      operations:
+      - method: GET
+        name: fetchhrispositionsfromahrisprofilev20260101
+        description: Fetch HrisPositions from a HrisProfile
+        call: platform-endpoints-subpackage-positions.fetchhrispositionsfromahrisprofilev20260101
+        with:
+          hris_profile_id: rest.hris_profile_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-positions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_positions. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: apply-changes-positions
+      description: Apply changes to positions.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-positions.applypositionchanges
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-positions-profile
+      description: Get Positions By Profile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-positions.getpositionsbyprofile
+      with:
+        hrisProfileId: tools.hrisProfileId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fetch-hrispositions-hrisprofile
+      description: Fetch HrisPositions from a HrisProfile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-positions.fetchhrispositionsfromahrisprofilev20260101
+      with:
+        hris_profile_id: tools.hris_profile_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

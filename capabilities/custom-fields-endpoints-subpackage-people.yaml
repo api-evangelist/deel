@@ -1,0 +1,325 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_people
+  description: 'Endpoints — subpackage_people. 4 operations. Lead operation: List of People. Self-contained Naftiko capability
+    covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_people
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: custom-fields-endpoints-subpackage-people
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_people business capability. Self-contained, no shared references.
+    resources:
+    - name: people
+      path: /people
+      operations:
+      - name: getpeople
+        method: GET
+        description: List of People
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+          description: Return a page of results with given number of records.
+        - name: limit
+          in: query
+          type: integer
+          description: Return a page of results with given number of records.
+        - name: search
+          in: query
+          type: string
+          description: Include a contract if by name or contractor name contains given search term.
+        - name: teams
+          in: query
+          type: array
+          description: Filter the results based on the team(group) the users contract is associated with
+        - name: fields
+          in: query
+          type: array
+          description: Pick the fields you want to see in the response in order to avoid a bloated people list output. Supports
+            dot notation (e.g., 'employments[0].contract_status') t
+        - name: sort_by
+          in: query
+          type: string
+          description: Sort people by given field name.
+        - name: sort_order
+          in: query
+          type: string
+          description: Order direction of results; ascending or descending.
+        - name: hiring_statuses
+          in: query
+          type: array
+          description: Employee's current hiring status.
+        - name: band_placements
+          in: query
+          type: array
+          description: Employee's current band placement.
+        - name: comparative_ratios_from
+          in: query
+          type: number
+          description: Employee's minimum band placement
+        - name: comparative_ratios_to
+          in: query
+          type: number
+          description: Employee's maximum band placement
+        - name: hiring_types
+          in: query
+          type: array
+          description: Filter people by hiring types
+        - name: person_statuses
+          in: query
+          type: array
+          description: Filter people by person (worker profile) lifecycle status.
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: people-hris_profile_id
+      path: /people/{hris_profile_id}
+      operations:
+      - name: getpersonbyid
+        method: GET
+        description: Retrieve a single person
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hris_profile_id
+          in: path
+          type: string
+          description: Unique identifier for the person.
+          required: true
+        - name: include_custom_fields
+          in: query
+          type: boolean
+          description: Include custom fields in the response.
+        - name: include_worker_relations
+          in: query
+          type: boolean
+          description: Include worker relations in the response.
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: people-id-working-location
+      path: /people/{id}/working-location
+      operations:
+      - name: updatepersonworkinglocation
+        method: PUT
+        description: Update working location
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Hris profile ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: pwac
+      path: /pwac
+      operations:
+      - name: createpersonwithoutcontract
+        method: POST
+        description: Create a person without a contract
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: custom-fields-endpoints-subpackage-people-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_people. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/people
+      name: people
+      description: REST surface for people.
+      operations:
+      - method: GET
+        name: getpeople
+        description: List of People
+        call: custom-fields-endpoints-subpackage-people.getpeople
+        with:
+          offset: rest.offset
+          limit: rest.limit
+          search: rest.search
+          teams: rest.teams
+          fields: rest.fields
+          sort_by: rest.sort_by
+          sort_order: rest.sort_order
+          hiring_statuses: rest.hiring_statuses
+          band_placements: rest.band_placements
+          comparative_ratios_from: rest.comparative_ratios_from
+          comparative_ratios_to: rest.comparative_ratios_to
+          hiring_types: rest.hiring_types
+          person_statuses: rest.person_statuses
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/people/{hris-profile-id}
+      name: people-hris-profile-id
+      description: REST surface for people-hris_profile_id.
+      operations:
+      - method: GET
+        name: getpersonbyid
+        description: Retrieve a single person
+        call: custom-fields-endpoints-subpackage-people.getpersonbyid
+        with:
+          hris_profile_id: rest.hris_profile_id
+          include_custom_fields: rest.include_custom_fields
+          include_worker_relations: rest.include_worker_relations
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/people/{id}/working-location
+      name: people-id-working-location
+      description: REST surface for people-id-working-location.
+      operations:
+      - method: PUT
+        name: updatepersonworkinglocation
+        description: Update working location
+        call: custom-fields-endpoints-subpackage-people.updatepersonworkinglocation
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/pwac
+      name: pwac
+      description: REST surface for pwac.
+      operations:
+      - method: POST
+        name: createpersonwithoutcontract
+        description: Create a person without a contract
+        call: custom-fields-endpoints-subpackage-people.createpersonwithoutcontract
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: custom-fields-endpoints-subpackage-people-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_people. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-people
+      description: List of People
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-people.getpeople
+      with:
+        offset: tools.offset
+        limit: tools.limit
+        search: tools.search
+        teams: tools.teams
+        fields: tools.fields
+        sort_by: tools.sort_by
+        sort_order: tools.sort_order
+        hiring_statuses: tools.hiring_statuses
+        band_placements: tools.band_placements
+        comparative_ratios_from: tools.comparative_ratios_from
+        comparative_ratios_to: tools.comparative_ratios_to
+        hiring_types: tools.hiring_types
+        person_statuses: tools.person_statuses
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-single-person
+      description: Retrieve a single person
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-people.getpersonbyid
+      with:
+        hris_profile_id: tools.hris_profile_id
+        include_custom_fields: tools.include_custom_fields
+        include_worker_relations: tools.include_worker_relations
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-working-location
+      description: Update working location
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-people.updatepersonworkinglocation
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-person-without-contract
+      description: Create a person without a contract
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: custom-fields-endpoints-subpackage-people.createpersonwithoutcontract
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

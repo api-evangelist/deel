@@ -1,0 +1,389 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_legalEntities
+  description: 'Endpoints — subpackage_legalEntities. 6 operations. Lead operation: Get legal entity data from organization
+    integrated with external benefits vendor. Self-contained Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_legalEntities
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-legalentities
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_legalEntities business capability. Self-contained, no shared references.
+    resources:
+    - name: benefits-legal-entities-id
+      path: /benefits/legal-entities/{id}
+      operations:
+      - name: getlegalentitydatafromorganizationintegratedwithexternalbenefitsvendorv20260101
+        method: GET
+        description: Get legal entity data from organization integrated with external benefits vendor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Id from the legal entity to fetch data
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: industries
+      path: /industries
+      operations:
+      - name: getindustries
+        method: GET
+        description: List all industry subcategories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of items to return per page.
+        - name: order
+          in: query
+          type: string
+          description: Sorting order of the results.
+        - name: sort_by
+          in: query
+          type: string
+          description: Field used to sort the results.
+        - name: cursor
+          in: query
+          type: string
+          description: Cursor used for paginating to the next page of results.
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: legal-entities
+      path: /legal-entities
+      operations:
+      - name: createlegalentity
+        method: POST
+        description: Create a new legal entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: getlegalentities
+        method: GET
+        description: List of legal entities
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: The number of results to return per page.
+        - name: sort_order
+          in: query
+          type: string
+          description: Sorting order of the results.
+        - name: cursor
+          in: query
+          type: string
+          description: Cursor for pagination.
+        - name: include_archived
+          in: query
+          type: boolean
+          description: Whether to include archived legal entities in the results.
+        - name: legal_entity_id
+          in: query
+          type: string
+          description: Filter by specific legal entity ID.
+        - name: global_payroll
+          in: query
+          type: boolean
+          description: Filter by global payroll flag.
+        - name: type
+          in: query
+          type: string
+          description: Filter by entity type.
+        - name: country
+          in: query
+          type: string
+          description: Filter by country.
+        - name: include_payroll_settings
+          in: query
+          type: boolean
+          description: Whether to include payroll settings in the response.
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: legal-entities-id
+      path: /legal-entities/{id}
+      operations:
+      - name: deletelegalentity
+        method: DELETE
+        description: Delete a legal entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID of the legal entity to archive.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+      - name: updatelegalentity
+        method: PATCH
+        description: Edit a legal entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The ID of the legal entity to update.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-legalentities-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_legalEntities. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/benefits/legal-entities/{id}
+      name: benefits-legal-entities-id
+      description: REST surface for benefits-legal-entities-id.
+      operations:
+      - method: GET
+        name: getlegalentitydatafromorganizationintegratedwithexternalbenefitsvendorv20260101
+        description: Get legal entity data from organization integrated with external benefits vendor
+        call: platform-endpoints-subpackage-legalentities.getlegalentitydatafromorganizationintegratedwithexternalbenefitsvendorv20260101
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/industries
+      name: industries
+      description: REST surface for industries.
+      operations:
+      - method: GET
+        name: getindustries
+        description: List all industry subcategories
+        call: platform-endpoints-subpackage-legalentities.getindustries
+        with:
+          limit: rest.limit
+          order: rest.order
+          sort_by: rest.sort_by
+          cursor: rest.cursor
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/legal-entities
+      name: legal-entities
+      description: REST surface for legal-entities.
+      operations:
+      - method: POST
+        name: createlegalentity
+        description: Create a new legal entity
+        call: platform-endpoints-subpackage-legalentities.createlegalentity
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getlegalentities
+        description: List of legal entities
+        call: platform-endpoints-subpackage-legalentities.getlegalentities
+        with:
+          limit: rest.limit
+          sort_order: rest.sort_order
+          cursor: rest.cursor
+          include_archived: rest.include_archived
+          legal_entity_id: rest.legal_entity_id
+          global_payroll: rest.global_payroll
+          type: rest.type
+          country: rest.country
+          include_payroll_settings: rest.include_payroll_settings
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/legal-entities/{id}
+      name: legal-entities-id
+      description: REST surface for legal-entities-id.
+      operations:
+      - method: DELETE
+        name: deletelegalentity
+        description: Delete a legal entity
+        call: platform-endpoints-subpackage-legalentities.deletelegalentity
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatelegalentity
+        description: Edit a legal entity
+        call: platform-endpoints-subpackage-legalentities.updatelegalentity
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-legalentities-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_legalEntities. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-legal-entity-data-organization
+      description: Get legal entity data from organization integrated with external benefits vendor
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-legalentities.getlegalentitydatafromorganizationintegratedwithexternalbenefitsvendorv20260101
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-all-industry-subcategories
+      description: List all industry subcategories
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-legalentities.getindustries
+      with:
+        limit: tools.limit
+        order: tools.order
+        sort_by: tools.sort_by
+        cursor: tools.cursor
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-new-legal-entity
+      description: Create a new legal entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-legalentities.createlegalentity
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-legal-entities
+      description: List of legal entities
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-legalentities.getlegalentities
+      with:
+        limit: tools.limit
+        sort_order: tools.sort_order
+        cursor: tools.cursor
+        include_archived: tools.include_archived
+        legal_entity_id: tools.legal_entity_id
+        global_payroll: tools.global_payroll
+        type: tools.type
+        country: tools.country
+        include_payroll_settings: tools.include_payroll_settings
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-legal-entity
+      description: Delete a legal entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: platform-endpoints-subpackage-legalentities.deletelegalentity
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: edit-legal-entity
+      description: Edit a legal entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-legalentities.updatelegalentity
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

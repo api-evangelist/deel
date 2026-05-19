@@ -1,0 +1,234 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_personalInformation
+  description: 'Endpoints — subpackage_personalInformation. 4 operations. Lead operation: Get worker profile by external ID.
+    Self-contained Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_personalInformation
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: custom-fields-endpoints-subpackage-personalinformation
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_personalInformation business capability. Self-contained, no shared references.
+    resources:
+    - name: people-external-worker_id-personal
+      path: /people/external/{worker_id}/personal
+      operations:
+      - name: getpersonpersonalinfoexternalid
+        method: GET
+        description: Get worker profile by external ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: worker_id
+          in: path
+          type: string
+          description: System-wide external identifier for a worker record.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+      - name: updatepersonpersonalinfoexternalid
+        method: PATCH
+        description: Update personal information by external id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: worker_id
+          in: path
+          type: string
+          description: Unique identifier for a worker (External ID).
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: people-worker_id-personal
+      path: /people/{worker_id}/personal
+      operations:
+      - name: getpersonpersonalinfo
+        method: GET
+        description: Get personal information by id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: worker_id
+          in: path
+          type: string
+          description: Unique identifier for a worker (External ID).
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+      - name: updatepersonpersonalinfo
+        method: PATCH
+        description: Update personal information
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: worker_id
+          in: path
+          type: string
+          description: Unique identifier for a worker.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: custom-fields-endpoints-subpackage-personalinformation-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_personalInformation. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/people/external/{worker-id}/personal
+      name: people-external-worker-id-personal
+      description: REST surface for people-external-worker_id-personal.
+      operations:
+      - method: GET
+        name: getpersonpersonalinfoexternalid
+        description: Get worker profile by external ID
+        call: custom-fields-endpoints-subpackage-personalinformation.getpersonpersonalinfoexternalid
+        with:
+          worker_id: rest.worker_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatepersonpersonalinfoexternalid
+        description: Update personal information by external id
+        call: custom-fields-endpoints-subpackage-personalinformation.updatepersonpersonalinfoexternalid
+        with:
+          worker_id: rest.worker_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/people/{worker-id}/personal
+      name: people-worker-id-personal
+      description: REST surface for people-worker_id-personal.
+      operations:
+      - method: GET
+        name: getpersonpersonalinfo
+        description: Get personal information by id
+        call: custom-fields-endpoints-subpackage-personalinformation.getpersonpersonalinfo
+        with:
+          worker_id: rest.worker_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatepersonpersonalinfo
+        description: Update personal information
+        call: custom-fields-endpoints-subpackage-personalinformation.updatepersonpersonalinfo
+        with:
+          worker_id: rest.worker_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: custom-fields-endpoints-subpackage-personalinformation-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_personalInformation. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-worker-profile-external-id
+      description: Get worker profile by external ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-personalinformation.getpersonpersonalinfoexternalid
+      with:
+        worker_id: tools.worker_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-personal-information-external-id
+      description: Update personal information by external id
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-personalinformation.updatepersonpersonalinfoexternalid
+      with:
+        worker_id: tools.worker_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-personal-information-id
+      description: Get personal information by id
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-personalinformation.getpersonpersonalinfo
+      with:
+        worker_id: tools.worker_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-personal-information
+      description: Update personal information
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-personalinformation.updatepersonpersonalinfo
+      with:
+        worker_id: tools.worker_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

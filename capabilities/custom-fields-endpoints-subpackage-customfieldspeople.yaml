@@ -1,0 +1,283 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_customFieldsPeople
+  description: 'Endpoints — subpackage_customFieldsPeople. 5 operations. Lead operation: List all people custom fields. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_customFieldsPeople
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: custom-fields-endpoints-subpackage-customfieldspeople
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_customFieldsPeople business capability. Self-contained, no shared references.
+    resources:
+    - name: people-custom_fields
+      path: /people/custom_fields
+      operations:
+      - name: getcustomfields
+        method: GET
+        description: List all people custom fields
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: people-custom_fields-id
+      path: /people/custom_fields/{id}
+      operations:
+      - name: getpersoncustomfield
+        method: GET
+        description: Get custom field from people by id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Custom field id.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: people-worker_id-custom_fields
+      path: /people/{worker_id}/custom_fields
+      operations:
+      - name: getpersoncustomfields
+        method: GET
+        description: Retrieve custom fields for a worker
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: worker_id
+          in: path
+          type: string
+          description: Worker id.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+      - name: putpersoncustomfield
+        method: PUT
+        description: Update custom field value
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: worker_id
+          in: path
+          type: string
+          description: Worker id.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: people-worker_id-custom_fields-id
+      path: /people/{worker_id}/custom_fields/{id}
+      operations:
+      - name: deletepersoncustomfield
+        method: DELETE
+        description: Delete the custom field value from Worker by Id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Custom field id.
+          required: true
+        - name: worker_id
+          in: path
+          type: string
+          description: Worker id.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: custom-fields-endpoints-subpackage-customfieldspeople-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_customFieldsPeople. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/people/custom-fields
+      name: people-custom-fields
+      description: REST surface for people-custom_fields.
+      operations:
+      - method: GET
+        name: getcustomfields
+        description: List all people custom fields
+        call: custom-fields-endpoints-subpackage-customfieldspeople.getcustomfields
+        with:
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/people/custom-fields/{id}
+      name: people-custom-fields-id
+      description: REST surface for people-custom_fields-id.
+      operations:
+      - method: GET
+        name: getpersoncustomfield
+        description: Get custom field from people by id
+        call: custom-fields-endpoints-subpackage-customfieldspeople.getpersoncustomfield
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/people/{worker-id}/custom-fields
+      name: people-worker-id-custom-fields
+      description: REST surface for people-worker_id-custom_fields.
+      operations:
+      - method: GET
+        name: getpersoncustomfields
+        description: Retrieve custom fields for a worker
+        call: custom-fields-endpoints-subpackage-customfieldspeople.getpersoncustomfields
+        with:
+          worker_id: rest.worker_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putpersoncustomfield
+        description: Update custom field value
+        call: custom-fields-endpoints-subpackage-customfieldspeople.putpersoncustomfield
+        with:
+          worker_id: rest.worker_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/people/{worker-id}/custom-fields/{id}
+      name: people-worker-id-custom-fields-id
+      description: REST surface for people-worker_id-custom_fields-id.
+      operations:
+      - method: DELETE
+        name: deletepersoncustomfield
+        description: Delete the custom field value from Worker by Id
+        call: custom-fields-endpoints-subpackage-customfieldspeople.deletepersoncustomfield
+        with:
+          id: rest.id
+          worker_id: rest.worker_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: custom-fields-endpoints-subpackage-customfieldspeople-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_customFieldsPeople. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-all-people-custom-fields
+      description: List all people custom fields
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-customfieldspeople.getcustomfields
+      with:
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-custom-field-people-id
+      description: Get custom field from people by id
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-customfieldspeople.getpersoncustomfield
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-custom-fields-worker
+      description: Retrieve custom fields for a worker
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-customfieldspeople.getpersoncustomfields
+      with:
+        worker_id: tools.worker_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-custom-field-value
+      description: Update custom field value
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-customfieldspeople.putpersoncustomfield
+      with:
+        worker_id: tools.worker_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-custom-field-value-worker
+      description: Delete the custom field value from Worker by Id
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: custom-fields-endpoints-subpackage-customfieldspeople.deletepersoncustomfield
+      with:
+        id: tools.id
+        worker_id: tools.worker_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

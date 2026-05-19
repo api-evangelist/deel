@@ -1,0 +1,610 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: EOR Endpoints — subpackage_eorHiring
+  description: 'EOR Endpoints — subpackage_eorHiring. 9 operations. Lead operation: Get EOR Additional Costs. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_eorHiring
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: eor-endpoints-subpackage-eorhiring
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: EOR Endpoints — subpackage_eorHiring business capability. Self-contained, no shared references.
+    resources:
+    - name: eor-additional-costs-country
+      path: /eor/additional-costs/{country}
+      operations:
+      - name: getadditionalcosts
+        method: GET
+        description: Get EOR Additional Costs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: country
+          in: path
+          type: string
+          description: The two-letter ISO code of the country for which to retrieve the EOR additional costs.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: eor-benefits
+      path: /eor/benefits
+      operations:
+      - name: getbenefits
+        method: GET
+        description: Retrieve Benefits by Country
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: country_code
+          in: query
+          type: string
+          description: Country code.
+          required: true
+        - name: work_visa
+          in: query
+          type: boolean
+          description: Indicates if work visa is required.
+          required: true
+        - name: work_hours_per_week
+          in: query
+          type: number
+          description: Working hours per week
+          required: true
+        - name: employment_type
+          in: query
+          type: string
+          description: Type of employment
+          required: true
+        - name: team_id
+          in: query
+          type: string
+          description: The ID of the team the worker belongs to.
+          required: true
+        - name: legal_entity_id
+          in: query
+          type: string
+          description: The ID of the legal entity.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: eor-contract-oid-cancel
+      path: /eor/contract/{oid}/cancel
+      operations:
+      - name: cancelcontract
+        method: POST
+        description: Cancel EOR Contract
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: oid
+          in: path
+          type: string
+          description: Contract oid
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: eor-contract-oid-delay-onboarding
+      path: /eor/contract/{oid}/delay-onboarding
+      operations:
+      - name: delayonboarding
+        method: PATCH
+        description: Delay EOR employee onboarding
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: oid
+          in: path
+          type: string
+          description: Contract oid
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: eor-contracts-contract_id-documents-type-sign
+      path: /eor/contracts/{contract_id}/documents/{type}/sign
+      operations:
+      - name: signcontractdocument
+        method: POST
+        description: Sign EOR contract document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: EOR contract ID
+          required: true
+        - name: type
+          in: path
+          type: string
+          description: The type of document. Currently only FRAMEWORK_AGREEMENT is supported.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: eor-contracts-contract_id-employee-information
+      path: /eor/contracts/{contract_id}/employee-information
+      operations:
+      - name: updatecontractemployeeinformation
+        method: PATCH
+        description: Update Employee Information for EOR Contract
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique identifier of the employee contract.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: eor-start-date
+      path: /eor/start-date
+      operations:
+      - name: getstartdate
+        method: GET
+        description: Fetch Start Date for EOR Contracts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: employment_country
+          in: query
+          type: string
+          description: Employment country in ISO 3166-1 alpha-2 format
+          required: true
+        - name: employee_nationality
+          in: query
+          type: string
+          description: Employee nationality in ISO 3166-1 alpha-2 format
+        - name: work_visa
+          in: query
+          type: boolean
+          description: Whether a work visa is required
+        - name: team_id
+          in: query
+          type: string
+          description: Team ID
+          required: true
+        - name: legal_entity_id
+          in: query
+          type: string
+          description: Legal entity ID
+        - name: employment_state
+          in: query
+          type: string
+          description: State or province of employment
+        - name: special_job_id
+          in: query
+          type: string
+          description: Special job ID (if applicable)
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: eor-validations-country_code
+      path: /eor/validations/{country_code}
+      operations:
+      - name: geteorhiringguidebycountry
+        method: GET
+        description: Retrieve detailed hiring guide for a country
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: country_code
+          in: path
+          type: string
+          description: The two-letter ISO code of the country for which to retrieve the hiring guide.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: forms-eor-create-contract-country_code
+      path: /forms/eor/create-contract/{country_code}
+      operations:
+      - name: getcreatecontractform
+        method: GET
+        description: Fetch EOR Contract form
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: country_code
+          in: path
+          type: string
+          description: Two-letter country code in ISO 3166-1 alpha-2 format
+          required: true
+        - name: state
+          in: query
+          type: string
+          description: The selected state code of the contract. This is only required for countries that specify it.
+        - name: start_date
+          in: query
+          type: string
+          description: The selected start date of the contract in ISO 8601 formatted date string.
+        - name: work_hours_per_week
+          in: query
+          type: integer
+          description: The selected number of work hours per week.
+        - name: contract_duration_in_days
+          in: query
+          type: integer
+          description: The contract duration in days for definite contracts.
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: eor-endpoints-subpackage-eorhiring-rest
+    port: 8080
+    description: REST adapter for EOR Endpoints — subpackage_eorHiring. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/eor/additional-costs/{country}
+      name: eor-additional-costs-country
+      description: REST surface for eor-additional-costs-country.
+      operations:
+      - method: GET
+        name: getadditionalcosts
+        description: Get EOR Additional Costs
+        call: eor-endpoints-subpackage-eorhiring.getadditionalcosts
+        with:
+          country: rest.country
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/benefits
+      name: eor-benefits
+      description: REST surface for eor-benefits.
+      operations:
+      - method: GET
+        name: getbenefits
+        description: Retrieve Benefits by Country
+        call: eor-endpoints-subpackage-eorhiring.getbenefits
+        with:
+          country_code: rest.country_code
+          work_visa: rest.work_visa
+          work_hours_per_week: rest.work_hours_per_week
+          employment_type: rest.employment_type
+          team_id: rest.team_id
+          legal_entity_id: rest.legal_entity_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/contract/{oid}/cancel
+      name: eor-contract-oid-cancel
+      description: REST surface for eor-contract-oid-cancel.
+      operations:
+      - method: POST
+        name: cancelcontract
+        description: Cancel EOR Contract
+        call: eor-endpoints-subpackage-eorhiring.cancelcontract
+        with:
+          oid: rest.oid
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/contract/{oid}/delay-onboarding
+      name: eor-contract-oid-delay-onboarding
+      description: REST surface for eor-contract-oid-delay-onboarding.
+      operations:
+      - method: PATCH
+        name: delayonboarding
+        description: Delay EOR employee onboarding
+        call: eor-endpoints-subpackage-eorhiring.delayonboarding
+        with:
+          oid: rest.oid
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/contracts/{contract-id}/documents/{type}/sign
+      name: eor-contracts-contract-id-documents-type-sign
+      description: REST surface for eor-contracts-contract_id-documents-type-sign.
+      operations:
+      - method: POST
+        name: signcontractdocument
+        description: Sign EOR contract document
+        call: eor-endpoints-subpackage-eorhiring.signcontractdocument
+        with:
+          contract_id: rest.contract_id
+          type: rest.type
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/contracts/{contract-id}/employee-information
+      name: eor-contracts-contract-id-employee-information
+      description: REST surface for eor-contracts-contract_id-employee-information.
+      operations:
+      - method: PATCH
+        name: updatecontractemployeeinformation
+        description: Update Employee Information for EOR Contract
+        call: eor-endpoints-subpackage-eorhiring.updatecontractemployeeinformation
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/start-date
+      name: eor-start-date
+      description: REST surface for eor-start-date.
+      operations:
+      - method: GET
+        name: getstartdate
+        description: Fetch Start Date for EOR Contracts
+        call: eor-endpoints-subpackage-eorhiring.getstartdate
+        with:
+          employment_country: rest.employment_country
+          employee_nationality: rest.employee_nationality
+          work_visa: rest.work_visa
+          team_id: rest.team_id
+          legal_entity_id: rest.legal_entity_id
+          employment_state: rest.employment_state
+          special_job_id: rest.special_job_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/validations/{country-code}
+      name: eor-validations-country-code
+      description: REST surface for eor-validations-country_code.
+      operations:
+      - method: GET
+        name: geteorhiringguidebycountry
+        description: Retrieve detailed hiring guide for a country
+        call: eor-endpoints-subpackage-eorhiring.geteorhiringguidebycountry
+        with:
+          country_code: rest.country_code
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/forms/eor/create-contract/{country-code}
+      name: forms-eor-create-contract-country-code
+      description: REST surface for forms-eor-create-contract-country_code.
+      operations:
+      - method: GET
+        name: getcreatecontractform
+        description: Fetch EOR Contract form
+        call: eor-endpoints-subpackage-eorhiring.getcreatecontractform
+        with:
+          country_code: rest.country_code
+          state: rest.state
+          start_date: rest.start_date
+          work_hours_per_week: rest.work_hours_per_week
+          contract_duration_in_days: rest.contract_duration_in_days
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: eor-endpoints-subpackage-eorhiring-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for EOR Endpoints — subpackage_eorHiring. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-eor-additional-costs
+      description: Get EOR Additional Costs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eor-endpoints-subpackage-eorhiring.getadditionalcosts
+      with:
+        country: tools.country
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-benefits-country
+      description: Retrieve Benefits by Country
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eor-endpoints-subpackage-eorhiring.getbenefits
+      with:
+        country_code: tools.country_code
+        work_visa: tools.work_visa
+        work_hours_per_week: tools.work_hours_per_week
+        employment_type: tools.employment_type
+        team_id: tools.team_id
+        legal_entity_id: tools.legal_entity_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cancel-eor-contract
+      description: Cancel EOR Contract
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eor-endpoints-subpackage-eorhiring.cancelcontract
+      with:
+        oid: tools.oid
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delay-eor-employee-onboarding
+      description: Delay EOR employee onboarding
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: eor-endpoints-subpackage-eorhiring.delayonboarding
+      with:
+        oid: tools.oid
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sign-eor-contract-document
+      description: Sign EOR contract document
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: eor-endpoints-subpackage-eorhiring.signcontractdocument
+      with:
+        contract_id: tools.contract_id
+        type: tools.type
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-employee-information-eor-contract
+      description: Update Employee Information for EOR Contract
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: eor-endpoints-subpackage-eorhiring.updatecontractemployeeinformation
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fetch-start-date-eor-contracts
+      description: Fetch Start Date for EOR Contracts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eor-endpoints-subpackage-eorhiring.getstartdate
+      with:
+        employment_country: tools.employment_country
+        employee_nationality: tools.employee_nationality
+        work_visa: tools.work_visa
+        team_id: tools.team_id
+        legal_entity_id: tools.legal_entity_id
+        employment_state: tools.employment_state
+        special_job_id: tools.special_job_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-detailed-hiring-guide-country
+      description: Retrieve detailed hiring guide for a country
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eor-endpoints-subpackage-eorhiring.geteorhiringguidebycountry
+      with:
+        country_code: tools.country_code
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fetch-eor-contract-form
+      description: Fetch EOR Contract form
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: eor-endpoints-subpackage-eorhiring.getcreatecontractform
+      with:
+        country_code: tools.country_code
+        state: tools.state
+        start_date: tools.start_date
+        work_hours_per_week: tools.work_hours_per_week
+        contract_duration_in_days: tools.contract_duration_in_days
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

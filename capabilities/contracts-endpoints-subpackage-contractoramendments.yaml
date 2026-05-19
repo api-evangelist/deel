@@ -1,0 +1,160 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_contractorAmendments
+  description: 'Endpoints — subpackage_contractorAmendments. 2 operations. Lead operation: Amend contract. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_contractorAmendments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: contracts-endpoints-subpackage-contractoramendments
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_contractorAmendments business capability. Self-contained, no shared references.
+    resources:
+    - name: contracts-contract_id-amendments
+      path: /contracts/{contract_id}/amendments
+      operations:
+      - name: createcontractamendment
+        method: POST
+        description: Amend contract
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique identifier of the employee contract.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: getcontractamendments
+        method: GET
+        description: List contract amendments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: Unique identifier of the contract
+          required: true
+        - name: statuses
+          in: query
+          type: array
+          description: Filter by work statement status.
+        - name: sign_statuses
+          in: query
+          type: array
+          description: Filter by work statement sign status.
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of work statements to return.
+        - name: cursor
+          in: query
+          type: string
+          description: Cursor for pagination.
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: contracts-endpoints-subpackage-contractoramendments-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_contractorAmendments. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/contracts/{contract-id}/amendments
+      name: contracts-contract-id-amendments
+      description: REST surface for contracts-contract_id-amendments.
+      operations:
+      - method: POST
+        name: createcontractamendment
+        description: Amend contract
+        call: contracts-endpoints-subpackage-contractoramendments.createcontractamendment
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getcontractamendments
+        description: List contract amendments
+        call: contracts-endpoints-subpackage-contractoramendments.getcontractamendments
+        with:
+          contract_id: rest.contract_id
+          statuses: rest.statuses
+          sign_statuses: rest.sign_statuses
+          limit: rest.limit
+          cursor: rest.cursor
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: contracts-endpoints-subpackage-contractoramendments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_contractorAmendments. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amend-contract
+      description: Amend contract
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: contracts-endpoints-subpackage-contractoramendments.createcontractamendment
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-contract-amendments
+      description: List contract amendments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: contracts-endpoints-subpackage-contractoramendments.getcontractamendments
+      with:
+        contract_id: tools.contract_id
+        statuses: tools.statuses
+        sign_statuses: tools.sign_statuses
+        limit: tools.limit
+        cursor: tools.cursor
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

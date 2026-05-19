@@ -1,0 +1,100 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_employees
+  description: 'Endpoints — subpackage_employees. 1 operations. Lead operation: Get employee from organization integrated
+    with external benefits vendor. Self-contained Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_employees
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-employees
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_employees business capability. Self-contained, no shared references.
+    resources:
+    - name: benefits-legal-entities-id-employees-employee_id
+      path: /benefits/legal-entities/{id}/employees/{employee_id}
+      operations:
+      - name: getemployeefromorganizationintegratedwithexternalbenefitsvendorv20260101
+        method: GET
+        description: Get employee from organization integrated with external benefits vendor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Id from the legal entity to fetch data
+          required: true
+        - name: employee_id
+          in: path
+          type: string
+          description: Employee id from the legal entity to fetch data
+          required: true
+        - name: active_contracts
+          in: query
+          type: boolean
+          description: Fetch only active contracts for employees
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-employees-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_employees. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/benefits/legal-entities/{id}/employees/{employee-id}
+      name: benefits-legal-entities-id-employees-employee-id
+      description: REST surface for benefits-legal-entities-id-employees-employee_id.
+      operations:
+      - method: GET
+        name: getemployeefromorganizationintegratedwithexternalbenefitsvendorv20260101
+        description: Get employee from organization integrated with external benefits vendor
+        call: platform-endpoints-subpackage-employees.getemployeefromorganizationintegratedwithexternalbenefitsvendorv20260101
+        with:
+          id: rest.id
+          employee_id: rest.employee_id
+          active_contracts: rest.active_contracts
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-employees-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_employees. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-employee-organization-integrated-external
+      description: Get employee from organization integrated with external benefits vendor
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-employees.getemployeefromorganizationintegratedwithexternalbenefitsvendorv20260101
+      with:
+        id: tools.id
+        employee_id: tools.employee_id
+        active_contracts: tools.active_contracts
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,662 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_immigration
+  description: 'Endpoints — subpackage_immigration. 10 operations. Lead operation: List of immigration cases. Self-contained
+    Naftiko capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_immigration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: endpoints-1-subpackage-immigration
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_immigration business capability. Self-contained, no shared references.
+    resources:
+    - name: immigration-client-cases
+      path: /immigration/client/cases
+      operations:
+      - name: getclientcases
+        method: GET
+        description: List of immigration cases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: search
+          in: query
+          type: string
+          description: Search by applicant name or code
+        - name: case_type_ids
+          in: query
+          type: array
+          description: Filter by case type IDs
+        - name: statuses
+          in: query
+          type: array
+          description: Filter by case status
+        - name: countries
+          in: query
+          type: array
+          description: Filter by country. Uses ISO 3166-1 alpha-2 codes (https://www.iban.com/country-codes).
+        - name: cursor
+          in: query
+          type: string
+          description: Pagination cursor for fetching next set of results
+        - name: limit
+          in: query
+          type: integer
+          description: Max number of results to return
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: immigration-client-cases-id
+      path: /immigration/client/cases/{id}
+      operations:
+      - name: getclientcase
+        method: GET
+        description: Get immigration case details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Immigration case id
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: immigration-documents-id
+      path: /immigration/documents/{id}
+      operations:
+      - name: getdocument
+        method: GET
+        description: Immigration document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Immigration case document id
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: immigration-visa-requirement-business
+      path: /immigration/visa-requirement/business
+      operations:
+      - name: getbusinessvisarequirement
+        method: GET
+        description: Get business visa eligibility and requirements
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: destination_country
+          in: query
+          type: string
+          description: The destination country code of the trip in ISO 3166-1 alpha-2 format
+          required: true
+        - name: nationality
+          in: query
+          type: string
+          description: The nationality country code of the person in ISO 3166-1 alpha-2 format
+          required: true
+        - name: residence_country
+          in: query
+          type: string
+          description: The residence country code of the person in ISO 3166-1 alpha-2 format
+          required: true
+        - name: trip_start_date
+          in: query
+          type: string
+          description: The trip start date in ISO 8601 format (YYYY-MM-DD)
+          required: true
+        - name: trip_end_date
+          in: query
+          type: string
+          description: The trip end date in ISO 8601 format (YYYY-MM-DD)
+          required: true
+        - name: trip_reason
+          in: query
+          type: string
+          description: The reason for the trip
+          required: true
+        - name: second_nationality
+          in: query
+          type: string
+          description: The second nationality country code of the person in ISO 3166-1 alpha-2 format (optional)
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: immigration-visa-types-country_code
+      path: /immigration/visa-types/{country_code}
+      operations:
+      - name: getvisatypes
+        method: GET
+        description: Immigration visa types
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: country_code
+          in: path
+          type: string
+          description: Alpha 2 country code
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: immigration-workers-cases
+      path: /immigration/workers/cases
+      operations:
+      - name: getworkercases
+        method: GET
+        description: List of immigration cases for workers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: search
+          in: query
+          type: string
+          description: Search by applicant name or code
+        - name: case_type_ids
+          in: query
+          type: array
+          description: Filter by case type IDs
+        - name: statuses
+          in: query
+          type: array
+          description: Filter by case status
+        - name: countries
+          in: query
+          type: array
+          description: Filter by country. Uses ISO 3166-1 alpha-2 codes (https://www.iban.com/country-codes).
+        - name: cursor
+          in: query
+          type: string
+          description: Pagination cursor for fetching next set of results
+        - name: limit
+          in: query
+          type: integer
+          description: Max number of results to return
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: immigration-workers-cases-case_id
+      path: /immigration/workers/cases/{case_id}
+      operations:
+      - name: getworkercase
+        method: GET
+        description: Get specific immigration case details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: case_id
+          in: path
+          type: string
+          description: Filter by case ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: immigration-workers-worker_id-cases-case_id-required-document
+      path: /immigration/workers/{worker_id}/cases/{case_id}/required-document
+      operations:
+      - name: getworkercaserequireddocument
+        method: GET
+        description: Retrieve a required document for a case
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: worker_id
+          in: path
+          type: string
+          description: The hris profile oid (public id) of the worker.
+          required: true
+        - name: case_id
+          in: path
+          type: string
+          description: The unique identifier of the case for which the required document is being requested.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: immigration-workers-worker_id-cases-case_id-required-document-document_request_i
+      path: /immigration/workers/{worker_id}/cases/{case_id}/required-document/{document_request_id}
+      operations:
+      - name: createworkercaserequireddocument
+        method: POST
+        description: Upload a required immigration document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: worker_id
+          in: path
+          type: string
+          description: The hris profile oid (public id) of the worker.
+          required: true
+        - name: case_id
+          in: path
+          type: string
+          description: The unique identifier of the case for which the required document is being requested.
+          required: true
+        - name: document_request_id
+          in: path
+          type: string
+          description: The unique identifier of the document request fo which this document is being uplodaded
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: immigration-workers-worker_id-onboarding-case
+      path: /immigration/workers/{worker_id}/onboarding-case
+      operations:
+      - name: getworkeronboardingcase
+        method: GET
+        description: Retrieve onboarding right-to-work case for a worker
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: worker_id
+          in: path
+          type: string
+          description: The hris profile oid (public id) of the worker.
+          required: true
+        - name: contract_id
+          in: query
+          type: string
+          description: 'Filters the worker''s onboarding case to a specific contract. If the worker has multiple contracts
+            and this parameter is omitted, the response may return a case '
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: endpoints-1-subpackage-immigration-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_immigration. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/immigration/client/cases
+      name: immigration-client-cases
+      description: REST surface for immigration-client-cases.
+      operations:
+      - method: GET
+        name: getclientcases
+        description: List of immigration cases
+        call: endpoints-1-subpackage-immigration.getclientcases
+        with:
+          search: rest.search
+          case_type_ids: rest.case_type_ids
+          statuses: rest.statuses
+          countries: rest.countries
+          cursor: rest.cursor
+          limit: rest.limit
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/immigration/client/cases/{id}
+      name: immigration-client-cases-id
+      description: REST surface for immigration-client-cases-id.
+      operations:
+      - method: GET
+        name: getclientcase
+        description: Get immigration case details
+        call: endpoints-1-subpackage-immigration.getclientcase
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/immigration/documents/{id}
+      name: immigration-documents-id
+      description: REST surface for immigration-documents-id.
+      operations:
+      - method: GET
+        name: getdocument
+        description: Immigration document
+        call: endpoints-1-subpackage-immigration.getdocument
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/immigration/visa-requirement/business
+      name: immigration-visa-requirement-business
+      description: REST surface for immigration-visa-requirement-business.
+      operations:
+      - method: GET
+        name: getbusinessvisarequirement
+        description: Get business visa eligibility and requirements
+        call: endpoints-1-subpackage-immigration.getbusinessvisarequirement
+        with:
+          destination_country: rest.destination_country
+          nationality: rest.nationality
+          residence_country: rest.residence_country
+          trip_start_date: rest.trip_start_date
+          trip_end_date: rest.trip_end_date
+          trip_reason: rest.trip_reason
+          second_nationality: rest.second_nationality
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/immigration/visa-types/{country-code}
+      name: immigration-visa-types-country-code
+      description: REST surface for immigration-visa-types-country_code.
+      operations:
+      - method: GET
+        name: getvisatypes
+        description: Immigration visa types
+        call: endpoints-1-subpackage-immigration.getvisatypes
+        with:
+          country_code: rest.country_code
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/immigration/workers/cases
+      name: immigration-workers-cases
+      description: REST surface for immigration-workers-cases.
+      operations:
+      - method: GET
+        name: getworkercases
+        description: List of immigration cases for workers
+        call: endpoints-1-subpackage-immigration.getworkercases
+        with:
+          search: rest.search
+          case_type_ids: rest.case_type_ids
+          statuses: rest.statuses
+          countries: rest.countries
+          cursor: rest.cursor
+          limit: rest.limit
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/immigration/workers/cases/{case-id}
+      name: immigration-workers-cases-case-id
+      description: REST surface for immigration-workers-cases-case_id.
+      operations:
+      - method: GET
+        name: getworkercase
+        description: Get specific immigration case details
+        call: endpoints-1-subpackage-immigration.getworkercase
+        with:
+          case_id: rest.case_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/immigration/workers/{worker-id}/cases/{case-id}/required-document
+      name: immigration-workers-worker-id-cases-case-id-required-document
+      description: REST surface for immigration-workers-worker_id-cases-case_id-required-document.
+      operations:
+      - method: GET
+        name: getworkercaserequireddocument
+        description: Retrieve a required document for a case
+        call: endpoints-1-subpackage-immigration.getworkercaserequireddocument
+        with:
+          worker_id: rest.worker_id
+          case_id: rest.case_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/immigration/workers/{worker-id}/cases/{case-id}/required-document/{document-request-id}
+      name: immigration-workers-worker-id-cases-case-id-required-document-document-request-i
+      description: REST surface for immigration-workers-worker_id-cases-case_id-required-document-document_request_i.
+      operations:
+      - method: POST
+        name: createworkercaserequireddocument
+        description: Upload a required immigration document
+        call: endpoints-1-subpackage-immigration.createworkercaserequireddocument
+        with:
+          worker_id: rest.worker_id
+          case_id: rest.case_id
+          document_request_id: rest.document_request_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/immigration/workers/{worker-id}/onboarding-case
+      name: immigration-workers-worker-id-onboarding-case
+      description: REST surface for immigration-workers-worker_id-onboarding-case.
+      operations:
+      - method: GET
+        name: getworkeronboardingcase
+        description: Retrieve onboarding right-to-work case for a worker
+        call: endpoints-1-subpackage-immigration.getworkeronboardingcase
+        with:
+          worker_id: rest.worker_id
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: endpoints-1-subpackage-immigration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_immigration. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-immigration-cases
+      description: List of immigration cases
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: endpoints-1-subpackage-immigration.getclientcases
+      with:
+        search: tools.search
+        case_type_ids: tools.case_type_ids
+        statuses: tools.statuses
+        countries: tools.countries
+        cursor: tools.cursor
+        limit: tools.limit
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-immigration-case-details
+      description: Get immigration case details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: endpoints-1-subpackage-immigration.getclientcase
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: immigration-document
+      description: Immigration document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: endpoints-1-subpackage-immigration.getdocument
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-business-visa-eligibility-and
+      description: Get business visa eligibility and requirements
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: endpoints-1-subpackage-immigration.getbusinessvisarequirement
+      with:
+        destination_country: tools.destination_country
+        nationality: tools.nationality
+        residence_country: tools.residence_country
+        trip_start_date: tools.trip_start_date
+        trip_end_date: tools.trip_end_date
+        trip_reason: tools.trip_reason
+        second_nationality: tools.second_nationality
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: immigration-visa-types
+      description: Immigration visa types
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: endpoints-1-subpackage-immigration.getvisatypes
+      with:
+        country_code: tools.country_code
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-immigration-cases-workers
+      description: List of immigration cases for workers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: endpoints-1-subpackage-immigration.getworkercases
+      with:
+        search: tools.search
+        case_type_ids: tools.case_type_ids
+        statuses: tools.statuses
+        countries: tools.countries
+        cursor: tools.cursor
+        limit: tools.limit
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-specific-immigration-case-details
+      description: Get specific immigration case details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: endpoints-1-subpackage-immigration.getworkercase
+      with:
+        case_id: tools.case_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-required-document-case
+      description: Retrieve a required document for a case
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: endpoints-1-subpackage-immigration.getworkercaserequireddocument
+      with:
+        worker_id: tools.worker_id
+        case_id: tools.case_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: upload-required-immigration-document
+      description: Upload a required immigration document
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: endpoints-1-subpackage-immigration.createworkercaserequireddocument
+      with:
+        worker_id: tools.worker_id
+        case_id: tools.case_id
+        document_request_id: tools.document_request_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-onboarding-right-work-case
+      description: Retrieve onboarding right-to-work case for a worker
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: endpoints-1-subpackage-immigration.getworkeronboardingcase
+      with:
+        worker_id: tools.worker_id
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

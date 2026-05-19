@@ -1,0 +1,87 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_user
+  description: 'Endpoints — subpackage_user. 1 operations. Lead operation: Retrieve a single User. Self-contained Naftiko
+    capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_user
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-user
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_user business capability. Self-contained, no shared references.
+    resources:
+    - name: Users-hris_profile_id
+      path: /Users/{hris_profile_id}
+      operations:
+      - name: retrieveasingleuserv20260101
+        method: GET
+        description: Retrieve a single User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hris_profile_id
+          in: path
+          type: string
+          description: The unique identifier (OID) of the HRIS profile to retrieve.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-user-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_user. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/users/{hris-profile-id}
+      name: users-hris-profile-id
+      description: REST surface for Users-hris_profile_id.
+      operations:
+      - method: GET
+        name: retrieveasingleuserv20260101
+        description: Retrieve a single User
+        call: platform-endpoints-subpackage-user.retrieveasingleuserv20260101
+        with:
+          hris_profile_id: rest.hris_profile_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-user-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_user. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: retrieve-single-user
+      description: Retrieve a single User
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-user.retrieveasingleuserv20260101
+      with:
+        hris_profile_id: tools.hris_profile_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

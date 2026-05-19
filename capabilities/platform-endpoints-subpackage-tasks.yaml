@@ -1,0 +1,373 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_tasks
+  description: 'Endpoints — subpackage_tasks. 6 operations. Lead operation: Create a new task. Self-contained Naftiko capability
+    covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_tasks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-tasks
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_tasks business capability. Self-contained, no shared references.
+    resources:
+    - name: contracts-contract_id-tasks
+      path: /contracts/{contract_id}/tasks
+      operations:
+      - name: createcontracttask
+        method: POST
+        description: Create a new task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique Deel contract ID associated with the task.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: getcontracttasks
+        method: GET
+        description: List of tasks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique identifier for the Deel contract.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: contracts-contract_id-tasks-many-reviews
+      path: /contracts/{contract_id}/tasks/many/reviews
+      operations:
+      - name: reviewmultipletasks
+        method: POST
+        description: Review multiple tasks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique Deel contract ID associated with the tasks.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: contracts-contract_id-tasks-task_id
+      path: /contracts/{contract_id}/tasks/{task_id}
+      operations:
+      - name: deletecontracttask
+        method: DELETE
+        description: Delete task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique identifier of the Deel contract.
+          required: true
+        - name: task_id
+          in: path
+          type: string
+          description: The unique identifier of the task to be deleted.
+          required: true
+        - name: reason
+          in: query
+          type: string
+          description: The reason for deleting the task. This can be used for auditing purposes.
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: contracts-contract_id-tasks-task_id-reviews
+      path: /contracts/{contract_id}/tasks/{task_id}/reviews
+      operations:
+      - name: createcontracttaskreview
+        method: POST
+        description: Review a single task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique Deel contract ID associated with the task.
+          required: true
+        - name: task_id
+          in: path
+          type: string
+          description: The unique ID of the task to be reviewed.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: tasks-task_id
+      path: /tasks/{task_id}
+      operations:
+      - name: updatetaskbyid
+        method: PATCH
+        description: Update Task By ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: task_id
+          in: path
+          type: string
+          description: The id of an existing task
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-tasks-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_tasks. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/contracts/{contract-id}/tasks
+      name: contracts-contract-id-tasks
+      description: REST surface for contracts-contract_id-tasks.
+      operations:
+      - method: POST
+        name: createcontracttask
+        description: Create a new task
+        call: platform-endpoints-subpackage-tasks.createcontracttask
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getcontracttasks
+        description: List of tasks
+        call: platform-endpoints-subpackage-tasks.getcontracttasks
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/contracts/{contract-id}/tasks/many/reviews
+      name: contracts-contract-id-tasks-many-reviews
+      description: REST surface for contracts-contract_id-tasks-many-reviews.
+      operations:
+      - method: POST
+        name: reviewmultipletasks
+        description: Review multiple tasks
+        call: platform-endpoints-subpackage-tasks.reviewmultipletasks
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/contracts/{contract-id}/tasks/{task-id}
+      name: contracts-contract-id-tasks-task-id
+      description: REST surface for contracts-contract_id-tasks-task_id.
+      operations:
+      - method: DELETE
+        name: deletecontracttask
+        description: Delete task
+        call: platform-endpoints-subpackage-tasks.deletecontracttask
+        with:
+          contract_id: rest.contract_id
+          task_id: rest.task_id
+          reason: rest.reason
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/contracts/{contract-id}/tasks/{task-id}/reviews
+      name: contracts-contract-id-tasks-task-id-reviews
+      description: REST surface for contracts-contract_id-tasks-task_id-reviews.
+      operations:
+      - method: POST
+        name: createcontracttaskreview
+        description: Review a single task
+        call: platform-endpoints-subpackage-tasks.createcontracttaskreview
+        with:
+          contract_id: rest.contract_id
+          task_id: rest.task_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tasks/{task-id}
+      name: tasks-task-id
+      description: REST surface for tasks-task_id.
+      operations:
+      - method: PATCH
+        name: updatetaskbyid
+        description: Update Task By ID
+        call: platform-endpoints-subpackage-tasks.updatetaskbyid
+        with:
+          task_id: rest.task_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-tasks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_tasks. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: create-new-task
+      description: Create a new task
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-tasks.createcontracttask
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-tasks
+      description: List of tasks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-tasks.getcontracttasks
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: review-multiple-tasks
+      description: Review multiple tasks
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-tasks.reviewmultipletasks
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-task
+      description: Delete task
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: platform-endpoints-subpackage-tasks.deletecontracttask
+      with:
+        contract_id: tools.contract_id
+        task_id: tools.task_id
+        reason: tools.reason
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: review-single-task
+      description: Review a single task
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-tasks.createcontracttaskreview
+      with:
+        contract_id: tools.contract_id
+        task_id: tools.task_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-task-id
+      description: Update Task By ID
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-tasks.updatetaskbyid
+      with:
+        task_id: tools.task_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

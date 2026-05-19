@@ -1,0 +1,192 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_eorContract
+  description: 'Endpoints — subpackage_eorContract. 3 operations. Lead operation: Create an EOR contract. Self-contained Naftiko
+    capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_eorContract
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-eorcontract
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_eorContract business capability. Self-contained, no shared references.
+    resources:
+    - name: eor
+      path: /eor
+      operations:
+      - name: createeorcontract
+        method: POST
+        description: Create an EOR contract
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: eor-contract-contract_id
+      path: /eor/contract/{contract_id}
+      operations:
+      - name: updateeorcontract
+        method: PATCH
+        description: Update EOR Contract
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique identifier of the employee contract.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: eor-contracts-contract_id-details
+      path: /eor/contracts/{contract_id}/details
+      operations:
+      - name: geteorcontractdetails
+        method: GET
+        description: Retrieve EOR Contract Details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: The unique identifier for the Deel contract
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-eorcontract-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_eorContract. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/eor
+      name: eor
+      description: REST surface for eor.
+      operations:
+      - method: POST
+        name: createeorcontract
+        description: Create an EOR contract
+        call: platform-endpoints-subpackage-eorcontract.createeorcontract
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/contract/{contract-id}
+      name: eor-contract-contract-id
+      description: REST surface for eor-contract-contract_id.
+      operations:
+      - method: PATCH
+        name: updateeorcontract
+        description: Update EOR Contract
+        call: platform-endpoints-subpackage-eorcontract.updateeorcontract
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eor/contracts/{contract-id}/details
+      name: eor-contracts-contract-id-details
+      description: REST surface for eor-contracts-contract_id-details.
+      operations:
+      - method: GET
+        name: geteorcontractdetails
+        description: Retrieve EOR Contract Details
+        call: platform-endpoints-subpackage-eorcontract.geteorcontractdetails
+        with:
+          contract_id: rest.contract_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-eorcontract-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_eorContract. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: create-eor-contract
+      description: Create an EOR contract
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-eorcontract.createeorcontract
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-eor-contract
+      description: Update EOR Contract
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-eorcontract.updateeorcontract
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-eor-contract-details
+      description: Retrieve EOR Contract Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-eorcontract.geteorcontractdetails
+      with:
+        contract_id: tools.contract_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,469 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Endpoints — subpackage_projects
+  description: 'Endpoints — subpackage_projects. 8 operations. Lead operation: Get Hourly Report Presets. Self-contained Naftiko
+    capability covering one Deel business surface.'
+  tags:
+  - Deel
+  - subpackage_projects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DEEL_API_KEY: DEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-endpoints-subpackage-projects
+    baseUri: https://api.letsdeel.com/rest/v2
+    description: Endpoints — subpackage_projects business capability. Self-contained, no shared references.
+    resources:
+    - name: contracts-contract_id-timesheets-presets
+      path: /contracts/{contract_id}/timesheets/presets
+      operations:
+      - name: getcontracttimesheetspresets
+        method: GET
+        description: Get Hourly Report Presets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: contract_id
+          in: path
+          type: string
+          description: ID of the Deel contract
+          required: true
+        - name: work_statement_id
+          in: query
+          type: string
+          description: ID of the work statement (optional)
+        - name: order_by
+          in: query
+          type: string
+          description: Field to order results by (title or created_at)
+        - name: order_direction
+          in: query
+          type: string
+          description: Direction of ordering (ASC or DESC)
+        - name: cursor
+          in: query
+          type: string
+          description: Pagination cursor for fetching next set of results
+        - name: limit
+          in: query
+          type: integer
+          description: Number of results to return per page
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: timesheets-presets
+      path: /timesheets/presets
+      operations:
+      - name: createtimesheetspreset
+        method: POST
+        description: Create Hourly Report Preset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: timesheets-presets-id
+      path: /timesheets/presets/{id}
+      operations:
+      - name: deletetimesheetspreset
+        method: DELETE
+        description: Delete Hourly Report Preset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier of the hourly report preset to delete
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+      - name: gettimesheetspresetbyid
+        method: GET
+        description: Get Hourly Report Preset by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier of the hourly report preset to retrieve
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+      - name: updatetimesheetspreset
+        method: PATCH
+        description: Update Hourly Report Preset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier of the hourly report preset to update
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: timesheets-root-presets
+      path: /timesheets/root-presets
+      operations:
+      - name: createroottimesheetspreset
+        method: POST
+        description: Create Hourly Report Root Preset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: gethourlyreportrootpresets
+        method: GET
+        description: Get Hourly Report Root Presets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: 'Maximum number of items to return per page (max: 100)'
+        - name: order_by
+          in: query
+          type: string
+          description: Field to order the results by
+        - name: order_direction
+          in: query
+          type: string
+          description: Direction to order the results (ascending or descending)
+        - name: work_statement_statuses
+          in: query
+          type: array
+          description: Filter results by work statement status
+        - name: cursor
+          in: query
+          type: string
+          description: Pagination cursor for fetching the next page of results
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    - name: timesheets-root-presets-id
+      path: /timesheets/root-presets/{id}
+      operations:
+      - name: gethourlyreportrootpresetbyid
+        method: GET
+        description: Get Hourly Report Root Preset by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: The unique identifier of the hourly report root preset to retrieve
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: '## Authentication'
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.DEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-endpoints-subpackage-projects-rest
+    port: 8080
+    description: REST adapter for Endpoints — subpackage_projects. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/contracts/{contract-id}/timesheets/presets
+      name: contracts-contract-id-timesheets-presets
+      description: REST surface for contracts-contract_id-timesheets-presets.
+      operations:
+      - method: GET
+        name: getcontracttimesheetspresets
+        description: Get Hourly Report Presets
+        call: platform-endpoints-subpackage-projects.getcontracttimesheetspresets
+        with:
+          contract_id: rest.contract_id
+          work_statement_id: rest.work_statement_id
+          order_by: rest.order_by
+          order_direction: rest.order_direction
+          cursor: rest.cursor
+          limit: rest.limit
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/timesheets/presets
+      name: timesheets-presets
+      description: REST surface for timesheets-presets.
+      operations:
+      - method: POST
+        name: createtimesheetspreset
+        description: Create Hourly Report Preset
+        call: platform-endpoints-subpackage-projects.createtimesheetspreset
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/timesheets/presets/{id}
+      name: timesheets-presets-id
+      description: REST surface for timesheets-presets-id.
+      operations:
+      - method: DELETE
+        name: deletetimesheetspreset
+        description: Delete Hourly Report Preset
+        call: platform-endpoints-subpackage-projects.deletetimesheetspreset
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: gettimesheetspresetbyid
+        description: Get Hourly Report Preset by ID
+        call: platform-endpoints-subpackage-projects.gettimesheetspresetbyid
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatetimesheetspreset
+        description: Update Hourly Report Preset
+        call: platform-endpoints-subpackage-projects.updatetimesheetspreset
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/timesheets/root-presets
+      name: timesheets-root-presets
+      description: REST surface for timesheets-root-presets.
+      operations:
+      - method: POST
+        name: createroottimesheetspreset
+        description: Create Hourly Report Root Preset
+        call: platform-endpoints-subpackage-projects.createroottimesheetspreset
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: gethourlyreportrootpresets
+        description: Get Hourly Report Root Presets
+        call: platform-endpoints-subpackage-projects.gethourlyreportrootpresets
+        with:
+          limit: rest.limit
+          order_by: rest.order_by
+          order_direction: rest.order_direction
+          work_statement_statuses: rest.work_statement_statuses
+          cursor: rest.cursor
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/timesheets/root-presets/{id}
+      name: timesheets-root-presets-id
+      description: REST surface for timesheets-root-presets-id.
+      operations:
+      - method: GET
+        name: gethourlyreportrootpresetbyid
+        description: Get Hourly Report Root Preset by ID
+        call: platform-endpoints-subpackage-projects.gethourlyreportrootpresetbyid
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-endpoints-subpackage-projects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Endpoints — subpackage_projects. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: get-hourly-report-presets
+      description: Get Hourly Report Presets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-projects.getcontracttimesheetspresets
+      with:
+        contract_id: tools.contract_id
+        work_statement_id: tools.work_statement_id
+        order_by: tools.order_by
+        order_direction: tools.order_direction
+        cursor: tools.cursor
+        limit: tools.limit
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-hourly-report-preset
+      description: Create Hourly Report Preset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-projects.createtimesheetspreset
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-hourly-report-preset
+      description: Delete Hourly Report Preset
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: platform-endpoints-subpackage-projects.deletetimesheetspreset
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-hourly-report-preset-id
+      description: Get Hourly Report Preset by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-projects.gettimesheetspresetbyid
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-hourly-report-preset
+      description: Update Hourly Report Preset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-projects.updatetimesheetspreset
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-hourly-report-root-preset
+      description: Create Hourly Report Root Preset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-endpoints-subpackage-projects.createroottimesheetspreset
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-hourly-report-root-presets
+      description: Get Hourly Report Root Presets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-projects.gethourlyreportrootpresets
+      with:
+        limit: tools.limit
+        order_by: tools.order_by
+        order_direction: tools.order_direction
+        work_statement_statuses: tools.work_statement_statuses
+        cursor: tools.cursor
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-hourly-report-root-preset
+      description: Get Hourly Report Root Preset by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-endpoints-subpackage-projects.gethourlyreportrootpresetbyid
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
