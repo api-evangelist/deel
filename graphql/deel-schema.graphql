@@ -1,0 +1,1122 @@
+# Deel Conceptual GraphQL Schema
+# Derived from the Deel REST API: https://developer.deel.com/reference
+# This is a conceptual schema for tooling and documentation purposes.
+# Deel does not publish an official public GraphQL endpoint.
+
+scalar DateTime
+scalar Date
+scalar JSON
+scalar Upload
+
+# ─── Enumerations ────────────────────────────────────────────────────────────
+
+enum WorkerType {
+  CONTRACTOR
+  EOR_EMPLOYEE
+  GLOBAL_PAYROLL_EMPLOYEE
+  PEO_EMPLOYEE
+  DIRECT_EMPLOYEE
+}
+
+enum ContractType {
+  FIXED_RATE
+  PAY_AS_YOU_GO
+  MILESTONE
+  EMPLOYER_OF_RECORD
+  GLOBAL_PAYROLL
+  PAYG_WITH_MILESTONES
+}
+
+enum ContractStatus {
+  DRAFT
+  PENDING_SIGNATURE
+  ACTIVE
+  AMENDED
+  TERMINATED
+  COMPLETED
+  EXPIRED
+}
+
+enum PaymentStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  REVERSED
+  CANCELLED
+}
+
+enum InvoiceStatus {
+  DRAFT
+  SUBMITTED
+  APPROVED
+  REJECTED
+  PAID
+  VOIDED
+}
+
+enum MilestoneStatus {
+  PENDING
+  SUBMITTED
+  APPROVED
+  REJECTED
+  PAID
+}
+
+enum PayrollStatus {
+  OPEN
+  LOCKED
+  PROCESSING
+  FINALIZED
+  PAID
+  CANCELLED
+}
+
+enum OnboardingStatus {
+  INVITED
+  IN_PROGRESS
+  COMPLETED
+  BLOCKED
+  CANCELLED
+}
+
+enum ComplianceType {
+  TAX_REGISTRATION
+  KYC
+  RIGHT_TO_WORK
+  BACKGROUND_CHECK
+  VISA
+  CONTRACT_COMPLIANCE
+  DATA_PRIVACY
+}
+
+enum ExpenseStatus {
+  DRAFT
+  SUBMITTED
+  APPROVED
+  REJECTED
+  REIMBURSED
+}
+
+enum AdjustmentType {
+  BONUS
+  COMMISSION
+  DEDUCTION
+  CORRECTION
+  ALLOWANCE
+  REIMBURSEMENT
+  OFF_CYCLE
+}
+
+enum BenefitType {
+  HEALTH
+  DENTAL
+  VISION
+  PENSION
+  LIFE_INSURANCE
+  WELLNESS
+  EQUITY
+  OTHER
+}
+
+enum EquityType {
+  STOCK_OPTIONS
+  RSU
+  SAR
+  PHANTOM_EQUITY
+  DIRECT_SHARES
+}
+
+enum WebhookEventType {
+  CONTRACT_CREATED
+  CONTRACT_SIGNED
+  CONTRACT_TERMINATED
+  INVOICE_SUBMITTED
+  INVOICE_APPROVED
+  INVOICE_PAID
+  PAYMENT_COMPLETED
+  PAYMENT_FAILED
+  PAYROLL_FINALIZED
+  MILESTONE_APPROVED
+  WORKER_ONBOARDED
+  TIME_OFF_REQUESTED
+  TIME_OFF_APPROVED
+  EXPENSE_SUBMITTED
+  EXPENSE_APPROVED
+  BACKGROUND_CHECK_COMPLETED
+}
+
+enum IntegrationType {
+  ACCOUNTING
+  ATS
+  HRIS
+  SCIM
+  PAYROLL
+  BANKING
+  ERP
+  MDM
+}
+
+enum PaymentMethodType {
+  BANK_TRANSFER_ACH
+  BANK_TRANSFER_SWIFT
+  WISE
+  PAYONEER
+  PAYPAL
+  CRYPTO
+  DEEL_BALANCE
+  CHECK
+}
+
+enum PayrollCycleFrequency {
+  WEEKLY
+  BI_WEEKLY
+  SEMI_MONTHLY
+  MONTHLY
+  QUARTERLY
+}
+
+# ─── Core Worker Types ────────────────────────────────────────────────────────
+
+type Worker {
+  id: ID!
+  externalId: String
+  type: WorkerType!
+  status: String
+  profile: WorkerDetails
+  contractorProfile: ContractorProfile
+  employeeProfile: EmployeeProfile
+  contracts: [Contract!]
+  activeContract: Contract
+  onboarding: Onboarding
+  offboarding: Offboarding
+  team: Team
+  manager: Manager
+  country: Country
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type WorkerDetails {
+  id: ID!
+  workerId: ID!
+  firstName: String!
+  lastName: String!
+  preferredName: String
+  email: String!
+  personalEmail: String
+  phone: String
+  dateOfBirth: Date
+  nationality: String
+  address: Address
+  taxId: String
+  pronoun: String
+  startDate: Date
+  terminationDate: Date
+  jobTitle: String
+  seniority: String
+  department: String
+  costCenter: String
+  updatedAt: DateTime!
+}
+
+type ContractorProfile {
+  id: ID!
+  workerId: ID!
+  entityType: String
+  businessName: String
+  taxIdentificationNumber: String
+  vatNumber: String
+  preferredPaymentMethod: PaymentMethod
+  bankAccounts: [PaymentMethod!]
+  taxForms: [TaxForm!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type EmployeeProfile {
+  id: ID!
+  workerId: ID!
+  employeeId: String
+  nationalId: String
+  passportNumber: String
+  workPermitNumber: String
+  workPermitExpiry: Date
+  probationEndDate: Date
+  noticePeriodDays: Int
+  benefits: [Benefit!]
+  equity: [Equity!]
+  payslips: [PayslipDetails!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Address ─────────────────────────────────────────────────────────────────
+
+type Address {
+  line1: String
+  line2: String
+  city: String
+  state: String
+  postalCode: String
+  country: String
+}
+
+# ─── Contracts ────────────────────────────────────────────────────────────────
+
+type Contract {
+  id: ID!
+  worker: Worker!
+  organization: Organization!
+  type: ContractType!
+  status: ContractStatus!
+  details: ContractDetails
+  terms: ContractTerms
+  agreements: [Agreement!]
+  milestones: [Milestone!]
+  invoices: [Invoice!]
+  amendments: [ContractDetails!]
+  startDate: Date
+  endDate: Date
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ContractDetails {
+  id: ID!
+  contractId: ID!
+  title: String
+  scope: String
+  jobTitle: String
+  seniority: String
+  currency: String
+  amount: Float
+  rate: Float
+  rateType: String
+  country: String
+  state: String
+  timezone: String
+  workingHoursPerWeek: Int
+  probationPeriodDays: Int
+  noticePeriodDays: Int
+  intellectualPropertyClause: Boolean
+  nonCompeteClause: Boolean
+  signingDate: DateTime
+  effectiveDate: Date
+  pdfUrl: String
+  version: Int
+  createdAt: DateTime!
+}
+
+type ContractTerms {
+  id: ID!
+  contractId: ID!
+  paymentFrequency: String
+  paymentMethod: String
+  currency: String
+  baseAmount: Float
+  overtimeRate: Float
+  allowances: [Adjustment!]
+  deductions: [Deduction!]
+  updatedAt: DateTime!
+}
+
+# ─── Agreements ───────────────────────────────────────────────────────────────
+
+type Agreement {
+  id: ID!
+  contractId: ID!
+  details: AgreementDetails!
+  createdAt: DateTime!
+}
+
+type AgreementDetails {
+  id: ID!
+  agreementId: ID!
+  type: String
+  status: String
+  signatories: [String!]
+  signedAt: DateTime
+  expiresAt: DateTime
+  pdfUrl: String
+  version: Int
+}
+
+# ─── Payments ─────────────────────────────────────────────────────────────────
+
+type Payment {
+  id: ID!
+  worker: Worker!
+  contract: Contract
+  invoice: Invoice
+  payroll: Payroll
+  status: PaymentStatus!
+  details: PaymentDetails!
+  method: PaymentMethod
+  payout: PayoutDetails
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type PaymentDetails {
+  id: ID!
+  paymentId: ID!
+  grossAmount: Float!
+  netAmount: Float!
+  currency: String!
+  exchangeRate: Float
+  exchangeCurrency: String
+  feesAmount: Float
+  deductionsAmount: Float
+  taxWithheld: Float
+  description: String
+  referenceNumber: String
+  processedAt: DateTime
+}
+
+type PayoutDetails {
+  id: ID!
+  paymentId: ID!
+  scheduledDate: Date
+  settledDate: Date
+  trackingNumber: String
+  externalReference: String
+  bankReference: String
+  failureReason: String
+}
+
+type PaymentMethod {
+  id: ID!
+  workerId: ID!
+  type: PaymentMethodType!
+  isDefault: Boolean!
+  currency: String
+  bankName: String
+  accountNumberMasked: String
+  routingNumber: String
+  swiftCode: String
+  iban: String
+  country: String
+  verified: Boolean!
+  createdAt: DateTime!
+}
+
+# ─── Invoices ─────────────────────────────────────────────────────────────────
+
+type Invoice {
+  id: ID!
+  contract: Contract!
+  worker: Worker!
+  status: InvoiceStatus!
+  details: InvoiceDetails!
+  items: [InvoiceItem!]
+  payment: Payment
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type InvoiceDetails {
+  id: ID!
+  invoiceId: ID!
+  invoiceNumber: String!
+  currency: String!
+  subtotal: Float!
+  taxAmount: Float
+  totalAmount: Float!
+  periodStart: Date
+  periodEnd: Date
+  dueDate: Date
+  paidDate: Date
+  notes: String
+  pdfUrl: String
+}
+
+type InvoiceItem {
+  id: ID!
+  invoiceId: ID!
+  type: String
+  description: String!
+  quantity: Float
+  unitPrice: Float
+  totalPrice: Float!
+  currency: String!
+  date: Date
+  milestoneId: ID
+  expenseId: ID
+}
+
+# ─── Milestones ───────────────────────────────────────────────────────────────
+
+type Milestone {
+  id: ID!
+  contract: Contract!
+  status: MilestoneStatus!
+  details: MilestoneDetails!
+  invoiceItem: InvoiceItem
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type MilestoneDetails {
+  id: ID!
+  milestoneId: ID!
+  title: String!
+  description: String
+  amount: Float!
+  currency: String!
+  dueDate: Date
+  submittedDate: DateTime
+  approvedDate: DateTime
+  approvedBy: String
+  rejectionReason: String
+}
+
+# ─── Payroll ──────────────────────────────────────────────────────────────────
+
+type Payroll {
+  id: ID!
+  organization: Organization!
+  worker: Worker
+  cycle: PayrollCycle!
+  run: PayrollRun
+  status: PayrollStatus!
+  details: PayrollDetails!
+  payslip: PayslipDetails
+  adjustments: [Adjustment!]
+  deductions: [Deduction!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type PayrollDetails {
+  id: ID!
+  payrollId: ID!
+  currency: String!
+  grossPay: Float!
+  netPay: Float!
+  employerContributions: Float
+  employeeContributions: Float
+  incomeTax: Float
+  socialSecurity: Float
+  otherDeductions: Float
+  bonuses: Float
+  allowances: Float
+  periodStart: Date!
+  periodEnd: Date!
+  payDate: Date
+}
+
+type PayrollCycle {
+  id: ID!
+  organizationId: ID!
+  frequency: PayrollCycleFrequency!
+  cutoffDay: Int
+  payDay: Int
+  currency: String!
+  country: String
+  legalEntityId: ID
+  isActive: Boolean!
+  createdAt: DateTime!
+}
+
+type PayrollRun {
+  id: ID!
+  cycleId: ID!
+  organization: Organization!
+  status: PayrollStatus!
+  periodStart: Date!
+  periodEnd: Date!
+  payDate: Date
+  employeeCount: Int!
+  totalGross: Float!
+  totalNet: Float!
+  currency: String!
+  finalizedAt: DateTime
+  paidAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type PayslipDetails {
+  id: ID!
+  payrollId: ID!
+  workerId: ID!
+  periodStart: Date!
+  periodEnd: Date!
+  payDate: Date
+  grossPay: Float!
+  netPay: Float!
+  currency: String!
+  pdfUrl: String
+  generatedAt: DateTime
+}
+
+type Deduction {
+  id: ID!
+  payrollId: ID
+  workerId: ID!
+  type: String!
+  description: String
+  amount: Float!
+  currency: String!
+  isStatutory: Boolean!
+  jurisdiction: String
+  effectiveDate: Date
+}
+
+# ─── Benefits ─────────────────────────────────────────────────────────────────
+
+type Benefit {
+  id: ID!
+  worker: Worker!
+  type: BenefitType!
+  details: BenefitDetails!
+  enrolledAt: DateTime
+  terminatedAt: DateTime
+}
+
+type BenefitDetails {
+  id: ID!
+  benefitId: ID!
+  planName: String
+  provider: String
+  employerCost: Float
+  employeeCost: Float
+  currency: String
+  coverageStartDate: Date
+  coverageEndDate: Date
+  planDocumentUrl: String
+  country: String
+}
+
+# ─── Equity ───────────────────────────────────────────────────────────────────
+
+type Equity {
+  id: ID!
+  worker: Worker!
+  type: EquityType!
+  details: EquityDetails!
+  grantedAt: DateTime
+}
+
+type EquityDetails {
+  id: ID!
+  equityId: ID!
+  grantDate: Date!
+  quantity: Float!
+  strikePrice: Float
+  currency: String
+  vestingScheduleMonths: Int
+  cliffMonths: Int
+  fullyVestedDate: Date
+  planDocumentUrl: String
+}
+
+# ─── Compliance ───────────────────────────────────────────────────────────────
+
+type Compliance {
+  id: ID!
+  worker: Worker
+  entity: Entity
+  type: ComplianceType!
+  status: String!
+  details: ComplianceDetails!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ComplianceDetails {
+  id: ID!
+  complianceId: ID!
+  jurisdiction: String!
+  requirement: String
+  documentUrl: String
+  expiryDate: Date
+  verifiedAt: DateTime
+  verifiedBy: String
+  notes: String
+}
+
+# ─── Entities and Countries ───────────────────────────────────────────────────
+
+type Entity {
+  id: ID!
+  organization: Organization!
+  details: EntityDetails!
+  countries: [EntityCountry!]
+  compliance: [Compliance!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type EntityDetails {
+  id: ID!
+  entityId: ID!
+  legalName: String!
+  registrationNumber: String
+  taxId: String
+  vatNumber: String
+  incorporationCountry: String!
+  incorporationDate: Date
+  address: Address
+  representativeName: String
+  representativeEmail: String
+}
+
+type EntityCountry {
+  id: ID!
+  entityId: ID!
+  country: Country!
+  isActive: Boolean!
+  registeredAt: Date
+  deregisteredAt: Date
+}
+
+type LegalEntity {
+  id: ID!
+  name: String!
+  country: Country!
+  registrationNumber: String
+  taxId: String
+  address: Address
+  isDeelOwned: Boolean!
+  supportedProducts: [String!]
+  createdAt: DateTime!
+}
+
+type Country {
+  id: ID!
+  name: String!
+  isoCode: String!
+  dialCode: String
+  currency: String!
+  currencySymbol: String
+  timezone: String
+  compliance: CountryCompliance
+  supportedProducts: [String!]
+  isActive: Boolean!
+}
+
+type CountryCompliance {
+  id: ID!
+  countryId: ID!
+  country: Country!
+  requiredDocuments: [String!]
+  taxRequirements: [String!]
+  mandatoryBenefits: [String!]
+  noticePeriodDays: Int
+  probationPeriodDays: Int
+  minimumWage: Float
+  minimumWageCurrency: String
+  workHoursPerWeek: Int
+  notes: String
+  updatedAt: DateTime!
+}
+
+# ─── Adjustments and Expenses ─────────────────────────────────────────────────
+
+type Adjustment {
+  id: ID!
+  worker: Worker!
+  contract: Contract
+  payroll: Payroll
+  type: AdjustmentType!
+  description: String!
+  amount: Float!
+  currency: String!
+  effectiveDate: Date!
+  approvedBy: String
+  approvedAt: DateTime
+  createdAt: DateTime!
+}
+
+type Expense {
+  id: ID!
+  worker: Worker!
+  report: ExpenseReport
+  status: ExpenseStatus!
+  category: String!
+  description: String
+  amount: Float!
+  currency: String!
+  receiptUrl: String
+  expenseDate: Date!
+  submittedAt: DateTime
+  approvedAt: DateTime
+  reimbursedAt: DateTime
+  rejectionReason: String
+}
+
+type ExpenseReport {
+  id: ID!
+  worker: Worker!
+  title: String!
+  status: ExpenseStatus!
+  expenses: [Expense!]
+  totalAmount: Float!
+  currency: String!
+  submittedAt: DateTime
+  approvedAt: DateTime
+  approvedBy: String
+  reimbursedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Tax ──────────────────────────────────────────────────────────────────────
+
+type Tax {
+  id: ID!
+  worker: Worker!
+  contract: Contract
+  details: TaxDetails!
+  forms: [TaxForm!]
+  createdAt: DateTime!
+}
+
+type TaxDetails {
+  id: ID!
+  taxId: ID!
+  jurisdiction: String!
+  taxYear: Int!
+  withholdingRate: Float
+  taxClassification: String
+  federalFilingStatus: String
+  stateFilingStatus: String
+  allowances: Int
+  additionalWithholding: Float
+  exemptFromFederal: Boolean
+  exemptFromState: Boolean
+  updatedAt: DateTime!
+}
+
+type TaxForm {
+  id: ID!
+  workerId: ID!
+  type: String!
+  taxYear: Int
+  status: String!
+  pdfUrl: String
+  generatedAt: DateTime
+  filedAt: DateTime
+  jurisdiction: String
+}
+
+# ─── Organizations and Teams ──────────────────────────────────────────────────
+
+type Organization {
+  id: ID!
+  details: OrganizationDetails!
+  teams: [Team!]
+  entities: [Entity!]
+  legalEntities: [LegalEntity!]
+  workers: [Worker!]
+  integrations: [Integration!]
+  webhooks: [Webhook!]
+  apiKeys: [APIKey!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type OrganizationDetails {
+  id: ID!
+  organizationId: ID!
+  name: String!
+  legalName: String
+  website: String
+  industry: String
+  size: String
+  subscriptionTier: String
+  billingEmail: String
+  billingAddress: Address
+  contractorSeats: Int
+  eorSeats: Int
+  gpSeats: Int
+  hrSeats: Int
+  itSeats: Int
+  updatedAt: DateTime!
+}
+
+type Team {
+  id: ID!
+  organization: Organization!
+  details: TeamDetails!
+  members: [Worker!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type TeamDetails {
+  id: ID!
+  teamId: ID!
+  name: String!
+  description: String
+  parentTeamId: ID
+  costCenter: String
+  managerId: ID
+  country: String
+  memberCount: Int
+}
+
+type Manager {
+  id: ID!
+  worker: Worker!
+  details: ManagerDetails!
+}
+
+type ManagerDetails {
+  id: ID!
+  managerId: ID!
+  directReports: [Worker!]
+  approvalLimit: Float
+  approvalCurrency: String
+  canApproveInvoices: Boolean!
+  canApproveTimeOff: Boolean!
+  canApproveExpenses: Boolean!
+  delegatedTo: ID
+  delegationExpiresAt: DateTime
+}
+
+# ─── Onboarding and Offboarding ───────────────────────────────────────────────
+
+type Onboarding {
+  id: ID!
+  worker: Worker!
+  contract: Contract
+  status: OnboardingStatus!
+  tasks: [OnboardingTask!]
+  invitedAt: DateTime
+  completedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type OnboardingTask {
+  id: ID!
+  onboardingId: ID!
+  title: String!
+  description: String
+  isRequired: Boolean!
+  isCompleted: Boolean!
+  completedAt: DateTime
+  dueDate: Date
+  category: String
+}
+
+type Offboarding {
+  id: ID!
+  worker: Worker!
+  contract: Contract!
+  terminationReason: String
+  terminationDate: Date!
+  finalPayDate: Date
+  equipmentReturned: Boolean
+  accessRevoked: Boolean
+  finalPayAmount: Float
+  finalPayCurrency: String
+  status: String!
+  initiatedAt: DateTime!
+  completedAt: DateTime
+}
+
+# ─── Auth and Integrations ────────────────────────────────────────────────────
+
+type APIKey {
+  id: ID!
+  organizationId: ID!
+  name: String!
+  prefix: String!
+  scopes: [String!]!
+  isActive: Boolean!
+  lastUsedAt: DateTime
+  expiresAt: DateTime
+  createdAt: DateTime!
+}
+
+type Token {
+  id: ID!
+  organizationId: ID!
+  type: String!
+  scopes: [String!]!
+  issuedAt: DateTime!
+  expiresAt: DateTime
+  revokedAt: DateTime
+  clientId: String
+  lastUsedAt: DateTime
+}
+
+type Webhook {
+  id: ID!
+  organizationId: ID!
+  url: String!
+  description: String
+  events: [WebhookEventType!]!
+  secret: String
+  isActive: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type WebhookEvent {
+  id: ID!
+  webhookId: ID!
+  type: WebhookEventType!
+  payload: JSON!
+  deliveredAt: DateTime
+  responseStatusCode: Int
+  retryCount: Int
+  nextRetryAt: DateTime
+  createdAt: DateTime!
+}
+
+type Integration {
+  id: ID!
+  organizationId: ID!
+  type: IntegrationType!
+  provider: String!
+  isActive: Boolean!
+  connectedAt: DateTime!
+  lastSyncAt: DateTime
+  configuration: JSON
+  metadata: JSON
+}
+
+# ─── Queries ──────────────────────────────────────────────────────────────────
+
+type Query {
+  worker(id: ID!): Worker
+  workers(organizationId: ID!, type: WorkerType, status: String, limit: Int, offset: Int): [Worker!]!
+
+  contract(id: ID!): Contract
+  contracts(workerId: ID, organizationId: ID, status: ContractStatus, type: ContractType, limit: Int, offset: Int): [Contract!]!
+
+  invoice(id: ID!): Invoice
+  invoices(contractId: ID, workerId: ID, status: InvoiceStatus, periodStart: Date, periodEnd: Date, limit: Int, offset: Int): [Invoice!]!
+
+  payment(id: ID!): Payment
+  payments(workerId: ID, organizationId: ID, status: PaymentStatus, limit: Int, offset: Int): [Payment!]!
+
+  payroll(id: ID!): Payroll
+  payrollRuns(organizationId: ID!, status: PayrollStatus, limit: Int, offset: Int): [PayrollRun!]!
+
+  milestone(id: ID!): Milestone
+  milestones(contractId: ID!, status: MilestoneStatus): [Milestone!]!
+
+  expense(id: ID!): Expense
+  expenseReports(workerId: ID, organizationId: ID, status: ExpenseStatus, limit: Int, offset: Int): [ExpenseReport!]!
+
+  organization(id: ID!): Organization
+  team(id: ID!): Team
+  teams(organizationId: ID!): [Team!]!
+
+  country(isoCode: String!): Country
+  countries(supportedProducts: [String!]): [Country!]!
+  countryCompliance(isoCode: String!): CountryCompliance
+
+  onboarding(workerId: ID!): Onboarding
+  webhook(id: ID!): Webhook
+  webhooks(organizationId: ID!): [Webhook!]!
+  webhookEvents(webhookId: ID!, limit: Int, offset: Int): [WebhookEvent!]!
+
+  integrations(organizationId: ID!, type: IntegrationType): [Integration!]!
+}
+
+# ─── Mutations ────────────────────────────────────────────────────────────────
+
+type Mutation {
+  createContract(input: CreateContractInput!): Contract!
+  updateContract(id: ID!, input: UpdateContractInput!): Contract!
+  terminateContract(id: ID!, reason: String!, terminationDate: Date!): Contract!
+
+  submitInvoice(input: SubmitInvoiceInput!): Invoice!
+  approveInvoice(id: ID!): Invoice!
+  rejectInvoice(id: ID!, reason: String!): Invoice!
+
+  createPayrollAdjustment(input: CreateAdjustmentInput!): Adjustment!
+  submitExpense(input: SubmitExpenseInput!): Expense!
+  approveExpense(id: ID!): Expense!
+
+  createWebhook(input: CreateWebhookInput!): Webhook!
+  updateWebhook(id: ID!, input: UpdateWebhookInput!): Webhook!
+  deleteWebhook(id: ID!): Boolean!
+  simulateWebhookEvent(webhookId: ID!, eventType: WebhookEventType!): WebhookEvent!
+
+  createAPIKey(organizationId: ID!, name: String!, scopes: [String!]!): APIKey!
+  revokeAPIKey(id: ID!): Boolean!
+}
+
+# ─── Input Types ─────────────────────────────────────────────────────────────
+
+input CreateContractInput {
+  workerId: ID!
+  organizationId: ID!
+  type: ContractType!
+  title: String!
+  currency: String!
+  amount: Float!
+  startDate: Date!
+  endDate: Date
+  country: String!
+  jobTitle: String
+  scope: String
+}
+
+input UpdateContractInput {
+  title: String
+  amount: Float
+  endDate: Date
+  scope: String
+  jobTitle: String
+}
+
+input SubmitInvoiceInput {
+  contractId: ID!
+  currency: String!
+  periodStart: Date!
+  periodEnd: Date!
+  items: [InvoiceItemInput!]!
+  notes: String
+}
+
+input InvoiceItemInput {
+  type: String!
+  description: String!
+  quantity: Float
+  unitPrice: Float
+  totalPrice: Float!
+}
+
+input CreateAdjustmentInput {
+  workerId: ID!
+  contractId: ID
+  payrollId: ID
+  type: AdjustmentType!
+  description: String!
+  amount: Float!
+  currency: String!
+  effectiveDate: Date!
+}
+
+input SubmitExpenseInput {
+  workerId: ID!
+  category: String!
+  description: String
+  amount: Float!
+  currency: String!
+  expenseDate: Date!
+  receiptUrl: String
+}
+
+input CreateWebhookInput {
+  organizationId: ID!
+  url: String!
+  description: String
+  events: [WebhookEventType!]!
+}
+
+input UpdateWebhookInput {
+  url: String
+  description: String
+  events: [WebhookEventType!]
+  isActive: Boolean
+}
