@@ -1,0 +1,710 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EOR Worker Endpoints",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_eorWorkerAccounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create EOR Worker",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/worker",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create EOR Worker\n **Token scopes**: `people:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorWorkerAgreements",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Download employee agreement PDF",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/employee-agreement/download",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "Optional version of the Employment Agreement to be signed. If informed and in the case of a mismatch, the API will return an error."
+              }
+            ]
+          },
+          "docs": "Get link to download the employee agreement PDF.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Preview job offer letter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/offer-letter",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              }
+            ]
+          },
+          "docs": "Retrieve an EOR job offer letter in HTML. This endpoint does not support IC and Global Payroll contract types.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Sign a contract ",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/signatures",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sign a contract as a employee.\n **Token scopes**: `worker:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorWorkerBanks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve bank account guide",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/banks-guide/country/:country/currency/:currency",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "path",
+                "description": "Country"
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "path",
+                "description": "Currency"
+              }
+            ]
+          },
+          "docs": "Retrieve bank account form guide for an EOR employee. This data can be used to add a new bank account for an employee.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve bank account guide",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/banks/guide",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve bank account form guide for an EOR employee. This data can be used to add a new bank account for an employee.\n **Token scopes**: `worker:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorWorkerBenefits",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Benefits for Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/worker/benefits",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieves list of benefits for employee. This endpoint requires the employee’s auth token, as the employee ID is inferred from the token.\n **Token scopes**: `benefits:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorWorkerCompliance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Acknowledge a compliance document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/compliance-documents/:document_id/acknowledgement",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the compliance document."
+              }
+            ]
+          },
+          "docs": "API endpoint to submit consent for compliance documents that require acknowledgement.\n **Token scopes**: `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Download employee compliance document template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/compliance-documents/:document_id/templates/download",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a compliance document in Deel."
+              }
+            ]
+          },
+          "docs": "Get the download link for an employee compliance document template, if it exists.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Download submitted compliance document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/compliance-documents/:document_id/download",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a compliance document in Deel."
+              }
+            ]
+          },
+          "docs": "Get the download link for an employee's submitted compliance document.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "List of employee compliance documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/compliance-documents",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get a list of employee compliance documents.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Upload employee compliance document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/compliance-documents/:document_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a compliance document in Deel."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload compliance document for an EOR employee.\n **Token scopes**: `worker:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorWorkerDocuments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List HR verification letters and documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/hr-documents",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ]
+          },
+          "docs": "List all HR verification letters and documents available.\n **Token scopes**: `worker:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorWorkerInformation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add additional information",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/additional-information",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add additional information for an EOR employee.\n **Token scopes**: `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Update additional information",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/additional-information",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates additional information for an EOR employee agreement. Only works if the employee’s contract status is new, under_review, or waiting_for_employee_contract. Using other statuses can cause errors.\n **Token scopes**: `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Add bank account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/banks",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add bank account for an EOR employee.\n **Token scopes**: `worker:write`"
+        },
+        {
+          "info": {
+            "name": "List of tax documents for an employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/tax-documents",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get list of tax documents for an employee.\n **Token scopes**: `worker:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorWorkerMailboxes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Change EOR Mailbox Password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/mailboxes/change-password",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to change an EOR mailbox password for a worker\n **Token scopes**: `worker:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorWorkerOffboarding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Preview Resignation Letter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/offboarding/resignation-letter",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ]
+          },
+          "docs": "This endpoint allows workers to preview a resignation letter for an EOR Contract.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Request contract resignation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/resignation",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "data",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Enable clients to initiate a resignation request for an Employee of Record (EOR) contract within their team\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve worker resignations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/resignations",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by resignation letter status"
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve resignations submitted by Employer of Record (EOR) workers. Use it when you need to review resignation progress, confirm desired and confirmed end dates, and access resignation letter details. Filter results by resignation letter status using the query parameter\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Sign Resignation Letter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/offboarding/resignation-letter/sign",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint allows workers to provide their signature for a resignation letter. The signature is required to finalize the resignation process. Upon successful submission, the resignation letter is queued for PDF generation and further processing.\n **Token scopes**: `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Submit EOR Worker Resignation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/offboarding",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "data",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows workers to formally request the resignation of their EOR contract\n **Token scopes**: `worker:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorWorkerPayslips",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve payslip PDF download link",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/:worker_id/payslips/:payslip_id/download",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the worker whose payslip download link is being requested."
+              },
+              {
+                "name": "payslip_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the specific payslip to download."
+              }
+            ]
+          },
+          "docs": "Retrieve a URL to download a specific payslip PDF for a EoR worker. This endpoint is useful for accessing detailed payment records in a portable document format.\n **Token scopes**: `payslips:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

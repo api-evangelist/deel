@@ -1,0 +1,1163 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_adjustments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a new adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/adjustments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "amount",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "vendor",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "country",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "contract_id",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "description",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "cycle_reference",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "move_next_cycle",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "date_of_adjustment",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "adjustment_category_id",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Generates a new adjustment entry attributed to a specific worker\n **Token scopes**: `adjustments:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve an adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/adjustments/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Deel adjustment id."
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve details of a specific adjustment by its id. You can view its amount, status, dates, and related contract_id\n **Token scopes**: `adjustments:read`"
+        },
+        {
+          "info": {
+            "name": "Update an adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/adjustments/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Deel adjustment id."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "data",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Update an adjustment.\n **Token scopes**: `adjustments:write`"
+        },
+        {
+          "info": {
+            "name": "Delete an adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/adjustments/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Deel adjustment id."
+              }
+            ]
+          },
+          "docs": "Delete an adjustment.\n **Token scopes**: `adjustments:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve adjustments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/adjustments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel adjustment id."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Filter adjustments by start date."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Filter adjustments by end date."
+              }
+            ]
+          },
+          "docs": "Get all adjustments for the specific contract.\n **Token scopes**: `adjustments:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/adjustments/categories",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_types",
+                "value": "",
+                "type": "query",
+                "description": "array of contract types to filter categories"
+              }
+            ]
+          },
+          "docs": "Get all categories for your organization.\n **Token scopes**: `adjustments:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_gpHiring",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a Global Payroll (GP) contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/gp",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Global Payroll contract, including dataset such as employment, employee address, client legal_entity/team, compensation_details, job_title, invite_employee_to_app, work_location for US\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Request termination",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/terminations",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker in UUID format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request a termination for a global payroll employee. A successful call starts the termination process and does not confirm termination.\n **Token scopes**: `global-payroll:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_payslips",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve employee payslips",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:id/payslips",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the worker."
+              }
+            ]
+          },
+          "docs": "Returns a list of payslips for a Global Payroll (GP) employee, including each payslip's date range and current status. Use this endpoint to display payslip history or verify that payslips have been published before initiating a download. Requires the worker id (UUID), which can be obtained from the List GPworkers endpoint. Each payslip in the response includes an id that is required for the download endpoint. Supports only GP contract types.\n **Token scopes**: `payslips:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Download gross to net report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/gp/reports/:id/gross_to_net/csv",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the gp payroll report."
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query",
+                "description": "Currency to be used in the report calculation."
+              }
+            ]
+          },
+          "docs": "Download global payroll reports detailing gross-to-net calculations.\n **Token scopes**: `global-payroll:read`"
+        },
+        {
+          "info": {
+            "name": "List gross-to-net report.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/gp/reports/:id/gross_to_net",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the gp payroll report."
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query",
+                "description": "Currency to be used in the report calculation."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset/index of record for the next page of records to return."
+              }
+            ]
+          },
+          "docs": "Get a list of global payroll reports detailing gross-to-net calculations. Supports pagination through limit and offset query parameters.\n **Token scopes**: `global-payroll:read`"
+        },
+        {
+          "info": {
+            "name": "List payroll events by legal entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/gp/legal-entities/:legal_entity_id/reports",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "legal_entity_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the legal entity."
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve payroll events for a specific legal entity when preparing payroll reports or auditing pay cycles. This operation is read-only and does not modify any data.\n **Token scopes**: `global-payroll:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_timeOff",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "External HR Time Off Synchronization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/time_offs/global-payroll/sync",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Synchronize time off requests from an external HRIS to Deel. Only Global Payroll contracts are allowed for this operation. This endpoint can perform 2 different operations with the provided time off list: i) upsert - time off requests identified by an external ID will be either inserted or updated at Deel. ii) delete - existing time off requests identified by an external ID with the parameter 'deleted: true' will be deleted. Deel will identify the impacts of each operation on each payroll cycle."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_timeTracking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a Paginated List of Shift Rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shift_rates",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of records to return per page. For example, '10' to return up to 10 records."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The starting index for the records to retrieve. For example, '0' for the first page or '10' for the second page when limit=10."
+              }
+            ]
+          },
+          "docs": "Retrieve a paginated list of shift rates, including details such as rate name, type, value, and timestamps. Pagination parameters can be used to control the size and position of the result set.\n **Token scopes**: `time-tracking:read`"
+        },
+        {
+          "info": {
+            "name": "Create a New Shift Rate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shift_rates",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new shift rate with the specified attributes such as name, type, value, and a unique external identifier.\n **Token scopes**: `time-tracking:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a Shift Rate by External ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shift_rates/:external_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique external identifier of the shift rate to retrieve."
+              }
+            ]
+          },
+          "docs": "Retrieve details of a specific shift rate using its external ID. The response includes information such as the name, type, value, and unique identifier of the shift rate.\n **Token scopes**: `time-tracking:read`"
+        },
+        {
+          "info": {
+            "name": "Update a shift rate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shift_rates/:external_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the shift rate to be updated."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update specific fields of an existing shift rate.\n **Token scopes**: `time-tracking:write`"
+        },
+        {
+          "info": {
+            "name": "Delete a Shift Rate by external ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shift_rates/:external_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path",
+                "description": "external ID"
+              }
+            ]
+          },
+          "docs": "Delete a Shift Rate using its external ID, which is the custom ID provided when the shift rate is created. A ShiftRate can only be deleted if it is not currently associated with any active shift.\n **Token scopes**: `time-tracking:write`"
+        },
+        {
+          "info": {
+            "name": "Generate timesheet upload url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/time-tracking/timesheets/upload-url",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Receives timesheet file metadata and generates a link to upload timesheet file. Please note that this endpoint supports EOR contracts as of now\n **Token scopes**: `time-tracking:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a timesheet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time-tracking/timesheets/:timesheet_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "timesheet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the timesheet to fetch file for"
+              },
+              {
+                "name": "extend",
+                "value": "",
+                "type": "query",
+                "description": "Optional list of fields to extend in the response. Currently only `file_data` is supported, which includes file details (file_id, file_name) and download URL."
+              }
+            ]
+          },
+          "docs": "Retrieves a timesheet by ID, including its submission, review, and processing status. When expand=file_data is provided, the response also includes file-related details such as the file name, download URL.\n **Token scopes**: `time-tracking:read`"
+        },
+        {
+          "info": {
+            "name": "Review a submitted timesheet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/time-tracking/timesheets/:timesheet_id/review",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "timesheet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the timesheet to review"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Review a successfully submitted timesheet. Only PENDING_REVIEW timesheets can be reviewed, and all associated hours will be approved/rejected at once.\n **Token scopes**: `time-tracking:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_timeTrackingShifts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create raw time tracking shifts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shifts/raw",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create raw shifts for the specified contract ID. “Raw shifts” refers to uncategorized entries—simply submit the clock-in and clock-out times. The classification of those hours (e.g., regular or overtime) will be handled by the Deel platform.\n **Token scopes**: `time-tracking:write`"
+        },
+        {
+          "info": {
+            "name": "List of shifts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shifts",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset/index of record for the next page of records to return."
+              },
+              {
+                "name": "from_date",
+                "value": "",
+                "type": "query",
+                "description": "Filter shifts from this date (YYYY-MM-DD)."
+              },
+              {
+                "name": "to_date",
+                "value": "",
+                "type": "query",
+                "description": "Filter shifts until this date (YYYY-MM-DD)."
+              },
+              {
+                "name": "contract_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter shifts by one or more contract IDs."
+              }
+            ]
+          },
+          "docs": "Retrieve a paginated list of shifts with details such as start and end times, breaks, metadata, and summary metrics. Supports pagination through `limit` and `offset` query parameters and filtering by `contractId`, date range (`fromDate` and `toDate`).\n **Token scopes**: `time-tracking:read`"
+        },
+        {
+          "info": {
+            "name": "Create shifts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shifts",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates multiple time tracking shifts for a contract, supporting both regular shift submissions and corrections that adjust hours for previously processed shifts.\n **Token scopes**: `time-tracking:write`"
+        },
+        {
+          "info": {
+            "name": "Get shift details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shifts/:external_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the shift to retrieve."
+              }
+            ]
+          },
+          "docs": "Retrieve details of a specific shift by external ID.\n **Token scopes**: `time-tracking:read`"
+        },
+        {
+          "info": {
+            "name": "Update a shift",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shifts/:external_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the shift to be updated."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update specific fields of an existing shift by its unique `external_id`. This includes shift summary details, description etc.\n **Token scopes**: `time-tracking:write`"
+        },
+        {
+          "info": {
+            "name": "Delete a Shift by External ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shifts/:external_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique external identifier of the shift to be deleted."
+              }
+            ]
+          },
+          "docs": "This endpoint deletes a shift using its external ID. Once deleted, the shift will no longer be retrievable or editable.\n **Token scopes**: `time-tracking:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_workerInformation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve bank accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/banks",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker."
+              }
+            ]
+          },
+          "docs": "Retrieve all bank accounts for an employee.\n **Token scopes**: `people:read`"
+        },
+        {
+          "info": {
+            "name": "Add bank account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/banks",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker in UUID format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new bank account for an employee.\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Add GP Workers Additional Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/contracts/:contract_id/additional-information",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique public identifier of the contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to add additional information to a GP worker's contract. Provide the extra fields in the request body under 'data' for the contract identified by 'contract_id'.\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Update GP Workers Additional Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/contracts/:contract_id/additional-information",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique public identifier of the contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to update additional information for a GP worker's contract.  Provide the extra fields in the request body under 'data' for the contract identified by 'contract_id'.\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Modify bank account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/banks/:bank_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker in UUID format."
+              },
+              {
+                "name": "bank_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the bank account in UUID format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modify bank account for an employee.\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve bank guide",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/banks/guide",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker in UUID format."
+              }
+            ]
+          },
+          "docs": "Retrieve the bank form guide for an employee.\n **Token scopes**: `people:read`"
+        },
+        {
+          "info": {
+            "name": "Update address",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/address",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker in UUID format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the address of a Global Payroll employee.\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Update compensation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/compensation",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker in UUID format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the compensation of a Global Payroll employee. Returns the full compensation history including the update.\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Update employee information",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/employee-information",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker in UUID format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update employee number identifier used for integration\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Update PTO policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/pto-policy",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker in UUID format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the PTO policy of a Global Payroll employee.\n **Token scopes**: `people:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

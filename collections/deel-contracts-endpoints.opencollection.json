@@ -1,0 +1,1635 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_contractorAmendments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List contract amendments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/amendments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the contract"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "Filter by work statement status."
+              },
+              {
+                "name": "sign_statuses",
+                "value": "",
+                "type": "query",
+                "description": "Filter by work statement sign status."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of work statements to return."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for pagination."
+              }
+            ]
+          },
+          "docs": "Retrieve amendments of a contract\n **Token scopes**: `contracts:read`, `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Amend contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/amendments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Amend the details of a contract. Please note that if the contract is already signed or active, then the update will have to be approved and re-signed for to take effect.\n **Token scopes**: `contracts:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_contractorHiring",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Attach a file to contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/documents",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Attach a file to contract document.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Get worker invite link",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/invite",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale to use for the invite link."
+              }
+            ]
+          },
+          "docs": "Generates and returns a signed invitation URL that allows a worker to review and sign their contract securely. Use this endpoint to initiate or resend the contract signing process after the contract has been created. Requires the contract_id, which is provided during the initial Create Contract workflow.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Preview a contract agreement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/preview",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              },
+              {
+                "name": "templateId",
+                "value": "",
+                "type": "query",
+                "description": "ID of an existing contract template."
+              }
+            ]
+          },
+          "docs": "Retrieve an IC and EOR contract agreement content in HTML. If no template is specified, the default or currently assigned template will be used. This endpoint does not support Global Payroll contract type.\n **Token scopes**: `contracts:read`, `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Send contract to worker",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/invitations",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invite a worker to sign the contract. Worker will be notified via email\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Remove invite",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/invitations",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              }
+            ]
+          },
+          "docs": "Remove invite in order to re-invite a worker to sign the contract\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve contractor payment dates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/payment_cycles",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The Deel contract ID for which payment dates are being retrieved."
+              }
+            ]
+          },
+          "docs": "Fetches a list of payment dates associated with a specific contract. This endpoint provides information on when contractors are scheduled to be paid, along with the current status of each payment cycle.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Sign a contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/signatures",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sign a contract as a client.\n **Token scopes**: `contracts:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_contracts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a single contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the contract."
+              },
+              {
+                "name": "expand",
+                "value": "",
+                "type": "query",
+                "description": "Include cost centers in the response."
+              }
+            ]
+          },
+          "docs": "Retrieve a single contract.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Add external Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add an external Id to a Deel contract. You can use this to add a Deel contract's refernece Id in your platform. External Id can be passed as a query parameter in List contract endpoint to find this contract later.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "List of contracts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "after_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Return next page of results after the given cursor."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results with the given number of records."
+              },
+              {
+                "name": "order_direction",
+                "value": "",
+                "type": "query",
+                "description": "Order direction of results; ascending or descending."
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "Filter contracts by type. A contract is included in the results if its type is in this list."
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "Filter contracts by current status. A contract is included in the results if its status is in this list."
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter contracts for the given team ID. NOTE: All query parameters are technically strings or arrays of strings."
+              },
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter contracts for the given external ID."
+              },
+              {
+                "name": "external_id_absent",
+                "value": "",
+                "type": "query",
+                "description": "Filter contracts by external ID presence. When true, returns contracts without an external ID. When false, returns contracts with an external ID. Cannot be used with external_id query param when set to true."
+              },
+              {
+                "name": "countries",
+                "value": "",
+                "type": "query",
+                "description": "Filter contracts by country codes."
+              },
+              {
+                "name": "currencies",
+                "value": "",
+                "type": "query",
+                "description": "Filter contracts by currency codes."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Include a contract if its name or the contractor's name contains the given search term."
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Sort contracts by the given field name."
+              },
+              {
+                "name": "expand",
+                "value": "",
+                "type": "query",
+                "description": "Include cost centers in the response."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of contracts.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Create a new contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new Deel contract.\n **Token scopes**: `contracts:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_invoiceAdjustments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List invoice adjustments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/invoice-adjustments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "query",
+                "description": "Id of an Deel contract."
+              },
+              {
+                "name": "contract_types",
+                "value": "",
+                "type": "query",
+                "description": "types of contracts to filter"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "types of invoice adjustments to filter"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "statuses of invoice adjustment to filter"
+              },
+              {
+                "name": "invoice_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of an existing invoice"
+              },
+              {
+                "name": "reporter_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of an existing profile"
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "To get invoice adjustments submitted on or after given start date (inclusive). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings"
+              }
+            ]
+          },
+          "docs": "Retrieve invoice adjustments. You can filter the list by providing additional parameters e.g. contract_id, contract_type etc.\n **Token scopes**: `invoice-adjustments:read`"
+        },
+        {
+          "info": {
+            "name": "Create an invoice adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/invoice-adjustments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "recurring",
+                "value": "",
+                "type": "query",
+                "description": "Add this invoice adjustment as recurring"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an invoice adjustment using this endpoint. For example, you can add a bonus, commission, VAT %, deduction etc. to an invoice.\n **Token scopes**: `invoice-adjustments:write`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Invoice line item by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/invoice-adjustments/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of an existing invoice"
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve the details of a specific invoice adjustment (line item) by its id. Call it when you need to display or audit a charge, deduction, or expense on an invoice, or to reconcile a payment discrepancy. Provide the adjustment id in the path parameter. This operation is read-only.\n **Token scopes**: `invoice-adjustments:read`, `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Update an invoice adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/invoice-adjustments/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Invoice adjustment id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an invoice adjustment.\n **Token scopes**: `invoice-adjustments:write`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Delete adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/invoice-adjustments/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Invoice adjustment id."
+              }
+            ]
+          },
+          "docs": "Delete an adjustment.\n **Token scopes**: `invoice-adjustments:write`"
+        },
+        {
+          "info": {
+            "name": "Invoice line items by contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/invoice-adjustments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              },
+              {
+                "name": "contract_types",
+                "value": "",
+                "type": "query",
+                "description": "types of contracts to filter"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "types of invoice adjustments to filter"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "statuses of invoice adjustment to filter"
+              },
+              {
+                "name": "invoice_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of an existing invoice"
+              },
+              {
+                "name": "reporter_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of an existing profile"
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "To get invoice adjustments submitted on or after given start date (inclusive).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings"
+              }
+            ]
+          },
+          "docs": "Retrieve invoice line items for a given contract id.\n **Token scopes**: `invoice-adjustments:read`"
+        },
+        {
+          "info": {
+            "name": "Review a single invoice adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/invoice-adjustments/:id/reviews",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of an existing invoice adjustment."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Review a single invoice adjustment to approve or decline it.\n **Token scopes**: `invoice-adjustments:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_milestones",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Milestones by Contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/milestones",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the Deel contract for which milestones are being retrieved."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of milestones associated with a specific contract. Each milestone includes details such as its title, amount, status, and relevant dates, along with information about the creator and reviewer.\n **Token scopes**: `milestones:read`"
+        },
+        {
+          "info": {
+            "name": "Create a Milestone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/milestones",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the Deel contract where the milestone will be added."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new milestone to a specific contract. Milestones represent distinct deliverables or phases in the contract and can include additional details such as attachments.\n **Token scopes**: `milestones:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a single milestone",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/milestones/:milestone_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              },
+              {
+                "name": "milestone_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of milestone to return"
+              }
+            ]
+          },
+          "docs": "Retrieve a single milestone.\n **Token scopes**: `milestones:read`"
+        },
+        {
+          "info": {
+            "name": "Delete a Milestone",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/milestones/:milestone_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the Deel contract from which the milestone will be deleted."
+              },
+              {
+                "name": "milestone_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the milestone that is to be deleted."
+              }
+            ]
+          },
+          "docs": "Delete a specific milestone associated with a contract. This operation removes the milestone and its data permanently from the system.\n **Token scopes**: `milestones:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_offCycle",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of off-cycle payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/off-cycle-payments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier (ID) of the Deel contract for which to retrieve off-cycle payments."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of off-cycle payments for the specified contract ID. Off-cycle payments are payments made outside the regular payment schedule, often for exceptional or one-time expenses.\n **Token scopes**: `off-cycle-payments:read`"
+        },
+        {
+          "info": {
+            "name": "Add off-cycle payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/off-cycle-payments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier (ID) of the Deel contract for which the off-cycle payment is being created."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new invoice line-item for the purpose of an off-cycle payment associated with a specific contract. This is typically used for exceptional payments outside the regular payment schedule.\n **Token scopes**: `off-cycle-payments:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a single off-cycle payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/off-cycle-payments/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Deel off-cycle payment id."
+              }
+            ]
+          },
+          "docs": "Retrieve a single off-cycle payment.\n **Token scopes**: `off-cycle-payments:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Hourly Report Preset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/presets",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new hourly report preset.\n **Token scopes**: `timesheets:write`"
+        },
+        {
+          "info": {
+            "name": "Create Hourly Report Root Preset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/root-presets",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new hourly report root preset.\n **Token scopes**: `timesheets:write`"
+        },
+        {
+          "info": {
+            "name": "Get Hourly Report Preset by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/presets/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the hourly report preset to retrieve"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific hourly report preset by its ID.\n **Token scopes**: `timesheets:read`"
+        },
+        {
+          "info": {
+            "name": "Update Hourly Report Preset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/presets/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the hourly report preset to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing hourly report preset.\n **Token scopes**: `timesheets:write`"
+        },
+        {
+          "info": {
+            "name": "Delete Hourly Report Preset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/presets/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the hourly report preset to delete"
+              }
+            ]
+          },
+          "docs": "Delete an existing hourly report preset.\n **Token scopes**: `timesheets:write`"
+        },
+        {
+          "info": {
+            "name": "Get Hourly Report Presets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/timesheets/presets",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Deel contract"
+              },
+              {
+                "name": "work_statement_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of the work statement (optional)"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to order results by (title or created_at)"
+              },
+              {
+                "name": "order_direction",
+                "value": "",
+                "type": "query",
+                "description": "Direction of ordering (ASC or DESC)"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor for fetching next set of results"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page"
+              }
+            ]
+          },
+          "docs": "Retrieve hourly report presets for a given contract and work statement.\n **Token scopes**: `timesheets:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/tasks",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the Deel contract."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of tasks associated with a specific contract. Each task contains details such as its ID, amount, submission date, status, and description. This endpoint is useful for tracking the progress and status of tasks related to contracts.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Create a new task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/tasks",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique Deel contract ID associated with the task."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new task for a contractor associated with a specific Deel contract. A task can include details like amount, description, submission date.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Delete task",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/tasks/:task_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the Deel contract."
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the task to be deleted."
+              },
+              {
+                "name": "reason",
+                "value": "",
+                "type": "query",
+                "description": "The reason for deleting the task. This can be used for auditing purposes."
+              }
+            ]
+          },
+          "docs": "Delete a specific task associated with the contract. Optionally, a reason can be provided for auditing or documentation purposes.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Review a single task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/tasks/:task_id/reviews",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique Deel contract ID associated with the task."
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the task to be reviewed."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Review a specific task associated with a Deel contract to approve or decline the submitted work. The review includes the status (approved or declined) and an optional reason if declined.\n **Token scopes**: `contracts:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_terminations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Terminate contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/terminations",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the contractor contract"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Terminate contract.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Delete Contract Termination Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/terminations",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the contract"
+              }
+            ]
+          },
+          "docs": "Cancels a pending contract termination request for the specified contract.\n **Token scopes**: `contracts:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_timesheets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of timesheets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "query",
+                "description": "Id of an Deel contract."
+              },
+              {
+                "name": "contract_types",
+                "value": "",
+                "type": "query",
+                "description": "types of contracts to filter"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "reporter_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of timesheets in your Deel account. You can filter the list by providing additional paramters e.g. contract_id, contract_type etc.\n **Token scopes**: `timesheets:read`"
+        },
+        {
+          "info": {
+            "name": "Create a timesheet entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit work for a contractor.\n **Token scopes**: `timesheets:write`"
+        },
+        {
+          "info": {
+            "name": "List of timesheets by contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/timesheets",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              },
+              {
+                "name": "contract_types",
+                "value": "",
+                "type": "query",
+                "description": "Types of contracts to filter."
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "Statuses of timesheets to filter."
+              },
+              {
+                "name": "reporter_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of an existing profile"
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Filtered results will include records created on or after the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "Filtered results will include records created before the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results after given index of row"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of timesheets found for a contract.\n **Token scopes**: `timesheets:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a single timesheet entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of an existing timesheet"
+              }
+            ]
+          },
+          "docs": "Retrieve a single timesheet entry by Id.\n **Token scopes**: `timesheets:read`"
+        },
+        {
+          "info": {
+            "name": "Update a timesheet entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of an existing timesheet."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to update an existing timesheet entry by its id when correcting logged hours or refining the work note. Send a PATCH request to /timesheets/:id with a data object containing fields to change, such as quantity, description, or hourly_report_preset_id. Both clients and contractors can perform this update.\n **Token scopes**: `timesheets:write`"
+        },
+        {
+          "info": {
+            "name": "Review a single timesheet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/:id/reviews",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of an existing timesheet"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Review a timesheet to approve or decline submitted work.\n **Token scopes**: `timesheets:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

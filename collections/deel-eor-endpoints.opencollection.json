@@ -1,0 +1,1736 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EOR Endpoints",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_adjustments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a new adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/adjustments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "amount",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "vendor",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "country",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "contract_id",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "description",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "cycle_reference",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "move_next_cycle",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "date_of_adjustment",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "adjustment_category_id",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Generates a new adjustment entry attributed to a specific worker\n **Token scopes**: `adjustments:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve an adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/adjustments/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Deel adjustment id."
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve details of a specific adjustment by its id. You can view its amount, status, dates, and related contract_id\n **Token scopes**: `adjustments:read`"
+        },
+        {
+          "info": {
+            "name": "Update an adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/adjustments/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Deel adjustment id."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "data",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Update an adjustment.\n **Token scopes**: `adjustments:write`"
+        },
+        {
+          "info": {
+            "name": "Delete an adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/adjustments/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Deel adjustment id."
+              }
+            ]
+          },
+          "docs": "Delete an adjustment.\n **Token scopes**: `adjustments:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve adjustments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/adjustments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel adjustment id."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Filter adjustments by start date."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Filter adjustments by end date."
+              }
+            ]
+          },
+          "docs": "Get all adjustments for the specific contract.\n **Token scopes**: `adjustments:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/adjustments/categories",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_types",
+                "value": "",
+                "type": "query",
+                "description": "array of contract types to filter categories"
+              }
+            ]
+          },
+          "docs": "Get all categories for your organization.\n **Token scopes**: `adjustments:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorAmendments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Accept amendment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/amendments/:amendment_id/accept",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of EOR worker contract."
+              },
+              {
+                "name": "amendment_id",
+                "value": "",
+                "type": "path",
+                "description": "A unique identifier for the employee contract amendment."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows the client to accept a contract amendment, formally acknowledging and approving the modifications to the contract.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Get amendment by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/amendments/:amendment_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of EOR worker contract."
+              },
+              {
+                "name": "amendment_id",
+                "value": "",
+                "type": "path",
+                "description": "A unique identifier for the employee contract amendment."
+              }
+            ]
+          },
+          "docs": "Retrieves the full details for a specific EOR contract amendment, including requested changes to salary, scope, and key dates.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Update amendment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/amendments/:amendment_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of EOR worker contract."
+              },
+              {
+                "name": "amendment_id",
+                "value": "",
+                "type": "path",
+                "description": "A unique identifier for the employee contract amendment. This string is either supplied by the client or generated by the system and is used to uniquely identify the amendment during upsert operations."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a specific contract amendment. This can only be performed on amendments in a DRAFT status. This action is irreversible and will overwrite any previous draft data.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Cancel amendment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/amendments/:amendment_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of EOR worker contract."
+              },
+              {
+                "name": "amendment_id",
+                "value": "",
+                "type": "path",
+                "description": "A unique identifier for the employee contract amendment."
+              }
+            ]
+          },
+          "docs": "Cancel a pending employee contract amendment. This action voids the amendment request and prevents it from being reviewed or applied.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Confirm amendment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/amendments/:amendment_id/confirm",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of EOR worker contract."
+              },
+              {
+                "name": "amendment_id",
+                "value": "",
+                "type": "path",
+                "description": "A unique identifier for the employee contract amendment."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Confirms an existing contract amendment and initiates the review process, sending it to both Deel and the employee for acknowledgment and approval.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Contract amendment PDF",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/amendments/:amendment_id/pdf",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of EOR worker contract."
+              },
+              {
+                "name": "amendment_id",
+                "value": "",
+                "type": "path",
+                "description": "A unique identifier for the employee contract amendment."
+              }
+            ]
+          },
+          "docs": "Generates a secure PDF download link for the EOR contract amendment, valid for 15 minutes.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Get amendments by contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/amendments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of EOR worker contract."
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves all EOR contact amendments. It provides details such as the amendment type, effective date, and current status, allowing clients to understand the history and state of changes applied to the contract.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Create amendment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/amendments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the EOR worker contract"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint allows you to create a new amendment for a EOR contract. Amendments may include changes to salary, currency, effective date, or other contract terms, and all requests are validated against business and regulatory rules.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Get amendment validation settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/amendments/validation/settings",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of EOR worker contract."
+              },
+              {
+                "name": "employment_state",
+                "value": "",
+                "type": "query",
+                "description": "The employment state of the EOR worker contract"
+              }
+            ]
+          },
+          "docs": "Get all amendment validations settings of available data points for an EOR contract amendment\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve Effective Date Limitations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/amendments/:amendment_id/effective-date-limitations",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the EOR worker contract"
+              },
+              {
+                "name": "amendment_id",
+                "value": "",
+                "type": "path",
+                "description": "A unique identifier for the employee contract amendment"
+              }
+            ]
+          },
+          "docs": "Retrieves validation rules for the effective date in an amendment flow of an EOR contract, including date limits, defaults, and visibility settings.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Sign a contract amendment (employee)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/amendments/:amendment_id/sign",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of EOR worker contract."
+              },
+              {
+                "name": "amendment_id",
+                "value": "",
+                "type": "path",
+                "description": "A unique identifier for the employee contract amendment."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows the employee to provide their signature for a specific contract amendment, confirming acknowledgment and acceptance of the changes.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Validate amendment data points",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/amendments/validate",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate amendment data points that require external validation\n **Token scopes**: `contracts:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorBenefits",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Benefits for EOR Contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/:contract_id/benefits",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract ID."
+              }
+            ]
+          },
+          "docs": "Fetch detailed information about benefits associated with a specific Employee of Record (EOR) contract. The benefits include plan details, provider information, and enrollment statuses.\n **Token scopes**: `contracts:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorContract",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an EOR contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an Employee of Record (EOR) contract quote. This endpoint allows to submit details for an EOR contract. Deel will process the information and return a quote for the requested contract.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve EOR Contract Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/details",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the Deel contract"
+              }
+            ]
+          },
+          "docs": "Returns the basic information for an EOR contract, along with employment costs associated to it\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Update EOR Contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contract/:contract_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint is used to modify mutable fields of an EOR contract, such as salary, job title, or benefits. It supports partial updates—only include fields that should be updated. Required fields must still be present for validation.\n **Token scopes**: `contracts:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorContractDocuments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch EOR contract documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/documents",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "EOR contract ID"
+              }
+            ]
+          },
+          "docs": "Lists all documents for a given EOR contract\n **Token scopes**: `contracts:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_costCalculator",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Calculate Employee Costs Globally",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/employment_cost",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Determine the total employment costs for an Employee of Record (EOR) arrangement across different countries, including salary, employer costs, benefits, and additional fees."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorHiring",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cancel EOR Contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contract/:oid/cancel",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "oid",
+                "value": "",
+                "type": "path",
+                "description": "Contract oid"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancel EOR Contract\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Delay EOR employee onboarding",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contract/:oid/delay-onboarding",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "oid",
+                "value": "",
+                "type": "path",
+                "description": "Contract oid"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delay EOR employee onboarding\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Fetch EOR Contract form",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/forms/eor/create-contract/:country_code",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter country code in ISO 3166-1 alpha-2 format"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "The selected state code of the contract. This is only required for countries that specify it."
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "The selected start date of the contract in ISO 8601 formatted date string."
+              },
+              {
+                "name": "work_hours_per_week",
+                "value": "",
+                "type": "query",
+                "description": "The selected number of work hours per week."
+              },
+              {
+                "name": "contract_duration_in_days",
+                "value": "",
+                "type": "query",
+                "description": "The contract duration in days for definite contracts."
+              }
+            ]
+          },
+          "docs": "Returns a formulary for creating EOR Contracts\n **Token scopes**: `forms:read`"
+        },
+        {
+          "info": {
+            "name": "Fetch Start Date for EOR Contracts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/start-date",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "employment_country",
+                "value": "",
+                "type": "query",
+                "description": "Employment country in ISO 3166-1 alpha-2 format"
+              },
+              {
+                "name": "employee_nationality",
+                "value": "",
+                "type": "query",
+                "description": "Employee nationality in ISO 3166-1 alpha-2 format"
+              },
+              {
+                "name": "work_visa",
+                "value": "",
+                "type": "query",
+                "description": "Whether a work visa is required"
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "query",
+                "description": "Team ID"
+              },
+              {
+                "name": "legal_entity_id",
+                "value": "",
+                "type": "query",
+                "description": "Legal entity ID"
+              },
+              {
+                "name": "employment_state",
+                "value": "",
+                "type": "query",
+                "description": "State or province of employment"
+              },
+              {
+                "name": "special_job_id",
+                "value": "",
+                "type": "query",
+                "description": "Special job ID (if applicable)"
+              }
+            ]
+          },
+          "docs": "Returns the earliest allowed start date for a new EOR contract quote based on employment parameters.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Get EOR Additional Costs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/additional-costs/:country",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "path",
+                "description": "The two-letter ISO code of the country for which to retrieve the EOR additional costs."
+              }
+            ]
+          },
+          "docs": "Retrieve all additional costs to eor quote flow by country\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve Benefits by Country",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/benefits",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "query",
+                "description": "Country code."
+              },
+              {
+                "name": "work_visa",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if work visa is required."
+              },
+              {
+                "name": "work_hours_per_week",
+                "value": "",
+                "type": "query",
+                "description": "Working hours per week"
+              },
+              {
+                "name": "employment_type",
+                "value": "",
+                "type": "query",
+                "description": "Type of employment"
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the team the worker belongs to."
+              },
+              {
+                "name": "legal_entity_id",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the legal entity."
+              }
+            ]
+          },
+          "docs": "Retrieves list of benefits available in a specific country based work visa requirement, work hours, employment type, team, and legal entity.\n **Token scopes**: `benefits:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve detailed hiring guide for a country",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/validations/:country_code",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "path",
+                "description": "The two-letter ISO code of the country for which to retrieve the hiring guide."
+              }
+            ]
+          },
+          "docs": "Retrieve comprehensive hiring guide data for a specific country. This data can be used in creation and validation of Employee of Record (EOR) contract quotes, providing details on salaries, holidays, insurance, and other employment specifics.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Sign EOR contract document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/documents/:type/sign",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "EOR contract ID"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "The type of document. Currently only FRAMEWORK_AGREEMENT is supported."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Signs a document with the provided signature and title\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Update Employee Information for EOR Contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/employee-information",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates employee information related to an EOR Contract. This endpoint supports partial updates. Attempting to update any undocumented fields will result in a validation error. This endpoint will only work for contracts with status `new`, `under_review`, `waiting_for_client_sign`, `waiting_for_eor_sign`, `waiting_for_employee_contract`, `waiting_for_employee_sign`, `awaiting_deposit_payment`, or `rejected`.\n **Token scopes**: `contracts:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorJobScopes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of job scope templates for EOR contracts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/job-scopes",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "team",
+                "value": "",
+                "type": "query",
+                "description": "Team public id"
+              }
+            ]
+          },
+          "docs": "Returns a list of predefined job scope templates for an EOR contract, which can be filtered by team. The list includes both predefined and custom job scope templates belonging to the user's teams.\n **Token scopes**: `organizations:read`"
+        },
+        {
+          "info": {
+            "name": "Request job scope validation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/job-scopes/validate",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint allows client to validate job scope description.\n **Token scopes**: `contracts:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorOffboarding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create client sign off",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/review-client-sign-offs",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to review, approve, or request changes to EOR employee offboarding documents for a specific contract during the client sign‑off step.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Get additional information required to request employee termination",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/required-information",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ]
+          },
+          "docs": "This endpoint provides additional country-specific requirements for employee offboarding. It specifies any mandatory or optional questions that the client must answer and identifies required supporting documents that must be uploaded during the offboarding process. This ensures compliance with local regulations and streamlines the offboarding workflow.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve Employee Time Off Data for Offboarding",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/time-offs",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "Desired end date for offboarding"
+              }
+            ]
+          },
+          "docs": "This endpoint provides detailed time off information for an employee, including accrued, used, and scheduled days across all tracking periods. It also includes policy details, tracking configurations, and additional metadata to support the offboarding request process. The data is used to display comprehensive time off information on the offboarding request page.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve offboarding attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/attachments/:attachment_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              },
+              {
+                "name": "attachment_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the attachment to download."
+              }
+            ]
+          },
+          "docs": "This endpoint allows client and employee download the content of a specific attachment associated with a termination for the given contract.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve Offboarding Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ]
+          },
+          "docs": "Retrieve the offboarding request associated with a specific EOR contract (contract_id). Use it to review termination details, document review status, offboarding request data, and notifications required for the employee.\n **Token scopes**: `contracts:read`, `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve restricted offboarding dates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/restricted-dates",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              },
+              {
+                "name": "termination_type",
+                "value": "",
+                "type": "query",
+                "description": "Type of offboarding."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of dates, including weekends and public holidays, that are restricted for employee offboarding based on country-specific rules. Use this endpoint to plan employee offboarding by validating end-date selection. Call it when initiating an EOR offboarding flow to determine which dates are unavailable and what is the first day available.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Submit employee resignation PTO review",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/resignations/review-pto",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows a client to review and submit the Paid Time Off (PTO) details for an employee resignation request. This endpoint updates the resignation with the provided PTO information, triggers related notifications, and finalizes the PTO review process. Only available when the resignation status is AWAITING_PTO.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Submit employee sign-off review for offboarding documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/review-employee-sign-offs",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to submit an employee's review decision for the EOR offboarding document set for contract. Employees can approve the documents or request changes by providing feedback.\n **Token scopes**: `worker:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorPayslips",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve employee payslip records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/:worker_id/payslips",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the worker whose payslips are being retrieved."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of payslip records for a specific employee, detailing payment periods, status, and associated identifiers.\n **Token scopes**: `payslips:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorProjectAssignment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Accept EOR project assignment as client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/project-assignment/accept",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Utilize this endpoint to accept a project assignment for an EOR contract once the client has reviewed and approved the terms.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Fetch EOR project assignment PDF",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/project-assignment",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "This field is to ensure that the latest version of the project assignment PDF matches the version received from the webhook. If it is not sent, the version validation is not performed and the endpoint returns the PDF. If it is sent, it is checked whether the current version is equal to the version sent; if not, a 409 error occurs, otherwise, the PDF is returned."
+              }
+            ]
+          },
+          "docs": "Utilize this endpoint to retrieve the PDF of the project assignment for an EOR contract that a client is required to approve.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Fetch Project Assignment Checkin Questionnaire Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/project-assignment/checkin",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the contract."
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "This field is to ensure that the latest version of the project assignment checkin matches the version received from the webhook. If it is not sent, the version validation is not performed. If it is sent, it is checked whether the current version is equal to the version sent; if not, a 409 error occurs, otherwise, the data is returned."
+              }
+            ]
+          },
+          "docs": "Use this endpoint to fetch the project assignment checkin data with all necessary information to render in your side the questionnaire\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Submit Project Assignment Checkin Questionnaire Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/project-assignment/checkin",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to submit the checkin questionnaire. It is necessary to send all required questionnaire answers.\n **Token scopes**: `contracts:read`, `contracts:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_eorTerminations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get termination",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/:oid/terminations/:terminationId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "oid",
+                "value": "",
+                "type": "path",
+                "description": "Public contract oid"
+              },
+              {
+                "name": "terminationId",
+                "value": "",
+                "type": "path",
+                "description": "Termination id"
+              }
+            ]
+          },
+          "docs": "This API allows clients and employees with viewer permissions to retrieve termination data. It ensures that only authorized users can access sensitive information related to terminations.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Initiate EOR contract termination request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/termination",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "data",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Enables clients to initiate a request for the termination of an Employee of Record (EOR) contract for members of their team.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Request EOR Contract Resignation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/:oid/terminations/resignation",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "oid",
+                "value": "",
+                "type": "path",
+                "description": "Public contract oid"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enable clients with group admin and people manager permissions to initiate a resignation request for an Employee of Record (EOR) contract within their team.\n **Token scopes**: `contracts:read`, `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Termination Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/:oid/terminations/regular",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "oid",
+                "value": "",
+                "type": "path",
+                "description": "Public contract id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API enables clients with group admin and people manager permissions to initiate a request for the termination of an Employee of Record (EOR) contract for members of their team.\n **Token scopes**: `contracts:read`, `contracts:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

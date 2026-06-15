@@ -1,0 +1,187 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve an IT order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/it/orders/:order_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the IT order"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a single IT equipment order using its unique identifier. This allows you to track the order's status, review shipping details, and see the associated product.  For more info, visit [Orders](https://developer.deel.com/docs/deel-it-api#orders)\n **Token scopes**: `it-orders:read`"
+        },
+        {
+          "info": {
+            "name": "List IT orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/it/orders",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Indicates where the next page of results starts, as returned in a paginated list response"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results with given number of records"
+              }
+            ]
+          },
+          "docs": "Retrieve a paginated list of all IT equipment orders for the organization. This is useful for reviewing both historical and current procurement requests to track overall equipment provisioning.  For more info, visit [Orders](https://developer.deel.com/docs/deel-it-api#orders).\n **Token scopes**: `it-orders:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve an IT asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/it/assets/:asset_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the IT asset"
+              }
+            ]
+          },
+          "docs": "Retrieve the details of a specific IT asset using its unique identifier. This allows you to check information such as the asset's model, serial number, status, and location.  For more info, visit [Assets](https://developer.deel.com/docs/deel-it-api#assets).\n **Token scopes**: `it-assets:read`"
+        },
+        {
+          "info": {
+            "name": "List IT assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/it/assets",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Indicates where the next page of results starts, as returned in a paginated list response"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results with given number of records"
+              },
+              {
+                "name": "hris_profile_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter assets by assigned worker with given HRIS Profile ID"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "query",
+                "description": "Filter assets by their location"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Filter assets by their product category"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter assets by their status"
+              }
+            ]
+          },
+          "docs": "Retrieve a paginated list of all IT assets managed by the organization. This is useful for getting a complete overview of your equipment inventory and understanding the state of each asset. For more info, visit [Assets](https://developer.deel.com/docs/deel-it-api#assets).\n **Token scopes**: `it-assets:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List IT hardware policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/it/policies",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve a list of all available IT hardware policies. These policies define the equipment that can be ordered.  For more info, visit [IT policies](https://developer.deel.com/docs/deel-it-api#it-policies).\n **Token scopes**: `it-policies:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

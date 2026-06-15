@@ -1,0 +1,1367 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_costCenters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get cost centers by legal entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/legal-entities/:legal_entity_id/cost-centers",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "legal_entity_id",
+                "value": "",
+                "type": "path",
+                "description": "Legal entity id"
+              }
+            ]
+          },
+          "docs": "Fetch all cost centers related to a given legal entity id\n **Token scopes**: `legal-entity:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clone a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/groups/:id/clone",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the group to be cloned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Clone an existing group within the organization. This creates a new group with the specified name, copying the structure and settings from the source group.\n **Token scopes**: `groups:write`"
+        },
+        {
+          "info": {
+            "name": "Return list of groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/groups",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of groups to return (between 1 and 100)"
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sort the results in ascending (ASC) or descending (DESC) order based on the group name."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The encoded cursor for paginated results. This is an opaque string that allows fetching the next set of results."
+              },
+              {
+                "name": "include_archived_groups",
+                "value": "",
+                "type": "query",
+                "description": "Include archived groups (soft deleted records). Defaults to `true`."
+              },
+              {
+                "name": "external_metadata",
+                "value": "",
+                "type": "query",
+                "description": "Extra information about the group."
+              }
+            ]
+          },
+          "docs": "List all the groups in your organization.\n **Token scopes**: `groups:read`"
+        },
+        {
+          "info": {
+            "name": "Create a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/groups",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new group within your organization.\n **Token scopes**: `groups:read`, `groups:write`"
+        },
+        {
+          "info": {
+            "name": "Edit a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/groups/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit the details of an existing group.\n **Token scopes**: `groups:read`, `groups:write`"
+        },
+        {
+          "info": {
+            "name": "Delete a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/groups/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Archive an existing group.\n **Token scopes**: `groups:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_immigration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get business visa eligibility and requirements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/visa-requirement/business",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "destination_country",
+                "value": "",
+                "type": "query",
+                "description": "The destination country code of the trip in ISO 3166-1 alpha-2 format"
+              },
+              {
+                "name": "nationality",
+                "value": "",
+                "type": "query",
+                "description": "The nationality country code of the person in ISO 3166-1 alpha-2 format"
+              },
+              {
+                "name": "residence_country",
+                "value": "",
+                "type": "query",
+                "description": "The residence country code of the person in ISO 3166-1 alpha-2 format"
+              },
+              {
+                "name": "trip_start_date",
+                "value": "",
+                "type": "query",
+                "description": "The trip start date in ISO 8601 format (YYYY-MM-DD)"
+              },
+              {
+                "name": "trip_end_date",
+                "value": "",
+                "type": "query",
+                "description": "The trip end date in ISO 8601 format (YYYY-MM-DD)"
+              },
+              {
+                "name": "trip_reason",
+                "value": "",
+                "type": "query",
+                "description": "The reason for the trip"
+              },
+              {
+                "name": "second_nationality",
+                "value": "",
+                "type": "query",
+                "description": "The second nationality country code of the person in ISO 3166-1 alpha-2 format (optional)"
+              }
+            ]
+          },
+          "docs": "This endpoint receives personal information and desired travel information, analyzes and returns the possible business visa options for the given data.\n **Token scopes**: `immigration:read`"
+        },
+        {
+          "info": {
+            "name": "Get immigration case details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/client/cases/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Immigration case id"
+              }
+            ]
+          },
+          "docs": "Get detailed information for a specific immigration case. Use this to check case status and track process progress. The id path parameter is the case UUID returned from the 'Create Client Case' endpoint. Response is enriched with applicant profile, visa type, case status, estimated completion date, process details, and compliance document details.\n **Token scopes**: `immigration:read`"
+        },
+        {
+          "info": {
+            "name": "Get specific immigration case details ",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/workers/cases/:case_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "case_id",
+                "value": "",
+                "type": "path",
+                "description": "Filter by case ID"
+              }
+            ]
+          },
+          "docs": "Get detailed information for a specific immigration case. Use this to check case status and track process progress. The id path parameter is the case UUID returned from the 'Create Client Case' endpoint. Response is enriched with applicant profile, visa type, case status, estimated completion date, process details, and compliance document details.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Immigration document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/documents/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Immigration case document id "
+              }
+            ]
+          },
+          "docs": "Fetch immigration document details by document id\n **Token scopes**: `immigration:read`"
+        },
+        {
+          "info": {
+            "name": "Immigration visa types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/visa-types/:country_code",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "path",
+                "description": "Alpha 2 country code"
+              }
+            ]
+          },
+          "docs": "Fetch immigration supported visa types by country\n **Token scopes**: `immigration:read`"
+        },
+        {
+          "info": {
+            "name": "List of immigration cases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/client/cases",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search by applicant name or code"
+              },
+              {
+                "name": "case_type_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter by case type IDs"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "Filter by case status"
+              },
+              {
+                "name": "countries",
+                "value": "",
+                "type": "query",
+                "description": "Filter by country. Uses ISO 3166-1 alpha-2 codes (https://www.iban.com/country-codes)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor for fetching next set of results"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Max number of results to return"
+              }
+            ]
+          },
+          "docs": "Retrieves a paginated list of immigration cases with filters for applicant name, case type, status, and country. Returns case details including type, status, process, timestamps, and optional closure information.\n **Token scopes**: `immigration:read`"
+        },
+        {
+          "info": {
+            "name": "List of immigration cases for workers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/workers/cases",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search by applicant name or code"
+              },
+              {
+                "name": "case_type_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter by case type IDs"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "Filter by case status"
+              },
+              {
+                "name": "countries",
+                "value": "",
+                "type": "query",
+                "description": "Filter by country. Uses ISO 3166-1 alpha-2 codes (https://www.iban.com/country-codes)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor for fetching next set of results"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Max number of results to return"
+              }
+            ]
+          },
+          "docs": "Retrieves a paginated list of immigration cases with filters for applicant name, case type, status, and country. Returns case details including type, status, process, timestamps, and optional closure information.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a required document for a case",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/workers/:worker_id/cases/:case_id/required-document",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "The hris profile oid (public id) of the worker."
+              },
+              {
+                "name": "case_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the case for which the required document is being requested."
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve the details of a specific document requirement for a worker's case. This includes the requirement's status and information about any previously rejected documents\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve onboarding right-to-work case for a worker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/workers/:worker_id/onboarding-case",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "The hris profile oid (public id) of the worker."
+              },
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "query",
+                "description": "Filters the worker's onboarding case to a specific contract. If the worker has multiple contracts and this parameter is omitted, the response may return a case from any associated contract; the response includes contract.id to indicate which contract was used. Provide this parameter for deterministic results."
+              }
+            ]
+          },
+          "docs": "Returns the right to work case for employee onboarding including the documents if any. In case no right to work case is open, the response will be empty.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Upload a required immigration document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/workers/:worker_id/cases/:case_id/required-document/:document_request_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "The hris profile oid (public id) of the worker."
+              },
+              {
+                "name": "case_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the case for which the required document is being requested."
+              },
+              {
+                "name": "document_request_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the document request fo which this document is being uplodaded"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "data",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload a required immigration document for a specific case. The document will be submitted for review.\n **Token scopes**: `worker:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_legalEntities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of legal entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/legal-entities",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of results to return per page."
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order of the results."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for pagination."
+              },
+              {
+                "name": "include_archived",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include archived legal entities in the results."
+              },
+              {
+                "name": "legal_entity_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by specific legal entity ID."
+              },
+              {
+                "name": "global_payroll",
+                "value": "",
+                "type": "query",
+                "description": "Filter by global payroll flag."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by entity type."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Filter by country."
+              },
+              {
+                "name": "include_payroll_settings",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include payroll settings in the response."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of legal entities in your account.\n **Token scopes**: `organizations:read`, `accounting:read`"
+        },
+        {
+          "info": {
+            "name": "Create a new legal entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/legal-entities",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new legal entity under an organization.\n **Token scopes**: `legal-entity:write`, `legal-entity:read`"
+        },
+        {
+          "info": {
+            "name": "Edit a legal entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/legal-entities/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the legal entity to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the details of an existing legal entity.\n **Token scopes**: `legal-entity:read`, `legal-entity:write`"
+        },
+        {
+          "info": {
+            "name": "Delete a legal entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/legal-entities/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the legal entity to archive."
+              }
+            ]
+          },
+          "docs": "Archive a legal entity. This marks the entity as inactive but does not permanently remove it.\n **Token scopes**: `legal-entity:read`, `legal-entity:write`"
+        },
+        {
+          "info": {
+            "name": "List all industry subcategories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/industries",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return per page."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order of the results."
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Field used to sort the results."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor used for paginating to the next page of results."
+              }
+            ]
+          },
+          "docs": "List industry subcategories with their parent category details, supporting cursor-based pagination and sorting by category or subcategory name. Each subcategory is identified by a UUID and includes NAICS codes. Used during entity setup to select an industry classification.\n **Token scopes**: `legal-entity:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_lookups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Job titles list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/lookups/job-titles",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "after_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for pagination. Use this to retrieve the next page of results."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of pre-defined job titles in Deel platform."
+        },
+        {
+          "info": {
+            "name": "Retrieve Country List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/lookups/countries",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve a list of countries supported by Deel, along with details about visa and EoR support, sub-territories, and their classifications."
+        },
+        {
+          "info": {
+            "name": "Retrieve Seniority Levels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/lookups/seniorities",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "is_eor_contract",
+                "value": "",
+                "type": "query",
+                "description": "when `true`, exclude C-level seniorities for EOR contracts. Set to `false` to return all seniorities"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of predefined seniority levels for roles in the Deel platform, including their names, hierarchical levels, and unique identifiers."
+        },
+        {
+          "info": {
+            "name": "Retrieve Supported Currency List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/lookups/currencies",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve the list of currencies supported by Deel, including their ISO codes and names"
+        },
+        {
+          "info": {
+            "name": "Retrieve Time-Off Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/lookups/time-off-types",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve a list of predefined time-off types that can be registered in the Deel platform."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_magicLink",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create magic link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/magic-link",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to generate secure, time-limited magic links that enable password-free, seamless worker authentication for quick and safe access. Ideal for temporary sessions or low-friction login flows.\n **Token scopes**: `worker:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_managers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve List of Managers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/managers",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of records to return in the response."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset or starting point for pagination."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of all managers in the organization along with pagination details.\n **Token scopes**: `organizations:read`"
+        },
+        {
+          "info": {
+            "name": "Create a Manager",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/managers",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new manager for the organization by providing the required user details. This endpoint returns the newly created manager's information.\n **Token scopes**: `organizations:write`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create child organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/organizations/children",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new organization along with:\n\n- An API token scoped to the new organization. This token can be used to perform API operations on behalf of the new organization.\n- A default group for the organization.\n- A hierarchy linking the authenticated organization (the Parent Organization) with the new one (the Child Organization).\n- A user from the parent organization who will be assigned to the child organization.\n\nThis endpoint sets up the bare minimum required for the new organization to be o"
+        },
+        {
+          "info": {
+            "name": "Get Current Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/organizations",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve details of the current organization associated with the authenticated user. The organization is automatically detected based on the authentication token provided in the request.\n **Token scopes**: `organizations:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_screenings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create manual verification screening",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/screenings/manual-verification",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "back",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "front",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "additional",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "document_type",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "operation_type",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "selfie_with_id",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "document_country",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "proof_of_residence",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "translation_required",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Use this endpoint to create a manual identity verification submission (in case automated one has failed multiple times or document country is not supported by automated solution)\n **Token scopes**: `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Create Veriff session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/veriff/session",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Veriff session\n **Token scopes**: `screenings:write`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Get entity screening details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/screenings/aml/:entity_type/:entity_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "entity_type",
+                "value": "",
+                "type": "path",
+                "description": "The type of entity to screen. Only 'profile', 'hris_profile', 'legal_entity' are accepted."
+              },
+              {
+                "name": "entity_id",
+                "value": "",
+                "type": "path",
+                "description": "UUID v4 of the entity"
+              }
+            ]
+          },
+          "docs": "Get the latest screening for an entity.\n **Token scopes**: `screenings:read`"
+        },
+        {
+          "info": {
+            "name": "Get verification method",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/screenings/verification-method",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "The document's issuing country code (ISO 3166-1 alpha-2)"
+              },
+              {
+                "name": "document_type",
+                "value": "",
+                "type": "query",
+                "description": "The document to be provided during KYC"
+              }
+            ]
+          },
+          "docs": "Get verification method by provided country and document type\n **Token scopes**: `screenings:read`, `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Get worker's KYC details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/screenings/kyc/details",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_profile_id",
+                "value": "",
+                "type": "query",
+                "description": "Worker's HRIS profile public ID client requests to fetch KYC details for. This parameter is mutually exclusive with profile_id"
+              },
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "query",
+                "description": "Worker's contract ID. This parameter is required in case there are multiple profiles associated to the target worker. For example, when worker used to work for the former company he had another profile ID. So we need contract ID to properly resolve profile's KYC details.  In case this parameter is not provided and multiple associated profiles are found, exception with 409 status code will be thrown"
+              },
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "query",
+                "description": "Worker's profile public ID client requests to fetch KYC details for, This parameter is mutually exclusive with worker_profile_id "
+              }
+            ]
+          },
+          "docs": "This endpoint allows organizations managing workers on Deel to retrieve detailed KYC verification data using the worker’s profile ID. It provides comprehensive information including verification status, document type, submission, approval, rejection, and expiry dates, supporting compliance monitoring and onboarding workflows\n **Token scopes**: `screenings:read`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "subpackage_webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of webhooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/webhooks",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve a list of webhook subscriptions."
+        },
+        {
+          "info": {
+            "name": "Create a webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/webhooks",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new webhooks subscription."
+        },
+        {
+          "info": {
+            "name": "Retrieve a single webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/webhooks/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a single webhook subscription."
+        },
+        {
+          "info": {
+            "name": "Edit a webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/webhooks/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit a webhook subscription."
+        },
+        {
+          "info": {
+            "name": "Delete a webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/webhooks/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a webhook subscription."
+        },
+        {
+          "info": {
+            "name": "List of webhook event types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/webhooks/events/types",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve a list of webhook event types."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
