@@ -1,0 +1,918 @@
+{
+  "info": {
+    "_postman_id": "1b6702e9-ac8b-4144-ab39-5f1f5113fe80",
+    "name": "Endpoints subpackage_contractorAmendments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:26.000Z",
+    "updatedAt": "2026-07-28T01:30:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1b6702e9-ac8b-4144-ab39-5f1f5113fe80"
+  },
+  "item": [
+    {
+      "name": "contracts",
+      "item": [
+        {
+          "name": "{contract_id}",
+          "item": [
+            {
+              "name": "amendments",
+              "item": [
+                {
+                  "name": "Amend contract",
+                  "id": "206a3308-1708-454c-8314-0d95afdab13d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"scale\": \"monthly\",\n    \"amount\": \"<double>\",\n    \"cycle_end\": \"<double>\",\n    \"frequency\": \"weekly\",\n    \"start_date\": \"<date>\",\n    \"job_title_id\": \"<string>\",\n    \"seniority_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"first_payment\": \"<double>\",\n    \"scope_of_work\": \"<string>\",\n    \"cycle_end_type\": \"DAY_OF_MONTH\",\n    \"effective_date\": \"<date>\",\n    \"job_title_name\": \"<string>\",\n    \"special_clause\": \"<string>\",\n    \"payment_due_days\": \"<double>\",\n    \"payment_due_type\": \"REGULAR\",\n    \"first_payment_date\": \"<date>\",\n    \"pay_before_weekends\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/amendments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "amendments"
+                      ],
+                      "variable": [
+                        {
+                          "id": "91b9344a-6bf4-43e7-8264-41775f34e3f3",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) The unique identifier of the employee contract."
+                        }
+                      ]
+                    },
+                    "description": "Amend the details of a contract. Please note that if the contract is already signed or active, then the update will have to be approved and re-signed for to take effect.\n **Token scopes**: `contracts:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "71f94fe7-876a-49a3-85b5-888ba1718e1f",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"scale\": \"monthly\",\n    \"amount\": \"<double>\",\n    \"cycle_end\": \"<double>\",\n    \"frequency\": \"weekly\",\n    \"start_date\": \"<date>\",\n    \"job_title_id\": \"<string>\",\n    \"seniority_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"first_payment\": \"<double>\",\n    \"scope_of_work\": \"<string>\",\n    \"cycle_end_type\": \"DAY_OF_MONTH\",\n    \"effective_date\": \"<date>\",\n    \"job_title_name\": \"<string>\",\n    \"special_clause\": \"<string>\",\n    \"payment_due_days\": \"<double>\",\n    \"payment_due_type\": \"REGULAR\",\n    \"first_payment_date\": \"<date>\",\n    \"pay_before_weekends\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/amendments",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "amendments"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"id\": \"<uuid>\",\n    \"status\": \"outdated\",\n    \"created\": \"<boolean>\",\n    \"worker_id\": \"<uuid>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"rate\": \"<number,null-double>\",\n    \"scale\": \"hourly\",\n    \"job_title\": \"<string,null>\",\n    \"currency_code\": \"<string>\",\n    \"scope_of_work\": \"<string,null>\",\n    \"special_clause\": \"<string,null>\",\n    \"termination_notice_days\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:30:27.000Z",
+                      "updatedAt": "2026-07-28T01:30:27.000Z",
+                      "uid": "35240-71f94fe7-876a-49a3-85b5-888ba1718e1f"
+                    },
+                    {
+                      "id": "56b9f751-c7e7-4f0f-a3cb-e027f25c868e",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"scale\": \"monthly\",\n    \"amount\": \"<double>\",\n    \"cycle_end\": \"<double>\",\n    \"frequency\": \"weekly\",\n    \"start_date\": \"<date>\",\n    \"job_title_id\": \"<string>\",\n    \"seniority_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"first_payment\": \"<double>\",\n    \"scope_of_work\": \"<string>\",\n    \"cycle_end_type\": \"DAY_OF_MONTH\",\n    \"effective_date\": \"<date>\",\n    \"job_title_name\": \"<string>\",\n    \"special_clause\": \"<string>\",\n    \"payment_due_days\": \"<double>\",\n    \"payment_due_type\": \"REGULAR\",\n    \"first_payment_date\": \"<date>\",\n    \"pay_before_weekends\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/amendments",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "amendments"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:27.000Z",
+                      "updatedAt": "2026-07-28T01:30:27.000Z",
+                      "uid": "35240-56b9f751-c7e7-4f0f-a3cb-e027f25c868e"
+                    },
+                    {
+                      "id": "04f5d282-c2f0-421a-a95f-bb74134745ee",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"scale\": \"monthly\",\n    \"amount\": \"<double>\",\n    \"cycle_end\": \"<double>\",\n    \"frequency\": \"weekly\",\n    \"start_date\": \"<date>\",\n    \"job_title_id\": \"<string>\",\n    \"seniority_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"first_payment\": \"<double>\",\n    \"scope_of_work\": \"<string>\",\n    \"cycle_end_type\": \"DAY_OF_MONTH\",\n    \"effective_date\": \"<date>\",\n    \"job_title_name\": \"<string>\",\n    \"special_clause\": \"<string>\",\n    \"payment_due_days\": \"<double>\",\n    \"payment_due_type\": \"REGULAR\",\n    \"first_payment_date\": \"<date>\",\n    \"pay_before_weekends\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/amendments",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "amendments"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:27.000Z",
+                      "updatedAt": "2026-07-28T01:30:27.000Z",
+                      "uid": "35240-04f5d282-c2f0-421a-a95f-bb74134745ee"
+                    },
+                    {
+                      "id": "d7f577bd-1553-4a3c-8f5c-724efece034c",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"scale\": \"monthly\",\n    \"amount\": \"<double>\",\n    \"cycle_end\": \"<double>\",\n    \"frequency\": \"weekly\",\n    \"start_date\": \"<date>\",\n    \"job_title_id\": \"<string>\",\n    \"seniority_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"first_payment\": \"<double>\",\n    \"scope_of_work\": \"<string>\",\n    \"cycle_end_type\": \"DAY_OF_MONTH\",\n    \"effective_date\": \"<date>\",\n    \"job_title_name\": \"<string>\",\n    \"special_clause\": \"<string>\",\n    \"payment_due_days\": \"<double>\",\n    \"payment_due_type\": \"REGULAR\",\n    \"first_payment_date\": \"<date>\",\n    \"pay_before_weekends\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/amendments",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "amendments"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:27.000Z",
+                      "updatedAt": "2026-07-28T01:30:27.000Z",
+                      "uid": "35240-d7f577bd-1553-4a3c-8f5c-724efece034c"
+                    },
+                    {
+                      "id": "008fb876-1b9c-4861-b983-65da528ae326",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"scale\": \"monthly\",\n    \"amount\": \"<double>\",\n    \"cycle_end\": \"<double>\",\n    \"frequency\": \"weekly\",\n    \"start_date\": \"<date>\",\n    \"job_title_id\": \"<string>\",\n    \"seniority_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"first_payment\": \"<double>\",\n    \"scope_of_work\": \"<string>\",\n    \"cycle_end_type\": \"DAY_OF_MONTH\",\n    \"effective_date\": \"<date>\",\n    \"job_title_name\": \"<string>\",\n    \"special_clause\": \"<string>\",\n    \"payment_due_days\": \"<double>\",\n    \"payment_due_type\": \"REGULAR\",\n    \"first_payment_date\": \"<date>\",\n    \"pay_before_weekends\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/amendments",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "amendments"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:27.000Z",
+                      "updatedAt": "2026-07-28T01:30:27.000Z",
+                      "uid": "35240-008fb876-1b9c-4861-b983-65da528ae326"
+                    },
+                    {
+                      "id": "76118038-9fb0-49c9-8afd-aa88d1593be4",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"scale\": \"monthly\",\n    \"amount\": \"<double>\",\n    \"cycle_end\": \"<double>\",\n    \"frequency\": \"weekly\",\n    \"start_date\": \"<date>\",\n    \"job_title_id\": \"<string>\",\n    \"seniority_id\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"first_payment\": \"<double>\",\n    \"scope_of_work\": \"<string>\",\n    \"cycle_end_type\": \"DAY_OF_MONTH\",\n    \"effective_date\": \"<date>\",\n    \"job_title_name\": \"<string>\",\n    \"special_clause\": \"<string>\",\n    \"payment_due_days\": \"<double>\",\n    \"payment_due_type\": \"REGULAR\",\n    \"first_payment_date\": \"<date>\",\n    \"pay_before_weekends\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/amendments",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "amendments"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:27.000Z",
+                      "updatedAt": "2026-07-28T01:30:27.000Z",
+                      "uid": "35240-76118038-9fb0-49c9-8afd-aa88d1593be4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:27.000Z",
+                  "updatedAt": "2026-07-28T01:30:27.000Z",
+                  "uid": "35240-206a3308-1708-454c-8314-0d95afdab13d"
+                },
+                {
+                  "name": "List contract amendments",
+                  "id": "def92f64-5dd3-44eb-ae13-ff22473e8164",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/amendments?statuses=INITIAL&statuses=DECLINED&sign_statuses=WAITING_FOR_APPROVAL&sign_statuses=PENDING&limit=20&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "amendments"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by work statement status.",
+                          "key": "statuses",
+                          "value": "INITIAL"
+                        },
+                        {
+                          "description": "Filter by work statement status.",
+                          "key": "statuses",
+                          "value": "DECLINED"
+                        },
+                        {
+                          "description": "Filter by work statement sign status.",
+                          "key": "sign_statuses",
+                          "value": "WAITING_FOR_APPROVAL"
+                        },
+                        {
+                          "description": "Filter by work statement sign status.",
+                          "key": "sign_statuses",
+                          "value": "PENDING"
+                        },
+                        {
+                          "description": "Maximum number of work statements to return.",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Cursor for pagination.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "e2c06458-801f-4f8c-9868-fb4f041176bc",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the contract"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve amendments of a contract\n **Token scopes**: `contracts:read`, `contracts:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "c7786e2d-ff5f-48d9-925a-aebbab5e0eed",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/amendments?statuses=DECLINED&sign_statuses=PENDING&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "amendments"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by work statement status.",
+                              "key": "statuses",
+                              "value": "DECLINED"
+                            },
+                            {
+                              "description": "Filter by work statement sign status.",
+                              "key": "sign_statuses",
+                              "value": "PENDING"
+                            },
+                            {
+                              "description": "Maximum number of work statements to return.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Cursor for pagination.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"status\": \"ACTIVE\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"sign_status\": \"WAITING_FOR_APPROVAL\",\n      \"rate\": \"<number,null-double>\",\n      \"scale\": \"daily\",\n      \"contract_name\": \"<string,null>\",\n      \"contract_type\": \"payg_milestones\",\n      \"currency_code\": \"<string,null>\",\n      \"effective_date\": \"<string,null-date-time>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"status\": \"OUTDATED\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"sign_status\": \"APPROVED\",\n      \"rate\": \"<number,null-double>\",\n      \"scale\": \"daily\",\n      \"contract_name\": \"<string,null>\",\n      \"contract_type\": \"payg_tasks\",\n      \"currency_code\": \"<string,null>\",\n      \"effective_date\": \"<string,null-date-time>\"\n    }\n  ],\n  \"cursor\": \"<string,null>\",\n  \"has_more\": \"<boolean>\",\n  \"total_count\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T01:30:27.000Z",
+                      "updatedAt": "2026-07-28T01:30:27.000Z",
+                      "uid": "35240-c7786e2d-ff5f-48d9-925a-aebbab5e0eed"
+                    },
+                    {
+                      "id": "72830c05-4286-4fc4-90e2-4d8614f0e16f",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/amendments?statuses=DECLINED&sign_statuses=PENDING&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "amendments"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by work statement status.",
+                              "key": "statuses",
+                              "value": "DECLINED"
+                            },
+                            {
+                              "description": "Filter by work statement sign status.",
+                              "key": "sign_statuses",
+                              "value": "PENDING"
+                            },
+                            {
+                              "description": "Maximum number of work statements to return.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Cursor for pagination.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:27.000Z",
+                      "updatedAt": "2026-07-28T01:30:27.000Z",
+                      "uid": "35240-72830c05-4286-4fc4-90e2-4d8614f0e16f"
+                    },
+                    {
+                      "id": "06d68c90-48f6-400d-b176-1d26d9d7fba7",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/amendments?statuses=DECLINED&sign_statuses=PENDING&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "amendments"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by work statement status.",
+                              "key": "statuses",
+                              "value": "DECLINED"
+                            },
+                            {
+                              "description": "Filter by work statement sign status.",
+                              "key": "sign_statuses",
+                              "value": "PENDING"
+                            },
+                            {
+                              "description": "Maximum number of work statements to return.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Cursor for pagination.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:27.000Z",
+                      "updatedAt": "2026-07-28T01:30:27.000Z",
+                      "uid": "35240-06d68c90-48f6-400d-b176-1d26d9d7fba7"
+                    },
+                    {
+                      "id": "4592d612-14d6-4a36-8c16-506db3d3473b",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/amendments?statuses=DECLINED&sign_statuses=PENDING&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "amendments"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by work statement status.",
+                              "key": "statuses",
+                              "value": "DECLINED"
+                            },
+                            {
+                              "description": "Filter by work statement sign status.",
+                              "key": "sign_statuses",
+                              "value": "PENDING"
+                            },
+                            {
+                              "description": "Maximum number of work statements to return.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Cursor for pagination.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:27.000Z",
+                      "updatedAt": "2026-07-28T01:30:27.000Z",
+                      "uid": "35240-4592d612-14d6-4a36-8c16-506db3d3473b"
+                    },
+                    {
+                      "id": "ae9546dc-52ad-41eb-a673-6479aabef4b3",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/amendments?statuses=DECLINED&sign_statuses=PENDING&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "amendments"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by work statement status.",
+                              "key": "statuses",
+                              "value": "DECLINED"
+                            },
+                            {
+                              "description": "Filter by work statement sign status.",
+                              "key": "sign_statuses",
+                              "value": "PENDING"
+                            },
+                            {
+                              "description": "Maximum number of work statements to return.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Cursor for pagination.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:27.000Z",
+                      "updatedAt": "2026-07-28T01:30:27.000Z",
+                      "uid": "35240-ae9546dc-52ad-41eb-a673-6479aabef4b3"
+                    },
+                    {
+                      "id": "5e2f2306-3edc-489a-bb69-e1ed67d9c8e4",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/amendments?statuses=DECLINED&sign_statuses=PENDING&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "amendments"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by work statement status.",
+                              "key": "statuses",
+                              "value": "DECLINED"
+                            },
+                            {
+                              "description": "Filter by work statement sign status.",
+                              "key": "sign_statuses",
+                              "value": "PENDING"
+                            },
+                            {
+                              "description": "Maximum number of work statements to return.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Cursor for pagination.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:27.000Z",
+                      "updatedAt": "2026-07-28T01:30:27.000Z",
+                      "uid": "35240-5e2f2306-3edc-489a-bb69-e1ed67d9c8e4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:27.000Z",
+                  "updatedAt": "2026-07-28T01:30:27.000Z",
+                  "uid": "35240-def92f64-5dd3-44eb-ae13-ff22473e8164"
+                }
+              ],
+              "id": "23011d11-9216-48bd-a5c5-055512f47418",
+              "createdAt": "2026-07-28T01:30:27.000Z",
+              "updatedAt": "2026-07-28T01:30:27.000Z",
+              "uid": "35240-23011d11-9216-48bd-a5c5-055512f47418"
+            }
+          ],
+          "id": "2f3e0d72-9385-4860-bd93-c4576e4501ca",
+          "createdAt": "2026-07-28T01:30:27.000Z",
+          "updatedAt": "2026-07-28T01:30:27.000Z",
+          "uid": "35240-2f3e0d72-9385-4860-bd93-c4576e4501ca"
+        }
+      ],
+      "id": "f689f9ad-d499-4bd6-bd17-d4a95ff9d7ac",
+      "createdAt": "2026-07-28T01:30:27.000Z",
+      "updatedAt": "2026-07-28T01:30:27.000Z",
+      "uid": "35240-f689f9ad-d499-4bd6-bd17-d4a95ff9d7ac"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

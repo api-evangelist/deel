@@ -1,0 +1,323 @@
+{
+  "info": {
+    "_postman_id": "6141824d-5845-495b-9837-d88c8138342d",
+    "name": "Endpoints subpackage_eorWorkerPayslips API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:31:35.000Z",
+    "updatedAt": "2026-07-28T01:31:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6141824d-5845-495b-9837-d88c8138342d"
+  },
+  "item": [
+    {
+      "name": "eor",
+      "item": [
+        {
+          "name": "workers",
+          "item": [
+            {
+              "name": "{worker_id}",
+              "item": [
+                {
+                  "name": "payslips",
+                  "item": [
+                    {
+                      "name": "{payslip_id}",
+                      "item": [
+                        {
+                          "name": "download",
+                          "item": [
+                            {
+                              "name": "Retrieve payslip PDF download link",
+                              "id": "d477d976-c1a3-4840-a915-0bbc97e4b475",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/workers/:worker_id/payslips/:payslip_id/download",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "workers",
+                                    ":worker_id",
+                                    "payslips",
+                                    ":payslip_id",
+                                    "download"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "4851d716-11ac-423b-aab8-fc6e735d493c",
+                                      "key": "worker_id",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the worker whose payslip download link is being requested."
+                                    },
+                                    {
+                                      "id": "8d130125-4f00-4d78-81f3-d60471f0b74d",
+                                      "key": "payslip_id",
+                                      "value": "<string>",
+                                      "description": "(Required) The ID of the specific payslip to download."
+                                    }
+                                  ]
+                                },
+                                "description": "Retrieve a URL to download a specific payslip PDF for a EoR worker. This endpoint is useful for accessing detailed payment records in a portable document format.\n **Token scopes**: `payslips:read`"
+                              },
+                              "response": [
+                                {
+                                  "id": "29f920e4-fb5b-4f6f-86de-06ad06cbaa4b",
+                                  "name": "Successfully retrieved the payslip download link.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/eor/workers/:worker_id/payslips/:payslip_id/download",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "eor",
+                                        "workers",
+                                        ":worker_id",
+                                        "payslips",
+                                        ":payslip_id",
+                                        "download"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "worker_id"
+                                        },
+                                        {
+                                          "key": "payslip_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"data\": {\n    \"url\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:31:36.000Z",
+                                  "updatedAt": "2026-07-28T01:31:36.000Z",
+                                  "uid": "35240-29f920e4-fb5b-4f6f-86de-06ad06cbaa4b"
+                                },
+                                {
+                                  "id": "f9a87934-f31b-4b47-9758-3073c41c38ed",
+                                  "name": "Operation failed.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/eor/workers/:worker_id/payslips/:payslip_id/download",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "eor",
+                                        "workers",
+                                        ":worker_id",
+                                        "payslips",
+                                        ":payslip_id",
+                                        "download"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "worker_id"
+                                        },
+                                        {
+                                          "key": "payslip_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:31:36.000Z",
+                                  "updatedAt": "2026-07-28T01:31:36.000Z",
+                                  "uid": "35240-f9a87934-f31b-4b47-9758-3073c41c38ed"
+                                },
+                                {
+                                  "id": "33a1d164-3cf3-41c1-a55d-888e1b42ce47",
+                                  "name": "Operation failed.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/eor/workers/:worker_id/payslips/:payslip_id/download",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "eor",
+                                        "workers",
+                                        ":worker_id",
+                                        "payslips",
+                                        ":payslip_id",
+                                        "download"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "worker_id"
+                                        },
+                                        {
+                                          "key": "payslip_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:31:36.000Z",
+                                  "updatedAt": "2026-07-28T01:31:36.000Z",
+                                  "uid": "35240-33a1d164-3cf3-41c1-a55d-888e1b42ce47"
+                                },
+                                {
+                                  "id": "0b91d393-e9bf-451e-aeba-94a13cb21f11",
+                                  "name": "Operation failed.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/eor/workers/:worker_id/payslips/:payslip_id/download",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "eor",
+                                        "workers",
+                                        ":worker_id",
+                                        "payslips",
+                                        ":payslip_id",
+                                        "download"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "worker_id"
+                                        },
+                                        {
+                                          "key": "payslip_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:31:36.000Z",
+                                  "updatedAt": "2026-07-28T01:31:36.000Z",
+                                  "uid": "35240-0b91d393-e9bf-451e-aeba-94a13cb21f11"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:31:36.000Z",
+                              "updatedAt": "2026-07-28T01:31:36.000Z",
+                              "uid": "35240-d477d976-c1a3-4840-a915-0bbc97e4b475"
+                            }
+                          ],
+                          "id": "085cc6cb-281f-4024-b4d6-f31ddc92dc5f",
+                          "createdAt": "2026-07-28T01:31:35.000Z",
+                          "updatedAt": "2026-07-28T01:31:35.000Z",
+                          "uid": "35240-085cc6cb-281f-4024-b4d6-f31ddc92dc5f"
+                        }
+                      ],
+                      "id": "75f461c7-1409-43a8-babc-b36166c139f8",
+                      "createdAt": "2026-07-28T01:31:35.000Z",
+                      "updatedAt": "2026-07-28T01:31:35.000Z",
+                      "uid": "35240-75f461c7-1409-43a8-babc-b36166c139f8"
+                    }
+                  ],
+                  "id": "96270a19-4565-4f7b-aebe-4200e8cb50cc",
+                  "createdAt": "2026-07-28T01:31:35.000Z",
+                  "updatedAt": "2026-07-28T01:31:35.000Z",
+                  "uid": "35240-96270a19-4565-4f7b-aebe-4200e8cb50cc"
+                }
+              ],
+              "id": "84dd6563-8386-4081-b33f-7a6bc34d8102",
+              "createdAt": "2026-07-28T01:31:35.000Z",
+              "updatedAt": "2026-07-28T01:31:35.000Z",
+              "uid": "35240-84dd6563-8386-4081-b33f-7a6bc34d8102"
+            }
+          ],
+          "id": "3abc3a08-e195-47bf-9cb4-3ec070fc10b2",
+          "createdAt": "2026-07-28T01:31:35.000Z",
+          "updatedAt": "2026-07-28T01:31:35.000Z",
+          "uid": "35240-3abc3a08-e195-47bf-9cb4-3ec070fc10b2"
+        }
+      ],
+      "id": "d5f3939b-8a05-4413-907a-7b0c21223c3d",
+      "createdAt": "2026-07-28T01:31:35.000Z",
+      "updatedAt": "2026-07-28T01:31:35.000Z",
+      "uid": "35240-d5f3939b-8a05-4413-907a-7b0c21223c3d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

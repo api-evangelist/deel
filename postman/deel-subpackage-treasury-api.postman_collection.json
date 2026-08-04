@@ -1,0 +1,882 @@
+{
+  "info": {
+    "_postman_id": "3564c275-4d9f-4e21-bde5-5168f31ee734",
+    "name": "Endpoints subpackage_treasury API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:33:30.000Z",
+    "updatedAt": "2026-07-28T01:33:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3564c275-4d9f-4e21-bde5-5168f31ee734"
+  },
+  "item": [
+    {
+      "name": "accounts-payable",
+      "item": [
+        {
+          "name": "vendor-bills",
+          "item": [
+            {
+              "name": "{vendor_bill_id}",
+              "item": [
+                {
+                  "name": "attachments",
+                  "item": [
+                    {
+                      "name": "Upload Vendor Bill Attachment",
+                      "id": "9052ed43-d875-4e63-854e-41953c43d731",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "data",
+                              "value": "[object Object]",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts-payable/vendor-bills/:vendor_bill_id/attachments",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts-payable",
+                            "vendor-bills",
+                            ":vendor_bill_id",
+                            "attachments"
+                          ],
+                          "variable": [
+                            {
+                              "id": "899db970-ce4d-4b41-b7af-20456ca11dd0",
+                              "key": "vendor_bill_id",
+                              "value": "<uuid>",
+                              "description": "(Required) Vendor bill id to attach the file to"
+                            }
+                          ]
+                        },
+                        "description": "Use this endpoint to attach a PDF invoice file to an existing vendor bill entity. Submit the file via multipart/form-data with the file in the request body.\n **Token scopes**: `treasury-vendorbill:write`"
+                      },
+                      "response": [
+                        {
+                          "id": "21dc9613-d14e-49ab-a170-0750b029e1f7",
+                          "name": "File uploaded successfully",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "data",
+                                  "value": "[object Object]",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts-payable/vendor-bills/:vendor_bill_id/attachments",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts-payable",
+                                "vendor-bills",
+                                ":vendor_bill_id",
+                                "attachments"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "vendor_bill_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": {\n    \"id\": \"<uuid>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  }\n}",
+                          "createdAt": "2026-07-28T01:33:30.000Z",
+                          "updatedAt": "2026-07-28T01:33:30.000Z",
+                          "uid": "35240-21dc9613-d14e-49ab-a170-0750b029e1f7"
+                        },
+                        {
+                          "id": "e1cc0d8e-887d-4992-a5fc-3a2d6100f409",
+                          "name": "Bad request - validation error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "data",
+                                  "value": "[object Object]",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts-payable/vendor-bills/:vendor_bill_id/attachments",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts-payable",
+                                "vendor-bills",
+                                ":vendor_bill_id",
+                                "attachments"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "vendor_bill_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:33:30.000Z",
+                          "updatedAt": "2026-07-28T01:33:30.000Z",
+                          "uid": "35240-e1cc0d8e-887d-4992-a5fc-3a2d6100f409"
+                        },
+                        {
+                          "id": "7b22a62e-e750-4a04-96b6-bae9d6e80bd0",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "data",
+                                  "value": "[object Object]",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts-payable/vendor-bills/:vendor_bill_id/attachments",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts-payable",
+                                "vendor-bills",
+                                ":vendor_bill_id",
+                                "attachments"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "vendor_bill_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:33:30.000Z",
+                          "updatedAt": "2026-07-28T01:33:30.000Z",
+                          "uid": "35240-7b22a62e-e750-4a04-96b6-bae9d6e80bd0"
+                        },
+                        {
+                          "id": "5bb7d4a1-9dea-487b-be8d-27f830a9ff93",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "data",
+                                  "value": "[object Object]",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts-payable/vendor-bills/:vendor_bill_id/attachments",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts-payable",
+                                "vendor-bills",
+                                ":vendor_bill_id",
+                                "attachments"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "vendor_bill_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:33:30.000Z",
+                          "updatedAt": "2026-07-28T01:33:30.000Z",
+                          "uid": "35240-5bb7d4a1-9dea-487b-be8d-27f830a9ff93"
+                        },
+                        {
+                          "id": "654aabc3-4226-4069-820d-e0707eac2002",
+                          "name": "Vendor bill not found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "data",
+                                  "value": "[object Object]",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts-payable/vendor-bills/:vendor_bill_id/attachments",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts-payable",
+                                "vendor-bills",
+                                ":vendor_bill_id",
+                                "attachments"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "vendor_bill_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:33:30.000Z",
+                          "updatedAt": "2026-07-28T01:33:30.000Z",
+                          "uid": "35240-654aabc3-4226-4069-820d-e0707eac2002"
+                        },
+                        {
+                          "id": "a75a180a-69d8-433e-94ec-2ffbc1c7001f",
+                          "name": "Internal server error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "data",
+                                  "value": "[object Object]",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts-payable/vendor-bills/:vendor_bill_id/attachments",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts-payable",
+                                "vendor-bills",
+                                ":vendor_bill_id",
+                                "attachments"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "vendor_bill_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:33:30.000Z",
+                          "updatedAt": "2026-07-28T01:33:30.000Z",
+                          "uid": "35240-a75a180a-69d8-433e-94ec-2ffbc1c7001f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:33:30.000Z",
+                      "updatedAt": "2026-07-28T01:33:30.000Z",
+                      "uid": "35240-9052ed43-d875-4e63-854e-41953c43d731"
+                    }
+                  ],
+                  "id": "551fed12-68a8-4d50-ab6c-e1b4b442e006",
+                  "createdAt": "2026-07-28T01:33:30.000Z",
+                  "updatedAt": "2026-07-28T01:33:30.000Z",
+                  "uid": "35240-551fed12-68a8-4d50-ab6c-e1b4b442e006"
+                }
+              ],
+              "id": "ee42faee-c1fd-4347-81b9-54dfa893d39b",
+              "createdAt": "2026-07-28T01:33:30.000Z",
+              "updatedAt": "2026-07-28T01:33:30.000Z",
+              "uid": "35240-ee42faee-c1fd-4347-81b9-54dfa893d39b"
+            },
+            {
+              "name": "Create Vendor Bill",
+              "id": "b9e32217-818a-43a3-8a79-8c9761d58eb7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"currency\": \"<string>\",\n    \"due_date\": \"<date>\",\n    \"subtotal\": \"<double>\",\n    \"reference\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"line_items\": [\n      {\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"unit_price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vat_code\": \"<string>\",\n        \"vat_amount\": \"<double>\",\n        \"department_id\": \"<string>\",\n        \"expense_account_id\": \"<string>\"\n      },\n      {\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"unit_price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vat_code\": \"<string>\",\n        \"vat_amount\": \"<double>\",\n        \"department_id\": \"<string>\",\n        \"expense_account_id\": \"<string>\"\n      }\n    ],\n    \"description\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"subsidiary_id\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/accounts-payable/vendor-bills",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts-payable",
+                    "vendor-bills"
+                  ]
+                },
+                "description": "Creates vendor bills from structured invoice data submitted by an external invoice provider integration.\n **Token scopes**: `treasury-vendorbill:write`"
+              },
+              "response": [
+                {
+                  "id": "329bce84-eccd-4aa7-ba8f-157c2ea12ada",
+                  "name": "Vendor bill created successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"currency\": \"<string>\",\n    \"due_date\": \"<date>\",\n    \"subtotal\": \"<double>\",\n    \"reference\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"line_items\": [\n      {\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"unit_price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vat_code\": \"<string>\",\n        \"vat_amount\": \"<double>\",\n        \"department_id\": \"<string>\",\n        \"expense_account_id\": \"<string>\"\n      },\n      {\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"unit_price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vat_code\": \"<string>\",\n        \"vat_amount\": \"<double>\",\n        \"department_id\": \"<string>\",\n        \"expense_account_id\": \"<string>\"\n      }\n    ],\n    \"description\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"subsidiary_id\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts-payable/vendor-bills",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts-payable",
+                        "vendor-bills"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"id\": \"<uuid>\",\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"currency\": \"<string>\",\n    \"due_date\": \"<date>\",\n    \"subtotal\": \"<double>\",\n    \"is_active\": \"<boolean>\",\n    \"reference\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"line_items\": [\n      {\n        \"id\": \"<uuid>\",\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"created_at\": \"<dateTime>\",\n        \"unit_price\": \"<double>\",\n        \"updated_at\": \"<dateTime>\",\n        \"vat_amount\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vendor_bill_id\": \"<uuid>\",\n        \"vat_code\": \"<string,null>\",\n        \"department_id\": \"<string,null>\",\n        \"expense_account_id\": \"<string,null>\"\n      },\n      {\n        \"id\": \"<uuid>\",\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"created_at\": \"<dateTime>\",\n        \"unit_price\": \"<double>\",\n        \"updated_at\": \"<dateTime>\",\n        \"vat_amount\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vendor_bill_id\": \"<uuid>\",\n        \"vat_code\": \"<string,null>\",\n        \"department_id\": \"<string,null>\",\n        \"expense_account_id\": \"<string,null>\"\n      }\n    ],\n    \"updated_at\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"exchange_rate\": \"<number,null-double>\",\n    \"subsidiary_id\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:30.000Z",
+                  "updatedAt": "2026-07-28T01:33:30.000Z",
+                  "uid": "35240-329bce84-eccd-4aa7-ba8f-157c2ea12ada"
+                },
+                {
+                  "id": "dce5f00a-07d1-4484-b823-737db175ec23",
+                  "name": "Bad request - validation error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"currency\": \"<string>\",\n    \"due_date\": \"<date>\",\n    \"subtotal\": \"<double>\",\n    \"reference\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"line_items\": [\n      {\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"unit_price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vat_code\": \"<string>\",\n        \"vat_amount\": \"<double>\",\n        \"department_id\": \"<string>\",\n        \"expense_account_id\": \"<string>\"\n      },\n      {\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"unit_price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vat_code\": \"<string>\",\n        \"vat_amount\": \"<double>\",\n        \"department_id\": \"<string>\",\n        \"expense_account_id\": \"<string>\"\n      }\n    ],\n    \"description\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"subsidiary_id\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts-payable/vendor-bills",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts-payable",
+                        "vendor-bills"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:30.000Z",
+                  "updatedAt": "2026-07-28T01:33:30.000Z",
+                  "uid": "35240-dce5f00a-07d1-4484-b823-737db175ec23"
+                },
+                {
+                  "id": "a1d726a7-2ed5-4000-9d2e-79d8f71d4ec1",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"currency\": \"<string>\",\n    \"due_date\": \"<date>\",\n    \"subtotal\": \"<double>\",\n    \"reference\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"line_items\": [\n      {\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"unit_price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vat_code\": \"<string>\",\n        \"vat_amount\": \"<double>\",\n        \"department_id\": \"<string>\",\n        \"expense_account_id\": \"<string>\"\n      },\n      {\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"unit_price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vat_code\": \"<string>\",\n        \"vat_amount\": \"<double>\",\n        \"department_id\": \"<string>\",\n        \"expense_account_id\": \"<string>\"\n      }\n    ],\n    \"description\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"subsidiary_id\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts-payable/vendor-bills",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts-payable",
+                        "vendor-bills"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:30.000Z",
+                  "updatedAt": "2026-07-28T01:33:30.000Z",
+                  "uid": "35240-a1d726a7-2ed5-4000-9d2e-79d8f71d4ec1"
+                },
+                {
+                  "id": "410d4e08-f5ef-4b06-8790-e0f78be5e915",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"currency\": \"<string>\",\n    \"due_date\": \"<date>\",\n    \"subtotal\": \"<double>\",\n    \"reference\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"line_items\": [\n      {\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"unit_price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vat_code\": \"<string>\",\n        \"vat_amount\": \"<double>\",\n        \"department_id\": \"<string>\",\n        \"expense_account_id\": \"<string>\"\n      },\n      {\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"unit_price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vat_code\": \"<string>\",\n        \"vat_amount\": \"<double>\",\n        \"department_id\": \"<string>\",\n        \"expense_account_id\": \"<string>\"\n      }\n    ],\n    \"description\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"subsidiary_id\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts-payable/vendor-bills",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts-payable",
+                        "vendor-bills"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:30.000Z",
+                  "updatedAt": "2026-07-28T01:33:30.000Z",
+                  "uid": "35240-410d4e08-f5ef-4b06-8790-e0f78be5e915"
+                },
+                {
+                  "id": "761d99d9-98f9-40e7-abc4-bbc7430283e9",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"currency\": \"<string>\",\n    \"due_date\": \"<date>\",\n    \"subtotal\": \"<double>\",\n    \"reference\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"line_items\": [\n      {\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"unit_price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vat_code\": \"<string>\",\n        \"vat_amount\": \"<double>\",\n        \"department_id\": \"<string>\",\n        \"expense_account_id\": \"<string>\"\n      },\n      {\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"unit_price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vat_code\": \"<string>\",\n        \"vat_amount\": \"<double>\",\n        \"department_id\": \"<string>\",\n        \"expense_account_id\": \"<string>\"\n      }\n    ],\n    \"description\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"subsidiary_id\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts-payable/vendor-bills",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts-payable",
+                        "vendor-bills"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:30.000Z",
+                  "updatedAt": "2026-07-28T01:33:30.000Z",
+                  "uid": "35240-761d99d9-98f9-40e7-abc4-bbc7430283e9"
+                },
+                {
+                  "id": "d93b9213-2681-439f-b7aa-bebf90c8232a",
+                  "name": "Conflict - duplicate reference",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"currency\": \"<string>\",\n    \"due_date\": \"<date>\",\n    \"subtotal\": \"<double>\",\n    \"reference\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"line_items\": [\n      {\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"unit_price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vat_code\": \"<string>\",\n        \"vat_amount\": \"<double>\",\n        \"department_id\": \"<string>\",\n        \"expense_account_id\": \"<string>\"\n      },\n      {\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"unit_price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vat_code\": \"<string>\",\n        \"vat_amount\": \"<double>\",\n        \"department_id\": \"<string>\",\n        \"expense_account_id\": \"<string>\"\n      }\n    ],\n    \"description\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"subsidiary_id\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts-payable/vendor-bills",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts-payable",
+                        "vendor-bills"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:30.000Z",
+                  "updatedAt": "2026-07-28T01:33:30.000Z",
+                  "uid": "35240-d93b9213-2681-439f-b7aa-bebf90c8232a"
+                },
+                {
+                  "id": "de4a951d-1f9c-4562-9cd4-2504cb8a1ed2",
+                  "name": "Internal server error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"currency\": \"<string>\",\n    \"due_date\": \"<date>\",\n    \"subtotal\": \"<double>\",\n    \"reference\": \"<string>\",\n    \"vendor_id\": \"<string>\",\n    \"line_items\": [\n      {\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"unit_price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vat_code\": \"<string>\",\n        \"vat_amount\": \"<double>\",\n        \"department_id\": \"<string>\",\n        \"expense_account_id\": \"<string>\"\n      },\n      {\n        \"amount\": \"<double>\",\n        \"quantity\": \"<double>\",\n        \"vat_rate\": \"<double>\",\n        \"unit_price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"vat_code\": \"<string>\",\n        \"vat_amount\": \"<double>\",\n        \"department_id\": \"<string>\",\n        \"expense_account_id\": \"<string>\"\n      }\n    ],\n    \"description\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"subsidiary_id\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts-payable/vendor-bills",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts-payable",
+                        "vendor-bills"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:30.000Z",
+                  "updatedAt": "2026-07-28T01:33:30.000Z",
+                  "uid": "35240-de4a951d-1f9c-4562-9cd4-2504cb8a1ed2"
+                }
+              ],
+              "createdAt": "2026-07-28T01:33:30.000Z",
+              "updatedAt": "2026-07-28T01:33:30.000Z",
+              "uid": "35240-b9e32217-818a-43a3-8a79-8c9761d58eb7"
+            }
+          ],
+          "id": "c2bfd8dd-26e3-46f3-a845-8436eb97299b",
+          "createdAt": "2026-07-28T01:33:30.000Z",
+          "updatedAt": "2026-07-28T01:33:30.000Z",
+          "uid": "35240-c2bfd8dd-26e3-46f3-a845-8436eb97299b"
+        }
+      ],
+      "id": "b216c68f-bf0a-44fb-85d0-882169e4680f",
+      "createdAt": "2026-07-28T01:33:30.000Z",
+      "updatedAt": "2026-07-28T01:33:30.000Z",
+      "uid": "35240-b216c68f-bf0a-44fb-85d0-882169e4680f"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

@@ -1,0 +1,835 @@
+{
+  "info": {
+    "_postman_id": "c5361ae7-ab6e-4ff0-9237-de3c084273f5",
+    "name": "Endpoints subpackage_assets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:08.000Z",
+    "updatedAt": "2026-07-28T01:30:08.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c5361ae7-ab6e-4ff0-9237-de3c084273f5"
+  },
+  "item": [
+    {
+      "name": "it",
+      "item": [
+        {
+          "name": "assets",
+          "item": [
+            {
+              "name": "{asset_id}",
+              "item": [
+                {
+                  "name": "Retrieve an IT asset",
+                  "id": "2d19d788-49bc-471f-b18d-407ec0aaa84c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/it/assets/:asset_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "it",
+                        "assets",
+                        ":asset_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "0c02f9ee-3b8d-4f92-9d08-96e508cd543a",
+                          "key": "asset_id",
+                          "value": "<uuid>",
+                          "description": "(Required) Unique identifier of the IT asset"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve the details of a specific IT asset using its unique identifier. This allows you to check information such as the asset's model, serial number, status, and location.  For more info, visit [Assets](https://developer.deel.com/docs/deel-it-api#assets).\n **Token scopes**: `it-assets:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "4a99531c-0b5b-4ca6-9793-2a0b3899a3da",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/it/assets/:asset_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "it",
+                            "assets",
+                            ":asset_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "asset_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"id\": \"<uuid>\",\n    \"grade\": \"NEW\",\n    \"status\": \"BROKEN_AT_WAREHOUSE\",\n    \"product\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"brand\": \"<string>\",\n      \"category\": \"DESKTOP\",\n      \"specifications\": [\n        {\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    \"location\": \"WITH_USER\",\n    \"ownership\": {\n      \"name\": \"<string>\",\n      \"type\": \"DEEL\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"assigned_user\": {\n      \"emails\": [\n        \"<email>\",\n        \"<email>\"\n      ],\n      \"address\": {\n        \"id\": \"<uuid>\",\n        \"city\": \"<string,null>\",\n        \"type\": \"BILLING\",\n        \"line1\": \"<string,null>\",\n        \"line2\": \"<string,null>\",\n        \"state\": \"<string,null>\",\n        \"country\": \"KM\",\n        \"is_valid\": \"<boolean>\",\n        \"post_code\": \"<string,null>\",\n        \"phone_number\": \"<string,null>\",\n        \"date_of_birth\": \"<string,null-date>\",\n        \"tax_id_number\": \"<string,null>\",\n        \"passport_number\": \"<string,null>\",\n        \"delivery_instructions\": \"<string,null>\"\n      },\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"hris_profile_id\": \"<uuid>\"\n    },\n    \"purchase_date\": \"<string,null-date>\",\n    \"serial_number\": \"<string,null>\",\n    \"purchase_value\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"PAB\"\n    },\n    \"assigned_warehouse\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"address\": {\n        \"id\": \"<uuid>\",\n        \"city\": \"<string,null>\",\n        \"type\": \"PARTIAL\",\n        \"line1\": \"<string,null>\",\n        \"line2\": \"<string,null>\",\n        \"state\": \"<string,null>\",\n        \"country\": \"AT\",\n        \"is_valid\": \"<boolean>\",\n        \"post_code\": \"<string,null>\",\n        \"phone_number\": \"<string,null>\",\n        \"date_of_birth\": \"<string,null-date>\",\n        \"tax_id_number\": \"<string,null>\",\n        \"passport_number\": \"<string,null>\",\n        \"delivery_instructions\": \"<string,null>\"\n      },\n      \"ownership\": \"DEEL\",\n      \"warehouse_type\": \"CLEARANCE\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T01:30:09.000Z",
+                      "updatedAt": "2026-07-28T01:30:09.000Z",
+                      "uid": "35240-4a99531c-0b5b-4ca6-9793-2a0b3899a3da"
+                    },
+                    {
+                      "id": "63216082-a173-4228-97d8-87b91b9b3064",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/it/assets/:asset_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "it",
+                            "assets",
+                            ":asset_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "asset_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:09.000Z",
+                      "updatedAt": "2026-07-28T01:30:09.000Z",
+                      "uid": "35240-63216082-a173-4228-97d8-87b91b9b3064"
+                    },
+                    {
+                      "id": "23eafebb-fbae-4734-817a-52387c85765f",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/it/assets/:asset_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "it",
+                            "assets",
+                            ":asset_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "asset_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:09.000Z",
+                      "updatedAt": "2026-07-28T01:30:09.000Z",
+                      "uid": "35240-23eafebb-fbae-4734-817a-52387c85765f"
+                    },
+                    {
+                      "id": "596133ed-3862-4826-ae50-75ab22cb3266",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/it/assets/:asset_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "it",
+                            "assets",
+                            ":asset_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "asset_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:09.000Z",
+                      "updatedAt": "2026-07-28T01:30:09.000Z",
+                      "uid": "35240-596133ed-3862-4826-ae50-75ab22cb3266"
+                    },
+                    {
+                      "id": "6052ec35-4aeb-4857-8c88-69ba59f1a54a",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/it/assets/:asset_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "it",
+                            "assets",
+                            ":asset_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "asset_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:09.000Z",
+                      "updatedAt": "2026-07-28T01:30:09.000Z",
+                      "uid": "35240-6052ec35-4aeb-4857-8c88-69ba59f1a54a"
+                    },
+                    {
+                      "id": "be5b7f78-e92b-40cc-b237-66c5a468ffbd",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/it/assets/:asset_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "it",
+                            "assets",
+                            ":asset_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "asset_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:09.000Z",
+                      "updatedAt": "2026-07-28T01:30:09.000Z",
+                      "uid": "35240-be5b7f78-e92b-40cc-b237-66c5a468ffbd"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:09.000Z",
+                  "updatedAt": "2026-07-28T01:30:09.000Z",
+                  "uid": "35240-2d19d788-49bc-471f-b18d-407ec0aaa84c"
+                }
+              ],
+              "id": "f1873181-d668-4813-aa31-0ddb72aa2939",
+              "createdAt": "2026-07-28T01:30:09.000Z",
+              "updatedAt": "2026-07-28T01:30:09.000Z",
+              "uid": "35240-f1873181-d668-4813-aa31-0ddb72aa2939"
+            },
+            {
+              "name": "List IT assets",
+              "id": "a6558e22-8328-41ce-b350-f9a023ef9e65",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/it/assets?cursor=<string>&limit=20&hris_profile_id=<uuid>&location=WITH_USER&category=FOOTREST&status=ACTIVE",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "it",
+                    "assets"
+                  ],
+                  "query": [
+                    {
+                      "description": "Indicates where the next page of results starts, as returned in a paginated list response",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return a page of results with given number of records",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Filter assets by assigned worker with given HRIS Profile ID",
+                      "key": "hris_profile_id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter assets by their location",
+                      "key": "location",
+                      "value": "WITH_USER"
+                    },
+                    {
+                      "description": "Filter assets by their product category",
+                      "key": "category",
+                      "value": "FOOTREST"
+                    },
+                    {
+                      "description": "Filter assets by their status",
+                      "key": "status",
+                      "value": "ACTIVE"
+                    }
+                  ]
+                },
+                "description": "Retrieve a paginated list of all IT assets managed by the organization. This is useful for getting a complete overview of your equipment inventory and understanding the state of each asset. For more info, visit [Assets](https://developer.deel.com/docs/deel-it-api#assets).\n **Token scopes**: `it-assets:read`"
+              },
+              "response": [
+                {
+                  "id": "aedb3f6e-4459-4852-9936-9ef198518e8f",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/it/assets?cursor=<string>&limit=20&hris_profile_id=<uuid>&location=WITH_USER&category=FOOTREST&status=ACTIVE",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "it",
+                        "assets"
+                      ],
+                      "query": [
+                        {
+                          "description": "Indicates where the next page of results starts, as returned in a paginated list response",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results with given number of records",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Filter assets by assigned worker with given HRIS Profile ID",
+                          "key": "hris_profile_id",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter assets by their location",
+                          "key": "location",
+                          "value": "WITH_USER"
+                        },
+                        {
+                          "description": "Filter assets by their product category",
+                          "key": "category",
+                          "value": "FOOTREST"
+                        },
+                        {
+                          "description": "Filter assets by their status",
+                          "key": "status",
+                          "value": "ACTIVE"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"grade\": \"A\",\n      \"status\": \"BROKEN_AT_WAREHOUSE\",\n      \"product\": {\n        \"id\": \"<uuid>\",\n        \"name\": \"<string>\",\n        \"brand\": \"<string>\",\n        \"category\": \"MICE_TRACKPAD\"\n      },\n      \"location\": \"SUPPLIER\",\n      \"ownership\": {\n        \"name\": \"<string>\",\n        \"type\": \"DEEL\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"assigned_user\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"address\": {\n          \"id\": \"<uuid>\",\n          \"city\": \"<string,null>\",\n          \"type\": \"COLLECTION\",\n          \"line1\": \"<string,null>\",\n          \"line2\": \"<string,null>\",\n          \"state\": \"<string,null>\",\n          \"country\": \"MZ\",\n          \"is_valid\": \"<boolean>\",\n          \"post_code\": \"<string,null>\",\n          \"phone_number\": \"<string,null>\",\n          \"date_of_birth\": \"<string,null-date>\",\n          \"tax_id_number\": \"<string,null>\",\n          \"passport_number\": \"<string,null>\",\n          \"delivery_instructions\": \"<string,null>\"\n        },\n        \"last_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"hris_profile_id\": \"<uuid>\"\n      },\n      \"purchase_date\": \"<string,null-date>\",\n      \"serial_number\": \"<string,null>\",\n      \"purchase_value\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"VUV\"\n      },\n      \"assigned_warehouse\": {\n        \"id\": \"<uuid>\",\n        \"name\": \"<string>\",\n        \"address\": {\n          \"id\": \"<uuid>\",\n          \"city\": \"<string,null>\",\n          \"type\": \"COLLECTION\",\n          \"line1\": \"<string,null>\",\n          \"line2\": \"<string,null>\",\n          \"state\": \"<string,null>\",\n          \"country\": \"AM\",\n          \"is_valid\": \"<boolean>\",\n          \"post_code\": \"<string,null>\",\n          \"phone_number\": \"<string,null>\",\n          \"date_of_birth\": \"<string,null-date>\",\n          \"tax_id_number\": \"<string,null>\",\n          \"passport_number\": \"<string,null>\",\n          \"delivery_instructions\": \"<string,null>\"\n        },\n        \"ownership\": \"ORGANIZATION\",\n        \"warehouse_type\": \"CLEARANCE\"\n      }\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"grade\": \"NEW\",\n      \"status\": \"BROKEN_AT_WAREHOUSE\",\n      \"product\": {\n        \"id\": \"<uuid>\",\n        \"name\": \"<string>\",\n        \"brand\": \"<string>\",\n        \"category\": \"SHREDDER\"\n      },\n      \"location\": \"SUPPLIER\",\n      \"ownership\": {\n        \"name\": \"<string>\",\n        \"type\": \"DEEL\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"assigned_user\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"address\": {\n          \"id\": \"<uuid>\",\n          \"city\": \"<string,null>\",\n          \"type\": \"PII\",\n          \"line1\": \"<string,null>\",\n          \"line2\": \"<string,null>\",\n          \"state\": \"<string,null>\",\n          \"country\": \"LA\",\n          \"is_valid\": \"<boolean>\",\n          \"post_code\": \"<string,null>\",\n          \"phone_number\": \"<string,null>\",\n          \"date_of_birth\": \"<string,null-date>\",\n          \"tax_id_number\": \"<string,null>\",\n          \"passport_number\": \"<string,null>\",\n          \"delivery_instructions\": \"<string,null>\"\n        },\n        \"last_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"hris_profile_id\": \"<uuid>\"\n      },\n      \"purchase_date\": \"<string,null-date>\",\n      \"serial_number\": \"<string,null>\",\n      \"purchase_value\": {\n        \"amount\": \"<string>\",\n        \"currency\": \"LYD\"\n      },\n      \"assigned_warehouse\": {\n        \"id\": \"<uuid>\",\n        \"name\": \"<string>\",\n        \"address\": {\n          \"id\": \"<uuid>\",\n          \"city\": \"<string,null>\",\n          \"type\": \"SUPPLIER\",\n          \"line1\": \"<string,null>\",\n          \"line2\": \"<string,null>\",\n          \"state\": \"<string,null>\",\n          \"country\": \"DE\",\n          \"is_valid\": \"<boolean>\",\n          \"post_code\": \"<string,null>\",\n          \"phone_number\": \"<string,null>\",\n          \"date_of_birth\": \"<string,null-date>\",\n          \"tax_id_number\": \"<string,null>\",\n          \"passport_number\": \"<string,null>\",\n          \"delivery_instructions\": \"<string,null>\"\n        },\n        \"ownership\": \"DEEL\",\n        \"warehouse_type\": \"ORGANIZATION\"\n      }\n    }\n  ],\n  \"has_more\": \"<boolean>\",\n  \"next_cursor\": \"<string,null>\",\n  \"total_count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:30:09.000Z",
+                  "updatedAt": "2026-07-28T01:30:09.000Z",
+                  "uid": "35240-aedb3f6e-4459-4852-9936-9ef198518e8f"
+                },
+                {
+                  "id": "82aeb984-0e52-485d-99ea-c7ac03f882f6",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/it/assets?cursor=<string>&limit=20&hris_profile_id=<uuid>&location=WITH_USER&category=FOOTREST&status=ACTIVE",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "it",
+                        "assets"
+                      ],
+                      "query": [
+                        {
+                          "description": "Indicates where the next page of results starts, as returned in a paginated list response",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results with given number of records",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Filter assets by assigned worker with given HRIS Profile ID",
+                          "key": "hris_profile_id",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter assets by their location",
+                          "key": "location",
+                          "value": "WITH_USER"
+                        },
+                        {
+                          "description": "Filter assets by their product category",
+                          "key": "category",
+                          "value": "FOOTREST"
+                        },
+                        {
+                          "description": "Filter assets by their status",
+                          "key": "status",
+                          "value": "ACTIVE"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:30:09.000Z",
+                  "updatedAt": "2026-07-28T01:30:09.000Z",
+                  "uid": "35240-82aeb984-0e52-485d-99ea-c7ac03f882f6"
+                },
+                {
+                  "id": "605a9dcb-b57c-4c9a-8ad8-bc208c94f8d7",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/it/assets?cursor=<string>&limit=20&hris_profile_id=<uuid>&location=WITH_USER&category=FOOTREST&status=ACTIVE",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "it",
+                        "assets"
+                      ],
+                      "query": [
+                        {
+                          "description": "Indicates where the next page of results starts, as returned in a paginated list response",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results with given number of records",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Filter assets by assigned worker with given HRIS Profile ID",
+                          "key": "hris_profile_id",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter assets by their location",
+                          "key": "location",
+                          "value": "WITH_USER"
+                        },
+                        {
+                          "description": "Filter assets by their product category",
+                          "key": "category",
+                          "value": "FOOTREST"
+                        },
+                        {
+                          "description": "Filter assets by their status",
+                          "key": "status",
+                          "value": "ACTIVE"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:30:09.000Z",
+                  "updatedAt": "2026-07-28T01:30:09.000Z",
+                  "uid": "35240-605a9dcb-b57c-4c9a-8ad8-bc208c94f8d7"
+                },
+                {
+                  "id": "5a57df23-2fef-4fb2-a12b-b47e6784854b",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/it/assets?cursor=<string>&limit=20&hris_profile_id=<uuid>&location=WITH_USER&category=FOOTREST&status=ACTIVE",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "it",
+                        "assets"
+                      ],
+                      "query": [
+                        {
+                          "description": "Indicates where the next page of results starts, as returned in a paginated list response",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results with given number of records",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Filter assets by assigned worker with given HRIS Profile ID",
+                          "key": "hris_profile_id",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter assets by their location",
+                          "key": "location",
+                          "value": "WITH_USER"
+                        },
+                        {
+                          "description": "Filter assets by their product category",
+                          "key": "category",
+                          "value": "FOOTREST"
+                        },
+                        {
+                          "description": "Filter assets by their status",
+                          "key": "status",
+                          "value": "ACTIVE"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:30:09.000Z",
+                  "updatedAt": "2026-07-28T01:30:09.000Z",
+                  "uid": "35240-5a57df23-2fef-4fb2-a12b-b47e6784854b"
+                },
+                {
+                  "id": "82eb049e-3d5e-4d3b-bfcf-585520fdcb45",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/it/assets?cursor=<string>&limit=20&hris_profile_id=<uuid>&location=WITH_USER&category=FOOTREST&status=ACTIVE",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "it",
+                        "assets"
+                      ],
+                      "query": [
+                        {
+                          "description": "Indicates where the next page of results starts, as returned in a paginated list response",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results with given number of records",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Filter assets by assigned worker with given HRIS Profile ID",
+                          "key": "hris_profile_id",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter assets by their location",
+                          "key": "location",
+                          "value": "WITH_USER"
+                        },
+                        {
+                          "description": "Filter assets by their product category",
+                          "key": "category",
+                          "value": "FOOTREST"
+                        },
+                        {
+                          "description": "Filter assets by their status",
+                          "key": "status",
+                          "value": "ACTIVE"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:30:09.000Z",
+                  "updatedAt": "2026-07-28T01:30:09.000Z",
+                  "uid": "35240-82eb049e-3d5e-4d3b-bfcf-585520fdcb45"
+                },
+                {
+                  "id": "64d2525c-f3bf-4b0c-9f88-5c5bca16c82c",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/it/assets?cursor=<string>&limit=20&hris_profile_id=<uuid>&location=WITH_USER&category=FOOTREST&status=ACTIVE",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "it",
+                        "assets"
+                      ],
+                      "query": [
+                        {
+                          "description": "Indicates where the next page of results starts, as returned in a paginated list response",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results with given number of records",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Filter assets by assigned worker with given HRIS Profile ID",
+                          "key": "hris_profile_id",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter assets by their location",
+                          "key": "location",
+                          "value": "WITH_USER"
+                        },
+                        {
+                          "description": "Filter assets by their product category",
+                          "key": "category",
+                          "value": "FOOTREST"
+                        },
+                        {
+                          "description": "Filter assets by their status",
+                          "key": "status",
+                          "value": "ACTIVE"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:30:09.000Z",
+                  "updatedAt": "2026-07-28T01:30:09.000Z",
+                  "uid": "35240-64d2525c-f3bf-4b0c-9f88-5c5bca16c82c"
+                }
+              ],
+              "createdAt": "2026-07-28T01:30:09.000Z",
+              "updatedAt": "2026-07-28T01:30:09.000Z",
+              "uid": "35240-a6558e22-8328-41ce-b350-f9a023ef9e65"
+            }
+          ],
+          "id": "206e9ce4-9c79-4d1c-b8bd-40d28287e61c",
+          "createdAt": "2026-07-28T01:30:09.000Z",
+          "updatedAt": "2026-07-28T01:30:09.000Z",
+          "uid": "35240-206e9ce4-9c79-4d1c-b8bd-40d28287e61c"
+        }
+      ],
+      "id": "50e06e29-b15d-4268-9489-743051ae8bda",
+      "createdAt": "2026-07-28T01:30:09.000Z",
+      "updatedAt": "2026-07-28T01:30:09.000Z",
+      "uid": "35240-50e06e29-b15d-4268-9489-743051ae8bda"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

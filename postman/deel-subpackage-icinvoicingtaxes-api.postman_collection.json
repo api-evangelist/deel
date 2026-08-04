@@ -1,0 +1,1502 @@
+{
+  "info": {
+    "_postman_id": "dd145d71-912a-4447-8fc1-70596293fa67",
+    "name": "Endpoints subpackage_icInvoicingTaxes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:31:42.000Z",
+    "updatedAt": "2026-07-28T01:31:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-dd145d71-912a-4447-8fc1-70596293fa67"
+  },
+  "item": [
+    {
+      "name": "contracts",
+      "item": [
+        {
+          "name": "{contract_id}",
+          "item": [
+            {
+              "name": "ic-invoicing-taxes",
+              "item": [
+                {
+                  "name": "{tax_type}",
+                  "item": [
+                    {
+                      "name": "Delete IC invoicing tax",
+                      "id": "3cc62fe1-8e03-42cf-a648-358cfac810ac",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes/:tax_type",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes",
+                            ":tax_type"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c9e68f67-e733-4ede-8e61-05e6cdde7575",
+                              "key": "contract_id",
+                              "value": "<string>",
+                              "description": "(Required) Deel Contract ID"
+                            },
+                            {
+                              "id": "bf5e3015-b855-449a-8766-3a30121eb8ab",
+                              "key": "tax_type",
+                              "value": "WITHHOLDING_TAX",
+                              "description": "(Required) IC tax type"
+                            }
+                          ]
+                        },
+                        "description": "Use this endpoint to remove an IC invoicing tax from a contract when it no longer applies. Specify the contract_id and tax_type in the path. This action is irreversible and removes the tax from future invoicing.\n **Token scopes**: `invoice-adjustments:write`"
+                      },
+                      "response": [
+                        {
+                          "id": "e460924b-41e9-432b-8da6-91accc09fa90",
+                          "name": "IC tax successfully deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes/:tax_type",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "contracts",
+                                ":contract_id",
+                                "ic-invoicing-taxes",
+                                ":tax_type"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                },
+                                {
+                                  "key": "tax_type"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T01:31:43.000Z",
+                          "updatedAt": "2026-07-28T01:31:43.000Z",
+                          "uid": "35240-e460924b-41e9-432b-8da6-91accc09fa90"
+                        },
+                        {
+                          "id": "e7b97574-c921-46b1-ba14-c615f2066850",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes/:tax_type",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "contracts",
+                                ":contract_id",
+                                "ic-invoicing-taxes",
+                                ":tax_type"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                },
+                                {
+                                  "key": "tax_type"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:43.000Z",
+                          "updatedAt": "2026-07-28T01:31:43.000Z",
+                          "uid": "35240-e7b97574-c921-46b1-ba14-c615f2066850"
+                        },
+                        {
+                          "id": "47709adf-3025-4465-bc2e-0bdedd2adc87",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes/:tax_type",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "contracts",
+                                ":contract_id",
+                                "ic-invoicing-taxes",
+                                ":tax_type"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                },
+                                {
+                                  "key": "tax_type"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:43.000Z",
+                          "updatedAt": "2026-07-28T01:31:43.000Z",
+                          "uid": "35240-47709adf-3025-4465-bc2e-0bdedd2adc87"
+                        },
+                        {
+                          "id": "8b36a6b1-9a58-4542-9d79-13f79225e645",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes/:tax_type",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "contracts",
+                                ":contract_id",
+                                "ic-invoicing-taxes",
+                                ":tax_type"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                },
+                                {
+                                  "key": "tax_type"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:43.000Z",
+                          "updatedAt": "2026-07-28T01:31:43.000Z",
+                          "uid": "35240-8b36a6b1-9a58-4542-9d79-13f79225e645"
+                        },
+                        {
+                          "id": "8f2cb140-75a1-47d6-84b9-aa63e5fde42a",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes/:tax_type",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "contracts",
+                                ":contract_id",
+                                "ic-invoicing-taxes",
+                                ":tax_type"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                },
+                                {
+                                  "key": "tax_type"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:43.000Z",
+                          "updatedAt": "2026-07-28T01:31:43.000Z",
+                          "uid": "35240-8f2cb140-75a1-47d6-84b9-aa63e5fde42a"
+                        },
+                        {
+                          "id": "36297e55-daba-467a-8dfb-239abf1d1a2e",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes/:tax_type",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "contracts",
+                                ":contract_id",
+                                "ic-invoicing-taxes",
+                                ":tax_type"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                },
+                                {
+                                  "key": "tax_type"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:43.000Z",
+                          "updatedAt": "2026-07-28T01:31:43.000Z",
+                          "uid": "35240-36297e55-daba-467a-8dfb-239abf1d1a2e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-3cc62fe1-8e03-42cf-a648-358cfac810ac"
+                    }
+                  ],
+                  "id": "3bee15e8-5944-473f-820b-604f3046bb58",
+                  "createdAt": "2026-07-28T01:31:43.000Z",
+                  "updatedAt": "2026-07-28T01:31:43.000Z",
+                  "uid": "35240-3bee15e8-5944-473f-820b-604f3046bb58"
+                },
+                {
+                  "name": "Create IC invoicing tax",
+                  "id": "9c5ef309-6419-484b-a24b-adc083dffd89",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"tax_type\": \"WITHHOLDING_TAX\",\n    \"percentage\": \"<double>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "ic-invoicing-taxes"
+                      ],
+                      "variable": [
+                        {
+                          "id": "2610f009-d58e-4c25-b982-23ed78913151",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) Deel Contract ID"
+                        }
+                      ]
+                    },
+                    "description": "Use this endpoint to create an invoicing tax for an independent contractor contract.\n **Token scopes**: `invoice-adjustments:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "074f2756-162b-46fb-acaf-fac8696bb51b",
+                      "name": "IC tax successfully created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"tax_type\": \"WITHHOLDING_TAX\",\n    \"percentage\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-074f2756-162b-46fb-acaf-fac8696bb51b"
+                    },
+                    {
+                      "id": "437667f3-56e5-40ec-b4a0-e705b807060f",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"tax_type\": \"WITHHOLDING_TAX\",\n    \"percentage\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-437667f3-56e5-40ec-b4a0-e705b807060f"
+                    },
+                    {
+                      "id": "92bf729d-a4eb-4c3d-9b3d-87c9876ff1aa",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"tax_type\": \"WITHHOLDING_TAX\",\n    \"percentage\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-92bf729d-a4eb-4c3d-9b3d-87c9876ff1aa"
+                    },
+                    {
+                      "id": "9a3a56f5-0666-43aa-968c-956748cfecfb",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"tax_type\": \"WITHHOLDING_TAX\",\n    \"percentage\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-9a3a56f5-0666-43aa-968c-956748cfecfb"
+                    },
+                    {
+                      "id": "381c0862-3a4f-4117-a295-398174dbe545",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"tax_type\": \"WITHHOLDING_TAX\",\n    \"percentage\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-381c0862-3a4f-4117-a295-398174dbe545"
+                    },
+                    {
+                      "id": "094c9ecf-dff4-4829-828e-1c444d5e3efe",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"tax_type\": \"WITHHOLDING_TAX\",\n    \"percentage\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-094c9ecf-dff4-4829-828e-1c444d5e3efe"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:31:43.000Z",
+                  "updatedAt": "2026-07-28T01:31:43.000Z",
+                  "uid": "35240-9c5ef309-6419-484b-a24b-adc083dffd89"
+                },
+                {
+                  "name": "Get IC invoicing taxes",
+                  "id": "4593c78a-cebb-4ae3-a5c1-d69e954d492d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "ic-invoicing-taxes"
+                      ],
+                      "variable": [
+                        {
+                          "id": "aec0732e-0a63-4810-93ee-28e44a798723",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) Deel Contract ID"
+                        }
+                      ]
+                    },
+                    "description": "Use this endpoint to retrieve invoicing tax settings for an IC contract. Provide the contract_id to fetch vat.percentage and withholding_tax.percentage, which can be used when displaying or calculating taxes on invoices for the contract.\n **Token scopes**: `invoice-adjustments:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "965a73f3-5ab3-4e5d-837d-fa3c4c4f6a66",
+                      "name": "IC invoicing taxes response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"vat\": {\n      \"percentage\": \"<number,null-double>\"\n    },\n    \"withholding_tax\": {\n      \"percentage\": \"<number,null-double>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-965a73f3-5ab3-4e5d-837d-fa3c4c4f6a66"
+                    },
+                    {
+                      "id": "4c67b11d-a261-4ac8-ae73-0b7d771a12dd",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-4c67b11d-a261-4ac8-ae73-0b7d771a12dd"
+                    },
+                    {
+                      "id": "cfdc1d93-6534-4ff9-b621-1786b3cfe6bc",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-cfdc1d93-6534-4ff9-b621-1786b3cfe6bc"
+                    },
+                    {
+                      "id": "f62fb59b-5912-4ace-a131-6fa697e5c8fd",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-f62fb59b-5912-4ace-a131-6fa697e5c8fd"
+                    },
+                    {
+                      "id": "575aa6e6-d838-421f-95d4-dfe7a388f437",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-575aa6e6-d838-421f-95d4-dfe7a388f437"
+                    },
+                    {
+                      "id": "dbc67f3c-ff4c-4b68-8479-1d7c4378091c",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-dbc67f3c-ff4c-4b68-8479-1d7c4378091c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:31:43.000Z",
+                  "updatedAt": "2026-07-28T01:31:43.000Z",
+                  "uid": "35240-4593c78a-cebb-4ae3-a5c1-d69e954d492d"
+                },
+                {
+                  "name": "Update IC invoicing tax",
+                  "id": "bdbb5dec-b7be-4472-b40f-46107fb7a66f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"tax_type\": \"WITHHOLDING_TAX\",\n    \"percentage\": \"<double>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "ic-invoicing-taxes"
+                      ],
+                      "variable": [
+                        {
+                          "id": "703c1174-048b-4870-9ac6-ea8b30300454",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) Deel Contract ID"
+                        }
+                      ]
+                    },
+                    "description": "Use this endpoint to update the invoicing tax for an independent contractor\u2019s contract. Provide tax_type (WITHHOLDING_TAX or VAT) and percentage to adjust how taxes are applied to invoices.\n **Token scopes**: `invoice-adjustments:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "f537306f-1179-4081-9a54-d289a86faa06",
+                      "name": "IC tax successfully updated",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"tax_type\": \"WITHHOLDING_TAX\",\n    \"percentage\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-f537306f-1179-4081-9a54-d289a86faa06"
+                    },
+                    {
+                      "id": "1c987fd2-14fc-4613-8fdf-2ca6fb408549",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"tax_type\": \"WITHHOLDING_TAX\",\n    \"percentage\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-1c987fd2-14fc-4613-8fdf-2ca6fb408549"
+                    },
+                    {
+                      "id": "f26d4a97-bf0b-4e36-915a-2dd1b310d772",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"tax_type\": \"WITHHOLDING_TAX\",\n    \"percentage\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-f26d4a97-bf0b-4e36-915a-2dd1b310d772"
+                    },
+                    {
+                      "id": "d19b6c08-9795-4591-9f19-d96bd7b4252c",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"tax_type\": \"WITHHOLDING_TAX\",\n    \"percentage\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-d19b6c08-9795-4591-9f19-d96bd7b4252c"
+                    },
+                    {
+                      "id": "d09a6d87-bb20-418f-ad1c-af5d9e6e18b2",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"tax_type\": \"WITHHOLDING_TAX\",\n    \"percentage\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-d09a6d87-bb20-418f-ad1c-af5d9e6e18b2"
+                    },
+                    {
+                      "id": "6dc94621-9889-4a8c-8200-5314efc4347b",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"tax_type\": \"WITHHOLDING_TAX\",\n    \"percentage\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/ic-invoicing-taxes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "ic-invoicing-taxes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:43.000Z",
+                      "updatedAt": "2026-07-28T01:31:43.000Z",
+                      "uid": "35240-6dc94621-9889-4a8c-8200-5314efc4347b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:31:43.000Z",
+                  "updatedAt": "2026-07-28T01:31:43.000Z",
+                  "uid": "35240-bdbb5dec-b7be-4472-b40f-46107fb7a66f"
+                }
+              ],
+              "id": "293f9907-a08f-4396-8305-8aa376787b5d",
+              "createdAt": "2026-07-28T01:31:43.000Z",
+              "updatedAt": "2026-07-28T01:31:43.000Z",
+              "uid": "35240-293f9907-a08f-4396-8305-8aa376787b5d"
+            }
+          ],
+          "id": "e1527b5b-b6ad-40b0-9023-e94496ca01d1",
+          "createdAt": "2026-07-28T01:31:43.000Z",
+          "updatedAt": "2026-07-28T01:31:43.000Z",
+          "uid": "35240-e1527b5b-b6ad-40b0-9023-e94496ca01d1"
+        }
+      ],
+      "id": "cbcb8254-fe4e-4ba4-bab4-c06962d11410",
+      "createdAt": "2026-07-28T01:31:43.000Z",
+      "updatedAt": "2026-07-28T01:31:43.000Z",
+      "uid": "35240-cbcb8254-fe4e-4ba4-bab4-c06962d11410"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

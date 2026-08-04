@@ -1,0 +1,1503 @@
+{
+  "info": {
+    "_postman_id": "01a8df28-3ba8-4cb0-9495-86e1d98e0a53",
+    "name": "Endpoints subpackage_personalInformation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:52.000Z",
+    "updatedAt": "2026-07-28T01:32:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-01a8df28-3ba8-4cb0-9495-86e1d98e0a53"
+  },
+  "item": [
+    {
+      "name": "people",
+      "item": [
+        {
+          "name": "{worker_id}",
+          "item": [
+            {
+              "name": "personal",
+              "item": [
+                {
+                  "name": "Get personal information by id",
+                  "id": "9cf3987a-d4be-4621-9ff4-ced164fef3d7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/people/:worker_id/personal",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "people",
+                        ":worker_id",
+                        "personal"
+                      ],
+                      "variable": [
+                        {
+                          "id": "936cc895-c9e8-47f0-961d-d409ed93f400",
+                          "key": "worker_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier for a worker (External ID)."
+                        }
+                      ]
+                    },
+                    "description": "Get worker's personal information by using identifier.\n **Token scopes**: `people:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "ab2ef7d9-b203-4d04-bb8b-4d5b4e2c7c9c",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/people/:worker_id/personal",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            ":worker_id",
+                            "personal"
+                          ],
+                          "variable": [
+                            {
+                              "key": "worker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"id\": \"<uuid>\",\n    \"worker_id\": \"<integer>\",\n    \"emergency_contacts\": [\n      {\n        \"id\": \"<uuid>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string,null-email>\",\n        \"phone\": \"<string>\",\n        \"relationship\": \"<string>\",\n        \"preferred_language\": {\n          \"id\": \"<integer>\",\n          \"language\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<uuid>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string,null-email>\",\n        \"phone\": \"<string>\",\n        \"relationship\": \"<string>\",\n        \"preferred_language\": {\n          \"id\": \"<integer>\",\n          \"language\": \"<string>\"\n        }\n      }\n    ],\n    \"kyc\": {\n      \"is_kyc_approved\": \"<boolean>\",\n      \"kyc_approval_date\": \"<string,null>\"\n    },\n    \"ooo\": {\n      \"name\": \"<string>\",\n      \"end_date\": \"<string>\",\n      \"leave_type\": \"LONG_TERM_LEAVE\",\n      \"start_date\": \"<date>\"\n    },\n    \"addresses\": null,\n    \"work_email\": \"<string,null-email>\",\n    \"external_id\": \"<string,null>\",\n    \"demographics\": {\n      \"gender\": {\n        \"id\": \"<uuid>\",\n        \"name\": \"<string>\",\n        \"other_name\": \"<string,null>\"\n      },\n      \"ethnicity\": {\n        \"id\": \"<uuid>\",\n        \"name\": \"<string>\",\n        \"other_name\": \"<string,null>\"\n      }\n    },\n    \"date_of_birth\": \"<string,null-date>\",\n    \"nationalities\": null,\n    \"phone_numbers\": [\n      {\n        \"type\": \"WORK\",\n        \"dial_code\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      },\n      {\n        \"type\": \"PERSONAL\",\n        \"dial_code\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    ],\n    \"personal_email\": \"<string,null-email>\",\n    \"preferred_name\": \"<string,null>\",\n    \"legal_last_name\": \"<string,null>\",\n    \"legal_first_name\": \"<string,null>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:52.000Z",
+                      "updatedAt": "2026-07-28T01:32:52.000Z",
+                      "uid": "35240-ab2ef7d9-b203-4d04-bb8b-4d5b4e2c7c9c"
+                    },
+                    {
+                      "id": "04adffde-563d-4c0f-92fc-695e42d96a4c",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/people/:worker_id/personal",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            ":worker_id",
+                            "personal"
+                          ],
+                          "variable": [
+                            {
+                              "key": "worker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:52.000Z",
+                      "updatedAt": "2026-07-28T01:32:52.000Z",
+                      "uid": "35240-04adffde-563d-4c0f-92fc-695e42d96a4c"
+                    },
+                    {
+                      "id": "ab710687-0006-4d45-83d5-9a2bf025e3c4",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/people/:worker_id/personal",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            ":worker_id",
+                            "personal"
+                          ],
+                          "variable": [
+                            {
+                              "key": "worker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:52.000Z",
+                      "updatedAt": "2026-07-28T01:32:52.000Z",
+                      "uid": "35240-ab710687-0006-4d45-83d5-9a2bf025e3c4"
+                    },
+                    {
+                      "id": "1c23c93e-7510-4baa-bc86-e9cba02603ba",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/people/:worker_id/personal",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            ":worker_id",
+                            "personal"
+                          ],
+                          "variable": [
+                            {
+                              "key": "worker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:52.000Z",
+                      "updatedAt": "2026-07-28T01:32:52.000Z",
+                      "uid": "35240-1c23c93e-7510-4baa-bc86-e9cba02603ba"
+                    },
+                    {
+                      "id": "f443c164-16ec-4682-8060-995cd126b32f",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/people/:worker_id/personal",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            ":worker_id",
+                            "personal"
+                          ],
+                          "variable": [
+                            {
+                              "key": "worker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:52.000Z",
+                      "updatedAt": "2026-07-28T01:32:52.000Z",
+                      "uid": "35240-f443c164-16ec-4682-8060-995cd126b32f"
+                    },
+                    {
+                      "id": "81aeb007-150c-4158-b07d-f5826a75dc91",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/people/:worker_id/personal",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            ":worker_id",
+                            "personal"
+                          ],
+                          "variable": [
+                            {
+                              "key": "worker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"details\": \"<string,null>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:52.000Z",
+                      "updatedAt": "2026-07-28T01:32:52.000Z",
+                      "uid": "35240-81aeb007-150c-4158-b07d-f5826a75dc91"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-9cf3987a-d4be-4621-9ff4-ced164fef3d7"
+                },
+                {
+                  "name": "Update personal information",
+                  "id": "6ca5559c-2445-4292-a9a1-319f538a07c6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"work_email\": \"<email>\",\n    \"date_of_birth\": \"<date>\",\n    \"phone_numbers\": [\n      {\n        \"type\": \"WORK\",\n        \"dial_code\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      },\n      {\n        \"type\": \"WORK\",\n        \"dial_code\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    ],\n    \"personal_email\": \"<email>\",\n    \"preferred_name\": \"<string,null>\",\n    \"legal_last_name\": \"<string>\",\n    \"legal_first_name\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/people/:worker_id/personal",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "people",
+                        ":worker_id",
+                        "personal"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ab7aa4e5-f046-4ef7-a224-52ec7123e0f4",
+                          "key": "worker_id",
+                          "value": "<uuid>",
+                          "description": "(Required) Unique identifier for a worker."
+                        }
+                      ]
+                    },
+                    "description": "Update worker's personal information.\n **Token scopes**: `people:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "c399617c-7b38-4ac4-ba26-ee9fbc45cfa2",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"work_email\": \"<email>\",\n    \"date_of_birth\": \"<date>\",\n    \"phone_numbers\": [\n      {\n        \"type\": \"WORK\",\n        \"dial_code\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      },\n      {\n        \"type\": \"WORK\",\n        \"dial_code\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    ],\n    \"personal_email\": \"<email>\",\n    \"preferred_name\": \"<string,null>\",\n    \"legal_last_name\": \"<string>\",\n    \"legal_first_name\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/people/:worker_id/personal",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            ":worker_id",
+                            "personal"
+                          ],
+                          "variable": [
+                            {
+                              "key": "worker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T01:32:52.000Z",
+                      "updatedAt": "2026-07-28T01:32:52.000Z",
+                      "uid": "35240-c399617c-7b38-4ac4-ba26-ee9fbc45cfa2"
+                    },
+                    {
+                      "id": "5f472619-0224-47e9-8f23-cfef6b17e1a4",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"work_email\": \"<email>\",\n    \"date_of_birth\": \"<date>\",\n    \"phone_numbers\": [\n      {\n        \"type\": \"WORK\",\n        \"dial_code\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      },\n      {\n        \"type\": \"WORK\",\n        \"dial_code\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    ],\n    \"personal_email\": \"<email>\",\n    \"preferred_name\": \"<string,null>\",\n    \"legal_last_name\": \"<string>\",\n    \"legal_first_name\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/people/:worker_id/personal",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            ":worker_id",
+                            "personal"
+                          ],
+                          "variable": [
+                            {
+                              "key": "worker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:52.000Z",
+                      "updatedAt": "2026-07-28T01:32:52.000Z",
+                      "uid": "35240-5f472619-0224-47e9-8f23-cfef6b17e1a4"
+                    },
+                    {
+                      "id": "61f394e3-dc8c-44db-968d-6ffe029f503d",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"work_email\": \"<email>\",\n    \"date_of_birth\": \"<date>\",\n    \"phone_numbers\": [\n      {\n        \"type\": \"WORK\",\n        \"dial_code\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      },\n      {\n        \"type\": \"WORK\",\n        \"dial_code\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    ],\n    \"personal_email\": \"<email>\",\n    \"preferred_name\": \"<string,null>\",\n    \"legal_last_name\": \"<string>\",\n    \"legal_first_name\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/people/:worker_id/personal",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            ":worker_id",
+                            "personal"
+                          ],
+                          "variable": [
+                            {
+                              "key": "worker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:52.000Z",
+                      "updatedAt": "2026-07-28T01:32:52.000Z",
+                      "uid": "35240-61f394e3-dc8c-44db-968d-6ffe029f503d"
+                    },
+                    {
+                      "id": "3917c2d4-7e73-4c44-8afa-0227e1f794ba",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"work_email\": \"<email>\",\n    \"date_of_birth\": \"<date>\",\n    \"phone_numbers\": [\n      {\n        \"type\": \"WORK\",\n        \"dial_code\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      },\n      {\n        \"type\": \"WORK\",\n        \"dial_code\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    ],\n    \"personal_email\": \"<email>\",\n    \"preferred_name\": \"<string,null>\",\n    \"legal_last_name\": \"<string>\",\n    \"legal_first_name\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/people/:worker_id/personal",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            ":worker_id",
+                            "personal"
+                          ],
+                          "variable": [
+                            {
+                              "key": "worker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:52.000Z",
+                      "updatedAt": "2026-07-28T01:32:52.000Z",
+                      "uid": "35240-3917c2d4-7e73-4c44-8afa-0227e1f794ba"
+                    },
+                    {
+                      "id": "435a0961-d9fc-48b8-be58-1b2ee89264b2",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"work_email\": \"<email>\",\n    \"date_of_birth\": \"<date>\",\n    \"phone_numbers\": [\n      {\n        \"type\": \"WORK\",\n        \"dial_code\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      },\n      {\n        \"type\": \"WORK\",\n        \"dial_code\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    ],\n    \"personal_email\": \"<email>\",\n    \"preferred_name\": \"<string,null>\",\n    \"legal_last_name\": \"<string>\",\n    \"legal_first_name\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/people/:worker_id/personal",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            ":worker_id",
+                            "personal"
+                          ],
+                          "variable": [
+                            {
+                              "key": "worker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:52.000Z",
+                      "updatedAt": "2026-07-28T01:32:52.000Z",
+                      "uid": "35240-435a0961-d9fc-48b8-be58-1b2ee89264b2"
+                    },
+                    {
+                      "id": "d6c0d254-3af6-4ed3-a328-0c8c53ee27e7",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"work_email\": \"<email>\",\n    \"date_of_birth\": \"<date>\",\n    \"phone_numbers\": [\n      {\n        \"type\": \"WORK\",\n        \"dial_code\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      },\n      {\n        \"type\": \"WORK\",\n        \"dial_code\": \"<string>\",\n        \"phone_number\": \"<string>\"\n      }\n    ],\n    \"personal_email\": \"<email>\",\n    \"preferred_name\": \"<string,null>\",\n    \"legal_last_name\": \"<string>\",\n    \"legal_first_name\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/people/:worker_id/personal",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            ":worker_id",
+                            "personal"
+                          ],
+                          "variable": [
+                            {
+                              "key": "worker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:52.000Z",
+                      "updatedAt": "2026-07-28T01:32:52.000Z",
+                      "uid": "35240-d6c0d254-3af6-4ed3-a328-0c8c53ee27e7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-6ca5559c-2445-4292-a9a1-319f538a07c6"
+                }
+              ],
+              "id": "71af20d6-e4d3-49cb-a9b6-2f0fff6eeaa8",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-71af20d6-e4d3-49cb-a9b6-2f0fff6eeaa8"
+            }
+          ],
+          "id": "21e15d3a-9e96-48fd-bc06-b375e5e5f0ca",
+          "createdAt": "2026-07-28T01:32:52.000Z",
+          "updatedAt": "2026-07-28T01:32:52.000Z",
+          "uid": "35240-21e15d3a-9e96-48fd-bc06-b375e5e5f0ca"
+        },
+        {
+          "name": "external",
+          "item": [
+            {
+              "name": "{worker_id}",
+              "item": [
+                {
+                  "name": "personal",
+                  "item": [
+                    {
+                      "name": "Get worker profile by external ID",
+                      "id": "a44bb3f4-3029-419e-a5d3-e87160b3392d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/people/external/:worker_id/personal",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            "external",
+                            ":worker_id",
+                            "personal"
+                          ],
+                          "variable": [
+                            {
+                              "id": "1e968fca-b8ab-484a-adf9-e53361796d0c",
+                              "key": "worker_id",
+                              "value": "<string>",
+                              "description": "(Required) System-wide external identifier for a worker record."
+                            }
+                          ]
+                        },
+                        "description": "Retrieve a worker profile record using an external worker identifier.\n **Token scopes**: `people:read`"
+                      },
+                      "response": [
+                        {
+                          "id": "41aa3389-3047-4f76-83aa-7b166016b6f7",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/people/external/:worker_id/personal",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "people",
+                                "external",
+                                ":worker_id",
+                                "personal"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "worker_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T01:32:52.000Z",
+                          "updatedAt": "2026-07-28T01:32:52.000Z",
+                          "uid": "35240-41aa3389-3047-4f76-83aa-7b166016b6f7"
+                        },
+                        {
+                          "id": "8e19a7b4-347a-409c-8d73-92e7a24a7169",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/people/external/:worker_id/personal",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "people",
+                                "external",
+                                ":worker_id",
+                                "personal"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "worker_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:52.000Z",
+                          "updatedAt": "2026-07-28T01:32:52.000Z",
+                          "uid": "35240-8e19a7b4-347a-409c-8d73-92e7a24a7169"
+                        },
+                        {
+                          "id": "9b25ddb2-16b6-4989-bc28-cf5256ef8db1",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/people/external/:worker_id/personal",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "people",
+                                "external",
+                                ":worker_id",
+                                "personal"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "worker_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:52.000Z",
+                          "updatedAt": "2026-07-28T01:32:52.000Z",
+                          "uid": "35240-9b25ddb2-16b6-4989-bc28-cf5256ef8db1"
+                        },
+                        {
+                          "id": "85348eb3-45cc-4e93-9671-23eea9588d28",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/people/external/:worker_id/personal",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "people",
+                                "external",
+                                ":worker_id",
+                                "personal"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "worker_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:52.000Z",
+                          "updatedAt": "2026-07-28T01:32:52.000Z",
+                          "uid": "35240-85348eb3-45cc-4e93-9671-23eea9588d28"
+                        },
+                        {
+                          "id": "f4f5e9f8-0360-4327-9e8d-3b43cb4841e2",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/people/external/:worker_id/personal",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "people",
+                                "external",
+                                ":worker_id",
+                                "personal"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "worker_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:52.000Z",
+                          "updatedAt": "2026-07-28T01:32:52.000Z",
+                          "uid": "35240-f4f5e9f8-0360-4327-9e8d-3b43cb4841e2"
+                        },
+                        {
+                          "id": "d5f50259-5e9a-4676-b402-44c0e952c265",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/people/external/:worker_id/personal",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "people",
+                                "external",
+                                ":worker_id",
+                                "personal"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "worker_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:52.000Z",
+                          "updatedAt": "2026-07-28T01:32:52.000Z",
+                          "uid": "35240-d5f50259-5e9a-4676-b402-44c0e952c265"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:32:52.000Z",
+                      "updatedAt": "2026-07-28T01:32:52.000Z",
+                      "uid": "35240-a44bb3f4-3029-419e-a5d3-e87160b3392d"
+                    },
+                    {
+                      "name": "Update personal information by external id",
+                      "id": "4f4722ba-2781-4800-a763-ed8fa58c751d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"date_of_birth\": \"<date>\",\n    \"personal_email\": \"<email>\",\n    \"preferred_name\": \"<string,null>\",\n    \"legal_last_name\": \"<string>\",\n    \"legal_first_name\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/people/external/:worker_id/personal",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "people",
+                            "external",
+                            ":worker_id",
+                            "personal"
+                          ],
+                          "variable": [
+                            {
+                              "id": "11f971bf-ed5f-4abf-853d-ab8d4e7ad6f9",
+                              "key": "worker_id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier for a worker (External ID)."
+                            }
+                          ]
+                        },
+                        "description": "Update worker's personal information by using an external identifier.\n **Token scopes**: `people:write`"
+                      },
+                      "response": [
+                        {
+                          "id": "f8a705f6-efec-4f73-b9a3-2c68a84ca143",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"date_of_birth\": \"<date>\",\n    \"personal_email\": \"<email>\",\n    \"preferred_name\": \"<string,null>\",\n    \"legal_last_name\": \"<string>\",\n    \"legal_first_name\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/people/external/:worker_id/personal",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "people",
+                                "external",
+                                ":worker_id",
+                                "personal"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "worker_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T01:32:52.000Z",
+                          "updatedAt": "2026-07-28T01:32:52.000Z",
+                          "uid": "35240-f8a705f6-efec-4f73-b9a3-2c68a84ca143"
+                        },
+                        {
+                          "id": "bcb28d50-b1d1-4e78-9fcd-a964674704b0",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"date_of_birth\": \"<date>\",\n    \"personal_email\": \"<email>\",\n    \"preferred_name\": \"<string,null>\",\n    \"legal_last_name\": \"<string>\",\n    \"legal_first_name\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/people/external/:worker_id/personal",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "people",
+                                "external",
+                                ":worker_id",
+                                "personal"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "worker_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:52.000Z",
+                          "updatedAt": "2026-07-28T01:32:52.000Z",
+                          "uid": "35240-bcb28d50-b1d1-4e78-9fcd-a964674704b0"
+                        },
+                        {
+                          "id": "a1ca2230-c63a-4476-8a1e-dfd96d4d95f6",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"date_of_birth\": \"<date>\",\n    \"personal_email\": \"<email>\",\n    \"preferred_name\": \"<string,null>\",\n    \"legal_last_name\": \"<string>\",\n    \"legal_first_name\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/people/external/:worker_id/personal",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "people",
+                                "external",
+                                ":worker_id",
+                                "personal"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "worker_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:52.000Z",
+                          "updatedAt": "2026-07-28T01:32:52.000Z",
+                          "uid": "35240-a1ca2230-c63a-4476-8a1e-dfd96d4d95f6"
+                        },
+                        {
+                          "id": "84d29c34-8917-4ef3-a08a-ff9db9d8a028",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"date_of_birth\": \"<date>\",\n    \"personal_email\": \"<email>\",\n    \"preferred_name\": \"<string,null>\",\n    \"legal_last_name\": \"<string>\",\n    \"legal_first_name\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/people/external/:worker_id/personal",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "people",
+                                "external",
+                                ":worker_id",
+                                "personal"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "worker_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:52.000Z",
+                          "updatedAt": "2026-07-28T01:32:52.000Z",
+                          "uid": "35240-84d29c34-8917-4ef3-a08a-ff9db9d8a028"
+                        },
+                        {
+                          "id": "a62c254c-9be9-44c2-a101-a19939828426",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"date_of_birth\": \"<date>\",\n    \"personal_email\": \"<email>\",\n    \"preferred_name\": \"<string,null>\",\n    \"legal_last_name\": \"<string>\",\n    \"legal_first_name\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/people/external/:worker_id/personal",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "people",
+                                "external",
+                                ":worker_id",
+                                "personal"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "worker_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:52.000Z",
+                          "updatedAt": "2026-07-28T01:32:52.000Z",
+                          "uid": "35240-a62c254c-9be9-44c2-a101-a19939828426"
+                        },
+                        {
+                          "id": "21929107-303b-4ef2-89b4-7a68c7366a26",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"date_of_birth\": \"<date>\",\n    \"personal_email\": \"<email>\",\n    \"preferred_name\": \"<string,null>\",\n    \"legal_last_name\": \"<string>\",\n    \"legal_first_name\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/people/external/:worker_id/personal",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "people",
+                                "external",
+                                ":worker_id",
+                                "personal"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "worker_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:52.000Z",
+                          "updatedAt": "2026-07-28T01:32:52.000Z",
+                          "uid": "35240-21929107-303b-4ef2-89b4-7a68c7366a26"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:32:52.000Z",
+                      "updatedAt": "2026-07-28T01:32:52.000Z",
+                      "uid": "35240-4f4722ba-2781-4800-a763-ed8fa58c751d"
+                    }
+                  ],
+                  "id": "68bd9b77-08fe-4ee5-9a6a-7decdf130089",
+                  "createdAt": "2026-07-28T01:32:52.000Z",
+                  "updatedAt": "2026-07-28T01:32:52.000Z",
+                  "uid": "35240-68bd9b77-08fe-4ee5-9a6a-7decdf130089"
+                }
+              ],
+              "id": "c0802753-6efc-4d65-bbfc-87b888b1e8d5",
+              "createdAt": "2026-07-28T01:32:52.000Z",
+              "updatedAt": "2026-07-28T01:32:52.000Z",
+              "uid": "35240-c0802753-6efc-4d65-bbfc-87b888b1e8d5"
+            }
+          ],
+          "id": "0b195574-d9b9-4862-aaaa-35affad4d68a",
+          "createdAt": "2026-07-28T01:32:52.000Z",
+          "updatedAt": "2026-07-28T01:32:52.000Z",
+          "uid": "35240-0b195574-d9b9-4862-aaaa-35affad4d68a"
+        }
+      ],
+      "id": "a4394f8a-fae9-4073-a9b9-9ce19859ccfc",
+      "createdAt": "2026-07-28T01:32:52.000Z",
+      "updatedAt": "2026-07-28T01:32:52.000Z",
+      "uid": "35240-a4394f8a-fae9-4073-a9b9-9ce19859ccfc"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

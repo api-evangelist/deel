@@ -1,0 +1,505 @@
+{
+  "info": {
+    "_postman_id": "010018b7-1963-41b4-9956-e00cea6d5599",
+    "name": "Endpoints subpackage_listCycles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:11.000Z",
+    "updatedAt": "2026-07-28T01:32:11.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-010018b7-1963-41b4-9956-e00cea6d5599"
+  },
+  "item": [
+    {
+      "name": "legal-entities",
+      "item": [
+        {
+          "name": "{legal_entity_id}",
+          "item": [
+            {
+              "name": "payroll-events",
+              "item": [
+                {
+                  "name": "List payroll cycles",
+                  "id": "8b481692-f9c8-47c0-bb20-9bf3782f5e3b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/payroll-events?date_start=<date>&date_end=<date>&limit=20&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "legal-entities",
+                        ":legal_entity_id",
+                        "payroll-events"
+                      ],
+                      "query": [
+                        {
+                          "description": "Start date in the format 'YYYY-MM-DD'. Must not be earlier than 5 years ago.",
+                          "key": "date_start",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date in the format 'YYYY-MM-DD'. Must not exceed 5 years in the future.",
+                          "key": "date_end",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Maximum number of items to return.",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Pagination cursor, CUID or UUID format.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "6d8999af-6c7f-4026-9cf6-ae7f1c1c86d8",
+                          "key": "legal_entity_id",
+                          "value": "<uuid>",
+                          "description": "(Required) The unique identifier (public ID) for the legal entity."
+                        }
+                      ]
+                    },
+                    "description": "Use this endpoint to retrieve a list of payroll events for a specified legal entity.\n **Token scopes**: `legal-entity:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "e5eea60e-fafb-4e1e-b49f-021c03203034",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/payroll-events?date_start=<date>&date_end=<date>&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "legal-entities",
+                            ":legal_entity_id",
+                            "payroll-events"
+                          ],
+                          "query": [
+                            {
+                              "description": "Start date in the format 'YYYY-MM-DD'. Must not be earlier than 5 years ago.",
+                              "key": "date_start",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "End date in the format 'YYYY-MM-DD'. Must not exceed 5 years in the future.",
+                              "key": "date_end",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Maximum number of items to return.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Pagination cursor, CUID or UUID format.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "legal_entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"REGULAR\",\n      \"date_end\": \"<dateTime>\",\n      \"date_start\": \"<dateTime>\",\n      \"legal_entity_id\": \"<string>\",\n      \"payroll_group_id\": \"<string,null>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"REGULAR\",\n      \"date_end\": \"<dateTime>\",\n      \"date_start\": \"<dateTime>\",\n      \"legal_entity_id\": \"<string>\",\n      \"payroll_group_id\": \"<string,null>\"\n    }\n  ],\n  \"has_more\": \"<boolean>\",\n  \"items_per_page\": \"<integer>\",\n  \"next_cursor\": \"<string,null>\"\n}",
+                      "createdAt": "2026-07-28T01:32:12.000Z",
+                      "updatedAt": "2026-07-28T01:32:12.000Z",
+                      "uid": "35240-e5eea60e-fafb-4e1e-b49f-021c03203034"
+                    },
+                    {
+                      "id": "dcb2d599-ea1f-4322-b249-66ba40b1395d",
+                      "name": "Validation error or bad input.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/payroll-events?date_start=<date>&date_end=<date>&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "legal-entities",
+                            ":legal_entity_id",
+                            "payroll-events"
+                          ],
+                          "query": [
+                            {
+                              "description": "Start date in the format 'YYYY-MM-DD'. Must not be earlier than 5 years ago.",
+                              "key": "date_start",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "End date in the format 'YYYY-MM-DD'. Must not exceed 5 years in the future.",
+                              "key": "date_end",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Maximum number of items to return.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Pagination cursor, CUID or UUID format.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "legal_entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:12.000Z",
+                      "updatedAt": "2026-07-28T01:32:12.000Z",
+                      "uid": "35240-dcb2d599-ea1f-4322-b249-66ba40b1395d"
+                    },
+                    {
+                      "id": "86f44dda-4aaf-4cc9-b1bb-8f8f1d223da6",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/payroll-events?date_start=<date>&date_end=<date>&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "legal-entities",
+                            ":legal_entity_id",
+                            "payroll-events"
+                          ],
+                          "query": [
+                            {
+                              "description": "Start date in the format 'YYYY-MM-DD'. Must not be earlier than 5 years ago.",
+                              "key": "date_start",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "End date in the format 'YYYY-MM-DD'. Must not exceed 5 years in the future.",
+                              "key": "date_end",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Maximum number of items to return.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Pagination cursor, CUID or UUID format.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "legal_entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:12.000Z",
+                      "updatedAt": "2026-07-28T01:32:12.000Z",
+                      "uid": "35240-86f44dda-4aaf-4cc9-b1bb-8f8f1d223da6"
+                    },
+                    {
+                      "id": "745057be-1192-4378-b8b8-d213ca30d9d4",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/payroll-events?date_start=<date>&date_end=<date>&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "legal-entities",
+                            ":legal_entity_id",
+                            "payroll-events"
+                          ],
+                          "query": [
+                            {
+                              "description": "Start date in the format 'YYYY-MM-DD'. Must not be earlier than 5 years ago.",
+                              "key": "date_start",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "End date in the format 'YYYY-MM-DD'. Must not exceed 5 years in the future.",
+                              "key": "date_end",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Maximum number of items to return.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Pagination cursor, CUID or UUID format.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "legal_entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:12.000Z",
+                      "updatedAt": "2026-07-28T01:32:12.000Z",
+                      "uid": "35240-745057be-1192-4378-b8b8-d213ca30d9d4"
+                    },
+                    {
+                      "id": "0df1890b-1a4a-4592-bb19-dce538fb3002",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/payroll-events?date_start=<date>&date_end=<date>&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "legal-entities",
+                            ":legal_entity_id",
+                            "payroll-events"
+                          ],
+                          "query": [
+                            {
+                              "description": "Start date in the format 'YYYY-MM-DD'. Must not be earlier than 5 years ago.",
+                              "key": "date_start",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "End date in the format 'YYYY-MM-DD'. Must not exceed 5 years in the future.",
+                              "key": "date_end",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Maximum number of items to return.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Pagination cursor, CUID or UUID format.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "legal_entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:12.000Z",
+                      "updatedAt": "2026-07-28T01:32:12.000Z",
+                      "uid": "35240-0df1890b-1a4a-4592-bb19-dce538fb3002"
+                    },
+                    {
+                      "id": "6829ba71-78cd-4399-9a40-578ca4d81a06",
+                      "name": "Internal server error.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/payroll-events?date_start=<date>&date_end=<date>&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "legal-entities",
+                            ":legal_entity_id",
+                            "payroll-events"
+                          ],
+                          "query": [
+                            {
+                              "description": "Start date in the format 'YYYY-MM-DD'. Must not be earlier than 5 years ago.",
+                              "key": "date_start",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "End date in the format 'YYYY-MM-DD'. Must not exceed 5 years in the future.",
+                              "key": "date_end",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Maximum number of items to return.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Pagination cursor, CUID or UUID format.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "legal_entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:12.000Z",
+                      "updatedAt": "2026-07-28T01:32:12.000Z",
+                      "uid": "35240-6829ba71-78cd-4399-9a40-578ca4d81a06"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:32:12.000Z",
+                  "updatedAt": "2026-07-28T01:32:12.000Z",
+                  "uid": "35240-8b481692-f9c8-47c0-bb20-9bf3782f5e3b"
+                }
+              ],
+              "id": "adf27ae0-ba37-4594-8f66-bb5eac8c1c86",
+              "createdAt": "2026-07-28T01:32:12.000Z",
+              "updatedAt": "2026-07-28T01:32:12.000Z",
+              "uid": "35240-adf27ae0-ba37-4594-8f66-bb5eac8c1c86"
+            }
+          ],
+          "id": "e0cc978e-357d-4c58-9fe7-04f8603afff1",
+          "createdAt": "2026-07-28T01:32:12.000Z",
+          "updatedAt": "2026-07-28T01:32:12.000Z",
+          "uid": "35240-e0cc978e-357d-4c58-9fe7-04f8603afff1"
+        }
+      ],
+      "id": "57181e5a-d948-4478-ae33-4b80a99eaf98",
+      "createdAt": "2026-07-28T01:32:12.000Z",
+      "updatedAt": "2026-07-28T01:32:12.000Z",
+      "uid": "35240-57181e5a-d948-4478-ae33-4b80a99eaf98"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

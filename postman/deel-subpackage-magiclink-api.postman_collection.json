@@ -1,0 +1,379 @@
+{
+  "info": {
+    "_postman_id": "35bfd712-e5f1-4e05-be44-69b2bca6db31",
+    "name": "Endpoints subpackage_magicLink API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:13.000Z",
+    "updatedAt": "2026-07-28T01:32:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-35bfd712-e5f1-4e05-be44-69b2bca6db31"
+  },
+  "item": [
+    {
+      "name": "magic-link",
+      "item": [
+        {
+          "name": "Create magic link",
+          "id": "a11f9350-a11f-4ad3-afbe-5cc4f1a70065",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"redirect_path\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/magic-link",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "magic-link"
+              ]
+            },
+            "description": "Use this endpoint to generate secure, time-limited magic links that enable password-free, seamless worker authentication for quick and safe access. Ideal for temporary sessions or low-friction login flows.\n **Token scopes**: `worker:read`"
+          },
+          "response": [
+            {
+              "id": "57c508df-98ba-45aa-a5ed-f4a5f5cfc150",
+              "name": "Magic link generated successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"redirect_path\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/magic-link",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "magic-link"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"expires_at\": \"<dateTime>\",\n    \"magic_link\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:14.000Z",
+              "updatedAt": "2026-07-28T01:32:14.000Z",
+              "uid": "35240-57c508df-98ba-45aa-a5ed-f4a5f5cfc150"
+            },
+            {
+              "id": "810b8f45-e5f9-4f6d-bb07-c7c25f6f6644",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"redirect_path\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/magic-link",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "magic-link"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:14.000Z",
+              "updatedAt": "2026-07-28T01:32:14.000Z",
+              "uid": "35240-810b8f45-e5f9-4f6d-bb07-c7c25f6f6644"
+            },
+            {
+              "id": "28525a1c-cc6a-48db-8800-f465db896072",
+              "name": "Unauthorized - Invalid or missing authentication token",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"redirect_path\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/magic-link",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "magic-link"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:14.000Z",
+              "updatedAt": "2026-07-28T01:32:14.000Z",
+              "uid": "35240-28525a1c-cc6a-48db-8800-f465db896072"
+            },
+            {
+              "id": "cfe4d7ca-80bb-4ab9-9a42-8549559afd3d",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"redirect_path\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/magic-link",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "magic-link"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:14.000Z",
+              "updatedAt": "2026-07-28T01:32:14.000Z",
+              "uid": "35240-cfe4d7ca-80bb-4ab9-9a42-8549559afd3d"
+            },
+            {
+              "id": "c8006f4b-e5eb-4173-bc84-8194add1860a",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"redirect_path\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/magic-link",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "magic-link"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:14.000Z",
+              "updatedAt": "2026-07-28T01:32:14.000Z",
+              "uid": "35240-c8006f4b-e5eb-4173-bc84-8194add1860a"
+            },
+            {
+              "id": "b05de8af-4052-402f-880e-64f87e6604ae",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"redirect_path\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/magic-link",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "magic-link"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:14.000Z",
+              "updatedAt": "2026-07-28T01:32:14.000Z",
+              "uid": "35240-b05de8af-4052-402f-880e-64f87e6604ae"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:14.000Z",
+          "updatedAt": "2026-07-28T01:32:14.000Z",
+          "uid": "35240-a11f9350-a11f-4ad3-afbe-5cc4f1a70065"
+        }
+      ],
+      "id": "dfcc6e41-19af-4c6b-b722-490cc55336d4",
+      "createdAt": "2026-07-28T01:32:14.000Z",
+      "updatedAt": "2026-07-28T01:32:14.000Z",
+      "uid": "35240-dfcc6e41-19af-4c6b-b722-490cc55336d4"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

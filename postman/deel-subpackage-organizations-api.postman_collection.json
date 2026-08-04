@@ -1,0 +1,2452 @@
+{
+  "info": {
+    "_postman_id": "14cf732b-978f-47b4-87d5-546b96cdbddd",
+    "name": "Endpoints subpackage_organizations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:39.000Z",
+    "updatedAt": "2026-07-28T01:32:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-14cf732b-978f-47b4-87d5-546b96cdbddd"
+  },
+  "item": [
+    {
+      "name": "organizations",
+      "item": [
+        {
+          "name": "children",
+          "item": [
+            {
+              "name": "Create child organization",
+              "id": "7917a64d-499d-4c93-b7c4-b04da0345de7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"child_organization\": {\n      \"name\": \"<string>\",\n      \"department\": \"<string>\",\n      \"is_api_enabled\": \"<boolean>\",\n      \"workforce_size\": \"<integer>\",\n      \"headquarters_country\": \"<string>\"\n    },\n    \"parent_organization\": {\n      \"admin_email\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/organizations/children",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organizations",
+                    "children"
+                  ]
+                },
+                "description": "Creates a new organization along with:\n\n- An API token scoped to the new organization. This token can be used to perform API operations on behalf of the new organization.\n- A default group for the organization.\n- A hierarchy linking the authenticated organization (the Parent Organization) with the new one (the Child Organization).\n- A user from the parent organization who will be assigned to the child organization.\n\nThis endpoint sets up the bare minimum required for the new organization to be operational immediately after creation.\n **Token scopes**: `organizations:write`"
+              },
+              "response": [
+                {
+                  "id": "41ec0dfb-8e09-4ef5-9bc1-7c418c86e707",
+                  "name": "Operation successful. The child organization was created successfully.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"child_organization\": {\n      \"name\": \"<string>\",\n      \"department\": \"<string>\",\n      \"is_api_enabled\": \"<boolean>\",\n      \"workforce_size\": \"<integer>\",\n      \"headquarters_country\": \"<string>\"\n    },\n    \"parent_organization\": {\n      \"admin_email\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/children",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        "children"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"token\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:40.000Z",
+                  "updatedAt": "2026-07-28T01:32:40.000Z",
+                  "uid": "35240-41ec0dfb-8e09-4ef5-9bc1-7c418c86e707"
+                },
+                {
+                  "id": "f5350033-1f21-4db8-a6f1-432bd29fdef1",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"child_organization\": {\n      \"name\": \"<string>\",\n      \"department\": \"<string>\",\n      \"is_api_enabled\": \"<boolean>\",\n      \"workforce_size\": \"<integer>\",\n      \"headquarters_country\": \"<string>\"\n    },\n    \"parent_organization\": {\n      \"admin_email\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/children",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        "children"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"path\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"path\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ],\n  \"request\": {\n    \"url\": \"<string>\",\n    \"code\": \"<double>\",\n    \"docs\": \"<string>\",\n    \"method\": \"<string>\",\n    \"source\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:40.000Z",
+                  "updatedAt": "2026-07-28T01:32:40.000Z",
+                  "uid": "35240-f5350033-1f21-4db8-a6f1-432bd29fdef1"
+                },
+                {
+                  "id": "8dc698e9-7431-45af-8410-265ca48378b2",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"child_organization\": {\n      \"name\": \"<string>\",\n      \"department\": \"<string>\",\n      \"is_api_enabled\": \"<boolean>\",\n      \"workforce_size\": \"<integer>\",\n      \"headquarters_country\": \"<string>\"\n    },\n    \"parent_organization\": {\n      \"admin_email\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/children",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        "children"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:40.000Z",
+                  "updatedAt": "2026-07-28T01:32:40.000Z",
+                  "uid": "35240-8dc698e9-7431-45af-8410-265ca48378b2"
+                },
+                {
+                  "id": "119379c5-c796-475d-8b1c-bb0717cd4dc7",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"child_organization\": {\n      \"name\": \"<string>\",\n      \"department\": \"<string>\",\n      \"is_api_enabled\": \"<boolean>\",\n      \"workforce_size\": \"<integer>\",\n      \"headquarters_country\": \"<string>\"\n    },\n    \"parent_organization\": {\n      \"admin_email\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/children",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        "children"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:40.000Z",
+                  "updatedAt": "2026-07-28T01:32:40.000Z",
+                  "uid": "35240-119379c5-c796-475d-8b1c-bb0717cd4dc7"
+                },
+                {
+                  "id": "f5dc9cd4-1bc5-499e-a2f6-bc0980c766e4",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"child_organization\": {\n      \"name\": \"<string>\",\n      \"department\": \"<string>\",\n      \"is_api_enabled\": \"<boolean>\",\n      \"workforce_size\": \"<integer>\",\n      \"headquarters_country\": \"<string>\"\n    },\n    \"parent_organization\": {\n      \"admin_email\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/children",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        "children"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:40.000Z",
+                  "updatedAt": "2026-07-28T01:32:40.000Z",
+                  "uid": "35240-f5dc9cd4-1bc5-499e-a2f6-bc0980c766e4"
+                },
+                {
+                  "id": "f113991e-1dd2-4375-8e53-6ec805e2dda1",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"child_organization\": {\n      \"name\": \"<string>\",\n      \"department\": \"<string>\",\n      \"is_api_enabled\": \"<boolean>\",\n      \"workforce_size\": \"<integer>\",\n      \"headquarters_country\": \"<string>\"\n    },\n    \"parent_organization\": {\n      \"admin_email\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/children",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        "children"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:40.000Z",
+                  "updatedAt": "2026-07-28T01:32:40.000Z",
+                  "uid": "35240-f113991e-1dd2-4375-8e53-6ec805e2dda1"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-7917a64d-499d-4c93-b7c4-b04da0345de7"
+            }
+          ],
+          "id": "266b7c7b-ab76-4c11-965a-5a1ee64b5af7",
+          "createdAt": "2026-07-28T01:32:40.000Z",
+          "updatedAt": "2026-07-28T01:32:40.000Z",
+          "uid": "35240-266b7c7b-ab76-4c11-965a-5a1ee64b5af7"
+        },
+        {
+          "name": "Get Current Organization",
+          "id": "f6bb8a53-cf7b-45c3-b3fe-ef45eb166698",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/organizations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "organizations"
+              ]
+            },
+            "description": "Retrieve details of the current organization associated with the authenticated user. The organization is automatically detected based on the authentication token provided in the request.\n **Token scopes**: `organizations:read`"
+          },
+          "response": [
+            {
+              "id": "ebc381cf-69c0-4ecd-a98e-a90051174157",
+              "name": "Successful retrieval of the organization details.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/organizations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organizations"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-ebc381cf-69c0-4ecd-a98e-a90051174157"
+            },
+            {
+              "id": "b8bc7a3e-a377-4cc8-a5ac-994c138f3677",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/organizations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organizations"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-b8bc7a3e-a377-4cc8-a5ac-994c138f3677"
+            },
+            {
+              "id": "65fadded-fabe-4a5d-bef6-4f602bcbc096",
+              "name": "Unauthorized. The request is missing authentication credentials or the credentials provided are invalid.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/organizations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organizations"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-65fadded-fabe-4a5d-bef6-4f602bcbc096"
+            },
+            {
+              "id": "c2f95f3f-adec-4d0d-8651-220d2bf91723",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/organizations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organizations"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-c2f95f3f-adec-4d0d-8651-220d2bf91723"
+            },
+            {
+              "id": "f6c55ab4-02a8-449d-978a-1feb1ddc4353",
+              "name": "Organization not found. The current organization associated with the authentication token could not be found.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/organizations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organizations"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-f6c55ab4-02a8-449d-978a-1feb1ddc4353"
+            },
+            {
+              "id": "6a756b2f-cffe-4152-9bd9-f1e1d24db084",
+              "name": "Internal server error. An error occurred on the server while processing the request.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/organizations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organizations"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-6a756b2f-cffe-4152-9bd9-f1e1d24db084"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:40.000Z",
+          "updatedAt": "2026-07-28T01:32:40.000Z",
+          "uid": "35240-f6bb8a53-cf7b-45c3-b3fe-ef45eb166698"
+        }
+      ],
+      "id": "fa0022e0-faa8-44df-8440-e6e15d25b7a3",
+      "createdAt": "2026-07-28T01:32:40.000Z",
+      "updatedAt": "2026-07-28T01:32:40.000Z",
+      "uid": "35240-fa0022e0-faa8-44df-8440-e6e15d25b7a3"
+    },
+    {
+      "name": "roles",
+      "item": [
+        {
+          "name": "{roleId}",
+          "item": [
+            {
+              "name": "Update organization custom role",
+              "id": "1633c84b-8698-497a-8b2d-bcc823ae669c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"permissionSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/roles/:roleId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roles",
+                    ":roleId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "73bc4285-9af1-42e8-9b69-93141cdda8e8",
+                      "key": "roleId",
+                      "value": "<string>",
+                      "description": "(Required) ID of the role"
+                    }
+                  ]
+                },
+                "description": "undefined\n **Token scopes**: `organizations:write`"
+              },
+              "response": [
+                {
+                  "id": "6bf8d2b9-cf5f-4787-aff3-ac7c56333c96",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"permissionSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/roles/:roleId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "roles",
+                        ":roleId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "roleId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<double>\",\n  \"name\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"description\": \"<string>\",\n  \"permissionSets\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:40.000Z",
+                  "updatedAt": "2026-07-28T01:32:40.000Z",
+                  "uid": "35240-6bf8d2b9-cf5f-4787-aff3-ac7c56333c96"
+                },
+                {
+                  "id": "f51157ba-6414-48c4-a0de-bfb5246c542f",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"permissionSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/roles/:roleId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "roles",
+                        ":roleId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "roleId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:40.000Z",
+                  "updatedAt": "2026-07-28T01:32:40.000Z",
+                  "uid": "35240-f51157ba-6414-48c4-a0de-bfb5246c542f"
+                },
+                {
+                  "id": "1b6736cf-a1f3-4a4d-8643-8a5cc126b099",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"permissionSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/roles/:roleId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "roles",
+                        ":roleId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "roleId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:40.000Z",
+                  "updatedAt": "2026-07-28T01:32:40.000Z",
+                  "uid": "35240-1b6736cf-a1f3-4a4d-8643-8a5cc126b099"
+                },
+                {
+                  "id": "091b3d70-2e7b-4e16-82f8-bf0e21538cf7",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"permissionSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/roles/:roleId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "roles",
+                        ":roleId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "roleId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:40.000Z",
+                  "updatedAt": "2026-07-28T01:32:40.000Z",
+                  "uid": "35240-091b3d70-2e7b-4e16-82f8-bf0e21538cf7"
+                },
+                {
+                  "id": "6c8b400f-fc3a-44ac-aa25-08b71e3adba6",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"permissionSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/roles/:roleId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "roles",
+                        ":roleId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "roleId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:40.000Z",
+                  "updatedAt": "2026-07-28T01:32:40.000Z",
+                  "uid": "35240-6c8b400f-fc3a-44ac-aa25-08b71e3adba6"
+                },
+                {
+                  "id": "fb5022c2-3780-4f0a-9735-511ad1a9f4c6",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"permissionSets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/roles/:roleId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "roles",
+                        ":roleId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "roleId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:40.000Z",
+                  "updatedAt": "2026-07-28T01:32:40.000Z",
+                  "uid": "35240-fb5022c2-3780-4f0a-9735-511ad1a9f4c6"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-1633c84b-8698-497a-8b2d-bcc823ae669c"
+            }
+          ],
+          "id": "5cb04166-a73f-4c96-a97f-4de783bfe6ff",
+          "createdAt": "2026-07-28T01:32:40.000Z",
+          "updatedAt": "2026-07-28T01:32:40.000Z",
+          "uid": "35240-5cb04166-a73f-4c96-a97f-4de783bfe6ff"
+        },
+        {
+          "name": "Create organization custom role.",
+          "id": "e5928c75-0394-4cf6-8fd6-69889e89d04b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"scope\": \"<string>\",\n    \"description\": \"<string>\",\n    \"permissionSets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"hrisOrgStructureId\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/roles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "roles"
+              ]
+            },
+            "description": "Create organization custom role.\n **Token scopes**: `organizations:write`"
+          },
+          "response": [
+            {
+              "id": "db9bf643-82ec-4d67-ba25-c9ac7663c0d3",
+              "name": "Successful operation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"scope\": \"<string>\",\n    \"description\": \"<string>\",\n    \"permissionSets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"hrisOrgStructureId\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/roles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roles"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<double>\",\n  \"name\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"description\": \"<string>\",\n  \"permissionSets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hrisOrgStructureId\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-db9bf643-82ec-4d67-ba25-c9ac7663c0d3"
+            },
+            {
+              "id": "e30693dd-c055-4a64-a53c-8534277cbe58",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"scope\": \"<string>\",\n    \"description\": \"<string>\",\n    \"permissionSets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"hrisOrgStructureId\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/roles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roles"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-e30693dd-c055-4a64-a53c-8534277cbe58"
+            },
+            {
+              "id": "930399f1-b8a1-45cb-9454-b1214d80f868",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"scope\": \"<string>\",\n    \"description\": \"<string>\",\n    \"permissionSets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"hrisOrgStructureId\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/roles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roles"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-930399f1-b8a1-45cb-9454-b1214d80f868"
+            },
+            {
+              "id": "809f77bd-c5bb-4936-8fc7-bbaebab95bf4",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"scope\": \"<string>\",\n    \"description\": \"<string>\",\n    \"permissionSets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"hrisOrgStructureId\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/roles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roles"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-809f77bd-c5bb-4936-8fc7-bbaebab95bf4"
+            },
+            {
+              "id": "1269e280-9c55-42bc-bbc3-4f8c851fbd79",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"scope\": \"<string>\",\n    \"description\": \"<string>\",\n    \"permissionSets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"hrisOrgStructureId\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/roles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roles"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-1269e280-9c55-42bc-bbc3-4f8c851fbd79"
+            },
+            {
+              "id": "da6dd5dd-1271-4e39-b989-2cab7f7186dd",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"scope\": \"<string>\",\n    \"description\": \"<string>\",\n    \"permissionSets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"hrisOrgStructureId\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/roles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roles"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-da6dd5dd-1271-4e39-b989-2cab7f7186dd"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:40.000Z",
+          "updatedAt": "2026-07-28T01:32:40.000Z",
+          "uid": "35240-e5928c75-0394-4cf6-8fd6-69889e89d04b"
+        },
+        {
+          "name": "Get the roles of the current organization.",
+          "id": "661f813b-5058-49f1-b77e-bbe13653d1a0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/roles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "roles"
+              ]
+            },
+            "description": "Retrieve a list of roles assigned within the current organization. Each role has a unique identifier, name, scope, and optional HRIS structure ID. This helps determine the types of roles within the organization and their corresponding access levels.\n **Token scopes**: `organizations:read`"
+          },
+          "response": [
+            {
+              "id": "ef396edd-2916-4ea2-97c7-46ec19370d1a",
+              "name": "Successful retrieval of the organization roles.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/roles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roles"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<double>\",\n      \"name\": \"<string>\",\n      \"scope\": \"<string>\",\n      \"hrisOrgStructureId\": \"<string,null>\"\n    },\n    {\n      \"id\": \"<double>\",\n      \"name\": \"<string>\",\n      \"scope\": \"<string>\",\n      \"hrisOrgStructureId\": \"<string,null>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-ef396edd-2916-4ea2-97c7-46ec19370d1a"
+            },
+            {
+              "id": "0e59e40c-020d-4b14-8f55-ba103fd3439d",
+              "name": "Bad request. The request was malformed or missing required parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/roles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roles"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-0e59e40c-020d-4b14-8f55-ba103fd3439d"
+            },
+            {
+              "id": "5e9b9743-1cd0-4ad7-a17e-6ed16caa1c73",
+              "name": "Unauthorized. The request is missing authentication credentials or the credentials provided are invalid.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/roles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roles"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-5e9b9743-1cd0-4ad7-a17e-6ed16caa1c73"
+            },
+            {
+              "id": "6a71d175-dcd1-40e8-b278-fde4b4546e18",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/roles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roles"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-6a71d175-dcd1-40e8-b278-fde4b4546e18"
+            },
+            {
+              "id": "5541f685-b01a-40cf-8e95-df09766922f5",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/roles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roles"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-5541f685-b01a-40cf-8e95-df09766922f5"
+            },
+            {
+              "id": "5ea97b71-edad-4a2a-a975-cce679cccaf8",
+              "name": "Internal server error. An error occurred while processing the request.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/roles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roles"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-5ea97b71-edad-4a2a-a975-cce679cccaf8"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:40.000Z",
+          "updatedAt": "2026-07-28T01:32:40.000Z",
+          "uid": "35240-661f813b-5058-49f1-b77e-bbe13653d1a0"
+        }
+      ],
+      "id": "63b23bda-7a8d-4936-90b9-5fdc6b5c3834",
+      "createdAt": "2026-07-28T01:32:40.000Z",
+      "updatedAt": "2026-07-28T01:32:40.000Z",
+      "uid": "35240-63b23bda-7a8d-4936-90b9-5fdc6b5c3834"
+    },
+    {
+      "name": "teams",
+      "item": [
+        {
+          "name": "Get Team List",
+          "id": "839a1355-800f-4dc4-aa83-d3db770bf507",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/teams",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "teams"
+              ]
+            },
+            "description": "Retrieve a list of teams within the organization associated with the authenticated user. This list provides basic details about each team, including the team ID and name.\n **Token scopes**: `organizations:read`"
+          },
+          "response": [
+            {
+              "id": "93526f70-e45d-4b11-b4da-98941c720ca7",
+              "name": "Successful retrieval of the teams in the organization.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-93526f70-e45d-4b11-b4da-98941c720ca7"
+            },
+            {
+              "id": "e1c6076d-dfa3-4394-a5f0-38eb47f9c50d",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-e1c6076d-dfa3-4394-a5f0-38eb47f9c50d"
+            },
+            {
+              "id": "ee8ff00c-e340-4653-af1f-ba2fc78ae4c0",
+              "name": "Unauthorized. The request is missing authentication credentials or the credentials provided are invalid.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-ee8ff00c-e340-4653-af1f-ba2fc78ae4c0"
+            },
+            {
+              "id": "de3e3b18-5a6f-4b4e-82d4-8bd3afc521c3",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-de3e3b18-5a6f-4b4e-82d4-8bd3afc521c3"
+            },
+            {
+              "id": "708cd522-3c7d-4902-a8ec-b670e76eaa66",
+              "name": "No teams found. There are no teams associated with the current organization.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-708cd522-3c7d-4902-a8ec-b670e76eaa66"
+            },
+            {
+              "id": "0690caa6-0d9d-4be8-b589-a48d4238093e",
+              "name": "Internal server error. An error occurred on the server while processing the request.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-0690caa6-0d9d-4be8-b589-a48d4238093e"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:40.000Z",
+          "updatedAt": "2026-07-28T01:32:40.000Z",
+          "uid": "35240-839a1355-800f-4dc4-aa83-d3db770bf507"
+        }
+      ],
+      "id": "df2cd860-f899-4ea9-bfc3-5ed8ffed1a1e",
+      "createdAt": "2026-07-28T01:32:40.000Z",
+      "updatedAt": "2026-07-28T01:32:40.000Z",
+      "uid": "35240-df2cd860-f899-4ea9-bfc3-5ed8ffed1a1e"
+    },
+    {
+      "name": "departments",
+      "item": [
+        {
+          "name": "Retrieve Departments",
+          "id": "2096b9b9-d89a-451e-b55b-ef2bc1b11133",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/departments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "departments"
+              ]
+            },
+            "description": "Retrieve a list of departments within the organization associated with the authenticated user. Each department contains its unique identifier, name, and optionally, the parent department if applicable.\n **Token scopes**: `organizations:read`"
+          },
+          "response": [
+            {
+              "id": "ac13d846-39fa-4391-927e-815dc41eeb35",
+              "name": "Successful retrieval of the list of departments.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/departments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "departments"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"parent\": \"<string,null>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"parent\": \"<string,null>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-ac13d846-39fa-4391-927e-815dc41eeb35"
+            },
+            {
+              "id": "b52ad001-397e-4be9-b02e-01332ee3d10d",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/departments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "departments"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-b52ad001-397e-4be9-b02e-01332ee3d10d"
+            },
+            {
+              "id": "f7f57acf-5fd0-4246-930f-3ae9e66f148d",
+              "name": "Unauthorized. The request is missing authentication credentials or the credentials provided are invalid.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/departments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "departments"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-f7f57acf-5fd0-4246-930f-3ae9e66f148d"
+            },
+            {
+              "id": "94968b0c-3acb-4011-8b2c-af66674fabce",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/departments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "departments"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-94968b0c-3acb-4011-8b2c-af66674fabce"
+            },
+            {
+              "id": "a816decf-acc5-437f-aadf-1219fd686fb2",
+              "name": "No departments found. There are no departments associated with the current organization.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/departments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "departments"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-a816decf-acc5-437f-aadf-1219fd686fb2"
+            },
+            {
+              "id": "dcf0785e-3506-430a-8ed1-6315f74e55bd",
+              "name": "Internal server error. An error occurred on the server while processing the request.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/departments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "departments"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-dcf0785e-3506-430a-8ed1-6315f74e55bd"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:40.000Z",
+          "updatedAt": "2026-07-28T01:32:40.000Z",
+          "uid": "35240-2096b9b9-d89a-451e-b55b-ef2bc1b11133"
+        }
+      ],
+      "id": "4cb4e29c-2592-4006-8fe9-78ce734b0be8",
+      "createdAt": "2026-07-28T01:32:40.000Z",
+      "updatedAt": "2026-07-28T01:32:40.000Z",
+      "uid": "35240-4cb4e29c-2592-4006-8fe9-78ce734b0be8"
+    },
+    {
+      "name": "working-locations",
+      "item": [
+        {
+          "name": "Retrieve working locations",
+          "id": "476d9d56-8a90-4193-a725-73dd80945b8b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/working-locations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "working-locations"
+              ]
+            },
+            "description": "Retrieves the list of available work location labels configured in the HRIS system for the organization.\n **Token scopes**: `organizations:read`"
+          },
+          "response": [
+            {
+              "id": "0bbcd62e-01fe-4f27-9115-a9f845625b7b",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working-locations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working-locations"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<double>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<double>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-0bbcd62e-01fe-4f27-9115-a9f845625b7b"
+            },
+            {
+              "id": "600241d8-fedd-4962-836a-62f8a85b2f38",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working-locations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working-locations"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-600241d8-fedd-4962-836a-62f8a85b2f38"
+            },
+            {
+              "id": "718e8c73-e65f-465d-808c-7e189fe28de2",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working-locations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working-locations"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-718e8c73-e65f-465d-808c-7e189fe28de2"
+            },
+            {
+              "id": "54fee701-975f-4c1e-befa-861912e7c4e6",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working-locations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working-locations"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-54fee701-975f-4c1e-befa-861912e7c4e6"
+            },
+            {
+              "id": "735e970c-4cc4-4e84-90c9-92d2640a1672",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working-locations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working-locations"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-735e970c-4cc4-4e84-90c9-92d2640a1672"
+            },
+            {
+              "id": "2ad465b0-4bef-4ee1-af84-696a16e4832a",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/working-locations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "working-locations"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:40.000Z",
+              "updatedAt": "2026-07-28T01:32:40.000Z",
+              "uid": "35240-2ad465b0-4bef-4ee1-af84-696a16e4832a"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:40.000Z",
+          "updatedAt": "2026-07-28T01:32:40.000Z",
+          "uid": "35240-476d9d56-8a90-4193-a725-73dd80945b8b"
+        }
+      ],
+      "id": "05874668-14d2-4328-afbc-8f6ef144658e",
+      "createdAt": "2026-07-28T01:32:40.000Z",
+      "updatedAt": "2026-07-28T01:32:40.000Z",
+      "uid": "35240-05874668-14d2-4328-afbc-8f6ef144658e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

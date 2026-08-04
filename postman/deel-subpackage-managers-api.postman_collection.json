@@ -1,0 +1,1134 @@
+{
+  "info": {
+    "_postman_id": "66d25a58-ab31-45c9-b9f4-00d9b6aacbfe",
+    "name": "Endpoints subpackage_managers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:14.000Z",
+    "updatedAt": "2026-07-28T01:32:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-66d25a58-ab31-45c9-b9f4-00d9b6aacbfe"
+  },
+  "item": [
+    {
+      "name": "managers",
+      "item": [
+        {
+          "name": "magic-links",
+          "item": [
+            {
+              "name": "Generate magic link for manager login",
+              "id": "7f58c043-ba02-4bfa-99a6-b1b91395ac33",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"manager_id\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/managers/magic-links",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managers",
+                    "magic-links"
+                  ]
+                },
+                "description": "Generate a one-time magic link that allows a manager to log in to Deel without entering credentials. The target manager must belong to the requesting organization and cannot be an organization admin. Only available for White Label enabled organizations or Partners or Child organizations. The magic link expires after 5 minutes and can only be used once. After clicking the link, the manager will be automatically authenticated and redirected to Deel.\n **Token scopes**: `auth:write`"
+              },
+              "response": [
+                {
+                  "id": "8e60c700-c70c-40c4-b245-08d5a2542f72",
+                  "name": "Magic link generated successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"manager_id\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/managers/magic-links",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "managers",
+                        "magic-links"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"created_at\": \"<dateTime>\",\n    \"expires_at\": \"<dateTime>\",\n    \"magic_link\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:15.000Z",
+                  "updatedAt": "2026-07-28T01:32:15.000Z",
+                  "uid": "35240-8e60c700-c70c-40c4-b245-08d5a2542f72"
+                },
+                {
+                  "id": "ac4e6b3e-76e9-4d2e-846c-512fbd593ff0",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"manager_id\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/managers/magic-links",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "managers",
+                        "magic-links"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:15.000Z",
+                  "updatedAt": "2026-07-28T01:32:15.000Z",
+                  "uid": "35240-ac4e6b3e-76e9-4d2e-846c-512fbd593ff0"
+                },
+                {
+                  "id": "bb2a396a-4658-4ecc-b6c5-ac8fb0f9d481",
+                  "name": "Unauthorized - Invalid or missing authentication token",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"manager_id\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/managers/magic-links",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "managers",
+                        "magic-links"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:15.000Z",
+                  "updatedAt": "2026-07-28T01:32:15.000Z",
+                  "uid": "35240-bb2a396a-4658-4ecc-b6c5-ac8fb0f9d481"
+                },
+                {
+                  "id": "2f8f7ee1-f4d2-4ce6-b255-3b4e0cb29b7a",
+                  "name": "Forbidden - Not allowed to generate magic link for this manager",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"manager_id\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/managers/magic-links",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "managers",
+                        "magic-links"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:15.000Z",
+                  "updatedAt": "2026-07-28T01:32:15.000Z",
+                  "uid": "35240-2f8f7ee1-f4d2-4ce6-b255-3b4e0cb29b7a"
+                },
+                {
+                  "id": "a75b0478-d22e-4f67-874a-dfdd22af5861",
+                  "name": "Not Found - Manager does not exist or is not in organization",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"manager_id\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/managers/magic-links",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "managers",
+                        "magic-links"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:15.000Z",
+                  "updatedAt": "2026-07-28T01:32:15.000Z",
+                  "uid": "35240-a75b0478-d22e-4f67-874a-dfdd22af5861"
+                },
+                {
+                  "id": "df89b030-6c76-4bd8-be1d-9f6231b994a3",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"manager_id\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/managers/magic-links",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "managers",
+                        "magic-links"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:15.000Z",
+                  "updatedAt": "2026-07-28T01:32:15.000Z",
+                  "uid": "35240-df89b030-6c76-4bd8-be1d-9f6231b994a3"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:15.000Z",
+              "updatedAt": "2026-07-28T01:32:15.000Z",
+              "uid": "35240-7f58c043-ba02-4bfa-99a6-b1b91395ac33"
+            }
+          ],
+          "id": "6bdf2a25-5336-40c0-b8eb-0009460ee6e8",
+          "createdAt": "2026-07-28T01:32:15.000Z",
+          "updatedAt": "2026-07-28T01:32:15.000Z",
+          "uid": "35240-6bdf2a25-5336-40c0-b8eb-0009460ee6e8"
+        },
+        {
+          "name": "Create a Manager",
+          "id": "311f7433-6d1e-48bb-8596-8c15eeb9996d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"email\": \"<email>\",\n    \"last_name\": \"<string>\",\n    \"first_name\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/managers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "managers"
+              ]
+            },
+            "description": "Create a new manager for the organization by providing the required user details. This endpoint returns the newly created manager's information.\n **Token scopes**: `organizations:write`"
+          },
+          "response": [
+            {
+              "id": "16f97972-5a95-438d-a1c4-a5cf67944861",
+              "name": "Manager created successfully.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"email\": \"<email>\",\n    \"last_name\": \"<string>\",\n    \"first_name\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/managers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managers"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"id\": \"<uuid>\",\n    \"email\": \"<email>\",\n    \"last_name\": \"<string>\",\n    \"first_name\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:15.000Z",
+              "updatedAt": "2026-07-28T01:32:15.000Z",
+              "uid": "35240-16f97972-5a95-438d-a1c4-a5cf67944861"
+            },
+            {
+              "id": "1e6e3ece-6564-46df-bc25-6a54eabb521e",
+              "name": "Invalid request. The input data did not meet the required validation rules.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"email\": \"<email>\",\n    \"last_name\": \"<string>\",\n    \"first_name\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/managers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managers"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:15.000Z",
+              "updatedAt": "2026-07-28T01:32:15.000Z",
+              "uid": "35240-1e6e3ece-6564-46df-bc25-6a54eabb521e"
+            },
+            {
+              "id": "ca6cdadc-afd7-411f-9cdc-bec7e30a8428",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"email\": \"<email>\",\n    \"last_name\": \"<string>\",\n    \"first_name\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/managers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managers"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:15.000Z",
+              "updatedAt": "2026-07-28T01:32:15.000Z",
+              "uid": "35240-ca6cdadc-afd7-411f-9cdc-bec7e30a8428"
+            },
+            {
+              "id": "0f4820da-5b86-463c-860d-0c6c80167bb2",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"email\": \"<email>\",\n    \"last_name\": \"<string>\",\n    \"first_name\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/managers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managers"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:15.000Z",
+              "updatedAt": "2026-07-28T01:32:15.000Z",
+              "uid": "35240-0f4820da-5b86-463c-860d-0c6c80167bb2"
+            },
+            {
+              "id": "40a0ec17-6135-4eab-a5fb-adc64982e615",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"email\": \"<email>\",\n    \"last_name\": \"<string>\",\n    \"first_name\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/managers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managers"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:15.000Z",
+              "updatedAt": "2026-07-28T01:32:15.000Z",
+              "uid": "35240-40a0ec17-6135-4eab-a5fb-adc64982e615"
+            },
+            {
+              "id": "89405afe-70a4-40d7-b62a-403e11a4ca1c",
+              "name": "Conflict. A manager with the provided email already exists.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"email\": \"<email>\",\n    \"last_name\": \"<string>\",\n    \"first_name\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/managers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managers"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:32:15.000Z",
+              "updatedAt": "2026-07-28T01:32:15.000Z",
+              "uid": "35240-89405afe-70a4-40d7-b62a-403e11a4ca1c"
+            },
+            {
+              "id": "36a03d97-5b23-4bfc-9092-a24fc16e5415",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"email\": \"<email>\",\n    \"last_name\": \"<string>\",\n    \"first_name\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/managers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managers"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:15.000Z",
+              "updatedAt": "2026-07-28T01:32:15.000Z",
+              "uid": "35240-36a03d97-5b23-4bfc-9092-a24fc16e5415"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:15.000Z",
+          "updatedAt": "2026-07-28T01:32:15.000Z",
+          "uid": "35240-311f7433-6d1e-48bb-8596-8c15eeb9996d"
+        },
+        {
+          "name": "Retrieve List of Managers",
+          "id": "9d4c8261-252e-44af-8ebb-b261c9ca7311",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/managers?limit=<integer>&offset=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "managers"
+              ],
+              "query": [
+                {
+                  "description": "The number of records to return in the response.",
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The offset or starting point for pagination.",
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Retrieve a list of all managers in the organization along with pagination details.\n **Token scopes**: `organizations:read`"
+          },
+          "response": [
+            {
+              "id": "caed725e-c20a-498c-840f-0b02314c654c",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/managers?limit=<integer>&offset=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managers"
+                  ],
+                  "query": [
+                    {
+                      "description": "The number of records to return in the response.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The offset or starting point for pagination.",
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"email\": \"<email>\",\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"email\": \"<email>\",\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\"\n    }\n  ],\n  \"page\": {\n    \"total_rows\": \"<double>\",\n    \"offset\": \"<number,null-double>\",\n    \"items_per_page\": \"<number,null-double>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:32:15.000Z",
+              "updatedAt": "2026-07-28T01:32:15.000Z",
+              "uid": "35240-caed725e-c20a-498c-840f-0b02314c654c"
+            },
+            {
+              "id": "46596acf-aba9-4a4c-b762-2fa896bf269b",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/managers?limit=<integer>&offset=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managers"
+                  ],
+                  "query": [
+                    {
+                      "description": "The number of records to return in the response.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The offset or starting point for pagination.",
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:15.000Z",
+              "updatedAt": "2026-07-28T01:32:15.000Z",
+              "uid": "35240-46596acf-aba9-4a4c-b762-2fa896bf269b"
+            },
+            {
+              "id": "e1843ed1-00fe-40c5-856b-1134e7bc71c5",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/managers?limit=<integer>&offset=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managers"
+                  ],
+                  "query": [
+                    {
+                      "description": "The number of records to return in the response.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The offset or starting point for pagination.",
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:15.000Z",
+              "updatedAt": "2026-07-28T01:32:15.000Z",
+              "uid": "35240-e1843ed1-00fe-40c5-856b-1134e7bc71c5"
+            },
+            {
+              "id": "8fa32d3b-8f37-4900-b471-c6990fc4a36d",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/managers?limit=<integer>&offset=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managers"
+                  ],
+                  "query": [
+                    {
+                      "description": "The number of records to return in the response.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The offset or starting point for pagination.",
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:15.000Z",
+              "updatedAt": "2026-07-28T01:32:15.000Z",
+              "uid": "35240-8fa32d3b-8f37-4900-b471-c6990fc4a36d"
+            },
+            {
+              "id": "98db919c-5623-45a0-b216-22f5c2620ee0",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/managers?limit=<integer>&offset=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managers"
+                  ],
+                  "query": [
+                    {
+                      "description": "The number of records to return in the response.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The offset or starting point for pagination.",
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:15.000Z",
+              "updatedAt": "2026-07-28T01:32:15.000Z",
+              "uid": "35240-98db919c-5623-45a0-b216-22f5c2620ee0"
+            },
+            {
+              "id": "28ee55c2-1f6a-45dc-b344-4e64c21ff39d",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/managers?limit=<integer>&offset=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "managers"
+                  ],
+                  "query": [
+                    {
+                      "description": "The number of records to return in the response.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The offset or starting point for pagination.",
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:32:15.000Z",
+              "updatedAt": "2026-07-28T01:32:15.000Z",
+              "uid": "35240-28ee55c2-1f6a-45dc-b344-4e64c21ff39d"
+            }
+          ],
+          "createdAt": "2026-07-28T01:32:15.000Z",
+          "updatedAt": "2026-07-28T01:32:15.000Z",
+          "uid": "35240-9d4c8261-252e-44af-8ebb-b261c9ca7311"
+        }
+      ],
+      "id": "a845abb4-7fa6-41a8-ac2c-320a1d11dc07",
+      "createdAt": "2026-07-28T01:32:15.000Z",
+      "updatedAt": "2026-07-28T01:32:15.000Z",
+      "uid": "35240-a845abb4-7fa6-41a8-ac2c-320a1d11dc07"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

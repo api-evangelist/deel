@@ -1,0 +1,477 @@
+{
+  "info": {
+    "_postman_id": "56535d21-b5cc-4aa1-855b-6eefcb141d1d",
+    "name": "Endpoints subpackage_learning API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:31:48.000Z",
+    "updatedAt": "2026-07-28T01:31:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-56535d21-b5cc-4aa1-855b-6eefcb141d1d"
+  },
+  "item": [
+    {
+      "name": "engage",
+      "item": [
+        {
+          "name": "learning",
+          "item": [
+            {
+              "name": "actionable-journeys",
+              "item": [
+                {
+                  "name": "Retrieve worker's actionable journeys",
+                  "id": "a94147e7-cd58-405c-9d86-98bc09a16c14",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/engage/learning/actionable-journeys?journey_ids=<uuid>&journey_ids=<uuid>&journey_assignment_ids=<uuid>&journey_assignment_ids=<uuid>&limit=20&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "engage",
+                        "learning",
+                        "actionable-journeys"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by Journey IDs.",
+                          "key": "journey_ids",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by Journey IDs.",
+                          "key": "journey_ids",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by JourneyAssignment IDs.",
+                          "key": "journey_assignment_ids",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by JourneyAssignment IDs.",
+                          "key": "journey_assignment_ids",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Return a page of results with given number of records.",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Cursor to the next page of results. If not provided, the first page will be returned.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Return list of ActionableJourneys for a given Worker. The concept of Actionable Journeys in the Public API corresponds directly to what is labeled as Courses in the user interface. Learn more about [Learning Management](https://www.deel.com/hr/engage/learning-management-software/)\n **Token scopes**: `worker:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "4838bee4-4282-4770-80fb-9fe635382203",
+                      "name": "Successful retrieval of actionable journeys",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/engage/learning/actionable-journeys?journey_ids=<uuid>&journey_assignment_ids=<uuid>&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "engage",
+                            "learning",
+                            "actionable-journeys"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by Journey IDs.",
+                              "key": "journey_ids",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Filter by JourneyAssignment IDs.",
+                              "key": "journey_assignment_ids",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Cursor to the next page of results. If not provided, the first page will be returned.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"step\": {\n        \"id\": \"<uuid>\",\n        \"journey\": {\n          \"id\": \"<uuid>\",\n          \"title\": \"<string>\"\n        },\n        \"journey_id\": \"<uuid>\"\n      },\n      \"journey\": {\n        \"id\": \"<uuid>\",\n        \"title\": \"<string>\",\n        \"type_slug\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"is_template\": \"<boolean>\",\n        \"draft_for_id\": \"<string,null-uuid>\",\n        \"published_at\": \"<dateTime>\",\n        \"cover_picture\": {\n          \"id\": \"<uuid>\",\n          \"url\": \"<uri>\",\n          \"file_name\": \"<string>\",\n          \"attachable_id\": \"<uuid>\",\n          \"attachable_type\": \"<string>\",\n          \"file_content_type\": \"<string>\",\n          \"attachment_type_slug\": \"<string>\"\n        },\n        \"is_time_based\": \"<boolean>\",\n        \"is_cohort_based\": \"<boolean>\",\n        \"organization_id\": \"<integer>\",\n        \"visibility_slug\": \"public\",\n        \"recently_edited_at\": \"<dateTime>\",\n        \"is_visible_in_library\": \"<boolean>\",\n        \"is_self_assignment_allowed\": \"<boolean>\",\n        \"created_by_hris_organization_user_profile\": {\n          \"type\": \"CLIENT\",\n          \"email\": \"<email>\",\n          \"country\": \"<string,null>\",\n          \"pic_url\": \"<uri>\",\n          \"job_title\": \"<string,null>\",\n          \"last_name\": \"<string>\",\n          \"first_name\": \"<string>\",\n          \"work_email\": \"<string,null-email>\",\n          \"deactivated_at\": \"<string,null-date-time>\",\n          \"preferred_name\": \"<string>\",\n          \"organization_public_id\": \"<uuid>\",\n          \"hris_organization_user_id\": \"<uuid>\"\n        },\n        \"updated_by_hris_organization_user_profile\": {\n          \"type\": \"CLIENT\",\n          \"email\": \"<email>\",\n          \"country\": \"<string,null>\",\n          \"pic_url\": \"<uri>\",\n          \"job_title\": \"<string,null>\",\n          \"last_name\": \"<string>\",\n          \"first_name\": \"<string>\",\n          \"work_email\": \"<string,null-email>\",\n          \"deactivated_at\": \"<string,null-date-time>\",\n          \"preferred_name\": \"<string>\",\n          \"organization_public_id\": \"<uuid>\",\n          \"hris_organization_user_id\": \"<uuid>\"\n        }\n      },\n      \"scopeable\": {\n        \"id\": \"<uuid>\",\n        \"is_self_assigned\": \"<boolean>\",\n        \"assignee_hris_organization_user\": {\n          \"type\": \"WORKER\",\n          \"email\": \"<email>\",\n          \"country\": \"<string,null>\",\n          \"pic_url\": \"<uri>\",\n          \"job_title\": \"<string,null>\",\n          \"last_name\": \"<string>\",\n          \"first_name\": \"<string>\",\n          \"work_email\": \"<email>\",\n          \"deactivated_at\": \"<string,null-date-time>\",\n          \"preferred_name\": \"<string>\",\n          \"organization_public_id\": \"<uuid>\",\n          \"hris_organization_user_id\": \"<uuid>\"\n        }\n      },\n      \"completion\": {\n        \"percentage\": \"<double>\"\n      },\n      \"recipientable\": {\n        \"type\": \"CLIENT\",\n        \"email\": \"<email>\",\n        \"country\": \"<string,null>\",\n        \"pic_url\": \"<uri>\",\n        \"job_title\": \"<string,null>\",\n        \"last_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"work_email\": \"<email>\",\n        \"deactivated_at\": \"<string,null-date-time>\",\n        \"preferred_name\": \"<string>\",\n        \"organization_public_id\": \"<uuid>\",\n        \"hris_organization_user_id\": \"<uuid>\"\n      },\n      \"actionable_path\": \"<string>\",\n      \"recipient_setting_type\": \"mentor\",\n      \"recipient_setting_dynamic_role_id\": \"<string,null>\",\n      \"recipient_setting_dynamic_role_name\": \"<string,null>\"\n    },\n    {\n      \"step\": {\n        \"id\": \"<uuid>\",\n        \"journey\": {\n          \"id\": \"<uuid>\",\n          \"title\": \"<string>\"\n        },\n        \"journey_id\": \"<uuid>\"\n      },\n      \"journey\": {\n        \"id\": \"<uuid>\",\n        \"title\": \"<string>\",\n        \"type_slug\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"is_template\": \"<boolean>\",\n        \"draft_for_id\": \"<string,null-uuid>\",\n        \"published_at\": \"<dateTime>\",\n        \"cover_picture\": {\n          \"id\": \"<uuid>\",\n          \"url\": \"<uri>\",\n          \"file_name\": \"<string>\",\n          \"attachable_id\": \"<uuid>\",\n          \"attachable_type\": \"<string>\",\n          \"file_content_type\": \"<string>\",\n          \"attachment_type_slug\": \"<string>\"\n        },\n        \"is_time_based\": \"<boolean>\",\n        \"is_cohort_based\": \"<boolean>\",\n        \"organization_id\": \"<integer>\",\n        \"visibility_slug\": \"organization\",\n        \"recently_edited_at\": \"<dateTime>\",\n        \"is_visible_in_library\": \"<boolean>\",\n        \"is_self_assignment_allowed\": \"<boolean>\",\n        \"created_by_hris_organization_user_profile\": {\n          \"type\": \"WORKER\",\n          \"email\": \"<email>\",\n          \"country\": \"<string,null>\",\n          \"pic_url\": \"<uri>\",\n          \"job_title\": \"<string,null>\",\n          \"last_name\": \"<string>\",\n          \"first_name\": \"<string>\",\n          \"work_email\": \"<string,null-email>\",\n          \"deactivated_at\": \"<string,null-date-time>\",\n          \"preferred_name\": \"<string>\",\n          \"organization_public_id\": \"<uuid>\",\n          \"hris_organization_user_id\": \"<uuid>\"\n        },\n        \"updated_by_hris_organization_user_profile\": {\n          \"type\": \"WORKER\",\n          \"email\": \"<email>\",\n          \"country\": \"<string,null>\",\n          \"pic_url\": \"<uri>\",\n          \"job_title\": \"<string,null>\",\n          \"last_name\": \"<string>\",\n          \"first_name\": \"<string>\",\n          \"work_email\": \"<string,null-email>\",\n          \"deactivated_at\": \"<string,null-date-time>\",\n          \"preferred_name\": \"<string>\",\n          \"organization_public_id\": \"<uuid>\",\n          \"hris_organization_user_id\": \"<uuid>\"\n        }\n      },\n      \"scopeable\": {\n        \"id\": \"<uuid>\",\n        \"is_self_assigned\": \"<boolean>\",\n        \"assignee_hris_organization_user\": {\n          \"type\": \"CLIENT\",\n          \"email\": \"<email>\",\n          \"country\": \"<string,null>\",\n          \"pic_url\": \"<uri>\",\n          \"job_title\": \"<string,null>\",\n          \"last_name\": \"<string>\",\n          \"first_name\": \"<string>\",\n          \"work_email\": \"<email>\",\n          \"deactivated_at\": \"<string,null-date-time>\",\n          \"preferred_name\": \"<string>\",\n          \"organization_public_id\": \"<uuid>\",\n          \"hris_organization_user_id\": \"<uuid>\"\n        }\n      },\n      \"completion\": {\n        \"percentage\": \"<double>\"\n      },\n      \"recipientable\": {\n        \"type\": \"WORKER\",\n        \"email\": \"<email>\",\n        \"country\": \"<string,null>\",\n        \"pic_url\": \"<uri>\",\n        \"job_title\": \"<string,null>\",\n        \"last_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"work_email\": \"<email>\",\n        \"deactivated_at\": \"<string,null-date-time>\",\n        \"preferred_name\": \"<string>\",\n        \"organization_public_id\": \"<uuid>\",\n        \"hris_organization_user_id\": \"<uuid>\"\n      },\n      \"actionable_path\": \"<string>\",\n      \"recipient_setting_type\": \"mentor\",\n      \"recipient_setting_dynamic_role_id\": \"<string,null>\",\n      \"recipient_setting_dynamic_role_name\": \"<string,null>\"\n    }\n  ],\n  \"next_cursor\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:31:49.000Z",
+                      "updatedAt": "2026-07-28T01:31:49.000Z",
+                      "uid": "35240-4838bee4-4282-4770-80fb-9fe635382203"
+                    },
+                    {
+                      "id": "48dbea64-2d3a-41e0-9374-96750447d9be",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/engage/learning/actionable-journeys?journey_ids=<uuid>&journey_assignment_ids=<uuid>&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "engage",
+                            "learning",
+                            "actionable-journeys"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by Journey IDs.",
+                              "key": "journey_ids",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Filter by JourneyAssignment IDs.",
+                              "key": "journey_assignment_ids",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Cursor to the next page of results. If not provided, the first page will be returned.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"path\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"path\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ],\n  \"request\": {\n    \"url\": \"<string>\",\n    \"code\": \"<double>\",\n    \"docs\": \"<string>\",\n    \"method\": \"<string>\",\n    \"source\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:31:49.000Z",
+                      "updatedAt": "2026-07-28T01:31:49.000Z",
+                      "uid": "35240-48dbea64-2d3a-41e0-9374-96750447d9be"
+                    },
+                    {
+                      "id": "750e35f0-85e8-416a-8f3d-84e8b83e6786",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/engage/learning/actionable-journeys?journey_ids=<uuid>&journey_assignment_ids=<uuid>&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "engage",
+                            "learning",
+                            "actionable-journeys"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by Journey IDs.",
+                              "key": "journey_ids",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Filter by JourneyAssignment IDs.",
+                              "key": "journey_assignment_ids",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Cursor to the next page of results. If not provided, the first page will be returned.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:49.000Z",
+                      "updatedAt": "2026-07-28T01:31:49.000Z",
+                      "uid": "35240-750e35f0-85e8-416a-8f3d-84e8b83e6786"
+                    },
+                    {
+                      "id": "941c03b8-581f-49ef-96c7-62790dcf2d19",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/engage/learning/actionable-journeys?journey_ids=<uuid>&journey_assignment_ids=<uuid>&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "engage",
+                            "learning",
+                            "actionable-journeys"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by Journey IDs.",
+                              "key": "journey_ids",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Filter by JourneyAssignment IDs.",
+                              "key": "journey_assignment_ids",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Cursor to the next page of results. If not provided, the first page will be returned.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:49.000Z",
+                      "updatedAt": "2026-07-28T01:31:49.000Z",
+                      "uid": "35240-941c03b8-581f-49ef-96c7-62790dcf2d19"
+                    },
+                    {
+                      "id": "f4ec71ef-d82e-42a4-bd91-5013266c18b4",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/engage/learning/actionable-journeys?journey_ids=<uuid>&journey_assignment_ids=<uuid>&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "engage",
+                            "learning",
+                            "actionable-journeys"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by Journey IDs.",
+                              "key": "journey_ids",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Filter by JourneyAssignment IDs.",
+                              "key": "journey_assignment_ids",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Cursor to the next page of results. If not provided, the first page will be returned.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:49.000Z",
+                      "updatedAt": "2026-07-28T01:31:49.000Z",
+                      "uid": "35240-f4ec71ef-d82e-42a4-bd91-5013266c18b4"
+                    },
+                    {
+                      "id": "4ff72867-b160-4cf9-a6d0-2e6d05bc2dd4",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/engage/learning/actionable-journeys?journey_ids=<uuid>&journey_assignment_ids=<uuid>&limit=20&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "engage",
+                            "learning",
+                            "actionable-journeys"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by Journey IDs.",
+                              "key": "journey_ids",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Filter by JourneyAssignment IDs.",
+                              "key": "journey_assignment_ids",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Cursor to the next page of results. If not provided, the first page will be returned.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:49.000Z",
+                      "updatedAt": "2026-07-28T01:31:49.000Z",
+                      "uid": "35240-4ff72867-b160-4cf9-a6d0-2e6d05bc2dd4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:31:49.000Z",
+                  "updatedAt": "2026-07-28T01:31:49.000Z",
+                  "uid": "35240-a94147e7-cd58-405c-9d86-98bc09a16c14"
+                }
+              ],
+              "id": "f4d0aab4-42bc-4621-a31b-b2d976295830",
+              "createdAt": "2026-07-28T01:31:49.000Z",
+              "updatedAt": "2026-07-28T01:31:49.000Z",
+              "uid": "35240-f4d0aab4-42bc-4621-a31b-b2d976295830"
+            }
+          ],
+          "id": "25870ce6-9d26-4dd0-a10a-d8a13f939186",
+          "createdAt": "2026-07-28T01:31:49.000Z",
+          "updatedAt": "2026-07-28T01:31:49.000Z",
+          "uid": "35240-25870ce6-9d26-4dd0-a10a-d8a13f939186"
+        }
+      ],
+      "id": "1e367c8c-c19a-4e5f-bd5a-2fd12efb32b3",
+      "createdAt": "2026-07-28T01:31:49.000Z",
+      "updatedAt": "2026-07-28T01:31:49.000Z",
+      "uid": "35240-1e367c8c-c19a-4e5f-bd5a-2fd12efb32b3"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

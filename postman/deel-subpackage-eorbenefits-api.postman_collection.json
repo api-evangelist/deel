@@ -1,0 +1,263 @@
+{
+  "info": {
+    "_postman_id": "2969ddfc-f394-4495-baca-bb2f5f7a6468",
+    "name": "Endpoints subpackage_eorBenefits API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:40.000Z",
+    "updatedAt": "2026-07-28T01:30:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2969ddfc-f394-4495-baca-bb2f5f7a6468"
+  },
+  "item": [
+    {
+      "name": "eor",
+      "item": [
+        {
+          "name": "{contract_id}",
+          "item": [
+            {
+              "name": "benefits",
+              "item": [
+                {
+                  "name": "Retrieve Benefits for EOR Contract",
+                  "id": "4ed4cf2e-5b58-4df0-8c13-6d5543169a73",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/eor/:contract_id/benefits",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eor",
+                        ":contract_id",
+                        "benefits"
+                      ],
+                      "variable": [
+                        {
+                          "id": "29cea5a6-e536-4fcc-9afa-fd2729434998",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) Deel contract ID."
+                        }
+                      ]
+                    },
+                    "description": "Fetch detailed information about benefits associated with a specific Employee of Record (EOR) contract. The benefits include plan details, provider information, and enrollment statuses.\n **Token scopes**: `contracts:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "7b1de0ec-4e81-4a2e-95a9-1fef8bccce3c",
+                      "name": "Successfully retrieved the list of EOR contract benefits.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/:contract_id/benefits",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            ":contract_id",
+                            "benefits"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"plan\": {\n        \"name\": \"<string>\"\n      },\n      \"provider\": {\n        \"name\": \"<string>\"\n      },\n      \"offer_status\": \"Not offered\",\n      \"enrollment_details\": {\n        \"plan\": {\n          \"name\": \"<string>\"\n        },\n        \"status\": \"<string>\",\n        \"standard\": {\n          \"monthly_cost\": \"<string,null>\",\n          \"employee_monthly_contribution\": \"<string,null>\"\n        },\n        \"current_cycle\": {\n          \"monthly_cost\": \"<string>\",\n          \"employee_monthly_contribution\": \"<string>\"\n        }\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"plan\": {\n        \"name\": \"<string>\"\n      },\n      \"provider\": {\n        \"name\": \"<string>\"\n      },\n      \"offer_status\": \"Offered\",\n      \"enrollment_details\": {\n        \"plan\": {\n          \"name\": \"<string>\"\n        },\n        \"status\": \"<string>\",\n        \"standard\": {\n          \"monthly_cost\": \"<string,null>\",\n          \"employee_monthly_contribution\": \"<string,null>\"\n        },\n        \"current_cycle\": {\n          \"monthly_cost\": \"<string>\",\n          \"employee_monthly_contribution\": \"<string>\"\n        }\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:41.000Z",
+                      "updatedAt": "2026-07-28T01:30:41.000Z",
+                      "uid": "35240-7b1de0ec-4e81-4a2e-95a9-1fef8bccce3c"
+                    },
+                    {
+                      "id": "4f0d43bb-dfce-4513-895b-4b3d0cbfaa4e",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/:contract_id/benefits",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            ":contract_id",
+                            "benefits"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:41.000Z",
+                      "updatedAt": "2026-07-28T01:30:41.000Z",
+                      "uid": "35240-4f0d43bb-dfce-4513-895b-4b3d0cbfaa4e"
+                    },
+                    {
+                      "id": "223bebb3-ab9a-468a-959a-0f5a252330d1",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/:contract_id/benefits",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            ":contract_id",
+                            "benefits"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:41.000Z",
+                      "updatedAt": "2026-07-28T01:30:41.000Z",
+                      "uid": "35240-223bebb3-ab9a-468a-959a-0f5a252330d1"
+                    },
+                    {
+                      "id": "4769bf67-2b79-4eac-8287-844a0a682005",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/:contract_id/benefits",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            ":contract_id",
+                            "benefits"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:41.000Z",
+                      "updatedAt": "2026-07-28T01:30:41.000Z",
+                      "uid": "35240-4769bf67-2b79-4eac-8287-844a0a682005"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:41.000Z",
+                  "updatedAt": "2026-07-28T01:30:41.000Z",
+                  "uid": "35240-4ed4cf2e-5b58-4df0-8c13-6d5543169a73"
+                }
+              ],
+              "id": "0db29be4-834b-42d9-a638-8679d44f389a",
+              "createdAt": "2026-07-28T01:30:41.000Z",
+              "updatedAt": "2026-07-28T01:30:41.000Z",
+              "uid": "35240-0db29be4-834b-42d9-a638-8679d44f389a"
+            }
+          ],
+          "id": "7ed75afc-b790-4d45-b490-ee2b495a4726",
+          "createdAt": "2026-07-28T01:30:41.000Z",
+          "updatedAt": "2026-07-28T01:30:41.000Z",
+          "uid": "35240-7ed75afc-b790-4d45-b490-ee2b495a4726"
+        }
+      ],
+      "id": "4969051a-31e5-47cd-857d-70358fe1d0a3",
+      "createdAt": "2026-07-28T01:30:41.000Z",
+      "updatedAt": "2026-07-28T01:30:41.000Z",
+      "uid": "35240-4969051a-31e5-47cd-857d-70358fe1d0a3"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

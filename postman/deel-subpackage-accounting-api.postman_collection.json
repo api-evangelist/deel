@@ -1,0 +1,2347 @@
+{
+  "info": {
+    "_postman_id": "9640164c-188a-4787-a625-20f563bc04c3",
+    "name": "Endpoints subpackage_accounting API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:29:36.000Z",
+    "updatedAt": "2026-07-28T01:29:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9640164c-188a-4787-a625-20f563bc04c3"
+  },
+  "item": [
+    {
+      "name": "invoices",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "download",
+              "item": [
+                {
+                  "name": "Download invoice PDF",
+                  "id": "64b396a7-8eb8-4147-82f5-e57cb0b8b02f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoices/:id/download",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoices",
+                        ":id",
+                        "download"
+                      ],
+                      "variable": [
+                        {
+                          "id": "bfe07b98-d487-43d4-9cd4-35d541226d47",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) The invoice ID used to identify the invoice to be downloaded."
+                        }
+                      ]
+                    },
+                    "description": "Get a link to download the invoice PDF.\n **Token scopes**: `accounting:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "c7c577d7-0eb8-4e6f-9eb0-9cc379aebcf1",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/invoices/:id/download",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invoices",
+                            ":id",
+                            "download"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"url\": \"<string,null>\",\n    \"id\": \"<string>\",\n    \"expires_at\": \"<dateTime>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:29:37.000Z",
+                      "updatedAt": "2026-07-28T01:29:37.000Z",
+                      "uid": "35240-c7c577d7-0eb8-4e6f-9eb0-9cc379aebcf1"
+                    },
+                    {
+                      "id": "d214eaec-8a63-4c47-9f5d-1a011ea99944",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/invoices/:id/download",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invoices",
+                            ":id",
+                            "download"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:29:37.000Z",
+                      "updatedAt": "2026-07-28T01:29:37.000Z",
+                      "uid": "35240-d214eaec-8a63-4c47-9f5d-1a011ea99944"
+                    },
+                    {
+                      "id": "c3764171-2fba-41b5-a20b-90155645a36a",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/invoices/:id/download",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invoices",
+                            ":id",
+                            "download"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:29:37.000Z",
+                      "updatedAt": "2026-07-28T01:29:37.000Z",
+                      "uid": "35240-c3764171-2fba-41b5-a20b-90155645a36a"
+                    },
+                    {
+                      "id": "b0736538-44e7-4d3a-beb9-8f531687db2c",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/invoices/:id/download",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invoices",
+                            ":id",
+                            "download"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:29:37.000Z",
+                      "updatedAt": "2026-07-28T01:29:37.000Z",
+                      "uid": "35240-b0736538-44e7-4d3a-beb9-8f531687db2c"
+                    },
+                    {
+                      "id": "02e73358-8553-49e9-b223-72015062d40f",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/invoices/:id/download",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invoices",
+                            ":id",
+                            "download"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:29:37.000Z",
+                      "updatedAt": "2026-07-28T01:29:37.000Z",
+                      "uid": "35240-02e73358-8553-49e9-b223-72015062d40f"
+                    },
+                    {
+                      "id": "7e44f26b-f58e-435d-810c-cffe56116c9e",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/invoices/:id/download",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invoices",
+                            ":id",
+                            "download"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:29:37.000Z",
+                      "updatedAt": "2026-07-28T01:29:37.000Z",
+                      "uid": "35240-7e44f26b-f58e-435d-810c-cffe56116c9e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:29:36.000Z",
+                  "updatedAt": "2026-07-28T01:29:36.000Z",
+                  "uid": "35240-64b396a7-8eb8-4147-82f5-e57cb0b8b02f"
+                }
+              ],
+              "id": "8cf88718-0982-4827-ac89-1c4bfde8910b",
+              "createdAt": "2026-07-28T01:29:36.000Z",
+              "updatedAt": "2026-07-28T01:29:36.000Z",
+              "uid": "35240-8cf88718-0982-4827-ac89-1c4bfde8910b"
+            }
+          ],
+          "id": "cb4c9a8b-547e-4e21-9aa0-6fdd23b07b33",
+          "createdAt": "2026-07-28T01:29:36.000Z",
+          "updatedAt": "2026-07-28T01:29:36.000Z",
+          "uid": "35240-cb4c9a8b-547e-4e21-9aa0-6fdd23b07b33"
+        },
+        {
+          "name": "{invoice_id}",
+          "item": [
+            {
+              "name": "Get invoice by id",
+              "id": "153c66f1-d936-4397-82e4-7d74b6846ab5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invoices/:invoice_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoices",
+                    ":invoice_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c78973cb-3c55-4a76-be1e-e2589c016d44",
+                      "key": "invoice_id",
+                      "value": "<string>",
+                      "description": "(Required) The invoice ID used to identify the invoice to be retireved."
+                    }
+                  ]
+                },
+                "description": "Retrieve invoice details\n **Token scopes**: `accounting:read`"
+              },
+              "response": [
+                {
+                  "id": "fcffe892-78bd-478a-b61c-8a3d72a0906e",
+                  "name": "The invoice resource returned",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoices/:invoice_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoices",
+                        ":invoice_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "invoice_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"label\": \"<string>\",\n    \"total\": \"<string>\",\n    \"status\": \"credited\",\n    \"paid_at\": \"<dateTime>\",\n    \"currency\": \"<string>\",\n    \"due_date\": \"<dateTime>\",\n    \"issued_at\": \"<dateTime>\",\n    \"worker_id\": \"<uuid>\",\n    \"created_at\": \"<dateTime>\",\n    \"line_items\": [\n      {\n        \"id\": \"<string>\",\n        \"type\": \"PAYGROUP_TAX_GST\",\n        \"total\": \"<string>\",\n        \"fx_rate\": \"<string>\",\n        \"quantity\": \"<integer>\",\n        \"tax_rate\": \"<string>\",\n        \"tax_type\": \"<string,null>\",\n        \"description\": \"<string>\",\n        \"price_per_unit\": \"<double>\",\n        \"sub_description\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"type\": \"DEEL_MAINTENANCE_FEE\",\n        \"total\": \"<string>\",\n        \"fx_rate\": \"<string>\",\n        \"quantity\": \"<integer>\",\n        \"tax_rate\": \"<string>\",\n        \"tax_type\": \"<string,null>\",\n        \"description\": \"<string>\",\n        \"price_per_unit\": \"<double>\",\n        \"sub_description\": \"<string>\"\n      }\n    ],\n    \"recipient_legal_entity_id\": \"<uuid>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:29:37.000Z",
+                  "updatedAt": "2026-07-28T01:29:37.000Z",
+                  "uid": "35240-fcffe892-78bd-478a-b61c-8a3d72a0906e"
+                },
+                {
+                  "id": "6025070a-d576-4e17-b8c7-56350a452e24",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoices/:invoice_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoices",
+                        ":invoice_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "invoice_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:29:37.000Z",
+                  "updatedAt": "2026-07-28T01:29:37.000Z",
+                  "uid": "35240-6025070a-d576-4e17-b8c7-56350a452e24"
+                },
+                {
+                  "id": "48a08ac6-73fe-421b-95c0-a8a9001406b6",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoices/:invoice_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoices",
+                        ":invoice_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "invoice_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:29:37.000Z",
+                  "updatedAt": "2026-07-28T01:29:37.000Z",
+                  "uid": "35240-48a08ac6-73fe-421b-95c0-a8a9001406b6"
+                },
+                {
+                  "id": "54c359d1-c062-42c3-a49b-04114b483fee",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoices/:invoice_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoices",
+                        ":invoice_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "invoice_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:29:37.000Z",
+                  "updatedAt": "2026-07-28T01:29:37.000Z",
+                  "uid": "35240-54c359d1-c062-42c3-a49b-04114b483fee"
+                },
+                {
+                  "id": "c9a48151-1850-43df-9bb9-7e610bede712",
+                  "name": "Invoice not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoices/:invoice_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoices",
+                        ":invoice_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "invoice_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ],\n  \"request\": {\n    \"method\": \"<string>\",\n    \"status\": \"<double>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:29:37.000Z",
+                  "updatedAt": "2026-07-28T01:29:37.000Z",
+                  "uid": "35240-c9a48151-1850-43df-9bb9-7e610bede712"
+                },
+                {
+                  "id": "8cca381c-07f8-4b81-8839-e8737850ea64",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoices/:invoice_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoices",
+                        ":invoice_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "invoice_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:29:37.000Z",
+                  "updatedAt": "2026-07-28T01:29:37.000Z",
+                  "uid": "35240-8cca381c-07f8-4b81-8839-e8737850ea64"
+                }
+              ],
+              "createdAt": "2026-07-28T01:29:36.000Z",
+              "updatedAt": "2026-07-28T01:29:36.000Z",
+              "uid": "35240-153c66f1-d936-4397-82e4-7d74b6846ab5"
+            }
+          ],
+          "id": "519c8be2-f0f0-4221-9027-f19eadfcbc8c",
+          "createdAt": "2026-07-28T01:29:36.000Z",
+          "updatedAt": "2026-07-28T01:29:36.000Z",
+          "uid": "35240-519c8be2-f0f0-4221-9027-f19eadfcbc8c"
+        },
+        {
+          "name": "deel",
+          "item": [
+            {
+              "name": "Retrieve Deel invoices",
+              "id": "8c88126b-ad74-4325-a755-9204939a26c0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invoices/deel?limit=<string>&offset=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoices",
+                    "deel"
+                  ],
+                  "query": [
+                    {
+                      "description": "Return a page of results with given number of records; NOTE technically ALL query parameters are strings or array of strings",
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return a page of results after given index of row; NOTE technically ALL query parameters are strings or array of strings'",
+                      "key": "offset",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Retrieve a list of invoices related to Deel fees.\n **Token scopes**: `accounting:read`"
+              },
+              "response": [
+                {
+                  "id": "6e598cc9-01a8-469f-8611-fc56dafdfcb4",
+                  "name": "Successful response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoices/deel?limit=<string>&offset=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoices",
+                        "deel"
+                      ],
+                      "query": [
+                        {
+                          "description": "Return a page of results with given number of records; NOTE technically ALL query parameters are strings or array of strings",
+                          "key": "limit",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results after given index of row; NOTE technically ALL query parameters are strings or array of strings'",
+                          "key": "offset",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"total\": \"<string>\",\n      \"status\": \"pending\",\n      \"currency\": \"<string>\",\n      \"created_at\": \"<string,null-date-time>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"total\": \"<string>\",\n      \"status\": \"canceled\",\n      \"currency\": \"<string>\",\n      \"created_at\": \"<string,null-date-time>\"\n    }\n  ],\n  \"page\": {\n    \"offset\": \"<double>\",\n    \"total_rows\": \"<double>\",\n    \"items_per_page\": \"<double>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:29:37.000Z",
+                  "updatedAt": "2026-07-28T01:29:37.000Z",
+                  "uid": "35240-6e598cc9-01a8-469f-8611-fc56dafdfcb4"
+                },
+                {
+                  "id": "0664317f-ea79-474f-bf63-b85d2b7bf4b2",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoices/deel?limit=<string>&offset=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoices",
+                        "deel"
+                      ],
+                      "query": [
+                        {
+                          "description": "Return a page of results with given number of records; NOTE technically ALL query parameters are strings or array of strings",
+                          "key": "limit",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results after given index of row; NOTE technically ALL query parameters are strings or array of strings'",
+                          "key": "offset",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:29:37.000Z",
+                  "updatedAt": "2026-07-28T01:29:37.000Z",
+                  "uid": "35240-0664317f-ea79-474f-bf63-b85d2b7bf4b2"
+                },
+                {
+                  "id": "e046cd74-97c9-4b9d-8e76-40173de17a41",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoices/deel?limit=<string>&offset=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoices",
+                        "deel"
+                      ],
+                      "query": [
+                        {
+                          "description": "Return a page of results with given number of records; NOTE technically ALL query parameters are strings or array of strings",
+                          "key": "limit",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results after given index of row; NOTE technically ALL query parameters are strings or array of strings'",
+                          "key": "offset",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:29:37.000Z",
+                  "updatedAt": "2026-07-28T01:29:37.000Z",
+                  "uid": "35240-e046cd74-97c9-4b9d-8e76-40173de17a41"
+                },
+                {
+                  "id": "23276d50-45d9-4b22-97fd-e93d9ff05705",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoices/deel?limit=<string>&offset=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoices",
+                        "deel"
+                      ],
+                      "query": [
+                        {
+                          "description": "Return a page of results with given number of records; NOTE technically ALL query parameters are strings or array of strings",
+                          "key": "limit",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results after given index of row; NOTE technically ALL query parameters are strings or array of strings'",
+                          "key": "offset",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:29:37.000Z",
+                  "updatedAt": "2026-07-28T01:29:37.000Z",
+                  "uid": "35240-23276d50-45d9-4b22-97fd-e93d9ff05705"
+                },
+                {
+                  "id": "2d1fc848-b3cf-4845-9c32-30dec3b8baf9",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoices/deel?limit=<string>&offset=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoices",
+                        "deel"
+                      ],
+                      "query": [
+                        {
+                          "description": "Return a page of results with given number of records; NOTE technically ALL query parameters are strings or array of strings",
+                          "key": "limit",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results after given index of row; NOTE technically ALL query parameters are strings or array of strings'",
+                          "key": "offset",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:29:37.000Z",
+                  "updatedAt": "2026-07-28T01:29:37.000Z",
+                  "uid": "35240-2d1fc848-b3cf-4845-9c32-30dec3b8baf9"
+                },
+                {
+                  "id": "b8c25b40-b330-4b0d-85b6-654a07987590",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoices/deel?limit=<string>&offset=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoices",
+                        "deel"
+                      ],
+                      "query": [
+                        {
+                          "description": "Return a page of results with given number of records; NOTE technically ALL query parameters are strings or array of strings",
+                          "key": "limit",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results after given index of row; NOTE technically ALL query parameters are strings or array of strings'",
+                          "key": "offset",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:29:37.000Z",
+                  "updatedAt": "2026-07-28T01:29:37.000Z",
+                  "uid": "35240-b8c25b40-b330-4b0d-85b6-654a07987590"
+                }
+              ],
+              "createdAt": "2026-07-28T01:29:36.000Z",
+              "updatedAt": "2026-07-28T01:29:36.000Z",
+              "uid": "35240-8c88126b-ad74-4325-a755-9204939a26c0"
+            }
+          ],
+          "id": "4a0c907e-118e-4d3a-8730-bfcfac947dbc",
+          "createdAt": "2026-07-28T01:29:36.000Z",
+          "updatedAt": "2026-07-28T01:29:36.000Z",
+          "uid": "35240-4a0c907e-118e-4d3a-8730-bfcfac947dbc"
+        },
+        {
+          "name": "Retrieve invoices",
+          "id": "d9bac349-6bfd-4c50-bd4f-a3a1c2ff5965",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/invoices?issued_from_date=<string>&issued_to_date=<string>&status=all&limit=25&offset=0&cursor=<string>&include=cor",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invoices"
+              ],
+              "query": [
+                {
+                  "description": "Filter invoices issued on or after the specified date.",
+                  "key": "issued_from_date",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter invoices issued before the specified date.",
+                  "key": "issued_to_date",
+                  "value": "<string>"
+                },
+                {
+                  "description": "If status query has value of all, all invoices will be returned. Otherwise only paid invoices will be fetched.",
+                  "key": "status",
+                  "value": "all"
+                },
+                {
+                  "description": "Number of records to retrieve per page.",
+                  "key": "limit",
+                  "value": "25"
+                },
+                {
+                  "description": "Index of the first record to return.",
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "description": "Return next page of results after the given cursor.",
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Will include invoices from COR workers in the response.",
+                  "key": "include",
+                  "value": "cor"
+                }
+              ]
+            },
+            "description": "Retrieve a list of paid invoices for your workforce.\n **Token scopes**: `accounting:read`"
+          },
+          "response": [
+            {
+              "id": "b180a0a8-3638-426e-9434-cc1ab7414fb9",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invoices?issued_from_date=<string>&issued_to_date=<string>&status=all&limit=25&offset=0&cursor=<string>&include=cor",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoices"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter invoices issued on or after the specified date.",
+                      "key": "issued_from_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter invoices issued before the specified date.",
+                      "key": "issued_to_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If status query has value of all, all invoices will be returned. Otherwise only paid invoices will be fetched.",
+                      "key": "status",
+                      "value": "all"
+                    },
+                    {
+                      "description": "Number of records to retrieve per page.",
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "description": "Index of the first record to return.",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Return next page of results after the given cursor.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Will include invoices from COR workers in the response.",
+                      "key": "include",
+                      "value": "cor"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"total\": \"<string>\",\n      \"status\": \"pending\",\n      \"vat_id\": \"<string,null>\",\n      \"paid_at\": \"<dateTime>\",\n      \"currency\": \"<string>\",\n      \"due_date\": \"<string,null-date-time>\",\n      \"issued_at\": \"<string,null-date-time>\",\n      \"vat_total\": \"<string,null>\",\n      \"created_at\": \"<dateTime>\",\n      \"is_overdue\": \"<boolean,null>\",\n      \"contract_id\": \"<string,null>\",\n      \"vat_percentage\": \"<string,null>\",\n      \"amount\": \"<string,null>\",\n      \"deel_fee\": \"<string,null>\",\n      \"recipient_legal_entity_id\": \"<uuid>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"label\": \"<string>\",\n      \"total\": \"<string>\",\n      \"status\": \"processing\",\n      \"vat_id\": \"<string,null>\",\n      \"paid_at\": \"<dateTime>\",\n      \"currency\": \"<string>\",\n      \"due_date\": \"<string,null-date-time>\",\n      \"issued_at\": \"<string,null-date-time>\",\n      \"vat_total\": \"<string,null>\",\n      \"created_at\": \"<dateTime>\",\n      \"is_overdue\": \"<boolean,null>\",\n      \"contract_id\": \"<string,null>\",\n      \"vat_percentage\": \"<string,null>\",\n      \"amount\": \"<string,null>\",\n      \"deel_fee\": \"<string,null>\",\n      \"recipient_legal_entity_id\": \"<uuid>\"\n    }\n  ],\n  \"page\": {\n    \"offset\": \"<double>\",\n    \"total_rows\": \"<double>\",\n    \"items_per_page\": \"<double>\",\n    \"cursor\": \"<string,null>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:29:37.000Z",
+              "updatedAt": "2026-07-28T01:29:37.000Z",
+              "uid": "35240-b180a0a8-3638-426e-9434-cc1ab7414fb9"
+            },
+            {
+              "id": "48be16ba-4863-44d7-baf2-15688774c992",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invoices?issued_from_date=<string>&issued_to_date=<string>&status=all&limit=25&offset=0&cursor=<string>&include=cor",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoices"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter invoices issued on or after the specified date.",
+                      "key": "issued_from_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter invoices issued before the specified date.",
+                      "key": "issued_to_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If status query has value of all, all invoices will be returned. Otherwise only paid invoices will be fetched.",
+                      "key": "status",
+                      "value": "all"
+                    },
+                    {
+                      "description": "Number of records to retrieve per page.",
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "description": "Index of the first record to return.",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Return next page of results after the given cursor.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Will include invoices from COR workers in the response.",
+                      "key": "include",
+                      "value": "cor"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  },\n  {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-07-28T01:29:37.000Z",
+              "updatedAt": "2026-07-28T01:29:37.000Z",
+              "uid": "35240-48be16ba-4863-44d7-baf2-15688774c992"
+            },
+            {
+              "id": "4b5fa400-7f2f-41c4-8509-23b09c61461e",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invoices?issued_from_date=<string>&issued_to_date=<string>&status=all&limit=25&offset=0&cursor=<string>&include=cor",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoices"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter invoices issued on or after the specified date.",
+                      "key": "issued_from_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter invoices issued before the specified date.",
+                      "key": "issued_to_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If status query has value of all, all invoices will be returned. Otherwise only paid invoices will be fetched.",
+                      "key": "status",
+                      "value": "all"
+                    },
+                    {
+                      "description": "Number of records to retrieve per page.",
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "description": "Index of the first record to return.",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Return next page of results after the given cursor.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Will include invoices from COR workers in the response.",
+                      "key": "include",
+                      "value": "cor"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:29:37.000Z",
+              "updatedAt": "2026-07-28T01:29:37.000Z",
+              "uid": "35240-4b5fa400-7f2f-41c4-8509-23b09c61461e"
+            },
+            {
+              "id": "38a6d758-3d8a-48a0-aa05-36656d32477b",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invoices?issued_from_date=<string>&issued_to_date=<string>&status=all&limit=25&offset=0&cursor=<string>&include=cor",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoices"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter invoices issued on or after the specified date.",
+                      "key": "issued_from_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter invoices issued before the specified date.",
+                      "key": "issued_to_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If status query has value of all, all invoices will be returned. Otherwise only paid invoices will be fetched.",
+                      "key": "status",
+                      "value": "all"
+                    },
+                    {
+                      "description": "Number of records to retrieve per page.",
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "description": "Index of the first record to return.",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Return next page of results after the given cursor.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Will include invoices from COR workers in the response.",
+                      "key": "include",
+                      "value": "cor"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:29:37.000Z",
+              "updatedAt": "2026-07-28T01:29:37.000Z",
+              "uid": "35240-38a6d758-3d8a-48a0-aa05-36656d32477b"
+            },
+            {
+              "id": "41af3d0a-fd21-438c-b615-38d4a6bf71f9",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invoices?issued_from_date=<string>&issued_to_date=<string>&status=all&limit=25&offset=0&cursor=<string>&include=cor",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoices"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter invoices issued on or after the specified date.",
+                      "key": "issued_from_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter invoices issued before the specified date.",
+                      "key": "issued_to_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If status query has value of all, all invoices will be returned. Otherwise only paid invoices will be fetched.",
+                      "key": "status",
+                      "value": "all"
+                    },
+                    {
+                      "description": "Number of records to retrieve per page.",
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "description": "Index of the first record to return.",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Return next page of results after the given cursor.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Will include invoices from COR workers in the response.",
+                      "key": "include",
+                      "value": "cor"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:29:37.000Z",
+              "updatedAt": "2026-07-28T01:29:37.000Z",
+              "uid": "35240-41af3d0a-fd21-438c-b615-38d4a6bf71f9"
+            },
+            {
+              "id": "6f601d80-c046-4e76-8f45-95772c658e07",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invoices?issued_from_date=<string>&issued_to_date=<string>&status=all&limit=25&offset=0&cursor=<string>&include=cor",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoices"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter invoices issued on or after the specified date.",
+                      "key": "issued_from_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter invoices issued before the specified date.",
+                      "key": "issued_to_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If status query has value of all, all invoices will be returned. Otherwise only paid invoices will be fetched.",
+                      "key": "status",
+                      "value": "all"
+                    },
+                    {
+                      "description": "Number of records to retrieve per page.",
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "description": "Index of the first record to return.",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Return next page of results after the given cursor.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Will include invoices from COR workers in the response.",
+                      "key": "include",
+                      "value": "cor"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:29:37.000Z",
+              "updatedAt": "2026-07-28T01:29:37.000Z",
+              "uid": "35240-6f601d80-c046-4e76-8f45-95772c658e07"
+            }
+          ],
+          "createdAt": "2026-07-28T01:29:36.000Z",
+          "updatedAt": "2026-07-28T01:29:36.000Z",
+          "uid": "35240-d9bac349-6bfd-4c50-bd4f-a3a1c2ff5965"
+        }
+      ],
+      "id": "c23de916-d178-44c8-9cf9-bb1c8170f9e4",
+      "createdAt": "2026-07-28T01:29:36.000Z",
+      "updatedAt": "2026-07-28T01:29:36.000Z",
+      "uid": "35240-c23de916-d178-44c8-9cf9-bb1c8170f9e4"
+    },
+    {
+      "name": "payments",
+      "item": [
+        {
+          "name": "{payment_id}",
+          "item": [
+            {
+              "name": "breakdown",
+              "item": [
+                {
+                  "name": "Retrieve a payment breakdown",
+                  "id": "1a4fad3d-fb02-4889-96b5-d10bc512cfc6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payments/:payment_id/breakdown",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payments",
+                        ":payment_id",
+                        "breakdown"
+                      ],
+                      "variable": [
+                        {
+                          "id": "951d95b1-5d94-4817-a243-3842de2208c5",
+                          "key": "payment_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier for the payment to retrieve the breakdown."
+                        }
+                      ]
+                    },
+                    "description": "Get a full breakdown of a payment made to Deel. Breakdown will include individual invoices and Deel fee as line items.\n **Token scopes**: `accounting:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "4ffcbcc4-c144-45bb-b14f-a7b3b6f1c15e",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/:payment_id/breakdown",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            ":payment_id",
+                            "breakdown"
+                          ],
+                          "variable": [
+                            {
+                              "key": "payment_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"date\": \"<dateTime>\",\n      \"work\": \"<string>\",\n      \"bonus\": \"<string>\",\n      \"total\": \"<string>\",\n      \"others\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"expenses\": \"<string>\",\n      \"group_id\": \"<uuid>\",\n      \"overtime\": \"<string>\",\n      \"pro_rata\": \"<string>\",\n      \"approvers\": \"<string>\",\n      \"frequency\": \"semimonthly\",\n      \"adjustment\": \"<string>\",\n      \"deductions\": \"<string>\",\n      \"invoice_id\": \"<string>\",\n      \"commissions\": \"<string>\",\n      \"approve_date\": \"<dateTime>\",\n      \"payment_date\": \"<dateTime>\",\n      \"contract_type\": \"employee\",\n      \"processing_fee\": \"<string>\",\n      \"contract_country\": \"<string>\",\n      \"contractor_email\": \"<string>\",\n      \"payment_currency\": \"<string>\",\n      \"contract_start_date\": \"<dateTime>\",\n      \"general_ledger_account\": \"<string>\",\n      \"total_payment_currency\": \"<string>\",\n      \"contractor_employee_name\": \"<string>\",\n      \"contractor_unique_identifier\": \"<uuid>\"\n    },\n    {\n      \"date\": \"<dateTime>\",\n      \"work\": \"<string>\",\n      \"bonus\": \"<string>\",\n      \"total\": \"<string>\",\n      \"others\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"expenses\": \"<string>\",\n      \"group_id\": \"<uuid>\",\n      \"overtime\": \"<string>\",\n      \"pro_rata\": \"<string>\",\n      \"approvers\": \"<string>\",\n      \"frequency\": \"semimonthly\",\n      \"adjustment\": \"<string>\",\n      \"deductions\": \"<string>\",\n      \"invoice_id\": \"<string>\",\n      \"commissions\": \"<string>\",\n      \"approve_date\": \"<dateTime>\",\n      \"payment_date\": \"<dateTime>\",\n      \"contract_type\": \"expense_card\",\n      \"processing_fee\": \"<string>\",\n      \"contract_country\": \"<string>\",\n      \"contractor_email\": \"<string>\",\n      \"payment_currency\": \"<string>\",\n      \"contract_start_date\": \"<dateTime>\",\n      \"general_ledger_account\": \"<string>\",\n      \"total_payment_currency\": \"<string>\",\n      \"contractor_employee_name\": \"<string>\",\n      \"contractor_unique_identifier\": \"<uuid>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:29:37.000Z",
+                      "updatedAt": "2026-07-28T01:29:37.000Z",
+                      "uid": "35240-4ffcbcc4-c144-45bb-b14f-a7b3b6f1c15e"
+                    },
+                    {
+                      "id": "42fd204b-2b8a-4f1f-a2d0-b01264e8b50d",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/:payment_id/breakdown",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            ":payment_id",
+                            "breakdown"
+                          ],
+                          "variable": [
+                            {
+                              "key": "payment_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:29:37.000Z",
+                      "updatedAt": "2026-07-28T01:29:37.000Z",
+                      "uid": "35240-42fd204b-2b8a-4f1f-a2d0-b01264e8b50d"
+                    },
+                    {
+                      "id": "1f95743e-0278-41df-aa43-9b85d09d3c67",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/:payment_id/breakdown",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            ":payment_id",
+                            "breakdown"
+                          ],
+                          "variable": [
+                            {
+                              "key": "payment_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:29:37.000Z",
+                      "updatedAt": "2026-07-28T01:29:37.000Z",
+                      "uid": "35240-1f95743e-0278-41df-aa43-9b85d09d3c67"
+                    },
+                    {
+                      "id": "8457fc34-c191-4e89-8164-88efb805203b",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/:payment_id/breakdown",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            ":payment_id",
+                            "breakdown"
+                          ],
+                          "variable": [
+                            {
+                              "key": "payment_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:29:37.000Z",
+                      "updatedAt": "2026-07-28T01:29:37.000Z",
+                      "uid": "35240-8457fc34-c191-4e89-8164-88efb805203b"
+                    },
+                    {
+                      "id": "4c7db74f-e65a-447c-9c7b-a15ca678d3e2",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/:payment_id/breakdown",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            ":payment_id",
+                            "breakdown"
+                          ],
+                          "variable": [
+                            {
+                              "key": "payment_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:29:37.000Z",
+                      "updatedAt": "2026-07-28T01:29:37.000Z",
+                      "uid": "35240-4c7db74f-e65a-447c-9c7b-a15ca678d3e2"
+                    },
+                    {
+                      "id": "6125f6b3-12cc-4464-97b5-7ca148950981",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payments/:payment_id/breakdown",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payments",
+                            ":payment_id",
+                            "breakdown"
+                          ],
+                          "variable": [
+                            {
+                              "key": "payment_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:29:37.000Z",
+                      "updatedAt": "2026-07-28T01:29:37.000Z",
+                      "uid": "35240-6125f6b3-12cc-4464-97b5-7ca148950981"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:29:36.000Z",
+                  "updatedAt": "2026-07-28T01:29:36.000Z",
+                  "uid": "35240-1a4fad3d-fb02-4889-96b5-d10bc512cfc6"
+                }
+              ],
+              "id": "0c0b2e2a-0ca2-420f-a297-10a622cd8df4",
+              "createdAt": "2026-07-28T01:29:36.000Z",
+              "updatedAt": "2026-07-28T01:29:36.000Z",
+              "uid": "35240-0c0b2e2a-0ca2-420f-a297-10a622cd8df4"
+            }
+          ],
+          "id": "db3a7ff0-c677-424b-a53b-1513614ef9aa",
+          "createdAt": "2026-07-28T01:29:36.000Z",
+          "updatedAt": "2026-07-28T01:29:36.000Z",
+          "uid": "35240-db3a7ff0-c677-424b-a53b-1513614ef9aa"
+        },
+        {
+          "name": "Retrieve payment receipts",
+          "id": "a2c43b05-a6f7-4857-929a-4d179de3fc8d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/payments?date_from=<date>&date_to=<date>&cursor=<string>&currencies=<string>&currencies=<string>&entities=company&entities=individual&statuses=processing&statuses=paid",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "payments"
+              ],
+              "query": [
+                {
+                  "description": "Filters results to include payments created on or after this date (in ISO 8601 format).",
+                  "key": "date_from",
+                  "value": "<date>"
+                },
+                {
+                  "description": "Filters results to include payments created before this date (in ISO 8601 format).",
+                  "key": "date_to",
+                  "value": "<date>"
+                },
+                {
+                  "description": "A cursor for pagination. Use the value returned in the 'next_cursor' field to get the next page of results.",
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters payments by their currency codes. Can be a single currency code or an array of codes.",
+                  "key": "currencies",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters payments by their currency codes. Can be a single currency code or an array of codes.",
+                  "key": "currencies",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters payments by legal entity type (e.g., 'individual' or 'company'). Can be a single entity type or an array.",
+                  "key": "entities",
+                  "value": "company"
+                },
+                {
+                  "description": "Filters payments by legal entity type (e.g., 'individual' or 'company'). Can be a single entity type or an array.",
+                  "key": "entities",
+                  "value": "individual"
+                },
+                {
+                  "description": "Filters payments by their status (e.g., 'paid' or 'processing'). Can be a single status type or an array.",
+                  "key": "statuses",
+                  "value": "processing"
+                },
+                {
+                  "description": "Filters payments by their status (e.g., 'paid' or 'processing'). Can be a single status type or an array.",
+                  "key": "statuses",
+                  "value": "paid"
+                }
+              ]
+            },
+            "description": "Returns a cursor-paginated list of payments made to Deel, including worker details, payment status, and payment methods. Use the `next_cursor` value from the response to retrieve subsequent pages.\n **Token scopes**: `accounting:read`"
+          },
+          "response": [
+            {
+              "id": "fadcb963-2cfd-492b-ac4e-3a5456342e77",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments?date_from=<date>&date_to=<date>&cursor=<string>&currencies=<string>&entities=individual&statuses=paid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filters results to include payments created on or after this date (in ISO 8601 format).",
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filters results to include payments created before this date (in ISO 8601 format).",
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "A cursor for pagination. Use the value returned in the 'next_cursor' field to get the next page of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters payments by their currency codes. Can be a single currency code or an array of codes.",
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters payments by legal entity type (e.g., 'individual' or 'company'). Can be a single entity type or an array.",
+                      "key": "entities",
+                      "value": "individual"
+                    },
+                    {
+                      "description": "Filters payments by their status (e.g., 'paid' or 'processing'). Can be a single status type or an array.",
+                      "key": "statuses",
+                      "value": "paid"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"rows\": [\n      {\n        \"id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"total\": \"<string>\",\n        \"status\": \"processing\",\n        \"paid_at\": \"<dateTime>\",\n        \"workers\": [\n          {\n            \"picUrl\": \"<string,null>\",\n            \"id\": \"<string,null-uuid>\",\n            \"name\": \"\",\n            \"contract_id\": \"<string,null>\"\n          },\n          {\n            \"picUrl\": \"<string,null>\",\n            \"id\": \"<string,null-uuid>\",\n            \"name\": \"\",\n            \"contract_id\": \"<string,null>\"\n          }\n        ],\n        \"invoices\": [\n          {\n            \"id\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\"\n          }\n        ],\n        \"timezone\": \"<string>\",\n        \"total_due\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"deel_reference\": \"<string,null>\",\n        \"payment_method\": {\n          \"type\": \"go_cardless_becs\"\n        },\n        \"payment_currency\": \"<string>\",\n        \"general_funds_used\": {\n          \"amount\": \"<string>\",\n          \"original_amount\": \"<string,null>\",\n          \"original_currency\": \"<string,null>\"\n        },\n        \"deel_granted_credits_used\": {\n          \"amount\": \"<string>\",\n          \"original_amount\": \"<string,null>\",\n          \"original_currency\": \"<string,null>\"\n        },\n        \"prepaid_billing_credits_used\": {\n          \"amount\": \"<string>\",\n          \"original_amount\": \"<string,null>\",\n          \"original_currency\": \"<string,null>\"\n        },\n        \"eor_early_invoicing_funds_used\": {\n          \"amount\": \"<string>\",\n          \"original_amount\": \"<string,null>\",\n          \"original_currency\": \"<string,null>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"label\": \"<string>\",\n        \"total\": \"<string>\",\n        \"status\": \"processing\",\n        \"paid_at\": \"<dateTime>\",\n        \"workers\": [\n          {\n            \"picUrl\": \"<string,null>\",\n            \"id\": \"<string,null-uuid>\",\n            \"name\": \"\",\n            \"contract_id\": \"<string,null>\"\n          },\n          {\n            \"picUrl\": \"<string,null>\",\n            \"id\": \"<string,null-uuid>\",\n            \"name\": \"\",\n            \"contract_id\": \"<string,null>\"\n          }\n        ],\n        \"invoices\": [\n          {\n            \"id\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\"\n          }\n        ],\n        \"timezone\": \"<string>\",\n        \"total_due\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"deel_reference\": \"<string,null>\",\n        \"payment_method\": {\n          \"type\": \"bt_card\"\n        },\n        \"payment_currency\": \"<string>\",\n        \"general_funds_used\": {\n          \"amount\": \"<string>\",\n          \"original_amount\": \"<string,null>\",\n          \"original_currency\": \"<string,null>\"\n        },\n        \"deel_granted_credits_used\": {\n          \"amount\": \"<string>\",\n          \"original_amount\": \"<string,null>\",\n          \"original_currency\": \"<string,null>\"\n        },\n        \"prepaid_billing_credits_used\": {\n          \"amount\": \"<string>\",\n          \"original_amount\": \"<string,null>\",\n          \"original_currency\": \"<string,null>\"\n        },\n        \"eor_early_invoicing_funds_used\": {\n          \"amount\": \"<string>\",\n          \"original_amount\": \"<string,null>\",\n          \"original_currency\": \"<string,null>\"\n        }\n      }\n    ],\n    \"total\": \"<double>\",\n    \"has_more\": \"<boolean>\",\n    \"next_cursor\": \"<string,null>\",\n    \"total_count\": \"<double>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:29:37.000Z",
+              "updatedAt": "2026-07-28T01:29:37.000Z",
+              "uid": "35240-fadcb963-2cfd-492b-ac4e-3a5456342e77"
+            },
+            {
+              "id": "24d8be58-4549-4f12-94b9-1614ec09f6f5",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments?date_from=<date>&date_to=<date>&cursor=<string>&currencies=<string>&entities=individual&statuses=paid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filters results to include payments created on or after this date (in ISO 8601 format).",
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filters results to include payments created before this date (in ISO 8601 format).",
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "A cursor for pagination. Use the value returned in the 'next_cursor' field to get the next page of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters payments by their currency codes. Can be a single currency code or an array of codes.",
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters payments by legal entity type (e.g., 'individual' or 'company'). Can be a single entity type or an array.",
+                      "key": "entities",
+                      "value": "individual"
+                    },
+                    {
+                      "description": "Filters payments by their status (e.g., 'paid' or 'processing'). Can be a single status type or an array.",
+                      "key": "statuses",
+                      "value": "paid"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:29:37.000Z",
+              "updatedAt": "2026-07-28T01:29:37.000Z",
+              "uid": "35240-24d8be58-4549-4f12-94b9-1614ec09f6f5"
+            },
+            {
+              "id": "570639e7-f0ac-41d5-87a7-ff3419070acc",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments?date_from=<date>&date_to=<date>&cursor=<string>&currencies=<string>&entities=individual&statuses=paid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filters results to include payments created on or after this date (in ISO 8601 format).",
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filters results to include payments created before this date (in ISO 8601 format).",
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "A cursor for pagination. Use the value returned in the 'next_cursor' field to get the next page of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters payments by their currency codes. Can be a single currency code or an array of codes.",
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters payments by legal entity type (e.g., 'individual' or 'company'). Can be a single entity type or an array.",
+                      "key": "entities",
+                      "value": "individual"
+                    },
+                    {
+                      "description": "Filters payments by their status (e.g., 'paid' or 'processing'). Can be a single status type or an array.",
+                      "key": "statuses",
+                      "value": "paid"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:29:37.000Z",
+              "updatedAt": "2026-07-28T01:29:37.000Z",
+              "uid": "35240-570639e7-f0ac-41d5-87a7-ff3419070acc"
+            },
+            {
+              "id": "b0640a16-c28f-40bf-addb-117944786407",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments?date_from=<date>&date_to=<date>&cursor=<string>&currencies=<string>&entities=individual&statuses=paid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filters results to include payments created on or after this date (in ISO 8601 format).",
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filters results to include payments created before this date (in ISO 8601 format).",
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "A cursor for pagination. Use the value returned in the 'next_cursor' field to get the next page of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters payments by their currency codes. Can be a single currency code or an array of codes.",
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters payments by legal entity type (e.g., 'individual' or 'company'). Can be a single entity type or an array.",
+                      "key": "entities",
+                      "value": "individual"
+                    },
+                    {
+                      "description": "Filters payments by their status (e.g., 'paid' or 'processing'). Can be a single status type or an array.",
+                      "key": "statuses",
+                      "value": "paid"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:29:37.000Z",
+              "updatedAt": "2026-07-28T01:29:37.000Z",
+              "uid": "35240-b0640a16-c28f-40bf-addb-117944786407"
+            },
+            {
+              "id": "85fa5086-b2b6-447f-a8f1-91d4577cf43b",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments?date_from=<date>&date_to=<date>&cursor=<string>&currencies=<string>&entities=individual&statuses=paid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filters results to include payments created on or after this date (in ISO 8601 format).",
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filters results to include payments created before this date (in ISO 8601 format).",
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "A cursor for pagination. Use the value returned in the 'next_cursor' field to get the next page of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters payments by their currency codes. Can be a single currency code or an array of codes.",
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters payments by legal entity type (e.g., 'individual' or 'company'). Can be a single entity type or an array.",
+                      "key": "entities",
+                      "value": "individual"
+                    },
+                    {
+                      "description": "Filters payments by their status (e.g., 'paid' or 'processing'). Can be a single status type or an array.",
+                      "key": "statuses",
+                      "value": "paid"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:29:37.000Z",
+              "updatedAt": "2026-07-28T01:29:37.000Z",
+              "uid": "35240-85fa5086-b2b6-447f-a8f1-91d4577cf43b"
+            },
+            {
+              "id": "4c1ee975-6828-4e34-9668-a9cb6d7de71c",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payments?date_from=<date>&date_to=<date>&cursor=<string>&currencies=<string>&entities=individual&statuses=paid",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filters results to include payments created on or after this date (in ISO 8601 format).",
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filters results to include payments created before this date (in ISO 8601 format).",
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "A cursor for pagination. Use the value returned in the 'next_cursor' field to get the next page of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters payments by their currency codes. Can be a single currency code or an array of codes.",
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters payments by legal entity type (e.g., 'individual' or 'company'). Can be a single entity type or an array.",
+                      "key": "entities",
+                      "value": "individual"
+                    },
+                    {
+                      "description": "Filters payments by their status (e.g., 'paid' or 'processing'). Can be a single status type or an array.",
+                      "key": "statuses",
+                      "value": "paid"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:29:37.000Z",
+              "updatedAt": "2026-07-28T01:29:37.000Z",
+              "uid": "35240-4c1ee975-6828-4e34-9668-a9cb6d7de71c"
+            }
+          ],
+          "createdAt": "2026-07-28T01:29:36.000Z",
+          "updatedAt": "2026-07-28T01:29:36.000Z",
+          "uid": "35240-a2c43b05-a6f7-4857-929a-4d179de3fc8d"
+        }
+      ],
+      "id": "af696c43-4e86-4ad9-81f9-9bf0f82265c4",
+      "createdAt": "2026-07-28T01:29:36.000Z",
+      "updatedAt": "2026-07-28T01:29:36.000Z",
+      "uid": "35240-af696c43-4e86-4ad9-81f9-9bf0f82265c4"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

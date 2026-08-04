@@ -1,0 +1,1689 @@
+{
+  "info": {
+    "_postman_id": "c1dfc047-6bf3-4d80-925f-6dcf1c26be76",
+    "name": "Endpoints subpackage_eorTerminations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:31:24.000Z",
+    "updatedAt": "2026-07-28T01:31:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c1dfc047-6bf3-4d80-925f-6dcf1c26be76"
+  },
+  "item": [
+    {
+      "name": "eor",
+      "item": [
+        {
+          "name": "{oid}",
+          "item": [
+            {
+              "name": "terminations",
+              "item": [
+                {
+                  "name": "{terminationId}",
+                  "item": [
+                    {
+                      "name": "Get termination",
+                      "id": "97f11d2f-12d4-43fc-98a4-40187b124bd3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/:oid/terminations/:terminationId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            ":oid",
+                            "terminations",
+                            ":terminationId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f33a4655-a119-462b-858b-b5e1ea755e5a",
+                              "key": "oid",
+                              "value": "<string>",
+                              "description": "(Required) Public contract oid"
+                            },
+                            {
+                              "id": "a9830ab1-b899-4736-8216-bb5ac3454796",
+                              "key": "terminationId",
+                              "value": "<string>",
+                              "description": "(Required) Termination id"
+                            }
+                          ]
+                        },
+                        "description": "This API allows clients and employees with viewer permissions to retrieve termination data. It ensures that only authorized users can access sensitive information related to terminations.\n **Token scopes**: `contracts:read`"
+                      },
+                      "response": [
+                        {
+                          "id": "a7963bdb-5e1e-4561-96dc-5f3134806a49",
+                          "name": "Ok response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/:terminationId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                ":terminationId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                },
+                                {
+                                  "key": "terminationId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<double>\",\n  \"end_date\": \"<string,null-date-time>\",\n  \"contract_id\": \"<string>\",\n  \"request_data\": {\n    \"reason\": \"<string,null>\",\n    \"end_date\": \"<string,null-date-time>\",\n    \"reason_detail\": \"<string,null>\",\n    \"desired_end_date\": \"<string,null-date-time>\",\n    \"termination_impact\": {\n      \"id\": \"<uuid>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    \"eligible_for_rehire\": \"NO\",\n    \"eligible_for_rehire_reason\": \"<string,null>\",\n    \"custom_termination_reason_id\": \"<number,null-double>\"\n  },\n  \"desired_end_date\": \"<string,null-date-time>\"\n}",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-a7963bdb-5e1e-4561-96dc-5f3134806a49"
+                        },
+                        {
+                          "id": "68d45769-0239-41fc-afa5-1923038e7053",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/:terminationId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                ":terminationId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                },
+                                {
+                                  "key": "terminationId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-68d45769-0239-41fc-afa5-1923038e7053"
+                        },
+                        {
+                          "id": "3cc42c8d-92fe-4d8e-8ba4-d628be7fe281",
+                          "name": "Unauthorized response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/:terminationId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                ":terminationId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                },
+                                {
+                                  "key": "terminationId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"message\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-3cc42c8d-92fe-4d8e-8ba4-d628be7fe281"
+                        },
+                        {
+                          "id": "cb58ba30-208a-4455-a306-820b9e89fe48",
+                          "name": "Forbidden response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/:terminationId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                ":terminationId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                },
+                                {
+                                  "key": "terminationId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"message\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-cb58ba30-208a-4455-a306-820b9e89fe48"
+                        },
+                        {
+                          "id": "8f1f36e3-d2de-4441-bba3-42d45aac50d3",
+                          "name": "Not Found response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/:terminationId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                ":terminationId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                },
+                                {
+                                  "key": "terminationId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"message\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-8f1f36e3-d2de-4441-bba3-42d45aac50d3"
+                        },
+                        {
+                          "id": "2f956380-6629-4605-b6e6-604649182e87",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/:terminationId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                ":terminationId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                },
+                                {
+                                  "key": "terminationId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-2f956380-6629-4605-b6e6-604649182e87"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:31:25.000Z",
+                      "updatedAt": "2026-07-28T01:31:25.000Z",
+                      "uid": "35240-97f11d2f-12d4-43fc-98a4-40187b124bd3"
+                    }
+                  ],
+                  "id": "b07d4bda-f339-4fd3-85bc-475797f1b530",
+                  "createdAt": "2026-07-28T01:31:25.000Z",
+                  "updatedAt": "2026-07-28T01:31:25.000Z",
+                  "uid": "35240-b07d4bda-f339-4fd3-85bc-475797f1b530"
+                },
+                {
+                  "name": "resignation",
+                  "item": [
+                    {
+                      "name": "Request EOR Contract Resignation",
+                      "id": "de4041fc-71ed-4e04-b356-6b8acf7623d0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"data\": {\n      \"reason\": \"EMPLOYEE_PROVIDED_NO_REASON\",\n      \"used_time_off\": {\n        \"time_offs\": [\n          {\n            \"unit\": \"CALENDAR_DAY\",\n            \"policy_type\": \"Supplementary Leave\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          },\n          {\n            \"unit\": \"WEEK\",\n            \"policy_type\": \"Vacation\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          }\n        ],\n        \"additional_details\": \"<string,null>\",\n        \"is_deel_pto_confirmed\": \"<boolean>\"\n      },\n      \"is_employee_staying_with_deel\": \"<boolean,null>\",\n      \"attachments\": [\n        {\n          \"key\": \"<string>\",\n          \"file_name\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"file_name\": \"<string>\"\n        }\n      ],\n      \"is_sensitive\": \"<boolean>\",\n      \"reason_detail\": \"<string>\",\n      \"severance_type\": \"DAYS\",\n      \"desired_end_date\": \"<string>\",\n      \"severance_amount\": \"<double>\",\n      \"additional_reason\": \"MOVING_TO_INTERNAL_ENTITY_WITH_DEEL_GLOBAL_PAYROLL\",\n      \"termination_notes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"eligible_for_rehire\": \"DONT_KNOW\",\n      \"termination_impact_id\": \"<uuid>\",\n      \"eligible_for_rehire_reason\": \"<string,null>\",\n      \"custom_termination_reason_id\": \"<string,null-uuid>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/:oid/terminations/resignation",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            ":oid",
+                            "terminations",
+                            "resignation"
+                          ],
+                          "variable": [
+                            {
+                              "id": "abf104d7-6ede-442c-8c85-517f62cddfab",
+                              "key": "oid",
+                              "value": "<string>",
+                              "description": "(Required) Public contract oid"
+                            }
+                          ]
+                        },
+                        "description": "Enable clients with group admin and people manager permissions to initiate a resignation request for an Employee of Record (EOR) contract within their team.\n **Token scopes**: `contracts:read`, `contracts:write`"
+                      },
+                      "response": [
+                        {
+                          "id": "e2374dd2-c82c-411d-b9e0-5f379a6e6997",
+                          "name": "Ok response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"data\": {\n      \"reason\": \"EMPLOYEE_PROVIDED_NO_REASON\",\n      \"used_time_off\": {\n        \"time_offs\": [\n          {\n            \"unit\": \"CALENDAR_DAY\",\n            \"policy_type\": \"Supplementary Leave\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          },\n          {\n            \"unit\": \"WEEK\",\n            \"policy_type\": \"Vacation\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          }\n        ],\n        \"additional_details\": \"<string,null>\",\n        \"is_deel_pto_confirmed\": \"<boolean>\"\n      },\n      \"is_employee_staying_with_deel\": \"<boolean,null>\",\n      \"attachments\": [\n        {\n          \"key\": \"<string>\",\n          \"file_name\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"file_name\": \"<string>\"\n        }\n      ],\n      \"is_sensitive\": \"<boolean>\",\n      \"reason_detail\": \"<string>\",\n      \"severance_type\": \"DAYS\",\n      \"desired_end_date\": \"<string>\",\n      \"severance_amount\": \"<double>\",\n      \"additional_reason\": \"MOVING_TO_INTERNAL_ENTITY_WITH_DEEL_GLOBAL_PAYROLL\",\n      \"termination_notes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"eligible_for_rehire\": \"DONT_KNOW\",\n      \"termination_impact_id\": \"<uuid>\",\n      \"eligible_for_rehire_reason\": \"<string,null>\",\n      \"custom_termination_reason_id\": \"<string,null-uuid>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/resignation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                "resignation"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": {\n    \"id\": \"<double>\",\n    \"end_date\": \"<string,null-date-time>\",\n    \"contract_id\": \"<string>\",\n    \"request_data\": {\n      \"reason\": \"<string,null>\",\n      \"end_date\": \"<string,null-date-time>\",\n      \"reason_detail\": \"<string,null>\",\n      \"desired_end_date\": \"<string,null-date-time>\",\n      \"termination_impact\": {\n        \"id\": \"<uuid>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\"\n      },\n      \"eligible_for_rehire\": \"DONT_KNOW\",\n      \"eligible_for_rehire_reason\": \"<string,null>\",\n      \"custom_termination_reason_id\": \"<number,null-double>\"\n    },\n    \"desired_end_date\": \"<string,null-date-time>\"\n  }\n}",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-e2374dd2-c82c-411d-b9e0-5f379a6e6997"
+                        },
+                        {
+                          "id": "b8e1aa05-80f2-4873-933f-8e3f237942a3",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"data\": {\n      \"reason\": \"EMPLOYEE_PROVIDED_NO_REASON\",\n      \"used_time_off\": {\n        \"time_offs\": [\n          {\n            \"unit\": \"CALENDAR_DAY\",\n            \"policy_type\": \"Supplementary Leave\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          },\n          {\n            \"unit\": \"WEEK\",\n            \"policy_type\": \"Vacation\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          }\n        ],\n        \"additional_details\": \"<string,null>\",\n        \"is_deel_pto_confirmed\": \"<boolean>\"\n      },\n      \"is_employee_staying_with_deel\": \"<boolean,null>\",\n      \"attachments\": [\n        {\n          \"key\": \"<string>\",\n          \"file_name\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"file_name\": \"<string>\"\n        }\n      ],\n      \"is_sensitive\": \"<boolean>\",\n      \"reason_detail\": \"<string>\",\n      \"severance_type\": \"DAYS\",\n      \"desired_end_date\": \"<string>\",\n      \"severance_amount\": \"<double>\",\n      \"additional_reason\": \"MOVING_TO_INTERNAL_ENTITY_WITH_DEEL_GLOBAL_PAYROLL\",\n      \"termination_notes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"eligible_for_rehire\": \"DONT_KNOW\",\n      \"termination_impact_id\": \"<uuid>\",\n      \"eligible_for_rehire_reason\": \"<string,null>\",\n      \"custom_termination_reason_id\": \"<string,null-uuid>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/resignation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                "resignation"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-b8e1aa05-80f2-4873-933f-8e3f237942a3"
+                        },
+                        {
+                          "id": "1f474db7-ba62-4bf1-a084-2c4ec076823a",
+                          "name": "Unauthorized response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"data\": {\n      \"reason\": \"EMPLOYEE_PROVIDED_NO_REASON\",\n      \"used_time_off\": {\n        \"time_offs\": [\n          {\n            \"unit\": \"CALENDAR_DAY\",\n            \"policy_type\": \"Supplementary Leave\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          },\n          {\n            \"unit\": \"WEEK\",\n            \"policy_type\": \"Vacation\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          }\n        ],\n        \"additional_details\": \"<string,null>\",\n        \"is_deel_pto_confirmed\": \"<boolean>\"\n      },\n      \"is_employee_staying_with_deel\": \"<boolean,null>\",\n      \"attachments\": [\n        {\n          \"key\": \"<string>\",\n          \"file_name\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"file_name\": \"<string>\"\n        }\n      ],\n      \"is_sensitive\": \"<boolean>\",\n      \"reason_detail\": \"<string>\",\n      \"severance_type\": \"DAYS\",\n      \"desired_end_date\": \"<string>\",\n      \"severance_amount\": \"<double>\",\n      \"additional_reason\": \"MOVING_TO_INTERNAL_ENTITY_WITH_DEEL_GLOBAL_PAYROLL\",\n      \"termination_notes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"eligible_for_rehire\": \"DONT_KNOW\",\n      \"termination_impact_id\": \"<uuid>\",\n      \"eligible_for_rehire_reason\": \"<string,null>\",\n      \"custom_termination_reason_id\": \"<string,null-uuid>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/resignation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                "resignation"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"message\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-1f474db7-ba62-4bf1-a084-2c4ec076823a"
+                        },
+                        {
+                          "id": "e29ed944-2c14-47f2-aee9-d5beac2d6422",
+                          "name": "Forbidden response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"data\": {\n      \"reason\": \"EMPLOYEE_PROVIDED_NO_REASON\",\n      \"used_time_off\": {\n        \"time_offs\": [\n          {\n            \"unit\": \"CALENDAR_DAY\",\n            \"policy_type\": \"Supplementary Leave\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          },\n          {\n            \"unit\": \"WEEK\",\n            \"policy_type\": \"Vacation\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          }\n        ],\n        \"additional_details\": \"<string,null>\",\n        \"is_deel_pto_confirmed\": \"<boolean>\"\n      },\n      \"is_employee_staying_with_deel\": \"<boolean,null>\",\n      \"attachments\": [\n        {\n          \"key\": \"<string>\",\n          \"file_name\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"file_name\": \"<string>\"\n        }\n      ],\n      \"is_sensitive\": \"<boolean>\",\n      \"reason_detail\": \"<string>\",\n      \"severance_type\": \"DAYS\",\n      \"desired_end_date\": \"<string>\",\n      \"severance_amount\": \"<double>\",\n      \"additional_reason\": \"MOVING_TO_INTERNAL_ENTITY_WITH_DEEL_GLOBAL_PAYROLL\",\n      \"termination_notes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"eligible_for_rehire\": \"DONT_KNOW\",\n      \"termination_impact_id\": \"<uuid>\",\n      \"eligible_for_rehire_reason\": \"<string,null>\",\n      \"custom_termination_reason_id\": \"<string,null-uuid>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/resignation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                "resignation"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"message\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-e29ed944-2c14-47f2-aee9-d5beac2d6422"
+                        },
+                        {
+                          "id": "e63d52e6-c900-4e3e-a02a-5b6010bcb3da",
+                          "name": "Not Found response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"data\": {\n      \"reason\": \"EMPLOYEE_PROVIDED_NO_REASON\",\n      \"used_time_off\": {\n        \"time_offs\": [\n          {\n            \"unit\": \"CALENDAR_DAY\",\n            \"policy_type\": \"Supplementary Leave\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          },\n          {\n            \"unit\": \"WEEK\",\n            \"policy_type\": \"Vacation\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          }\n        ],\n        \"additional_details\": \"<string,null>\",\n        \"is_deel_pto_confirmed\": \"<boolean>\"\n      },\n      \"is_employee_staying_with_deel\": \"<boolean,null>\",\n      \"attachments\": [\n        {\n          \"key\": \"<string>\",\n          \"file_name\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"file_name\": \"<string>\"\n        }\n      ],\n      \"is_sensitive\": \"<boolean>\",\n      \"reason_detail\": \"<string>\",\n      \"severance_type\": \"DAYS\",\n      \"desired_end_date\": \"<string>\",\n      \"severance_amount\": \"<double>\",\n      \"additional_reason\": \"MOVING_TO_INTERNAL_ENTITY_WITH_DEEL_GLOBAL_PAYROLL\",\n      \"termination_notes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"eligible_for_rehire\": \"DONT_KNOW\",\n      \"termination_impact_id\": \"<uuid>\",\n      \"eligible_for_rehire_reason\": \"<string,null>\",\n      \"custom_termination_reason_id\": \"<string,null-uuid>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/resignation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                "resignation"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"message\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-e63d52e6-c900-4e3e-a02a-5b6010bcb3da"
+                        },
+                        {
+                          "id": "cd02465b-7e43-4c04-ae1b-8ccce6400365",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"data\": {\n      \"reason\": \"EMPLOYEE_PROVIDED_NO_REASON\",\n      \"used_time_off\": {\n        \"time_offs\": [\n          {\n            \"unit\": \"CALENDAR_DAY\",\n            \"policy_type\": \"Supplementary Leave\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          },\n          {\n            \"unit\": \"WEEK\",\n            \"policy_type\": \"Vacation\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          }\n        ],\n        \"additional_details\": \"<string,null>\",\n        \"is_deel_pto_confirmed\": \"<boolean>\"\n      },\n      \"is_employee_staying_with_deel\": \"<boolean,null>\",\n      \"attachments\": [\n        {\n          \"key\": \"<string>\",\n          \"file_name\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"file_name\": \"<string>\"\n        }\n      ],\n      \"is_sensitive\": \"<boolean>\",\n      \"reason_detail\": \"<string>\",\n      \"severance_type\": \"DAYS\",\n      \"desired_end_date\": \"<string>\",\n      \"severance_amount\": \"<double>\",\n      \"additional_reason\": \"MOVING_TO_INTERNAL_ENTITY_WITH_DEEL_GLOBAL_PAYROLL\",\n      \"termination_notes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"eligible_for_rehire\": \"DONT_KNOW\",\n      \"termination_impact_id\": \"<uuid>\",\n      \"eligible_for_rehire_reason\": \"<string,null>\",\n      \"custom_termination_reason_id\": \"<string,null-uuid>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/resignation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                "resignation"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-cd02465b-7e43-4c04-ae1b-8ccce6400365"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:31:25.000Z",
+                      "updatedAt": "2026-07-28T01:31:25.000Z",
+                      "uid": "35240-de4041fc-71ed-4e04-b356-6b8acf7623d0"
+                    }
+                  ],
+                  "id": "e9a46b50-2b42-44fc-a532-1e31af37d8eb",
+                  "createdAt": "2026-07-28T01:31:25.000Z",
+                  "updatedAt": "2026-07-28T01:31:25.000Z",
+                  "uid": "35240-e9a46b50-2b42-44fc-a532-1e31af37d8eb"
+                },
+                {
+                  "name": "regular",
+                  "item": [
+                    {
+                      "name": "Termination Request",
+                      "id": "3bee2c6f-f546-41ba-b9a9-a88f415fd721",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"reason\": \"NO_LONGER_WISH_TO_WORK_WITH_DEEL\",\n    \"reason_detail\": \"<string>\",\n    \"used_time_off\": {\n      \"time_offs\": [\n        {\n          \"unit\": \"HOUR\",\n          \"policy_type\": \"Volunteer leave\",\n          \"tracking_periods\": [\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            },\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            }\n          ],\n          \"scheduled_until_end_date\": \"<double>\"\n        },\n        {\n          \"unit\": \"MONTH\",\n          \"policy_type\": \"Marriage/wedding leave\",\n          \"tracking_periods\": [\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            },\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            }\n          ],\n          \"scheduled_until_end_date\": \"<double>\"\n        }\n      ],\n      \"additional_details\": \"<string,null>\",\n      \"is_deel_pto_confirmed\": \"<boolean>\"\n    },\n    \"is_employee_notified\": \"<boolean>\",\n    \"attachments\": [\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      }\n    ],\n    \"is_sensitive\": \"<boolean>\",\n    \"severance_type\": \"DAYS\",\n    \"desired_end_date\": \"<string>\",\n    \"severance_amount\": \"<double>\",\n    \"additional_reason\": \"DISSATISFIED_WITH_DEEL_SERVICE\",\n    \"termination_notes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eligible_for_rehire\": \"NO\",\n    \"eor_country_data_id\": \"<double>\",\n    \"termination_impact_id\": \"<uuid>\",\n    \"additional_country_data\": [\n      {\n        \"answer\": \"<boolean,null>\",\n        \"question\": \"<string>\"\n      },\n      {\n        \"answer\": \"<boolean,null>\",\n        \"question\": \"<string>\"\n      }\n    ],\n    \"custom_termination_reason_id\": \"<uuid>\",\n    \"employee_notification_detail\": \"<string,null>\",\n    \"additional_supporting_documents\": [\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      }\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/:oid/terminations/regular",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            ":oid",
+                            "terminations",
+                            "regular"
+                          ],
+                          "variable": [
+                            {
+                              "id": "b82355e1-8359-4a84-963e-f9fe79f3cdec",
+                              "key": "oid",
+                              "value": "<string>",
+                              "description": "(Required) Public contract id"
+                            }
+                          ]
+                        },
+                        "description": "This API enables clients with group admin and people manager permissions to initiate a request for the termination of an Employee of Record (EOR) contract for members of their team.\n **Token scopes**: `contracts:read`, `contracts:write`"
+                      },
+                      "response": [
+                        {
+                          "id": "94de88bd-39d4-46a0-a071-ba233d1c3dba",
+                          "name": "Ok response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"reason\": \"NO_LONGER_WISH_TO_WORK_WITH_DEEL\",\n    \"reason_detail\": \"<string>\",\n    \"used_time_off\": {\n      \"time_offs\": [\n        {\n          \"unit\": \"HOUR\",\n          \"policy_type\": \"Volunteer leave\",\n          \"tracking_periods\": [\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            },\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            }\n          ],\n          \"scheduled_until_end_date\": \"<double>\"\n        },\n        {\n          \"unit\": \"MONTH\",\n          \"policy_type\": \"Marriage/wedding leave\",\n          \"tracking_periods\": [\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            },\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            }\n          ],\n          \"scheduled_until_end_date\": \"<double>\"\n        }\n      ],\n      \"additional_details\": \"<string,null>\",\n      \"is_deel_pto_confirmed\": \"<boolean>\"\n    },\n    \"is_employee_notified\": \"<boolean>\",\n    \"attachments\": [\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      }\n    ],\n    \"is_sensitive\": \"<boolean>\",\n    \"severance_type\": \"DAYS\",\n    \"desired_end_date\": \"<string>\",\n    \"severance_amount\": \"<double>\",\n    \"additional_reason\": \"DISSATISFIED_WITH_DEEL_SERVICE\",\n    \"termination_notes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eligible_for_rehire\": \"NO\",\n    \"eor_country_data_id\": \"<double>\",\n    \"termination_impact_id\": \"<uuid>\",\n    \"additional_country_data\": [\n      {\n        \"answer\": \"<boolean,null>\",\n        \"question\": \"<string>\"\n      },\n      {\n        \"answer\": \"<boolean,null>\",\n        \"question\": \"<string>\"\n      }\n    ],\n    \"custom_termination_reason_id\": \"<uuid>\",\n    \"employee_notification_detail\": \"<string,null>\",\n    \"additional_supporting_documents\": [\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      }\n    ]\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/regular",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                "regular"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<double>\",\n  \"end_date\": \"<string,null-date-time>\",\n  \"contract_id\": \"<string>\",\n  \"request_data\": {\n    \"reason\": \"<string,null>\",\n    \"end_date\": \"<string,null-date-time>\",\n    \"reason_detail\": \"<string,null>\",\n    \"desired_end_date\": \"<string,null-date-time>\",\n    \"termination_impact\": {\n      \"id\": \"<uuid>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    \"eligible_for_rehire\": \"DONT_KNOW\",\n    \"eligible_for_rehire_reason\": \"<string,null>\",\n    \"custom_termination_reason_id\": \"<number,null-double>\"\n  },\n  \"desired_end_date\": \"<string,null-date-time>\"\n}",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-94de88bd-39d4-46a0-a071-ba233d1c3dba"
+                        },
+                        {
+                          "id": "765f8381-405e-4079-b560-c818d9473ad9",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"reason\": \"NO_LONGER_WISH_TO_WORK_WITH_DEEL\",\n    \"reason_detail\": \"<string>\",\n    \"used_time_off\": {\n      \"time_offs\": [\n        {\n          \"unit\": \"HOUR\",\n          \"policy_type\": \"Volunteer leave\",\n          \"tracking_periods\": [\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            },\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            }\n          ],\n          \"scheduled_until_end_date\": \"<double>\"\n        },\n        {\n          \"unit\": \"MONTH\",\n          \"policy_type\": \"Marriage/wedding leave\",\n          \"tracking_periods\": [\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            },\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            }\n          ],\n          \"scheduled_until_end_date\": \"<double>\"\n        }\n      ],\n      \"additional_details\": \"<string,null>\",\n      \"is_deel_pto_confirmed\": \"<boolean>\"\n    },\n    \"is_employee_notified\": \"<boolean>\",\n    \"attachments\": [\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      }\n    ],\n    \"is_sensitive\": \"<boolean>\",\n    \"severance_type\": \"DAYS\",\n    \"desired_end_date\": \"<string>\",\n    \"severance_amount\": \"<double>\",\n    \"additional_reason\": \"DISSATISFIED_WITH_DEEL_SERVICE\",\n    \"termination_notes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eligible_for_rehire\": \"NO\",\n    \"eor_country_data_id\": \"<double>\",\n    \"termination_impact_id\": \"<uuid>\",\n    \"additional_country_data\": [\n      {\n        \"answer\": \"<boolean,null>\",\n        \"question\": \"<string>\"\n      },\n      {\n        \"answer\": \"<boolean,null>\",\n        \"question\": \"<string>\"\n      }\n    ],\n    \"custom_termination_reason_id\": \"<uuid>\",\n    \"employee_notification_detail\": \"<string,null>\",\n    \"additional_supporting_documents\": [\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      }\n    ]\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/regular",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                "regular"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-765f8381-405e-4079-b560-c818d9473ad9"
+                        },
+                        {
+                          "id": "9ab60b4b-2c3e-4b5d-b23f-f236eda25262",
+                          "name": "Unauthorized response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"reason\": \"NO_LONGER_WISH_TO_WORK_WITH_DEEL\",\n    \"reason_detail\": \"<string>\",\n    \"used_time_off\": {\n      \"time_offs\": [\n        {\n          \"unit\": \"HOUR\",\n          \"policy_type\": \"Volunteer leave\",\n          \"tracking_periods\": [\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            },\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            }\n          ],\n          \"scheduled_until_end_date\": \"<double>\"\n        },\n        {\n          \"unit\": \"MONTH\",\n          \"policy_type\": \"Marriage/wedding leave\",\n          \"tracking_periods\": [\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            },\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            }\n          ],\n          \"scheduled_until_end_date\": \"<double>\"\n        }\n      ],\n      \"additional_details\": \"<string,null>\",\n      \"is_deel_pto_confirmed\": \"<boolean>\"\n    },\n    \"is_employee_notified\": \"<boolean>\",\n    \"attachments\": [\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      }\n    ],\n    \"is_sensitive\": \"<boolean>\",\n    \"severance_type\": \"DAYS\",\n    \"desired_end_date\": \"<string>\",\n    \"severance_amount\": \"<double>\",\n    \"additional_reason\": \"DISSATISFIED_WITH_DEEL_SERVICE\",\n    \"termination_notes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eligible_for_rehire\": \"NO\",\n    \"eor_country_data_id\": \"<double>\",\n    \"termination_impact_id\": \"<uuid>\",\n    \"additional_country_data\": [\n      {\n        \"answer\": \"<boolean,null>\",\n        \"question\": \"<string>\"\n      },\n      {\n        \"answer\": \"<boolean,null>\",\n        \"question\": \"<string>\"\n      }\n    ],\n    \"custom_termination_reason_id\": \"<uuid>\",\n    \"employee_notification_detail\": \"<string,null>\",\n    \"additional_supporting_documents\": [\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      }\n    ]\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/regular",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                "regular"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"message\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-9ab60b4b-2c3e-4b5d-b23f-f236eda25262"
+                        },
+                        {
+                          "id": "567206dc-7627-4670-ad08-32fc1b9b6546",
+                          "name": "Forbidden response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"reason\": \"NO_LONGER_WISH_TO_WORK_WITH_DEEL\",\n    \"reason_detail\": \"<string>\",\n    \"used_time_off\": {\n      \"time_offs\": [\n        {\n          \"unit\": \"HOUR\",\n          \"policy_type\": \"Volunteer leave\",\n          \"tracking_periods\": [\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            },\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            }\n          ],\n          \"scheduled_until_end_date\": \"<double>\"\n        },\n        {\n          \"unit\": \"MONTH\",\n          \"policy_type\": \"Marriage/wedding leave\",\n          \"tracking_periods\": [\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            },\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            }\n          ],\n          \"scheduled_until_end_date\": \"<double>\"\n        }\n      ],\n      \"additional_details\": \"<string,null>\",\n      \"is_deel_pto_confirmed\": \"<boolean>\"\n    },\n    \"is_employee_notified\": \"<boolean>\",\n    \"attachments\": [\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      }\n    ],\n    \"is_sensitive\": \"<boolean>\",\n    \"severance_type\": \"DAYS\",\n    \"desired_end_date\": \"<string>\",\n    \"severance_amount\": \"<double>\",\n    \"additional_reason\": \"DISSATISFIED_WITH_DEEL_SERVICE\",\n    \"termination_notes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eligible_for_rehire\": \"NO\",\n    \"eor_country_data_id\": \"<double>\",\n    \"termination_impact_id\": \"<uuid>\",\n    \"additional_country_data\": [\n      {\n        \"answer\": \"<boolean,null>\",\n        \"question\": \"<string>\"\n      },\n      {\n        \"answer\": \"<boolean,null>\",\n        \"question\": \"<string>\"\n      }\n    ],\n    \"custom_termination_reason_id\": \"<uuid>\",\n    \"employee_notification_detail\": \"<string,null>\",\n    \"additional_supporting_documents\": [\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      }\n    ]\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/regular",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                "regular"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"message\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-567206dc-7627-4670-ad08-32fc1b9b6546"
+                        },
+                        {
+                          "id": "5f8c4ea5-c75e-4836-a3d6-9c052d827b43",
+                          "name": "Not Found response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"reason\": \"NO_LONGER_WISH_TO_WORK_WITH_DEEL\",\n    \"reason_detail\": \"<string>\",\n    \"used_time_off\": {\n      \"time_offs\": [\n        {\n          \"unit\": \"HOUR\",\n          \"policy_type\": \"Volunteer leave\",\n          \"tracking_periods\": [\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            },\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            }\n          ],\n          \"scheduled_until_end_date\": \"<double>\"\n        },\n        {\n          \"unit\": \"MONTH\",\n          \"policy_type\": \"Marriage/wedding leave\",\n          \"tracking_periods\": [\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            },\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            }\n          ],\n          \"scheduled_until_end_date\": \"<double>\"\n        }\n      ],\n      \"additional_details\": \"<string,null>\",\n      \"is_deel_pto_confirmed\": \"<boolean>\"\n    },\n    \"is_employee_notified\": \"<boolean>\",\n    \"attachments\": [\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      }\n    ],\n    \"is_sensitive\": \"<boolean>\",\n    \"severance_type\": \"DAYS\",\n    \"desired_end_date\": \"<string>\",\n    \"severance_amount\": \"<double>\",\n    \"additional_reason\": \"DISSATISFIED_WITH_DEEL_SERVICE\",\n    \"termination_notes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eligible_for_rehire\": \"NO\",\n    \"eor_country_data_id\": \"<double>\",\n    \"termination_impact_id\": \"<uuid>\",\n    \"additional_country_data\": [\n      {\n        \"answer\": \"<boolean,null>\",\n        \"question\": \"<string>\"\n      },\n      {\n        \"answer\": \"<boolean,null>\",\n        \"question\": \"<string>\"\n      }\n    ],\n    \"custom_termination_reason_id\": \"<uuid>\",\n    \"employee_notification_detail\": \"<string,null>\",\n    \"additional_supporting_documents\": [\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      }\n    ]\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/regular",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                "regular"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"message\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-5f8c4ea5-c75e-4836-a3d6-9c052d827b43"
+                        },
+                        {
+                          "id": "b5ee3dfb-9c7f-4db2-b9da-4cbe5ae088fe",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"reason\": \"NO_LONGER_WISH_TO_WORK_WITH_DEEL\",\n    \"reason_detail\": \"<string>\",\n    \"used_time_off\": {\n      \"time_offs\": [\n        {\n          \"unit\": \"HOUR\",\n          \"policy_type\": \"Volunteer leave\",\n          \"tracking_periods\": [\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            },\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            }\n          ],\n          \"scheduled_until_end_date\": \"<double>\"\n        },\n        {\n          \"unit\": \"MONTH\",\n          \"policy_type\": \"Marriage/wedding leave\",\n          \"tracking_periods\": [\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            },\n            {\n              \"used\": \"<double>\",\n              \"end_date\": \"<dateTime>\",\n              \"start_date\": \"<dateTime>\"\n            }\n          ],\n          \"scheduled_until_end_date\": \"<double>\"\n        }\n      ],\n      \"additional_details\": \"<string,null>\",\n      \"is_deel_pto_confirmed\": \"<boolean>\"\n    },\n    \"is_employee_notified\": \"<boolean>\",\n    \"attachments\": [\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      }\n    ],\n    \"is_sensitive\": \"<boolean>\",\n    \"severance_type\": \"DAYS\",\n    \"desired_end_date\": \"<string>\",\n    \"severance_amount\": \"<double>\",\n    \"additional_reason\": \"DISSATISFIED_WITH_DEEL_SERVICE\",\n    \"termination_notes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"eligible_for_rehire\": \"NO\",\n    \"eor_country_data_id\": \"<double>\",\n    \"termination_impact_id\": \"<uuid>\",\n    \"additional_country_data\": [\n      {\n        \"answer\": \"<boolean,null>\",\n        \"question\": \"<string>\"\n      },\n      {\n        \"answer\": \"<boolean,null>\",\n        \"question\": \"<string>\"\n      }\n    ],\n    \"custom_termination_reason_id\": \"<uuid>\",\n    \"employee_notification_detail\": \"<string,null>\",\n    \"additional_supporting_documents\": [\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"file_name\": \"<string>\"\n      }\n    ]\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/:oid/terminations/regular",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                ":oid",
+                                "terminations",
+                                "regular"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "oid"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-b5ee3dfb-9c7f-4db2-b9da-4cbe5ae088fe"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:31:25.000Z",
+                      "updatedAt": "2026-07-28T01:31:25.000Z",
+                      "uid": "35240-3bee2c6f-f546-41ba-b9a9-a88f415fd721"
+                    }
+                  ],
+                  "id": "0a15e71d-11bf-4a7e-985c-122987b712f0",
+                  "createdAt": "2026-07-28T01:31:25.000Z",
+                  "updatedAt": "2026-07-28T01:31:25.000Z",
+                  "uid": "35240-0a15e71d-11bf-4a7e-985c-122987b712f0"
+                }
+              ],
+              "id": "ccd611ae-76ac-4a63-9aa6-0af7dbe1d335",
+              "createdAt": "2026-07-28T01:31:25.000Z",
+              "updatedAt": "2026-07-28T01:31:25.000Z",
+              "uid": "35240-ccd611ae-76ac-4a63-9aa6-0af7dbe1d335"
+            }
+          ],
+          "id": "7d0806a8-a2d0-4f92-a883-4b3870ce0c89",
+          "createdAt": "2026-07-28T01:31:25.000Z",
+          "updatedAt": "2026-07-28T01:31:25.000Z",
+          "uid": "35240-7d0806a8-a2d0-4f92-a883-4b3870ce0c89"
+        },
+        {
+          "name": "contracts",
+          "item": [
+            {
+              "name": "{contract_id}",
+              "item": [
+                {
+                  "name": "offboarding",
+                  "item": [
+                    {
+                      "name": "termination",
+                      "item": [
+                        {
+                          "name": "Initiate EOR contract termination request",
+                          "id": "057e3946-8955-4711-b555-6b63271a5f42",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "data",
+                                  "value": "[object Object]",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/termination",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "offboarding",
+                                "termination"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e592e804-29b5-4f6b-8e90-4253be3e768b",
+                                  "key": "contract_id",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique identifier of the employee contract."
+                                }
+                              ]
+                            },
+                            "description": "Enables clients to initiate a request for the termination of an Employee of Record (EOR) contract for members of their team.\n **Token scopes**: `contracts:write`"
+                          },
+                          "response": [
+                            {
+                              "id": "25e152d5-ced3-4961-9054-b2a9da78decd",
+                              "name": "Ok response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "multipart/form-data"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "formdata",
+                                  "formdata": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "data",
+                                      "value": "[object Object]",
+                                      "type": "text"
+                                    }
+                                  ]
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/termination",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "termination"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": {\n    \"id\": \"<uuid>\",\n    \"end_date\": \"<string,null-date-time>\",\n    \"documents\": {\n      \"supporting\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"is_additional_supporting_document\": \"<boolean>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"is_additional_supporting_document\": \"<boolean>\"\n        }\n      ],\n      \"offboarding\": [\n        {\n          \"files\": [\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            }\n          ],\n          \"status\": \"AWAITING_FEEDBACK\",\n          \"reviewer_type\": \"EMPLOYEE\",\n          \"is_employee_notification_required\": \"<boolean>\",\n          \"id\": \"<uuid>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"reviewed_at\": \"<string,null-date-time>\",\n          \"reviewed_by\": \"<string,null>\",\n          \"reviewer_feedback\": \"<string,null>\",\n          \"notification_instructions\": \"<string,null>\"\n        },\n        {\n          \"files\": [\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            }\n          ],\n          \"status\": \"CANCELLED\",\n          \"reviewer_type\": \"CLIENT\",\n          \"is_employee_notification_required\": \"<boolean>\",\n          \"id\": \"<uuid>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"reviewed_at\": \"<string,null-date-time>\",\n          \"reviewed_by\": \"<string,null>\",\n          \"reviewer_feedback\": \"<string,null>\",\n          \"notification_instructions\": \"<string,null>\"\n        }\n      ]\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"contract_id\": \"<string>\",\n    \"is_sensitive\": \"<boolean>\",\n    \"request_data\": {\n      \"reason\": \"FOR_CAUSE\",\n      \"end_date\": \"<string,null-date-time>\",\n      \"reason_detail\": \"<string,null>\",\n      \"used_time_off\": {\n        \"time_offs\": [\n          {\n            \"unit\": \"HOUR\",\n            \"policy_type\": \"<string>\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          },\n          {\n            \"unit\": \"HOUR\",\n            \"policy_type\": \"<string>\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          }\n        ],\n        \"is_deel_pto_confirmed\": \"<boolean>\",\n        \"additional_details\": {\n          \"notes\": \"<string,null>\",\n          \"updated_by\": \"<string,null>\",\n          \"last_updated_at\": \"<string,null-date-time>\"\n        }\n      },\n      \"desired_end_date\": \"<string,null-date>\",\n      \"eligible_for_rehire\": \"YES\",\n      \"eligible_for_rehire_reason\": \"<string,null>\"\n    },\n    \"desired_end_date\": \"<string,null-date-time>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:31:25.000Z",
+                              "updatedAt": "2026-07-28T01:31:25.000Z",
+                              "uid": "35240-25e152d5-ced3-4961-9054-b2a9da78decd"
+                            },
+                            {
+                              "id": "f0f51a16-1df8-40df-a45b-31e9efc2453e",
+                              "name": "Bad Request",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "multipart/form-data"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "formdata",
+                                  "formdata": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "data",
+                                      "value": "[object Object]",
+                                      "type": "text"
+                                    }
+                                  ]
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/termination",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "termination"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:25.000Z",
+                              "updatedAt": "2026-07-28T01:31:25.000Z",
+                              "uid": "35240-f0f51a16-1df8-40df-a45b-31e9efc2453e"
+                            },
+                            {
+                              "id": "304d8c7c-102a-463e-9e18-4fb2df56e97e",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "multipart/form-data"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "formdata",
+                                  "formdata": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "data",
+                                      "value": "[object Object]",
+                                      "type": "text"
+                                    }
+                                  ]
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/termination",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "termination"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:25.000Z",
+                              "updatedAt": "2026-07-28T01:31:25.000Z",
+                              "uid": "35240-304d8c7c-102a-463e-9e18-4fb2df56e97e"
+                            },
+                            {
+                              "id": "03ab8d02-5964-4151-9e34-9e2bedcae16a",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "multipart/form-data"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "formdata",
+                                  "formdata": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "data",
+                                      "value": "[object Object]",
+                                      "type": "text"
+                                    }
+                                  ]
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/termination",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "termination"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:25.000Z",
+                              "updatedAt": "2026-07-28T01:31:25.000Z",
+                              "uid": "35240-03ab8d02-5964-4151-9e34-9e2bedcae16a"
+                            },
+                            {
+                              "id": "a721c1b4-977c-4bee-a7d1-589f75d10eb7",
+                              "name": "Operation failed.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "multipart/form-data"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "formdata",
+                                  "formdata": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "data",
+                                      "value": "[object Object]",
+                                      "type": "text"
+                                    }
+                                  ]
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/termination",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "termination"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:25.000Z",
+                              "updatedAt": "2026-07-28T01:31:25.000Z",
+                              "uid": "35240-a721c1b4-977c-4bee-a7d1-589f75d10eb7"
+                            },
+                            {
+                              "id": "d769f193-a701-4ff9-8a80-7abae75bafe5",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "multipart/form-data"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "formdata",
+                                  "formdata": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "data",
+                                      "value": "[object Object]",
+                                      "type": "text"
+                                    }
+                                  ]
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/termination",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "termination"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:25.000Z",
+                              "updatedAt": "2026-07-28T01:31:25.000Z",
+                              "uid": "35240-d769f193-a701-4ff9-8a80-7abae75bafe5"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-057e3946-8955-4711-b555-6b63271a5f42"
+                        }
+                      ],
+                      "id": "2fa2b9e4-ab31-4f71-8be5-8a3d614119fe",
+                      "createdAt": "2026-07-28T01:31:25.000Z",
+                      "updatedAt": "2026-07-28T01:31:25.000Z",
+                      "uid": "35240-2fa2b9e4-ab31-4f71-8be5-8a3d614119fe"
+                    }
+                  ],
+                  "id": "537a54cf-8035-46e2-92bd-18593905510b",
+                  "createdAt": "2026-07-28T01:31:25.000Z",
+                  "updatedAt": "2026-07-28T01:31:25.000Z",
+                  "uid": "35240-537a54cf-8035-46e2-92bd-18593905510b"
+                }
+              ],
+              "id": "97ac497a-8e74-4066-860a-ae832ab1a2d8",
+              "createdAt": "2026-07-28T01:31:25.000Z",
+              "updatedAt": "2026-07-28T01:31:25.000Z",
+              "uid": "35240-97ac497a-8e74-4066-860a-ae832ab1a2d8"
+            }
+          ],
+          "id": "467a76d3-aae1-473c-8bb2-da0dce626d6d",
+          "createdAt": "2026-07-28T01:31:25.000Z",
+          "updatedAt": "2026-07-28T01:31:25.000Z",
+          "uid": "35240-467a76d3-aae1-473c-8bb2-da0dce626d6d"
+        }
+      ],
+      "id": "6e4c1e6c-0532-4028-8164-8fcd3cccf21a",
+      "createdAt": "2026-07-28T01:31:25.000Z",
+      "updatedAt": "2026-07-28T01:31:25.000Z",
+      "uid": "35240-6e4c1e6c-0532-4028-8164-8fcd3cccf21a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

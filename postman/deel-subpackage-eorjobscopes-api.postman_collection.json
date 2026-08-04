@@ -1,0 +1,720 @@
+{
+  "info": {
+    "_postman_id": "c92398d2-45d7-43c4-9930-df4820c542bc",
+    "name": "Endpoints subpackage_eorJobScopes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:45.000Z",
+    "updatedAt": "2026-07-28T01:30:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c92398d2-45d7-43c4-9930-df4820c542bc"
+  },
+  "item": [
+    {
+      "name": "eor",
+      "item": [
+        {
+          "name": "job-scopes",
+          "item": [
+            {
+              "name": "validate",
+              "item": [
+                {
+                  "name": "Request job scope validation",
+                  "id": "f6360e4f-4aa2-4381-b921-098a303041d9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"team_id\": \"<uuid>\",\n    \"job_scope\": \"<string>\",\n    \"job_title\": \"<string>\",\n    \"employee_name\": \"<string>\",\n    \"employment_country\": \"<string>\",\n    \"client_legal_entity_id\": \"<uuid>\",\n    \"work_visa\": \"<boolean>\",\n    \"client_name\": \"<string>\",\n    \"special_job_id\": \"<string,null-uuid>\",\n    \"employment_state\": \"<string,null>\",\n    \"employee_nationality\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/eor/job-scopes/validate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eor",
+                        "job-scopes",
+                        "validate"
+                      ]
+                    },
+                    "description": "This endpoint allows client to validate job scope description.\n **Token scopes**: `contracts:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "6ac14c34-5d74-4a0f-bcb4-7091e3998a24",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"team_id\": \"<uuid>\",\n    \"job_scope\": \"<string>\",\n    \"job_title\": \"<string>\",\n    \"employee_name\": \"<string>\",\n    \"employment_country\": \"<string>\",\n    \"client_legal_entity_id\": \"<uuid>\",\n    \"work_visa\": \"<boolean>\",\n    \"client_name\": \"<string>\",\n    \"special_job_id\": \"<string,null-uuid>\",\n    \"employment_state\": \"<string,null>\",\n    \"employee_nationality\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/job-scopes/validate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "job-scopes",
+                            "validate"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"path\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"path\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ],\n  \"quote_validation_log_public_id\": \"<string>\",\n  \"data_for_corrected_job_scope_endpoint\": {\n    \"anonymized_job_scope\": \"<string,null>\",\n    \"errors_for_correct_job_scope\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"must_create_correct_job_scope\": \"<boolean>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:30:45.000Z",
+                      "updatedAt": "2026-07-28T01:30:45.000Z",
+                      "uid": "35240-6ac14c34-5d74-4a0f-bcb4-7091e3998a24"
+                    },
+                    {
+                      "id": "0c436d2f-5b7f-4738-bef7-7badc9ff7dfe",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"team_id\": \"<uuid>\",\n    \"job_scope\": \"<string>\",\n    \"job_title\": \"<string>\",\n    \"employee_name\": \"<string>\",\n    \"employment_country\": \"<string>\",\n    \"client_legal_entity_id\": \"<uuid>\",\n    \"work_visa\": \"<boolean>\",\n    \"client_name\": \"<string>\",\n    \"special_job_id\": \"<string,null-uuid>\",\n    \"employment_state\": \"<string,null>\",\n    \"employee_nationality\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/job-scopes/validate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "job-scopes",
+                            "validate"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"path\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"path\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ],\n  \"request\": {\n    \"url\": \"<string>\",\n    \"code\": \"<double>\",\n    \"docs\": \"<string>\",\n    \"method\": \"<string>\",\n    \"source\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:30:45.000Z",
+                      "updatedAt": "2026-07-28T01:30:45.000Z",
+                      "uid": "35240-0c436d2f-5b7f-4738-bef7-7badc9ff7dfe"
+                    },
+                    {
+                      "id": "a6f020a3-021d-45f2-ab71-514fd12607e3",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"team_id\": \"<uuid>\",\n    \"job_scope\": \"<string>\",\n    \"job_title\": \"<string>\",\n    \"employee_name\": \"<string>\",\n    \"employment_country\": \"<string>\",\n    \"client_legal_entity_id\": \"<uuid>\",\n    \"work_visa\": \"<boolean>\",\n    \"client_name\": \"<string>\",\n    \"special_job_id\": \"<string,null-uuid>\",\n    \"employment_state\": \"<string,null>\",\n    \"employee_nationality\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/job-scopes/validate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "job-scopes",
+                            "validate"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:45.000Z",
+                      "updatedAt": "2026-07-28T01:30:45.000Z",
+                      "uid": "35240-a6f020a3-021d-45f2-ab71-514fd12607e3"
+                    },
+                    {
+                      "id": "df82825d-05c2-4498-b1f3-0c557517e9e1",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"team_id\": \"<uuid>\",\n    \"job_scope\": \"<string>\",\n    \"job_title\": \"<string>\",\n    \"employee_name\": \"<string>\",\n    \"employment_country\": \"<string>\",\n    \"client_legal_entity_id\": \"<uuid>\",\n    \"work_visa\": \"<boolean>\",\n    \"client_name\": \"<string>\",\n    \"special_job_id\": \"<string,null-uuid>\",\n    \"employment_state\": \"<string,null>\",\n    \"employee_nationality\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/job-scopes/validate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "job-scopes",
+                            "validate"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:45.000Z",
+                      "updatedAt": "2026-07-28T01:30:45.000Z",
+                      "uid": "35240-df82825d-05c2-4498-b1f3-0c557517e9e1"
+                    },
+                    {
+                      "id": "400bc4d2-d819-48a6-91c8-87298df36af1",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"team_id\": \"<uuid>\",\n    \"job_scope\": \"<string>\",\n    \"job_title\": \"<string>\",\n    \"employee_name\": \"<string>\",\n    \"employment_country\": \"<string>\",\n    \"client_legal_entity_id\": \"<uuid>\",\n    \"work_visa\": \"<boolean>\",\n    \"client_name\": \"<string>\",\n    \"special_job_id\": \"<string,null-uuid>\",\n    \"employment_state\": \"<string,null>\",\n    \"employee_nationality\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/job-scopes/validate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "job-scopes",
+                            "validate"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:45.000Z",
+                      "updatedAt": "2026-07-28T01:30:45.000Z",
+                      "uid": "35240-400bc4d2-d819-48a6-91c8-87298df36af1"
+                    },
+                    {
+                      "id": "21bb05b6-e788-48d3-a4e9-0284c3233573",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"team_id\": \"<uuid>\",\n    \"job_scope\": \"<string>\",\n    \"job_title\": \"<string>\",\n    \"employee_name\": \"<string>\",\n    \"employment_country\": \"<string>\",\n    \"client_legal_entity_id\": \"<uuid>\",\n    \"work_visa\": \"<boolean>\",\n    \"client_name\": \"<string>\",\n    \"special_job_id\": \"<string,null-uuid>\",\n    \"employment_state\": \"<string,null>\",\n    \"employee_nationality\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/job-scopes/validate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "job-scopes",
+                            "validate"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:45.000Z",
+                      "updatedAt": "2026-07-28T01:30:45.000Z",
+                      "uid": "35240-21bb05b6-e788-48d3-a4e9-0284c3233573"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:45.000Z",
+                  "updatedAt": "2026-07-28T01:30:45.000Z",
+                  "uid": "35240-f6360e4f-4aa2-4381-b921-098a303041d9"
+                }
+              ],
+              "id": "7ddbdae5-0f0c-4be9-9c87-83769e90b77c",
+              "createdAt": "2026-07-28T01:30:45.000Z",
+              "updatedAt": "2026-07-28T01:30:45.000Z",
+              "uid": "35240-7ddbdae5-0f0c-4be9-9c87-83769e90b77c"
+            },
+            {
+              "name": "List of job scope templates for EOR contracts",
+              "id": "82ccc6bf-7a27-4702-9f6f-2a6bb161bc23",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/eor/job-scopes?team=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "eor",
+                    "job-scopes"
+                  ],
+                  "query": [
+                    {
+                      "description": "Team public id",
+                      "key": "team",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a list of predefined job scope templates for an EOR contract, which can be filtered by team. The list includes both predefined and custom job scope templates belonging to the user's teams.\n **Token scopes**: `organizations:read`"
+              },
+              "response": [
+                {
+                  "id": "4a9b9c09-01e8-4e14-a9c3-4c832a6d6180",
+                  "name": "Successfull response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/eor/job-scopes?team=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eor",
+                        "job-scopes"
+                      ],
+                      "query": [
+                        {
+                          "description": "Team public id",
+                          "key": "team",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"team\": {\n      \"id\": \"<string,null>\",\n      \"name\": \"<string,null>\"\n    },\n    \"title\": \"<string>\",\n    \"content\": \"<string>\",\n    \"personal\": \"<string,null>\",\n    \"created_at\": \"<string>\",\n    \"created_by\": {\n      \"id\": \"<string,null>\",\n      \"name\": \"<string,null>\"\n    },\n    \"updated_at\": \"<string>\",\n    \"updated_by\": {\n      \"id\": \"<string,null>\",\n      \"name\": \"<string,null>\"\n    },\n    \"source_type\": \"AI\",\n    \"organization_id\": \"<string,null>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"team\": {\n      \"id\": \"<string,null>\",\n      \"name\": \"<string,null>\"\n    },\n    \"title\": \"<string>\",\n    \"content\": \"<string>\",\n    \"personal\": \"<string,null>\",\n    \"created_at\": \"<string>\",\n    \"created_by\": {\n      \"id\": \"<string,null>\",\n      \"name\": \"<string,null>\"\n    },\n    \"updated_at\": \"<string>\",\n    \"updated_by\": {\n      \"id\": \"<string,null>\",\n      \"name\": \"<string,null>\"\n    },\n    \"source_type\": \"MANUAL\",\n    \"organization_id\": \"<string,null>\"\n  }\n]",
+                  "createdAt": "2026-07-28T01:30:45.000Z",
+                  "updatedAt": "2026-07-28T01:30:45.000Z",
+                  "uid": "35240-4a9b9c09-01e8-4e14-a9c3-4c832a6d6180"
+                },
+                {
+                  "id": "23737090-fee1-4f7b-8cb9-0f99f9db0af1",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/eor/job-scopes?team=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eor",
+                        "job-scopes"
+                      ],
+                      "query": [
+                        {
+                          "description": "Team public id",
+                          "key": "team",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:30:45.000Z",
+                  "updatedAt": "2026-07-28T01:30:45.000Z",
+                  "uid": "35240-23737090-fee1-4f7b-8cb9-0f99f9db0af1"
+                },
+                {
+                  "id": "69ec0823-1d40-4014-90f4-b47e97bcce3b",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/eor/job-scopes?team=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eor",
+                        "job-scopes"
+                      ],
+                      "query": [
+                        {
+                          "description": "Team public id",
+                          "key": "team",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:30:45.000Z",
+                  "updatedAt": "2026-07-28T01:30:45.000Z",
+                  "uid": "35240-69ec0823-1d40-4014-90f4-b47e97bcce3b"
+                },
+                {
+                  "id": "02fbe8a9-137a-4c03-a191-797507169dcf",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/eor/job-scopes?team=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eor",
+                        "job-scopes"
+                      ],
+                      "query": [
+                        {
+                          "description": "Team public id",
+                          "key": "team",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:30:45.000Z",
+                  "updatedAt": "2026-07-28T01:30:45.000Z",
+                  "uid": "35240-02fbe8a9-137a-4c03-a191-797507169dcf"
+                },
+                {
+                  "id": "067cdc47-36e7-4559-bc00-f6dd53ca1295",
+                  "name": "Not Found - Organization not linked to profile or no teams found for the organization",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/eor/job-scopes?team=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eor",
+                        "job-scopes"
+                      ],
+                      "query": [
+                        {
+                          "description": "Team public id",
+                          "key": "team",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"No teams found for this organization\"\n}",
+                  "createdAt": "2026-07-28T01:30:45.000Z",
+                  "updatedAt": "2026-07-28T01:30:45.000Z",
+                  "uid": "35240-067cdc47-36e7-4559-bc00-f6dd53ca1295"
+                },
+                {
+                  "id": "e54ab945-0ea5-4189-989d-b6d8b0e1fe31",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/eor/job-scopes?team=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eor",
+                        "job-scopes"
+                      ],
+                      "query": [
+                        {
+                          "description": "Team public id",
+                          "key": "team",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:30:45.000Z",
+                  "updatedAt": "2026-07-28T01:30:45.000Z",
+                  "uid": "35240-e54ab945-0ea5-4189-989d-b6d8b0e1fe31"
+                }
+              ],
+              "createdAt": "2026-07-28T01:30:45.000Z",
+              "updatedAt": "2026-07-28T01:30:45.000Z",
+              "uid": "35240-82ccc6bf-7a27-4702-9f6f-2a6bb161bc23"
+            }
+          ],
+          "id": "8759ca91-4c29-4b6e-ba18-236d0dadbe18",
+          "createdAt": "2026-07-28T01:30:45.000Z",
+          "updatedAt": "2026-07-28T01:30:45.000Z",
+          "uid": "35240-8759ca91-4c29-4b6e-ba18-236d0dadbe18"
+        }
+      ],
+      "id": "19990dfc-7b1b-4854-9ae5-469d6e7c05c6",
+      "createdAt": "2026-07-28T01:30:45.000Z",
+      "updatedAt": "2026-07-28T01:30:45.000Z",
+      "uid": "35240-19990dfc-7b1b-4854-9ae5-469d6e7c05c6"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

@@ -1,0 +1,596 @@
+{
+  "info": {
+    "_postman_id": "b42ef824-40ae-40f3-b0b6-df4af719bdc9",
+    "name": "Endpoints subpackage_organizationTasks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:44.000Z",
+    "updatedAt": "2026-07-28T01:32:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b42ef824-40ae-40f3-b0b6-df4af719bdc9"
+  },
+  "item": [
+    {
+      "name": "organizations",
+      "item": [
+        {
+          "name": "tasks",
+          "item": [
+            {
+              "name": "List organization tasks",
+              "id": "8f691695-8ca9-463b-a6db-b04643ce2b77",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/organizations/tasks?statuses=COMPLETED&statuses=COMPLETED&category=TIME_OFF_REQUESTS&search=<string>&external_id=<string>&cursor=<string>&limit=20",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organizations",
+                    "tasks"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by task statuses.",
+                      "key": "statuses",
+                      "value": "COMPLETED"
+                    },
+                    {
+                      "description": "Filter by task statuses.",
+                      "key": "statuses",
+                      "value": "COMPLETED"
+                    },
+                    {
+                      "description": "Filter by task category.",
+                      "key": "category",
+                      "value": "TIME_OFF_REQUESTS"
+                    },
+                    {
+                      "description": "Search string for task display name or description.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by external ID (for tasks created with an external reference).",
+                      "key": "external_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Opaque cursor for cursor-based pagination. When provided, use with limit only (do not use offset).",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to return (1-100).",
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of tasks for the current organization. Intended for client users with organization.manage permission (Example: org admins). Use this to see all tasks for the organization, not only those assigned to the caller. Supports filtering by status, category, search, and external ID, and either offset/limit or cursor-based pagination.\n **Token scopes**: `tasks:read`"
+              },
+              "response": [
+                {
+                  "id": "d22620ba-6217-4dbf-9334-45d97c532cd0",
+                  "name": "Successful response. Returns tasks for the organization",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/tasks?statuses=COMPLETED&category=TIME_OFF_REQUESTS&search=<string>&external_id=<string>&cursor=<string>&limit=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        "tasks"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by task statuses.",
+                          "key": "statuses",
+                          "value": "COMPLETED"
+                        },
+                        {
+                          "description": "Filter by task category.",
+                          "key": "category",
+                          "value": "TIME_OFF_REQUESTS"
+                        },
+                        {
+                          "description": "Search string for task display name or description.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by external ID (for tasks created with an external reference).",
+                          "key": "external_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Opaque cursor for cursor-based pagination. When provided, use with limit only (do not use offset).",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of records to return (1-100).",
+                          "key": "limit",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"status\": \"DISMISSED\",\n      \"category\": \"<string>\",\n      \"due_date\": \"<string,null-date-time>\",\n      \"assignees\": [\n        {\n          \"id\": \"<string>\",\n          \"email\": \"<string,null>\",\n          \"last_name\": \"<string,null>\",\n          \"first_name\": \"<string,null>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"email\": \"<string,null>\",\n          \"last_name\": \"<string,null>\",\n          \"first_name\": \"<string,null>\"\n        }\n      ],\n      \"created_at\": \"<dateTime>\",\n      \"expired_at\": \"<string,null-date-time>\",\n      \"description\": \"<string,null>\",\n      \"external_id\": \"<string,null>\",\n      \"resolved_at\": \"<string,null-date-time>\",\n      \"display_name\": \"<string>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"status\": \"COMPLETED\",\n      \"category\": \"<string>\",\n      \"due_date\": \"<string,null-date-time>\",\n      \"assignees\": [\n        {\n          \"id\": \"<string>\",\n          \"email\": \"<string,null>\",\n          \"last_name\": \"<string,null>\",\n          \"first_name\": \"<string,null>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"email\": \"<string,null>\",\n          \"last_name\": \"<string,null>\",\n          \"first_name\": \"<string,null>\"\n        }\n      ],\n      \"created_at\": \"<dateTime>\",\n      \"expired_at\": \"<string,null-date-time>\",\n      \"description\": \"<string,null>\",\n      \"external_id\": \"<string,null>\",\n      \"resolved_at\": \"<string,null-date-time>\",\n      \"display_name\": \"<string>\"\n    }\n  ],\n  \"has_more\": \"<boolean>\",\n  \"next_cursor\": \"<string,null>\",\n  \"total_count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:32:45.000Z",
+                  "updatedAt": "2026-07-28T01:32:45.000Z",
+                  "uid": "35240-d22620ba-6217-4dbf-9334-45d97c532cd0"
+                },
+                {
+                  "id": "ad612bbc-a6e1-49fc-ac7f-f8577fb4b6e2",
+                  "name": "Bad request Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/tasks?statuses=COMPLETED&category=TIME_OFF_REQUESTS&search=<string>&external_id=<string>&cursor=<string>&limit=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        "tasks"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by task statuses.",
+                          "key": "statuses",
+                          "value": "COMPLETED"
+                        },
+                        {
+                          "description": "Filter by task category.",
+                          "key": "category",
+                          "value": "TIME_OFF_REQUESTS"
+                        },
+                        {
+                          "description": "Search string for task display name or description.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by external ID (for tasks created with an external reference).",
+                          "key": "external_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Opaque cursor for cursor-based pagination. When provided, use with limit only (do not use offset).",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of records to return (1-100).",
+                          "key": "limit",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"field\": \"<string,null>\",\n      \"details\": {}\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"field\": \"<string,null>\",\n      \"details\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:45.000Z",
+                  "updatedAt": "2026-07-28T01:32:45.000Z",
+                  "uid": "35240-ad612bbc-a6e1-49fc-ac7f-f8577fb4b6e2"
+                },
+                {
+                  "id": "86a189a0-149e-426b-b30b-ad22af812993",
+                  "name": "Invalid, expired, or missing API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/tasks?statuses=COMPLETED&category=TIME_OFF_REQUESTS&search=<string>&external_id=<string>&cursor=<string>&limit=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        "tasks"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by task statuses.",
+                          "key": "statuses",
+                          "value": "COMPLETED"
+                        },
+                        {
+                          "description": "Filter by task category.",
+                          "key": "category",
+                          "value": "TIME_OFF_REQUESTS"
+                        },
+                        {
+                          "description": "Search string for task display name or description.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by external ID (for tasks created with an external reference).",
+                          "key": "external_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Opaque cursor for cursor-based pagination. When provided, use with limit only (do not use offset).",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of records to return (1-100).",
+                          "key": "limit",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"field\": \"<string,null>\",\n      \"details\": {}\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"field\": \"<string,null>\",\n      \"details\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:45.000Z",
+                  "updatedAt": "2026-07-28T01:32:45.000Z",
+                  "uid": "35240-86a189a0-149e-426b-b30b-ad22af812993"
+                },
+                {
+                  "id": "0db04423-3b61-4931-89b2-9febf2778492",
+                  "name": "User does not have permission Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/tasks?statuses=COMPLETED&category=TIME_OFF_REQUESTS&search=<string>&external_id=<string>&cursor=<string>&limit=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        "tasks"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by task statuses.",
+                          "key": "statuses",
+                          "value": "COMPLETED"
+                        },
+                        {
+                          "description": "Filter by task category.",
+                          "key": "category",
+                          "value": "TIME_OFF_REQUESTS"
+                        },
+                        {
+                          "description": "Search string for task display name or description.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by external ID (for tasks created with an external reference).",
+                          "key": "external_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Opaque cursor for cursor-based pagination. When provided, use with limit only (do not use offset).",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of records to return (1-100).",
+                          "key": "limit",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"field\": \"<string,null>\",\n      \"details\": {}\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"field\": \"<string,null>\",\n      \"details\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:45.000Z",
+                  "updatedAt": "2026-07-28T01:32:45.000Z",
+                  "uid": "35240-0db04423-3b61-4931-89b2-9febf2778492"
+                },
+                {
+                  "id": "2870b686-3361-4621-ac02-a8c9db93c6e2",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/tasks?statuses=COMPLETED&category=TIME_OFF_REQUESTS&search=<string>&external_id=<string>&cursor=<string>&limit=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        "tasks"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by task statuses.",
+                          "key": "statuses",
+                          "value": "COMPLETED"
+                        },
+                        {
+                          "description": "Filter by task category.",
+                          "key": "category",
+                          "value": "TIME_OFF_REQUESTS"
+                        },
+                        {
+                          "description": "Search string for task display name or description.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by external ID (for tasks created with an external reference).",
+                          "key": "external_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Opaque cursor for cursor-based pagination. When provided, use with limit only (do not use offset).",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of records to return (1-100).",
+                          "key": "limit",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:45.000Z",
+                  "updatedAt": "2026-07-28T01:32:45.000Z",
+                  "uid": "35240-2870b686-3361-4621-ac02-a8c9db93c6e2"
+                },
+                {
+                  "id": "7923e990-24b7-49f3-939f-6275df5e8b51",
+                  "name": "Validation error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/tasks?statuses=COMPLETED&category=TIME_OFF_REQUESTS&search=<string>&external_id=<string>&cursor=<string>&limit=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        "tasks"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by task statuses.",
+                          "key": "statuses",
+                          "value": "COMPLETED"
+                        },
+                        {
+                          "description": "Filter by task category.",
+                          "key": "category",
+                          "value": "TIME_OFF_REQUESTS"
+                        },
+                        {
+                          "description": "Search string for task display name or description.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by external ID (for tasks created with an external reference).",
+                          "key": "external_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Opaque cursor for cursor-based pagination. When provided, use with limit only (do not use offset).",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of records to return (1-100).",
+                          "key": "limit",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"field\": \"<string,null>\",\n      \"details\": {}\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"field\": \"<string,null>\",\n      \"details\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:45.000Z",
+                  "updatedAt": "2026-07-28T01:32:45.000Z",
+                  "uid": "35240-7923e990-24b7-49f3-939f-6275df5e8b51"
+                },
+                {
+                  "id": "31551e8f-9b86-437f-9ba3-27c1f01dce28",
+                  "name": "Internal server error.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/tasks?statuses=COMPLETED&category=TIME_OFF_REQUESTS&search=<string>&external_id=<string>&cursor=<string>&limit=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        "tasks"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by task statuses.",
+                          "key": "statuses",
+                          "value": "COMPLETED"
+                        },
+                        {
+                          "description": "Filter by task category.",
+                          "key": "category",
+                          "value": "TIME_OFF_REQUESTS"
+                        },
+                        {
+                          "description": "Search string for task display name or description.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by external ID (for tasks created with an external reference).",
+                          "key": "external_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Opaque cursor for cursor-based pagination. When provided, use with limit only (do not use offset).",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of records to return (1-100).",
+                          "key": "limit",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"field\": \"<string,null>\",\n      \"details\": {}\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"field\": \"<string,null>\",\n      \"details\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:45.000Z",
+                  "updatedAt": "2026-07-28T01:32:45.000Z",
+                  "uid": "35240-31551e8f-9b86-437f-9ba3-27c1f01dce28"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:45.000Z",
+              "updatedAt": "2026-07-28T01:32:45.000Z",
+              "uid": "35240-8f691695-8ca9-463b-a6db-b04643ce2b77"
+            }
+          ],
+          "id": "8e7161b3-5ca1-46cb-a68c-03204478757d",
+          "createdAt": "2026-07-28T01:32:45.000Z",
+          "updatedAt": "2026-07-28T01:32:45.000Z",
+          "uid": "35240-8e7161b3-5ca1-46cb-a68c-03204478757d"
+        }
+      ],
+      "id": "8dbcb4ae-aedf-4b29-9549-1ab71ea40c6a",
+      "createdAt": "2026-07-28T01:32:45.000Z",
+      "updatedAt": "2026-07-28T01:32:45.000Z",
+      "uid": "35240-8dbcb4ae-aedf-4b29-9549-1ab71ea40c6a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

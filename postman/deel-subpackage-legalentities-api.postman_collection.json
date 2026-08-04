@@ -1,0 +1,2412 @@
+{
+  "info": {
+    "_postman_id": "5c33ff7e-a5bd-4200-bcbe-372a8e49c585",
+    "name": "Endpoints subpackage_legalEntities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:31:49.000Z",
+    "updatedAt": "2026-07-28T01:31:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5c33ff7e-a5bd-4200-bcbe-372a8e49c585"
+  },
+  "item": [
+    {
+      "name": "legal-entities",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Delete a legal entity",
+              "id": "82d38a1e-8c6d-4ade-ab47-ba5d20d099cb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/legal-entities/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "legal-entities",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "b9ed1001-234c-498d-9264-24255ccf28c2",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the legal entity to archive."
+                    }
+                  ]
+                },
+                "description": "Archive a legal entity. This marks the entity as inactive but does not permanently remove it.\n **Token scopes**: `legal-entity:read`, `legal-entity:write`"
+              },
+              "response": [
+                {
+                  "id": "56ee4f0f-d1b1-4252-bb6d-a94b7f8435c5",
+                  "name": "Successfully archived the legal entity.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/legal-entities/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "legal-entities",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"archived_at\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T01:31:50.000Z",
+                  "updatedAt": "2026-07-28T01:31:50.000Z",
+                  "uid": "35240-56ee4f0f-d1b1-4252-bb6d-a94b7f8435c5"
+                },
+                {
+                  "id": "7cc3c7b8-a649-44f7-bec4-75af30380e29",
+                  "name": "Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/legal-entities/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "legal-entities",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:31:50.000Z",
+                  "updatedAt": "2026-07-28T01:31:50.000Z",
+                  "uid": "35240-7cc3c7b8-a649-44f7-bec4-75af30380e29"
+                },
+                {
+                  "id": "c0950f31-66c5-4543-af90-3ad51e4377c0",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/legal-entities/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "legal-entities",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:50.000Z",
+                  "updatedAt": "2026-07-28T01:31:50.000Z",
+                  "uid": "35240-c0950f31-66c5-4543-af90-3ad51e4377c0"
+                },
+                {
+                  "id": "912e2dfd-e98a-4dd3-b57a-ee68710311e5",
+                  "name": "Permission denied.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/legal-entities/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "legal-entities",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:31:50.000Z",
+                  "updatedAt": "2026-07-28T01:31:50.000Z",
+                  "uid": "35240-912e2dfd-e98a-4dd3-b57a-ee68710311e5"
+                },
+                {
+                  "id": "86485bc1-338a-4190-9d56-9c8ab7beb73d",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/legal-entities/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "legal-entities",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:50.000Z",
+                  "updatedAt": "2026-07-28T01:31:50.000Z",
+                  "uid": "35240-86485bc1-338a-4190-9d56-9c8ab7beb73d"
+                },
+                {
+                  "id": "dd9c5792-6708-4caf-b298-e8f301f86967",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/legal-entities/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "legal-entities",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:50.000Z",
+                  "updatedAt": "2026-07-28T01:31:50.000Z",
+                  "uid": "35240-dd9c5792-6708-4caf-b298-e8f301f86967"
+                }
+              ],
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-82d38a1e-8c6d-4ade-ab47-ba5d20d099cb"
+            },
+            {
+              "name": "Edit a legal entity",
+              "id": "e9ac3caa-45c4-4634-b248-ee0fc7ba032f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"sic_number\": \"<string>\",\n  \"entity_type\": \"<string>\",\n  \"industry_name\": \"<string>\",\n  \"company_identifiers\": {\n    \"tax_number\": \"<string>\",\n    \"registration_number\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/legal-entities/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "legal-entities",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "af30309d-e460-4451-a209-a3e3506a03e2",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the legal entity to update."
+                    }
+                  ]
+                },
+                "description": "Update the details of an existing legal entity.\n **Token scopes**: `legal-entity:read`, `legal-entity:write`"
+              },
+              "response": [
+                {
+                  "id": "d01bb900-d799-4d69-88fc-c985eaf82759",
+                  "name": "Successfully updated the legal entity.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"sic_number\": \"<string>\",\n  \"entity_type\": \"<string>\",\n  \"industry_name\": \"<string>\",\n  \"company_identifiers\": {\n    \"tax_number\": \"<string>\",\n    \"registration_number\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/legal-entities/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "legal-entities",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"address\": {\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    \"sic_number\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"industry_name\": \"<string>\",\n    \"company_identifiers\": {\n      \"tax_number\": \"<string>\",\n      \"registration_number\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:31:50.000Z",
+                  "updatedAt": "2026-07-28T01:31:50.000Z",
+                  "uid": "35240-d01bb900-d799-4d69-88fc-c985eaf82759"
+                },
+                {
+                  "id": "ef8994f4-1f43-45ab-8a14-cf6dfc84abed",
+                  "name": "Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"sic_number\": \"<string>\",\n  \"entity_type\": \"<string>\",\n  \"industry_name\": \"<string>\",\n  \"company_identifiers\": {\n    \"tax_number\": \"<string>\",\n    \"registration_number\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/legal-entities/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "legal-entities",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:31:50.000Z",
+                  "updatedAt": "2026-07-28T01:31:50.000Z",
+                  "uid": "35240-ef8994f4-1f43-45ab-8a14-cf6dfc84abed"
+                },
+                {
+                  "id": "992a8685-d135-4aec-a6ee-f4b0720f5d0c",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"sic_number\": \"<string>\",\n  \"entity_type\": \"<string>\",\n  \"industry_name\": \"<string>\",\n  \"company_identifiers\": {\n    \"tax_number\": \"<string>\",\n    \"registration_number\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/legal-entities/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "legal-entities",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:50.000Z",
+                  "updatedAt": "2026-07-28T01:31:50.000Z",
+                  "uid": "35240-992a8685-d135-4aec-a6ee-f4b0720f5d0c"
+                },
+                {
+                  "id": "5f272f85-82af-423a-8ce7-9e20f10431c9",
+                  "name": "Permission denied.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"sic_number\": \"<string>\",\n  \"entity_type\": \"<string>\",\n  \"industry_name\": \"<string>\",\n  \"company_identifiers\": {\n    \"tax_number\": \"<string>\",\n    \"registration_number\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/legal-entities/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "legal-entities",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:31:50.000Z",
+                  "updatedAt": "2026-07-28T01:31:50.000Z",
+                  "uid": "35240-5f272f85-82af-423a-8ce7-9e20f10431c9"
+                },
+                {
+                  "id": "d05a5be2-b59c-446f-98b1-b1c5e363861a",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"sic_number\": \"<string>\",\n  \"entity_type\": \"<string>\",\n  \"industry_name\": \"<string>\",\n  \"company_identifiers\": {\n    \"tax_number\": \"<string>\",\n    \"registration_number\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/legal-entities/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "legal-entities",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:50.000Z",
+                  "updatedAt": "2026-07-28T01:31:50.000Z",
+                  "uid": "35240-d05a5be2-b59c-446f-98b1-b1c5e363861a"
+                },
+                {
+                  "id": "eaaa37e3-ebb3-470e-9fa8-916d99305082",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"sic_number\": \"<string>\",\n  \"entity_type\": \"<string>\",\n  \"industry_name\": \"<string>\",\n  \"company_identifiers\": {\n    \"tax_number\": \"<string>\",\n    \"registration_number\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/legal-entities/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "legal-entities",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:50.000Z",
+                  "updatedAt": "2026-07-28T01:31:50.000Z",
+                  "uid": "35240-eaaa37e3-ebb3-470e-9fa8-916d99305082"
+                }
+              ],
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-e9ac3caa-45c4-4634-b248-ee0fc7ba032f"
+            }
+          ],
+          "id": "32b02dea-858e-4f98-aeb3-7bc387658b0d",
+          "createdAt": "2026-07-28T01:31:50.000Z",
+          "updatedAt": "2026-07-28T01:31:50.000Z",
+          "uid": "35240-32b02dea-858e-4f98-aeb3-7bc387658b0d"
+        },
+        {
+          "name": "Create a new legal entity",
+          "id": "6df9fc6e-ae51-442c-95a1-7319c1ed48f8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"address\": {\n      \"zip\": \"<string>\",\n      \"city\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\",\n      \"state\": \"<string>\"\n    },\n    \"sic_number\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"company_identifiers\": {\n      \"tax_number\": \"<string>\",\n      \"registration_number\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/legal-entities",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "legal-entities"
+              ]
+            },
+            "description": "Create a new legal entity under an organization.\n **Token scopes**: `legal-entity:write`, `legal-entity:read`"
+          },
+          "response": [
+            {
+              "id": "c4227aba-0632-4f5f-81fa-afa18b9a13a7",
+              "name": "Successfully created legal entity.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"address\": {\n      \"zip\": \"<string>\",\n      \"city\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\",\n      \"state\": \"<string>\"\n    },\n    \"sic_number\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"company_identifiers\": {\n      \"tax_number\": \"<string>\",\n      \"registration_number\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/legal-entities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "legal-entities"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"address\": {\n      \"zip\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"sic_number\": \"<string>\",\n    \"updated_at\": \"<dateTime>\",\n    \"entity_type\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-c4227aba-0632-4f5f-81fa-afa18b9a13a7"
+            },
+            {
+              "id": "6de27aa5-b702-412a-b6b0-c89531630e2c",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"address\": {\n      \"zip\": \"<string>\",\n      \"city\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\",\n      \"state\": \"<string>\"\n    },\n    \"sic_number\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"company_identifiers\": {\n      \"tax_number\": \"<string>\",\n      \"registration_number\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/legal-entities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "legal-entities"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-6de27aa5-b702-412a-b6b0-c89531630e2c"
+            },
+            {
+              "id": "838db42f-be6f-4837-a98a-fcf86f74542c",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"address\": {\n      \"zip\": \"<string>\",\n      \"city\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\",\n      \"state\": \"<string>\"\n    },\n    \"sic_number\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"company_identifiers\": {\n      \"tax_number\": \"<string>\",\n      \"registration_number\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/legal-entities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "legal-entities"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-838db42f-be6f-4837-a98a-fcf86f74542c"
+            },
+            {
+              "id": "d49abf81-1ac8-4e97-9753-11794bb3c3ba",
+              "name": "Permission denied. User must have the `entities.manage` permission.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"address\": {\n      \"zip\": \"<string>\",\n      \"city\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\",\n      \"state\": \"<string>\"\n    },\n    \"sic_number\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"company_identifiers\": {\n      \"tax_number\": \"<string>\",\n      \"registration_number\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/legal-entities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "legal-entities"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-d49abf81-1ac8-4e97-9753-11794bb3c3ba"
+            },
+            {
+              "id": "f39d6cbe-a6af-4d3e-bcdb-197f515cb769",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"address\": {\n      \"zip\": \"<string>\",\n      \"city\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\",\n      \"state\": \"<string>\"\n    },\n    \"sic_number\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"company_identifiers\": {\n      \"tax_number\": \"<string>\",\n      \"registration_number\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/legal-entities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "legal-entities"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-f39d6cbe-a6af-4d3e-bcdb-197f515cb769"
+            },
+            {
+              "id": "1d7bd424-caec-45c4-9e51-f2e1d4087b44",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"address\": {\n      \"zip\": \"<string>\",\n      \"city\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\",\n      \"state\": \"<string>\"\n    },\n    \"sic_number\": \"<string>\",\n    \"entity_type\": \"<string>\",\n    \"company_identifiers\": {\n      \"tax_number\": \"<string>\",\n      \"registration_number\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/legal-entities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "legal-entities"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-1d7bd424-caec-45c4-9e51-f2e1d4087b44"
+            }
+          ],
+          "createdAt": "2026-07-28T01:31:50.000Z",
+          "updatedAt": "2026-07-28T01:31:50.000Z",
+          "uid": "35240-6df9fc6e-ae51-442c-95a1-7319c1ed48f8"
+        },
+        {
+          "name": "List of legal entities",
+          "id": "89df8f76-fc26-4341-80ca-8a9dfb8bb6d5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/legal-entities?limit=100&sort_order=ASC&cursor=<string>&include_archived=true&legal_entity_id=<string>&global_payroll=<boolean>&type=<string>&country=<string>&include_payroll_settings=<boolean>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "legal-entities"
+              ],
+              "query": [
+                {
+                  "description": "The number of results to return per page.",
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "description": "Sorting order of the results.",
+                  "key": "sort_order",
+                  "value": "ASC"
+                },
+                {
+                  "description": "Cursor for pagination.",
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Whether to include archived legal entities in the results.",
+                  "key": "include_archived",
+                  "value": "true"
+                },
+                {
+                  "description": "Filter by specific legal entity ID.",
+                  "key": "legal_entity_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by global payroll flag.",
+                  "key": "global_payroll",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Filter by entity type.",
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by country.",
+                  "key": "country",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Whether to include payroll settings in the response.",
+                  "key": "include_payroll_settings",
+                  "value": "<boolean>"
+                }
+              ]
+            },
+            "description": "Retrieve a list of legal entities in your account.\n **Token scopes**: `organizations:read`, `accounting:read`"
+          },
+          "response": [
+            {
+              "id": "8dac9ec2-158b-40fb-ae85-d75c87b6350c",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/legal-entities?limit=100&sort_order=ASC&cursor=<string>&include_archived=true&legal_entity_id=<string>&global_payroll=<boolean>&type=<string>&country=<string>&include_payroll_settings=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "legal-entities"
+                  ],
+                  "query": [
+                    {
+                      "description": "The number of results to return per page.",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Sorting order of the results.",
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "Cursor for pagination.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include archived legal entities in the results.",
+                      "key": "include_archived",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Filter by specific legal entity ID.",
+                      "key": "legal_entity_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by global payroll flag.",
+                      "key": "global_payroll",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter by entity type.",
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by country.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include payroll settings in the response.",
+                      "key": "include_payroll_settings",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"phone\": \"<string,null>\",\n      \"vat_id\": \"<string,null>\",\n      \"address\": {\n        \"zip\": \"<string>\",\n        \"city\": \"<string,null>\",\n        \"state\": \"<string,null>\",\n        \"street\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"country\": \"<string,null>\",\n      \"created_at\": \"<dateTime>\",\n      \"sic_number\": \"<string,null>\",\n      \"updated_at\": \"<dateTime>\",\n      \"archived_at\": \"<string,null-date-time>\",\n      \"entity_type\": \"individual\",\n      \"industry_name\": \"<string,null>\",\n      \"entity_subtype\": \"<string>\",\n      \"registrationNumber\": \"<string,null>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"phone\": \"<string,null>\",\n      \"vat_id\": \"<string,null>\",\n      \"address\": {\n        \"zip\": \"<string>\",\n        \"city\": \"<string,null>\",\n        \"state\": \"<string,null>\",\n        \"street\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"country\": \"<string,null>\",\n      \"created_at\": \"<dateTime>\",\n      \"sic_number\": \"<string,null>\",\n      \"updated_at\": \"<dateTime>\",\n      \"archived_at\": \"<string,null-date-time>\",\n      \"entity_type\": \"company\",\n      \"industry_name\": \"<string,null>\",\n      \"entity_subtype\": \"<string>\",\n      \"registrationNumber\": \"<string,null>\"\n    }\n  ],\n  \"page\": {\n    \"cursor\": \"<string,null>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-8dac9ec2-158b-40fb-ae85-d75c87b6350c"
+            },
+            {
+              "id": "653c2906-e2a8-494f-9707-010ce0049e16",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/legal-entities?limit=100&sort_order=ASC&cursor=<string>&include_archived=true&legal_entity_id=<string>&global_payroll=<boolean>&type=<string>&country=<string>&include_payroll_settings=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "legal-entities"
+                  ],
+                  "query": [
+                    {
+                      "description": "The number of results to return per page.",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Sorting order of the results.",
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "Cursor for pagination.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include archived legal entities in the results.",
+                      "key": "include_archived",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Filter by specific legal entity ID.",
+                      "key": "legal_entity_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by global payroll flag.",
+                      "key": "global_payroll",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter by entity type.",
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by country.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include payroll settings in the response.",
+                      "key": "include_payroll_settings",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-653c2906-e2a8-494f-9707-010ce0049e16"
+            },
+            {
+              "id": "480d4383-3610-42b3-b749-f0e93d3e9a23",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/legal-entities?limit=100&sort_order=ASC&cursor=<string>&include_archived=true&legal_entity_id=<string>&global_payroll=<boolean>&type=<string>&country=<string>&include_payroll_settings=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "legal-entities"
+                  ],
+                  "query": [
+                    {
+                      "description": "The number of results to return per page.",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Sorting order of the results.",
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "Cursor for pagination.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include archived legal entities in the results.",
+                      "key": "include_archived",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Filter by specific legal entity ID.",
+                      "key": "legal_entity_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by global payroll flag.",
+                      "key": "global_payroll",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter by entity type.",
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by country.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include payroll settings in the response.",
+                      "key": "include_payroll_settings",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-480d4383-3610-42b3-b749-f0e93d3e9a23"
+            },
+            {
+              "id": "5ab1cf16-d882-4e48-a2af-95fb8504fa45",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/legal-entities?limit=100&sort_order=ASC&cursor=<string>&include_archived=true&legal_entity_id=<string>&global_payroll=<boolean>&type=<string>&country=<string>&include_payroll_settings=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "legal-entities"
+                  ],
+                  "query": [
+                    {
+                      "description": "The number of results to return per page.",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Sorting order of the results.",
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "Cursor for pagination.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include archived legal entities in the results.",
+                      "key": "include_archived",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Filter by specific legal entity ID.",
+                      "key": "legal_entity_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by global payroll flag.",
+                      "key": "global_payroll",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter by entity type.",
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by country.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include payroll settings in the response.",
+                      "key": "include_payroll_settings",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-5ab1cf16-d882-4e48-a2af-95fb8504fa45"
+            },
+            {
+              "id": "eeb303bb-d403-4d4a-bb9b-f4f5f01c4ac1",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/legal-entities?limit=100&sort_order=ASC&cursor=<string>&include_archived=true&legal_entity_id=<string>&global_payroll=<boolean>&type=<string>&country=<string>&include_payroll_settings=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "legal-entities"
+                  ],
+                  "query": [
+                    {
+                      "description": "The number of results to return per page.",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Sorting order of the results.",
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "Cursor for pagination.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include archived legal entities in the results.",
+                      "key": "include_archived",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Filter by specific legal entity ID.",
+                      "key": "legal_entity_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by global payroll flag.",
+                      "key": "global_payroll",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter by entity type.",
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by country.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include payroll settings in the response.",
+                      "key": "include_payroll_settings",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-eeb303bb-d403-4d4a-bb9b-f4f5f01c4ac1"
+            },
+            {
+              "id": "0be07304-fcd4-4ba7-85b5-f39a20ecb458",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/legal-entities?limit=100&sort_order=ASC&cursor=<string>&include_archived=true&legal_entity_id=<string>&global_payroll=<boolean>&type=<string>&country=<string>&include_payroll_settings=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "legal-entities"
+                  ],
+                  "query": [
+                    {
+                      "description": "The number of results to return per page.",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Sorting order of the results.",
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "Cursor for pagination.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include archived legal entities in the results.",
+                      "key": "include_archived",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Filter by specific legal entity ID.",
+                      "key": "legal_entity_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by global payroll flag.",
+                      "key": "global_payroll",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter by entity type.",
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by country.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to include payroll settings in the response.",
+                      "key": "include_payroll_settings",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-0be07304-fcd4-4ba7-85b5-f39a20ecb458"
+            }
+          ],
+          "createdAt": "2026-07-28T01:31:50.000Z",
+          "updatedAt": "2026-07-28T01:31:50.000Z",
+          "uid": "35240-89df8f76-fc26-4341-80ca-8a9dfb8bb6d5"
+        }
+      ],
+      "id": "d0c08647-66db-4ce5-b198-4680c208670b",
+      "createdAt": "2026-07-28T01:31:50.000Z",
+      "updatedAt": "2026-07-28T01:31:50.000Z",
+      "uid": "35240-d0c08647-66db-4ce5-b198-4680c208670b"
+    },
+    {
+      "name": "industries",
+      "item": [
+        {
+          "name": "List all industry subcategories",
+          "id": "3f308f16-32de-41f0-b68d-7a933006bfcb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/industries?limit=<integer>&order=ASC&sort_by=categoryName&cursor=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "industries"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of items to return per page.",
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Sorting order of the results.",
+                  "key": "order",
+                  "value": "ASC"
+                },
+                {
+                  "description": "Field used to sort the results.",
+                  "key": "sort_by",
+                  "value": "categoryName"
+                },
+                {
+                  "description": "Cursor used for paginating to the next page of results.",
+                  "key": "cursor",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "List industry subcategories with their parent category details, supporting cursor-based pagination and sorting by category or subcategory name. Each subcategory is identified by a UUID and includes NAICS codes. Used during entity setup to select an industry classification.\n **Token scopes**: `legal-entity:read`"
+          },
+          "response": [
+            {
+              "id": "10f2b783-a1f6-4f4e-9654-e4b5b169932b",
+              "name": "List of industry subcategories.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/industries?limit=<integer>&order=ASC&sort_by=categoryName&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "industries"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of items to return per page.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Sorting order of the results.",
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "Field used to sort the results.",
+                      "key": "sort_by",
+                      "value": "categoryName"
+                    },
+                    {
+                      "description": "Cursor used for paginating to the next page of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"category_name\": \"<string,null>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"category_name\": \"<string,null>\"\n    }\n  ],\n  \"has_more\": \"<boolean>\",\n  \"next_cursor\": \"<string,null>\",\n  \"total_count\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-10f2b783-a1f6-4f4e-9654-e4b5b169932b"
+            },
+            {
+              "id": "9b9acd2c-9dfc-49e2-859c-9ea9146eed4d",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/industries?limit=<integer>&order=ASC&sort_by=categoryName&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "industries"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of items to return per page.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Sorting order of the results.",
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "Field used to sort the results.",
+                      "key": "sort_by",
+                      "value": "categoryName"
+                    },
+                    {
+                      "description": "Cursor used for paginating to the next page of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"errors\": [\n    {\n      \"path\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"path\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ],\n  \"request\": {\n    \"url\": \"<string>\",\n    \"code\": \"<double>\",\n    \"docs\": \"<string>\",\n    \"method\": \"<string>\",\n    \"source\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-9b9acd2c-9dfc-49e2-859c-9ea9146eed4d"
+            },
+            {
+              "id": "8f6ea3a1-dd4a-46ba-acfa-ac42e53ecacf",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/industries?limit=<integer>&order=ASC&sort_by=categoryName&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "industries"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of items to return per page.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Sorting order of the results.",
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "Field used to sort the results.",
+                      "key": "sort_by",
+                      "value": "categoryName"
+                    },
+                    {
+                      "description": "Cursor used for paginating to the next page of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-8f6ea3a1-dd4a-46ba-acfa-ac42e53ecacf"
+            },
+            {
+              "id": "57d3bd52-d488-43a3-8788-56639859cd4f",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/industries?limit=<integer>&order=ASC&sort_by=categoryName&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "industries"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of items to return per page.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Sorting order of the results.",
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "Field used to sort the results.",
+                      "key": "sort_by",
+                      "value": "categoryName"
+                    },
+                    {
+                      "description": "Cursor used for paginating to the next page of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-57d3bd52-d488-43a3-8788-56639859cd4f"
+            },
+            {
+              "id": "2d850102-c850-4016-be5e-8ddc1f48d4ea",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/industries?limit=<integer>&order=ASC&sort_by=categoryName&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "industries"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of items to return per page.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Sorting order of the results.",
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "Field used to sort the results.",
+                      "key": "sort_by",
+                      "value": "categoryName"
+                    },
+                    {
+                      "description": "Cursor used for paginating to the next page of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-2d850102-c850-4016-be5e-8ddc1f48d4ea"
+            },
+            {
+              "id": "0bf1805c-ab36-4e1f-9458-fa982d1dbc92",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/industries?limit=<integer>&order=ASC&sort_by=categoryName&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "industries"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of items to return per page.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Sorting order of the results.",
+                      "key": "order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "Field used to sort the results.",
+                      "key": "sort_by",
+                      "value": "categoryName"
+                    },
+                    {
+                      "description": "Cursor used for paginating to the next page of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-0bf1805c-ab36-4e1f-9458-fa982d1dbc92"
+            }
+          ],
+          "createdAt": "2026-07-28T01:31:50.000Z",
+          "updatedAt": "2026-07-28T01:31:50.000Z",
+          "uid": "35240-3f308f16-32de-41f0-b68d-7a933006bfcb"
+        }
+      ],
+      "id": "e62cc913-7bc4-4490-adde-5e17effbe2b9",
+      "createdAt": "2026-07-28T01:31:50.000Z",
+      "updatedAt": "2026-07-28T01:31:50.000Z",
+      "uid": "35240-e62cc913-7bc4-4490-adde-5e17effbe2b9"
+    },
+    {
+      "name": "benefits",
+      "item": [
+        {
+          "name": "legal-entities",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Get legal entity data from organization integrated with external benefits vendor",
+                  "id": "27309f77-aad5-450c-9416-5eff8c4d5fbc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/benefits/legal-entities/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "benefits",
+                        "legal-entities",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "05744f32-caea-440d-97c9-b05c33340b07",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Id from the legal entity to fetch data"
+                        }
+                      ]
+                    },
+                    "description": "Returns legal entity data for an organization integrated with an external benefits vendor, identified by `id`, including registration details, address, entity type, and employment classification.\n **Token scopes**: `organizations:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "cd4c8d69-17ab-4a9c-909a-23915fac6e13",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/benefits/legal-entities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "benefits",
+                            "legal-entities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"phone\": \"<string,null>\",\n  \"vat_id\": \"<string,null>\",\n  \"address\": {\n    \"zip\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string,null>\",\n    \"street\": \"<string>\",\n    \"country\": \"<string>\",\n    \"province\": \"<string,null>\"\n  },\n  \"country\": \"<string,null>\",\n  \"naics_code\": \"<string,null>\",\n  \"entity_type\": \"<string>\",\n  \"employment_type\": \"peo\",\n  \"registration_number\": \"<string,null>\",\n  \"registration_address\": {\n    \"zip\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"country\": \"<string>\",\n    \"province\": \"<string>\"\n  },\n  \"union_or_leased_employees\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T01:31:50.000Z",
+                      "updatedAt": "2026-07-28T01:31:50.000Z",
+                      "uid": "35240-cd4c8d69-17ab-4a9c-909a-23915fac6e13"
+                    },
+                    {
+                      "id": "f72418c4-418e-4269-b6c7-2dd5f4e6f968",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/benefits/legal-entities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "benefits",
+                            "legal-entities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:50.000Z",
+                      "updatedAt": "2026-07-28T01:31:50.000Z",
+                      "uid": "35240-f72418c4-418e-4269-b6c7-2dd5f4e6f968"
+                    },
+                    {
+                      "id": "5b225f7e-5515-4257-876d-fb9647968eb8",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/benefits/legal-entities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "benefits",
+                            "legal-entities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:50.000Z",
+                      "updatedAt": "2026-07-28T01:31:50.000Z",
+                      "uid": "35240-5b225f7e-5515-4257-876d-fb9647968eb8"
+                    },
+                    {
+                      "id": "a5f41407-28fa-4a1a-a846-57db7cded5d0",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/benefits/legal-entities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "benefits",
+                            "legal-entities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:50.000Z",
+                      "updatedAt": "2026-07-28T01:31:50.000Z",
+                      "uid": "35240-a5f41407-28fa-4a1a-a846-57db7cded5d0"
+                    },
+                    {
+                      "id": "97f0a593-783c-42c3-9a6f-d1c3aac747d6",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/benefits/legal-entities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "benefits",
+                            "legal-entities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:50.000Z",
+                      "updatedAt": "2026-07-28T01:31:50.000Z",
+                      "uid": "35240-97f0a593-783c-42c3-9a6f-d1c3aac747d6"
+                    },
+                    {
+                      "id": "296fd75f-8aaf-49b4-907d-83136f324fb8",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/benefits/legal-entities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "benefits",
+                            "legal-entities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:50.000Z",
+                      "updatedAt": "2026-07-28T01:31:50.000Z",
+                      "uid": "35240-296fd75f-8aaf-49b4-907d-83136f324fb8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:31:50.000Z",
+                  "updatedAt": "2026-07-28T01:31:50.000Z",
+                  "uid": "35240-27309f77-aad5-450c-9416-5eff8c4d5fbc"
+                }
+              ],
+              "id": "18634fdf-86db-4e24-86c5-67a71f2f2597",
+              "createdAt": "2026-07-28T01:31:50.000Z",
+              "updatedAt": "2026-07-28T01:31:50.000Z",
+              "uid": "35240-18634fdf-86db-4e24-86c5-67a71f2f2597"
+            }
+          ],
+          "id": "7045df5c-f760-4dd1-ab58-023cc4731b32",
+          "createdAt": "2026-07-28T01:31:50.000Z",
+          "updatedAt": "2026-07-28T01:31:50.000Z",
+          "uid": "35240-7045df5c-f760-4dd1-ab58-023cc4731b32"
+        }
+      ],
+      "id": "4e88b6bb-ad44-4603-b4c3-358572fc8f17",
+      "createdAt": "2026-07-28T01:31:50.000Z",
+      "updatedAt": "2026-07-28T01:31:50.000Z",
+      "uid": "35240-4e88b6bb-ad44-4603-b4c3-358572fc8f17"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

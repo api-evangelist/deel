@@ -1,0 +1,1555 @@
+{
+  "info": {
+    "_postman_id": "3cc846d4-da68-4268-8e3d-900ca14c2e95",
+    "name": "Endpoints subpackage_onboarding API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:37.000Z",
+    "updatedAt": "2026-07-28T01:32:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3cc846d4-da68-4268-8e3d-900ca14c2e95"
+  },
+  "item": [
+    {
+      "name": "onboarding",
+      "item": [
+        {
+          "name": "tracker",
+          "item": [
+            {
+              "name": "hris_profile",
+              "item": [
+                {
+                  "name": "{hris_profile_id}",
+                  "item": [
+                    {
+                      "name": "Get onboarding details by employee HRIS profile ID",
+                      "id": "fee531e4-d742-44ea-8d1b-7bb24c5a1b55",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/onboarding/tracker/hris_profile/:hris_profile_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "onboarding",
+                            "tracker",
+                            "hris_profile",
+                            ":hris_profile_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "faac10a3-ccef-481a-9ac1-8922aabb76b5",
+                              "key": "hris_profile_id",
+                              "value": "<string>",
+                              "description": "(Required) The unique identifier of the employee HRIS profile."
+                            }
+                          ]
+                        },
+                        "description": "Use this endpoint to retrieve a comprehensive overview of a worker's onboarding status, including their profile details, contract status, and checklist progress.\n **Token scopes**: `contracts:read`, `people:read`"
+                      },
+                      "response": [
+                        {
+                          "id": "6efbf26e-a2b6-41ce-b329-c90b73cec70e",
+                          "name": "Onboarding overview",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/onboarding/tracker/hris_profile/:hris_profile_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "onboarding",
+                                "tracker",
+                                "hris_profile",
+                                ":hris_profile_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "hris_profile_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": {\n    \"profile\": {\n      \"name\": \"<string>\",\n      \"email\": \"<email>\",\n      \"country\": \"<string,null>\",\n      \"last_login\": \"<dateTime>\",\n      \"previously_onboarded\": \"<boolean>\"\n    },\n    \"stepper\": [\n      {\n        \"data\": {\n          \"emails\": [\n            {\n              \"meta\": {\n                \"type\": \"<string>\",\n                \"email\": \"<email>\",\n                \"sent_at\": \"<dateTime>\"\n              }\n            },\n            {\n              \"meta\": {\n                \"type\": \"<string>\",\n                \"email\": \"<email>\",\n                \"sent_at\": \"<dateTime>\"\n              }\n            }\n          ],\n          \"next_reminder_date\": \"<string,null-date-time>\"\n        },\n        \"type\": \"<string>\",\n        \"completed_at\": \"<string,null-date-time>\"\n      },\n      {\n        \"data\": {\n          \"emails\": [\n            {\n              \"meta\": {\n                \"type\": \"<string>\",\n                \"email\": \"<email>\",\n                \"sent_at\": \"<dateTime>\"\n              }\n            },\n            {\n              \"meta\": {\n                \"type\": \"<string>\",\n                \"email\": \"<email>\",\n                \"sent_at\": \"<dateTime>\"\n              }\n            }\n          ],\n          \"next_reminder_date\": \"<string,null-date-time>\"\n        },\n        \"type\": \"<string>\",\n        \"completed_at\": \"<string,null-date-time>\"\n      }\n    ],\n    \"summary\": [\n      {\n        \"data\": {\n          \"country\": \"<string>\",\n          \"timezone\": \"<string>\",\n          \"has_withdraw_methods\": \"<boolean>\"\n        },\n        \"name\": \"<string>\",\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"data\": {\n          \"country\": \"<string>\",\n          \"timezone\": \"<string>\",\n          \"has_withdraw_methods\": \"<boolean>\"\n        },\n        \"name\": \"<string>\",\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"contract\": {\n      \"id\": \"<string>\",\n      \"oid\": \"<string>\",\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"first_sign\": \"<string>\",\n      \"completion_date\": \"<string,null-date-time>\",\n      \"client_signed_at\": \"<string,null-date-time>\",\n      \"employee_agreement\": {\n        \"status\": \"<string,null>\",\n        \"version_hash\": \"<string,null>\"\n      },\n      \"first_early_invoice\": {\n        \"id\": \"<string>\",\n        \"amount\": \"<string>\",\n        \"status\": \"REFUNDED\",\n        \"paid_at\": \"<string,null-date-time>\",\n        \"currency\": \"<string>\",\n        \"due_date\": \"<string,null-date-time>\",\n        \"description\": \"<string>\"\n      },\n      \"contractor_signed_at\": \"<string,null-date-time>\",\n      \"invited_contractor_email\": \"<string,null-email>\"\n    },\n    \"progress\": {\n      \"status\": \"<string>\",\n      \"reference_date\": \"<dateTime>\",\n      \"subject_to_overdue\": \"<boolean>\",\n      \"reference_date_timezone\": \"<string>\",\n      \"is_action_required_from_client\": \"<boolean>\"\n    },\n    \"checklist\": {\n      \"steps\": [\n        {\n          \"type\": \"<string>\",\n          \"label\": \"<string>\",\n          \"status\": \"<string>\",\n          \"completed_at\": \"<string,null-date-time>\",\n          \"reject_reason\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"label\": \"<string>\",\n          \"status\": \"<string>\",\n          \"completed_at\": \"<string,null-date-time>\",\n          \"reject_reason\": \"<string>\"\n        }\n      ]\n    },\n    \"hiring_type\": \"<string>\",\n    \"hris_profile\": {\n      \"oid\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<email>\",\n      \"work_email\": \"<string,null-email>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T01:32:38.000Z",
+                          "updatedAt": "2026-07-28T01:32:38.000Z",
+                          "uid": "35240-6efbf26e-a2b6-41ce-b329-c90b73cec70e"
+                        },
+                        {
+                          "id": "0aa5f314-c79e-4bd3-9736-766e48b2cd6d",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/onboarding/tracker/hris_profile/:hris_profile_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "onboarding",
+                                "tracker",
+                                "hris_profile",
+                                ":hris_profile_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "hris_profile_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:38.000Z",
+                          "updatedAt": "2026-07-28T01:32:38.000Z",
+                          "uid": "35240-0aa5f314-c79e-4bd3-9736-766e48b2cd6d"
+                        },
+                        {
+                          "id": "26431ebc-eaa7-4c78-84cc-9072cf8d0729",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/onboarding/tracker/hris_profile/:hris_profile_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "onboarding",
+                                "tracker",
+                                "hris_profile",
+                                ":hris_profile_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "hris_profile_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:38.000Z",
+                          "updatedAt": "2026-07-28T01:32:38.000Z",
+                          "uid": "35240-26431ebc-eaa7-4c78-84cc-9072cf8d0729"
+                        },
+                        {
+                          "id": "4993522a-1da3-4cca-9115-602b7e349bef",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/onboarding/tracker/hris_profile/:hris_profile_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "onboarding",
+                                "tracker",
+                                "hris_profile",
+                                ":hris_profile_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "hris_profile_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:38.000Z",
+                          "updatedAt": "2026-07-28T01:32:38.000Z",
+                          "uid": "35240-4993522a-1da3-4cca-9115-602b7e349bef"
+                        },
+                        {
+                          "id": "7cf04e71-bb52-4ace-942b-01be2de6c4e4",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/onboarding/tracker/hris_profile/:hris_profile_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "onboarding",
+                                "tracker",
+                                "hris_profile",
+                                ":hris_profile_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "hris_profile_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:38.000Z",
+                          "updatedAt": "2026-07-28T01:32:38.000Z",
+                          "uid": "35240-7cf04e71-bb52-4ace-942b-01be2de6c4e4"
+                        },
+                        {
+                          "id": "bae0f33d-032a-4294-a9c7-7ebb498b5ad0",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/onboarding/tracker/hris_profile/:hris_profile_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "onboarding",
+                                "tracker",
+                                "hris_profile",
+                                ":hris_profile_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "hris_profile_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:38.000Z",
+                          "updatedAt": "2026-07-28T01:32:38.000Z",
+                          "uid": "35240-bae0f33d-032a-4294-a9c7-7ebb498b5ad0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:32:38.000Z",
+                      "updatedAt": "2026-07-28T01:32:38.000Z",
+                      "uid": "35240-fee531e4-d742-44ea-8d1b-7bb24c5a1b55"
+                    }
+                  ],
+                  "id": "d370298a-b130-415a-908d-7ccbf301bfe7",
+                  "createdAt": "2026-07-28T01:32:38.000Z",
+                  "updatedAt": "2026-07-28T01:32:38.000Z",
+                  "uid": "35240-d370298a-b130-415a-908d-7ccbf301bfe7"
+                }
+              ],
+              "id": "a1c09be7-702a-4eee-a923-401c763610d7",
+              "createdAt": "2026-07-28T01:32:38.000Z",
+              "updatedAt": "2026-07-28T01:32:38.000Z",
+              "uid": "35240-a1c09be7-702a-4eee-a923-401c763610d7"
+            },
+            {
+              "name": "{tracker_id}",
+              "item": [
+                {
+                  "name": "Get onboarding details by onboarding tracker ID",
+                  "id": "a6ffc38a-84d0-4c56-b0c3-da7581b7445b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/onboarding/tracker/:tracker_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "onboarding",
+                        "tracker",
+                        ":tracker_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "00d79a07-722d-472f-aa0d-c21dd2badce1",
+                          "key": "tracker_id",
+                          "value": "<string>",
+                          "description": "(Required) The unique identifier of the onboarding tracker."
+                        }
+                      ]
+                    },
+                    "description": "Use this endpoint to retrieve a comprehensive overview of a worker's onboarding status, including their profile details, contract status, and checklist progress.\n **Token scopes**: `contracts:read`, `people:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "118fe962-5518-4a86-a153-66bde71a7cc1",
+                      "name": "Onboarding overview",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/onboarding/tracker/:tracker_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "onboarding",
+                            "tracker",
+                            ":tracker_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "tracker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"profile\": {\n      \"name\": \"<string>\",\n      \"email\": \"<email>\",\n      \"country\": \"<string>\",\n      \"last_login\": \"<dateTime>\",\n      \"previously_onboarded\": \"<boolean>\"\n    },\n    \"stepper\": [\n      {\n        \"data\": {\n          \"emails\": [\n            {\n              \"meta\": {\n                \"type\": \"<string>\",\n                \"email\": \"<email>\",\n                \"sent_at\": \"<dateTime>\"\n              }\n            },\n            {\n              \"meta\": {\n                \"type\": \"<string>\",\n                \"email\": \"<email>\",\n                \"sent_at\": \"<dateTime>\"\n              }\n            }\n          ],\n          \"next_reminder_date\": \"<string,null-date-time>\"\n        },\n        \"type\": \"<string>\",\n        \"completed_at\": \"<string,null-date-time>\"\n      },\n      {\n        \"data\": {\n          \"emails\": [\n            {\n              \"meta\": {\n                \"type\": \"<string>\",\n                \"email\": \"<email>\",\n                \"sent_at\": \"<dateTime>\"\n              }\n            },\n            {\n              \"meta\": {\n                \"type\": \"<string>\",\n                \"email\": \"<email>\",\n                \"sent_at\": \"<dateTime>\"\n              }\n            }\n          ],\n          \"next_reminder_date\": \"<string,null-date-time>\"\n        },\n        \"type\": \"<string>\",\n        \"completed_at\": \"<string,null-date-time>\"\n      }\n    ],\n    \"summary\": [\n      {\n        \"data\": {\n          \"country\": \"<string>\",\n          \"timezone\": \"<string>\",\n          \"has_withdraw_methods\": \"<boolean>\"\n        },\n        \"name\": \"<string>\",\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"data\": {\n          \"country\": \"<string>\",\n          \"timezone\": \"<string>\",\n          \"has_withdraw_methods\": \"<boolean>\"\n        },\n        \"name\": \"<string>\",\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"contract\": {\n      \"id\": \"<string>\",\n      \"oid\": \"<string>\",\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"first_sign\": \"<string>\",\n      \"completion_date\": \"<string,null-date-time>\",\n      \"client_signed_at\": \"<string,null-date-time>\",\n      \"employee_agreement\": {\n        \"status\": \"<string,null>\",\n        \"version_hash\": \"<string,null>\"\n      },\n      \"first_early_invoice\": {\n        \"id\": \"<string>\",\n        \"amount\": \"<string>\",\n        \"status\": \"UNPAYABLE\",\n        \"paid_at\": \"<string,null-date-time>\",\n        \"currency\": \"<string>\",\n        \"due_date\": \"<string,null-date-time>\",\n        \"description\": \"<string>\"\n      },\n      \"contractor_signed_at\": \"<string,null-date-time>\",\n      \"invited_contractor_email\": \"<string,null-email>\"\n    },\n    \"progress\": {\n      \"status\": \"<string>\",\n      \"reference_date\": \"<dateTime>\",\n      \"subject_to_overdue\": \"<boolean>\",\n      \"reference_date_timezone\": \"<string>\",\n      \"is_action_required_from_client\": \"<boolean>\"\n    },\n    \"checklist\": {\n      \"steps\": [\n        {\n          \"type\": \"<string>\",\n          \"label\": \"<string>\",\n          \"status\": \"<string>\",\n          \"completed_at\": \"<string,null-date-time>\",\n          \"reject_reason\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"label\": \"<string>\",\n          \"status\": \"<string>\",\n          \"completed_at\": \"<string,null-date-time>\",\n          \"reject_reason\": \"<string>\"\n        }\n      ]\n    },\n    \"hiring_type\": \"<string>\",\n    \"hris_profile\": {\n      \"oid\": \"<string>\",\n      \"name\": \"<string>\",\n      \"email\": \"<email>\",\n      \"work_email\": \"<string,null-email>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:38.000Z",
+                      "updatedAt": "2026-07-28T01:32:38.000Z",
+                      "uid": "35240-118fe962-5518-4a86-a153-66bde71a7cc1"
+                    },
+                    {
+                      "id": "6dc94f4c-1c59-4abd-b11d-367be319c724",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/onboarding/tracker/:tracker_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "onboarding",
+                            "tracker",
+                            ":tracker_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "tracker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:38.000Z",
+                      "updatedAt": "2026-07-28T01:32:38.000Z",
+                      "uid": "35240-6dc94f4c-1c59-4abd-b11d-367be319c724"
+                    },
+                    {
+                      "id": "b1f0e171-653c-4d56-bae4-299f1d33c7f0",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/onboarding/tracker/:tracker_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "onboarding",
+                            "tracker",
+                            ":tracker_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "tracker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:38.000Z",
+                      "updatedAt": "2026-07-28T01:32:38.000Z",
+                      "uid": "35240-b1f0e171-653c-4d56-bae4-299f1d33c7f0"
+                    },
+                    {
+                      "id": "f75595f3-93e7-4297-895c-8baa0db5b9a2",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/onboarding/tracker/:tracker_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "onboarding",
+                            "tracker",
+                            ":tracker_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "tracker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:38.000Z",
+                      "updatedAt": "2026-07-28T01:32:38.000Z",
+                      "uid": "35240-f75595f3-93e7-4297-895c-8baa0db5b9a2"
+                    },
+                    {
+                      "id": "cba8eab9-1e10-4776-958a-390f0355b67b",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/onboarding/tracker/:tracker_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "onboarding",
+                            "tracker",
+                            ":tracker_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "tracker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:38.000Z",
+                      "updatedAt": "2026-07-28T01:32:38.000Z",
+                      "uid": "35240-cba8eab9-1e10-4776-958a-390f0355b67b"
+                    },
+                    {
+                      "id": "f593c4f2-90dd-4532-955f-a01f989f211a",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/onboarding/tracker/:tracker_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "onboarding",
+                            "tracker",
+                            ":tracker_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "tracker_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:38.000Z",
+                      "updatedAt": "2026-07-28T01:32:38.000Z",
+                      "uid": "35240-f593c4f2-90dd-4532-955f-a01f989f211a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:32:38.000Z",
+                  "updatedAt": "2026-07-28T01:32:38.000Z",
+                  "uid": "35240-a6ffc38a-84d0-4c56-b0c3-da7581b7445b"
+                }
+              ],
+              "id": "a3aac958-beba-4bab-aa60-6b3ac579d95a",
+              "createdAt": "2026-07-28T01:32:38.000Z",
+              "updatedAt": "2026-07-28T01:32:38.000Z",
+              "uid": "35240-a3aac958-beba-4bab-aa60-6b3ac579d95a"
+            },
+            {
+              "name": "List onboarding employees",
+              "id": "dbbe7323-7b48-4bab-8a95-088312d99019",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/onboarding/tracker?search=<string>&contractOid=<string>&contractOid=<string>&hiringTypes=employee&hiringTypes=contractor&progressStatuses=INACTIVE&progressStatuses=ONBOARDING&countries=<string>&countries=<string>&teams=<string>&teams=<string>&legalEntities=<string>&legalEntities=<string>&hrisDirectManagers=<string>&hrisDirectManagers=<string>&fromDate=<dateTime>&toDate=<dateTime>&actions=COMPLETE&actions=COMPLETE&limit=20&sort_by=progressStatusWeight&sort_order=ASC&cursor=<string>&include_overview=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "onboarding",
+                    "tracker"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search term to filter contracts by name or other attributes",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search attribute to filter onboarding list by contract id",
+                      "key": "contractOid",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search attribute to filter onboarding list by contract id",
+                      "key": "contractOid",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search attribute to filter onboarding list by hiring type",
+                      "key": "hiringTypes",
+                      "value": "employee"
+                    },
+                    {
+                      "description": "Search attribute to filter onboarding list by hiring type",
+                      "key": "hiringTypes",
+                      "value": "contractor"
+                    },
+                    {
+                      "description": "Search attribute to filter onboarding list by progress status",
+                      "key": "progressStatuses",
+                      "value": "INACTIVE"
+                    },
+                    {
+                      "description": "Search attribute to filter onboarding list by progress status",
+                      "key": "progressStatuses",
+                      "value": "ONBOARDING"
+                    },
+                    {
+                      "description": "Search attribute to filter onboarding list by country",
+                      "key": "countries",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search attribute to filter onboarding list by country",
+                      "key": "countries",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search attribute to filter onboarding list by team",
+                      "key": "teams",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search attribute to filter onboarding list by team",
+                      "key": "teams",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search attribute to filter onboarding list by legal entity",
+                      "key": "legalEntities",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search attribute to filter onboarding list by legal entity",
+                      "key": "legalEntities",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search attribute to filter onboarding list by HRIS direct manager",
+                      "key": "hrisDirectManagers",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search attribute to filter onboarding list by HRIS direct manager",
+                      "key": "hrisDirectManagers",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date for filtering contracts",
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "End date for filtering contracts",
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Onboarding actions",
+                      "key": "actions",
+                      "value": "COMPLETE"
+                    },
+                    {
+                      "description": "Onboarding actions",
+                      "key": "actions",
+                      "value": "COMPLETE"
+                    },
+                    {
+                      "description": "Number of results to return per page",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Field to sort by",
+                      "key": "sort_by",
+                      "value": "progressStatusWeight"
+                    },
+                    {
+                      "description": "Sorting order",
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "Cursor for pagination",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include an overview of the contract",
+                      "key": "include_overview",
+                      "value": "false"
+                    }
+                  ]
+                },
+                "description": "Returns a list of all workers currently going through the onboarding process, including contract details, HRIS profile information, current onboarding status, and onboarding due dates. Use this endpoint to monitor onboarding progress, track pending actions, and ensure deadlines are met.\n **Token scopes**: `contracts:read`, `people:read`"
+              },
+              "response": [
+                {
+                  "id": "ab363e25-65aa-47b7-a7d2-e429a735b3a7",
+                  "name": "A list of onboarding and their details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/onboarding/tracker?search=<string>&contractOid=<string>&hiringTypes=contractor&progressStatuses=ONBOARDING&countries=<string>&teams=<string>&legalEntities=<string>&hrisDirectManagers=<string>&fromDate=<dateTime>&toDate=<dateTime>&actions=COMPLETE&limit=20&sort_by=progressStatusWeight&sort_order=ASC&cursor=<string>&include_overview=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "onboarding",
+                        "tracker"
+                      ],
+                      "query": [
+                        {
+                          "description": "Search term to filter contracts by name or other attributes",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by contract id",
+                          "key": "contractOid",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by hiring type",
+                          "key": "hiringTypes",
+                          "value": "contractor"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by progress status",
+                          "key": "progressStatuses",
+                          "value": "ONBOARDING"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by country",
+                          "key": "countries",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by team",
+                          "key": "teams",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by legal entity",
+                          "key": "legalEntities",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by HRIS direct manager",
+                          "key": "hrisDirectManagers",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Start date for filtering contracts",
+                          "key": "fromDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "End date for filtering contracts",
+                          "key": "toDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Onboarding actions",
+                          "key": "actions",
+                          "value": "COMPLETE"
+                        },
+                        {
+                          "description": "Number of results to return per page",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Field to sort by",
+                          "key": "sort_by",
+                          "value": "progressStatusWeight"
+                        },
+                        {
+                          "description": "Sorting order",
+                          "key": "sort_order",
+                          "value": "ASC"
+                        },
+                        {
+                          "description": "Cursor for pagination",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Include an overview of the contract",
+                          "key": "include_overview",
+                          "value": "false"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"name\": \"<string>\",\n      \"contract\": {\n        \"id\": \"<string>\",\n        \"effective_date\": \"<date>\"\n      },\n      \"progress\": {\n        \"status\": \"<string>\",\n        \"reference_date\": \"<date>\",\n        \"people_list_status\": \"<string>\",\n        \"subject_to_overdue\": \"<boolean>\",\n        \"onboarding_due_date\": \"<string,null-date-time>\",\n        \"reference_date_type\": \"<string>\",\n        \"reference_date_timezone\": \"<string>\",\n        \"is_action_required_from_client\": \"<boolean>\"\n      },\n      \"unique_id\": \"<string>\",\n      \"hiring_type\": \"<string>\",\n      \"hris_profile\": {\n        \"oid\": \"<string>\",\n        \"work_email\": \"<string,null>\"\n      },\n      \"app_experience\": {\n        \"is_minimal_requirements\": \"<boolean>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"contract\": {\n        \"id\": \"<string>\",\n        \"effective_date\": \"<date>\"\n      },\n      \"progress\": {\n        \"status\": \"<string>\",\n        \"reference_date\": \"<date>\",\n        \"people_list_status\": \"<string>\",\n        \"subject_to_overdue\": \"<boolean>\",\n        \"onboarding_due_date\": \"<string,null-date-time>\",\n        \"reference_date_type\": \"<string>\",\n        \"reference_date_timezone\": \"<string>\",\n        \"is_action_required_from_client\": \"<boolean>\"\n      },\n      \"unique_id\": \"<string>\",\n      \"hiring_type\": \"<string>\",\n      \"hris_profile\": {\n        \"oid\": \"<string>\",\n        \"work_email\": \"<string,null>\"\n      },\n      \"app_experience\": {\n        \"is_minimal_requirements\": \"<boolean>\"\n      }\n    }\n  ],\n  \"page\": {\n    \"cursor\": \"<string,null>\",\n    \"total_rows\": \"<integer>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:38.000Z",
+                  "updatedAt": "2026-07-28T01:32:38.000Z",
+                  "uid": "35240-ab363e25-65aa-47b7-a7d2-e429a735b3a7"
+                },
+                {
+                  "id": "38bf4180-5f4e-4703-ae8d-cd420ab09954",
+                  "name": "Bad Request - Validation error or invalid parameters",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/onboarding/tracker?search=<string>&contractOid=<string>&hiringTypes=contractor&progressStatuses=ONBOARDING&countries=<string>&teams=<string>&legalEntities=<string>&hrisDirectManagers=<string>&fromDate=<dateTime>&toDate=<dateTime>&actions=COMPLETE&limit=20&sort_by=progressStatusWeight&sort_order=ASC&cursor=<string>&include_overview=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "onboarding",
+                        "tracker"
+                      ],
+                      "query": [
+                        {
+                          "description": "Search term to filter contracts by name or other attributes",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by contract id",
+                          "key": "contractOid",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by hiring type",
+                          "key": "hiringTypes",
+                          "value": "contractor"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by progress status",
+                          "key": "progressStatuses",
+                          "value": "ONBOARDING"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by country",
+                          "key": "countries",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by team",
+                          "key": "teams",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by legal entity",
+                          "key": "legalEntities",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by HRIS direct manager",
+                          "key": "hrisDirectManagers",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Start date for filtering contracts",
+                          "key": "fromDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "End date for filtering contracts",
+                          "key": "toDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Onboarding actions",
+                          "key": "actions",
+                          "value": "COMPLETE"
+                        },
+                        {
+                          "description": "Number of results to return per page",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Field to sort by",
+                          "key": "sort_by",
+                          "value": "progressStatusWeight"
+                        },
+                        {
+                          "description": "Sorting order",
+                          "key": "sort_order",
+                          "value": "ASC"
+                        },
+                        {
+                          "description": "Cursor for pagination",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Include an overview of the contract",
+                          "key": "include_overview",
+                          "value": "false"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ],\n  \"request\": {\n    \"method\": \"<string>\",\n    \"status\": \"<double>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:32:38.000Z",
+                  "updatedAt": "2026-07-28T01:32:38.000Z",
+                  "uid": "35240-38bf4180-5f4e-4703-ae8d-cd420ab09954"
+                },
+                {
+                  "id": "550250b2-e6a2-44a6-a10d-71f2b6a42551",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/onboarding/tracker?search=<string>&contractOid=<string>&hiringTypes=contractor&progressStatuses=ONBOARDING&countries=<string>&teams=<string>&legalEntities=<string>&hrisDirectManagers=<string>&fromDate=<dateTime>&toDate=<dateTime>&actions=COMPLETE&limit=20&sort_by=progressStatusWeight&sort_order=ASC&cursor=<string>&include_overview=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "onboarding",
+                        "tracker"
+                      ],
+                      "query": [
+                        {
+                          "description": "Search term to filter contracts by name or other attributes",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by contract id",
+                          "key": "contractOid",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by hiring type",
+                          "key": "hiringTypes",
+                          "value": "contractor"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by progress status",
+                          "key": "progressStatuses",
+                          "value": "ONBOARDING"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by country",
+                          "key": "countries",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by team",
+                          "key": "teams",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by legal entity",
+                          "key": "legalEntities",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by HRIS direct manager",
+                          "key": "hrisDirectManagers",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Start date for filtering contracts",
+                          "key": "fromDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "End date for filtering contracts",
+                          "key": "toDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Onboarding actions",
+                          "key": "actions",
+                          "value": "COMPLETE"
+                        },
+                        {
+                          "description": "Number of results to return per page",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Field to sort by",
+                          "key": "sort_by",
+                          "value": "progressStatusWeight"
+                        },
+                        {
+                          "description": "Sorting order",
+                          "key": "sort_order",
+                          "value": "ASC"
+                        },
+                        {
+                          "description": "Cursor for pagination",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Include an overview of the contract",
+                          "key": "include_overview",
+                          "value": "false"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:38.000Z",
+                  "updatedAt": "2026-07-28T01:32:38.000Z",
+                  "uid": "35240-550250b2-e6a2-44a6-a10d-71f2b6a42551"
+                },
+                {
+                  "id": "d83de703-10a9-4d5f-9cf7-f329474423fe",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/onboarding/tracker?search=<string>&contractOid=<string>&hiringTypes=contractor&progressStatuses=ONBOARDING&countries=<string>&teams=<string>&legalEntities=<string>&hrisDirectManagers=<string>&fromDate=<dateTime>&toDate=<dateTime>&actions=COMPLETE&limit=20&sort_by=progressStatusWeight&sort_order=ASC&cursor=<string>&include_overview=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "onboarding",
+                        "tracker"
+                      ],
+                      "query": [
+                        {
+                          "description": "Search term to filter contracts by name or other attributes",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by contract id",
+                          "key": "contractOid",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by hiring type",
+                          "key": "hiringTypes",
+                          "value": "contractor"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by progress status",
+                          "key": "progressStatuses",
+                          "value": "ONBOARDING"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by country",
+                          "key": "countries",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by team",
+                          "key": "teams",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by legal entity",
+                          "key": "legalEntities",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by HRIS direct manager",
+                          "key": "hrisDirectManagers",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Start date for filtering contracts",
+                          "key": "fromDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "End date for filtering contracts",
+                          "key": "toDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Onboarding actions",
+                          "key": "actions",
+                          "value": "COMPLETE"
+                        },
+                        {
+                          "description": "Number of results to return per page",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Field to sort by",
+                          "key": "sort_by",
+                          "value": "progressStatusWeight"
+                        },
+                        {
+                          "description": "Sorting order",
+                          "key": "sort_order",
+                          "value": "ASC"
+                        },
+                        {
+                          "description": "Cursor for pagination",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Include an overview of the contract",
+                          "key": "include_overview",
+                          "value": "false"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:38.000Z",
+                  "updatedAt": "2026-07-28T01:32:38.000Z",
+                  "uid": "35240-d83de703-10a9-4d5f-9cf7-f329474423fe"
+                },
+                {
+                  "id": "7ffcdbdd-cfe8-402c-a249-6c776aeddaac",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/onboarding/tracker?search=<string>&contractOid=<string>&hiringTypes=contractor&progressStatuses=ONBOARDING&countries=<string>&teams=<string>&legalEntities=<string>&hrisDirectManagers=<string>&fromDate=<dateTime>&toDate=<dateTime>&actions=COMPLETE&limit=20&sort_by=progressStatusWeight&sort_order=ASC&cursor=<string>&include_overview=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "onboarding",
+                        "tracker"
+                      ],
+                      "query": [
+                        {
+                          "description": "Search term to filter contracts by name or other attributes",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by contract id",
+                          "key": "contractOid",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by hiring type",
+                          "key": "hiringTypes",
+                          "value": "contractor"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by progress status",
+                          "key": "progressStatuses",
+                          "value": "ONBOARDING"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by country",
+                          "key": "countries",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by team",
+                          "key": "teams",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by legal entity",
+                          "key": "legalEntities",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by HRIS direct manager",
+                          "key": "hrisDirectManagers",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Start date for filtering contracts",
+                          "key": "fromDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "End date for filtering contracts",
+                          "key": "toDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Onboarding actions",
+                          "key": "actions",
+                          "value": "COMPLETE"
+                        },
+                        {
+                          "description": "Number of results to return per page",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Field to sort by",
+                          "key": "sort_by",
+                          "value": "progressStatusWeight"
+                        },
+                        {
+                          "description": "Sorting order",
+                          "key": "sort_order",
+                          "value": "ASC"
+                        },
+                        {
+                          "description": "Cursor for pagination",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Include an overview of the contract",
+                          "key": "include_overview",
+                          "value": "false"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:38.000Z",
+                  "updatedAt": "2026-07-28T01:32:38.000Z",
+                  "uid": "35240-7ffcdbdd-cfe8-402c-a249-6c776aeddaac"
+                },
+                {
+                  "id": "bfd3be51-052b-4792-9cd9-55cf4437f665",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/onboarding/tracker?search=<string>&contractOid=<string>&hiringTypes=contractor&progressStatuses=ONBOARDING&countries=<string>&teams=<string>&legalEntities=<string>&hrisDirectManagers=<string>&fromDate=<dateTime>&toDate=<dateTime>&actions=COMPLETE&limit=20&sort_by=progressStatusWeight&sort_order=ASC&cursor=<string>&include_overview=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "onboarding",
+                        "tracker"
+                      ],
+                      "query": [
+                        {
+                          "description": "Search term to filter contracts by name or other attributes",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by contract id",
+                          "key": "contractOid",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by hiring type",
+                          "key": "hiringTypes",
+                          "value": "contractor"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by progress status",
+                          "key": "progressStatuses",
+                          "value": "ONBOARDING"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by country",
+                          "key": "countries",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by team",
+                          "key": "teams",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by legal entity",
+                          "key": "legalEntities",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search attribute to filter onboarding list by HRIS direct manager",
+                          "key": "hrisDirectManagers",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Start date for filtering contracts",
+                          "key": "fromDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "End date for filtering contracts",
+                          "key": "toDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Onboarding actions",
+                          "key": "actions",
+                          "value": "COMPLETE"
+                        },
+                        {
+                          "description": "Number of results to return per page",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Field to sort by",
+                          "key": "sort_by",
+                          "value": "progressStatusWeight"
+                        },
+                        {
+                          "description": "Sorting order",
+                          "key": "sort_order",
+                          "value": "ASC"
+                        },
+                        {
+                          "description": "Cursor for pagination",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Include an overview of the contract",
+                          "key": "include_overview",
+                          "value": "false"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:38.000Z",
+                  "updatedAt": "2026-07-28T01:32:38.000Z",
+                  "uid": "35240-bfd3be51-052b-4792-9cd9-55cf4437f665"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:38.000Z",
+              "updatedAt": "2026-07-28T01:32:38.000Z",
+              "uid": "35240-dbbe7323-7b48-4bab-8a95-088312d99019"
+            }
+          ],
+          "id": "f2e3fd2f-a35f-4610-9aa0-e6adc6675dcb",
+          "createdAt": "2026-07-28T01:32:38.000Z",
+          "updatedAt": "2026-07-28T01:32:38.000Z",
+          "uid": "35240-f2e3fd2f-a35f-4610-9aa0-e6adc6675dcb"
+        }
+      ],
+      "id": "f8f810ef-707c-402b-add2-fbd3e53b70f2",
+      "createdAt": "2026-07-28T01:32:38.000Z",
+      "updatedAt": "2026-07-28T01:32:38.000Z",
+      "uid": "35240-f8f810ef-707c-402b-add2-fbd3e53b70f2"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

@@ -1,0 +1,2447 @@
+{
+  "info": {
+    "_postman_id": "8d6bceff-72a3-407b-b6ec-512ad112b604",
+    "name": "Endpoints subpackage_tasks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:33:17.000Z",
+    "updatedAt": "2026-07-28T01:33:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8d6bceff-72a3-407b-b6ec-512ad112b604"
+  },
+  "item": [
+    {
+      "name": "contracts",
+      "item": [
+        {
+          "name": "{contract_id}",
+          "item": [
+            {
+              "name": "tasks",
+              "item": [
+                {
+                  "name": "{task_id}",
+                  "item": [
+                    {
+                      "name": "reviews",
+                      "item": [
+                        {
+                          "name": "Review a single task",
+                          "id": "7fb66270-162c-45f6-8677-9bc607a906b4",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/contracts/:contract_id/tasks/:task_id/reviews",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "contracts",
+                                ":contract_id",
+                                "tasks",
+                                ":task_id",
+                                "reviews"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "383580dd-0147-434a-a8c1-fc4e47edb3ae",
+                                  "key": "contract_id",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique Deel contract ID associated with the task."
+                                },
+                                {
+                                  "id": "b9cb3b6e-d1f8-4b96-bee4-49f4c28b0ec6",
+                                  "key": "task_id",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique ID of the task to be reviewed."
+                                }
+                              ]
+                            },
+                            "description": "Review a specific task associated with a Deel contract to approve or decline the submitted work. The review includes the status (approved or declined) and an optional reason if declined.\n **Token scopes**: `contracts:write`"
+                          },
+                          "response": [
+                            {
+                              "id": "b362ba7f-e082-4f31-9b7f-18f2ad33a32c",
+                              "name": "The task review was successfully processed.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/contracts/:contract_id/tasks/:task_id/reviews",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "contracts",
+                                    ":contract_id",
+                                    "tasks",
+                                    ":task_id",
+                                    "reviews"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    },
+                                    {
+                                      "key": "task_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": {\n    \"created\": \"<boolean>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:33:17.000Z",
+                              "updatedAt": "2026-07-28T01:33:17.000Z",
+                              "uid": "35240-b362ba7f-e082-4f31-9b7f-18f2ad33a32c"
+                            },
+                            {
+                              "id": "3f29eade-b4c5-4d52-a33a-11ad6fd60934",
+                              "name": "Bad request. Missing required fields or invalid data format.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/contracts/:contract_id/tasks/:task_id/reviews",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "contracts",
+                                    ":contract_id",
+                                    "tasks",
+                                    ":task_id",
+                                    "reviews"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    },
+                                    {
+                                      "key": "task_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:33:17.000Z",
+                              "updatedAt": "2026-07-28T01:33:17.000Z",
+                              "uid": "35240-3f29eade-b4c5-4d52-a33a-11ad6fd60934"
+                            },
+                            {
+                              "id": "2b4cc74f-9998-40f4-9096-4b1eb3ee5917",
+                              "name": "Unauthorized. Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/contracts/:contract_id/tasks/:task_id/reviews",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "contracts",
+                                    ":contract_id",
+                                    "tasks",
+                                    ":task_id",
+                                    "reviews"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    },
+                                    {
+                                      "key": "task_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:33:17.000Z",
+                              "updatedAt": "2026-07-28T01:33:17.000Z",
+                              "uid": "35240-2b4cc74f-9998-40f4-9096-4b1eb3ee5917"
+                            },
+                            {
+                              "id": "ba932f28-8025-434b-86b3-df93c79ba2a5",
+                              "name": "Operation failed.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/contracts/:contract_id/tasks/:task_id/reviews",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "contracts",
+                                    ":contract_id",
+                                    "tasks",
+                                    ":task_id",
+                                    "reviews"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    },
+                                    {
+                                      "key": "task_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:33:17.000Z",
+                              "updatedAt": "2026-07-28T01:33:17.000Z",
+                              "uid": "35240-ba932f28-8025-434b-86b3-df93c79ba2a5"
+                            },
+                            {
+                              "id": "285e56ee-ccf0-4723-8d10-a8e73597c79a",
+                              "name": "Not found. The specified task or contract was not found.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/contracts/:contract_id/tasks/:task_id/reviews",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "contracts",
+                                    ":contract_id",
+                                    "tasks",
+                                    ":task_id",
+                                    "reviews"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    },
+                                    {
+                                      "key": "task_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:33:17.000Z",
+                              "updatedAt": "2026-07-28T01:33:17.000Z",
+                              "uid": "35240-285e56ee-ccf0-4723-8d10-a8e73597c79a"
+                            },
+                            {
+                              "id": "1b382187-3b54-4a76-a79d-91c2b146e577",
+                              "name": "Internal server error. An unexpected error occurred while processing the request.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/contracts/:contract_id/tasks/:task_id/reviews",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "contracts",
+                                    ":contract_id",
+                                    "tasks",
+                                    ":task_id",
+                                    "reviews"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    },
+                                    {
+                                      "key": "task_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:33:17.000Z",
+                              "updatedAt": "2026-07-28T01:33:17.000Z",
+                              "uid": "35240-1b382187-3b54-4a76-a79d-91c2b146e577"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:33:17.000Z",
+                          "updatedAt": "2026-07-28T01:33:17.000Z",
+                          "uid": "35240-7fb66270-162c-45f6-8677-9bc607a906b4"
+                        }
+                      ],
+                      "id": "4fffd017-5f01-4d2e-892a-d6c24eeb82ce",
+                      "createdAt": "2026-07-28T01:33:17.000Z",
+                      "updatedAt": "2026-07-28T01:33:17.000Z",
+                      "uid": "35240-4fffd017-5f01-4d2e-892a-d6c24eeb82ce"
+                    },
+                    {
+                      "name": "Delete task",
+                      "id": "0f1c1618-89c1-4f12-a706-55e611dd631d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/tasks/:task_id?reason=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "tasks",
+                            ":task_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "The reason for deleting the task. This can be used for auditing purposes.",
+                              "key": "reason",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "95bf2955-bece-4400-8acd-599acc26f35b",
+                              "key": "contract_id",
+                              "value": "<string>",
+                              "description": "(Required) The unique identifier of the Deel contract."
+                            },
+                            {
+                              "id": "eaa80b77-be6c-4c0f-b8a3-a6cbd47f3e73",
+                              "key": "task_id",
+                              "value": "<string>",
+                              "description": "(Required) The unique identifier of the task to be deleted."
+                            }
+                          ]
+                        },
+                        "description": "Delete a specific task associated with the contract. Optionally, a reason can be provided for auditing or documentation purposes.\n **Token scopes**: `contracts:write`"
+                      },
+                      "response": [
+                        {
+                          "id": "6c3a9d24-cebd-49c1-ab88-033f432721ec",
+                          "name": "The task was successfully deleted.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/contracts/:contract_id/tasks/:task_id?reason=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "contracts",
+                                ":contract_id",
+                                "tasks",
+                                ":task_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The reason for deleting the task. This can be used for auditing purposes.",
+                                  "key": "reason",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                },
+                                {
+                                  "key": "task_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": {\n    \"deleted\": \"<boolean>\"\n  }\n}",
+                          "createdAt": "2026-07-28T01:33:17.000Z",
+                          "updatedAt": "2026-07-28T01:33:17.000Z",
+                          "uid": "35240-6c3a9d24-cebd-49c1-ab88-033f432721ec"
+                        },
+                        {
+                          "id": "eec2016c-418d-44eb-8310-7522ede493ea",
+                          "name": "Invalid request. For example, missing required parameters or invalid format.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/contracts/:contract_id/tasks/:task_id?reason=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "contracts",
+                                ":contract_id",
+                                "tasks",
+                                ":task_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The reason for deleting the task. This can be used for auditing purposes.",
+                                  "key": "reason",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                },
+                                {
+                                  "key": "task_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"description\": \"Any type\"\n}",
+                          "createdAt": "2026-07-28T01:33:17.000Z",
+                          "updatedAt": "2026-07-28T01:33:17.000Z",
+                          "uid": "35240-eec2016c-418d-44eb-8310-7522ede493ea"
+                        },
+                        {
+                          "id": "f8c645d8-ebb4-44f5-ae62-86f377a74bed",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/contracts/:contract_id/tasks/:task_id?reason=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "contracts",
+                                ":contract_id",
+                                "tasks",
+                                ":task_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The reason for deleting the task. This can be used for auditing purposes.",
+                                  "key": "reason",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                },
+                                {
+                                  "key": "task_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:33:17.000Z",
+                          "updatedAt": "2026-07-28T01:33:17.000Z",
+                          "uid": "35240-f8c645d8-ebb4-44f5-ae62-86f377a74bed"
+                        },
+                        {
+                          "id": "9ec88afe-ec76-47f7-af35-86ca0df39c60",
+                          "name": "Permission denied. The user does not have the required access to delete the task.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/contracts/:contract_id/tasks/:task_id?reason=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "contracts",
+                                ":contract_id",
+                                "tasks",
+                                ":task_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The reason for deleting the task. This can be used for auditing purposes.",
+                                  "key": "reason",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                },
+                                {
+                                  "key": "task_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"description\": \"Any type\"\n}",
+                          "createdAt": "2026-07-28T01:33:17.000Z",
+                          "updatedAt": "2026-07-28T01:33:17.000Z",
+                          "uid": "35240-9ec88afe-ec76-47f7-af35-86ca0df39c60"
+                        },
+                        {
+                          "id": "f170f992-215e-4cc1-a09e-ae834e3ac905",
+                          "name": "The specified task or contract was not found.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/contracts/:contract_id/tasks/:task_id?reason=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "contracts",
+                                ":contract_id",
+                                "tasks",
+                                ":task_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The reason for deleting the task. This can be used for auditing purposes.",
+                                  "key": "reason",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                },
+                                {
+                                  "key": "task_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"description\": \"Any type\"\n}",
+                          "createdAt": "2026-07-28T01:33:17.000Z",
+                          "updatedAt": "2026-07-28T01:33:17.000Z",
+                          "uid": "35240-f170f992-215e-4cc1-a09e-ae834e3ac905"
+                        },
+                        {
+                          "id": "7a2a252c-078a-48fb-be2a-2901dcb39e2e",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/contracts/:contract_id/tasks/:task_id?reason=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "contracts",
+                                ":contract_id",
+                                "tasks",
+                                ":task_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The reason for deleting the task. This can be used for auditing purposes.",
+                                  "key": "reason",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                },
+                                {
+                                  "key": "task_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:33:17.000Z",
+                          "updatedAt": "2026-07-28T01:33:17.000Z",
+                          "uid": "35240-7a2a252c-078a-48fb-be2a-2901dcb39e2e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:33:17.000Z",
+                      "updatedAt": "2026-07-28T01:33:17.000Z",
+                      "uid": "35240-0f1c1618-89c1-4f12-a706-55e611dd631d"
+                    }
+                  ],
+                  "id": "2ebb716f-6577-40f3-b085-7eac888793a9",
+                  "createdAt": "2026-07-28T01:33:17.000Z",
+                  "updatedAt": "2026-07-28T01:33:17.000Z",
+                  "uid": "35240-2ebb716f-6577-40f3-b085-7eac888793a9"
+                },
+                {
+                  "name": "many",
+                  "item": [
+                    {
+                      "name": "reviews",
+                      "item": [
+                        {
+                          "name": "Review multiple tasks",
+                          "id": "8ccdd029-3658-4f0e-9f4f-b1e9a4ec77e7",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ],\n    \"status\": \"declined\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/contracts/:contract_id/tasks/many/reviews",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "contracts",
+                                ":contract_id",
+                                "tasks",
+                                "many",
+                                "reviews"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "d46a8836-17ff-4487-b6dd-ce2bf5ebf264",
+                                  "key": "contract_id",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique Deel contract ID associated with the tasks."
+                                }
+                              ]
+                            },
+                            "description": "Review multiple tasks associated with a Deel contract to approve or decline the submitted work. The review includes a status (approved or declined) for each task and an optional reason for declined tasks.\n **Token scopes**: `contracts:write`"
+                          },
+                          "response": [
+                            {
+                              "id": "e1a2a496-4977-4fa0-a6e6-2240cbde2c9b",
+                              "name": "The task reviews were successfully processed.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ],\n    \"status\": \"declined\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/contracts/:contract_id/tasks/many/reviews",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "contracts",
+                                    ":contract_id",
+                                    "tasks",
+                                    "many",
+                                    "reviews"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": {\n    \"created\": \"<boolean>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:33:17.000Z",
+                              "updatedAt": "2026-07-28T01:33:17.000Z",
+                              "uid": "35240-e1a2a496-4977-4fa0-a6e6-2240cbde2c9b"
+                            },
+                            {
+                              "id": "e391f0ef-3748-4863-b830-dfd58b5068d5",
+                              "name": "Bad request. Missing required fields or invalid data format.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ],\n    \"status\": \"declined\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/contracts/:contract_id/tasks/many/reviews",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "contracts",
+                                    ":contract_id",
+                                    "tasks",
+                                    "many",
+                                    "reviews"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:33:17.000Z",
+                              "updatedAt": "2026-07-28T01:33:17.000Z",
+                              "uid": "35240-e391f0ef-3748-4863-b830-dfd58b5068d5"
+                            },
+                            {
+                              "id": "262ba93f-fbbe-453d-ba99-707a5d311f88",
+                              "name": "Unauthorized. Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ],\n    \"status\": \"declined\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/contracts/:contract_id/tasks/many/reviews",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "contracts",
+                                    ":contract_id",
+                                    "tasks",
+                                    "many",
+                                    "reviews"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:33:17.000Z",
+                              "updatedAt": "2026-07-28T01:33:17.000Z",
+                              "uid": "35240-262ba93f-fbbe-453d-ba99-707a5d311f88"
+                            },
+                            {
+                              "id": "e206c0a7-e467-4672-8b6a-a3a7f79eafd7",
+                              "name": "Operation failed.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ],\n    \"status\": \"declined\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/contracts/:contract_id/tasks/many/reviews",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "contracts",
+                                    ":contract_id",
+                                    "tasks",
+                                    "many",
+                                    "reviews"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:33:17.000Z",
+                              "updatedAt": "2026-07-28T01:33:17.000Z",
+                              "uid": "35240-e206c0a7-e467-4672-8b6a-a3a7f79eafd7"
+                            },
+                            {
+                              "id": "0a471e78-21f3-4303-84d8-8961a80894ba",
+                              "name": "Not found. One or more specified tasks or the contract was not found.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ],\n    \"status\": \"declined\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/contracts/:contract_id/tasks/many/reviews",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "contracts",
+                                    ":contract_id",
+                                    "tasks",
+                                    "many",
+                                    "reviews"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:33:17.000Z",
+                              "updatedAt": "2026-07-28T01:33:17.000Z",
+                              "uid": "35240-0a471e78-21f3-4303-84d8-8961a80894ba"
+                            },
+                            {
+                              "id": "77c51de8-cbcd-493b-9825-651852368da8",
+                              "name": "Internal server error. An unexpected error occurred while processing the request.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"ids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ],\n    \"status\": \"declined\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/contracts/:contract_id/tasks/many/reviews",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "contracts",
+                                    ":contract_id",
+                                    "tasks",
+                                    "many",
+                                    "reviews"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:33:17.000Z",
+                              "updatedAt": "2026-07-28T01:33:17.000Z",
+                              "uid": "35240-77c51de8-cbcd-493b-9825-651852368da8"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:33:17.000Z",
+                          "updatedAt": "2026-07-28T01:33:17.000Z",
+                          "uid": "35240-8ccdd029-3658-4f0e-9f4f-b1e9a4ec77e7"
+                        }
+                      ],
+                      "id": "1d43e185-2261-4ba5-8b38-9e687e8712af",
+                      "createdAt": "2026-07-28T01:33:17.000Z",
+                      "updatedAt": "2026-07-28T01:33:17.000Z",
+                      "uid": "35240-1d43e185-2261-4ba5-8b38-9e687e8712af"
+                    }
+                  ],
+                  "id": "78ffe460-51e3-4d09-a03a-b41909d62bb3",
+                  "createdAt": "2026-07-28T01:33:17.000Z",
+                  "updatedAt": "2026-07-28T01:33:17.000Z",
+                  "uid": "35240-78ffe460-51e3-4d09-a03a-b41909d62bb3"
+                },
+                {
+                  "name": "Create a new task",
+                  "id": "fd88c5ee-626a-4577-ac73-91db7588f185",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"amount\": \"<string>\",\n    \"description\": \"<string,null>\",\n    \"date_submitted\": \"<date>\",\n    \"is_auto_approved\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/tasks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "tasks"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4f6500ca-b2e4-4dfd-a81a-0ea41523f72f",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) The unique Deel contract ID associated with the task."
+                        }
+                      ]
+                    },
+                    "description": "Create a new task for a contractor associated with a specific Deel contract. A task can include details like amount, description, submission date.\n **Token scopes**: `contracts:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "305401e5-2e70-4ae3-959b-f70e3adef9fe",
+                      "name": "The task was successfully created.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"amount\": \"<string>\",\n    \"description\": \"<string,null>\",\n    \"date_submitted\": \"<date>\",\n    \"is_auto_approved\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/tasks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "tasks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"id\": \"<uuid>\",\n    \"status\": \"processing\",\n    \"created\": \"<boolean>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:33:17.000Z",
+                      "updatedAt": "2026-07-28T01:33:17.000Z",
+                      "uid": "35240-305401e5-2e70-4ae3-959b-f70e3adef9fe"
+                    },
+                    {
+                      "id": "2a1b2adb-0423-4ae2-8b60-1705a2bc4f73",
+                      "name": "Bad request. Missing required fields or invalid data format.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"amount\": \"<string>\",\n    \"description\": \"<string,null>\",\n    \"date_submitted\": \"<date>\",\n    \"is_auto_approved\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/tasks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "tasks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:33:17.000Z",
+                      "updatedAt": "2026-07-28T01:33:17.000Z",
+                      "uid": "35240-2a1b2adb-0423-4ae2-8b60-1705a2bc4f73"
+                    },
+                    {
+                      "id": "cfc9da1f-a8f9-4322-9fd2-3e3db3850f83",
+                      "name": "Unauthorized. Authentication credentials are missing or invalid.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"amount\": \"<string>\",\n    \"description\": \"<string,null>\",\n    \"date_submitted\": \"<date>\",\n    \"is_auto_approved\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/tasks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "tasks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:33:17.000Z",
+                      "updatedAt": "2026-07-28T01:33:17.000Z",
+                      "uid": "35240-cfc9da1f-a8f9-4322-9fd2-3e3db3850f83"
+                    },
+                    {
+                      "id": "c12157bd-238d-4f51-a6c1-7755d1cac8d7",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"amount\": \"<string>\",\n    \"description\": \"<string,null>\",\n    \"date_submitted\": \"<date>\",\n    \"is_auto_approved\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/tasks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "tasks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:17.000Z",
+                      "updatedAt": "2026-07-28T01:33:17.000Z",
+                      "uid": "35240-c12157bd-238d-4f51-a6c1-7755d1cac8d7"
+                    },
+                    {
+                      "id": "93a803ab-bb5d-4881-a542-3f3108f5f2a7",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"amount\": \"<string>\",\n    \"description\": \"<string,null>\",\n    \"date_submitted\": \"<date>\",\n    \"is_auto_approved\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/tasks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "tasks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:17.000Z",
+                      "updatedAt": "2026-07-28T01:33:17.000Z",
+                      "uid": "35240-93a803ab-bb5d-4881-a542-3f3108f5f2a7"
+                    },
+                    {
+                      "id": "e8a7ec3f-d06d-4826-8db0-743c99acd4fe",
+                      "name": "Internal server error. An unexpected error occurred while processing the request.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"amount\": \"<string>\",\n    \"description\": \"<string,null>\",\n    \"date_submitted\": \"<date>\",\n    \"is_auto_approved\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/tasks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "tasks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:33:17.000Z",
+                      "updatedAt": "2026-07-28T01:33:17.000Z",
+                      "uid": "35240-e8a7ec3f-d06d-4826-8db0-743c99acd4fe"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:33:17.000Z",
+                  "updatedAt": "2026-07-28T01:33:17.000Z",
+                  "uid": "35240-fd88c5ee-626a-4577-ac73-91db7588f185"
+                },
+                {
+                  "name": "List of tasks",
+                  "id": "dc6b9c37-2ad5-4dc4-b795-663c9da517eb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/tasks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "tasks"
+                      ],
+                      "variable": [
+                        {
+                          "id": "671f39ac-5bd2-4584-9027-12a5ff45d924",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) The unique identifier for the Deel contract."
+                        }
+                      ]
+                    },
+                    "description": "Retrieve a list of tasks associated with a specific contract. Each task contains details such as its ID, amount, submission date, status, and description. This endpoint is useful for tracking the progress and status of tasks related to contracts.\n **Token scopes**: `contracts:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "bb887d40-49cf-431a-bef9-08163751ed2b",
+                      "name": "Successful operation. A list of tasks associated with the specified contract.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/tasks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "tasks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"amount\": \"<string>\",\n      \"status\": \"paid\",\n      \"description\": \"<string>\",\n      \"date_submitted\": \"<string>\",\n      \"attachment\": {\n        \"key\": \"<string,null>\",\n        \"filename\": \"<string,null>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"amount\": \"<string>\",\n      \"status\": \"declined\",\n      \"description\": \"<string>\",\n      \"date_submitted\": \"<string>\",\n      \"attachment\": {\n        \"key\": \"<string,null>\",\n        \"filename\": \"<string,null>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:17.000Z",
+                      "updatedAt": "2026-07-28T01:33:17.000Z",
+                      "uid": "35240-bb887d40-49cf-431a-bef9-08163751ed2b"
+                    },
+                    {
+                      "id": "b8cba101-8a3a-4c56-8ac2-14973dead54c",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/tasks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "tasks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:17.000Z",
+                      "updatedAt": "2026-07-28T01:33:17.000Z",
+                      "uid": "35240-b8cba101-8a3a-4c56-8ac2-14973dead54c"
+                    },
+                    {
+                      "id": "ca74c4cf-53ea-4681-a6a7-1532e77be507",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/tasks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "tasks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:17.000Z",
+                      "updatedAt": "2026-07-28T01:33:17.000Z",
+                      "uid": "35240-ca74c4cf-53ea-4681-a6a7-1532e77be507"
+                    },
+                    {
+                      "id": "ab5a15db-9356-4684-97ae-82831f4fb89c",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/tasks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "tasks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:17.000Z",
+                      "updatedAt": "2026-07-28T01:33:17.000Z",
+                      "uid": "35240-ab5a15db-9356-4684-97ae-82831f4fb89c"
+                    },
+                    {
+                      "id": "072d70e8-8337-4403-bae2-2b91d04052cd",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/tasks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "tasks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:17.000Z",
+                      "updatedAt": "2026-07-28T01:33:17.000Z",
+                      "uid": "35240-072d70e8-8337-4403-bae2-2b91d04052cd"
+                    },
+                    {
+                      "id": "db8e8c3b-bbfe-4eb1-8d02-52b0dc01eb3c",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/tasks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "tasks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:17.000Z",
+                      "updatedAt": "2026-07-28T01:33:17.000Z",
+                      "uid": "35240-db8e8c3b-bbfe-4eb1-8d02-52b0dc01eb3c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:33:17.000Z",
+                  "updatedAt": "2026-07-28T01:33:17.000Z",
+                  "uid": "35240-dc6b9c37-2ad5-4dc4-b795-663c9da517eb"
+                }
+              ],
+              "id": "25c29f1f-19dd-451a-87e4-caf42bfe0627",
+              "createdAt": "2026-07-28T01:33:17.000Z",
+              "updatedAt": "2026-07-28T01:33:17.000Z",
+              "uid": "35240-25c29f1f-19dd-451a-87e4-caf42bfe0627"
+            }
+          ],
+          "id": "7244de5d-0e51-4b21-913a-e38488dc688a",
+          "createdAt": "2026-07-28T01:33:17.000Z",
+          "updatedAt": "2026-07-28T01:33:17.000Z",
+          "uid": "35240-7244de5d-0e51-4b21-913a-e38488dc688a"
+        }
+      ],
+      "id": "7dac6b97-a001-4833-a337-27930114a254",
+      "createdAt": "2026-07-28T01:33:17.000Z",
+      "updatedAt": "2026-07-28T01:33:17.000Z",
+      "uid": "35240-7dac6b97-a001-4833-a337-27930114a254"
+    },
+    {
+      "name": "tasks",
+      "item": [
+        {
+          "name": "{task_id}",
+          "item": [
+            {
+              "name": "Update Task By ID",
+              "id": "4ffc8902-4250-44af-bfe6-fb832b15958d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"amount\": \"<string,null>\",\n    \"description\": \"<string,null>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tasks/:task_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tasks",
+                    ":task_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "7571b9cc-369e-44fe-ab97-4b5cca2d1145",
+                      "key": "task_id",
+                      "value": "<string>",
+                      "description": "(Required) The id of an existing task"
+                    }
+                  ]
+                },
+                "description": "Updates a task by id, returns whether the update was successful or not.\n **Token scopes**: `tasks:write`"
+              },
+              "response": [
+                {
+                  "id": "9be3d3ac-9db5-45da-8f3c-3395b9ef19b3",
+                  "name": "The task was successfully updated.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"amount\": \"<string,null>\",\n    \"description\": \"<string,null>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/tasks/:task_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tasks",
+                        ":task_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "task_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:17.000Z",
+                  "updatedAt": "2026-07-28T01:33:17.000Z",
+                  "uid": "35240-9be3d3ac-9db5-45da-8f3c-3395b9ef19b3"
+                },
+                {
+                  "id": "0eeca3d9-1213-4b8d-aae5-54a87d1a10d9",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"amount\": \"<string,null>\",\n    \"description\": \"<string,null>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/tasks/:task_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tasks",
+                        ":task_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "task_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:17.000Z",
+                  "updatedAt": "2026-07-28T01:33:17.000Z",
+                  "uid": "35240-0eeca3d9-1213-4b8d-aae5-54a87d1a10d9"
+                },
+                {
+                  "id": "f84f5804-fbb5-447e-b19c-cc9b8e094922",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"amount\": \"<string,null>\",\n    \"description\": \"<string,null>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/tasks/:task_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tasks",
+                        ":task_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "task_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:17.000Z",
+                  "updatedAt": "2026-07-28T01:33:17.000Z",
+                  "uid": "35240-f84f5804-fbb5-447e-b19c-cc9b8e094922"
+                },
+                {
+                  "id": "12091d7f-8631-4879-8cec-fef6645c2108",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"amount\": \"<string,null>\",\n    \"description\": \"<string,null>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/tasks/:task_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tasks",
+                        ":task_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "task_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:17.000Z",
+                  "updatedAt": "2026-07-28T01:33:17.000Z",
+                  "uid": "35240-12091d7f-8631-4879-8cec-fef6645c2108"
+                },
+                {
+                  "id": "c6ff78f2-1715-4b88-a20a-8d8b6e9b8fa8",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"amount\": \"<string,null>\",\n    \"description\": \"<string,null>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/tasks/:task_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tasks",
+                        ":task_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "task_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:17.000Z",
+                  "updatedAt": "2026-07-28T01:33:17.000Z",
+                  "uid": "35240-c6ff78f2-1715-4b88-a20a-8d8b6e9b8fa8"
+                },
+                {
+                  "id": "fce0c458-fbb8-4797-8052-a1e209582291",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"amount\": \"<string,null>\",\n    \"description\": \"<string,null>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/tasks/:task_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tasks",
+                        ":task_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "task_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:17.000Z",
+                  "updatedAt": "2026-07-28T01:33:17.000Z",
+                  "uid": "35240-fce0c458-fbb8-4797-8052-a1e209582291"
+                }
+              ],
+              "createdAt": "2026-07-28T01:33:17.000Z",
+              "updatedAt": "2026-07-28T01:33:17.000Z",
+              "uid": "35240-4ffc8902-4250-44af-bfe6-fb832b15958d"
+            }
+          ],
+          "id": "55df2664-8727-4653-824d-1258caeea2d5",
+          "createdAt": "2026-07-28T01:33:17.000Z",
+          "updatedAt": "2026-07-28T01:33:17.000Z",
+          "uid": "35240-55df2664-8727-4653-824d-1258caeea2d5"
+        }
+      ],
+      "id": "cf092c22-7527-4147-8941-03eb269f51c6",
+      "createdAt": "2026-07-28T01:33:17.000Z",
+      "updatedAt": "2026-07-28T01:33:17.000Z",
+      "uid": "35240-cf092c22-7527-4147-8941-03eb269f51c6"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

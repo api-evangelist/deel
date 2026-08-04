@@ -1,0 +1,3149 @@
+{
+  "info": {
+    "_postman_id": "e1eeb0ac-6d68-47bc-aead-a348ac3b6833",
+    "name": "Endpoints subpackage_invoiceAdjustments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:31:46.000Z",
+    "updatedAt": "2026-07-28T01:31:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e1eeb0ac-6d68-47bc-aead-a348ac3b6833"
+  },
+  "item": [
+    {
+      "name": "invoice-adjustments",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "reviews",
+              "item": [
+                {
+                  "name": "Review a single invoice adjustment",
+                  "id": "3af3c6fd-1d31-4fb7-b23a-1b564cc76119",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id/reviews",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id",
+                        "reviews"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e7aeab0e-4e92-4c6f-ac59-fd64180204a2",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) ID of an existing invoice adjustment."
+                        }
+                      ]
+                    },
+                    "description": "Review a single invoice adjustment to approve or decline it.\n **Token scopes**: `invoice-adjustments:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "f947b8ab-e0a3-493f-8669-cc3b667fc4fb",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/invoice-adjustments/:id/reviews",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invoice-adjustments",
+                            ":id",
+                            "reviews"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"created\": \"<boolean>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:31:47.000Z",
+                      "updatedAt": "2026-07-28T01:31:47.000Z",
+                      "uid": "35240-f947b8ab-e0a3-493f-8669-cc3b667fc4fb"
+                    },
+                    {
+                      "id": "43bdfce9-37de-46e0-94ec-9a399b8002b5",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/invoice-adjustments/:id/reviews",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invoice-adjustments",
+                            ":id",
+                            "reviews"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:47.000Z",
+                      "updatedAt": "2026-07-28T01:31:47.000Z",
+                      "uid": "35240-43bdfce9-37de-46e0-94ec-9a399b8002b5"
+                    },
+                    {
+                      "id": "b540b9fe-0c12-4422-b6eb-444d9127ddf0",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/invoice-adjustments/:id/reviews",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invoice-adjustments",
+                            ":id",
+                            "reviews"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:47.000Z",
+                      "updatedAt": "2026-07-28T01:31:47.000Z",
+                      "uid": "35240-b540b9fe-0c12-4422-b6eb-444d9127ddf0"
+                    },
+                    {
+                      "id": "c9329731-1226-4cc0-b173-c269ba6b6cbe",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/invoice-adjustments/:id/reviews",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invoice-adjustments",
+                            ":id",
+                            "reviews"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:47.000Z",
+                      "updatedAt": "2026-07-28T01:31:47.000Z",
+                      "uid": "35240-c9329731-1226-4cc0-b173-c269ba6b6cbe"
+                    },
+                    {
+                      "id": "613d7d3a-a4d1-4277-8614-7337036f8b56",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/invoice-adjustments/:id/reviews",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invoice-adjustments",
+                            ":id",
+                            "reviews"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:47.000Z",
+                      "updatedAt": "2026-07-28T01:31:47.000Z",
+                      "uid": "35240-613d7d3a-a4d1-4277-8614-7337036f8b56"
+                    },
+                    {
+                      "id": "9c7eca26-d641-458e-a144-8ce0a3facb6b",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/invoice-adjustments/:id/reviews",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "invoice-adjustments",
+                            ":id",
+                            "reviews"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:47.000Z",
+                      "updatedAt": "2026-07-28T01:31:47.000Z",
+                      "uid": "35240-9c7eca26-d641-458e-a144-8ce0a3facb6b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-3af3c6fd-1d31-4fb7-b23a-1b564cc76119"
+                }
+              ],
+              "id": "4ea02088-2b4b-44a3-a33e-fff6ec09a767",
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-4ea02088-2b4b-44a3-a33e-fff6ec09a767"
+            },
+            {
+              "name": "Delete adjustment",
+              "id": "d1a83869-ef3f-4bcf-b5a8-4960495272d3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-adjustments",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "584f20a6-fa7b-405c-876f-ecb54b9e6adf",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Invoice adjustment id."
+                    }
+                  ]
+                },
+                "description": "Delete an adjustment.\n **Token scopes**: `invoice-adjustments:write`"
+              },
+              "response": [
+                {
+                  "id": "6a691e21-f7c7-4fd2-9c5e-8d02bcbee6a1",
+                  "name": "Successful operation.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"deleted\": \"<boolean>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-6a691e21-f7c7-4fd2-9c5e-8d02bcbee6a1"
+                },
+                {
+                  "id": "70bcf6aa-66e7-4fc4-81f7-a1089ac5d8d9",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-70bcf6aa-66e7-4fc4-81f7-a1089ac5d8d9"
+                },
+                {
+                  "id": "baba4a06-603c-405b-880e-ef77263a2b5d",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-baba4a06-603c-405b-880e-ef77263a2b5d"
+                },
+                {
+                  "id": "0657c149-8d96-4059-a8e9-8f5688655913",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-0657c149-8d96-4059-a8e9-8f5688655913"
+                },
+                {
+                  "id": "270ffeb6-2388-4706-a823-007189199c45",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-270ffeb6-2388-4706-a823-007189199c45"
+                },
+                {
+                  "id": "f13e2511-3002-4f65-a849-ca7130d4e3dc",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-f13e2511-3002-4f65-a849-ca7130d4e3dc"
+                }
+              ],
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-d1a83869-ef3f-4bcf-b5a8-4960495272d3"
+            },
+            {
+              "name": "Invoice line item by Id",
+              "id": "28877c3f-4b77-49c3-8fca-5aad838a4c9b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-adjustments",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "05c82a55-2e66-43eb-8c6c-e88820b85cd5",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) ID of an existing invoice"
+                    }
+                  ]
+                },
+                "description": "Use this endpoint to retrieve the details of a specific invoice adjustment (line item) by its id. Call it when you need to display or audit a charge, deduction, or expense on an invoice, or to reconcile a payment discrepancy. Provide the adjustment id in the path parameter. This operation is read-only.\n **Token scopes**: `invoice-adjustments:read`, `worker:read`"
+              },
+              "response": [
+                {
+                  "id": "839cb58d-5902-43bf-80cf-3497c474d56b",
+                  "name": "Successful operation.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"id\": \"<string,null-uuid>\",\n    \"type\": \"health_allowance\",\n    \"status\": \"approved\",\n    \"contract\": {\n      \"id\": \"<string>\",\n      \"type\": \"employee\",\n      \"title\": \"<string>\"\n    },\n    \"quantity\": \"<number,null-double>\",\n    \"worksheet\": {\n      \"days\": \"<double>\",\n      \"hours\": \"<double>\",\n      \"weeks\": \"<double>\",\n      \"minutes\": \"<double>\"\n    },\n    \"attachment\": {\n      \"key\": \"<string>\",\n      \"filename\": \"<string>\",\n      \"download_url\": \"<string,null>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"reported_by\": {\n      \"id\": \"<string>\",\n      \"full_name\": \"<string>\"\n    },\n    \"reviewed_by\": {\n      \"id\": \"<string>\",\n      \"remarks\": \"<string>\",\n      \"reviewed_at\": \"<string>\",\n      \"full_name\": \"<string>\"\n    },\n    \"total_amount\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"payment_cycle\": {\n      \"end_date\": \"<dateTime>\",\n      \"start_date\": \"<dateTime>\"\n    },\n    \"date_submitted\": \"<dateTime>\",\n    \"scale\": \"<string,null>\",\n    \"approvers\": [\n      {\n        \"approved\": \"<boolean>\",\n        \"email\": \"<string>\",\n        \"full_name\": \"<string>\"\n      },\n      {\n        \"approved\": \"<boolean>\",\n        \"email\": \"<string>\",\n        \"full_name\": \"<string>\"\n      }\n    ],\n    \"invoice_id\": \"<number,null-double>\",\n    \"custom_scale\": \"<string,null>\",\n    \"invoice_public_id\": \"<string,null>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-839cb58d-5902-43bf-80cf-3497c474d56b"
+                },
+                {
+                  "id": "7f89c043-8adf-42a8-bbf7-403bbaba09fd",
+                  "name": "Fetch failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-7f89c043-8adf-42a8-bbf7-403bbaba09fd"
+                },
+                {
+                  "id": "493b25b8-4b6a-4736-bbd5-b2660aae543f",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-493b25b8-4b6a-4736-bbd5-b2660aae543f"
+                },
+                {
+                  "id": "e619ae63-55af-4d90-87b0-7e46d075f3ac",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-e619ae63-55af-4d90-87b0-7e46d075f3ac"
+                },
+                {
+                  "id": "93532340-7c9c-4fbb-a5cb-d5fe6c014f1c",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-93532340-7c9c-4fbb-a5cb-d5fe6c014f1c"
+                },
+                {
+                  "id": "63547f90-22ea-45cd-b2fc-e0ec96d98138",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-63547f90-22ea-45cd-b2fc-e0ec96d98138"
+                }
+              ],
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-28877c3f-4b77-49c3-8fca-5aad838a4c9b"
+            },
+            {
+              "name": "Update an invoice adjustment",
+              "id": "fbeb06b4-e61f-426f-9915-673dfc2f71ea",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"title\": \"<string>\",\n    \"amount\": \"<double>\",\n    \"description\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-adjustments",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "61525133-4372-46e2-927b-cc4f7425b3b5",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Invoice adjustment id."
+                    }
+                  ]
+                },
+                "description": "Update an invoice adjustment.\n **Token scopes**: `invoice-adjustments:write`, `worker:write`"
+              },
+              "response": [
+                {
+                  "id": "45f39b8e-42af-42df-b248-5b8c60f69948",
+                  "name": "Successful operation.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"title\": \"<string>\",\n    \"amount\": \"<double>\",\n    \"description\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"updated\": \"<boolean>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-45f39b8e-42af-42df-b248-5b8c60f69948"
+                },
+                {
+                  "id": "cb430a63-36dd-4ede-9af9-71fb060d2818",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"title\": \"<string>\",\n    \"amount\": \"<double>\",\n    \"description\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-cb430a63-36dd-4ede-9af9-71fb060d2818"
+                },
+                {
+                  "id": "56f165d2-6ab1-4cc4-9184-f8408be8e6fd",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"title\": \"<string>\",\n    \"amount\": \"<double>\",\n    \"description\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-56f165d2-6ab1-4cc4-9184-f8408be8e6fd"
+                },
+                {
+                  "id": "89d6bd02-72bd-497d-b2a6-b0f7c97eebae",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"title\": \"<string>\",\n    \"amount\": \"<double>\",\n    \"description\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-89d6bd02-72bd-497d-b2a6-b0f7c97eebae"
+                },
+                {
+                  "id": "c4244bd5-0bcc-4317-be97-82eda1fe8f5b",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"title\": \"<string>\",\n    \"amount\": \"<double>\",\n    \"description\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-c4244bd5-0bcc-4317-be97-82eda1fe8f5b"
+                },
+                {
+                  "id": "6d05b71c-b35e-498a-9815-53c5584ff6ec",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"title\": \"<string>\",\n    \"amount\": \"<double>\",\n    \"description\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice-adjustments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice-adjustments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-6d05b71c-b35e-498a-9815-53c5584ff6ec"
+                }
+              ],
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-fbeb06b4-e61f-426f-9915-673dfc2f71ea"
+            }
+          ],
+          "id": "7d0a6e74-aa3d-4482-a528-416648689237",
+          "createdAt": "2026-07-28T01:31:47.000Z",
+          "updatedAt": "2026-07-28T01:31:47.000Z",
+          "uid": "35240-7d0a6e74-aa3d-4482-a528-416648689237"
+        },
+        {
+          "name": "Create an invoice adjustment",
+          "id": "6d3239f6-63bf-4fc6-b4fa-d124b2e14c6d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"type\": \"other\",\n    \"amount\": \"<double>\",\n    \"contract_id\": \"<string>\",\n    \"description\": \"<string>\",\n    \"date_submitted\": \"<date>\",\n    \"paymentCycleId\": \"<number,null-double>\",\n    \"is_auto_approved\": \"<boolean>\",\n    \"hourly_report_preset_id\": \"<string,null-uuid>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/invoice-adjustments?recurring=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invoice-adjustments"
+              ],
+              "query": [
+                {
+                  "description": "Add this invoice adjustment as recurring",
+                  "key": "recurring",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Create an invoice adjustment using this endpoint. For example, you can add a bonus, commission, VAT %, deduction etc. to an invoice.\n **Token scopes**: `invoice-adjustments:write`, `worker:write`"
+          },
+          "response": [
+            {
+              "id": "350b72e5-3321-4536-a86f-9e6795536995",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"type\": \"other\",\n    \"amount\": \"<double>\",\n    \"contract_id\": \"<string>\",\n    \"description\": \"<string>\",\n    \"date_submitted\": \"<date>\",\n    \"paymentCycleId\": \"<number,null-double>\",\n    \"is_auto_approved\": \"<boolean>\",\n    \"hourly_report_preset_id\": \"<string,null-uuid>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-adjustments?recurring=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-adjustments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Add this invoice adjustment as recurring",
+                      "key": "recurring",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"created\": \"<boolean>\",\n    \"id\": \"<string>\",\n    \"status\": \"paid\",\n    \"created_at\": \"<string,null-date-time>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-350b72e5-3321-4536-a86f-9e6795536995"
+            },
+            {
+              "id": "7d6433c7-d604-4fa6-beeb-7ceb7dad1d23",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"type\": \"other\",\n    \"amount\": \"<double>\",\n    \"contract_id\": \"<string>\",\n    \"description\": \"<string>\",\n    \"date_submitted\": \"<date>\",\n    \"paymentCycleId\": \"<number,null-double>\",\n    \"is_auto_approved\": \"<boolean>\",\n    \"hourly_report_preset_id\": \"<string,null-uuid>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-adjustments?recurring=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-adjustments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Add this invoice adjustment as recurring",
+                      "key": "recurring",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-7d6433c7-d604-4fa6-beeb-7ceb7dad1d23"
+            },
+            {
+              "id": "a8005781-b8ff-4e14-ae02-2cd4ed5fe82e",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"type\": \"other\",\n    \"amount\": \"<double>\",\n    \"contract_id\": \"<string>\",\n    \"description\": \"<string>\",\n    \"date_submitted\": \"<date>\",\n    \"paymentCycleId\": \"<number,null-double>\",\n    \"is_auto_approved\": \"<boolean>\",\n    \"hourly_report_preset_id\": \"<string,null-uuid>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-adjustments?recurring=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-adjustments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Add this invoice adjustment as recurring",
+                      "key": "recurring",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-a8005781-b8ff-4e14-ae02-2cd4ed5fe82e"
+            },
+            {
+              "id": "36c6cd49-01d3-4b14-9a23-a610a5d2bdb9",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"type\": \"other\",\n    \"amount\": \"<double>\",\n    \"contract_id\": \"<string>\",\n    \"description\": \"<string>\",\n    \"date_submitted\": \"<date>\",\n    \"paymentCycleId\": \"<number,null-double>\",\n    \"is_auto_approved\": \"<boolean>\",\n    \"hourly_report_preset_id\": \"<string,null-uuid>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-adjustments?recurring=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-adjustments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Add this invoice adjustment as recurring",
+                      "key": "recurring",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-36c6cd49-01d3-4b14-9a23-a610a5d2bdb9"
+            },
+            {
+              "id": "c88dbc80-ab43-44c4-8aa5-776e888721ac",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"type\": \"other\",\n    \"amount\": \"<double>\",\n    \"contract_id\": \"<string>\",\n    \"description\": \"<string>\",\n    \"date_submitted\": \"<date>\",\n    \"paymentCycleId\": \"<number,null-double>\",\n    \"is_auto_approved\": \"<boolean>\",\n    \"hourly_report_preset_id\": \"<string,null-uuid>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-adjustments?recurring=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-adjustments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Add this invoice adjustment as recurring",
+                      "key": "recurring",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-c88dbc80-ab43-44c4-8aa5-776e888721ac"
+            },
+            {
+              "id": "7e145722-b4d3-4242-b923-e3c9fa925621",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"type\": \"other\",\n    \"amount\": \"<double>\",\n    \"contract_id\": \"<string>\",\n    \"description\": \"<string>\",\n    \"date_submitted\": \"<date>\",\n    \"paymentCycleId\": \"<number,null-double>\",\n    \"is_auto_approved\": \"<boolean>\",\n    \"hourly_report_preset_id\": \"<string,null-uuid>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-adjustments?recurring=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-adjustments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Add this invoice adjustment as recurring",
+                      "key": "recurring",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-7e145722-b4d3-4242-b923-e3c9fa925621"
+            }
+          ],
+          "createdAt": "2026-07-28T01:31:47.000Z",
+          "updatedAt": "2026-07-28T01:31:47.000Z",
+          "uid": "35240-6d3239f6-63bf-4fc6-b4fa-d124b2e14c6d"
+        },
+        {
+          "name": "List invoice adjustments",
+          "id": "f3fdac58-ccf1-4641-92b6-874213057ab8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/invoice-adjustments?contract_id=<string>&contract_types=payg_milestones&contract_types=ongoing_time_based&types=refund&types=pension&statuses=pending&statuses=not_payable&invoice_id=<string>&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invoice-adjustments"
+              ],
+              "query": [
+                {
+                  "description": "Id of an Deel contract.",
+                  "key": "contract_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "types of contracts to filter",
+                  "key": "contract_types",
+                  "value": "payg_milestones"
+                },
+                {
+                  "description": "types of contracts to filter",
+                  "key": "contract_types",
+                  "value": "ongoing_time_based"
+                },
+                {
+                  "description": "types of invoice adjustments to filter",
+                  "key": "types",
+                  "value": "refund"
+                },
+                {
+                  "description": "types of invoice adjustments to filter",
+                  "key": "types",
+                  "value": "pension"
+                },
+                {
+                  "description": "statuses of invoice adjustment to filter",
+                  "key": "statuses",
+                  "value": "pending"
+                },
+                {
+                  "description": "statuses of invoice adjustment to filter",
+                  "key": "statuses",
+                  "value": "not_payable"
+                },
+                {
+                  "description": "ID of an existing invoice",
+                  "key": "invoice_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "ID of an existing profile",
+                  "key": "reporter_id",
+                  "value": "<uuid>"
+                },
+                {
+                  "description": "To get invoice adjustments submitted on or after given start date (inclusive). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                  "key": "date_from",
+                  "value": "<date>"
+                },
+                {
+                  "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                  "key": "date_to",
+                  "value": "<date>"
+                },
+                {
+                  "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                  "key": "limit",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings",
+                  "key": "offset",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve invoice adjustments. You can filter the list by providing additional parameters e.g. contract_id, contract_type etc.\n **Token scopes**: `invoice-adjustments:read`"
+          },
+          "response": [
+            {
+              "id": "ab918f63-c288-44a7-a2dc-bec98c5335b1",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-adjustments?contract_id=<string>&contract_types=ongoing_time_based&types=pension&statuses=not_payable&invoice_id=<string>&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-adjustments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Id of an Deel contract.",
+                      "key": "contract_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "types of contracts to filter",
+                      "key": "contract_types",
+                      "value": "ongoing_time_based"
+                    },
+                    {
+                      "description": "types of invoice adjustments to filter",
+                      "key": "types",
+                      "value": "pension"
+                    },
+                    {
+                      "description": "statuses of invoice adjustment to filter",
+                      "key": "statuses",
+                      "value": "not_payable"
+                    },
+                    {
+                      "description": "ID of an existing invoice",
+                      "key": "invoice_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of an existing profile",
+                      "key": "reporter_id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "To get invoice adjustments submitted on or after given start date (inclusive). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings",
+                      "key": "offset",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string,null-uuid>\",\n      \"type\": \"allowance\",\n      \"status\": \"not_payable\",\n      \"contract\": {\n        \"id\": \"<string>\",\n        \"type\": \"unknown\",\n        \"title\": \"<string>\"\n      },\n      \"quantity\": \"<number,null-double>\",\n      \"worksheet\": {\n        \"days\": \"<double>\",\n        \"hours\": \"<double>\",\n        \"weeks\": \"<double>\",\n        \"minutes\": \"<double>\"\n      },\n      \"attachment\": {\n        \"key\": \"<string>\",\n        \"filename\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"description\": \"<string,null>\",\n      \"reported_by\": {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\"\n      },\n      \"reviewed_by\": {\n        \"id\": \"<string>\",\n        \"remarks\": \"<string,null>\",\n        \"reviewed_at\": \"<string,null>\",\n        \"full_name\": \"<string>\"\n      },\n      \"total_amount\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"payment_cycle\": {\n        \"end\": \"<string,null-date-time>\",\n        \"start\": \"<string,null-date-time>\"\n      },\n      \"scale\": \"<string,null>\",\n      \"invoice_id\": \"<number,null-double>\",\n      \"custom_scale\": \"<string,null>\",\n      \"date_submitted\": \"<string,null-date-time>\",\n      \"hourlyReportPreset\": {\n        \"id\": \"<uuid>\",\n        \"rate\": \"<number,null-double>\",\n        \"title\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<string,null-uuid>\",\n      \"type\": \"withholding_tax\",\n      \"status\": \"not_payable\",\n      \"contract\": {\n        \"id\": \"<string>\",\n        \"type\": \"payg_tasks\",\n        \"title\": \"<string>\"\n      },\n      \"quantity\": \"<number,null-double>\",\n      \"worksheet\": {\n        \"days\": \"<double>\",\n        \"hours\": \"<double>\",\n        \"weeks\": \"<double>\",\n        \"minutes\": \"<double>\"\n      },\n      \"attachment\": {\n        \"key\": \"<string>\",\n        \"filename\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"description\": \"<string,null>\",\n      \"reported_by\": {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\"\n      },\n      \"reviewed_by\": {\n        \"id\": \"<string>\",\n        \"remarks\": \"<string,null>\",\n        \"reviewed_at\": \"<string,null>\",\n        \"full_name\": \"<string>\"\n      },\n      \"total_amount\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"payment_cycle\": {\n        \"end\": \"<string,null-date-time>\",\n        \"start\": \"<string,null-date-time>\"\n      },\n      \"scale\": \"<string,null>\",\n      \"invoice_id\": \"<number,null-double>\",\n      \"custom_scale\": \"<string,null>\",\n      \"date_submitted\": \"<string,null-date-time>\",\n      \"hourlyReportPreset\": {\n        \"id\": \"<uuid>\",\n        \"rate\": \"<number,null-double>\",\n        \"title\": \"<string>\"\n      }\n    }\n  ],\n  \"page\": {\n    \"offset\": \"<double>\",\n    \"total_rows\": \"<double>\",\n    \"items_per_page\": \"<double>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-ab918f63-c288-44a7-a2dc-bec98c5335b1"
+            },
+            {
+              "id": "5139967b-013f-441a-8a52-3f7e0193240d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-adjustments?contract_id=<string>&contract_types=ongoing_time_based&types=pension&statuses=not_payable&invoice_id=<string>&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-adjustments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Id of an Deel contract.",
+                      "key": "contract_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "types of contracts to filter",
+                      "key": "contract_types",
+                      "value": "ongoing_time_based"
+                    },
+                    {
+                      "description": "types of invoice adjustments to filter",
+                      "key": "types",
+                      "value": "pension"
+                    },
+                    {
+                      "description": "statuses of invoice adjustment to filter",
+                      "key": "statuses",
+                      "value": "not_payable"
+                    },
+                    {
+                      "description": "ID of an existing invoice",
+                      "key": "invoice_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of an existing profile",
+                      "key": "reporter_id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "To get invoice adjustments submitted on or after given start date (inclusive). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings",
+                      "key": "offset",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-5139967b-013f-441a-8a52-3f7e0193240d"
+            },
+            {
+              "id": "ef809c25-1ed0-4c87-a68e-b8cee1a29d47",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-adjustments?contract_id=<string>&contract_types=ongoing_time_based&types=pension&statuses=not_payable&invoice_id=<string>&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-adjustments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Id of an Deel contract.",
+                      "key": "contract_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "types of contracts to filter",
+                      "key": "contract_types",
+                      "value": "ongoing_time_based"
+                    },
+                    {
+                      "description": "types of invoice adjustments to filter",
+                      "key": "types",
+                      "value": "pension"
+                    },
+                    {
+                      "description": "statuses of invoice adjustment to filter",
+                      "key": "statuses",
+                      "value": "not_payable"
+                    },
+                    {
+                      "description": "ID of an existing invoice",
+                      "key": "invoice_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of an existing profile",
+                      "key": "reporter_id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "To get invoice adjustments submitted on or after given start date (inclusive). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings",
+                      "key": "offset",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-ef809c25-1ed0-4c87-a68e-b8cee1a29d47"
+            },
+            {
+              "id": "eb7bdac9-a624-4443-b03a-4dc79864a64e",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-adjustments?contract_id=<string>&contract_types=ongoing_time_based&types=pension&statuses=not_payable&invoice_id=<string>&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-adjustments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Id of an Deel contract.",
+                      "key": "contract_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "types of contracts to filter",
+                      "key": "contract_types",
+                      "value": "ongoing_time_based"
+                    },
+                    {
+                      "description": "types of invoice adjustments to filter",
+                      "key": "types",
+                      "value": "pension"
+                    },
+                    {
+                      "description": "statuses of invoice adjustment to filter",
+                      "key": "statuses",
+                      "value": "not_payable"
+                    },
+                    {
+                      "description": "ID of an existing invoice",
+                      "key": "invoice_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of an existing profile",
+                      "key": "reporter_id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "To get invoice adjustments submitted on or after given start date (inclusive). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings",
+                      "key": "offset",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-eb7bdac9-a624-4443-b03a-4dc79864a64e"
+            },
+            {
+              "id": "95e552c8-9b11-49fb-b0e3-50e7515ac345",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-adjustments?contract_id=<string>&contract_types=ongoing_time_based&types=pension&statuses=not_payable&invoice_id=<string>&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-adjustments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Id of an Deel contract.",
+                      "key": "contract_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "types of contracts to filter",
+                      "key": "contract_types",
+                      "value": "ongoing_time_based"
+                    },
+                    {
+                      "description": "types of invoice adjustments to filter",
+                      "key": "types",
+                      "value": "pension"
+                    },
+                    {
+                      "description": "statuses of invoice adjustment to filter",
+                      "key": "statuses",
+                      "value": "not_payable"
+                    },
+                    {
+                      "description": "ID of an existing invoice",
+                      "key": "invoice_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of an existing profile",
+                      "key": "reporter_id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "To get invoice adjustments submitted on or after given start date (inclusive). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings",
+                      "key": "offset",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-95e552c8-9b11-49fb-b0e3-50e7515ac345"
+            },
+            {
+              "id": "8a06d0bc-32a4-4f06-99fa-abf0f9d039b9",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-adjustments?contract_id=<string>&contract_types=ongoing_time_based&types=pension&statuses=not_payable&invoice_id=<string>&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-adjustments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Id of an Deel contract.",
+                      "key": "contract_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "types of contracts to filter",
+                      "key": "contract_types",
+                      "value": "ongoing_time_based"
+                    },
+                    {
+                      "description": "types of invoice adjustments to filter",
+                      "key": "types",
+                      "value": "pension"
+                    },
+                    {
+                      "description": "statuses of invoice adjustment to filter",
+                      "key": "statuses",
+                      "value": "not_payable"
+                    },
+                    {
+                      "description": "ID of an existing invoice",
+                      "key": "invoice_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of an existing profile",
+                      "key": "reporter_id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "To get invoice adjustments submitted on or after given start date (inclusive). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings",
+                      "key": "offset",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-8a06d0bc-32a4-4f06-99fa-abf0f9d039b9"
+            }
+          ],
+          "createdAt": "2026-07-28T01:31:47.000Z",
+          "updatedAt": "2026-07-28T01:31:47.000Z",
+          "uid": "35240-f3fdac58-ccf1-4641-92b6-874213057ab8"
+        }
+      ],
+      "id": "a054c5c5-3042-448e-adc2-baa1ded4d3bd",
+      "createdAt": "2026-07-28T01:31:47.000Z",
+      "updatedAt": "2026-07-28T01:31:47.000Z",
+      "uid": "35240-a054c5c5-3042-448e-adc2-baa1ded4d3bd"
+    },
+    {
+      "name": "contracts",
+      "item": [
+        {
+          "name": "{contract_id}",
+          "item": [
+            {
+              "name": "invoice-adjustments",
+              "item": [
+                {
+                  "name": "Invoice line items by contract",
+                  "id": "e57ccdc0-6ec7-4fc1-b055-dfb5dcb58ccf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/invoice-adjustments?contract_types=milestones&contract_types=time_based&types=deposit&types=work&statuses=pending&statuses=declined&invoice_id=<string>&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "invoice-adjustments"
+                      ],
+                      "query": [
+                        {
+                          "description": "types of contracts to filter",
+                          "key": "contract_types",
+                          "value": "milestones"
+                        },
+                        {
+                          "description": "types of contracts to filter",
+                          "key": "contract_types",
+                          "value": "time_based"
+                        },
+                        {
+                          "description": "types of invoice adjustments to filter",
+                          "key": "types",
+                          "value": "deposit"
+                        },
+                        {
+                          "description": "types of invoice adjustments to filter",
+                          "key": "types",
+                          "value": "work"
+                        },
+                        {
+                          "description": "statuses of invoice adjustment to filter",
+                          "key": "statuses",
+                          "value": "pending"
+                        },
+                        {
+                          "description": "statuses of invoice adjustment to filter",
+                          "key": "statuses",
+                          "value": "declined"
+                        },
+                        {
+                          "description": "ID of an existing invoice",
+                          "key": "invoice_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ID of an existing profile",
+                          "key": "reporter_id",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "To get invoice adjustments submitted on or after given start date (inclusive).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                          "key": "date_from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                          "key": "date_to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                          "key": "limit",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings",
+                          "key": "offset",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "34c688e9-972f-4622-bb08-5b2d6a72f014",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) Deel contract id."
+                        }
+                      ]
+                    },
+                    "description": "Retrieve invoice line items for a given contract id.\n **Token scopes**: `invoice-adjustments:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "577618ae-0cb3-4bfd-a220-029670e36afa",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invoice-adjustments?contract_types=time_based&types=work&statuses=declined&invoice_id=<string>&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invoice-adjustments"
+                          ],
+                          "query": [
+                            {
+                              "description": "types of contracts to filter",
+                              "key": "contract_types",
+                              "value": "time_based"
+                            },
+                            {
+                              "description": "types of invoice adjustments to filter",
+                              "key": "types",
+                              "value": "work"
+                            },
+                            {
+                              "description": "statuses of invoice adjustment to filter",
+                              "key": "statuses",
+                              "value": "declined"
+                            },
+                            {
+                              "description": "ID of an existing invoice",
+                              "key": "invoice_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "ID of an existing profile",
+                              "key": "reporter_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "To get invoice adjustments submitted on or after given start date (inclusive).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "limit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "offset",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string,null-uuid>\",\n      \"type\": \"milestone\",\n      \"status\": \"processing\",\n      \"contract\": {\n        \"id\": \"<string>\",\n        \"type\": \"shield_msa\",\n        \"title\": \"<string>\"\n      },\n      \"quantity\": \"<number,null-double>\",\n      \"worksheet\": {\n        \"days\": \"<double>\",\n        \"hours\": \"<double>\",\n        \"weeks\": \"<double>\",\n        \"minutes\": \"<double>\"\n      },\n      \"attachment\": {\n        \"key\": \"<string>\",\n        \"filename\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"reported_by\": {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\"\n      },\n      \"reviewed_by\": {\n        \"id\": \"<string>\",\n        \"remarks\": \"<string>\",\n        \"reviewed_at\": \"<string>\",\n        \"full_name\": \"<string>\"\n      },\n      \"total_amount\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"payment_cycle\": {\n        \"end_date\": \"<string,null-date-time>\",\n        \"start_date\": \"<string,null-date-time>\"\n      },\n      \"date_submitted\": \"<dateTime>\",\n      \"scale\": \"<string,null>\",\n      \"invoice_id\": \"<number,null-double>\",\n      \"custom_scale\": \"<string,null>\"\n    },\n    {\n      \"id\": \"<string,null-uuid>\",\n      \"type\": \"expense\",\n      \"status\": \"approved\",\n      \"contract\": {\n        \"id\": \"<string>\",\n        \"type\": \"eor\",\n        \"title\": \"<string>\"\n      },\n      \"quantity\": \"<number,null-double>\",\n      \"worksheet\": {\n        \"days\": \"<double>\",\n        \"hours\": \"<double>\",\n        \"weeks\": \"<double>\",\n        \"minutes\": \"<double>\"\n      },\n      \"attachment\": {\n        \"key\": \"<string>\",\n        \"filename\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"reported_by\": {\n        \"id\": \"<string>\",\n        \"full_name\": \"<string>\"\n      },\n      \"reviewed_by\": {\n        \"id\": \"<string>\",\n        \"remarks\": \"<string>\",\n        \"reviewed_at\": \"<string>\",\n        \"full_name\": \"<string>\"\n      },\n      \"total_amount\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"payment_cycle\": {\n        \"end_date\": \"<string,null-date-time>\",\n        \"start_date\": \"<string,null-date-time>\"\n      },\n      \"date_submitted\": \"<dateTime>\",\n      \"scale\": \"<string,null>\",\n      \"invoice_id\": \"<number,null-double>\",\n      \"custom_scale\": \"<string,null>\"\n    }\n  ],\n  \"page\": {\n    \"offset\": \"<double>\",\n    \"total_rows\": \"<double>\",\n    \"items_per_page\": \"<double>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:31:47.000Z",
+                      "updatedAt": "2026-07-28T01:31:47.000Z",
+                      "uid": "35240-577618ae-0cb3-4bfd-a220-029670e36afa"
+                    },
+                    {
+                      "id": "59720465-7f9d-48aa-962c-802755358f15",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invoice-adjustments?contract_types=time_based&types=work&statuses=declined&invoice_id=<string>&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invoice-adjustments"
+                          ],
+                          "query": [
+                            {
+                              "description": "types of contracts to filter",
+                              "key": "contract_types",
+                              "value": "time_based"
+                            },
+                            {
+                              "description": "types of invoice adjustments to filter",
+                              "key": "types",
+                              "value": "work"
+                            },
+                            {
+                              "description": "statuses of invoice adjustment to filter",
+                              "key": "statuses",
+                              "value": "declined"
+                            },
+                            {
+                              "description": "ID of an existing invoice",
+                              "key": "invoice_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "ID of an existing profile",
+                              "key": "reporter_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "To get invoice adjustments submitted on or after given start date (inclusive).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "limit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "offset",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:47.000Z",
+                      "updatedAt": "2026-07-28T01:31:47.000Z",
+                      "uid": "35240-59720465-7f9d-48aa-962c-802755358f15"
+                    },
+                    {
+                      "id": "434dcfa5-4d79-4cb9-9f07-3f8f87c111de",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invoice-adjustments?contract_types=time_based&types=work&statuses=declined&invoice_id=<string>&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invoice-adjustments"
+                          ],
+                          "query": [
+                            {
+                              "description": "types of contracts to filter",
+                              "key": "contract_types",
+                              "value": "time_based"
+                            },
+                            {
+                              "description": "types of invoice adjustments to filter",
+                              "key": "types",
+                              "value": "work"
+                            },
+                            {
+                              "description": "statuses of invoice adjustment to filter",
+                              "key": "statuses",
+                              "value": "declined"
+                            },
+                            {
+                              "description": "ID of an existing invoice",
+                              "key": "invoice_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "ID of an existing profile",
+                              "key": "reporter_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "To get invoice adjustments submitted on or after given start date (inclusive).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "limit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "offset",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:47.000Z",
+                      "updatedAt": "2026-07-28T01:31:47.000Z",
+                      "uid": "35240-434dcfa5-4d79-4cb9-9f07-3f8f87c111de"
+                    },
+                    {
+                      "id": "90f7adcc-e69d-4a84-99cc-b5c0adec19a0",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invoice-adjustments?contract_types=time_based&types=work&statuses=declined&invoice_id=<string>&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invoice-adjustments"
+                          ],
+                          "query": [
+                            {
+                              "description": "types of contracts to filter",
+                              "key": "contract_types",
+                              "value": "time_based"
+                            },
+                            {
+                              "description": "types of invoice adjustments to filter",
+                              "key": "types",
+                              "value": "work"
+                            },
+                            {
+                              "description": "statuses of invoice adjustment to filter",
+                              "key": "statuses",
+                              "value": "declined"
+                            },
+                            {
+                              "description": "ID of an existing invoice",
+                              "key": "invoice_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "ID of an existing profile",
+                              "key": "reporter_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "To get invoice adjustments submitted on or after given start date (inclusive).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "limit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "offset",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:47.000Z",
+                      "updatedAt": "2026-07-28T01:31:47.000Z",
+                      "uid": "35240-90f7adcc-e69d-4a84-99cc-b5c0adec19a0"
+                    },
+                    {
+                      "id": "53767721-8535-43fb-ae2b-7b34daed1e78",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invoice-adjustments?contract_types=time_based&types=work&statuses=declined&invoice_id=<string>&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invoice-adjustments"
+                          ],
+                          "query": [
+                            {
+                              "description": "types of contracts to filter",
+                              "key": "contract_types",
+                              "value": "time_based"
+                            },
+                            {
+                              "description": "types of invoice adjustments to filter",
+                              "key": "types",
+                              "value": "work"
+                            },
+                            {
+                              "description": "statuses of invoice adjustment to filter",
+                              "key": "statuses",
+                              "value": "declined"
+                            },
+                            {
+                              "description": "ID of an existing invoice",
+                              "key": "invoice_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "ID of an existing profile",
+                              "key": "reporter_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "To get invoice adjustments submitted on or after given start date (inclusive).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "limit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "offset",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:47.000Z",
+                      "updatedAt": "2026-07-28T01:31:47.000Z",
+                      "uid": "35240-53767721-8535-43fb-ae2b-7b34daed1e78"
+                    },
+                    {
+                      "id": "6846c4cd-553d-4ce6-9ff3-6cd854ca7a3f",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invoice-adjustments?contract_types=time_based&types=work&statuses=declined&invoice_id=<string>&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invoice-adjustments"
+                          ],
+                          "query": [
+                            {
+                              "description": "types of contracts to filter",
+                              "key": "contract_types",
+                              "value": "time_based"
+                            },
+                            {
+                              "description": "types of invoice adjustments to filter",
+                              "key": "types",
+                              "value": "work"
+                            },
+                            {
+                              "description": "statuses of invoice adjustment to filter",
+                              "key": "statuses",
+                              "value": "declined"
+                            },
+                            {
+                              "description": "ID of an existing invoice",
+                              "key": "invoice_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "ID of an existing profile",
+                              "key": "reporter_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "To get invoice adjustments submitted on or after given start date (inclusive).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "limit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "offset",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:47.000Z",
+                      "updatedAt": "2026-07-28T01:31:47.000Z",
+                      "uid": "35240-6846c4cd-553d-4ce6-9ff3-6cd854ca7a3f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:31:47.000Z",
+                  "updatedAt": "2026-07-28T01:31:47.000Z",
+                  "uid": "35240-e57ccdc0-6ec7-4fc1-b055-dfb5dcb58ccf"
+                }
+              ],
+              "id": "43a9345d-2298-425b-b162-8c0a67a38077",
+              "createdAt": "2026-07-28T01:31:47.000Z",
+              "updatedAt": "2026-07-28T01:31:47.000Z",
+              "uid": "35240-43a9345d-2298-425b-b162-8c0a67a38077"
+            }
+          ],
+          "id": "3cebe0ce-439e-4a7a-828c-b6607e195ecb",
+          "createdAt": "2026-07-28T01:31:47.000Z",
+          "updatedAt": "2026-07-28T01:31:47.000Z",
+          "uid": "35240-3cebe0ce-439e-4a7a-828c-b6607e195ecb"
+        }
+      ],
+      "id": "0e4d7505-0303-41c3-b5d2-fd8ba2a0bf5e",
+      "createdAt": "2026-07-28T01:31:47.000Z",
+      "updatedAt": "2026-07-28T01:31:47.000Z",
+      "uid": "35240-0e4d7505-0303-41c3-b5d2-fd8ba2a0bf5e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

@@ -1,0 +1,1200 @@
+{
+  "info": {
+    "_postman_id": "2fde7b74-c510-4438-9f7a-cc671adc4cfd",
+    "name": "Endpoints subpackage_costCenters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:31.000Z",
+    "updatedAt": "2026-07-28T01:30:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2fde7b74-c510-4438-9f7a-cc671adc4cfd"
+  },
+  "item": [
+    {
+      "name": "legal-entities",
+      "item": [
+        {
+          "name": "{legal_entity_id}",
+          "item": [
+            {
+              "name": "cost-centers",
+              "item": [
+                {
+                  "name": "synchronize",
+                  "item": [
+                    {
+                      "name": "Sync cost centers for legal entity",
+                      "id": "298d0d55-b7f8-4eab-9a64-7076caf774ab",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": [\n    {\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    },\n    {\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/cost-centers/synchronize",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "legal-entities",
+                            ":legal_entity_id",
+                            "cost-centers",
+                            "synchronize"
+                          ],
+                          "variable": [
+                            {
+                              "id": "e136c8e2-a2be-4d8a-a216-37e640079ebb",
+                              "key": "legal_entity_id",
+                              "value": "<string>",
+                              "description": "(Required) Legal entity id"
+                            }
+                          ]
+                        },
+                        "description": "Update legal entity cost center's data to replicate the data provided on the request\n **Token scopes**: `legal-entity:write`"
+                      },
+                      "response": [
+                        {
+                          "id": "0585c2b9-ad48-4fdd-8192-9e897a34e0c8",
+                          "name": "Cost center data was successfully updated",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": [\n    {\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    },\n    {\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/cost-centers/synchronize",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "legal-entities",
+                                ":legal_entity_id",
+                                "cost-centers",
+                                "synchronize"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "legal_entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-0585c2b9-ad48-4fdd-8192-9e897a34e0c8"
+                        },
+                        {
+                          "id": "8dba0d41-e7c2-4df1-9635-b7071d6256ef",
+                          "name": "Cannot define legal entity cost centers as the provided data.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": [\n    {\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    },\n    {\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/cost-centers/synchronize",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "legal-entities",
+                                ":legal_entity_id",
+                                "cost-centers",
+                                "synchronize"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "legal_entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"error\": \"<string>\"\n    },\n    {\n      \"error\": \"<string>\"\n    }\n  ],\n  \"request\": {\n    \"url\": \"<string>\",\n    \"code\": \"<double>\",\n    \"docs\": \"<string>\",\n    \"method\": \"<string>\",\n    \"source\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-8dba0d41-e7c2-4df1-9635-b7071d6256ef"
+                        },
+                        {
+                          "id": "65be7630-3d5a-4db3-a62f-c5d0d4f648f2",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": [\n    {\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    },\n    {\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/cost-centers/synchronize",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "legal-entities",
+                                ":legal_entity_id",
+                                "cost-centers",
+                                "synchronize"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "legal_entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-65be7630-3d5a-4db3-a62f-c5d0d4f648f2"
+                        },
+                        {
+                          "id": "b9ee9afb-7fe1-420c-b8ac-dc42cb516e64",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": [\n    {\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    },\n    {\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/cost-centers/synchronize",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "legal-entities",
+                                ":legal_entity_id",
+                                "cost-centers",
+                                "synchronize"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "legal_entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-b9ee9afb-7fe1-420c-b8ac-dc42cb516e64"
+                        },
+                        {
+                          "id": "3dd0b70d-57e9-4916-b871-aa8990af2577",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": [\n    {\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    },\n    {\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/cost-centers/synchronize",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "legal-entities",
+                                ":legal_entity_id",
+                                "cost-centers",
+                                "synchronize"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "legal_entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-3dd0b70d-57e9-4916-b871-aa8990af2577"
+                        },
+                        {
+                          "id": "b2cee508-1426-479f-bc39-5ee722960bc8",
+                          "name": "Unexpected error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": [\n    {\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    },\n    {\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/cost-centers/synchronize",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "legal-entities",
+                                ":legal_entity_id",
+                                "cost-centers",
+                                "synchronize"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "legal_entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"error\": \"<string>\"\n    },\n    {\n      \"error\": \"<string>\"\n    }\n  ],\n  \"request\": {\n    \"url\": \"<string>\",\n    \"code\": \"<double>\",\n    \"docs\": \"<string>\",\n    \"method\": \"<string>\",\n    \"source\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-b2cee508-1426-479f-bc39-5ee722960bc8"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:31.000Z",
+                      "updatedAt": "2026-07-28T01:30:31.000Z",
+                      "uid": "35240-298d0d55-b7f8-4eab-9a64-7076caf774ab"
+                    }
+                  ],
+                  "id": "a15780c6-d5c1-440c-a1f2-86314e73f976",
+                  "createdAt": "2026-07-28T01:30:31.000Z",
+                  "updatedAt": "2026-07-28T01:30:31.000Z",
+                  "uid": "35240-a15780c6-d5c1-440c-a1f2-86314e73f976"
+                },
+                {
+                  "name": "Get cost centers by legal entity",
+                  "id": "47fd6d9e-86d3-45ee-9ba4-048411aece93",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/cost-centers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "legal-entities",
+                        ":legal_entity_id",
+                        "cost-centers"
+                      ],
+                      "variable": [
+                        {
+                          "id": "91b59309-ff4c-400a-a629-c17b65675d9e",
+                          "key": "legal_entity_id",
+                          "value": "<uuid>",
+                          "description": "(Required) Legal entity id"
+                        }
+                      ]
+                    },
+                    "description": "Fetch all cost centers related to a given legal entity id\n **Token scopes**: `legal-entity:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "40bbfec6-7a7a-45cb-b012-566779bfcca6",
+                      "name": "Cost center data was successfully fetched",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/cost-centers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "legal-entities",
+                            ":legal_entity_id",
+                            "cost-centers"
+                          ],
+                          "variable": [
+                            {
+                              "key": "legal_entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"cost_center_name\": \"<string>\",\n      \"cost_center_number\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:31.000Z",
+                      "updatedAt": "2026-07-28T01:30:31.000Z",
+                      "uid": "35240-40bbfec6-7a7a-45cb-b012-566779bfcca6"
+                    },
+                    {
+                      "id": "27394486-cffa-4bda-a682-ad2a74765ae8",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/cost-centers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "legal-entities",
+                            ":legal_entity_id",
+                            "cost-centers"
+                          ],
+                          "variable": [
+                            {
+                              "key": "legal_entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<double>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<double>\",\n      \"message\": \"<string>\"\n    }\n  ],\n  \"request\": {\n    \"url\": \"<string>\",\n    \"code\": \"<double>\",\n    \"docs\": \"<string>\",\n    \"method\": \"<string>\",\n    \"source\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:30:31.000Z",
+                      "updatedAt": "2026-07-28T01:30:31.000Z",
+                      "uid": "35240-27394486-cffa-4bda-a682-ad2a74765ae8"
+                    },
+                    {
+                      "id": "9d69736d-cc7b-4c40-af8a-9d8a2712c986",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/cost-centers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "legal-entities",
+                            ":legal_entity_id",
+                            "cost-centers"
+                          ],
+                          "variable": [
+                            {
+                              "key": "legal_entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:31.000Z",
+                      "updatedAt": "2026-07-28T01:30:31.000Z",
+                      "uid": "35240-9d69736d-cc7b-4c40-af8a-9d8a2712c986"
+                    },
+                    {
+                      "id": "81f91cfe-6d59-463d-b28e-5e3fc9e95120",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/cost-centers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "legal-entities",
+                            ":legal_entity_id",
+                            "cost-centers"
+                          ],
+                          "variable": [
+                            {
+                              "key": "legal_entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:31.000Z",
+                      "updatedAt": "2026-07-28T01:30:31.000Z",
+                      "uid": "35240-81f91cfe-6d59-463d-b28e-5e3fc9e95120"
+                    },
+                    {
+                      "id": "4569ff03-afc2-445d-83b7-8f40b0f8e5c1",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/cost-centers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "legal-entities",
+                            ":legal_entity_id",
+                            "cost-centers"
+                          ],
+                          "variable": [
+                            {
+                              "key": "legal_entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:31.000Z",
+                      "updatedAt": "2026-07-28T01:30:31.000Z",
+                      "uid": "35240-4569ff03-afc2-445d-83b7-8f40b0f8e5c1"
+                    },
+                    {
+                      "id": "c099f99d-efa9-4c78-83ca-25e74bbc7b97",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/legal-entities/:legal_entity_id/cost-centers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "legal-entities",
+                            ":legal_entity_id",
+                            "cost-centers"
+                          ],
+                          "variable": [
+                            {
+                              "key": "legal_entity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:31.000Z",
+                      "updatedAt": "2026-07-28T01:30:31.000Z",
+                      "uid": "35240-c099f99d-efa9-4c78-83ca-25e74bbc7b97"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:31.000Z",
+                  "updatedAt": "2026-07-28T01:30:31.000Z",
+                  "uid": "35240-47fd6d9e-86d3-45ee-9ba4-048411aece93"
+                }
+              ],
+              "id": "79cb96b1-7a98-48e6-84b6-f51a07899979",
+              "createdAt": "2026-07-28T01:30:31.000Z",
+              "updatedAt": "2026-07-28T01:30:31.000Z",
+              "uid": "35240-79cb96b1-7a98-48e6-84b6-f51a07899979"
+            }
+          ],
+          "id": "76c1bc4d-443a-42d8-bd3a-e7b9e801c3e6",
+          "createdAt": "2026-07-28T01:30:31.000Z",
+          "updatedAt": "2026-07-28T01:30:31.000Z",
+          "uid": "35240-76c1bc4d-443a-42d8-bd3a-e7b9e801c3e6"
+        }
+      ],
+      "id": "a7c138ee-3382-4d9e-afca-f70c57e368c9",
+      "createdAt": "2026-07-28T01:30:31.000Z",
+      "updatedAt": "2026-07-28T01:30:31.000Z",
+      "uid": "35240-a7c138ee-3382-4d9e-afca-f70c57e368c9"
+    },
+    {
+      "name": "contracts",
+      "item": [
+        {
+          "name": "{contract_id}",
+          "item": [
+            {
+              "name": "cost-centers",
+              "item": [
+                {
+                  "name": "Assign cost centers to an employment contract",
+                  "id": "84c86120-76c8-4b68-bbdf-99d9b86eb8f3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"value\": [\n      {\n        \"cost_center_id\": \"<long>\",\n        \"allocation_percentage\": \"<double>\"\n      },\n      {\n        \"cost_center_id\": \"<long>\",\n        \"allocation_percentage\": \"<double>\"\n      }\n    ],\n    \"effective_date\": \"<date>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/cost-centers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "cost-centers"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ab6df54e-c081-46de-95ee-abd10a6736bd",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) Employment's contract ID"
+                        }
+                      ]
+                    },
+                    "description": "Assign cost centers to employment by contract id\n **Token scopes**: `contracts:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "ebc1f62a-3134-4760-8c14-c0002ba91c53",
+                      "name": "Cost center allocation was successfully added to the contract",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"value\": [\n      {\n        \"cost_center_id\": \"<long>\",\n        \"allocation_percentage\": \"<double>\"\n      },\n      {\n        \"cost_center_id\": \"<long>\",\n        \"allocation_percentage\": \"<double>\"\n      }\n    ],\n    \"effective_date\": \"<date>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/cost-centers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "cost-centers"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"id\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:30:31.000Z",
+                      "updatedAt": "2026-07-28T01:30:31.000Z",
+                      "uid": "35240-ebc1f62a-3134-4760-8c14-c0002ba91c53"
+                    },
+                    {
+                      "id": "131c9812-4ddc-4148-83ea-4820765b26f7",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"value\": [\n      {\n        \"cost_center_id\": \"<long>\",\n        \"allocation_percentage\": \"<double>\"\n      },\n      {\n        \"cost_center_id\": \"<long>\",\n        \"allocation_percentage\": \"<double>\"\n      }\n    ],\n    \"effective_date\": \"<date>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/cost-centers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "cost-centers"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"error\": \"<string>\"\n    },\n    {\n      \"error\": \"<string>\"\n    }\n  ],\n  \"request\": {\n    \"url\": \"<string>\",\n    \"code\": \"<double>\",\n    \"docs\": \"<string>\",\n    \"method\": \"<string>\",\n    \"source\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:30:31.000Z",
+                      "updatedAt": "2026-07-28T01:30:31.000Z",
+                      "uid": "35240-131c9812-4ddc-4148-83ea-4820765b26f7"
+                    },
+                    {
+                      "id": "9b3b1144-5c95-4142-bf0c-a703cd38f51d",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"value\": [\n      {\n        \"cost_center_id\": \"<long>\",\n        \"allocation_percentage\": \"<double>\"\n      },\n      {\n        \"cost_center_id\": \"<long>\",\n        \"allocation_percentage\": \"<double>\"\n      }\n    ],\n    \"effective_date\": \"<date>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/cost-centers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "cost-centers"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:31.000Z",
+                      "updatedAt": "2026-07-28T01:30:31.000Z",
+                      "uid": "35240-9b3b1144-5c95-4142-bf0c-a703cd38f51d"
+                    },
+                    {
+                      "id": "9226dd30-a99d-4bf1-835a-17da3aaca17a",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"value\": [\n      {\n        \"cost_center_id\": \"<long>\",\n        \"allocation_percentage\": \"<double>\"\n      },\n      {\n        \"cost_center_id\": \"<long>\",\n        \"allocation_percentage\": \"<double>\"\n      }\n    ],\n    \"effective_date\": \"<date>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/cost-centers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "cost-centers"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:31.000Z",
+                      "updatedAt": "2026-07-28T01:30:31.000Z",
+                      "uid": "35240-9226dd30-a99d-4bf1-835a-17da3aaca17a"
+                    },
+                    {
+                      "id": "538000fa-8ed3-4539-ad94-5b12a7f8ef77",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"value\": [\n      {\n        \"cost_center_id\": \"<long>\",\n        \"allocation_percentage\": \"<double>\"\n      },\n      {\n        \"cost_center_id\": \"<long>\",\n        \"allocation_percentage\": \"<double>\"\n      }\n    ],\n    \"effective_date\": \"<date>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/cost-centers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "cost-centers"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:31.000Z",
+                      "updatedAt": "2026-07-28T01:30:31.000Z",
+                      "uid": "35240-538000fa-8ed3-4539-ad94-5b12a7f8ef77"
+                    },
+                    {
+                      "id": "5db90bc5-373d-46fb-8b85-2a44eec1f4ac",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"value\": [\n      {\n        \"cost_center_id\": \"<long>\",\n        \"allocation_percentage\": \"<double>\"\n      },\n      {\n        \"cost_center_id\": \"<long>\",\n        \"allocation_percentage\": \"<double>\"\n      }\n    ],\n    \"effective_date\": \"<date>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/cost-centers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "cost-centers"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:31.000Z",
+                      "updatedAt": "2026-07-28T01:30:31.000Z",
+                      "uid": "35240-5db90bc5-373d-46fb-8b85-2a44eec1f4ac"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:31.000Z",
+                  "updatedAt": "2026-07-28T01:30:31.000Z",
+                  "uid": "35240-84c86120-76c8-4b68-bbdf-99d9b86eb8f3"
+                }
+              ],
+              "id": "48aa469f-f14d-4e9c-ba38-d510290e0671",
+              "createdAt": "2026-07-28T01:30:31.000Z",
+              "updatedAt": "2026-07-28T01:30:31.000Z",
+              "uid": "35240-48aa469f-f14d-4e9c-ba38-d510290e0671"
+            }
+          ],
+          "id": "969e400b-9ef7-4f2c-8825-cf15ab5840d6",
+          "createdAt": "2026-07-28T01:30:31.000Z",
+          "updatedAt": "2026-07-28T01:30:31.000Z",
+          "uid": "35240-969e400b-9ef7-4f2c-8825-cf15ab5840d6"
+        }
+      ],
+      "id": "24ed0576-d551-42f9-ab4d-0a256f3154f3",
+      "createdAt": "2026-07-28T01:30:31.000Z",
+      "updatedAt": "2026-07-28T01:30:31.000Z",
+      "uid": "35240-24ed0576-d551-42f9-ab4d-0a256f3154f3"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

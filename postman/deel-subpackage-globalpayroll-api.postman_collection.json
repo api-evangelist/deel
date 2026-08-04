@@ -1,0 +1,1353 @@
+{
+  "info": {
+    "_postman_id": "41455932-3543-437d-a792-48476be777ff",
+    "name": "Endpoints subpackage_globalPayroll API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:31:38.000Z",
+    "updatedAt": "2026-07-28T01:31:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-41455932-3543-437d-a792-48476be777ff"
+  },
+  "item": [
+    {
+      "name": "gp",
+      "item": [
+        {
+          "name": "workers",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "payslips",
+                  "item": [
+                    {
+                      "name": "{payslip_id}",
+                      "item": [
+                        {
+                          "name": "download",
+                          "item": [
+                            {
+                              "name": "Download a GP worker payslip",
+                              "id": "d6f00a6c-bd0a-4b74-a5a7-47e933d6f59f",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/gp/workers/:id/payslips/:payslip_id/download",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "gp",
+                                    "workers",
+                                    ":id",
+                                    "payslips",
+                                    ":payslip_id",
+                                    "download"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "64e0eb1f-33ed-4967-8160-b28868776ebe",
+                                      "key": "id",
+                                      "value": "<uuid>",
+                                      "description": "(Required) Unique identifier for the worker."
+                                    },
+                                    {
+                                      "id": "409ed6c1-dd02-493d-b9e7-f43147cabcb1",
+                                      "key": "payslip_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "d358d734-8f0d-4a28-9b3c-95047990d1d8",
+                                      "key": "payslipId",
+                                      "value": "<uuid>",
+                                      "description": "(Required) Unique identifier for the payslip."
+                                    }
+                                  ]
+                                },
+                                "description": "Returns a pre-signed download URL for a specific Global Payroll (GP) employee payslip PDF. Use this after calling Retrieve employee payslips to obtain the payslipId. Requires the worker id (UUID) and the payslipId from the list response. The returned URL is temporary and should be used promptly to download the file. Supports only GP contract types.\n **Token scopes**: `payslips:read`"
+                              },
+                              "response": [
+                                {
+                                  "id": "a0fb2c14-b9a8-436c-92f8-f61a90321ae0",
+                                  "name": "Successful operation.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gp/workers/:id/payslips/:payslip_id/download",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gp",
+                                        "workers",
+                                        ":id",
+                                        "payslips",
+                                        ":payslip_id",
+                                        "download"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "payslip_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"data\": {\n    \"url\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:31:39.000Z",
+                                  "updatedAt": "2026-07-28T01:31:39.000Z",
+                                  "uid": "35240-a0fb2c14-b9a8-436c-92f8-f61a90321ae0"
+                                },
+                                {
+                                  "id": "6e910295-8a7f-4331-a552-598eed7296b6",
+                                  "name": "Bad Request - Validation error or invalid parameters",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gp/workers/:id/payslips/:payslip_id/download",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gp",
+                                        "workers",
+                                        ":id",
+                                        "payslips",
+                                        ":payslip_id",
+                                        "download"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "payslip_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ],\n  \"request\": {\n    \"method\": \"<string>\",\n    \"status\": \"<double>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:31:39.000Z",
+                                  "updatedAt": "2026-07-28T01:31:39.000Z",
+                                  "uid": "35240-6e910295-8a7f-4331-a552-598eed7296b6"
+                                },
+                                {
+                                  "id": "a6f519ca-85dc-4aba-b727-2c7fea2aca05",
+                                  "name": "Operation failed.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gp/workers/:id/payslips/:payslip_id/download",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gp",
+                                        "workers",
+                                        ":id",
+                                        "payslips",
+                                        ":payslip_id",
+                                        "download"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "payslip_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:31:39.000Z",
+                                  "updatedAt": "2026-07-28T01:31:39.000Z",
+                                  "uid": "35240-a6f519ca-85dc-4aba-b727-2c7fea2aca05"
+                                },
+                                {
+                                  "id": "328ab4cb-52f4-4cfc-97f6-47a97b875a43",
+                                  "name": "Operation failed.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gp/workers/:id/payslips/:payslip_id/download",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gp",
+                                        "workers",
+                                        ":id",
+                                        "payslips",
+                                        ":payslip_id",
+                                        "download"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "payslip_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:31:39.000Z",
+                                  "updatedAt": "2026-07-28T01:31:39.000Z",
+                                  "uid": "35240-328ab4cb-52f4-4cfc-97f6-47a97b875a43"
+                                },
+                                {
+                                  "id": "fd69721e-d351-4de2-b838-cf9a8fc9307b",
+                                  "name": "Operation failed.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gp/workers/:id/payslips/:payslip_id/download",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gp",
+                                        "workers",
+                                        ":id",
+                                        "payslips",
+                                        ":payslip_id",
+                                        "download"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "payslip_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:31:39.000Z",
+                                  "updatedAt": "2026-07-28T01:31:39.000Z",
+                                  "uid": "35240-fd69721e-d351-4de2-b838-cf9a8fc9307b"
+                                },
+                                {
+                                  "id": "dff2a743-2b79-4c87-8b29-0c383905901a",
+                                  "name": "Operation failed.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/gp/workers/:id/payslips/:payslip_id/download",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "gp",
+                                        "workers",
+                                        ":id",
+                                        "payslips",
+                                        ":payslip_id",
+                                        "download"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        },
+                                        {
+                                          "key": "payslip_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:31:39.000Z",
+                                  "updatedAt": "2026-07-28T01:31:39.000Z",
+                                  "uid": "35240-dff2a743-2b79-4c87-8b29-0c383905901a"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:31:38.000Z",
+                              "updatedAt": "2026-07-28T01:31:38.000Z",
+                              "uid": "35240-d6f00a6c-bd0a-4b74-a5a7-47e933d6f59f"
+                            }
+                          ],
+                          "id": "6848cc85-90c5-49b5-829a-8ad75b8186bc",
+                          "createdAt": "2026-07-28T01:31:38.000Z",
+                          "updatedAt": "2026-07-28T01:31:38.000Z",
+                          "uid": "35240-6848cc85-90c5-49b5-829a-8ad75b8186bc"
+                        }
+                      ],
+                      "id": "385d9a6f-8685-4d36-8ffc-72dc90dcadea",
+                      "createdAt": "2026-07-28T01:31:38.000Z",
+                      "updatedAt": "2026-07-28T01:31:38.000Z",
+                      "uid": "35240-385d9a6f-8685-4d36-8ffc-72dc90dcadea"
+                    }
+                  ],
+                  "id": "6d788c90-c631-497e-9a66-493e77433033",
+                  "createdAt": "2026-07-28T01:31:38.000Z",
+                  "updatedAt": "2026-07-28T01:31:38.000Z",
+                  "uid": "35240-6d788c90-c631-497e-9a66-493e77433033"
+                }
+              ],
+              "id": "23e7f4d5-d1b7-45a4-a8c8-0c96c90accde",
+              "createdAt": "2026-07-28T01:31:38.000Z",
+              "updatedAt": "2026-07-28T01:31:38.000Z",
+              "uid": "35240-23e7f4d5-d1b7-45a4-a8c8-0c96c90accde"
+            }
+          ],
+          "id": "10a7a716-e9b9-4563-8d40-7ba6e031ee35",
+          "createdAt": "2026-07-28T01:31:38.000Z",
+          "updatedAt": "2026-07-28T01:31:38.000Z",
+          "uid": "35240-10a7a716-e9b9-4563-8d40-7ba6e031ee35"
+        }
+      ],
+      "id": "973b5699-04f3-4650-a3d1-beadc6c4c44f",
+      "createdAt": "2026-07-28T01:31:38.000Z",
+      "updatedAt": "2026-07-28T01:31:38.000Z",
+      "uid": "35240-973b5699-04f3-4650-a3d1-beadc6c4c44f"
+    },
+    {
+      "name": "cycles",
+      "item": [
+        {
+          "name": "{cycle_id}",
+          "item": [
+            {
+              "name": "payroll-report",
+              "item": [
+                {
+                  "name": "Get Payroll Report",
+                  "id": "8a80d13c-5b08-4648-a746-4c297c90432a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/cycles/:cycle_id/payroll-report?contract_oids=<string>&contract_oids=<string>&search=<string>&employee_status=<string>&employee_status=<string>&limit=100&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cycles",
+                        ":cycle_id",
+                        "payroll-report"
+                      ],
+                      "query": [
+                        {
+                          "description": "Contract OID(s) to filter report rows.",
+                          "key": "contract_oids",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Contract OID(s) to filter report rows.",
+                          "key": "contract_oids",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by employee name.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Employee status filter.",
+                          "key": "employee_status",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Employee status filter.",
+                          "key": "employee_status",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of report rows.",
+                          "key": "limit",
+                          "value": "100"
+                        },
+                        {
+                          "description": "Cursor for pagination.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "adc6f702-faf8-484f-bfdc-bd9b4e596342",
+                          "key": "cycle_id",
+                          "value": "<string>",
+                          "description": "(Required) Payroll event/cycle id."
+                        }
+                      ]
+                    },
+                    "description": "Get payroll report data for a payroll cycle, including available columns, employee row values, and optional previous report items. Use this response to discover payroll_report_column_id and payroll_id before updating entries.\n **Token scopes**: `global-payroll:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "528a92ef-6607-4e18-bfe3-963c968b593a",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/cycles/:cycle_id/payroll-report?contract_oids=<string>&search=<string>&employee_status=<string>&limit=100&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cycles",
+                            ":cycle_id",
+                            "payroll-report"
+                          ],
+                          "query": [
+                            {
+                              "description": "Contract OID(s) to filter report rows.",
+                              "key": "contract_oids",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by employee name.",
+                              "key": "search",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Employee status filter.",
+                              "key": "employee_status",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of report rows.",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Cursor for pagination.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "cycle_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"count\": \"<integer>\",\n    \"event_entity_items\": [\n      {\n        \"id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"label\": \"<string>\",\n        \"scope\": \"<string>\",\n        \"status\": \"<string>\",\n        \"tooltip\": \"<string,null>\",\n        \"countries\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"is_global\": \"<boolean>\",\n        \"created_at\": \"<dateTime>\",\n        \"item_order\": \"<integer>\",\n        \"updated_at\": \"<dateTime>\",\n        \"description\": \"<string,null>\",\n        \"system_name\": \"<string,null>\",\n        \"deel_enabled\": \"<boolean>\",\n        \"is_adjustable\": \"<boolean>\",\n        \"appears_on_g2n\": \"<boolean>\",\n        \"client_enabled\": \"<boolean>\",\n        \"unit_of_measure\": \"<string,null>\",\n        \"can_be_recurring\": \"<boolean>\",\n        \"employer_cost_type\": \"<string,null>\",\n        \"add_to_employer_cost\": \"<boolean>\",\n        \"included_in_g2n_report\": \"<boolean>\",\n        \"payroll_legal_entity_id\": \"<integer,null>\",\n        \"is_recurring_in_offcycle\": \"<boolean>\",\n        \"appears_on_recurring_items\": \"<boolean>\",\n        \"client_payroll_report_label\": \"<string,null>\",\n        \"supported_in_payroll_report\": \"<boolean>\",\n        \"payroll_report_sub_category_id\": \"<string,null>\",\n        \"adjustment_payroll_report_column_id\": \"<string,null>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"label\": \"<string>\",\n        \"scope\": \"<string>\",\n        \"status\": \"<string>\",\n        \"tooltip\": \"<string,null>\",\n        \"countries\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"is_global\": \"<boolean>\",\n        \"created_at\": \"<dateTime>\",\n        \"item_order\": \"<integer>\",\n        \"updated_at\": \"<dateTime>\",\n        \"description\": \"<string,null>\",\n        \"system_name\": \"<string,null>\",\n        \"deel_enabled\": \"<boolean>\",\n        \"is_adjustable\": \"<boolean>\",\n        \"appears_on_g2n\": \"<boolean>\",\n        \"client_enabled\": \"<boolean>\",\n        \"unit_of_measure\": \"<string,null>\",\n        \"can_be_recurring\": \"<boolean>\",\n        \"employer_cost_type\": \"<string,null>\",\n        \"add_to_employer_cost\": \"<boolean>\",\n        \"included_in_g2n_report\": \"<boolean>\",\n        \"payroll_legal_entity_id\": \"<integer,null>\",\n        \"is_recurring_in_offcycle\": \"<boolean>\",\n        \"appears_on_recurring_items\": \"<boolean>\",\n        \"client_payroll_report_label\": \"<string,null>\",\n        \"supported_in_payroll_report\": \"<boolean>\",\n        \"payroll_report_sub_category_id\": \"<string,null>\",\n        \"adjustment_payroll_report_column_id\": \"<string,null>\"\n      }\n    ],\n    \"employment_payroll_events\": [\n      {\n        \"contract\": {\n          \"id\": \"<integer>\",\n          \"oid\": \"<string>\",\n          \"status\": \"<string,null>\",\n          \"hris_profile\": {\n            \"oid\": \"<string>\"\n          },\n          \"contract_type\": \"<string,null>\",\n          \"completion_date\": \"<string,null-date-time>\"\n        },\n        \"employment\": {\n          \"employee\": {\n            \"last_name\": \"<string,null>\",\n            \"first_name\": \"<string,null>\",\n            \"middle_name\": \"<string,null>\"\n          },\n          \"employment_id\": \"<string,null>\",\n          \"employee_status\": \"<string,null>\",\n          \"employee_recurring_items\": [\n            {\n              \"id\": \"<string>\",\n              \"amount\": \"<string>\",\n              \"unit_of_measure\": \"<string,null>\",\n              \"payroll_report_column\": {},\n              \"payroll_report_column_id\": \"<string>\"\n            },\n            {\n              \"id\": \"<string>\",\n              \"amount\": \"<string>\",\n              \"unit_of_measure\": \"<string,null>\",\n              \"payroll_report_column\": {},\n              \"payroll_report_column_id\": \"<string>\"\n            }\n          ]\n        },\n        \"payroll_report_items\": [\n          {\n            \"id\": \"<string>\",\n            \"value\": \"<string,null>\",\n            \"source\": \"<string,null>\",\n            \"qtd_value\": \"<string,null>\",\n            \"ytd_value\": \"<string,null>\",\n            \"created_at\": \"<dateTime>\",\n            \"updated_at\": \"<dateTime>\",\n            \"is_prorated\": \"<boolean>\",\n            \"is_recurring\": \"<boolean,null>\",\n            \"is_overwritten\": \"<boolean>\",\n            \"last_change_by\": \"<integer,null>\",\n            \"unit_of_measure\": \"<string,null>\",\n            \"updated_by_profile\": {\n              \"name\": \"<string,null>\",\n              \"email\": \"<string,null>\",\n              \"user_id\": \"<integer,null>\"\n            },\n            \"payroll_report_column\": {\n              \"id\": \"<string>\",\n              \"type\": \"<string>\",\n              \"label\": \"<string>\",\n              \"scope\": \"<string>\",\n              \"status\": \"<string>\",\n              \"tooltip\": \"<string,null>\",\n              \"countries\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"is_global\": \"<boolean>\",\n              \"created_at\": \"<dateTime>\",\n              \"item_order\": \"<integer>\",\n              \"updated_at\": \"<dateTime>\",\n              \"description\": \"<string,null>\",\n              \"system_name\": \"<string,null>\",\n              \"deel_enabled\": \"<boolean>\",\n              \"is_adjustable\": \"<boolean>\",\n              \"appears_on_g2n\": \"<boolean>\",\n              \"client_enabled\": \"<boolean>\",\n              \"unit_of_measure\": \"<string,null>\",\n              \"can_be_recurring\": \"<boolean>\",\n              \"employer_cost_type\": \"<string,null>\",\n              \"add_to_employer_cost\": \"<boolean>\",\n              \"included_in_g2n_report\": \"<boolean>\",\n              \"payroll_legal_entity_id\": \"<integer,null>\",\n              \"is_recurring_in_offcycle\": \"<boolean>\",\n              \"appears_on_recurring_items\": \"<boolean>\",\n              \"client_payroll_report_label\": \"<string,null>\",\n              \"supported_in_payroll_report\": \"<boolean>\",\n              \"payroll_report_sub_category_id\": \"<string,null>\",\n              \"adjustment_payroll_report_column_id\": \"<string,null>\"\n            },\n            \"payroll_report_column_id\": \"<string>\",\n            \"employment_payroll_event_id\": \"<integer>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"value\": \"<string,null>\",\n            \"source\": \"<string,null>\",\n            \"qtd_value\": \"<string,null>\",\n            \"ytd_value\": \"<string,null>\",\n            \"created_at\": \"<dateTime>\",\n            \"updated_at\": \"<dateTime>\",\n            \"is_prorated\": \"<boolean>\",\n            \"is_recurring\": \"<boolean,null>\",\n            \"is_overwritten\": \"<boolean>\",\n            \"last_change_by\": \"<integer,null>\",\n            \"unit_of_measure\": \"<string,null>\",\n            \"updated_by_profile\": {\n              \"name\": \"<string,null>\",\n              \"email\": \"<string,null>\",\n              \"user_id\": \"<integer,null>\"\n            },\n            \"payroll_report_column\": {\n              \"id\": \"<string>\",\n              \"type\": \"<string>\",\n              \"label\": \"<string>\",\n              \"scope\": \"<string>\",\n              \"status\": \"<string>\",\n              \"tooltip\": \"<string,null>\",\n              \"countries\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"is_global\": \"<boolean>\",\n              \"created_at\": \"<dateTime>\",\n              \"item_order\": \"<integer>\",\n              \"updated_at\": \"<dateTime>\",\n              \"description\": \"<string,null>\",\n              \"system_name\": \"<string,null>\",\n              \"deel_enabled\": \"<boolean>\",\n              \"is_adjustable\": \"<boolean>\",\n              \"appears_on_g2n\": \"<boolean>\",\n              \"client_enabled\": \"<boolean>\",\n              \"unit_of_measure\": \"<string,null>\",\n              \"can_be_recurring\": \"<boolean>\",\n              \"employer_cost_type\": \"<string,null>\",\n              \"add_to_employer_cost\": \"<boolean>\",\n              \"included_in_g2n_report\": \"<boolean>\",\n              \"payroll_legal_entity_id\": \"<integer,null>\",\n              \"is_recurring_in_offcycle\": \"<boolean>\",\n              \"appears_on_recurring_items\": \"<boolean>\",\n              \"client_payroll_report_label\": \"<string,null>\",\n              \"supported_in_payroll_report\": \"<boolean>\",\n              \"payroll_report_sub_category_id\": \"<string,null>\",\n              \"adjustment_payroll_report_column_id\": \"<string,null>\"\n            },\n            \"payroll_report_column_id\": \"<string>\",\n            \"employment_payroll_event_id\": \"<integer>\"\n          }\n        ],\n        \"previous_payroll_report_items\": [\n          {\n            \"id\": \"<string>\",\n            \"value\": \"<string,null>\",\n            \"source\": \"<string,null>\",\n            \"qtd_value\": \"<string,null>\",\n            \"ytd_value\": \"<string,null>\",\n            \"created_at\": \"<dateTime>\",\n            \"updated_at\": \"<dateTime>\",\n            \"is_prorated\": \"<boolean>\",\n            \"is_overwritten\": \"<boolean>\",\n            \"last_change_by\": \"<integer,null>\",\n            \"unit_of_measure\": \"<string,null>\",\n            \"payroll_report_column\": {},\n            \"payroll_report_column_id\": \"<string>\",\n            \"employment_payroll_event_id\": \"<integer>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"value\": \"<string,null>\",\n            \"source\": \"<string,null>\",\n            \"qtd_value\": \"<string,null>\",\n            \"ytd_value\": \"<string,null>\",\n            \"created_at\": \"<dateTime>\",\n            \"updated_at\": \"<dateTime>\",\n            \"is_prorated\": \"<boolean>\",\n            \"is_overwritten\": \"<boolean>\",\n            \"last_change_by\": \"<integer,null>\",\n            \"unit_of_measure\": \"<string,null>\",\n            \"payroll_report_column\": {},\n            \"payroll_report_column_id\": \"<string>\",\n            \"employment_payroll_event_id\": \"<integer>\"\n          }\n        ]\n      },\n      {\n        \"contract\": {\n          \"id\": \"<integer>\",\n          \"oid\": \"<string>\",\n          \"status\": \"<string,null>\",\n          \"hris_profile\": {\n            \"oid\": \"<string>\"\n          },\n          \"contract_type\": \"<string,null>\",\n          \"completion_date\": \"<string,null-date-time>\"\n        },\n        \"employment\": {\n          \"employee\": {\n            \"last_name\": \"<string,null>\",\n            \"first_name\": \"<string,null>\",\n            \"middle_name\": \"<string,null>\"\n          },\n          \"employment_id\": \"<string,null>\",\n          \"employee_status\": \"<string,null>\",\n          \"employee_recurring_items\": [\n            {\n              \"id\": \"<string>\",\n              \"amount\": \"<string>\",\n              \"unit_of_measure\": \"<string,null>\",\n              \"payroll_report_column\": {},\n              \"payroll_report_column_id\": \"<string>\"\n            },\n            {\n              \"id\": \"<string>\",\n              \"amount\": \"<string>\",\n              \"unit_of_measure\": \"<string,null>\",\n              \"payroll_report_column\": {},\n              \"payroll_report_column_id\": \"<string>\"\n            }\n          ]\n        },\n        \"payroll_report_items\": [\n          {\n            \"id\": \"<string>\",\n            \"value\": \"<string,null>\",\n            \"source\": \"<string,null>\",\n            \"qtd_value\": \"<string,null>\",\n            \"ytd_value\": \"<string,null>\",\n            \"created_at\": \"<dateTime>\",\n            \"updated_at\": \"<dateTime>\",\n            \"is_prorated\": \"<boolean>\",\n            \"is_recurring\": \"<boolean,null>\",\n            \"is_overwritten\": \"<boolean>\",\n            \"last_change_by\": \"<integer,null>\",\n            \"unit_of_measure\": \"<string,null>\",\n            \"updated_by_profile\": {\n              \"name\": \"<string,null>\",\n              \"email\": \"<string,null>\",\n              \"user_id\": \"<integer,null>\"\n            },\n            \"payroll_report_column\": {\n              \"id\": \"<string>\",\n              \"type\": \"<string>\",\n              \"label\": \"<string>\",\n              \"scope\": \"<string>\",\n              \"status\": \"<string>\",\n              \"tooltip\": \"<string,null>\",\n              \"countries\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"is_global\": \"<boolean>\",\n              \"created_at\": \"<dateTime>\",\n              \"item_order\": \"<integer>\",\n              \"updated_at\": \"<dateTime>\",\n              \"description\": \"<string,null>\",\n              \"system_name\": \"<string,null>\",\n              \"deel_enabled\": \"<boolean>\",\n              \"is_adjustable\": \"<boolean>\",\n              \"appears_on_g2n\": \"<boolean>\",\n              \"client_enabled\": \"<boolean>\",\n              \"unit_of_measure\": \"<string,null>\",\n              \"can_be_recurring\": \"<boolean>\",\n              \"employer_cost_type\": \"<string,null>\",\n              \"add_to_employer_cost\": \"<boolean>\",\n              \"included_in_g2n_report\": \"<boolean>\",\n              \"payroll_legal_entity_id\": \"<integer,null>\",\n              \"is_recurring_in_offcycle\": \"<boolean>\",\n              \"appears_on_recurring_items\": \"<boolean>\",\n              \"client_payroll_report_label\": \"<string,null>\",\n              \"supported_in_payroll_report\": \"<boolean>\",\n              \"payroll_report_sub_category_id\": \"<string,null>\",\n              \"adjustment_payroll_report_column_id\": \"<string,null>\"\n            },\n            \"payroll_report_column_id\": \"<string>\",\n            \"employment_payroll_event_id\": \"<integer>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"value\": \"<string,null>\",\n            \"source\": \"<string,null>\",\n            \"qtd_value\": \"<string,null>\",\n            \"ytd_value\": \"<string,null>\",\n            \"created_at\": \"<dateTime>\",\n            \"updated_at\": \"<dateTime>\",\n            \"is_prorated\": \"<boolean>\",\n            \"is_recurring\": \"<boolean,null>\",\n            \"is_overwritten\": \"<boolean>\",\n            \"last_change_by\": \"<integer,null>\",\n            \"unit_of_measure\": \"<string,null>\",\n            \"updated_by_profile\": {\n              \"name\": \"<string,null>\",\n              \"email\": \"<string,null>\",\n              \"user_id\": \"<integer,null>\"\n            },\n            \"payroll_report_column\": {\n              \"id\": \"<string>\",\n              \"type\": \"<string>\",\n              \"label\": \"<string>\",\n              \"scope\": \"<string>\",\n              \"status\": \"<string>\",\n              \"tooltip\": \"<string,null>\",\n              \"countries\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"is_global\": \"<boolean>\",\n              \"created_at\": \"<dateTime>\",\n              \"item_order\": \"<integer>\",\n              \"updated_at\": \"<dateTime>\",\n              \"description\": \"<string,null>\",\n              \"system_name\": \"<string,null>\",\n              \"deel_enabled\": \"<boolean>\",\n              \"is_adjustable\": \"<boolean>\",\n              \"appears_on_g2n\": \"<boolean>\",\n              \"client_enabled\": \"<boolean>\",\n              \"unit_of_measure\": \"<string,null>\",\n              \"can_be_recurring\": \"<boolean>\",\n              \"employer_cost_type\": \"<string,null>\",\n              \"add_to_employer_cost\": \"<boolean>\",\n              \"included_in_g2n_report\": \"<boolean>\",\n              \"payroll_legal_entity_id\": \"<integer,null>\",\n              \"is_recurring_in_offcycle\": \"<boolean>\",\n              \"appears_on_recurring_items\": \"<boolean>\",\n              \"client_payroll_report_label\": \"<string,null>\",\n              \"supported_in_payroll_report\": \"<boolean>\",\n              \"payroll_report_sub_category_id\": \"<string,null>\",\n              \"adjustment_payroll_report_column_id\": \"<string,null>\"\n            },\n            \"payroll_report_column_id\": \"<string>\",\n            \"employment_payroll_event_id\": \"<integer>\"\n          }\n        ],\n        \"previous_payroll_report_items\": [\n          {\n            \"id\": \"<string>\",\n            \"value\": \"<string,null>\",\n            \"source\": \"<string,null>\",\n            \"qtd_value\": \"<string,null>\",\n            \"ytd_value\": \"<string,null>\",\n            \"created_at\": \"<dateTime>\",\n            \"updated_at\": \"<dateTime>\",\n            \"is_prorated\": \"<boolean>\",\n            \"is_overwritten\": \"<boolean>\",\n            \"last_change_by\": \"<integer,null>\",\n            \"unit_of_measure\": \"<string,null>\",\n            \"payroll_report_column\": {},\n            \"payroll_report_column_id\": \"<string>\",\n            \"employment_payroll_event_id\": \"<integer>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"value\": \"<string,null>\",\n            \"source\": \"<string,null>\",\n            \"qtd_value\": \"<string,null>\",\n            \"ytd_value\": \"<string,null>\",\n            \"created_at\": \"<dateTime>\",\n            \"updated_at\": \"<dateTime>\",\n            \"is_prorated\": \"<boolean>\",\n            \"is_overwritten\": \"<boolean>\",\n            \"last_change_by\": \"<integer,null>\",\n            \"unit_of_measure\": \"<string,null>\",\n            \"payroll_report_column\": {},\n            \"payroll_report_column_id\": \"<string>\",\n            \"employment_payroll_event_id\": \"<integer>\"\n          }\n        ]\n      }\n    ],\n    \"cursor\": \"<string>\",\n    \"overview\": {}\n  }\n}",
+                      "createdAt": "2026-07-28T01:31:39.000Z",
+                      "updatedAt": "2026-07-28T01:31:39.000Z",
+                      "uid": "35240-528a92ef-6607-4e18-bfe3-963c968b593a"
+                    },
+                    {
+                      "id": "e1900e8a-05d0-40e7-af30-efa0014fee61",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/cycles/:cycle_id/payroll-report?contract_oids=<string>&search=<string>&employee_status=<string>&limit=100&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cycles",
+                            ":cycle_id",
+                            "payroll-report"
+                          ],
+                          "query": [
+                            {
+                              "description": "Contract OID(s) to filter report rows.",
+                              "key": "contract_oids",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by employee name.",
+                              "key": "search",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Employee status filter.",
+                              "key": "employee_status",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of report rows.",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Cursor for pagination.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "cycle_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:39.000Z",
+                      "updatedAt": "2026-07-28T01:31:39.000Z",
+                      "uid": "35240-e1900e8a-05d0-40e7-af30-efa0014fee61"
+                    },
+                    {
+                      "id": "9113dabc-67a3-4119-aaf8-eebe6d2f2b8c",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/cycles/:cycle_id/payroll-report?contract_oids=<string>&search=<string>&employee_status=<string>&limit=100&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cycles",
+                            ":cycle_id",
+                            "payroll-report"
+                          ],
+                          "query": [
+                            {
+                              "description": "Contract OID(s) to filter report rows.",
+                              "key": "contract_oids",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by employee name.",
+                              "key": "search",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Employee status filter.",
+                              "key": "employee_status",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of report rows.",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Cursor for pagination.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "cycle_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:39.000Z",
+                      "updatedAt": "2026-07-28T01:31:39.000Z",
+                      "uid": "35240-9113dabc-67a3-4119-aaf8-eebe6d2f2b8c"
+                    },
+                    {
+                      "id": "a37a37cd-33a0-4f34-83a0-009d14849385",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/cycles/:cycle_id/payroll-report?contract_oids=<string>&search=<string>&employee_status=<string>&limit=100&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cycles",
+                            ":cycle_id",
+                            "payroll-report"
+                          ],
+                          "query": [
+                            {
+                              "description": "Contract OID(s) to filter report rows.",
+                              "key": "contract_oids",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by employee name.",
+                              "key": "search",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Employee status filter.",
+                              "key": "employee_status",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of report rows.",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Cursor for pagination.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "cycle_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:39.000Z",
+                      "updatedAt": "2026-07-28T01:31:39.000Z",
+                      "uid": "35240-a37a37cd-33a0-4f34-83a0-009d14849385"
+                    },
+                    {
+                      "id": "41e1ebe6-cb99-4a22-b9f3-7a8478d8ec91",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/cycles/:cycle_id/payroll-report?contract_oids=<string>&search=<string>&employee_status=<string>&limit=100&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cycles",
+                            ":cycle_id",
+                            "payroll-report"
+                          ],
+                          "query": [
+                            {
+                              "description": "Contract OID(s) to filter report rows.",
+                              "key": "contract_oids",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by employee name.",
+                              "key": "search",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Employee status filter.",
+                              "key": "employee_status",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of report rows.",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Cursor for pagination.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "cycle_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:39.000Z",
+                      "updatedAt": "2026-07-28T01:31:39.000Z",
+                      "uid": "35240-41e1ebe6-cb99-4a22-b9f3-7a8478d8ec91"
+                    },
+                    {
+                      "id": "8e180475-cc30-4bfb-93e0-052e3fb865d1",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/cycles/:cycle_id/payroll-report?contract_oids=<string>&search=<string>&employee_status=<string>&limit=100&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cycles",
+                            ":cycle_id",
+                            "payroll-report"
+                          ],
+                          "query": [
+                            {
+                              "description": "Contract OID(s) to filter report rows.",
+                              "key": "contract_oids",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by employee name.",
+                              "key": "search",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Employee status filter.",
+                              "key": "employee_status",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of report rows.",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Cursor for pagination.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "cycle_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:39.000Z",
+                      "updatedAt": "2026-07-28T01:31:39.000Z",
+                      "uid": "35240-8e180475-cc30-4bfb-93e0-052e3fb865d1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:31:38.000Z",
+                  "updatedAt": "2026-07-28T01:31:38.000Z",
+                  "uid": "35240-8a80d13c-5b08-4648-a746-4c297c90432a"
+                }
+              ],
+              "id": "8b742bdb-0a09-4e2a-aba0-d361d616df96",
+              "createdAt": "2026-07-28T01:31:38.000Z",
+              "updatedAt": "2026-07-28T01:31:38.000Z",
+              "uid": "35240-8b742bdb-0a09-4e2a-aba0-d361d616df96"
+            }
+          ],
+          "id": "68320bec-f172-4959-81ab-e4cc07ea6acc",
+          "createdAt": "2026-07-28T01:31:38.000Z",
+          "updatedAt": "2026-07-28T01:31:38.000Z",
+          "uid": "35240-68320bec-f172-4959-81ab-e4cc07ea6acc"
+        }
+      ],
+      "id": "2dfc3dfd-8860-4ff1-b75d-fa9dd00fe9e3",
+      "createdAt": "2026-07-28T01:31:38.000Z",
+      "updatedAt": "2026-07-28T01:31:38.000Z",
+      "uid": "35240-2dfc3dfd-8860-4ff1-b75d-fa9dd00fe9e3"
+    },
+    {
+      "name": "forms",
+      "item": [
+        {
+          "name": "gp",
+          "item": [
+            {
+              "name": "worker-additional-fields",
+              "item": [
+                {
+                  "name": "{country_code}",
+                  "item": [
+                    {
+                      "name": "Retrieve additional information fields for GP workers by country",
+                      "id": "a7825d10-245b-4d9b-ac7c-cca491415ac0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/forms/gp/worker-additional-fields/:country_code",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "forms",
+                            "gp",
+                            "worker-additional-fields",
+                            ":country_code"
+                          ],
+                          "variable": [
+                            {
+                              "id": "dbb5c268-3373-4afb-b79d-0776972ad6fb",
+                              "key": "country_code",
+                              "value": "<string>",
+                              "description": "(Required) ISO 3166-1 alpha-2 country code for which to retrieve GP worker additional fields."
+                            }
+                          ]
+                        },
+                        "description": "Retrieves GP workers additional information fields that are required for running payroll depending on the country regulations\n **Token scopes**: `forms:read`"
+                      },
+                      "response": [
+                        {
+                          "id": "29b80868-a811-44de-9e9a-7e6aedaf444a",
+                          "name": "Use this response to render dynamic form fields for GP worker onboarding. Contains field configuration, validation rules, display metadata, and dependency logic needed to build country-specific additional information forms.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/gp/worker-additional-fields/:country_code",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "gp",
+                                "worker-additional-fields",
+                                ":country_code"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "country_code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"key\": \"<string>\",\n      \"type\": \"number\",\n      \"ui_guide\": {\n        \"label\": \"<string>\",\n        \"order\": \"<integer>\",\n        \"field_type\": \"<string>\",\n        \"description\": \"<string>\",\n        \"helper_text\": \"<string>\",\n        \"local_label\": \"<string>\"\n      },\n      \"validation\": [\n        {\n          \"type\": \"<string>\",\n          \"error_message\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"error_message\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"is_required\": \"<boolean>\",\n      \"dependencies\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"required_by\": \"<string>\",\n      \"values_allowed\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"type\": \"boolean\",\n      \"ui_guide\": {\n        \"label\": \"<string>\",\n        \"order\": \"<integer>\",\n        \"field_type\": \"<string>\",\n        \"description\": \"<string>\",\n        \"helper_text\": \"<string>\",\n        \"local_label\": \"<string>\"\n      },\n      \"validation\": [\n        {\n          \"type\": \"<string>\",\n          \"error_message\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"error_message\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"is_required\": \"<boolean>\",\n      \"dependencies\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"required_by\": \"<string>\",\n      \"values_allowed\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:39.000Z",
+                          "updatedAt": "2026-07-28T01:31:39.000Z",
+                          "uid": "35240-29b80868-a811-44de-9e9a-7e6aedaf444a"
+                        },
+                        {
+                          "id": "0e8fcbc4-661a-4b89-ab04-516d6fba23e9",
+                          "name": "Returned when the country_code path parameter is not a recognized ISO 3166-1 alpha-2 code.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/gp/worker-additional-fields/:country_code",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "gp",
+                                "worker-additional-fields",
+                                ":country_code"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "country_code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:39.000Z",
+                          "updatedAt": "2026-07-28T01:31:39.000Z",
+                          "uid": "35240-0e8fcbc4-661a-4b89-ab04-516d6fba23e9"
+                        },
+                        {
+                          "id": "a157ef08-7316-406c-bb73-2d16f25de5bd",
+                          "name": "Authentication failed. The access token is missing, expired, or invalid.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/gp/worker-additional-fields/:country_code",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "gp",
+                                "worker-additional-fields",
+                                ":country_code"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "country_code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:39.000Z",
+                          "updatedAt": "2026-07-28T01:31:39.000Z",
+                          "uid": "35240-a157ef08-7316-406c-bb73-2d16f25de5bd"
+                        },
+                        {
+                          "id": "f5284779-7c9f-4b27-939e-ddf8c1631b8c",
+                          "name": "Access denied. The authenticated user does not have the required forms:read scope.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/gp/worker-additional-fields/:country_code",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "gp",
+                                "worker-additional-fields",
+                                ":country_code"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "country_code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:39.000Z",
+                          "updatedAt": "2026-07-28T01:31:39.000Z",
+                          "uid": "35240-f5284779-7c9f-4b27-939e-ddf8c1631b8c"
+                        },
+                        {
+                          "id": "4febff58-d67f-4c91-8b89-004b74c673ea",
+                          "name": "The country_code is a valid ISO code but no additional information template exists for it in the Employee Data Management system.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/gp/worker-additional-fields/:country_code",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "gp",
+                                "worker-additional-fields",
+                                ":country_code"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "country_code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:31:39.000Z",
+                          "updatedAt": "2026-07-28T01:31:39.000Z",
+                          "uid": "35240-4febff58-d67f-4c91-8b89-004b74c673ea"
+                        },
+                        {
+                          "id": "cd5f3059-d91e-44be-a69b-428a11b6f63f",
+                          "name": "Rate limit exceeded. The client has sent too many requests in a given time window.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/gp/worker-additional-fields/:country_code",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "gp",
+                                "worker-additional-fields",
+                                ":country_code"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "country_code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:39.000Z",
+                          "updatedAt": "2026-07-28T01:31:39.000Z",
+                          "uid": "35240-cd5f3059-d91e-44be-a69b-428a11b6f63f"
+                        },
+                        {
+                          "id": "8a28d007-f8db-40f9-bcd5-055f1b06726a",
+                          "name": "Internal server error. Returned when the Employee Data Management service is unreachable, or an unexpected error occurs during field retrieval.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/gp/worker-additional-fields/:country_code",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "gp",
+                                "worker-additional-fields",
+                                ":country_code"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "country_code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:31:39.000Z",
+                          "updatedAt": "2026-07-28T01:31:39.000Z",
+                          "uid": "35240-8a28d007-f8db-40f9-bcd5-055f1b06726a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:31:38.000Z",
+                      "updatedAt": "2026-07-28T01:31:38.000Z",
+                      "uid": "35240-a7825d10-245b-4d9b-ac7c-cca491415ac0"
+                    }
+                  ],
+                  "id": "9bf279ca-742c-4dc0-9cee-5a965fb76411",
+                  "createdAt": "2026-07-28T01:31:38.000Z",
+                  "updatedAt": "2026-07-28T01:31:38.000Z",
+                  "uid": "35240-9bf279ca-742c-4dc0-9cee-5a965fb76411"
+                }
+              ],
+              "id": "08ae4fad-9d6e-4586-aee4-a9cc2b26a5b5",
+              "createdAt": "2026-07-28T01:31:38.000Z",
+              "updatedAt": "2026-07-28T01:31:38.000Z",
+              "uid": "35240-08ae4fad-9d6e-4586-aee4-a9cc2b26a5b5"
+            }
+          ],
+          "id": "47ae8fa8-f6a8-4ff4-87e3-ad0041eda4a7",
+          "createdAt": "2026-07-28T01:31:38.000Z",
+          "updatedAt": "2026-07-28T01:31:38.000Z",
+          "uid": "35240-47ae8fa8-f6a8-4ff4-87e3-ad0041eda4a7"
+        }
+      ],
+      "id": "60b98bee-6c47-4377-ba65-ff29ae2b2a5c",
+      "createdAt": "2026-07-28T01:31:38.000Z",
+      "updatedAt": "2026-07-28T01:31:38.000Z",
+      "uid": "35240-60b98bee-6c47-4377-ba65-ff29ae2b2a5c"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

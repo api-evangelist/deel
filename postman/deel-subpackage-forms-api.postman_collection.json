@@ -1,0 +1,841 @@
+{
+  "info": {
+    "_postman_id": "f659c043-9e64-40a0-86af-242a3db8d954",
+    "name": "Endpoints subpackage_forms API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:31:37.000Z",
+    "updatedAt": "2026-07-28T01:31:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f659c043-9e64-40a0-86af-242a3db8d954"
+  },
+  "item": [
+    {
+      "name": "forms",
+      "item": [
+        {
+          "name": "eor",
+          "item": [
+            {
+              "name": "create-contract",
+              "item": [
+                {
+                  "name": "definitions",
+                  "item": [
+                    {
+                      "name": "Fetch multiple EOR Contract forms",
+                      "id": "3b17d467-171a-442b-b368-941b9b8bca75",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"countries\": [\n      {\n        \"country_code\": \"<string>\",\n        \"state\": \"<string>\"\n      },\n      {\n        \"country_code\": \"<string>\",\n        \"state\": \"<string>\"\n      }\n    ],\n    \"start_date\": \"<date>\",\n    \"work_hours_per_week\": \"<integer>\",\n    \"contract_duration_in_days\": \"<integer>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/forms/eor/create-contract/definitions?limit=10&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "forms",
+                            "eor",
+                            "create-contract",
+                            "definitions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of countries to return in a single response. Defaults to 10.",
+                              "key": "limit",
+                              "value": "10"
+                            },
+                            {
+                              "description": "Pagination cursor for fetching subsequent pages of results.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "Retrieve paginated, versioned form definitions for creating EOR contracts for the specified countries. Use this endpoint when initializing or resuming a contract-creation flow to determine the required sections, fields, validation rules, and conditional logic per country (and optional contract type/locale). Always consume the latest effective version from the response and handle pagination. Not intended for reading or updating existing contracts.\n **Token scopes**: `forms:read`"
+                      },
+                      "response": [
+                        {
+                          "id": "04d19a14-5fd0-4e36-acce-3f102d0e867d",
+                          "name": "Successful response containing multiple form configuration data.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"countries\": [\n      {\n        \"country_code\": \"<string>\",\n        \"state\": \"<string>\"\n      },\n      {\n        \"country_code\": \"<string>\",\n        \"state\": \"<string>\"\n      }\n    ],\n    \"start_date\": \"<date>\",\n    \"work_hours_per_week\": \"<integer>\",\n    \"contract_duration_in_days\": \"<integer>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/eor/create-contract/definitions?limit=10&cursor=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "eor",
+                                "create-contract",
+                                "definitions"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of countries to return in a single response. Defaults to 10.",
+                                  "key": "limit",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "Pagination cursor for fetching subsequent pages of results.",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"pages\": [\n        {\n          \"title\": \"<string>\",\n          \"sections\": [\n            {\n              \"title\": \"<string>\",\n              \"questions\": [\n                {\n                  \"key\": \"<string>\",\n                  \"type\": \"FreeText\",\n                  \"title\": \"<string>\",\n                  \"rules\": [\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": null,\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    },\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": [\n                        {\n                          \"title\": \"<string>\",\n                          \"value\": \"<string,null>\"\n                        },\n                        {\n                          \"title\": \"<string>\",\n                          \"value\": \"<string,null>\"\n                        }\n                      ],\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    }\n                  ],\n                  \"source\": {\n                    \"url\": \"<string>\",\n                    \"definition\": \"<string>\",\n                    \"description\": \"<string>\"\n                  },\n                  \"options\": null,\n                  \"is_range\": \"<boolean>\",\n                  \"max_value\": \"<string>\",\n                  \"min_value\": \"<string>\",\n                  \"max_length\": \"<integer,null>\",\n                  \"min_length\": \"<integer,null>\",\n                  \"helper_text\": \"<string,null>\",\n                  \"is_disabled\": \"<boolean>\",\n                  \"is_required\": \"<boolean>\",\n                  \"number_type\": \"<string>\",\n                  \"default_value\": \"<string>\",\n                  \"is_only_digits\": \"<boolean>\",\n                  \"date_limitation\": \"<string,null>\",\n                  \"is_multiple_selection\": \"<boolean>\",\n                  \"must_request_validation\": \"<boolean>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"type\": \"PhoneNumber\",\n                  \"title\": \"<string>\",\n                  \"rules\": null,\n                  \"source\": {\n                    \"url\": \"<string>\",\n                    \"definition\": \"<string>\",\n                    \"description\": \"<string>\"\n                  },\n                  \"options\": null,\n                  \"is_range\": \"<boolean>\",\n                  \"max_value\": \"<string>\",\n                  \"min_value\": \"<string>\",\n                  \"max_length\": \"<integer,null>\",\n                  \"min_length\": \"<integer,null>\",\n                  \"helper_text\": \"<string,null>\",\n                  \"is_disabled\": \"<boolean>\",\n                  \"is_required\": \"<boolean>\",\n                  \"number_type\": \"<string>\",\n                  \"default_value\": \"<string>\",\n                  \"is_only_digits\": \"<boolean>\",\n                  \"date_limitation\": \"<string,null>\",\n                  \"is_multiple_selection\": \"<boolean>\",\n                  \"must_request_validation\": \"<boolean>\"\n                }\n              ],\n              \"subtitle\": \"<string>\"\n            },\n            {\n              \"title\": \"<string>\",\n              \"questions\": [\n                {\n                  \"key\": \"<string>\",\n                  \"type\": \"Number\",\n                  \"title\": \"<string>\",\n                  \"rules\": [\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": null,\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    },\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": [\n                        {\n                          \"title\": \"<string>\",\n                          \"value\": \"<string,null>\"\n                        },\n                        {\n                          \"title\": \"<string>\",\n                          \"value\": \"<string,null>\"\n                        }\n                      ],\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    }\n                  ],\n                  \"source\": {\n                    \"url\": \"<string>\",\n                    \"definition\": \"<string>\",\n                    \"description\": \"<string>\"\n                  },\n                  \"options\": [\n                    {\n                      \"title\": \"<string>\",\n                      \"value\": \"<string,null>\"\n                    },\n                    {\n                      \"title\": \"<string>\",\n                      \"value\": \"<string,null>\"\n                    }\n                  ],\n                  \"is_range\": \"<boolean>\",\n                  \"max_value\": \"<string>\",\n                  \"min_value\": \"<string>\",\n                  \"max_length\": \"<integer,null>\",\n                  \"min_length\": \"<integer,null>\",\n                  \"helper_text\": \"<string,null>\",\n                  \"is_disabled\": \"<boolean>\",\n                  \"is_required\": \"<boolean>\",\n                  \"number_type\": \"<string>\",\n                  \"default_value\": \"<string>\",\n                  \"is_only_digits\": \"<boolean>\",\n                  \"date_limitation\": \"<string,null>\",\n                  \"is_multiple_selection\": \"<boolean>\",\n                  \"must_request_validation\": \"<boolean>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"type\": \"DatePicker\",\n                  \"title\": \"<string>\",\n                  \"rules\": [\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": [\n                        {\n                          \"title\": \"<string>\",\n                          \"value\": \"<string,null>\"\n                        },\n                        {\n                          \"title\": \"<string>\",\n                          \"value\": \"<string,null>\"\n                        }\n                      ],\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    },\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": null,\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    }\n                  ],\n                  \"source\": {\n                    \"url\": \"<string>\",\n                    \"definition\": \"<string>\",\n                    \"description\": \"<string>\"\n                  },\n                  \"options\": null,\n                  \"is_range\": \"<boolean>\",\n                  \"max_value\": \"<string>\",\n                  \"min_value\": \"<string>\",\n                  \"max_length\": \"<integer,null>\",\n                  \"min_length\": \"<integer,null>\",\n                  \"helper_text\": \"<string,null>\",\n                  \"is_disabled\": \"<boolean>\",\n                  \"is_required\": \"<boolean>\",\n                  \"number_type\": \"<string>\",\n                  \"default_value\": \"<string>\",\n                  \"is_only_digits\": \"<boolean>\",\n                  \"date_limitation\": \"<string,null>\",\n                  \"is_multiple_selection\": \"<boolean>\",\n                  \"must_request_validation\": \"<boolean>\"\n                }\n              ],\n              \"subtitle\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"title\": \"<string>\",\n          \"sections\": [\n            {\n              \"title\": \"<string>\",\n              \"questions\": [\n                {\n                  \"key\": \"<string>\",\n                  \"type\": \"Dropdown\",\n                  \"title\": \"<string>\",\n                  \"rules\": null,\n                  \"source\": {\n                    \"url\": \"<string>\",\n                    \"definition\": \"<string>\",\n                    \"description\": \"<string>\"\n                  },\n                  \"options\": [\n                    {\n                      \"title\": \"<string>\",\n                      \"value\": \"<string,null>\"\n                    },\n                    {\n                      \"title\": \"<string>\",\n                      \"value\": \"<string,null>\"\n                    }\n                  ],\n                  \"is_range\": \"<boolean>\",\n                  \"max_value\": \"<string>\",\n                  \"min_value\": \"<string>\",\n                  \"max_length\": \"<integer,null>\",\n                  \"min_length\": \"<integer,null>\",\n                  \"helper_text\": \"<string,null>\",\n                  \"is_disabled\": \"<boolean>\",\n                  \"is_required\": \"<boolean>\",\n                  \"number_type\": \"<string>\",\n                  \"default_value\": \"<string>\",\n                  \"is_only_digits\": \"<boolean>\",\n                  \"date_limitation\": \"<string,null>\",\n                  \"is_multiple_selection\": \"<boolean>\",\n                  \"must_request_validation\": \"<boolean>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"type\": \"Email\",\n                  \"title\": \"<string>\",\n                  \"rules\": null,\n                  \"source\": {\n                    \"url\": \"<string>\",\n                    \"definition\": \"<string>\",\n                    \"description\": \"<string>\"\n                  },\n                  \"options\": null,\n                  \"is_range\": \"<boolean>\",\n                  \"max_value\": \"<string>\",\n                  \"min_value\": \"<string>\",\n                  \"max_length\": \"<integer,null>\",\n                  \"min_length\": \"<integer,null>\",\n                  \"helper_text\": \"<string,null>\",\n                  \"is_disabled\": \"<boolean>\",\n                  \"is_required\": \"<boolean>\",\n                  \"number_type\": \"<string>\",\n                  \"default_value\": \"<string>\",\n                  \"is_only_digits\": \"<boolean>\",\n                  \"date_limitation\": \"<string,null>\",\n                  \"is_multiple_selection\": \"<boolean>\",\n                  \"must_request_validation\": \"<boolean>\"\n                }\n              ],\n              \"subtitle\": \"<string>\"\n            },\n            {\n              \"title\": \"<string>\",\n              \"questions\": [\n                {\n                  \"key\": \"<string>\",\n                  \"type\": \"PhoneNumber\",\n                  \"title\": \"<string>\",\n                  \"rules\": null,\n                  \"source\": {\n                    \"url\": \"<string>\",\n                    \"definition\": \"<string>\",\n                    \"description\": \"<string>\"\n                  },\n                  \"options\": null,\n                  \"is_range\": \"<boolean>\",\n                  \"max_value\": \"<string>\",\n                  \"min_value\": \"<string>\",\n                  \"max_length\": \"<integer,null>\",\n                  \"min_length\": \"<integer,null>\",\n                  \"helper_text\": \"<string,null>\",\n                  \"is_disabled\": \"<boolean>\",\n                  \"is_required\": \"<boolean>\",\n                  \"number_type\": \"<string>\",\n                  \"default_value\": \"<string>\",\n                  \"is_only_digits\": \"<boolean>\",\n                  \"date_limitation\": \"<string,null>\",\n                  \"is_multiple_selection\": \"<boolean>\",\n                  \"must_request_validation\": \"<boolean>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"type\": \"SingleSelection\",\n                  \"title\": \"<string>\",\n                  \"rules\": [\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": null,\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    },\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": null,\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    }\n                  ],\n                  \"source\": {\n                    \"url\": \"<string>\",\n                    \"definition\": \"<string>\",\n                    \"description\": \"<string>\"\n                  },\n                  \"options\": null,\n                  \"is_range\": \"<boolean>\",\n                  \"max_value\": \"<string>\",\n                  \"min_value\": \"<string>\",\n                  \"max_length\": \"<integer,null>\",\n                  \"min_length\": \"<integer,null>\",\n                  \"helper_text\": \"<string,null>\",\n                  \"is_disabled\": \"<boolean>\",\n                  \"is_required\": \"<boolean>\",\n                  \"number_type\": \"<string>\",\n                  \"default_value\": \"<string>\",\n                  \"is_only_digits\": \"<boolean>\",\n                  \"date_limitation\": \"<string,null>\",\n                  \"is_multiple_selection\": \"<boolean>\",\n                  \"must_request_validation\": \"<boolean>\"\n                }\n              ],\n              \"subtitle\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"country\": \"<string>\",\n      \"state\": \"<string,null>\"\n    },\n    {\n      \"pages\": [\n        {\n          \"title\": \"<string>\",\n          \"sections\": [\n            {\n              \"title\": \"<string>\",\n              \"questions\": [\n                {\n                  \"key\": \"<string>\",\n                  \"type\": \"MultiSelection\",\n                  \"title\": \"<string>\",\n                  \"rules\": null,\n                  \"source\": {\n                    \"url\": \"<string>\",\n                    \"definition\": \"<string>\",\n                    \"description\": \"<string>\"\n                  },\n                  \"options\": [\n                    {\n                      \"title\": \"<string>\",\n                      \"value\": \"<string,null>\"\n                    },\n                    {\n                      \"title\": \"<string>\",\n                      \"value\": \"<string,null>\"\n                    }\n                  ],\n                  \"is_range\": \"<boolean>\",\n                  \"max_value\": \"<string>\",\n                  \"min_value\": \"<string>\",\n                  \"max_length\": \"<integer,null>\",\n                  \"min_length\": \"<integer,null>\",\n                  \"helper_text\": \"<string,null>\",\n                  \"is_disabled\": \"<boolean>\",\n                  \"is_required\": \"<boolean>\",\n                  \"number_type\": \"<string>\",\n                  \"default_value\": \"<string>\",\n                  \"is_only_digits\": \"<boolean>\",\n                  \"date_limitation\": \"<string,null>\",\n                  \"is_multiple_selection\": \"<boolean>\",\n                  \"must_request_validation\": \"<boolean>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"type\": \"Number\",\n                  \"title\": \"<string>\",\n                  \"rules\": [\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": null,\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    },\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": null,\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    }\n                  ],\n                  \"source\": {\n                    \"url\": \"<string>\",\n                    \"definition\": \"<string>\",\n                    \"description\": \"<string>\"\n                  },\n                  \"options\": [\n                    {\n                      \"title\": \"<string>\",\n                      \"value\": \"<string,null>\"\n                    },\n                    {\n                      \"title\": \"<string>\",\n                      \"value\": \"<string,null>\"\n                    }\n                  ],\n                  \"is_range\": \"<boolean>\",\n                  \"max_value\": \"<string>\",\n                  \"min_value\": \"<string>\",\n                  \"max_length\": \"<integer,null>\",\n                  \"min_length\": \"<integer,null>\",\n                  \"helper_text\": \"<string,null>\",\n                  \"is_disabled\": \"<boolean>\",\n                  \"is_required\": \"<boolean>\",\n                  \"number_type\": \"<string>\",\n                  \"default_value\": \"<string>\",\n                  \"is_only_digits\": \"<boolean>\",\n                  \"date_limitation\": \"<string,null>\",\n                  \"is_multiple_selection\": \"<boolean>\",\n                  \"must_request_validation\": \"<boolean>\"\n                }\n              ],\n              \"subtitle\": \"<string>\"\n            },\n            {\n              \"title\": \"<string>\",\n              \"questions\": [\n                {\n                  \"key\": \"<string>\",\n                  \"type\": \"DatePicker\",\n                  \"title\": \"<string>\",\n                  \"rules\": [\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": null,\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    },\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": null,\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    }\n                  ],\n                  \"source\": {\n                    \"url\": \"<string>\",\n                    \"definition\": \"<string>\",\n                    \"description\": \"<string>\"\n                  },\n                  \"options\": [\n                    {\n                      \"title\": \"<string>\",\n                      \"value\": \"<string,null>\"\n                    },\n                    {\n                      \"title\": \"<string>\",\n                      \"value\": \"<string,null>\"\n                    }\n                  ],\n                  \"is_range\": \"<boolean>\",\n                  \"max_value\": \"<string>\",\n                  \"min_value\": \"<string>\",\n                  \"max_length\": \"<integer,null>\",\n                  \"min_length\": \"<integer,null>\",\n                  \"helper_text\": \"<string,null>\",\n                  \"is_disabled\": \"<boolean>\",\n                  \"is_required\": \"<boolean>\",\n                  \"number_type\": \"<string>\",\n                  \"default_value\": \"<string>\",\n                  \"is_only_digits\": \"<boolean>\",\n                  \"date_limitation\": \"<string,null>\",\n                  \"is_multiple_selection\": \"<boolean>\",\n                  \"must_request_validation\": \"<boolean>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"type\": \"SingleSelection\",\n                  \"title\": \"<string>\",\n                  \"rules\": [\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": [\n                        {\n                          \"title\": \"<string>\",\n                          \"value\": \"<string,null>\"\n                        },\n                        {\n                          \"title\": \"<string>\",\n                          \"value\": \"<string,null>\"\n                        }\n                      ],\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    },\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": null,\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    }\n                  ],\n                  \"source\": {\n                    \"url\": \"<string>\",\n                    \"definition\": \"<string>\",\n                    \"description\": \"<string>\"\n                  },\n                  \"options\": null,\n                  \"is_range\": \"<boolean>\",\n                  \"max_value\": \"<string>\",\n                  \"min_value\": \"<string>\",\n                  \"max_length\": \"<integer,null>\",\n                  \"min_length\": \"<integer,null>\",\n                  \"helper_text\": \"<string,null>\",\n                  \"is_disabled\": \"<boolean>\",\n                  \"is_required\": \"<boolean>\",\n                  \"number_type\": \"<string>\",\n                  \"default_value\": \"<string>\",\n                  \"is_only_digits\": \"<boolean>\",\n                  \"date_limitation\": \"<string,null>\",\n                  \"is_multiple_selection\": \"<boolean>\",\n                  \"must_request_validation\": \"<boolean>\"\n                }\n              ],\n              \"subtitle\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"title\": \"<string>\",\n          \"sections\": [\n            {\n              \"title\": \"<string>\",\n              \"questions\": [\n                {\n                  \"key\": \"<string>\",\n                  \"type\": \"MultiSelection\",\n                  \"title\": \"<string>\",\n                  \"rules\": [\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": null,\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    },\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": null,\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    }\n                  ],\n                  \"source\": {\n                    \"url\": \"<string>\",\n                    \"definition\": \"<string>\",\n                    \"description\": \"<string>\"\n                  },\n                  \"options\": null,\n                  \"is_range\": \"<boolean>\",\n                  \"max_value\": \"<string>\",\n                  \"min_value\": \"<string>\",\n                  \"max_length\": \"<integer,null>\",\n                  \"min_length\": \"<integer,null>\",\n                  \"helper_text\": \"<string,null>\",\n                  \"is_disabled\": \"<boolean>\",\n                  \"is_required\": \"<boolean>\",\n                  \"number_type\": \"<string>\",\n                  \"default_value\": \"<string>\",\n                  \"is_only_digits\": \"<boolean>\",\n                  \"date_limitation\": \"<string,null>\",\n                  \"is_multiple_selection\": \"<boolean>\",\n                  \"must_request_validation\": \"<boolean>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"type\": \"DocumentUpload\",\n                  \"title\": \"<string>\",\n                  \"rules\": null,\n                  \"source\": {\n                    \"url\": \"<string>\",\n                    \"definition\": \"<string>\",\n                    \"description\": \"<string>\"\n                  },\n                  \"options\": [\n                    {\n                      \"title\": \"<string>\",\n                      \"value\": \"<string,null>\"\n                    },\n                    {\n                      \"title\": \"<string>\",\n                      \"value\": \"<string,null>\"\n                    }\n                  ],\n                  \"is_range\": \"<boolean>\",\n                  \"max_value\": \"<string>\",\n                  \"min_value\": \"<string>\",\n                  \"max_length\": \"<integer,null>\",\n                  \"min_length\": \"<integer,null>\",\n                  \"helper_text\": \"<string,null>\",\n                  \"is_disabled\": \"<boolean>\",\n                  \"is_required\": \"<boolean>\",\n                  \"number_type\": \"<string>\",\n                  \"default_value\": \"<string>\",\n                  \"is_only_digits\": \"<boolean>\",\n                  \"date_limitation\": \"<string,null>\",\n                  \"is_multiple_selection\": \"<boolean>\",\n                  \"must_request_validation\": \"<boolean>\"\n                }\n              ],\n              \"subtitle\": \"<string>\"\n            },\n            {\n              \"title\": \"<string>\",\n              \"questions\": [\n                {\n                  \"key\": \"<string>\",\n                  \"type\": \"Email\",\n                  \"title\": \"<string>\",\n                  \"rules\": [\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": [\n                        {\n                          \"title\": \"<string>\",\n                          \"value\": \"<string,null>\"\n                        },\n                        {\n                          \"title\": \"<string>\",\n                          \"value\": \"<string,null>\"\n                        }\n                      ],\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    },\n                    {\n                      \"title\": \"<string>\",\n                      \"source\": {\n                        \"url\": \"<string>\",\n                        \"definition\": \"<string>\",\n                        \"description\": \"<string>\"\n                      },\n                      \"options\": [\n                        {\n                          \"title\": \"<string>\",\n                          \"value\": \"<string,null>\"\n                        },\n                        {\n                          \"title\": \"<string>\",\n                          \"value\": \"<string,null>\"\n                        }\n                      ],\n                      \"is_range\": \"<boolean>\",\n                      \"requires\": [\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        },\n                        {\n                          \"key\": \"<string>\",\n                          \"value\": \"<string>\",\n                          \"operator\": \"<string,null>\",\n                          \"compare_key\": \"<string,null>\"\n                        }\n                      ],\n                      \"max_value\": \"<string>\",\n                      \"min_value\": \"<string>\",\n                      \"max_length\": \"<integer,null>\",\n                      \"min_length\": \"<integer,null>\",\n                      \"helper_text\": \"<string,null>\",\n                      \"is_disabled\": \"<boolean>\",\n                      \"is_required\": \"<boolean>\",\n                      \"number_type\": \"<string>\",\n                      \"default_value\": \"<string>\",\n                      \"is_only_digits\": \"<boolean>\",\n                      \"date_limitation\": \"<string,null>\",\n                      \"is_multiple_selection\": \"<boolean>\",\n                      \"must_request_validation\": \"<boolean>\"\n                    }\n                  ],\n                  \"source\": {\n                    \"url\": \"<string>\",\n                    \"definition\": \"<string>\",\n                    \"description\": \"<string>\"\n                  },\n                  \"options\": null,\n                  \"is_range\": \"<boolean>\",\n                  \"max_value\": \"<string>\",\n                  \"min_value\": \"<string>\",\n                  \"max_length\": \"<integer,null>\",\n                  \"min_length\": \"<integer,null>\",\n                  \"helper_text\": \"<string,null>\",\n                  \"is_disabled\": \"<boolean>\",\n                  \"is_required\": \"<boolean>\",\n                  \"number_type\": \"<string>\",\n                  \"default_value\": \"<string>\",\n                  \"is_only_digits\": \"<boolean>\",\n                  \"date_limitation\": \"<string,null>\",\n                  \"is_multiple_selection\": \"<boolean>\",\n                  \"must_request_validation\": \"<boolean>\"\n                },\n                {\n                  \"key\": \"<string>\",\n                  \"type\": \"MultiSelection\",\n                  \"title\": \"<string>\",\n                  \"rules\": null,\n                  \"source\": {\n                    \"url\": \"<string>\",\n                    \"definition\": \"<string>\",\n                    \"description\": \"<string>\"\n                  },\n                  \"options\": null,\n                  \"is_range\": \"<boolean>\",\n                  \"max_value\": \"<string>\",\n                  \"min_value\": \"<string>\",\n                  \"max_length\": \"<integer,null>\",\n                  \"min_length\": \"<integer,null>\",\n                  \"helper_text\": \"<string,null>\",\n                  \"is_disabled\": \"<boolean>\",\n                  \"is_required\": \"<boolean>\",\n                  \"number_type\": \"<string>\",\n                  \"default_value\": \"<string>\",\n                  \"is_only_digits\": \"<boolean>\",\n                  \"date_limitation\": \"<string,null>\",\n                  \"is_multiple_selection\": \"<boolean>\",\n                  \"must_request_validation\": \"<boolean>\"\n                }\n              ],\n              \"subtitle\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"country\": \"<string>\",\n      \"state\": \"<string,null>\"\n    }\n  ],\n  \"has_more\": \"<boolean>\",\n  \"total_count\": \"<integer>\",\n  \"next_cursor\": \"<string,null>\"\n}",
+                          "createdAt": "2026-07-28T01:31:37.000Z",
+                          "updatedAt": "2026-07-28T01:31:37.000Z",
+                          "uid": "35240-04d19a14-5fd0-4e36-acce-3f102d0e867d"
+                        },
+                        {
+                          "id": "7eb1b1b1-60e3-45a2-a181-7e3c1d38aa48",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"countries\": [\n      {\n        \"country_code\": \"<string>\",\n        \"state\": \"<string>\"\n      },\n      {\n        \"country_code\": \"<string>\",\n        \"state\": \"<string>\"\n      }\n    ],\n    \"start_date\": \"<date>\",\n    \"work_hours_per_week\": \"<integer>\",\n    \"contract_duration_in_days\": \"<integer>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/eor/create-contract/definitions?limit=10&cursor=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "eor",
+                                "create-contract",
+                                "definitions"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of countries to return in a single response. Defaults to 10.",
+                                  "key": "limit",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "Pagination cursor for fetching subsequent pages of results.",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:37.000Z",
+                          "updatedAt": "2026-07-28T01:31:37.000Z",
+                          "uid": "35240-7eb1b1b1-60e3-45a2-a181-7e3c1d38aa48"
+                        },
+                        {
+                          "id": "24669451-49a3-4de6-8f0a-34fa54040cf7",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"countries\": [\n      {\n        \"country_code\": \"<string>\",\n        \"state\": \"<string>\"\n      },\n      {\n        \"country_code\": \"<string>\",\n        \"state\": \"<string>\"\n      }\n    ],\n    \"start_date\": \"<date>\",\n    \"work_hours_per_week\": \"<integer>\",\n    \"contract_duration_in_days\": \"<integer>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/eor/create-contract/definitions?limit=10&cursor=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "eor",
+                                "create-contract",
+                                "definitions"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of countries to return in a single response. Defaults to 10.",
+                                  "key": "limit",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "Pagination cursor for fetching subsequent pages of results.",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:37.000Z",
+                          "updatedAt": "2026-07-28T01:31:37.000Z",
+                          "uid": "35240-24669451-49a3-4de6-8f0a-34fa54040cf7"
+                        },
+                        {
+                          "id": "45f2d7cd-0381-4b92-8087-3fb1bd9a23fa",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"countries\": [\n      {\n        \"country_code\": \"<string>\",\n        \"state\": \"<string>\"\n      },\n      {\n        \"country_code\": \"<string>\",\n        \"state\": \"<string>\"\n      }\n    ],\n    \"start_date\": \"<date>\",\n    \"work_hours_per_week\": \"<integer>\",\n    \"contract_duration_in_days\": \"<integer>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/eor/create-contract/definitions?limit=10&cursor=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "eor",
+                                "create-contract",
+                                "definitions"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of countries to return in a single response. Defaults to 10.",
+                                  "key": "limit",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "Pagination cursor for fetching subsequent pages of results.",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:37.000Z",
+                          "updatedAt": "2026-07-28T01:31:37.000Z",
+                          "uid": "35240-45f2d7cd-0381-4b92-8087-3fb1bd9a23fa"
+                        },
+                        {
+                          "id": "25e84cae-e566-44ee-b978-4a9fe188af08",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"countries\": [\n      {\n        \"country_code\": \"<string>\",\n        \"state\": \"<string>\"\n      },\n      {\n        \"country_code\": \"<string>\",\n        \"state\": \"<string>\"\n      }\n    ],\n    \"start_date\": \"<date>\",\n    \"work_hours_per_week\": \"<integer>\",\n    \"contract_duration_in_days\": \"<integer>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/eor/create-contract/definitions?limit=10&cursor=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "eor",
+                                "create-contract",
+                                "definitions"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of countries to return in a single response. Defaults to 10.",
+                                  "key": "limit",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "Pagination cursor for fetching subsequent pages of results.",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:37.000Z",
+                          "updatedAt": "2026-07-28T01:31:37.000Z",
+                          "uid": "35240-25e84cae-e566-44ee-b978-4a9fe188af08"
+                        },
+                        {
+                          "id": "4cb24618-68f8-4d35-8aad-8ee3df9e85cb",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"countries\": [\n      {\n        \"country_code\": \"<string>\",\n        \"state\": \"<string>\"\n      },\n      {\n        \"country_code\": \"<string>\",\n        \"state\": \"<string>\"\n      }\n    ],\n    \"start_date\": \"<date>\",\n    \"work_hours_per_week\": \"<integer>\",\n    \"contract_duration_in_days\": \"<integer>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/eor/create-contract/definitions?limit=10&cursor=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "eor",
+                                "create-contract",
+                                "definitions"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of countries to return in a single response. Defaults to 10.",
+                                  "key": "limit",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "Pagination cursor for fetching subsequent pages of results.",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:37.000Z",
+                          "updatedAt": "2026-07-28T01:31:37.000Z",
+                          "uid": "35240-4cb24618-68f8-4d35-8aad-8ee3df9e85cb"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:31:37.000Z",
+                      "updatedAt": "2026-07-28T01:31:37.000Z",
+                      "uid": "35240-3b17d467-171a-442b-b368-941b9b8bca75"
+                    }
+                  ],
+                  "id": "2549ed3f-4f7b-4f1b-a286-7c6c30a605b4",
+                  "createdAt": "2026-07-28T01:31:37.000Z",
+                  "updatedAt": "2026-07-28T01:31:37.000Z",
+                  "uid": "35240-2549ed3f-4f7b-4f1b-a286-7c6c30a605b4"
+                }
+              ],
+              "id": "0d7ca807-8036-4a9d-96bf-3894e3f2a50a",
+              "createdAt": "2026-07-28T01:31:37.000Z",
+              "updatedAt": "2026-07-28T01:31:37.000Z",
+              "uid": "35240-0d7ca807-8036-4a9d-96bf-3894e3f2a50a"
+            },
+            {
+              "name": "worker-additional-fields",
+              "item": [
+                {
+                  "name": "{country_code}",
+                  "item": [
+                    {
+                      "name": "Get worker additional fields for (EOR)",
+                      "id": "dfb1ef2e-3e81-458c-bbbc-0a71c0a5192f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/forms/eor/worker-additional-fields/:country_code",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "forms",
+                            "eor",
+                            "worker-additional-fields",
+                            ":country_code"
+                          ],
+                          "variable": [
+                            {
+                              "id": "06154b5e-a025-440c-befa-ff3d9e225780",
+                              "key": "country_code",
+                              "value": "<string>",
+                              "description": "(Required) Country code"
+                            }
+                          ]
+                        },
+                        "description": "Use this endpoint to retrieve the additional form fields required for EOR workers in a specified country.\n **Token scopes**: `forms:read`"
+                      },
+                      "response": [
+                        {
+                          "id": "3435a0c8-108d-45ac-8fa5-0ca494c13109",
+                          "name": "Successful operation.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/eor/worker-additional-fields/:country_code",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "eor",
+                                "worker-additional-fields",
+                                ":country_code"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "country_code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"key\": \"<string>\",\n      \"type\": \"<string>\",\n      \"ui_guide\": {\n        \"label\": \"<string>\",\n        \"order\": \"<integer>\",\n        \"field_type\": \"<string>\",\n        \"description\": \"<string>\",\n        \"helper_text\": \"<string>\",\n        \"local_label\": \"<string>\"\n      },\n      \"validation\": [\n        {\n          \"type\": \"<string>\",\n          \"error_message\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"error_message\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"is_required\": \"<boolean>\",\n      \"dependencies\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"required_by\": \"<string>\",\n      \"values_allowed\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"type\": \"<string>\",\n      \"ui_guide\": {\n        \"label\": \"<string>\",\n        \"order\": \"<integer>\",\n        \"field_type\": \"<string>\",\n        \"description\": \"<string>\",\n        \"helper_text\": \"<string>\",\n        \"local_label\": \"<string>\"\n      },\n      \"validation\": [\n        {\n          \"type\": \"<string>\",\n          \"error_message\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"error_message\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"is_required\": \"<boolean>\",\n      \"dependencies\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"required_by\": \"<string>\",\n      \"values_allowed\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:37.000Z",
+                          "updatedAt": "2026-07-28T01:31:37.000Z",
+                          "uid": "35240-3435a0c8-108d-45ac-8fa5-0ca494c13109"
+                        },
+                        {
+                          "id": "61f40b20-a104-4f81-a455-601a69f3ee00",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/eor/worker-additional-fields/:country_code",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "eor",
+                                "worker-additional-fields",
+                                ":country_code"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "country_code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:37.000Z",
+                          "updatedAt": "2026-07-28T01:31:37.000Z",
+                          "uid": "35240-61f40b20-a104-4f81-a455-601a69f3ee00"
+                        },
+                        {
+                          "id": "e56babdc-0af3-4640-8a4f-19e7e3e35064",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/eor/worker-additional-fields/:country_code",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "eor",
+                                "worker-additional-fields",
+                                ":country_code"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "country_code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:37.000Z",
+                          "updatedAt": "2026-07-28T01:31:37.000Z",
+                          "uid": "35240-e56babdc-0af3-4640-8a4f-19e7e3e35064"
+                        },
+                        {
+                          "id": "e022aa60-6de1-4d4b-bdfd-b3345431d4d1",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/eor/worker-additional-fields/:country_code",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "eor",
+                                "worker-additional-fields",
+                                ":country_code"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "country_code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:37.000Z",
+                          "updatedAt": "2026-07-28T01:31:37.000Z",
+                          "uid": "35240-e022aa60-6de1-4d4b-bdfd-b3345431d4d1"
+                        },
+                        {
+                          "id": "63f31eb5-df74-446a-87db-e9b301c4b11d",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/eor/worker-additional-fields/:country_code",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "eor",
+                                "worker-additional-fields",
+                                ":country_code"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "country_code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:37.000Z",
+                          "updatedAt": "2026-07-28T01:31:37.000Z",
+                          "uid": "35240-63f31eb5-df74-446a-87db-e9b301c4b11d"
+                        },
+                        {
+                          "id": "8647e88e-e2d9-45c0-b6ca-49f3745a9708",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/forms/eor/worker-additional-fields/:country_code",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "forms",
+                                "eor",
+                                "worker-additional-fields",
+                                ":country_code"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "country_code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:37.000Z",
+                          "updatedAt": "2026-07-28T01:31:37.000Z",
+                          "uid": "35240-8647e88e-e2d9-45c0-b6ca-49f3745a9708"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:31:37.000Z",
+                      "updatedAt": "2026-07-28T01:31:37.000Z",
+                      "uid": "35240-dfb1ef2e-3e81-458c-bbbc-0a71c0a5192f"
+                    }
+                  ],
+                  "id": "1ff417f2-3adf-4d24-8425-f7f51cfccb73",
+                  "createdAt": "2026-07-28T01:31:37.000Z",
+                  "updatedAt": "2026-07-28T01:31:37.000Z",
+                  "uid": "35240-1ff417f2-3adf-4d24-8425-f7f51cfccb73"
+                }
+              ],
+              "id": "ab740599-9f6d-4735-bf02-feb7abe72e2e",
+              "createdAt": "2026-07-28T01:31:37.000Z",
+              "updatedAt": "2026-07-28T01:31:37.000Z",
+              "uid": "35240-ab740599-9f6d-4735-bf02-feb7abe72e2e"
+            }
+          ],
+          "id": "b390221a-c5a1-44f5-abcb-42c30dda8f34",
+          "createdAt": "2026-07-28T01:31:37.000Z",
+          "updatedAt": "2026-07-28T01:31:37.000Z",
+          "uid": "35240-b390221a-c5a1-44f5-abcb-42c30dda8f34"
+        }
+      ],
+      "id": "cf4998db-aa64-43d9-90ca-5976c8576a6f",
+      "createdAt": "2026-07-28T01:31:37.000Z",
+      "updatedAt": "2026-07-28T01:31:37.000Z",
+      "uid": "35240-cf4998db-aa64-43d9-90ca-5976c8576a6f"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

@@ -1,0 +1,821 @@
+{
+  "info": {
+    "_postman_id": "9ddd8100-1ab5-4e08-b1d2-f0b48996300f",
+    "name": "Endpoints subpackage_positions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:55.000Z",
+    "updatedAt": "2026-07-28T01:32:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9ddd8100-1ab5-4e08-b1d2-f0b48996300f"
+  },
+  "item": [
+    {
+      "name": "hris",
+      "item": [
+        {
+          "name": "positions",
+          "item": [
+            {
+              "name": "apply_changes",
+              "item": [
+                {
+                  "name": "Apply changes to positions.",
+                  "id": "0385bdca-f859-4df4-9993-cc45f4e3310d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"profile_id\": \"<uuid>\",\n    \"add\": [\n      {\n        \"team_id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      },\n      {\n        \"team_id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      }\n    ],\n    \"edit\": [\n      {\n        \"id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      }\n    ],\n    \"delete\": [\n      {\n        \"id\": \"<uuid>\"\n      },\n      {\n        \"id\": \"<uuid>\"\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/hris/positions/apply_changes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "hris",
+                        "positions",
+                        "apply_changes"
+                      ]
+                    },
+                    "description": "Applies a set of position changes (add, edit, delete) for a given HRIS profile.\n **Token scopes**: `profile:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "0abe99af-841f-4620-8a84-4c3b433ae88b",
+                      "name": "Successful operation",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"profile_id\": \"<uuid>\",\n    \"add\": [\n      {\n        \"team_id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      },\n      {\n        \"team_id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      }\n    ],\n    \"edit\": [\n      {\n        \"id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      }\n    ],\n    \"delete\": [\n      {\n        \"id\": \"<uuid>\"\n      },\n      {\n        \"id\": \"<uuid>\"\n      }\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/hris/positions/apply_changes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "hris",
+                            "positions",
+                            "apply_changes"
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-0abe99af-841f-4620-8a84-4c3b433ae88b"
+                    },
+                    {
+                      "id": "1c217a19-b4ef-4235-84f2-56fe89171933",
+                      "name": "Bad Request. Invalid input parameters.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"profile_id\": \"<uuid>\",\n    \"add\": [\n      {\n        \"team_id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      },\n      {\n        \"team_id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      }\n    ],\n    \"edit\": [\n      {\n        \"id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      }\n    ],\n    \"delete\": [\n      {\n        \"id\": \"<uuid>\"\n      },\n      {\n        \"id\": \"<uuid>\"\n      }\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/hris/positions/apply_changes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "hris",
+                            "positions",
+                            "apply_changes"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"description\": \"Any type\"\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-1c217a19-b4ef-4235-84f2-56fe89171933"
+                    },
+                    {
+                      "id": "c5e9929b-3417-48ae-ac20-25db9fddb62d",
+                      "name": "Unauthorized. Invalid or expired token.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"profile_id\": \"<uuid>\",\n    \"add\": [\n      {\n        \"team_id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      },\n      {\n        \"team_id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      }\n    ],\n    \"edit\": [\n      {\n        \"id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      }\n    ],\n    \"delete\": [\n      {\n        \"id\": \"<uuid>\"\n      },\n      {\n        \"id\": \"<uuid>\"\n      }\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/hris/positions/apply_changes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "hris",
+                            "positions",
+                            "apply_changes"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"description\": \"Any type\"\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-c5e9929b-3417-48ae-ac20-25db9fddb62d"
+                    },
+                    {
+                      "id": "4050fdff-183b-4f0b-b7ef-1881c2898aee",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"profile_id\": \"<uuid>\",\n    \"add\": [\n      {\n        \"team_id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      },\n      {\n        \"team_id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      }\n    ],\n    \"edit\": [\n      {\n        \"id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      }\n    ],\n    \"delete\": [\n      {\n        \"id\": \"<uuid>\"\n      },\n      {\n        \"id\": \"<uuid>\"\n      }\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/hris/positions/apply_changes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "hris",
+                            "positions",
+                            "apply_changes"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-4050fdff-183b-4f0b-b7ef-1881c2898aee"
+                    },
+                    {
+                      "id": "274fc6ae-8e8d-4a93-85b8-3de61afc554b",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"profile_id\": \"<uuid>\",\n    \"add\": [\n      {\n        \"team_id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      },\n      {\n        \"team_id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      }\n    ],\n    \"edit\": [\n      {\n        \"id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      }\n    ],\n    \"delete\": [\n      {\n        \"id\": \"<uuid>\"\n      },\n      {\n        \"id\": \"<uuid>\"\n      }\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/hris/positions/apply_changes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "hris",
+                            "positions",
+                            "apply_changes"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-274fc6ae-8e8d-4a93-85b8-3de61afc554b"
+                    },
+                    {
+                      "id": "423e9526-a2d2-430c-b8ec-62755d2be26d",
+                      "name": "Internal Server Error. Could not process the request.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"profile_id\": \"<uuid>\",\n    \"add\": [\n      {\n        \"team_id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      },\n      {\n        \"team_id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      }\n    ],\n    \"edit\": [\n      {\n        \"id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      }\n    ],\n    \"delete\": [\n      {\n        \"id\": \"<uuid>\"\n      },\n      {\n        \"id\": \"<uuid>\"\n      }\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/hris/positions/apply_changes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "hris",
+                            "positions",
+                            "apply_changes"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"description\": \"Any type\"\n}",
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-423e9526-a2d2-430c-b8ec-62755d2be26d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:32:55.000Z",
+                  "updatedAt": "2026-07-28T01:32:55.000Z",
+                  "uid": "35240-0385bdca-f859-4df4-9993-cc45f4e3310d"
+                }
+              ],
+              "id": "ede08b42-d66a-47e2-8abd-93ebf082d500",
+              "createdAt": "2026-07-28T01:32:55.000Z",
+              "updatedAt": "2026-07-28T01:32:55.000Z",
+              "uid": "35240-ede08b42-d66a-47e2-8abd-93ebf082d500"
+            },
+            {
+              "name": "profile",
+              "item": [
+                {
+                  "name": "{hrisProfileId}",
+                  "item": [
+                    {
+                      "name": "Get Positions By Profile",
+                      "id": "54ea62c3-c2f5-42c5-90df-e0284f4bde9a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/hris/positions/profile/:hrisProfileId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "hris",
+                            "positions",
+                            "profile",
+                            ":hrisProfileId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "66b90fb4-8f0a-4fb5-b61f-cc8fd9b735d6",
+                              "key": "hrisProfileId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9e5d9056-eb0f-4b47-859b-891d4d336048",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/hris/positions/profile/:hrisProfileId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "hris",
+                                "positions",
+                                "profile",
+                                ":hrisProfileId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "hrisProfileId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:32:55.000Z",
+                          "updatedAt": "2026-07-28T01:32:55.000Z",
+                          "uid": "35240-9e5d9056-eb0f-4b47-859b-891d4d336048"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-54ea62c3-c2f5-42c5-90df-e0284f4bde9a"
+                    }
+                  ],
+                  "id": "6afd725c-80cd-406a-8a4e-8639344c15b2",
+                  "createdAt": "2026-07-28T01:32:55.000Z",
+                  "updatedAt": "2026-07-28T01:32:55.000Z",
+                  "uid": "35240-6afd725c-80cd-406a-8a4e-8639344c15b2"
+                },
+                {
+                  "name": "{hris_profile_id}",
+                  "item": [
+                    {
+                      "name": "Fetch HrisPositions from a HrisProfile",
+                      "id": "6b0e69bd-ce34-4de4-9d0f-931ae6314e2a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/hris/positions/profile/:hris_profile_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "hris",
+                            "positions",
+                            "profile",
+                            ":hris_profile_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c50f27f6-1efe-4082-944f-6879993ea53a",
+                              "key": "hris_profile_id",
+                              "value": "<string>",
+                              "description": "(Required) HRIS Profile ID"
+                            }
+                          ]
+                        },
+                        "description": "Retrieves all positions assigned to a given HRIS profile, including the associated role, team, and organization structure for each position.\n **Token scopes**: `profile:read`"
+                      },
+                      "response": [
+                        {
+                          "id": "003c7482-51eb-44e5-8c56-3d859819c8f1",
+                          "name": "Successful operation",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/hris/positions/profile/:hris_profile_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "hris",
+                                "positions",
+                                "profile",
+                                ":hris_profile_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "hris_profile_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"role\": {\n        \"id\": \"<uuid>\",\n        \"name\": \"<string>\"\n      },\n      \"team\": {\n        \"id\": \"<uuid>\",\n        \"name\": \"<string>\",\n        \"organization_structure\": {\n          \"id\": \"<uuid>\",\n          \"name\": \"<string>\"\n        }\n      },\n      \"is_supportive\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"role\": {\n        \"id\": \"<uuid>\",\n        \"name\": \"<string>\"\n      },\n      \"team\": {\n        \"id\": \"<uuid>\",\n        \"name\": \"<string>\",\n        \"organization_structure\": {\n          \"id\": \"<uuid>\",\n          \"name\": \"<string>\"\n        }\n      },\n      \"is_supportive\": \"<boolean>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:55.000Z",
+                          "updatedAt": "2026-07-28T01:32:55.000Z",
+                          "uid": "35240-003c7482-51eb-44e5-8c56-3d859819c8f1"
+                        },
+                        {
+                          "id": "868ca7b9-1bf5-42fc-ac23-829f266094c6",
+                          "name": "Bad request - The provided hrisProfileId or hrisOrgStructureId is invalid.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/hris/positions/profile/:hris_profile_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "hris",
+                                "positions",
+                                "profile",
+                                ":hris_profile_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "hris_profile_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"field\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"field\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:55.000Z",
+                          "updatedAt": "2026-07-28T01:32:55.000Z",
+                          "uid": "35240-868ca7b9-1bf5-42fc-ac23-829f266094c6"
+                        },
+                        {
+                          "id": "611adfd8-c1d6-416f-a00d-06d68cb21da9",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/hris/positions/profile/:hris_profile_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "hris",
+                                "positions",
+                                "profile",
+                                ":hris_profile_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "hris_profile_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:55.000Z",
+                          "updatedAt": "2026-07-28T01:32:55.000Z",
+                          "uid": "35240-611adfd8-c1d6-416f-a00d-06d68cb21da9"
+                        },
+                        {
+                          "id": "d0a05f77-c322-44a7-ae16-98b4966d8d52",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/hris/positions/profile/:hris_profile_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "hris",
+                                "positions",
+                                "profile",
+                                ":hris_profile_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "hris_profile_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:55.000Z",
+                          "updatedAt": "2026-07-28T01:32:55.000Z",
+                          "uid": "35240-d0a05f77-c322-44a7-ae16-98b4966d8d52"
+                        },
+                        {
+                          "id": "f961a7e0-99d4-4fce-ad16-44764dc865c2",
+                          "name": "Not found - No HRIS profile exists for the provided ID.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/hris/positions/profile/:hris_profile_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "hris",
+                                "positions",
+                                "profile",
+                                ":hris_profile_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "hris_profile_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"field\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"field\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:55.000Z",
+                          "updatedAt": "2026-07-28T01:32:55.000Z",
+                          "uid": "35240-f961a7e0-99d4-4fce-ad16-44764dc865c2"
+                        },
+                        {
+                          "id": "9d5b3162-245a-41e9-b707-583f2ee2e5aa",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/hris/positions/profile/:hris_profile_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "hris",
+                                "positions",
+                                "profile",
+                                ":hris_profile_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "hris_profile_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:55.000Z",
+                          "updatedAt": "2026-07-28T01:32:55.000Z",
+                          "uid": "35240-9d5b3162-245a-41e9-b707-583f2ee2e5aa"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:32:55.000Z",
+                      "updatedAt": "2026-07-28T01:32:55.000Z",
+                      "uid": "35240-6b0e69bd-ce34-4de4-9d0f-931ae6314e2a"
+                    }
+                  ],
+                  "id": "d8e2ce35-d476-42e1-ab1d-73d7365dfe7b",
+                  "createdAt": "2026-07-28T01:32:55.000Z",
+                  "updatedAt": "2026-07-28T01:32:55.000Z",
+                  "uid": "35240-d8e2ce35-d476-42e1-ab1d-73d7365dfe7b"
+                }
+              ],
+              "id": "bf382eb6-5798-4963-b0ca-b5464d4fe8d2",
+              "createdAt": "2026-07-28T01:32:55.000Z",
+              "updatedAt": "2026-07-28T01:32:55.000Z",
+              "uid": "35240-bf382eb6-5798-4963-b0ca-b5464d4fe8d2"
+            }
+          ],
+          "id": "30e1518f-235f-423a-bb3c-2781ba0128d6",
+          "createdAt": "2026-07-28T01:32:55.000Z",
+          "updatedAt": "2026-07-28T01:32:55.000Z",
+          "uid": "35240-30e1518f-235f-423a-bb3c-2781ba0128d6"
+        }
+      ],
+      "id": "2fa95dc3-61b0-48e6-8ef6-4888b3c3dd34",
+      "createdAt": "2026-07-28T01:32:55.000Z",
+      "updatedAt": "2026-07-28T01:32:55.000Z",
+      "uid": "35240-2fa95dc3-61b0-48e6-8ef6-4888b3c3dd34"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

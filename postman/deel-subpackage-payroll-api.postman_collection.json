@@ -1,0 +1,961 @@
+{
+  "info": {
+    "_postman_id": "70598077-bd6a-421f-876c-362c4d10ca46",
+    "name": "Endpoints subpackage_payroll API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:47.000Z",
+    "updatedAt": "2026-07-28T01:32:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-70598077-bd6a-421f-876c-362c4d10ca46"
+  },
+  "item": [
+    {
+      "name": "benefits",
+      "item": [
+        {
+          "name": "legal-entities",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "pay-stub",
+                  "item": [
+                    {
+                      "name": "Get pay stub from employees from organization integrated with external benefits vendor",
+                      "id": "83b44138-a17c-4c3c-b4a5-0c7e4ee019e9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/benefits/legal-entities/:id/pay-stub?payroll_start_date=<string>&payroll_end_date=<string>&status=<string>&items_per_page=100&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "benefits",
+                            "legal-entities",
+                            ":id",
+                            "pay-stub"
+                          ],
+                          "query": [
+                            {
+                              "description": "Payroll start date",
+                              "key": "payroll_start_date",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Payroll end date",
+                              "key": "payroll_end_date",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Payroll status",
+                              "key": "status",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Items per page",
+                              "key": "items_per_page",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Items to be skipped when searching",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "c86d39e7-59ce-47e8-9a0c-c4205eda9657",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Id from the legal entity to fetch data"
+                            }
+                          ]
+                        },
+                        "description": "Returns pay stub records for employees within a legal entity integrated with an external benefits vendor, with support for filtering by payroll date range, status, and offset-based pagination.\n **Token scopes**: `organizations:read`"
+                      },
+                      "response": [
+                        {
+                          "id": "9b2ec80c-eb7e-4e0d-9b98-795c087c7d89",
+                          "name": "Successful operation.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:id/pay-stub?payroll_start_date=<string>&payroll_end_date=<string>&status=<string>&items_per_page=100&offset=0",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":id",
+                                "pay-stub"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Payroll start date",
+                                  "key": "payroll_start_date",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Payroll end date",
+                                  "key": "payroll_end_date",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Payroll status",
+                                  "key": "status",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Items per page",
+                                  "key": "items_per_page",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "Items to be skipped when searching",
+                                  "key": "offset",
+                                  "value": "0"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"source\": \"HISTORICAL\",\n      \"employees\": [\n        {\n          \"gross_pay\": \"<double>\",\n          \"contract_id\": \"<string>\",\n          \"employee_id\": \"<string>\",\n          \"hours_worked\": \"<double>\",\n          \"contributions\": [\n            {\n              \"name\": \"<string>\",\n              \"type\": \"Roth\",\n              \"amount\": \"<double>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"type\": \"Trad\",\n              \"amount\": \"<double>\"\n            }\n          ],\n          \"employer_contributions\": [\n            {\n              \"name\": \"<string>\",\n              \"type\": \"Match Rate\",\n              \"amount\": \"<double>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"type\": \"Match Rate\",\n              \"amount\": \"<double>\"\n            }\n          ]\n        },\n        {\n          \"gross_pay\": \"<double>\",\n          \"contract_id\": \"<string>\",\n          \"employee_id\": \"<string>\",\n          \"hours_worked\": \"<double>\",\n          \"contributions\": [\n            {\n              \"name\": \"<string>\",\n              \"type\": \"Trad\",\n              \"amount\": \"<double>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"type\": \"Roth\",\n              \"amount\": \"<double>\"\n            }\n          ],\n          \"employer_contributions\": [\n            {\n              \"name\": \"<string>\",\n              \"type\": \"Non Elective\",\n              \"amount\": \"<double>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"type\": \"Match Rate\",\n              \"amount\": \"<double>\"\n            }\n          ]\n        }\n      ],\n      \"payroll_id\": \"<string>\",\n      \"payment_date\": \"<string>\",\n      \"payment_type\": \"OFFCYCLE\",\n      \"payment_status\": \"CLOSED\",\n      \"payroll_end_date\": \"<string>\",\n      \"payroll_schedule\": \"WEEKLY\",\n      \"payroll_start_date\": \"<string>\"\n    },\n    {\n      \"source\": \"NEW\",\n      \"employees\": [\n        {\n          \"gross_pay\": \"<double>\",\n          \"contract_id\": \"<string>\",\n          \"employee_id\": \"<string>\",\n          \"hours_worked\": \"<double>\",\n          \"contributions\": [\n            {\n              \"name\": \"<string>\",\n              \"type\": \"Roth\",\n              \"amount\": \"<double>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"type\": \"Trad\",\n              \"amount\": \"<double>\"\n            }\n          ],\n          \"employer_contributions\": [\n            {\n              \"name\": \"<string>\",\n              \"type\": \"Non Elective\",\n              \"amount\": \"<double>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"type\": \"Match Rate\",\n              \"amount\": \"<double>\"\n            }\n          ]\n        },\n        {\n          \"gross_pay\": \"<double>\",\n          \"contract_id\": \"<string>\",\n          \"employee_id\": \"<string>\",\n          \"hours_worked\": \"<double>\",\n          \"contributions\": [\n            {\n              \"name\": \"<string>\",\n              \"type\": \"Roth\",\n              \"amount\": \"<double>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"type\": \"Trad\",\n              \"amount\": \"<double>\"\n            }\n          ],\n          \"employer_contributions\": [\n            {\n              \"name\": \"<string>\",\n              \"type\": \"Match Rate\",\n              \"amount\": \"<double>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"type\": \"Non Elective\",\n              \"amount\": \"<double>\"\n            }\n          ]\n        }\n      ],\n      \"payroll_id\": \"<string>\",\n      \"payment_date\": \"<string>\",\n      \"payment_type\": \"RECONCILIATION\",\n      \"payment_status\": \"OPEN\",\n      \"payroll_end_date\": \"<string>\",\n      \"payroll_schedule\": \"WEEKLY\",\n      \"payroll_start_date\": \"<string>\"\n    }\n  ],\n  \"page\": {\n    \"offset\": \"<integer>\",\n    \"total_rows\": \"<integer>\",\n    \"items_per_page\": \"<integer>\"\n  }\n}",
+                          "createdAt": "2026-07-28T01:32:47.000Z",
+                          "updatedAt": "2026-07-28T01:32:47.000Z",
+                          "uid": "35240-9b2ec80c-eb7e-4e0d-9b98-795c087c7d89"
+                        },
+                        {
+                          "id": "a48ac817-150f-4ac0-82a7-373c8e5e31e1",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:id/pay-stub?payroll_start_date=<string>&payroll_end_date=<string>&status=<string>&items_per_page=100&offset=0",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":id",
+                                "pay-stub"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Payroll start date",
+                                  "key": "payroll_start_date",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Payroll end date",
+                                  "key": "payroll_end_date",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Payroll status",
+                                  "key": "status",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Items per page",
+                                  "key": "items_per_page",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "Items to be skipped when searching",
+                                  "key": "offset",
+                                  "value": "0"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:47.000Z",
+                          "updatedAt": "2026-07-28T01:32:47.000Z",
+                          "uid": "35240-a48ac817-150f-4ac0-82a7-373c8e5e31e1"
+                        },
+                        {
+                          "id": "dcd1fc1e-b164-4278-ace4-86c23029172e",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:id/pay-stub?payroll_start_date=<string>&payroll_end_date=<string>&status=<string>&items_per_page=100&offset=0",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":id",
+                                "pay-stub"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Payroll start date",
+                                  "key": "payroll_start_date",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Payroll end date",
+                                  "key": "payroll_end_date",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Payroll status",
+                                  "key": "status",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Items per page",
+                                  "key": "items_per_page",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "Items to be skipped when searching",
+                                  "key": "offset",
+                                  "value": "0"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:47.000Z",
+                          "updatedAt": "2026-07-28T01:32:47.000Z",
+                          "uid": "35240-dcd1fc1e-b164-4278-ace4-86c23029172e"
+                        },
+                        {
+                          "id": "b5010cb3-ba2d-4db1-9415-5f6a272874b0",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:id/pay-stub?payroll_start_date=<string>&payroll_end_date=<string>&status=<string>&items_per_page=100&offset=0",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":id",
+                                "pay-stub"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Payroll start date",
+                                  "key": "payroll_start_date",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Payroll end date",
+                                  "key": "payroll_end_date",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Payroll status",
+                                  "key": "status",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Items per page",
+                                  "key": "items_per_page",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "Items to be skipped when searching",
+                                  "key": "offset",
+                                  "value": "0"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:47.000Z",
+                          "updatedAt": "2026-07-28T01:32:47.000Z",
+                          "uid": "35240-b5010cb3-ba2d-4db1-9415-5f6a272874b0"
+                        },
+                        {
+                          "id": "f78cb7d6-7ce2-4804-a4e3-47bc7acccdba",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:id/pay-stub?payroll_start_date=<string>&payroll_end_date=<string>&status=<string>&items_per_page=100&offset=0",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":id",
+                                "pay-stub"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Payroll start date",
+                                  "key": "payroll_start_date",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Payroll end date",
+                                  "key": "payroll_end_date",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Payroll status",
+                                  "key": "status",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Items per page",
+                                  "key": "items_per_page",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "Items to be skipped when searching",
+                                  "key": "offset",
+                                  "value": "0"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:47.000Z",
+                          "updatedAt": "2026-07-28T01:32:47.000Z",
+                          "uid": "35240-f78cb7d6-7ce2-4804-a4e3-47bc7acccdba"
+                        },
+                        {
+                          "id": "cd4cf21f-6705-48c9-827f-04bbd915d5ad",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:id/pay-stub?payroll_start_date=<string>&payroll_end_date=<string>&status=<string>&items_per_page=100&offset=0",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":id",
+                                "pay-stub"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Payroll start date",
+                                  "key": "payroll_start_date",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Payroll end date",
+                                  "key": "payroll_end_date",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Payroll status",
+                                  "key": "status",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Items per page",
+                                  "key": "items_per_page",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "Items to be skipped when searching",
+                                  "key": "offset",
+                                  "value": "0"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:47.000Z",
+                          "updatedAt": "2026-07-28T01:32:47.000Z",
+                          "uid": "35240-cd4cf21f-6705-48c9-827f-04bbd915d5ad"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:32:47.000Z",
+                      "updatedAt": "2026-07-28T01:32:47.000Z",
+                      "uid": "35240-83b44138-a17c-4c3c-b4a5-0c7e4ee019e9"
+                    }
+                  ],
+                  "id": "ce931925-a255-4f83-b689-c64af6d3b163",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-ce931925-a255-4f83-b689-c64af6d3b163"
+                },
+                {
+                  "name": "year-to-date-pay",
+                  "item": [
+                    {
+                      "name": "Get year to date payment for benefits 401k.",
+                      "id": "79561e6c-cf3a-4d6f-9c9e-0b5ee99ad7aa",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/benefits/legal-entities/:id/year-to-date-pay?date_start=<string>&date_end=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "benefits",
+                            "legal-entities",
+                            ":id",
+                            "year-to-date-pay"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Start date to fetch aggregated pay data",
+                              "key": "date_start",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) End date to fetch aggregated pay data",
+                              "key": "date_end",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "0c9906ad-57d0-4077-af28-d345f88d7e17",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) Id from the legal entity to fetch data"
+                            }
+                          ]
+                        },
+                        "description": "Get year to date from employees from organization integrated with external benefits vendor\n **Token scopes**: `organizations:read`"
+                      },
+                      "response": [
+                        {
+                          "id": "538e4a81-c0c7-4251-b0d7-287797fd14a6",
+                          "name": "Successful operation.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:id/year-to-date-pay?date_start=<string>&date_end=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":id",
+                                "year-to-date-pay"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Start date to fetch aggregated pay data",
+                                  "key": "date_start",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) End date to fetch aggregated pay data",
+                                  "key": "date_end",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"end_date\": \"<date>\",\n  \"employees\": [\n    {\n      \"gross_pay\": \"<double>\",\n      \"contract_id\": \"<string>\",\n      \"employee_id\": \"<uuid>\",\n      \"hours_worked\": \"<double>\",\n      \"contributions\": [\n        {\n          \"name\": \"<string>\",\n          \"type\": \"loan\",\n          \"amount\": \"<double>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"type\": \"trad\",\n          \"amount\": \"<double>\"\n        }\n      ],\n      \"employer_contributions\": [\n        {\n          \"name\": \"<string>\",\n          \"type\": \"match_rate\",\n          \"amount\": \"<double>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"type\": \"match_rate\",\n          \"amount\": \"<double>\"\n        }\n      ]\n    },\n    {\n      \"gross_pay\": \"<double>\",\n      \"contract_id\": \"<string>\",\n      \"employee_id\": \"<uuid>\",\n      \"hours_worked\": \"<double>\",\n      \"contributions\": [\n        {\n          \"name\": \"<string>\",\n          \"type\": \"roth\",\n          \"amount\": \"<double>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"type\": \"roth\",\n          \"amount\": \"<double>\"\n        }\n      ],\n      \"employer_contributions\": [\n        {\n          \"name\": \"<string>\",\n          \"type\": \"match_rate\",\n          \"amount\": \"<double>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"type\": \"match_rate\",\n          \"amount\": \"<double>\"\n        }\n      ]\n    }\n  ],\n  \"start_date\": \"<date>\"\n}",
+                          "createdAt": "2026-07-28T01:32:47.000Z",
+                          "updatedAt": "2026-07-28T01:32:47.000Z",
+                          "uid": "35240-538e4a81-c0c7-4251-b0d7-287797fd14a6"
+                        },
+                        {
+                          "id": "8ad6c966-0bf4-4ee7-90d8-e50c1e16a18f",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:id/year-to-date-pay?date_start=<string>&date_end=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":id",
+                                "year-to-date-pay"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Start date to fetch aggregated pay data",
+                                  "key": "date_start",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) End date to fetch aggregated pay data",
+                                  "key": "date_end",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:47.000Z",
+                          "updatedAt": "2026-07-28T01:32:47.000Z",
+                          "uid": "35240-8ad6c966-0bf4-4ee7-90d8-e50c1e16a18f"
+                        },
+                        {
+                          "id": "fd7652c0-d8ff-4013-9ba3-37323e8f449d",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:id/year-to-date-pay?date_start=<string>&date_end=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":id",
+                                "year-to-date-pay"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Start date to fetch aggregated pay data",
+                                  "key": "date_start",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) End date to fetch aggregated pay data",
+                                  "key": "date_end",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:47.000Z",
+                          "updatedAt": "2026-07-28T01:32:47.000Z",
+                          "uid": "35240-fd7652c0-d8ff-4013-9ba3-37323e8f449d"
+                        },
+                        {
+                          "id": "9d43fe9d-eff2-4d9d-a1fe-4e90f7989a15",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:id/year-to-date-pay?date_start=<string>&date_end=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":id",
+                                "year-to-date-pay"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Start date to fetch aggregated pay data",
+                                  "key": "date_start",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) End date to fetch aggregated pay data",
+                                  "key": "date_end",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:47.000Z",
+                          "updatedAt": "2026-07-28T01:32:47.000Z",
+                          "uid": "35240-9d43fe9d-eff2-4d9d-a1fe-4e90f7989a15"
+                        },
+                        {
+                          "id": "116bbbe7-9a17-4612-914a-e2625100ef15",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:id/year-to-date-pay?date_start=<string>&date_end=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":id",
+                                "year-to-date-pay"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Start date to fetch aggregated pay data",
+                                  "key": "date_start",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) End date to fetch aggregated pay data",
+                                  "key": "date_end",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:47.000Z",
+                          "updatedAt": "2026-07-28T01:32:47.000Z",
+                          "uid": "35240-116bbbe7-9a17-4612-914a-e2625100ef15"
+                        },
+                        {
+                          "id": "6761e3c2-d17d-4cdd-8f41-a1d7f2d6b5c1",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:id/year-to-date-pay?date_start=<string>&date_end=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":id",
+                                "year-to-date-pay"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Start date to fetch aggregated pay data",
+                                  "key": "date_start",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) End date to fetch aggregated pay data",
+                                  "key": "date_end",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:47.000Z",
+                          "updatedAt": "2026-07-28T01:32:47.000Z",
+                          "uid": "35240-6761e3c2-d17d-4cdd-8f41-a1d7f2d6b5c1"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:32:47.000Z",
+                      "updatedAt": "2026-07-28T01:32:47.000Z",
+                      "uid": "35240-79561e6c-cf3a-4d6f-9c9e-0b5ee99ad7aa"
+                    }
+                  ],
+                  "id": "26cb49d6-8e9d-460f-9840-c5251fade129",
+                  "createdAt": "2026-07-28T01:32:47.000Z",
+                  "updatedAt": "2026-07-28T01:32:47.000Z",
+                  "uid": "35240-26cb49d6-8e9d-460f-9840-c5251fade129"
+                }
+              ],
+              "id": "0a5ca1fc-8cf3-453f-9282-70df4e42f2bc",
+              "createdAt": "2026-07-28T01:32:47.000Z",
+              "updatedAt": "2026-07-28T01:32:47.000Z",
+              "uid": "35240-0a5ca1fc-8cf3-453f-9282-70df4e42f2bc"
+            }
+          ],
+          "id": "4e284357-805f-40ea-9ada-0c48660fd5e9",
+          "createdAt": "2026-07-28T01:32:47.000Z",
+          "updatedAt": "2026-07-28T01:32:47.000Z",
+          "uid": "35240-4e284357-805f-40ea-9ada-0c48660fd5e9"
+        }
+      ],
+      "id": "41b30132-c91b-4ffd-87bf-96b9b7f7c3c2",
+      "createdAt": "2026-07-28T01:32:47.000Z",
+      "updatedAt": "2026-07-28T01:32:47.000Z",
+      "uid": "35240-41b30132-c91b-4ffd-87bf-96b9b7f7c3c2"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

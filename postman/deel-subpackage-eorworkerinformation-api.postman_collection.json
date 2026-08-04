@@ -1,0 +1,1668 @@
+{
+  "info": {
+    "_postman_id": "1d8f42ef-df73-46eb-870d-6a1d8943c393",
+    "name": "Endpoints subpackage_eorWorkerInformation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:31:31.000Z",
+    "updatedAt": "2026-07-28T01:31:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1d8f42ef-df73-46eb-870d-6a1d8943c393"
+  },
+  "item": [
+    {
+      "name": "eor",
+      "item": [
+        {
+          "name": "workers",
+          "item": [
+            {
+              "name": "contracts",
+              "item": [
+                {
+                  "name": "{contract_id}",
+                  "item": [
+                    {
+                      "name": "additional-information",
+                      "item": [
+                        {
+                          "name": "Add additional information",
+                          "id": "5166ac07-deae-4d9c-83cf-8e7c84ef50cf",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"tax_residence\": \"<string>\",\n    \"is_payslip_access_allowed\": \"<boolean>\",\n    \"is_compliance_access_allowed\": \"<boolean>\",\n    \"state\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/workers/contracts/:contract_id/additional-information",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "workers",
+                                "contracts",
+                                ":contract_id",
+                                "additional-information"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "24273fb1-f1d5-484e-a22e-e991425a51e5",
+                                  "key": "contract_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Deel contract id."
+                                }
+                              ]
+                            },
+                            "description": "Add additional information for an EOR employee.\n **Token scopes**: `worker:write`"
+                          },
+                          "response": [
+                            {
+                              "id": "c4803c74-3a63-4c28-a351-f02a202cdb22",
+                              "name": "Successful operation.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"tax_residence\": \"<string>\",\n    \"is_payslip_access_allowed\": \"<boolean>\",\n    \"is_compliance_access_allowed\": \"<boolean>\",\n    \"state\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/workers/contracts/:contract_id/additional-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "workers",
+                                    "contracts",
+                                    ":contract_id",
+                                    "additional-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": {\n    \"updated\": \"<boolean>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:31:31.000Z",
+                              "updatedAt": "2026-07-28T01:31:31.000Z",
+                              "uid": "35240-c4803c74-3a63-4c28-a351-f02a202cdb22"
+                            },
+                            {
+                              "id": "73234b0b-dc05-4226-a33d-5896074227ba",
+                              "name": "Bad request. Contract not found, contract is not EOR, required base fields are missing, or country-specific additional field validation failed.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"tax_residence\": \"<string>\",\n    \"is_payslip_access_allowed\": \"<boolean>\",\n    \"is_compliance_access_allowed\": \"<boolean>\",\n    \"state\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/workers/contracts/:contract_id/additional-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "workers",
+                                    "contracts",
+                                    ":contract_id",
+                                    "additional-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ],\n  \"translations\": [\n    {\n      \"originalKey\": \"<string>\",\n      \"publicApiKey\": \"<string>\"\n    },\n    {\n      \"originalKey\": \"<string>\",\n      \"publicApiKey\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:31.000Z",
+                              "updatedAt": "2026-07-28T01:31:31.000Z",
+                              "uid": "35240-73234b0b-dc05-4226-a33d-5896074227ba"
+                            },
+                            {
+                              "id": "ae817c69-2632-49f6-a62b-b050ec0be3ae",
+                              "name": "Authentication failed. Bearer token is missing, expired, or invalid.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"tax_residence\": \"<string>\",\n    \"is_payslip_access_allowed\": \"<boolean>\",\n    \"is_compliance_access_allowed\": \"<boolean>\",\n    \"state\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/workers/contracts/:contract_id/additional-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "workers",
+                                    "contracts",
+                                    ":contract_id",
+                                    "additional-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:31.000Z",
+                              "updatedAt": "2026-07-28T01:31:31.000Z",
+                              "uid": "35240-ae817c69-2632-49f6-a62b-b050ec0be3ae"
+                            },
+                            {
+                              "id": "f5e74a36-a967-4ec4-8add-984cb81d590f",
+                              "name": "Forbidden. The token lacks worker:write scope or the worker cannot update this contract.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"tax_residence\": \"<string>\",\n    \"is_payslip_access_allowed\": \"<boolean>\",\n    \"is_compliance_access_allowed\": \"<boolean>\",\n    \"state\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/workers/contracts/:contract_id/additional-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "workers",
+                                    "contracts",
+                                    ":contract_id",
+                                    "additional-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:31.000Z",
+                              "updatedAt": "2026-07-28T01:31:31.000Z",
+                              "uid": "35240-f5e74a36-a967-4ec4-8add-984cb81d590f"
+                            },
+                            {
+                              "id": "e4b61556-f578-4a7a-add8-620358eae08e",
+                              "name": "Not found. No additional information template exists for the employment country/state.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"tax_residence\": \"<string>\",\n    \"is_payslip_access_allowed\": \"<boolean>\",\n    \"is_compliance_access_allowed\": \"<boolean>\",\n    \"state\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/workers/contracts/:contract_id/additional-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "workers",
+                                    "contracts",
+                                    ":contract_id",
+                                    "additional-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:31.000Z",
+                              "updatedAt": "2026-07-28T01:31:31.000Z",
+                              "uid": "35240-e4b61556-f578-4a7a-add8-620358eae08e"
+                            },
+                            {
+                              "id": "ba0a9715-bb30-46d3-aebd-78337435b62a",
+                              "name": "Rate limit exceeded.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"tax_residence\": \"<string>\",\n    \"is_payslip_access_allowed\": \"<boolean>\",\n    \"is_compliance_access_allowed\": \"<boolean>\",\n    \"state\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/workers/contracts/:contract_id/additional-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "workers",
+                                    "contracts",
+                                    ":contract_id",
+                                    "additional-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Too Many Requests",
+                              "code": 429,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:31.000Z",
+                              "updatedAt": "2026-07-28T01:31:31.000Z",
+                              "uid": "35240-ba0a9715-bb30-46d3-aebd-78337435b62a"
+                            },
+                            {
+                              "id": "06934a91-69e5-4292-9dec-6d5cc4ffc3d2",
+                              "name": "Internal server error.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"tax_residence\": \"<string>\",\n    \"is_payslip_access_allowed\": \"<boolean>\",\n    \"is_compliance_access_allowed\": \"<boolean>\",\n    \"state\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/workers/contracts/:contract_id/additional-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "workers",
+                                    "contracts",
+                                    ":contract_id",
+                                    "additional-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:31.000Z",
+                              "updatedAt": "2026-07-28T01:31:31.000Z",
+                              "uid": "35240-06934a91-69e5-4292-9dec-6d5cc4ffc3d2"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:31:31.000Z",
+                          "updatedAt": "2026-07-28T01:31:31.000Z",
+                          "uid": "35240-5166ac07-deae-4d9c-83cf-8e7c84ef50cf"
+                        },
+                        {
+                          "name": "Update additional information",
+                          "id": "34a9c835-876f-48dd-86d0-8b67443ce65c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"dob\": \"<string>\",\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"tax_residence\": \"<string>\",\n    \"is_payslip_access_allowed\": \"<boolean>\",\n    \"is_compliance_access_allowed\": \"<boolean>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/workers/contracts/:contract_id/additional-information",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "workers",
+                                "contracts",
+                                ":contract_id",
+                                "additional-information"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c8b2b8fe-b7d1-429a-b8ab-9b03755bc01c",
+                                  "key": "contract_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Deel contract id."
+                                }
+                              ]
+                            },
+                            "description": "Updates additional information for an EOR employee agreement. Only works if the employee\u2019s contract status is new, under_review, or waiting_for_employee_contract. Using other statuses can cause errors.\n **Token scopes**: `worker:write`"
+                          },
+                          "response": [
+                            {
+                              "id": "1eb13dd3-7765-4668-b084-61709b15f5a1",
+                              "name": "Successful operation.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"dob\": \"<string>\",\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"tax_residence\": \"<string>\",\n    \"is_payslip_access_allowed\": \"<boolean>\",\n    \"is_compliance_access_allowed\": \"<boolean>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/workers/contracts/:contract_id/additional-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "workers",
+                                    "contracts",
+                                    ":contract_id",
+                                    "additional-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": {\n    \"updated\": \"<boolean>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:31:31.000Z",
+                              "updatedAt": "2026-07-28T01:31:31.000Z",
+                              "uid": "35240-1eb13dd3-7765-4668-b084-61709b15f5a1"
+                            },
+                            {
+                              "id": "0c002ef2-3c05-4140-8132-cd89a5abad48",
+                              "name": "Bad request. Contract not found, contract is not EOR, or additional information validation failed.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"dob\": \"<string>\",\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"tax_residence\": \"<string>\",\n    \"is_payslip_access_allowed\": \"<boolean>\",\n    \"is_compliance_access_allowed\": \"<boolean>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/workers/contracts/:contract_id/additional-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "workers",
+                                    "contracts",
+                                    ":contract_id",
+                                    "additional-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:31.000Z",
+                              "updatedAt": "2026-07-28T01:31:31.000Z",
+                              "uid": "35240-0c002ef2-3c05-4140-8132-cd89a5abad48"
+                            },
+                            {
+                              "id": "c6f9c2be-4952-4dca-8180-36476427d296",
+                              "name": "Authentication failed. Bearer token is missing, expired, or invalid.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"dob\": \"<string>\",\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"tax_residence\": \"<string>\",\n    \"is_payslip_access_allowed\": \"<boolean>\",\n    \"is_compliance_access_allowed\": \"<boolean>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/workers/contracts/:contract_id/additional-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "workers",
+                                    "contracts",
+                                    ":contract_id",
+                                    "additional-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:31.000Z",
+                              "updatedAt": "2026-07-28T01:31:31.000Z",
+                              "uid": "35240-c6f9c2be-4952-4dca-8180-36476427d296"
+                            },
+                            {
+                              "id": "f5aad218-55f2-470d-b1d0-972cd4c2235e",
+                              "name": "Forbidden. The token lacks worker:write scope or the worker cannot update this contract.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"dob\": \"<string>\",\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"tax_residence\": \"<string>\",\n    \"is_payslip_access_allowed\": \"<boolean>\",\n    \"is_compliance_access_allowed\": \"<boolean>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/workers/contracts/:contract_id/additional-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "workers",
+                                    "contracts",
+                                    ":contract_id",
+                                    "additional-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:31.000Z",
+                              "updatedAt": "2026-07-28T01:31:31.000Z",
+                              "uid": "35240-f5aad218-55f2-470d-b1d0-972cd4c2235e"
+                            },
+                            {
+                              "id": "558dab00-9e25-4879-99f5-0a2111752623",
+                              "name": "Not found. No additional info template exists for the employment country/state.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"dob\": \"<string>\",\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"tax_residence\": \"<string>\",\n    \"is_payslip_access_allowed\": \"<boolean>\",\n    \"is_compliance_access_allowed\": \"<boolean>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/workers/contracts/:contract_id/additional-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "workers",
+                                    "contracts",
+                                    ":contract_id",
+                                    "additional-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:31.000Z",
+                              "updatedAt": "2026-07-28T01:31:31.000Z",
+                              "uid": "35240-558dab00-9e25-4879-99f5-0a2111752623"
+                            },
+                            {
+                              "id": "49c0b50a-ed1f-40a9-b9ca-90b83c7da9c0",
+                              "name": "Rate limit exceeded.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"dob\": \"<string>\",\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"tax_residence\": \"<string>\",\n    \"is_payslip_access_allowed\": \"<boolean>\",\n    \"is_compliance_access_allowed\": \"<boolean>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/workers/contracts/:contract_id/additional-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "workers",
+                                    "contracts",
+                                    ":contract_id",
+                                    "additional-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Too Many Requests",
+                              "code": 429,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:31.000Z",
+                              "updatedAt": "2026-07-28T01:31:31.000Z",
+                              "uid": "35240-49c0b50a-ed1f-40a9-b9ca-90b83c7da9c0"
+                            },
+                            {
+                              "id": "426927cb-7f97-42b9-b1e1-13e1608b6ec6",
+                              "name": "Internal server error.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"dob\": \"<string>\",\n    \"city\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zip_code\": \"<string>\",\n    \"tax_residence\": \"<string>\",\n    \"is_payslip_access_allowed\": \"<boolean>\",\n    \"is_compliance_access_allowed\": \"<boolean>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/workers/contracts/:contract_id/additional-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "workers",
+                                    "contracts",
+                                    ":contract_id",
+                                    "additional-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:31.000Z",
+                              "updatedAt": "2026-07-28T01:31:31.000Z",
+                              "uid": "35240-426927cb-7f97-42b9-b1e1-13e1608b6ec6"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:31:31.000Z",
+                          "updatedAt": "2026-07-28T01:31:31.000Z",
+                          "uid": "35240-34a9c835-876f-48dd-86d0-8b67443ce65c"
+                        }
+                      ],
+                      "id": "0f7dea92-41ba-4c6c-8979-69c8237254e2",
+                      "createdAt": "2026-07-28T01:31:31.000Z",
+                      "updatedAt": "2026-07-28T01:31:31.000Z",
+                      "uid": "35240-0f7dea92-41ba-4c6c-8979-69c8237254e2"
+                    }
+                  ],
+                  "id": "0ba0918a-d8a2-458e-a0b8-d1f2c1f5917c",
+                  "createdAt": "2026-07-28T01:31:31.000Z",
+                  "updatedAt": "2026-07-28T01:31:31.000Z",
+                  "uid": "35240-0ba0918a-d8a2-458e-a0b8-d1f2c1f5917c"
+                }
+              ],
+              "id": "5be5699e-f17a-4711-b2ea-ee94c58defb9",
+              "createdAt": "2026-07-28T01:31:31.000Z",
+              "updatedAt": "2026-07-28T01:31:31.000Z",
+              "uid": "35240-5be5699e-f17a-4711-b2ea-ee94c58defb9"
+            },
+            {
+              "name": "banks",
+              "item": [
+                {
+                  "name": "Add bank account",
+                  "id": "b2cea4de-fac9-4941-b63b-c88dc1a8cc21",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/eor/workers/banks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eor",
+                        "workers",
+                        "banks"
+                      ]
+                    },
+                    "description": "Add bank account for an EOR employee.\n **Token scopes**: `worker:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "c477d685-e3f1-457e-ae99-e6a6c39378f0",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/workers/banks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "workers",
+                            "banks"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"id\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:31:31.000Z",
+                      "updatedAt": "2026-07-28T01:31:31.000Z",
+                      "uid": "35240-c477d685-e3f1-457e-ae99-e6a6c39378f0"
+                    },
+                    {
+                      "id": "13e607f1-8da6-40e1-8827-f1afe3b14e54",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/workers/banks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "workers",
+                            "banks"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:31.000Z",
+                      "updatedAt": "2026-07-28T01:31:31.000Z",
+                      "uid": "35240-13e607f1-8da6-40e1-8827-f1afe3b14e54"
+                    },
+                    {
+                      "id": "107e3d15-ab46-4f05-ac76-e861825e12ba",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/workers/banks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "workers",
+                            "banks"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:31.000Z",
+                      "updatedAt": "2026-07-28T01:31:31.000Z",
+                      "uid": "35240-107e3d15-ab46-4f05-ac76-e861825e12ba"
+                    },
+                    {
+                      "id": "741a7649-e17d-4233-a563-bd946a40e540",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/workers/banks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "workers",
+                            "banks"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:31.000Z",
+                      "updatedAt": "2026-07-28T01:31:31.000Z",
+                      "uid": "35240-741a7649-e17d-4233-a563-bd946a40e540"
+                    },
+                    {
+                      "id": "a20af6f0-1c4c-47f6-a2c4-dd75c12ed9d7",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/workers/banks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "workers",
+                            "banks"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:31.000Z",
+                      "updatedAt": "2026-07-28T01:31:31.000Z",
+                      "uid": "35240-a20af6f0-1c4c-47f6-a2c4-dd75c12ed9d7"
+                    },
+                    {
+                      "id": "8bd37826-f94a-4510-9011-b4865d171135",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/workers/banks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "workers",
+                            "banks"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:31.000Z",
+                      "updatedAt": "2026-07-28T01:31:31.000Z",
+                      "uid": "35240-8bd37826-f94a-4510-9011-b4865d171135"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:31:31.000Z",
+                  "updatedAt": "2026-07-28T01:31:31.000Z",
+                  "uid": "35240-b2cea4de-fac9-4941-b63b-c88dc1a8cc21"
+                }
+              ],
+              "id": "3c3b514c-a8d9-4304-a9a7-d25f4f6b322a",
+              "createdAt": "2026-07-28T01:31:31.000Z",
+              "updatedAt": "2026-07-28T01:31:31.000Z",
+              "uid": "35240-3c3b514c-a8d9-4304-a9a7-d25f4f6b322a"
+            },
+            {
+              "name": "tax-documents",
+              "item": [
+                {
+                  "name": "List of tax documents for an employee",
+                  "id": "bc46979d-6236-42a3-b4a6-0ba7d21c7a3e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/eor/workers/tax-documents",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eor",
+                        "workers",
+                        "tax-documents"
+                      ]
+                    },
+                    "description": "Get list of tax documents for an employee.\n **Token scopes**: `worker:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "bf785d7e-c09c-439f-b754-dad9abba61da",
+                      "name": "Tax documents successfully retrieved.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/workers/tax-documents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "workers",
+                            "tax-documents"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<string>\",\n      \"type\": \"<string>\",\n      \"year\": \"<double>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"url\": \"<string>\",\n      \"type\": \"<string>\",\n      \"year\": \"<double>\",\n      \"country\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:31.000Z",
+                      "updatedAt": "2026-07-28T01:31:31.000Z",
+                      "uid": "35240-bf785d7e-c09c-439f-b754-dad9abba61da"
+                    },
+                    {
+                      "id": "c540116d-6d36-40e8-ac29-1cf6011a130f",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/workers/tax-documents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "workers",
+                            "tax-documents"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:31.000Z",
+                      "updatedAt": "2026-07-28T01:31:31.000Z",
+                      "uid": "35240-c540116d-6d36-40e8-ac29-1cf6011a130f"
+                    },
+                    {
+                      "id": "e14dd0c0-976d-4553-b0a0-0d6e8fa5a551",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/workers/tax-documents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "workers",
+                            "tax-documents"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:31.000Z",
+                      "updatedAt": "2026-07-28T01:31:31.000Z",
+                      "uid": "35240-e14dd0c0-976d-4553-b0a0-0d6e8fa5a551"
+                    },
+                    {
+                      "id": "d985de0c-aad0-443c-a64e-968bca3141d7",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/workers/tax-documents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "workers",
+                            "tax-documents"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:31.000Z",
+                      "updatedAt": "2026-07-28T01:31:31.000Z",
+                      "uid": "35240-d985de0c-aad0-443c-a64e-968bca3141d7"
+                    },
+                    {
+                      "id": "08a929e0-28d5-4454-9d6d-a39a72e75f70",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/workers/tax-documents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "workers",
+                            "tax-documents"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:31.000Z",
+                      "updatedAt": "2026-07-28T01:31:31.000Z",
+                      "uid": "35240-08a929e0-28d5-4454-9d6d-a39a72e75f70"
+                    },
+                    {
+                      "id": "8bbe911e-effa-4fd7-bc87-22e5b2e7b635",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/workers/tax-documents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "workers",
+                            "tax-documents"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:31.000Z",
+                      "updatedAt": "2026-07-28T01:31:31.000Z",
+                      "uid": "35240-8bbe911e-effa-4fd7-bc87-22e5b2e7b635"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:31:31.000Z",
+                  "updatedAt": "2026-07-28T01:31:31.000Z",
+                  "uid": "35240-bc46979d-6236-42a3-b4a6-0ba7d21c7a3e"
+                }
+              ],
+              "id": "977c2781-a4c6-490f-a2d0-57cb683caa4b",
+              "createdAt": "2026-07-28T01:31:31.000Z",
+              "updatedAt": "2026-07-28T01:31:31.000Z",
+              "uid": "35240-977c2781-a4c6-490f-a2d0-57cb683caa4b"
+            }
+          ],
+          "id": "e8696e04-32ae-4763-98b6-af7c8684501d",
+          "createdAt": "2026-07-28T01:31:31.000Z",
+          "updatedAt": "2026-07-28T01:31:31.000Z",
+          "uid": "35240-e8696e04-32ae-4763-98b6-af7c8684501d"
+        }
+      ],
+      "id": "3e2685bf-343a-42aa-9580-10c074164848",
+      "createdAt": "2026-07-28T01:31:31.000Z",
+      "updatedAt": "2026-07-28T01:31:31.000Z",
+      "uid": "35240-3e2685bf-343a-42aa-9580-10c074164848"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

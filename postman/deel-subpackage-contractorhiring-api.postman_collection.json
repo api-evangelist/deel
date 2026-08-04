@@ -1,0 +1,2487 @@
+{
+  "info": {
+    "_postman_id": "1d57e47c-bafa-47ba-b3b0-81aa5430c54f",
+    "name": "Endpoints subpackage_contractorHiring API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:27.000Z",
+    "updatedAt": "2026-07-28T01:30:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1d57e47c-bafa-47ba-b3b0-81aa5430c54f"
+  },
+  "item": [
+    {
+      "name": "contracts",
+      "item": [
+        {
+          "name": "{contract_id}",
+          "item": [
+            {
+              "name": "documents",
+              "item": [
+                {
+                  "name": "Attach a file to contract",
+                  "id": "38d15647-39b7-47a0-a5c9-31fc20546ada",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "Upload the file you want to attach to this entry.",
+                          "key": "file",
+                          "type": "file",
+                          "value": null
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/documents",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "documents"
+                      ],
+                      "variable": [
+                        {
+                          "id": "aa355120-06c9-4123-91c9-916f87718410",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) Deel contract id."
+                        }
+                      ]
+                    },
+                    "description": "Attach a file to contract document.\n **Token scopes**: `contracts:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "0a0a8171-79ed-4038-8ad8-7a5f8c6389ec",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "Upload the file you want to attach to this entry.",
+                              "key": "file",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/documents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "documents"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"key\": \"<string>\",\n    \"filename\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-0a0a8171-79ed-4038-8ad8-7a5f8c6389ec"
+                    },
+                    {
+                      "id": "fd3db4bd-edb7-4a25-9582-56258c095483",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "Upload the file you want to attach to this entry.",
+                              "key": "file",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/documents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "documents"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-fd3db4bd-edb7-4a25-9582-56258c095483"
+                    },
+                    {
+                      "id": "6df4e11a-ccb3-404f-b6fa-dd1dcda9b2d7",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "Upload the file you want to attach to this entry.",
+                              "key": "file",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/documents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "documents"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-6df4e11a-ccb3-404f-b6fa-dd1dcda9b2d7"
+                    },
+                    {
+                      "id": "6b4c75ac-e9c5-4465-9583-65b85a802f87",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "Upload the file you want to attach to this entry.",
+                              "key": "file",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/documents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "documents"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-6b4c75ac-e9c5-4465-9583-65b85a802f87"
+                    },
+                    {
+                      "id": "fbef2d56-a49d-4085-acc3-e6f30f366db6",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "Upload the file you want to attach to this entry.",
+                              "key": "file",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/documents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "documents"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-fbef2d56-a49d-4085-acc3-e6f30f366db6"
+                    },
+                    {
+                      "id": "ac4bfdb5-bcdf-45f4-a6a1-469b23bcc7a8",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "Upload the file you want to attach to this entry.",
+                              "key": "file",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/documents",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "documents"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-ac4bfdb5-bcdf-45f4-a6a1-469b23bcc7a8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:28.000Z",
+                  "updatedAt": "2026-07-28T01:30:28.000Z",
+                  "uid": "35240-38d15647-39b7-47a0-a5c9-31fc20546ada"
+                }
+              ],
+              "id": "842f14b0-378e-4599-83bf-89c212b18336",
+              "createdAt": "2026-07-28T01:30:28.000Z",
+              "updatedAt": "2026-07-28T01:30:28.000Z",
+              "uid": "35240-842f14b0-378e-4599-83bf-89c212b18336"
+            },
+            {
+              "name": "invite",
+              "item": [
+                {
+                  "name": "Get worker invite link",
+                  "id": "5dda4501-2b16-48b0-81e0-a5fb675fe58e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/invite?locale=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "invite"
+                      ],
+                      "query": [
+                        {
+                          "description": "Locale to use for the invite link.",
+                          "key": "locale",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "90fca8ad-2c54-4b68-8828-bc5280d69ca8",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) Deel contract id."
+                        }
+                      ]
+                    },
+                    "description": "Generates and returns a signed invitation URL that allows a worker to review and sign their contract securely. Use this endpoint to initiate or resend the contract signing process after the contract has been created. Requires the contract_id, which is provided during the initial Create Contract workflow.\n **Token scopes**: `contracts:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "f4928c73-32d2-4b8d-999b-732629c0d052",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invite?locale=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invite"
+                          ],
+                          "query": [
+                            {
+                              "description": "Locale to use for the invite link.",
+                              "key": "locale",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-f4928c73-32d2-4b8d-999b-732629c0d052"
+                    },
+                    {
+                      "id": "877a7ea2-a04e-4fc5-8033-2199578633de",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invite?locale=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invite"
+                          ],
+                          "query": [
+                            {
+                              "description": "Locale to use for the invite link.",
+                              "key": "locale",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-877a7ea2-a04e-4fc5-8033-2199578633de"
+                    },
+                    {
+                      "id": "04635475-5601-473c-b395-f9143884781e",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invite?locale=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invite"
+                          ],
+                          "query": [
+                            {
+                              "description": "Locale to use for the invite link.",
+                              "key": "locale",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-04635475-5601-473c-b395-f9143884781e"
+                    },
+                    {
+                      "id": "3285522f-8bb4-4e76-b5e0-5104ea6e3c07",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invite?locale=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invite"
+                          ],
+                          "query": [
+                            {
+                              "description": "Locale to use for the invite link.",
+                              "key": "locale",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-3285522f-8bb4-4e76-b5e0-5104ea6e3c07"
+                    },
+                    {
+                      "id": "6f3cabbd-8c7b-443f-af13-2e61663950c0",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invite?locale=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invite"
+                          ],
+                          "query": [
+                            {
+                              "description": "Locale to use for the invite link.",
+                              "key": "locale",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-6f3cabbd-8c7b-443f-af13-2e61663950c0"
+                    },
+                    {
+                      "id": "8446cb2c-233a-465a-a2a2-95932c50f041",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invite?locale=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invite"
+                          ],
+                          "query": [
+                            {
+                              "description": "Locale to use for the invite link.",
+                              "key": "locale",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-8446cb2c-233a-465a-a2a2-95932c50f041"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:28.000Z",
+                  "updatedAt": "2026-07-28T01:30:28.000Z",
+                  "uid": "35240-5dda4501-2b16-48b0-81e0-a5fb675fe58e"
+                }
+              ],
+              "id": "8e4c61c5-5b50-450c-b032-9676542a057a",
+              "createdAt": "2026-07-28T01:30:28.000Z",
+              "updatedAt": "2026-07-28T01:30:28.000Z",
+              "uid": "35240-8e4c61c5-5b50-450c-b032-9676542a057a"
+            },
+            {
+              "name": "preview",
+              "item": [
+                {
+                  "name": "Preview a contract agreement",
+                  "id": "de2cc27e-ff83-4b9a-a2f5-de149dd57841",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/preview?templateId=<uuid>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "preview"
+                      ],
+                      "query": [
+                        {
+                          "description": "ID of an existing contract template.",
+                          "key": "templateId",
+                          "value": "<uuid>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "bb31f171-ef55-4f30-8f6c-ec8e4d0d3c48",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) Deel contract id."
+                        }
+                      ]
+                    },
+                    "description": "Retrieve an IC and EOR contract agreement content in HTML. If no template is specified, the default or currently assigned template will be used. This endpoint does not support Global Payroll contract type.\n **Token scopes**: `contracts:read`, `worker:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "4c77a8c9-1a77-46d6-8d16-bbaf08b110a3",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/preview?templateId=<uuid>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "preview"
+                          ],
+                          "query": [
+                            {
+                              "description": "ID of an existing contract template.",
+                              "key": "templateId",
+                              "value": "<uuid>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-4c77a8c9-1a77-46d6-8d16-bbaf08b110a3"
+                    },
+                    {
+                      "id": "3169bc3d-cd62-41a7-bec1-f232b004f67a",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/preview?templateId=<uuid>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "preview"
+                          ],
+                          "query": [
+                            {
+                              "description": "ID of an existing contract template.",
+                              "key": "templateId",
+                              "value": "<uuid>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-3169bc3d-cd62-41a7-bec1-f232b004f67a"
+                    },
+                    {
+                      "id": "017fa4a2-f9b9-4793-aefa-2ed068908063",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/preview?templateId=<uuid>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "preview"
+                          ],
+                          "query": [
+                            {
+                              "description": "ID of an existing contract template.",
+                              "key": "templateId",
+                              "value": "<uuid>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-017fa4a2-f9b9-4793-aefa-2ed068908063"
+                    },
+                    {
+                      "id": "71a59e02-de80-4c6e-a180-d567d9c2b0f1",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/preview?templateId=<uuid>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "preview"
+                          ],
+                          "query": [
+                            {
+                              "description": "ID of an existing contract template.",
+                              "key": "templateId",
+                              "value": "<uuid>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-71a59e02-de80-4c6e-a180-d567d9c2b0f1"
+                    },
+                    {
+                      "id": "64d4db47-6a52-49a3-a97e-89c7d8a7c1da",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/preview?templateId=<uuid>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "preview"
+                          ],
+                          "query": [
+                            {
+                              "description": "ID of an existing contract template.",
+                              "key": "templateId",
+                              "value": "<uuid>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-64d4db47-6a52-49a3-a97e-89c7d8a7c1da"
+                    },
+                    {
+                      "id": "484feb3b-5069-45b2-ba19-3e86680d01fe",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/preview?templateId=<uuid>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "preview"
+                          ],
+                          "query": [
+                            {
+                              "description": "ID of an existing contract template.",
+                              "key": "templateId",
+                              "value": "<uuid>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-484feb3b-5069-45b2-ba19-3e86680d01fe"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:28.000Z",
+                  "updatedAt": "2026-07-28T01:30:28.000Z",
+                  "uid": "35240-de2cc27e-ff83-4b9a-a2f5-de149dd57841"
+                }
+              ],
+              "id": "f51f8fab-8253-418e-8c6d-41649ed0f4db",
+              "createdAt": "2026-07-28T01:30:28.000Z",
+              "updatedAt": "2026-07-28T01:30:28.000Z",
+              "uid": "35240-f51f8fab-8253-418e-8c6d-41649ed0f4db"
+            },
+            {
+              "name": "invitations",
+              "item": [
+                {
+                  "name": "Remove invite",
+                  "id": "8bded604-8d4b-49cb-9d66-e9a533623794",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/invitations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "invitations"
+                      ],
+                      "variable": [
+                        {
+                          "id": "bb023c3a-e8e1-4e33-b817-83397011d5cb",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) Deel contract id."
+                        }
+                      ]
+                    },
+                    "description": "Remove invite in order to re-invite a worker to sign the contract\n **Token scopes**: `contracts:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "f77d93c8-a493-453e-92ec-282a16498e0e",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invitations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invitations"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"deleted\": \"<boolean>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-f77d93c8-a493-453e-92ec-282a16498e0e"
+                    },
+                    {
+                      "id": "021988de-3418-4b34-bf6f-1c45b3dffd75",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invitations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invitations"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-021988de-3418-4b34-bf6f-1c45b3dffd75"
+                    },
+                    {
+                      "id": "53c636de-fc19-419d-86c7-9ecf369fb675",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invitations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invitations"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-53c636de-fc19-419d-86c7-9ecf369fb675"
+                    },
+                    {
+                      "id": "98e0e916-30ef-41fc-b8d6-e261cef7935b",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invitations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invitations"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-98e0e916-30ef-41fc-b8d6-e261cef7935b"
+                    },
+                    {
+                      "id": "05fa1b80-78e3-472b-b602-26b4ca224f35",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invitations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invitations"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-05fa1b80-78e3-472b-b602-26b4ca224f35"
+                    },
+                    {
+                      "id": "0deaff31-4ba9-421f-b5a4-e063a9e32e33",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invitations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invitations"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-0deaff31-4ba9-421f-b5a4-e063a9e32e33"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:28.000Z",
+                  "updatedAt": "2026-07-28T01:30:28.000Z",
+                  "uid": "35240-8bded604-8d4b-49cb-9d66-e9a533623794"
+                },
+                {
+                  "name": "Send contract to worker",
+                  "id": "9b154b14-ede1-46e9-9924-c4e128c326b0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"email\": \"<email>\",\n    \"locale\": \"en\",\n    \"message\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/invitations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "invitations"
+                      ],
+                      "variable": [
+                        {
+                          "id": "95fb5765-d2ec-495a-80ff-52fc4a2ba5de",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) Deel contract id."
+                        }
+                      ]
+                    },
+                    "description": "Invite a worker to sign the contract. Worker will be notified via email\n **Token scopes**: `contracts:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "a0165b10-d376-411d-be76-9e8d32152643",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"email\": \"<email>\",\n    \"locale\": \"en\",\n    \"message\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invitations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invitations"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"created\": \"<boolean>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-a0165b10-d376-411d-be76-9e8d32152643"
+                    },
+                    {
+                      "id": "40cd5a3e-ec34-4580-87eb-7cb711bb80f6",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"email\": \"<email>\",\n    \"locale\": \"en\",\n    \"message\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invitations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invitations"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-40cd5a3e-ec34-4580-87eb-7cb711bb80f6"
+                    },
+                    {
+                      "id": "fd484e50-5e62-4f59-b6a7-f20ebc454cc7",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"email\": \"<email>\",\n    \"locale\": \"en\",\n    \"message\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invitations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invitations"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-fd484e50-5e62-4f59-b6a7-f20ebc454cc7"
+                    },
+                    {
+                      "id": "24aa82e8-324d-4b03-87f0-2b06f32418d9",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"email\": \"<email>\",\n    \"locale\": \"en\",\n    \"message\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invitations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invitations"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-24aa82e8-324d-4b03-87f0-2b06f32418d9"
+                    },
+                    {
+                      "id": "cf4e4138-301c-48bb-8f12-1232895612cd",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"email\": \"<email>\",\n    \"locale\": \"en\",\n    \"message\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invitations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invitations"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-cf4e4138-301c-48bb-8f12-1232895612cd"
+                    },
+                    {
+                      "id": "1ba71135-f916-4d0d-8a22-5a93afba83df",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"email\": \"<email>\",\n    \"locale\": \"en\",\n    \"message\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/invitations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "invitations"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-1ba71135-f916-4d0d-8a22-5a93afba83df"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:28.000Z",
+                  "updatedAt": "2026-07-28T01:30:28.000Z",
+                  "uid": "35240-9b154b14-ede1-46e9-9924-c4e128c326b0"
+                }
+              ],
+              "id": "fd74566c-4147-4317-94c2-21daacdfa34c",
+              "createdAt": "2026-07-28T01:30:28.000Z",
+              "updatedAt": "2026-07-28T01:30:28.000Z",
+              "uid": "35240-fd74566c-4147-4317-94c2-21daacdfa34c"
+            },
+            {
+              "name": "payment_cycles",
+              "item": [
+                {
+                  "name": "Retrieve contractor payment dates",
+                  "id": "6c2028c0-cd9c-4447-9e78-536c58cd078d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/payment_cycles",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "payment_cycles"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7f86b54c-4243-4941-bf8d-de46c8a09d94",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) The Deel contract ID for which payment dates are being retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Fetches a list of payment dates associated with a specific contract. This endpoint provides information on when contractors are scheduled to be paid, along with the current status of each payment cycle.\n **Token scopes**: `contracts:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "b5e6ecee-fc73-4a0e-8221-8b9fd6af3d1e",
+                      "name": "A successful response containing contractor payment dates.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/payment_cycles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "payment_cycles"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"status\": \"overdue\",\n      \"due_date\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"status\": \"overdue\",\n      \"due_date\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-b5e6ecee-fc73-4a0e-8221-8b9fd6af3d1e"
+                    },
+                    {
+                      "id": "45c7251a-bb86-43b1-9206-dda0e0ecd2c0",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/payment_cycles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "payment_cycles"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-45c7251a-bb86-43b1-9206-dda0e0ecd2c0"
+                    },
+                    {
+                      "id": "7017211e-9203-4118-801f-9ae0c8160f46",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/payment_cycles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "payment_cycles"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-7017211e-9203-4118-801f-9ae0c8160f46"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:28.000Z",
+                  "updatedAt": "2026-07-28T01:30:28.000Z",
+                  "uid": "35240-6c2028c0-cd9c-4447-9e78-536c58cd078d"
+                }
+              ],
+              "id": "2ad58ad6-20c0-4568-a35f-1c27834edb71",
+              "createdAt": "2026-07-28T01:30:28.000Z",
+              "updatedAt": "2026-07-28T01:30:28.000Z",
+              "uid": "35240-2ad58ad6-20c0-4568-a35f-1c27834edb71"
+            },
+            {
+              "name": "signatures",
+              "item": [
+                {
+                  "name": "Sign a contract",
+                  "id": "fc258526-c274-4775-aa94-670c2f4c8506",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"client_signature\": \"<string>\",\n    \"contract_template_id\": \"<double>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/signatures",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "signatures"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1faedf9c-f53a-4103-bc9d-083594fddd89",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) Deel contract id."
+                        }
+                      ]
+                    },
+                    "description": "Sign a contract as a client.\n **Token scopes**: `contracts:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "e79df733-c95e-47f2-b561-f649886560f2",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"client_signature\": \"<string>\",\n    \"contract_template_id\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/signatures",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "signatures"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"created\": \"<boolean>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-e79df733-c95e-47f2-b561-f649886560f2"
+                    },
+                    {
+                      "id": "5d67d49c-3546-485e-a070-3df80ca798bc",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"client_signature\": \"<string>\",\n    \"contract_template_id\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/signatures",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "signatures"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-5d67d49c-3546-485e-a070-3df80ca798bc"
+                    },
+                    {
+                      "id": "77ba4a18-ac41-42d2-a067-829b85881687",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"client_signature\": \"<string>\",\n    \"contract_template_id\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/signatures",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "signatures"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-77ba4a18-ac41-42d2-a067-829b85881687"
+                    },
+                    {
+                      "id": "9f77ea57-2506-4065-b94b-b52bdb0246bc",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"client_signature\": \"<string>\",\n    \"contract_template_id\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/signatures",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "signatures"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-9f77ea57-2506-4065-b94b-b52bdb0246bc"
+                    },
+                    {
+                      "id": "c2c596aa-2f88-4826-aee0-3c14f775da8c",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"client_signature\": \"<string>\",\n    \"contract_template_id\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/signatures",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "signatures"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-c2c596aa-2f88-4826-aee0-3c14f775da8c"
+                    },
+                    {
+                      "id": "61752a5c-c42f-4c3f-9ba5-659d1da5e07e",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"client_signature\": \"<string>\",\n    \"contract_template_id\": \"<double>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/signatures",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "signatures"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-61752a5c-c42f-4c3f-9ba5-659d1da5e07e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:28.000Z",
+                  "updatedAt": "2026-07-28T01:30:28.000Z",
+                  "uid": "35240-fc258526-c274-4775-aa94-670c2f4c8506"
+                }
+              ],
+              "id": "299a8122-58a9-4165-8843-0a0716815b82",
+              "createdAt": "2026-07-28T01:30:28.000Z",
+              "updatedAt": "2026-07-28T01:30:28.000Z",
+              "uid": "35240-299a8122-58a9-4165-8843-0a0716815b82"
+            }
+          ],
+          "id": "d2cf8847-d425-4407-b515-aa7633d61648",
+          "createdAt": "2026-07-28T01:30:28.000Z",
+          "updatedAt": "2026-07-28T01:30:28.000Z",
+          "uid": "35240-d2cf8847-d425-4407-b515-aa7633d61648"
+        }
+      ],
+      "id": "ccfa1a73-aace-4e3f-8c9d-4ad60b6e7631",
+      "createdAt": "2026-07-28T01:30:28.000Z",
+      "updatedAt": "2026-07-28T01:30:28.000Z",
+      "uid": "35240-ccfa1a73-aace-4e3f-8c9d-4ad60b6e7631"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

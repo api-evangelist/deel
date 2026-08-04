@@ -1,0 +1,942 @@
+{
+  "info": {
+    "_postman_id": "b5a81df6-d96d-4926-aa0c-6e82e6c0b7d5",
+    "name": "Endpoints subpackage_enrollments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:37.000Z",
+    "updatedAt": "2026-07-28T01:30:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b5a81df6-d96d-4926-aa0c-6e82e6c0b7d5"
+  },
+  "item": [
+    {
+      "name": "benefits",
+      "item": [
+        {
+          "name": "legal-entities",
+          "item": [
+            {
+              "name": "{legal_entity_id}",
+              "item": [
+                {
+                  "name": "contracts",
+                  "item": [
+                    {
+                      "name": "{contract_id}",
+                      "item": [
+                        {
+                          "name": "plans",
+                          "item": [
+                            {
+                              "name": "{plan_id}",
+                              "item": [
+                                {
+                                  "name": "Enroll an employee in a 401k plan",
+                                  "id": "32bdb745-c03b-48ba-8929-7b0d7022961b",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"type\": \"ROTH\",\n  \"contribution_limit\": \"<double>\",\n  \"details\": {\n    \"key\": \"<string>\"\n  },\n  \"contribution_type\": \"FIXED_AMOUNT\",\n  \"contribution_value\": \"<double>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/contracts/:contract_id/plans/:plan_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "benefits",
+                                        "legal-entities",
+                                        ":legal_entity_id",
+                                        "contracts",
+                                        ":contract_id",
+                                        "plans",
+                                        ":plan_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "6cf873c8-01c1-4551-8f33-d7a5b0ebed22",
+                                          "key": "legal_entity_id",
+                                          "value": "<string>",
+                                          "description": "(Required) Legal entity id which employee/contract belongs"
+                                        },
+                                        {
+                                          "id": "19f6750d-e85c-4e13-a356-c45857d5f8c0",
+                                          "key": "contract_id",
+                                          "value": "<string>",
+                                          "description": "(Required) Contract id from the employee"
+                                        },
+                                        {
+                                          "id": "c8034dc0-019d-497d-bae9-e86d5e85d7bf",
+                                          "key": "plan_id",
+                                          "value": "<string>",
+                                          "description": "(Required) Plan id to enroll the employee into"
+                                        }
+                                      ]
+                                    },
+                                    "description": "Enroll an employee in a 401k plan\n **Token scopes**: `benefits:write`"
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "b1d864a8-fb43-4f0e-9cee-8d394cf0f931",
+                                      "name": "Successful operation.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"type\": \"ROTH\",\n  \"contribution_limit\": \"<double>\",\n  \"details\": {\n    \"key\": \"<string>\"\n  },\n  \"contribution_type\": \"FIXED_AMOUNT\",\n  \"contribution_value\": \"<double>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/contracts/:contract_id/plans/:plan_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "benefits",
+                                            "legal-entities",
+                                            ":legal_entity_id",
+                                            "contracts",
+                                            ":contract_id",
+                                            "plans",
+                                            ":plan_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "legal_entity_id"
+                                            },
+                                            {
+                                              "key": "contract_id"
+                                            },
+                                            {
+                                              "key": "plan_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"type\": \"TRAD\",\n    \"details\": {\n      \"key\": \"<string>\"\n    },\n    \"contribution_type\": \"FIXED_AMOUNT\",\n    \"contribution_limit\": \"<double>\",\n    \"contribution_value\": \"<double>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T01:30:38.000Z",
+                                      "updatedAt": "2026-07-28T01:30:38.000Z",
+                                      "uid": "35240-b1d864a8-fb43-4f0e-9cee-8d394cf0f931"
+                                    },
+                                    {
+                                      "id": "e54d2a70-e844-44bb-a057-a96b1e0c3218",
+                                      "name": "Operation failed.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"type\": \"ROTH\",\n  \"contribution_limit\": \"<double>\",\n  \"details\": {\n    \"key\": \"<string>\"\n  },\n  \"contribution_type\": \"FIXED_AMOUNT\",\n  \"contribution_value\": \"<double>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/contracts/:contract_id/plans/:plan_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "benefits",
+                                            "legal-entities",
+                                            ":legal_entity_id",
+                                            "contracts",
+                                            ":contract_id",
+                                            "plans",
+                                            ":plan_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "legal_entity_id"
+                                            },
+                                            {
+                                              "key": "contract_id"
+                                            },
+                                            {
+                                              "key": "plan_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Bad Request",
+                                      "code": 400,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:30:38.000Z",
+                                      "updatedAt": "2026-07-28T01:30:38.000Z",
+                                      "uid": "35240-e54d2a70-e844-44bb-a057-a96b1e0c3218"
+                                    },
+                                    {
+                                      "id": "254bab66-0640-4321-b4a1-f3b93527b793",
+                                      "name": "Operation failed.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"type\": \"ROTH\",\n  \"contribution_limit\": \"<double>\",\n  \"details\": {\n    \"key\": \"<string>\"\n  },\n  \"contribution_type\": \"FIXED_AMOUNT\",\n  \"contribution_value\": \"<double>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/contracts/:contract_id/plans/:plan_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "benefits",
+                                            "legal-entities",
+                                            ":legal_entity_id",
+                                            "contracts",
+                                            ":contract_id",
+                                            "plans",
+                                            ":plan_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "legal_entity_id"
+                                            },
+                                            {
+                                              "key": "contract_id"
+                                            },
+                                            {
+                                              "key": "plan_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:30:38.000Z",
+                                      "updatedAt": "2026-07-28T01:30:38.000Z",
+                                      "uid": "35240-254bab66-0640-4321-b4a1-f3b93527b793"
+                                    },
+                                    {
+                                      "id": "99c28af5-682d-469b-9e01-f9b82071a459",
+                                      "name": "Operation failed.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"type\": \"ROTH\",\n  \"contribution_limit\": \"<double>\",\n  \"details\": {\n    \"key\": \"<string>\"\n  },\n  \"contribution_type\": \"FIXED_AMOUNT\",\n  \"contribution_value\": \"<double>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/contracts/:contract_id/plans/:plan_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "benefits",
+                                            "legal-entities",
+                                            ":legal_entity_id",
+                                            "contracts",
+                                            ":contract_id",
+                                            "plans",
+                                            ":plan_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "legal_entity_id"
+                                            },
+                                            {
+                                              "key": "contract_id"
+                                            },
+                                            {
+                                              "key": "plan_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Forbidden",
+                                      "code": 403,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:30:38.000Z",
+                                      "updatedAt": "2026-07-28T01:30:38.000Z",
+                                      "uid": "35240-99c28af5-682d-469b-9e01-f9b82071a459"
+                                    },
+                                    {
+                                      "id": "6146f1a3-3562-4ca5-b525-7a32d3da68ae",
+                                      "name": "Operation failed.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"type\": \"ROTH\",\n  \"contribution_limit\": \"<double>\",\n  \"details\": {\n    \"key\": \"<string>\"\n  },\n  \"contribution_type\": \"FIXED_AMOUNT\",\n  \"contribution_value\": \"<double>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/contracts/:contract_id/plans/:plan_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "benefits",
+                                            "legal-entities",
+                                            ":legal_entity_id",
+                                            "contracts",
+                                            ":contract_id",
+                                            "plans",
+                                            ":plan_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "legal_entity_id"
+                                            },
+                                            {
+                                              "key": "contract_id"
+                                            },
+                                            {
+                                              "key": "plan_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:30:38.000Z",
+                                      "updatedAt": "2026-07-28T01:30:38.000Z",
+                                      "uid": "35240-6146f1a3-3562-4ca5-b525-7a32d3da68ae"
+                                    },
+                                    {
+                                      "id": "5a0659ed-06b0-4298-88b0-cd6ff1da0678",
+                                      "name": "Operation failed.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"type\": \"ROTH\",\n  \"contribution_limit\": \"<double>\",\n  \"details\": {\n    \"key\": \"<string>\"\n  },\n  \"contribution_type\": \"FIXED_AMOUNT\",\n  \"contribution_value\": \"<double>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/contracts/:contract_id/plans/:plan_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "benefits",
+                                            "legal-entities",
+                                            ":legal_entity_id",
+                                            "contracts",
+                                            ":contract_id",
+                                            "plans",
+                                            ":plan_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "legal_entity_id"
+                                            },
+                                            {
+                                              "key": "contract_id"
+                                            },
+                                            {
+                                              "key": "plan_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:30:38.000Z",
+                                      "updatedAt": "2026-07-28T01:30:38.000Z",
+                                      "uid": "35240-5a0659ed-06b0-4298-88b0-cd6ff1da0678"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:30:38.000Z",
+                                  "updatedAt": "2026-07-28T01:30:38.000Z",
+                                  "uid": "35240-32bdb745-c03b-48ba-8929-7b0d7022961b"
+                                },
+                                {
+                                  "name": "Get enrollment settings from an employee in a 401k plan",
+                                  "id": "2730664c-d037-4542-b05f-616a1a079b08",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/contracts/:contract_id/plans/:plan_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "benefits",
+                                        "legal-entities",
+                                        ":legal_entity_id",
+                                        "contracts",
+                                        ":contract_id",
+                                        "plans",
+                                        ":plan_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "07c88518-1ccb-46f7-b0f0-417a0e2113fe",
+                                          "key": "legal_entity_id",
+                                          "value": "<string>",
+                                          "description": "(Required) Legal entity id which employee/contract belongs"
+                                        },
+                                        {
+                                          "id": "297da35b-9fa9-4f78-bbc3-4781d88c910a",
+                                          "key": "contract_id",
+                                          "value": "<string>",
+                                          "description": "(Required) Contract id from the employee"
+                                        },
+                                        {
+                                          "id": "8bda46a0-bc5c-4f9c-9e63-353e7219a636",
+                                          "key": "plan_id",
+                                          "value": "<string>",
+                                          "description": "(Required) Plan id to enroll the employee into"
+                                        }
+                                      ]
+                                    },
+                                    "description": "Get enrollment settings from an employee in a 401k plan\n **Token scopes**: `benefits:read`"
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "8793b0e5-1c72-4587-b0eb-70ca7b80092c",
+                                      "name": "Successful operation.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/contracts/:contract_id/plans/:plan_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "benefits",
+                                            "legal-entities",
+                                            ":legal_entity_id",
+                                            "contracts",
+                                            ":contract_id",
+                                            "plans",
+                                            ":plan_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "legal_entity_id"
+                                            },
+                                            {
+                                              "key": "contract_id"
+                                            },
+                                            {
+                                              "key": "plan_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"LOAN\",\n      \"details\": {\n        \"key\": \"<string>\"\n      },\n      \"contribution_type\": \"FIXED_AMOUNT\",\n      \"contribution_limit\": \"<double>\",\n      \"contribution_value\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"ROTH\",\n      \"details\": {\n        \"key\": \"<string>\"\n      },\n      \"contribution_type\": \"PERCENTAGE\",\n      \"contribution_limit\": \"<double>\",\n      \"contribution_value\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:30:38.000Z",
+                                      "updatedAt": "2026-07-28T01:30:38.000Z",
+                                      "uid": "35240-8793b0e5-1c72-4587-b0eb-70ca7b80092c"
+                                    },
+                                    {
+                                      "id": "d3ae480d-0a03-4c16-8f78-535ff39b3b93",
+                                      "name": "Operation failed.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/contracts/:contract_id/plans/:plan_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "benefits",
+                                            "legal-entities",
+                                            ":legal_entity_id",
+                                            "contracts",
+                                            ":contract_id",
+                                            "plans",
+                                            ":plan_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "legal_entity_id"
+                                            },
+                                            {
+                                              "key": "contract_id"
+                                            },
+                                            {
+                                              "key": "plan_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Bad Request",
+                                      "code": 400,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:30:38.000Z",
+                                      "updatedAt": "2026-07-28T01:30:38.000Z",
+                                      "uid": "35240-d3ae480d-0a03-4c16-8f78-535ff39b3b93"
+                                    },
+                                    {
+                                      "id": "ae38d465-90d0-41ab-b331-03c30ee8cb8c",
+                                      "name": "Operation failed.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/contracts/:contract_id/plans/:plan_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "benefits",
+                                            "legal-entities",
+                                            ":legal_entity_id",
+                                            "contracts",
+                                            ":contract_id",
+                                            "plans",
+                                            ":plan_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "legal_entity_id"
+                                            },
+                                            {
+                                              "key": "contract_id"
+                                            },
+                                            {
+                                              "key": "plan_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:30:38.000Z",
+                                      "updatedAt": "2026-07-28T01:30:38.000Z",
+                                      "uid": "35240-ae38d465-90d0-41ab-b331-03c30ee8cb8c"
+                                    },
+                                    {
+                                      "id": "faf9bf90-49f8-4e38-b199-e61ca16bb0ed",
+                                      "name": "Operation failed.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/contracts/:contract_id/plans/:plan_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "benefits",
+                                            "legal-entities",
+                                            ":legal_entity_id",
+                                            "contracts",
+                                            ":contract_id",
+                                            "plans",
+                                            ":plan_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "legal_entity_id"
+                                            },
+                                            {
+                                              "key": "contract_id"
+                                            },
+                                            {
+                                              "key": "plan_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Forbidden",
+                                      "code": 403,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:30:38.000Z",
+                                      "updatedAt": "2026-07-28T01:30:38.000Z",
+                                      "uid": "35240-faf9bf90-49f8-4e38-b199-e61ca16bb0ed"
+                                    },
+                                    {
+                                      "id": "4da50821-d1db-40d2-8b12-2a5013caf6b5",
+                                      "name": "Operation failed.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/contracts/:contract_id/plans/:plan_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "benefits",
+                                            "legal-entities",
+                                            ":legal_entity_id",
+                                            "contracts",
+                                            ":contract_id",
+                                            "plans",
+                                            ":plan_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "legal_entity_id"
+                                            },
+                                            {
+                                              "key": "contract_id"
+                                            },
+                                            {
+                                              "key": "plan_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:30:38.000Z",
+                                      "updatedAt": "2026-07-28T01:30:38.000Z",
+                                      "uid": "35240-4da50821-d1db-40d2-8b12-2a5013caf6b5"
+                                    },
+                                    {
+                                      "id": "2f3b8469-4aeb-45da-abdc-3f27d4dca2d7",
+                                      "name": "Operation failed.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/contracts/:contract_id/plans/:plan_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "benefits",
+                                            "legal-entities",
+                                            ":legal_entity_id",
+                                            "contracts",
+                                            ":contract_id",
+                                            "plans",
+                                            ":plan_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "legal_entity_id"
+                                            },
+                                            {
+                                              "key": "contract_id"
+                                            },
+                                            {
+                                              "key": "plan_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:30:38.000Z",
+                                      "updatedAt": "2026-07-28T01:30:38.000Z",
+                                      "uid": "35240-2f3b8469-4aeb-45da-abdc-3f27d4dca2d7"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:30:38.000Z",
+                                  "updatedAt": "2026-07-28T01:30:38.000Z",
+                                  "uid": "35240-2730664c-d037-4542-b05f-616a1a079b08"
+                                }
+                              ],
+                              "id": "297e426d-332e-40ec-a613-660ee1ecd714",
+                              "createdAt": "2026-07-28T01:30:38.000Z",
+                              "updatedAt": "2026-07-28T01:30:38.000Z",
+                              "uid": "35240-297e426d-332e-40ec-a613-660ee1ecd714"
+                            }
+                          ],
+                          "id": "696631df-2425-4375-888e-aad9acdc28ef",
+                          "createdAt": "2026-07-28T01:30:38.000Z",
+                          "updatedAt": "2026-07-28T01:30:38.000Z",
+                          "uid": "35240-696631df-2425-4375-888e-aad9acdc28ef"
+                        }
+                      ],
+                      "id": "9dcdbde4-7440-4695-9fae-e2d54c86dac7",
+                      "createdAt": "2026-07-28T01:30:38.000Z",
+                      "updatedAt": "2026-07-28T01:30:38.000Z",
+                      "uid": "35240-9dcdbde4-7440-4695-9fae-e2d54c86dac7"
+                    }
+                  ],
+                  "id": "b903284b-37da-4ad3-8aa6-db4f727e9417",
+                  "createdAt": "2026-07-28T01:30:38.000Z",
+                  "updatedAt": "2026-07-28T01:30:38.000Z",
+                  "uid": "35240-b903284b-37da-4ad3-8aa6-db4f727e9417"
+                }
+              ],
+              "id": "112b2e10-d863-4865-b178-655890e70e12",
+              "createdAt": "2026-07-28T01:30:38.000Z",
+              "updatedAt": "2026-07-28T01:30:38.000Z",
+              "uid": "35240-112b2e10-d863-4865-b178-655890e70e12"
+            }
+          ],
+          "id": "cb7c9b3b-f6b4-4a98-844e-83dfb733dc29",
+          "createdAt": "2026-07-28T01:30:38.000Z",
+          "updatedAt": "2026-07-28T01:30:38.000Z",
+          "uid": "35240-cb7c9b3b-f6b4-4a98-844e-83dfb733dc29"
+        }
+      ],
+      "id": "34cba52c-eeb0-4b3c-81af-e25bb644f8d9",
+      "createdAt": "2026-07-28T01:30:38.000Z",
+      "updatedAt": "2026-07-28T01:30:38.000Z",
+      "uid": "35240-34cba52c-eeb0-4b3c-81af-e25bb644f8d9"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

@@ -1,0 +1,456 @@
+{
+  "info": {
+    "_postman_id": "ba114d2b-a0b5-4122-9095-c0715bd92f65",
+    "name": "Endpoints subpackage_employees API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:36.000Z",
+    "updatedAt": "2026-07-28T01:30:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ba114d2b-a0b5-4122-9095-c0715bd92f65"
+  },
+  "item": [
+    {
+      "name": "benefits",
+      "item": [
+        {
+          "name": "legal-entities",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "employees",
+                  "item": [
+                    {
+                      "name": "{employee_id}",
+                      "item": [
+                        {
+                          "name": "Get employee from organization integrated with external benefits vendor",
+                          "id": "3e1faab6-a55e-4fe7-b085-e8075d76c305",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:id/employees/:employee_id?active_contracts=true",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":id",
+                                "employees",
+                                ":employee_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Fetch only active contracts for employees",
+                                  "key": "active_contracts",
+                                  "value": "true"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "73d2b179-d0ce-49cd-b9e3-41f1aa0cb788",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) Id from the legal entity to fetch data"
+                                },
+                                {
+                                  "id": "c8f11c74-bb95-49e8-b419-92700c292c61",
+                                  "key": "employee_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Employee id from the legal entity to fetch data"
+                                }
+                              ]
+                            },
+                            "description": "Returns profile and contract data for a single employee within a legal entity integrated with an external benefits vendor. When `active_contracts` is `true`, only active contracts are included in the response.\n\n**Related endpoints**\n- use `contract_id` from contracts in response with `GET /benefits/legal-entities/{legal_entity_id}/contracts/{contract_id}/plans/{plan_id}`\n- use `contract_id` from contracts in response with `DELETE /benefits/legal-entities/{id}/contracts/{contract_id}/plans/{plan_id}`\n **Token scopes**: `people:read`"
+                          },
+                          "response": [
+                            {
+                              "id": "faa0db50-e672-4018-bfab-c5dc4d0bdf07",
+                              "name": "Successful operation.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/benefits/legal-entities/:id/employees/:employee_id?active_contracts=true",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "benefits",
+                                    "legal-entities",
+                                    ":id",
+                                    "employees",
+                                    ":employee_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Fetch only active contracts for employees",
+                                      "key": "active_contracts",
+                                      "value": "true"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "employee_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"phones\": [\n    {\n      \"type\": \"<string>\",\n      \"dial_code\": \"<string>\",\n      \"phone_number\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"dial_code\": \"<string>\",\n      \"phone_number\": \"<string>\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"addresses\": [\n    {\n      \"zip\": \"<string,null>\",\n      \"city\": \"<string,null>\",\n      \"type\": \"<string>\",\n      \"state\": \"<string,null>\",\n      \"street\": \"<string,null>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"zip\": \"<string,null>\",\n      \"city\": \"<string,null>\",\n      \"type\": \"<string>\",\n      \"state\": \"<string,null>\",\n      \"street\": \"<string,null>\",\n      \"country\": \"<string>\"\n    }\n  ],\n  \"contracts\": [\n    {\n      \"id\": \"<string>\",\n      \"flsa\": \"<boolean>\",\n      \"status\": \"<string>\",\n      \"end_date\": \"<string>\",\n      \"job_title\": \"<string>\",\n      \"start_date\": \"<string>\",\n      \"compensations\": [\n        {\n          \"rate\": \"<double>\",\n          \"type\": \"VARIABLE\",\n          \"scale\": \"<string,null>\",\n          \"currency\": \"<string>\",\n          \"cycle_scale\": \"<string,null>\",\n          \"variable_compensation_type\": \"FIXED\"\n        },\n        {\n          \"rate\": \"<double>\",\n          \"type\": \"MAIN\",\n          \"scale\": \"<string,null>\",\n          \"currency\": \"<string>\",\n          \"cycle_scale\": \"<string,null>\",\n          \"variable_compensation_type\": \"PERCENTAGE\"\n        }\n      ],\n      \"contract_type\": \"contractor\",\n      \"employment_type\": \"full_time\",\n      \"estimated_week_working_hours\": \"<double>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"flsa\": \"<boolean>\",\n      \"status\": \"<string>\",\n      \"end_date\": \"<string>\",\n      \"job_title\": \"<string>\",\n      \"start_date\": \"<string>\",\n      \"compensations\": [\n        {\n          \"rate\": \"<double>\",\n          \"type\": \"VARIABLE\",\n          \"scale\": \"<string,null>\",\n          \"currency\": \"<string>\",\n          \"cycle_scale\": \"<string,null>\",\n          \"variable_compensation_type\": \"PERCENTAGE\"\n        },\n        {\n          \"rate\": \"<double>\",\n          \"type\": \"VARIABLE\",\n          \"scale\": \"<string,null>\",\n          \"currency\": \"<string>\",\n          \"cycle_scale\": \"<string,null>\",\n          \"variable_compensation_type\": \"PERCENTAGE\"\n        }\n      ],\n      \"contract_type\": \"contractor\",\n      \"employment_type\": \"part_time\",\n      \"estimated_week_working_hours\": \"<double>\"\n    }\n  ],\n  \"hire_date\": \"<string,null>\",\n  \"work_email\": \"<string,null>\",\n  \"date_of_birth\": \"<string,null>\",\n  \"marital_status\": \"Registered Partnership\",\n  \"personal_email\": \"<string,null>\",\n  \"document_number\": \"<string>\",\n  \"legal_last_name\": \"<string>\",\n  \"legal_first_name\": \"<string>\",\n  \"legal_middle_name\": \"<string,null>\",\n  \"takes_owners_draw\": \"<boolean>\",\n  \"ownership_percentage\": \"<double>\"\n}",
+                              "createdAt": "2026-07-28T01:30:37.000Z",
+                              "updatedAt": "2026-07-28T01:30:37.000Z",
+                              "uid": "35240-faa0db50-e672-4018-bfab-c5dc4d0bdf07"
+                            },
+                            {
+                              "id": "3abbde7a-15a6-4e7d-95c0-d735e8fb5a20",
+                              "name": "Operation failed.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/benefits/legal-entities/:id/employees/:employee_id?active_contracts=true",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "benefits",
+                                    "legal-entities",
+                                    ":id",
+                                    "employees",
+                                    ":employee_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Fetch only active contracts for employees",
+                                      "key": "active_contracts",
+                                      "value": "true"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "employee_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:37.000Z",
+                              "updatedAt": "2026-07-28T01:30:37.000Z",
+                              "uid": "35240-3abbde7a-15a6-4e7d-95c0-d735e8fb5a20"
+                            },
+                            {
+                              "id": "a9fa59be-f2d5-424e-9efd-2a61f19ec2c1",
+                              "name": "Operation failed.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/benefits/legal-entities/:id/employees/:employee_id?active_contracts=true",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "benefits",
+                                    "legal-entities",
+                                    ":id",
+                                    "employees",
+                                    ":employee_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Fetch only active contracts for employees",
+                                      "key": "active_contracts",
+                                      "value": "true"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "employee_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:37.000Z",
+                              "updatedAt": "2026-07-28T01:30:37.000Z",
+                              "uid": "35240-a9fa59be-f2d5-424e-9efd-2a61f19ec2c1"
+                            },
+                            {
+                              "id": "ad43b151-294a-4c60-9500-454fae4b34a5",
+                              "name": "Operation failed.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/benefits/legal-entities/:id/employees/:employee_id?active_contracts=true",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "benefits",
+                                    "legal-entities",
+                                    ":id",
+                                    "employees",
+                                    ":employee_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Fetch only active contracts for employees",
+                                      "key": "active_contracts",
+                                      "value": "true"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "employee_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:37.000Z",
+                              "updatedAt": "2026-07-28T01:30:37.000Z",
+                              "uid": "35240-ad43b151-294a-4c60-9500-454fae4b34a5"
+                            },
+                            {
+                              "id": "7e064417-e3eb-450b-9be3-04ad100c1add",
+                              "name": "Operation failed.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/benefits/legal-entities/:id/employees/:employee_id?active_contracts=true",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "benefits",
+                                    "legal-entities",
+                                    ":id",
+                                    "employees",
+                                    ":employee_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Fetch only active contracts for employees",
+                                      "key": "active_contracts",
+                                      "value": "true"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "employee_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:37.000Z",
+                              "updatedAt": "2026-07-28T01:30:37.000Z",
+                              "uid": "35240-7e064417-e3eb-450b-9be3-04ad100c1add"
+                            },
+                            {
+                              "id": "44ae6bb9-a596-4f53-8e3d-2fe2b00924aa",
+                              "name": "Operation failed.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/benefits/legal-entities/:id/employees/:employee_id?active_contracts=true",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "benefits",
+                                    "legal-entities",
+                                    ":id",
+                                    "employees",
+                                    ":employee_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Fetch only active contracts for employees",
+                                      "key": "active_contracts",
+                                      "value": "true"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    },
+                                    {
+                                      "key": "employee_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:37.000Z",
+                              "updatedAt": "2026-07-28T01:30:37.000Z",
+                              "uid": "35240-44ae6bb9-a596-4f53-8e3d-2fe2b00924aa"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:36.000Z",
+                          "updatedAt": "2026-07-28T01:30:36.000Z",
+                          "uid": "35240-3e1faab6-a55e-4fe7-b085-e8075d76c305"
+                        }
+                      ],
+                      "id": "04d0a2f7-de74-4ea2-954d-df7ddf27711c",
+                      "createdAt": "2026-07-28T01:30:36.000Z",
+                      "updatedAt": "2026-07-28T01:30:36.000Z",
+                      "uid": "35240-04d0a2f7-de74-4ea2-954d-df7ddf27711c"
+                    }
+                  ],
+                  "id": "a64b243e-53fc-427a-8b62-13a31b5b762a",
+                  "createdAt": "2026-07-28T01:30:36.000Z",
+                  "updatedAt": "2026-07-28T01:30:36.000Z",
+                  "uid": "35240-a64b243e-53fc-427a-8b62-13a31b5b762a"
+                }
+              ],
+              "id": "bbc04dab-9c27-4000-aa3c-643b732ac3da",
+              "createdAt": "2026-07-28T01:30:36.000Z",
+              "updatedAt": "2026-07-28T01:30:36.000Z",
+              "uid": "35240-bbc04dab-9c27-4000-aa3c-643b732ac3da"
+            }
+          ],
+          "id": "e32c0590-e6d0-4f1b-a79b-99a486408c37",
+          "createdAt": "2026-07-28T01:30:36.000Z",
+          "updatedAt": "2026-07-28T01:30:36.000Z",
+          "uid": "35240-e32c0590-e6d0-4f1b-a79b-99a486408c37"
+        }
+      ],
+      "id": "1dc1c0ae-ecf8-42fb-bcea-704a8fc43ece",
+      "createdAt": "2026-07-28T01:30:36.000Z",
+      "updatedAt": "2026-07-28T01:30:36.000Z",
+      "uid": "35240-1dc1c0ae-ecf8-42fb-bcea-704a8fc43ece"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

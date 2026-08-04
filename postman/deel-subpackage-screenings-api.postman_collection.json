@@ -1,0 +1,2737 @@
+{
+  "info": {
+    "_postman_id": "43396222-9d34-4bdc-b471-6cdd31194717",
+    "name": "Endpoints subpackage_screenings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:33:14.000Z",
+    "updatedAt": "2026-07-28T01:33:15.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-43396222-9d34-4bdc-b471-6cdd31194717"
+  },
+  "item": [
+    {
+      "name": "screenings",
+      "item": [
+        {
+          "name": "manual-verification",
+          "item": [
+            {
+              "name": "Create manual verification screening",
+              "id": "0e06b62e-e8bc-4e2c-9716-f6e02a0c6726",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "(Required) The front side of the document",
+                      "key": "front",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": "(Required) The type of document to be verified (This can only be one of PASSPORT,DRIVING_LICENSE,GOVERNMENT_ID,OTHER)",
+                      "key": "document_type",
+                      "value": "PASSPORT",
+                      "type": "text"
+                    },
+                    {
+                      "description": "(Required) The type of KYC operation to perform (This can only be one of IDENTITY_RESUBMISSION_KYC,IDENTITY_VERIFICATION_KYC,NAME_CHANGE_KYC)",
+                      "key": "operation_type",
+                      "value": "IDENTITY_RESUBMISSION_KYC",
+                      "type": "text"
+                    },
+                    {
+                      "description": "(Required) A selfie of the user holding the ID document",
+                      "key": "selfie_with_id",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": "(Required) Indicates whether the document requires translation",
+                      "key": "translation_required",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "The back side of the document",
+                      "key": "back",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": "An additional document",
+                      "key": "additional",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": "The issuing country code of the document to be verified (ISO 3166-1 alpha-2)",
+                      "key": "document_country",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "A proof of residence document",
+                      "key": "proof_of_residence",
+                      "type": "file",
+                      "value": null
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/screenings/manual-verification",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "screenings",
+                    "manual-verification"
+                  ]
+                },
+                "description": "Use this endpoint to create a manual identity verification submission (in case automated one has failed multiple times or document country is not supported by automated solution)\n **Token scopes**: `worker:write`"
+              },
+              "response": [
+                {
+                  "id": "6f033037-ab08-4f8f-9dec-131d1511f6ba",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) The front side of the document",
+                          "key": "front",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) The type of document to be verified (This can only be one of PASSPORT,DRIVING_LICENSE,GOVERNMENT_ID,OTHER)",
+                          "key": "document_type",
+                          "value": "PASSPORT",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) The type of KYC operation to perform (This can only be one of IDENTITY_RESUBMISSION_KYC,IDENTITY_VERIFICATION_KYC,NAME_CHANGE_KYC)",
+                          "key": "operation_type",
+                          "value": "IDENTITY_RESUBMISSION_KYC",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) A selfie of the user holding the ID document",
+                          "key": "selfie_with_id",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) Indicates whether the document requires translation",
+                          "key": "translation_required",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "The back side of the document",
+                          "key": "back",
+                          "type": "file"
+                        },
+                        {
+                          "description": "An additional document",
+                          "key": "additional",
+                          "type": "file"
+                        },
+                        {
+                          "description": "The issuing country code of the document to be verified (ISO 3166-1 alpha-2)",
+                          "key": "document_country",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "A proof of residence document",
+                          "key": "proof_of_residence",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/screenings/manual-verification",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "screenings",
+                        "manual-verification"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"created_at\": \"<dateTime>\",\n    \"request_id\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-6f033037-ab08-4f8f-9dec-131d1511f6ba"
+                },
+                {
+                  "id": "0d3e7a70-1056-4ec4-846c-db84142021d0",
+                  "name": "Bad Request - Validation error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) The front side of the document",
+                          "key": "front",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) The type of document to be verified (This can only be one of PASSPORT,DRIVING_LICENSE,GOVERNMENT_ID,OTHER)",
+                          "key": "document_type",
+                          "value": "PASSPORT",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) The type of KYC operation to perform (This can only be one of IDENTITY_RESUBMISSION_KYC,IDENTITY_VERIFICATION_KYC,NAME_CHANGE_KYC)",
+                          "key": "operation_type",
+                          "value": "IDENTITY_RESUBMISSION_KYC",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) A selfie of the user holding the ID document",
+                          "key": "selfie_with_id",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) Indicates whether the document requires translation",
+                          "key": "translation_required",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "The back side of the document",
+                          "key": "back",
+                          "type": "file"
+                        },
+                        {
+                          "description": "An additional document",
+                          "key": "additional",
+                          "type": "file"
+                        },
+                        {
+                          "description": "The issuing country code of the document to be verified (ISO 3166-1 alpha-2)",
+                          "key": "document_country",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "A proof of residence document",
+                          "key": "proof_of_residence",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/screenings/manual-verification",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "screenings",
+                        "manual-verification"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-0d3e7a70-1056-4ec4-846c-db84142021d0"
+                },
+                {
+                  "id": "626aae4c-e7ed-4e9f-b415-34fc65e1223f",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) The front side of the document",
+                          "key": "front",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) The type of document to be verified (This can only be one of PASSPORT,DRIVING_LICENSE,GOVERNMENT_ID,OTHER)",
+                          "key": "document_type",
+                          "value": "PASSPORT",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) The type of KYC operation to perform (This can only be one of IDENTITY_RESUBMISSION_KYC,IDENTITY_VERIFICATION_KYC,NAME_CHANGE_KYC)",
+                          "key": "operation_type",
+                          "value": "IDENTITY_RESUBMISSION_KYC",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) A selfie of the user holding the ID document",
+                          "key": "selfie_with_id",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) Indicates whether the document requires translation",
+                          "key": "translation_required",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "The back side of the document",
+                          "key": "back",
+                          "type": "file"
+                        },
+                        {
+                          "description": "An additional document",
+                          "key": "additional",
+                          "type": "file"
+                        },
+                        {
+                          "description": "The issuing country code of the document to be verified (ISO 3166-1 alpha-2)",
+                          "key": "document_country",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "A proof of residence document",
+                          "key": "proof_of_residence",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/screenings/manual-verification",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "screenings",
+                        "manual-verification"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-626aae4c-e7ed-4e9f-b415-34fc65e1223f"
+                },
+                {
+                  "id": "bbfd5e26-b98f-4e6b-a4d5-5740a88b8d8b",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) The front side of the document",
+                          "key": "front",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) The type of document to be verified (This can only be one of PASSPORT,DRIVING_LICENSE,GOVERNMENT_ID,OTHER)",
+                          "key": "document_type",
+                          "value": "PASSPORT",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) The type of KYC operation to perform (This can only be one of IDENTITY_RESUBMISSION_KYC,IDENTITY_VERIFICATION_KYC,NAME_CHANGE_KYC)",
+                          "key": "operation_type",
+                          "value": "IDENTITY_RESUBMISSION_KYC",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) A selfie of the user holding the ID document",
+                          "key": "selfie_with_id",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) Indicates whether the document requires translation",
+                          "key": "translation_required",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "The back side of the document",
+                          "key": "back",
+                          "type": "file"
+                        },
+                        {
+                          "description": "An additional document",
+                          "key": "additional",
+                          "type": "file"
+                        },
+                        {
+                          "description": "The issuing country code of the document to be verified (ISO 3166-1 alpha-2)",
+                          "key": "document_country",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "A proof of residence document",
+                          "key": "proof_of_residence",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/screenings/manual-verification",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "screenings",
+                        "manual-verification"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-bbfd5e26-b98f-4e6b-a4d5-5740a88b8d8b"
+                },
+                {
+                  "id": "4fcafb4d-70c5-462a-9bbe-41da2ca31a6b",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) The front side of the document",
+                          "key": "front",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) The type of document to be verified (This can only be one of PASSPORT,DRIVING_LICENSE,GOVERNMENT_ID,OTHER)",
+                          "key": "document_type",
+                          "value": "PASSPORT",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) The type of KYC operation to perform (This can only be one of IDENTITY_RESUBMISSION_KYC,IDENTITY_VERIFICATION_KYC,NAME_CHANGE_KYC)",
+                          "key": "operation_type",
+                          "value": "IDENTITY_RESUBMISSION_KYC",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) A selfie of the user holding the ID document",
+                          "key": "selfie_with_id",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) Indicates whether the document requires translation",
+                          "key": "translation_required",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "The back side of the document",
+                          "key": "back",
+                          "type": "file"
+                        },
+                        {
+                          "description": "An additional document",
+                          "key": "additional",
+                          "type": "file"
+                        },
+                        {
+                          "description": "The issuing country code of the document to be verified (ISO 3166-1 alpha-2)",
+                          "key": "document_country",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "A proof of residence document",
+                          "key": "proof_of_residence",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/screenings/manual-verification",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "screenings",
+                        "manual-verification"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-4fcafb4d-70c5-462a-9bbe-41da2ca31a6b"
+                },
+                {
+                  "id": "73e50d22-0e0f-45f0-91b9-e1d4acf15fd0",
+                  "name": "Conflict - There is an existing name change screening pending",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) The front side of the document",
+                          "key": "front",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) The type of document to be verified (This can only be one of PASSPORT,DRIVING_LICENSE,GOVERNMENT_ID,OTHER)",
+                          "key": "document_type",
+                          "value": "PASSPORT",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) The type of KYC operation to perform (This can only be one of IDENTITY_RESUBMISSION_KYC,IDENTITY_VERIFICATION_KYC,NAME_CHANGE_KYC)",
+                          "key": "operation_type",
+                          "value": "IDENTITY_RESUBMISSION_KYC",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) A selfie of the user holding the ID document",
+                          "key": "selfie_with_id",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) Indicates whether the document requires translation",
+                          "key": "translation_required",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "The back side of the document",
+                          "key": "back",
+                          "type": "file"
+                        },
+                        {
+                          "description": "An additional document",
+                          "key": "additional",
+                          "type": "file"
+                        },
+                        {
+                          "description": "The issuing country code of the document to be verified (ISO 3166-1 alpha-2)",
+                          "key": "document_country",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "A proof of residence document",
+                          "key": "proof_of_residence",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/screenings/manual-verification",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "screenings",
+                        "manual-verification"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-73e50d22-0e0f-45f0-91b9-e1d4acf15fd0"
+                },
+                {
+                  "id": "0194c072-739a-46b6-84e1-3d16b732b701",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) The front side of the document",
+                          "key": "front",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) The type of document to be verified (This can only be one of PASSPORT,DRIVING_LICENSE,GOVERNMENT_ID,OTHER)",
+                          "key": "document_type",
+                          "value": "PASSPORT",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) The type of KYC operation to perform (This can only be one of IDENTITY_RESUBMISSION_KYC,IDENTITY_VERIFICATION_KYC,NAME_CHANGE_KYC)",
+                          "key": "operation_type",
+                          "value": "IDENTITY_RESUBMISSION_KYC",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) A selfie of the user holding the ID document",
+                          "key": "selfie_with_id",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) Indicates whether the document requires translation",
+                          "key": "translation_required",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "The back side of the document",
+                          "key": "back",
+                          "type": "file"
+                        },
+                        {
+                          "description": "An additional document",
+                          "key": "additional",
+                          "type": "file"
+                        },
+                        {
+                          "description": "The issuing country code of the document to be verified (ISO 3166-1 alpha-2)",
+                          "key": "document_country",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "A proof of residence document",
+                          "key": "proof_of_residence",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/screenings/manual-verification",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "screenings",
+                        "manual-verification"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-0194c072-739a-46b6-84e1-3d16b732b701"
+                }
+              ],
+              "createdAt": "2026-07-28T01:33:15.000Z",
+              "updatedAt": "2026-07-28T01:33:15.000Z",
+              "uid": "35240-0e06b62e-e8bc-4e2c-9716-f6e02a0c6726"
+            }
+          ],
+          "id": "4aa54a85-431b-4a02-9ec2-14305b02a9e3",
+          "createdAt": "2026-07-28T01:33:15.000Z",
+          "updatedAt": "2026-07-28T01:33:15.000Z",
+          "uid": "35240-4aa54a85-431b-4a02-9ec2-14305b02a9e3"
+        },
+        {
+          "name": "aml",
+          "item": [
+            {
+              "name": "{entity_type}",
+              "item": [
+                {
+                  "name": "{entity_id}",
+                  "item": [
+                    {
+                      "name": "Get entity screening details",
+                      "id": "146b5161-2eea-441f-8bb2-45db104f9a0b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/screenings/aml/:entity_type/:entity_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "screenings",
+                            "aml",
+                            ":entity_type",
+                            ":entity_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "df172fb3-9b57-482a-b4a0-bd67f4b25ab7",
+                              "key": "entity_type",
+                              "value": "legal_entity",
+                              "description": "(Required) The type of entity to screen. Only 'profile', 'hris_profile', 'legal_entity' are accepted."
+                            },
+                            {
+                              "id": "e1f4c9b4-6d21-43b5-acc9-9ec51025d481",
+                              "key": "entity_id",
+                              "value": "<uuid>",
+                              "description": "(Required) UUID v4 of the entity"
+                            }
+                          ]
+                        },
+                        "description": "Get the latest screening for an entity.\n **Token scopes**: `screenings:read`"
+                      },
+                      "response": [
+                        {
+                          "id": "3641ef17-0cb9-49d0-81cf-900727dad019",
+                          "name": "Details of the screening request for the specified entity type and ID.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/screenings/aml/:entity_type/:entity_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "screenings",
+                                "aml",
+                                ":entity_type",
+                                ":entity_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "entity_type"
+                                },
+                                {
+                                  "key": "entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": \"PENDING\",\n  \"entity_id\": \"<string>\",\n  \"entity_type\": \"profile\",\n  \"detailed_results\": {\n    \"pep\": \"PASS\",\n    \"sanctions\": \"PASS\",\n    \"adverse_media\": \"FAIL\"\n  }\n}",
+                          "createdAt": "2026-07-28T01:33:15.000Z",
+                          "updatedAt": "2026-07-28T01:33:15.000Z",
+                          "uid": "35240-3641ef17-0cb9-49d0-81cf-900727dad019"
+                        },
+                        {
+                          "id": "ce5c17ad-6bd3-43da-a9bf-268c07419797",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/screenings/aml/:entity_type/:entity_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "screenings",
+                                "aml",
+                                ":entity_type",
+                                ":entity_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "entity_type"
+                                },
+                                {
+                                  "key": "entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:33:15.000Z",
+                          "updatedAt": "2026-07-28T01:33:15.000Z",
+                          "uid": "35240-ce5c17ad-6bd3-43da-a9bf-268c07419797"
+                        },
+                        {
+                          "id": "c75c33cc-f460-4c55-9e65-b7470ca9f8ce",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/screenings/aml/:entity_type/:entity_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "screenings",
+                                "aml",
+                                ":entity_type",
+                                ":entity_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "entity_type"
+                                },
+                                {
+                                  "key": "entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:33:15.000Z",
+                          "updatedAt": "2026-07-28T01:33:15.000Z",
+                          "uid": "35240-c75c33cc-f460-4c55-9e65-b7470ca9f8ce"
+                        },
+                        {
+                          "id": "88e3dfb7-8c8e-4d41-a034-7df79cf67702",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/screenings/aml/:entity_type/:entity_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "screenings",
+                                "aml",
+                                ":entity_type",
+                                ":entity_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "entity_type"
+                                },
+                                {
+                                  "key": "entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:33:15.000Z",
+                          "updatedAt": "2026-07-28T01:33:15.000Z",
+                          "uid": "35240-88e3dfb7-8c8e-4d41-a034-7df79cf67702"
+                        },
+                        {
+                          "id": "7f35eca6-2e0f-4754-a902-d5fd24b049a3",
+                          "name": "Entity not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/screenings/aml/:entity_type/:entity_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "screenings",
+                                "aml",
+                                ":entity_type",
+                                ":entity_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "entity_type"
+                                },
+                                {
+                                  "key": "entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:33:15.000Z",
+                          "updatedAt": "2026-07-28T01:33:15.000Z",
+                          "uid": "35240-7f35eca6-2e0f-4754-a902-d5fd24b049a3"
+                        },
+                        {
+                          "id": "876b9ddd-01a7-4436-854d-183f4e9e88be",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/screenings/aml/:entity_type/:entity_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "screenings",
+                                "aml",
+                                ":entity_type",
+                                ":entity_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "entity_type"
+                                },
+                                {
+                                  "key": "entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:33:15.000Z",
+                          "updatedAt": "2026-07-28T01:33:15.000Z",
+                          "uid": "35240-876b9ddd-01a7-4436-854d-183f4e9e88be"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:33:15.000Z",
+                      "updatedAt": "2026-07-28T01:33:15.000Z",
+                      "uid": "35240-146b5161-2eea-441f-8bb2-45db104f9a0b"
+                    }
+                  ],
+                  "id": "b99d4445-1f03-4c34-aa68-044f12f0cb95",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-b99d4445-1f03-4c34-aa68-044f12f0cb95"
+                }
+              ],
+              "id": "d1a1168b-bb6a-4ec1-a667-50eebd5bc41e",
+              "createdAt": "2026-07-28T01:33:15.000Z",
+              "updatedAt": "2026-07-28T01:33:15.000Z",
+              "uid": "35240-d1a1168b-bb6a-4ec1-a667-50eebd5bc41e"
+            }
+          ],
+          "id": "8ba10782-0671-4016-bbd4-eb30ec7c98b1",
+          "createdAt": "2026-07-28T01:33:15.000Z",
+          "updatedAt": "2026-07-28T01:33:15.000Z",
+          "uid": "35240-8ba10782-0671-4016-bbd4-eb30ec7c98b1"
+        },
+        {
+          "name": "verification-method",
+          "item": [
+            {
+              "name": "Get verification method",
+              "id": "6924d573-a559-426d-bddf-3a661c3fd406",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/screenings/verification-method?country=<string>&document_type=government_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "screenings",
+                    "verification-method"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The document's issuing country code (ISO 3166-1 alpha-2)",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The document to be provided during KYC",
+                      "key": "document_type",
+                      "value": "government_id"
+                    }
+                  ]
+                },
+                "description": "Get verification method by provided country and document type\n **Token scopes**: `screenings:read`, `worker:read`"
+              },
+              "response": [
+                {
+                  "id": "e382a4ae-a1d9-4ca3-ab8a-4f5ff52c8ffc",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/screenings/verification-method?country=<string>&document_type=government_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "screenings",
+                        "verification-method"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The document's issuing country code (ISO 3166-1 alpha-2)",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The document to be provided during KYC",
+                          "key": "document_type",
+                          "value": "government_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"verification_method\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-e382a4ae-a1d9-4ca3-ab8a-4f5ff52c8ffc"
+                },
+                {
+                  "id": "798ce866-f8fa-4df4-bffe-ca646ae30cb0",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/screenings/verification-method?country=<string>&document_type=government_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "screenings",
+                        "verification-method"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The document's issuing country code (ISO 3166-1 alpha-2)",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The document to be provided during KYC",
+                          "key": "document_type",
+                          "value": "government_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-798ce866-f8fa-4df4-bffe-ca646ae30cb0"
+                },
+                {
+                  "id": "dd325399-9f73-4e23-99dc-51ac98181d3e",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/screenings/verification-method?country=<string>&document_type=government_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "screenings",
+                        "verification-method"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The document's issuing country code (ISO 3166-1 alpha-2)",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The document to be provided during KYC",
+                          "key": "document_type",
+                          "value": "government_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-dd325399-9f73-4e23-99dc-51ac98181d3e"
+                },
+                {
+                  "id": "239a983f-fed9-4ed5-bfe7-0b3c6508f19f",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/screenings/verification-method?country=<string>&document_type=government_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "screenings",
+                        "verification-method"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The document's issuing country code (ISO 3166-1 alpha-2)",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The document to be provided during KYC",
+                          "key": "document_type",
+                          "value": "government_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-239a983f-fed9-4ed5-bfe7-0b3c6508f19f"
+                },
+                {
+                  "id": "d056d437-11bd-43f1-bd91-60d4fe6e3318",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/screenings/verification-method?country=<string>&document_type=government_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "screenings",
+                        "verification-method"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The document's issuing country code (ISO 3166-1 alpha-2)",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The document to be provided during KYC",
+                          "key": "document_type",
+                          "value": "government_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-d056d437-11bd-43f1-bd91-60d4fe6e3318"
+                },
+                {
+                  "id": "1bf38b11-f90c-4571-bda2-9d4e1c45d0e6",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/screenings/verification-method?country=<string>&document_type=government_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "screenings",
+                        "verification-method"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The document's issuing country code (ISO 3166-1 alpha-2)",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The document to be provided during KYC",
+                          "key": "document_type",
+                          "value": "government_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-1bf38b11-f90c-4571-bda2-9d4e1c45d0e6"
+                }
+              ],
+              "createdAt": "2026-07-28T01:33:15.000Z",
+              "updatedAt": "2026-07-28T01:33:15.000Z",
+              "uid": "35240-6924d573-a559-426d-bddf-3a661c3fd406"
+            }
+          ],
+          "id": "6d71a737-2a2d-4676-83c5-26e2ab3573ba",
+          "createdAt": "2026-07-28T01:33:15.000Z",
+          "updatedAt": "2026-07-28T01:33:15.000Z",
+          "uid": "35240-6d71a737-2a2d-4676-83c5-26e2ab3573ba"
+        },
+        {
+          "name": "kyc",
+          "item": [
+            {
+              "name": "details",
+              "item": [
+                {
+                  "name": "Get worker's KYC details",
+                  "id": "10bbec1e-e9b8-4a2f-a2eb-dabdc7ab25b5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/screenings/kyc/details?worker_profile_id=<uuid>&contract_id=<string>&profile_id=<uuid>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "screenings",
+                        "kyc",
+                        "details"
+                      ],
+                      "query": [
+                        {
+                          "description": "Worker's HRIS profile public ID client requests to fetch KYC details for. This parameter is mutually exclusive with profile_id",
+                          "key": "worker_profile_id",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Worker's contract ID. This parameter is required in case there are multiple profiles associated to the target worker. For example, when worker used to work for the former company he had another profile ID. So we need contract ID to properly resolve profile's KYC details.  In case this parameter is not provided and multiple associated profiles are found, exception with 409 status code will be thrown",
+                          "key": "contract_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Worker's profile public ID client requests to fetch KYC details for, This parameter is mutually exclusive with worker_profile_id ",
+                          "key": "profile_id",
+                          "value": "<uuid>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint allows organizations managing workers on Deel to retrieve detailed KYC verification data using the worker\u2019s profile ID. It provides comprehensive information including verification status, document type, submission, approval, rejection, and expiry dates, supporting compliance monitoring and onboarding workflows\n **Token scopes**: `screenings:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "84a32051-b043-4c76-b59e-13ed759930a0",
+                      "name": "KYC details retrieved successfully",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/screenings/kyc/details?worker_profile_id=<uuid>&contract_id=<string>&profile_id=<uuid>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "screenings",
+                            "kyc",
+                            "details"
+                          ],
+                          "query": [
+                            {
+                              "description": "Worker's HRIS profile public ID client requests to fetch KYC details for. This parameter is mutually exclusive with profile_id",
+                              "key": "worker_profile_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Worker's contract ID. This parameter is required in case there are multiple profiles associated to the target worker. For example, when worker used to work for the former company he had another profile ID. So we need contract ID to properly resolve profile's KYC details.  In case this parameter is not provided and multiple associated profiles are found, exception with 409 status code will be thrown",
+                              "key": "contract_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Worker's profile public ID client requests to fetch KYC details for, This parameter is mutually exclusive with worker_profile_id ",
+                              "key": "profile_id",
+                              "value": "<uuid>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"created_at\": \"<string,null-date-time>\",\n    \"kyc_status\": \"APPROVED\",\n    \"updated_at\": \"<string,null-date-time>\",\n    \"approval_date\": \"<string,null-date-time>\",\n    \"rejection_date\": \"<string,null-date-time>\",\n    \"expiration_date\": \"<string,null-date-time>\",\n    \"submission_date\": \"<string,null-date-time>\",\n    \"identity_document_type\": \"OTHER\",\n    \"document_extracted_middle_name\": \"<string,null>\",\n    \"identity_document_name\": \"<string,null>\",\n    \"identity_document_number\": \"<string,null>\",\n    \"document_extracted_last_name\": \"<string,null>\",\n    \"document_extracted_first_name\": \"<string,null>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:33:15.000Z",
+                      "updatedAt": "2026-07-28T01:33:15.000Z",
+                      "uid": "35240-84a32051-b043-4c76-b59e-13ed759930a0"
+                    },
+                    {
+                      "id": "6e677967-1b4a-4deb-af41-94c13bc3b52a",
+                      "name": "Bad request - Invalid worker profile ID",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/screenings/kyc/details?worker_profile_id=<uuid>&contract_id=<string>&profile_id=<uuid>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "screenings",
+                            "kyc",
+                            "details"
+                          ],
+                          "query": [
+                            {
+                              "description": "Worker's HRIS profile public ID client requests to fetch KYC details for. This parameter is mutually exclusive with profile_id",
+                              "key": "worker_profile_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Worker's contract ID. This parameter is required in case there are multiple profiles associated to the target worker. For example, when worker used to work for the former company he had another profile ID. So we need contract ID to properly resolve profile's KYC details.  In case this parameter is not provided and multiple associated profiles are found, exception with 409 status code will be thrown",
+                              "key": "contract_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Worker's profile public ID client requests to fetch KYC details for, This parameter is mutually exclusive with worker_profile_id ",
+                              "key": "profile_id",
+                              "value": "<uuid>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:15.000Z",
+                      "updatedAt": "2026-07-28T01:33:15.000Z",
+                      "uid": "35240-6e677967-1b4a-4deb-af41-94c13bc3b52a"
+                    },
+                    {
+                      "id": "7dfa3e3a-06bc-4053-a8de-2bd0bf7d3064",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/screenings/kyc/details?worker_profile_id=<uuid>&contract_id=<string>&profile_id=<uuid>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "screenings",
+                            "kyc",
+                            "details"
+                          ],
+                          "query": [
+                            {
+                              "description": "Worker's HRIS profile public ID client requests to fetch KYC details for. This parameter is mutually exclusive with profile_id",
+                              "key": "worker_profile_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Worker's contract ID. This parameter is required in case there are multiple profiles associated to the target worker. For example, when worker used to work for the former company he had another profile ID. So we need contract ID to properly resolve profile's KYC details.  In case this parameter is not provided and multiple associated profiles are found, exception with 409 status code will be thrown",
+                              "key": "contract_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Worker's profile public ID client requests to fetch KYC details for, This parameter is mutually exclusive with worker_profile_id ",
+                              "key": "profile_id",
+                              "value": "<uuid>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:15.000Z",
+                      "updatedAt": "2026-07-28T01:33:15.000Z",
+                      "uid": "35240-7dfa3e3a-06bc-4053-a8de-2bd0bf7d3064"
+                    },
+                    {
+                      "id": "7fb42d96-4ac1-43bd-b85d-559163e36ad9",
+                      "name": "Forbidden - User not authorized to access this resource",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/screenings/kyc/details?worker_profile_id=<uuid>&contract_id=<string>&profile_id=<uuid>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "screenings",
+                            "kyc",
+                            "details"
+                          ],
+                          "query": [
+                            {
+                              "description": "Worker's HRIS profile public ID client requests to fetch KYC details for. This parameter is mutually exclusive with profile_id",
+                              "key": "worker_profile_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Worker's contract ID. This parameter is required in case there are multiple profiles associated to the target worker. For example, when worker used to work for the former company he had another profile ID. So we need contract ID to properly resolve profile's KYC details.  In case this parameter is not provided and multiple associated profiles are found, exception with 409 status code will be thrown",
+                              "key": "contract_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Worker's profile public ID client requests to fetch KYC details for, This parameter is mutually exclusive with worker_profile_id ",
+                              "key": "profile_id",
+                              "value": "<uuid>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:15.000Z",
+                      "updatedAt": "2026-07-28T01:33:15.000Z",
+                      "uid": "35240-7fb42d96-4ac1-43bd-b85d-559163e36ad9"
+                    },
+                    {
+                      "id": "a40b9425-c19a-4cb5-adc9-8f8e74e80847",
+                      "name": "Not Found - We could not extract any profile by the provided hris profile",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/screenings/kyc/details?worker_profile_id=<uuid>&contract_id=<string>&profile_id=<uuid>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "screenings",
+                            "kyc",
+                            "details"
+                          ],
+                          "query": [
+                            {
+                              "description": "Worker's HRIS profile public ID client requests to fetch KYC details for. This parameter is mutually exclusive with profile_id",
+                              "key": "worker_profile_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Worker's contract ID. This parameter is required in case there are multiple profiles associated to the target worker. For example, when worker used to work for the former company he had another profile ID. So we need contract ID to properly resolve profile's KYC details.  In case this parameter is not provided and multiple associated profiles are found, exception with 409 status code will be thrown",
+                              "key": "contract_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Worker's profile public ID client requests to fetch KYC details for, This parameter is mutually exclusive with worker_profile_id ",
+                              "key": "profile_id",
+                              "value": "<uuid>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:15.000Z",
+                      "updatedAt": "2026-07-28T01:33:15.000Z",
+                      "uid": "35240-a40b9425-c19a-4cb5-adc9-8f8e74e80847"
+                    },
+                    {
+                      "id": "c33fa690-499c-479d-8765-7f64dae92f6f",
+                      "name": "Conflict - We found multiple profiles for the provided worker ID. Please provide the contract id to resolve KYC details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/screenings/kyc/details?worker_profile_id=<uuid>&contract_id=<string>&profile_id=<uuid>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "screenings",
+                            "kyc",
+                            "details"
+                          ],
+                          "query": [
+                            {
+                              "description": "Worker's HRIS profile public ID client requests to fetch KYC details for. This parameter is mutually exclusive with profile_id",
+                              "key": "worker_profile_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Worker's contract ID. This parameter is required in case there are multiple profiles associated to the target worker. For example, when worker used to work for the former company he had another profile ID. So we need contract ID to properly resolve profile's KYC details.  In case this parameter is not provided and multiple associated profiles are found, exception with 409 status code will be thrown",
+                              "key": "contract_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Worker's profile public ID client requests to fetch KYC details for, This parameter is mutually exclusive with worker_profile_id ",
+                              "key": "profile_id",
+                              "value": "<uuid>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:15.000Z",
+                      "updatedAt": "2026-07-28T01:33:15.000Z",
+                      "uid": "35240-c33fa690-499c-479d-8765-7f64dae92f6f"
+                    },
+                    {
+                      "id": "16e2d0d5-1917-441a-9b87-b8de32b40a38",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/screenings/kyc/details?worker_profile_id=<uuid>&contract_id=<string>&profile_id=<uuid>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "screenings",
+                            "kyc",
+                            "details"
+                          ],
+                          "query": [
+                            {
+                              "description": "Worker's HRIS profile public ID client requests to fetch KYC details for. This parameter is mutually exclusive with profile_id",
+                              "key": "worker_profile_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Worker's contract ID. This parameter is required in case there are multiple profiles associated to the target worker. For example, when worker used to work for the former company he had another profile ID. So we need contract ID to properly resolve profile's KYC details.  In case this parameter is not provided and multiple associated profiles are found, exception with 409 status code will be thrown",
+                              "key": "contract_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Worker's profile public ID client requests to fetch KYC details for, This parameter is mutually exclusive with worker_profile_id ",
+                              "key": "profile_id",
+                              "value": "<uuid>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:15.000Z",
+                      "updatedAt": "2026-07-28T01:33:15.000Z",
+                      "uid": "35240-16e2d0d5-1917-441a-9b87-b8de32b40a38"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-10bbec1e-e9b8-4a2f-a2eb-dabdc7ab25b5"
+                }
+              ],
+              "id": "46baa8bc-09f8-43d9-b83e-f414d3441b65",
+              "createdAt": "2026-07-28T01:33:15.000Z",
+              "updatedAt": "2026-07-28T01:33:15.000Z",
+              "uid": "35240-46baa8bc-09f8-43d9-b83e-f414d3441b65"
+            },
+            {
+              "name": "external",
+              "item": [
+                {
+                  "name": "Submit external KYC",
+                  "id": "8bcb2f4f-f623-4df6-89d0-8a395ad2d925",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ",
+                          "key": "data",
+                          "value": "[object Object]",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/screenings/kyc/external",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "screenings",
+                        "kyc",
+                        "external"
+                      ]
+                    },
+                    "description": "The endpoint standardizes identity verification and compliance processes, combining automated Live ID verification (IDV) and manual review workflows\n **Token scopes**: `worker:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "2b76b85d-8b66-47cf-9300-3a29697ae9a4",
+                      "name": "KYC data successfully received",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "data",
+                              "value": "[object Object]",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/screenings/kyc/external",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "screenings",
+                            "kyc",
+                            "external"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"created_at\": \"<dateTime>\",\n    \"request_id\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:33:15.000Z",
+                      "updatedAt": "2026-07-28T01:33:15.000Z",
+                      "uid": "35240-2b76b85d-8b66-47cf-9300-3a29697ae9a4"
+                    },
+                    {
+                      "id": "895f24d5-4e56-431f-99ea-caee10170523",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "data",
+                              "value": "[object Object]",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/screenings/kyc/external",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "screenings",
+                            "kyc",
+                            "external"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"path\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"path\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ],\n  \"request\": {\n    \"url\": \"<string>\",\n    \"code\": \"<double>\",\n    \"docs\": \"<string>\",\n    \"method\": \"<string>\",\n    \"source\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:33:15.000Z",
+                      "updatedAt": "2026-07-28T01:33:15.000Z",
+                      "uid": "35240-895f24d5-4e56-431f-99ea-caee10170523"
+                    },
+                    {
+                      "id": "5210b5c7-ad02-464f-a315-8968e5b23b82",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "data",
+                              "value": "[object Object]",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/screenings/kyc/external",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "screenings",
+                            "kyc",
+                            "external"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:15.000Z",
+                      "updatedAt": "2026-07-28T01:33:15.000Z",
+                      "uid": "35240-5210b5c7-ad02-464f-a315-8968e5b23b82"
+                    },
+                    {
+                      "id": "f3c86c82-33dc-4cff-a23c-6ee543de363c",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "data",
+                              "value": "[object Object]",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/screenings/kyc/external",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "screenings",
+                            "kyc",
+                            "external"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:15.000Z",
+                      "updatedAt": "2026-07-28T01:33:15.000Z",
+                      "uid": "35240-f3c86c82-33dc-4cff-a23c-6ee543de363c"
+                    },
+                    {
+                      "id": "087f9098-2f78-4b55-bb6a-53f466075e97",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "data",
+                              "value": "[object Object]",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/screenings/kyc/external",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "screenings",
+                            "kyc",
+                            "external"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:15.000Z",
+                      "updatedAt": "2026-07-28T01:33:15.000Z",
+                      "uid": "35240-087f9098-2f78-4b55-bb6a-53f466075e97"
+                    },
+                    {
+                      "id": "f1814baf-485f-4231-b700-294a891f9c30",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) ",
+                              "key": "data",
+                              "value": "[object Object]",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/screenings/kyc/external",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "screenings",
+                            "kyc",
+                            "external"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:15.000Z",
+                      "updatedAt": "2026-07-28T01:33:15.000Z",
+                      "uid": "35240-f1814baf-485f-4231-b700-294a891f9c30"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-8bcb2f4f-f623-4df6-89d0-8a395ad2d925"
+                }
+              ],
+              "id": "27024c00-0c3f-4584-b3b2-20ab854559c7",
+              "createdAt": "2026-07-28T01:33:15.000Z",
+              "updatedAt": "2026-07-28T01:33:15.000Z",
+              "uid": "35240-27024c00-0c3f-4584-b3b2-20ab854559c7"
+            }
+          ],
+          "id": "e2e37732-ad6a-4968-b7a1-8faff2f9591d",
+          "createdAt": "2026-07-28T01:33:15.000Z",
+          "updatedAt": "2026-07-28T01:33:15.000Z",
+          "uid": "35240-e2e37732-ad6a-4968-b7a1-8faff2f9591d"
+        }
+      ],
+      "id": "e1466616-d096-48ca-b284-346a4d193028",
+      "createdAt": "2026-07-28T01:33:15.000Z",
+      "updatedAt": "2026-07-28T01:33:15.000Z",
+      "uid": "35240-e1466616-d096-48ca-b284-346a4d193028"
+    },
+    {
+      "name": "veriff",
+      "item": [
+        {
+          "name": "session",
+          "item": [
+            {
+              "name": "Create Veriff session",
+              "id": "68d2c68b-a2a6-4546-9cd7-c1c2abee5d85",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"operation_type\": \"NAME_CHANGE_KYC\",\n    \"user_input\": {\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string,null>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/veriff/session",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "veriff",
+                    "session"
+                  ]
+                },
+                "description": "Create Veriff session\n **Token scopes**: `screenings:write`, `worker:write`"
+              },
+              "response": [
+                {
+                  "id": "f96d2e9c-5879-4ad2-9421-57ecacc4f502",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"operation_type\": \"NAME_CHANGE_KYC\",\n    \"user_input\": {\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string,null>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/veriff/session",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "veriff",
+                        "session"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"url\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-f96d2e9c-5879-4ad2-9421-57ecacc4f502"
+                },
+                {
+                  "id": "fdb49a5b-f1d5-42b5-bd38-8da3ad68ff2d",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"operation_type\": \"NAME_CHANGE_KYC\",\n    \"user_input\": {\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string,null>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/veriff/session",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "veriff",
+                        "session"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-fdb49a5b-f1d5-42b5-bd38-8da3ad68ff2d"
+                },
+                {
+                  "id": "9a76cbe9-ba47-4dc4-8ab9-0903f3d82d55",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"operation_type\": \"NAME_CHANGE_KYC\",\n    \"user_input\": {\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string,null>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/veriff/session",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "veriff",
+                        "session"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-9a76cbe9-ba47-4dc4-8ab9-0903f3d82d55"
+                },
+                {
+                  "id": "84aa6d7c-668f-4d55-9f5f-d52e91491cf2",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"operation_type\": \"NAME_CHANGE_KYC\",\n    \"user_input\": {\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string,null>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/veriff/session",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "veriff",
+                        "session"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-84aa6d7c-668f-4d55-9f5f-d52e91491cf2"
+                },
+                {
+                  "id": "b14d8f3c-ad89-4b53-9bbf-6638db1dee0b",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"operation_type\": \"NAME_CHANGE_KYC\",\n    \"user_input\": {\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string,null>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/veriff/session",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "veriff",
+                        "session"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-b14d8f3c-ad89-4b53-9bbf-6638db1dee0b"
+                },
+                {
+                  "id": "e1516210-9723-48ae-a8a1-ffc477c7e8e3",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"operation_type\": \"NAME_CHANGE_KYC\",\n    \"user_input\": {\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"middle_name\": \"<string,null>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/veriff/session",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "veriff",
+                        "session"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:15.000Z",
+                  "updatedAt": "2026-07-28T01:33:15.000Z",
+                  "uid": "35240-e1516210-9723-48ae-a8a1-ffc477c7e8e3"
+                }
+              ],
+              "createdAt": "2026-07-28T01:33:15.000Z",
+              "updatedAt": "2026-07-28T01:33:15.000Z",
+              "uid": "35240-68d2c68b-a2a6-4546-9cd7-c1c2abee5d85"
+            }
+          ],
+          "id": "6f840487-05ed-4d7b-bfc0-7c063e64684f",
+          "createdAt": "2026-07-28T01:33:15.000Z",
+          "updatedAt": "2026-07-28T01:33:15.000Z",
+          "uid": "35240-6f840487-05ed-4d7b-bfc0-7c063e64684f"
+        }
+      ],
+      "id": "2f7784ef-99df-4112-9dee-c65b42a1f0d7",
+      "createdAt": "2026-07-28T01:33:15.000Z",
+      "updatedAt": "2026-07-28T01:33:15.000Z",
+      "uid": "35240-2f7784ef-99df-4112-9dee-c65b42a1f0d7"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

@@ -1,0 +1,1037 @@
+{
+  "info": {
+    "_postman_id": "f3589aa1-9d79-4c2a-a22a-61310fce3db9",
+    "name": "Endpoints subpackage_eorContract API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:41.000Z",
+    "updatedAt": "2026-07-28T01:30:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f3589aa1-9d79-4c2a-a22a-61310fce3db9"
+  },
+  "item": [
+    {
+      "name": "eor",
+      "item": [
+        {
+          "name": "contracts",
+          "item": [
+            {
+              "name": "{contract_id}",
+              "item": [
+                {
+                  "name": "details",
+                  "item": [
+                    {
+                      "name": "Retrieve EOR Contract Details",
+                      "id": "0e05a368-0fe8-4a7c-94d0-851030d1de05",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/contracts/:contract_id/details",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "contracts",
+                            ":contract_id",
+                            "details"
+                          ],
+                          "variable": [
+                            {
+                              "id": "2b6a830a-369b-4fc1-bc22-71c76aaf29c6",
+                              "key": "contract_id",
+                              "value": "<string>",
+                              "description": "(Required) The unique identifier for the Deel contract"
+                            }
+                          ]
+                        },
+                        "description": "Returns the basic information for an EOR contract, along with employment costs associated to it\n **Token scopes**: `contracts:read`"
+                      },
+                      "response": [
+                        {
+                          "id": "b8615111-1e1d-4925-b5ed-0fd608ed15e5",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/details",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "details"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"team\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"salary\": \"<string>\",\n  \"status\": \"in_progress\",\n  \"creator\": {\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"firstname\": \"<string>\"\n  },\n  \"currency\": \"<string>\",\n  \"employee\": {\n    \"email\": \"<string>\",\n    \"pic_url\": \"<string,null>\",\n    \"last_name\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"legal_name\": \"<string>\",\n    \"nationality\": \"<string>\"\n  },\n  \"end_date\": \"<string,null-date-time>\",\n  \"timezone\": \"<string>\",\n  \"seniority\": {\n    \"id\": \"<double>\",\n    \"name\": \"<string>\"\n  },\n  \"sick_days\": {\n    \"max\": \"<string,null>\",\n    \"min\": \"<string,null>\"\n  },\n  \"work_visa\": \"<boolean>\",\n  \"created_at\": \"<dateTime>\",\n  \"start_date\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"signed_date\": \"<string,null-date-time>\",\n  \"cancelled_at\": \"<string,null-date-time>\",\n  \"completed_at\": \"<string,null-date-time>\",\n  \"payroll_type\": \"MONTHLY\",\n  \"can_adjust_on\": {\n    \"end\": \"<string>\",\n    \"start\": \"<string>\"\n  },\n  \"contract_type\": \"eor\",\n  \"scope_of_work\": \"<string>\",\n  \"signing_bonus\": \"<string,null>\",\n  \"time_off_type\": \"PRORATED\",\n  \"deposit_months\": \"<string,null>\",\n  \"effective_date\": \"<dateTime>\",\n  \"job_title_name\": \"<string,null>\",\n  \"completion_date\": \"<string,null-date-time>\",\n  \"employment_type\": \"Full-time\",\n  \"client_signature\": \"<string,null>\",\n  \"client_signed_at\": \"<string,null-date-time>\",\n  \"employment_costs\": {\n    \"summary\": {\n      \"salary\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"exchange_rate\": \"<string>\",\n      \"totals_formatted\": [\n        {\n          \"title\": \"<string>\",\n          \"total\": \"<string>\",\n          \"frequency\": \"<string>\",\n          \"total_supporting\": \"<string>\"\n        },\n        {\n          \"title\": \"<string>\",\n          \"total\": \"<string>\",\n          \"frequency\": \"<string>\",\n          \"total_supporting\": \"<string>\"\n        }\n      ],\n      \"supporting_currency\": \"<string>\"\n    },\n    \"sections\": [\n      {\n        \"name\": \"<string>\",\n        \"label\": \"<string>\",\n        \"groups\": [\n          {\n            \"name\": \"<string>\",\n            \"costs\": [\n              {\n                \"label\": \"<string>\",\n                \"totals\": [\n                  {\n                    \"total\": \"<string>\",\n                    \"frequency\": \"<string>\",\n                    \"total_supporting\": \"<string>\"\n                  },\n                  {\n                    \"total\": \"<string>\",\n                    \"frequency\": \"<string>\",\n                    \"total_supporting\": \"<string>\"\n                  }\n                ]\n              },\n              {\n                \"label\": \"<string>\",\n                \"totals\": [\n                  {\n                    \"total\": \"<string>\",\n                    \"frequency\": \"<string>\",\n                    \"total_supporting\": \"<string>\"\n                  },\n                  {\n                    \"total\": \"<string>\",\n                    \"frequency\": \"<string>\",\n                    \"total_supporting\": \"<string>\"\n                  }\n                ]\n              }\n            ],\n            \"label\": \"<string>\",\n            \"totals\": [\n              {\n                \"total\": \"<string>\",\n                \"frequency\": \"<string>\",\n                \"total_supporting\": \"<string>\"\n              },\n              {\n                \"total\": \"<string>\",\n                \"frequency\": \"<string>\",\n                \"total_supporting\": \"<string>\"\n              }\n            ],\n            \"has_breakdown\": \"<boolean>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"costs\": [\n              {\n                \"label\": \"<string>\",\n                \"totals\": [\n                  {\n                    \"total\": \"<string>\",\n                    \"frequency\": \"<string>\",\n                    \"total_supporting\": \"<string>\"\n                  },\n                  {\n                    \"total\": \"<string>\",\n                    \"frequency\": \"<string>\",\n                    \"total_supporting\": \"<string>\"\n                  }\n                ]\n              },\n              {\n                \"label\": \"<string>\",\n                \"totals\": [\n                  {\n                    \"total\": \"<string>\",\n                    \"frequency\": \"<string>\",\n                    \"total_supporting\": \"<string>\"\n                  },\n                  {\n                    \"total\": \"<string>\",\n                    \"frequency\": \"<string>\",\n                    \"total_supporting\": \"<string>\"\n                  }\n                ]\n              }\n            ],\n            \"label\": \"<string>\",\n            \"totals\": [\n              {\n                \"total\": \"<string>\",\n                \"frequency\": \"<string>\",\n                \"total_supporting\": \"<string>\"\n              },\n              {\n                \"total\": \"<string>\",\n                \"frequency\": \"<string>\",\n                \"total_supporting\": \"<string>\"\n              }\n            ],\n            \"has_breakdown\": \"<boolean>\"\n          }\n        ],\n        \"totals\": [\n          {\n            \"total\": \"<string>\",\n            \"frequency\": \"<string>\",\n            \"total_supporting\": \"<string>\"\n          },\n          {\n            \"total\": \"<string>\",\n            \"frequency\": \"<string>\",\n            \"total_supporting\": \"<string>\"\n          }\n        ],\n        \"is_summarized\": \"<boolean>\",\n        \"standalone_items\": [\n          {\n            \"name\": \"<string>\",\n            \"label\": \"<string>\",\n            \"totals\": [\n              {\n                \"total\": \"<string>\",\n                \"frequency\": \"<string>\",\n                \"total_supporting\": \"<string>\"\n              },\n              {\n                \"total\": \"<string>\",\n                \"frequency\": \"<string>\",\n                \"total_supporting\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"label\": \"<string>\",\n            \"totals\": [\n              {\n                \"total\": \"<string>\",\n                \"frequency\": \"<string>\",\n                \"total_supporting\": \"<string>\"\n              },\n              {\n                \"total\": \"<string>\",\n                \"frequency\": \"<string>\",\n                \"total_supporting\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"label\": \"<string>\",\n        \"groups\": [\n          {\n            \"name\": \"<string>\",\n            \"costs\": [\n              {\n                \"label\": \"<string>\",\n                \"totals\": [\n                  {\n                    \"total\": \"<string>\",\n                    \"frequency\": \"<string>\",\n                    \"total_supporting\": \"<string>\"\n                  },\n                  {\n                    \"total\": \"<string>\",\n                    \"frequency\": \"<string>\",\n                    \"total_supporting\": \"<string>\"\n                  }\n                ]\n              },\n              {\n                \"label\": \"<string>\",\n                \"totals\": [\n                  {\n                    \"total\": \"<string>\",\n                    \"frequency\": \"<string>\",\n                    \"total_supporting\": \"<string>\"\n                  },\n                  {\n                    \"total\": \"<string>\",\n                    \"frequency\": \"<string>\",\n                    \"total_supporting\": \"<string>\"\n                  }\n                ]\n              }\n            ],\n            \"label\": \"<string>\",\n            \"totals\": [\n              {\n                \"total\": \"<string>\",\n                \"frequency\": \"<string>\",\n                \"total_supporting\": \"<string>\"\n              },\n              {\n                \"total\": \"<string>\",\n                \"frequency\": \"<string>\",\n                \"total_supporting\": \"<string>\"\n              }\n            ],\n            \"has_breakdown\": \"<boolean>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"costs\": [\n              {\n                \"label\": \"<string>\",\n                \"totals\": [\n                  {\n                    \"total\": \"<string>\",\n                    \"frequency\": \"<string>\",\n                    \"total_supporting\": \"<string>\"\n                  },\n                  {\n                    \"total\": \"<string>\",\n                    \"frequency\": \"<string>\",\n                    \"total_supporting\": \"<string>\"\n                  }\n                ]\n              },\n              {\n                \"label\": \"<string>\",\n                \"totals\": [\n                  {\n                    \"total\": \"<string>\",\n                    \"frequency\": \"<string>\",\n                    \"total_supporting\": \"<string>\"\n                  },\n                  {\n                    \"total\": \"<string>\",\n                    \"frequency\": \"<string>\",\n                    \"total_supporting\": \"<string>\"\n                  }\n                ]\n              }\n            ],\n            \"label\": \"<string>\",\n            \"totals\": [\n              {\n                \"total\": \"<string>\",\n                \"frequency\": \"<string>\",\n                \"total_supporting\": \"<string>\"\n              },\n              {\n                \"total\": \"<string>\",\n                \"frequency\": \"<string>\",\n                \"total_supporting\": \"<string>\"\n              }\n            ],\n            \"has_breakdown\": \"<boolean>\"\n          }\n        ],\n        \"totals\": [\n          {\n            \"total\": \"<string>\",\n            \"frequency\": \"<string>\",\n            \"total_supporting\": \"<string>\"\n          },\n          {\n            \"total\": \"<string>\",\n            \"frequency\": \"<string>\",\n            \"total_supporting\": \"<string>\"\n          }\n        ],\n        \"is_summarized\": \"<boolean>\",\n        \"standalone_items\": [\n          {\n            \"name\": \"<string>\",\n            \"label\": \"<string>\",\n            \"totals\": [\n              {\n                \"total\": \"<string>\",\n                \"frequency\": \"<string>\",\n                \"total_supporting\": \"<string>\"\n              },\n              {\n                \"total\": \"<string>\",\n                \"frequency\": \"<string>\",\n                \"total_supporting\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"label\": \"<string>\",\n            \"totals\": [\n              {\n                \"total\": \"<string>\",\n                \"frequency\": \"<string>\",\n                \"total_supporting\": \"<string>\"\n              },\n              {\n                \"total\": \"<string>\",\n                \"frequency\": \"<string>\",\n                \"total_supporting\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"additional_data\": {\n      \"annual_notes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"monthly_notes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"once_off_notes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"additional_notes\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"employment_state\": \"<string,null>\",\n  \"hiring_objective\": {\n    \"type\": \"CONVERTING_CONTRACTOR\",\n    \"extra_info\": \"<string,null>\"\n  },\n  \"probation_period\": \"<integer>\",\n  \"employee_signed_at\": \"<string,null-date-time>\",\n  \"employment_country\": \"<string>\",\n  \"notice_period_type\": \"STANDARD\",\n  \"original_start_date\": \"<dateTime>\",\n  \"work_hours_per_week\": \"<string>\",\n  \"contractor_signature\": \"<string,null>\",\n  \"contractor_signed_at\": \"<string,null-date-time>\",\n  \"effective_plain_date\": \"<date>\",\n  \"fixed_adjustment_ids\": null,\n  \"invited_client_email\": \"<string,null>\",\n  \"last_quote_rejection\": {\n    \"created_at\": \"<string>\",\n    \"rejected_by\": {\n      \"name\": \"<string>\",\n      \"profile_public_id\": \"<uuid>\"\n    },\n    \"rejection_type\": \"EOR_AGENT\",\n    \"rejection_reason\": \"DECIDED_AGAINST_EMPLOYING_EOR\",\n    \"rejection_message\": \"<string,null>\"\n  },\n  \"completion_plain_date\": \"<string,null-date>\",\n  \"is_onboarding_on_hold\": \"<boolean>\",\n  \"monthly_employer_cost\": \"<string>\",\n  \"employee_late_sign_start\": \"<string,null-date-time>\",\n  \"is_early_invoice_enabled\": \"<boolean>\",\n  \"onboarding_step_duration\": \"<integer,null>\",\n  \"variable_compensation_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"can_remind_employee_to_sign\": \"<boolean>\",\n  \"initial_effective_plain_date\": \"<date>\",\n  \"is_foreign_currency_contract\": \"<boolean>\",\n  \"is_employee_onboarding_delayed\": \"<boolean>\",\n  \"monthly_eor_management_fee_usd\": \"<string>\",\n  \"work_schedule_assignment_settings\": \"SPECIFIC_SCHEDULES\",\n  \"probation_period_type_for_definite\": \"STANDARD\"\n}",
+                          "createdAt": "2026-07-28T01:30:42.000Z",
+                          "updatedAt": "2026-07-28T01:30:42.000Z",
+                          "uid": "35240-b8615111-1e1d-4925-b5ed-0fd608ed15e5"
+                        },
+                        {
+                          "id": "1fdca6ad-fa4b-4df5-8a7f-42ee8d6e8a31",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/details",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "details"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:30:42.000Z",
+                          "updatedAt": "2026-07-28T01:30:42.000Z",
+                          "uid": "35240-1fdca6ad-fa4b-4df5-8a7f-42ee8d6e8a31"
+                        },
+                        {
+                          "id": "aa350d81-1748-41e7-8e68-5d81b1d2ed52",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/details",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "details"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:30:42.000Z",
+                          "updatedAt": "2026-07-28T01:30:42.000Z",
+                          "uid": "35240-aa350d81-1748-41e7-8e68-5d81b1d2ed52"
+                        },
+                        {
+                          "id": "ca2f539f-b478-48b9-a992-84a61cea917c",
+                          "name": "Access denied",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/details",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "details"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:30:42.000Z",
+                          "updatedAt": "2026-07-28T01:30:42.000Z",
+                          "uid": "35240-ca2f539f-b478-48b9-a992-84a61cea917c"
+                        },
+                        {
+                          "id": "a782d9fc-8220-4b67-9bff-213b5517d5ef",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/details",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "details"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:30:42.000Z",
+                          "updatedAt": "2026-07-28T01:30:42.000Z",
+                          "uid": "35240-a782d9fc-8220-4b67-9bff-213b5517d5ef"
+                        },
+                        {
+                          "id": "dce2322f-9cc9-441a-b259-f29e67ae4ae0",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/details",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "details"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:30:42.000Z",
+                          "updatedAt": "2026-07-28T01:30:42.000Z",
+                          "uid": "35240-dce2322f-9cc9-441a-b259-f29e67ae4ae0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-0e05a368-0fe8-4a7c-94d0-851030d1de05"
+                    }
+                  ],
+                  "id": "1472420d-353a-4974-8675-e330f16fd7d4",
+                  "createdAt": "2026-07-28T01:30:42.000Z",
+                  "updatedAt": "2026-07-28T01:30:42.000Z",
+                  "uid": "35240-1472420d-353a-4974-8675-e330f16fd7d4"
+                }
+              ],
+              "id": "f9a2fb23-a536-449b-a501-aae884af869f",
+              "createdAt": "2026-07-28T01:30:42.000Z",
+              "updatedAt": "2026-07-28T01:30:42.000Z",
+              "uid": "35240-f9a2fb23-a536-449b-a501-aae884af869f"
+            }
+          ],
+          "id": "b073fe9d-a98a-46c1-a710-6392e4637f28",
+          "createdAt": "2026-07-28T01:30:42.000Z",
+          "updatedAt": "2026-07-28T01:30:42.000Z",
+          "uid": "35240-b073fe9d-a98a-46c1-a710-6392e4637f28"
+        },
+        {
+          "name": "contract",
+          "item": [
+            {
+              "name": "{contract_id}",
+              "item": [
+                {
+                  "name": "Update EOR Contract",
+                  "id": "4b8021d2-7003-41fa-8ee2-161c125727a5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"salary\": \"<double>\",\n    \"job_title\": \"<string>\",\n    \"start_date\": \"<date>\",\n    \"employee_email\": \"<email>\",\n    \"employment_type\": \"Full-time\",\n    \"employee_last_name\": \"<string>\",\n    \"employment_country\": \"<string>\",\n    \"employee_first_name\": \"<string>\",\n    \"scope\": \"<string>\",\n    \"benefits\": null,\n    \"currency\": \"<string>\",\n    \"end_date\": \"<string,null-date>\",\n    \"holidays\": \"<number,null-double>\",\n    \"is_hourly\": \"<boolean,null>\",\n    \"work_visa\": \"<boolean,null>\",\n    \"employee_id\": \"<string>\",\n    \"hourly_rate\": \"<number,null-double>\",\n    \"is_resubmit\": \"<boolean,null>\",\n    \"schedule_id\": \"<string,null>\",\n    \"seniority_id\": \"<double>\",\n    \"work_pension\": \"<boolean,null>\",\n    \"signing_bonus\": \"<number,null-double>\",\n    \"time_off_type\": \"SPECIFIC\",\n    \"seniority_date\": \"<date>\",\n    \"sick_leave_days\": \"<number,null-double>\",\n    \"employee_address\": {\n      \"city\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"state\": \"<string>\",\n      \"province\": \"<string>\",\n      \"calling_code\": \"<string>\"\n    },\n    \"employment_state\": \"<string,null>\",\n    \"hiring_objective\": \"EXPANDING_TO_NEW_COUNTRY\",\n    \"probation_period\": \"<number,null-double>\",\n    \"work_arrangement\": \"REMOTE\",\n    \"work_eligibility\": {\n      \"key\": \"<string>\",\n      \"file_name\": \"<string>\"\n    },\n    \"medical_insurance\": \"<boolean>\",\n    \"contract_term_type\": \"DEFINITE\",\n    \"notice_period_type\": \"STANDARD\",\n    \"work_hours_per_week\": \"<double>\",\n    \"employee_nationality\": \"<string>\",\n    \"reason_for_fixed_term\": \"TRIAL_PERIODS_FOR_NEW_ROLES_OR_BUSINESSES\",\n    \"quote_additional_fields\": {\n      \"employee_type\": \"Manager\",\n      \"qualifications\": \"<string>\",\n      \"scope_german_translation\": \"<string>\",\n      \"qualifications_german_translation\": \"<string>\"\n    },\n    \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n    \"hiring_objective_extra_info\": \"<string,null>\",\n    \"notice_period_after_probation\": \"<double>\",\n    \"notice_period_during_probation\": \"<double>\",\n    \"is_auto_quote_validation_passed\": \"<boolean,null>\",\n    \"probation_period_type_for_definite\": \"CUSTOM\",\n    \"allow_consultant_equipment_reimbursement\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/eor/contract/:contract_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eor",
+                        "contract",
+                        ":contract_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d6b6aaab-4e6f-47ee-b7f7-8e5a1fdbd5a5",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) The unique identifier of the employee contract."
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to modify mutable fields of an EOR contract, such as salary, job title, or benefits. It supports partial updates\u2014only include fields that should be updated. Required fields must still be present for validation.\n **Token scopes**: `contracts:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "676c95dc-b3f8-4a06-82b9-ca3b894a8aca",
+                      "name": "Contract updated successfully",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"salary\": \"<double>\",\n    \"job_title\": \"<string>\",\n    \"start_date\": \"<date>\",\n    \"employee_email\": \"<email>\",\n    \"employment_type\": \"Full-time\",\n    \"employee_last_name\": \"<string>\",\n    \"employment_country\": \"<string>\",\n    \"employee_first_name\": \"<string>\",\n    \"scope\": \"<string>\",\n    \"benefits\": null,\n    \"currency\": \"<string>\",\n    \"end_date\": \"<string,null-date>\",\n    \"holidays\": \"<number,null-double>\",\n    \"is_hourly\": \"<boolean,null>\",\n    \"work_visa\": \"<boolean,null>\",\n    \"employee_id\": \"<string>\",\n    \"hourly_rate\": \"<number,null-double>\",\n    \"is_resubmit\": \"<boolean,null>\",\n    \"schedule_id\": \"<string,null>\",\n    \"seniority_id\": \"<double>\",\n    \"work_pension\": \"<boolean,null>\",\n    \"signing_bonus\": \"<number,null-double>\",\n    \"time_off_type\": \"SPECIFIC\",\n    \"seniority_date\": \"<date>\",\n    \"sick_leave_days\": \"<number,null-double>\",\n    \"employee_address\": {\n      \"city\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"state\": \"<string>\",\n      \"province\": \"<string>\",\n      \"calling_code\": \"<string>\"\n    },\n    \"employment_state\": \"<string,null>\",\n    \"hiring_objective\": \"EXPANDING_TO_NEW_COUNTRY\",\n    \"probation_period\": \"<number,null-double>\",\n    \"work_arrangement\": \"REMOTE\",\n    \"work_eligibility\": {\n      \"key\": \"<string>\",\n      \"file_name\": \"<string>\"\n    },\n    \"medical_insurance\": \"<boolean>\",\n    \"contract_term_type\": \"DEFINITE\",\n    \"notice_period_type\": \"STANDARD\",\n    \"work_hours_per_week\": \"<double>\",\n    \"employee_nationality\": \"<string>\",\n    \"reason_for_fixed_term\": \"TRIAL_PERIODS_FOR_NEW_ROLES_OR_BUSINESSES\",\n    \"quote_additional_fields\": {\n      \"employee_type\": \"Manager\",\n      \"qualifications\": \"<string>\",\n      \"scope_german_translation\": \"<string>\",\n      \"qualifications_german_translation\": \"<string>\"\n    },\n    \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n    \"hiring_objective_extra_info\": \"<string,null>\",\n    \"notice_period_after_probation\": \"<double>\",\n    \"notice_period_during_probation\": \"<double>\",\n    \"is_auto_quote_validation_passed\": \"<boolean,null>\",\n    \"probation_period_type_for_definite\": \"CUSTOM\",\n    \"allow_consultant_equipment_reimbursement\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/contract/:contract_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "contract",
+                            ":contract_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"oid\": \"<string>\",\n  \"status\": \"waiting_for_employee_sign\",\n  \"scope_of_work\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-676c95dc-b3f8-4a06-82b9-ca3b894a8aca"
+                    },
+                    {
+                      "id": "e2dac814-7d46-4f5a-bff0-ef220a286d98",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"salary\": \"<double>\",\n    \"job_title\": \"<string>\",\n    \"start_date\": \"<date>\",\n    \"employee_email\": \"<email>\",\n    \"employment_type\": \"Full-time\",\n    \"employee_last_name\": \"<string>\",\n    \"employment_country\": \"<string>\",\n    \"employee_first_name\": \"<string>\",\n    \"scope\": \"<string>\",\n    \"benefits\": null,\n    \"currency\": \"<string>\",\n    \"end_date\": \"<string,null-date>\",\n    \"holidays\": \"<number,null-double>\",\n    \"is_hourly\": \"<boolean,null>\",\n    \"work_visa\": \"<boolean,null>\",\n    \"employee_id\": \"<string>\",\n    \"hourly_rate\": \"<number,null-double>\",\n    \"is_resubmit\": \"<boolean,null>\",\n    \"schedule_id\": \"<string,null>\",\n    \"seniority_id\": \"<double>\",\n    \"work_pension\": \"<boolean,null>\",\n    \"signing_bonus\": \"<number,null-double>\",\n    \"time_off_type\": \"SPECIFIC\",\n    \"seniority_date\": \"<date>\",\n    \"sick_leave_days\": \"<number,null-double>\",\n    \"employee_address\": {\n      \"city\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"state\": \"<string>\",\n      \"province\": \"<string>\",\n      \"calling_code\": \"<string>\"\n    },\n    \"employment_state\": \"<string,null>\",\n    \"hiring_objective\": \"EXPANDING_TO_NEW_COUNTRY\",\n    \"probation_period\": \"<number,null-double>\",\n    \"work_arrangement\": \"REMOTE\",\n    \"work_eligibility\": {\n      \"key\": \"<string>\",\n      \"file_name\": \"<string>\"\n    },\n    \"medical_insurance\": \"<boolean>\",\n    \"contract_term_type\": \"DEFINITE\",\n    \"notice_period_type\": \"STANDARD\",\n    \"work_hours_per_week\": \"<double>\",\n    \"employee_nationality\": \"<string>\",\n    \"reason_for_fixed_term\": \"TRIAL_PERIODS_FOR_NEW_ROLES_OR_BUSINESSES\",\n    \"quote_additional_fields\": {\n      \"employee_type\": \"Manager\",\n      \"qualifications\": \"<string>\",\n      \"scope_german_translation\": \"<string>\",\n      \"qualifications_german_translation\": \"<string>\"\n    },\n    \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n    \"hiring_objective_extra_info\": \"<string,null>\",\n    \"notice_period_after_probation\": \"<double>\",\n    \"notice_period_during_probation\": \"<double>\",\n    \"is_auto_quote_validation_passed\": \"<boolean,null>\",\n    \"probation_period_type_for_definite\": \"CUSTOM\",\n    \"allow_consultant_equipment_reimbursement\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/contract/:contract_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "contract",
+                            ":contract_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"status\": \"<integer>\",\n    \"message\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-e2dac814-7d46-4f5a-bff0-ef220a286d98"
+                    },
+                    {
+                      "id": "276cd648-a450-4fae-a4f1-868c53cca508",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"salary\": \"<double>\",\n    \"job_title\": \"<string>\",\n    \"start_date\": \"<date>\",\n    \"employee_email\": \"<email>\",\n    \"employment_type\": \"Full-time\",\n    \"employee_last_name\": \"<string>\",\n    \"employment_country\": \"<string>\",\n    \"employee_first_name\": \"<string>\",\n    \"scope\": \"<string>\",\n    \"benefits\": null,\n    \"currency\": \"<string>\",\n    \"end_date\": \"<string,null-date>\",\n    \"holidays\": \"<number,null-double>\",\n    \"is_hourly\": \"<boolean,null>\",\n    \"work_visa\": \"<boolean,null>\",\n    \"employee_id\": \"<string>\",\n    \"hourly_rate\": \"<number,null-double>\",\n    \"is_resubmit\": \"<boolean,null>\",\n    \"schedule_id\": \"<string,null>\",\n    \"seniority_id\": \"<double>\",\n    \"work_pension\": \"<boolean,null>\",\n    \"signing_bonus\": \"<number,null-double>\",\n    \"time_off_type\": \"SPECIFIC\",\n    \"seniority_date\": \"<date>\",\n    \"sick_leave_days\": \"<number,null-double>\",\n    \"employee_address\": {\n      \"city\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"state\": \"<string>\",\n      \"province\": \"<string>\",\n      \"calling_code\": \"<string>\"\n    },\n    \"employment_state\": \"<string,null>\",\n    \"hiring_objective\": \"EXPANDING_TO_NEW_COUNTRY\",\n    \"probation_period\": \"<number,null-double>\",\n    \"work_arrangement\": \"REMOTE\",\n    \"work_eligibility\": {\n      \"key\": \"<string>\",\n      \"file_name\": \"<string>\"\n    },\n    \"medical_insurance\": \"<boolean>\",\n    \"contract_term_type\": \"DEFINITE\",\n    \"notice_period_type\": \"STANDARD\",\n    \"work_hours_per_week\": \"<double>\",\n    \"employee_nationality\": \"<string>\",\n    \"reason_for_fixed_term\": \"TRIAL_PERIODS_FOR_NEW_ROLES_OR_BUSINESSES\",\n    \"quote_additional_fields\": {\n      \"employee_type\": \"Manager\",\n      \"qualifications\": \"<string>\",\n      \"scope_german_translation\": \"<string>\",\n      \"qualifications_german_translation\": \"<string>\"\n    },\n    \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n    \"hiring_objective_extra_info\": \"<string,null>\",\n    \"notice_period_after_probation\": \"<double>\",\n    \"notice_period_during_probation\": \"<double>\",\n    \"is_auto_quote_validation_passed\": \"<boolean,null>\",\n    \"probation_period_type_for_definite\": \"CUSTOM\",\n    \"allow_consultant_equipment_reimbursement\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/contract/:contract_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "contract",
+                            ":contract_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-276cd648-a450-4fae-a4f1-868c53cca508"
+                    },
+                    {
+                      "id": "894a67cc-952d-4635-b547-75547d9b7e17",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"salary\": \"<double>\",\n    \"job_title\": \"<string>\",\n    \"start_date\": \"<date>\",\n    \"employee_email\": \"<email>\",\n    \"employment_type\": \"Full-time\",\n    \"employee_last_name\": \"<string>\",\n    \"employment_country\": \"<string>\",\n    \"employee_first_name\": \"<string>\",\n    \"scope\": \"<string>\",\n    \"benefits\": null,\n    \"currency\": \"<string>\",\n    \"end_date\": \"<string,null-date>\",\n    \"holidays\": \"<number,null-double>\",\n    \"is_hourly\": \"<boolean,null>\",\n    \"work_visa\": \"<boolean,null>\",\n    \"employee_id\": \"<string>\",\n    \"hourly_rate\": \"<number,null-double>\",\n    \"is_resubmit\": \"<boolean,null>\",\n    \"schedule_id\": \"<string,null>\",\n    \"seniority_id\": \"<double>\",\n    \"work_pension\": \"<boolean,null>\",\n    \"signing_bonus\": \"<number,null-double>\",\n    \"time_off_type\": \"SPECIFIC\",\n    \"seniority_date\": \"<date>\",\n    \"sick_leave_days\": \"<number,null-double>\",\n    \"employee_address\": {\n      \"city\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"state\": \"<string>\",\n      \"province\": \"<string>\",\n      \"calling_code\": \"<string>\"\n    },\n    \"employment_state\": \"<string,null>\",\n    \"hiring_objective\": \"EXPANDING_TO_NEW_COUNTRY\",\n    \"probation_period\": \"<number,null-double>\",\n    \"work_arrangement\": \"REMOTE\",\n    \"work_eligibility\": {\n      \"key\": \"<string>\",\n      \"file_name\": \"<string>\"\n    },\n    \"medical_insurance\": \"<boolean>\",\n    \"contract_term_type\": \"DEFINITE\",\n    \"notice_period_type\": \"STANDARD\",\n    \"work_hours_per_week\": \"<double>\",\n    \"employee_nationality\": \"<string>\",\n    \"reason_for_fixed_term\": \"TRIAL_PERIODS_FOR_NEW_ROLES_OR_BUSINESSES\",\n    \"quote_additional_fields\": {\n      \"employee_type\": \"Manager\",\n      \"qualifications\": \"<string>\",\n      \"scope_german_translation\": \"<string>\",\n      \"qualifications_german_translation\": \"<string>\"\n    },\n    \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n    \"hiring_objective_extra_info\": \"<string,null>\",\n    \"notice_period_after_probation\": \"<double>\",\n    \"notice_period_during_probation\": \"<double>\",\n    \"is_auto_quote_validation_passed\": \"<boolean,null>\",\n    \"probation_period_type_for_definite\": \"CUSTOM\",\n    \"allow_consultant_equipment_reimbursement\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/contract/:contract_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "contract",
+                            ":contract_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"status\": \"<integer>\",\n    \"message\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-894a67cc-952d-4635-b547-75547d9b7e17"
+                    },
+                    {
+                      "id": "449c4947-cc30-4307-bab4-5d49f4ec2254",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"salary\": \"<double>\",\n    \"job_title\": \"<string>\",\n    \"start_date\": \"<date>\",\n    \"employee_email\": \"<email>\",\n    \"employment_type\": \"Full-time\",\n    \"employee_last_name\": \"<string>\",\n    \"employment_country\": \"<string>\",\n    \"employee_first_name\": \"<string>\",\n    \"scope\": \"<string>\",\n    \"benefits\": null,\n    \"currency\": \"<string>\",\n    \"end_date\": \"<string,null-date>\",\n    \"holidays\": \"<number,null-double>\",\n    \"is_hourly\": \"<boolean,null>\",\n    \"work_visa\": \"<boolean,null>\",\n    \"employee_id\": \"<string>\",\n    \"hourly_rate\": \"<number,null-double>\",\n    \"is_resubmit\": \"<boolean,null>\",\n    \"schedule_id\": \"<string,null>\",\n    \"seniority_id\": \"<double>\",\n    \"work_pension\": \"<boolean,null>\",\n    \"signing_bonus\": \"<number,null-double>\",\n    \"time_off_type\": \"SPECIFIC\",\n    \"seniority_date\": \"<date>\",\n    \"sick_leave_days\": \"<number,null-double>\",\n    \"employee_address\": {\n      \"city\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"state\": \"<string>\",\n      \"province\": \"<string>\",\n      \"calling_code\": \"<string>\"\n    },\n    \"employment_state\": \"<string,null>\",\n    \"hiring_objective\": \"EXPANDING_TO_NEW_COUNTRY\",\n    \"probation_period\": \"<number,null-double>\",\n    \"work_arrangement\": \"REMOTE\",\n    \"work_eligibility\": {\n      \"key\": \"<string>\",\n      \"file_name\": \"<string>\"\n    },\n    \"medical_insurance\": \"<boolean>\",\n    \"contract_term_type\": \"DEFINITE\",\n    \"notice_period_type\": \"STANDARD\",\n    \"work_hours_per_week\": \"<double>\",\n    \"employee_nationality\": \"<string>\",\n    \"reason_for_fixed_term\": \"TRIAL_PERIODS_FOR_NEW_ROLES_OR_BUSINESSES\",\n    \"quote_additional_fields\": {\n      \"employee_type\": \"Manager\",\n      \"qualifications\": \"<string>\",\n      \"scope_german_translation\": \"<string>\",\n      \"qualifications_german_translation\": \"<string>\"\n    },\n    \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n    \"hiring_objective_extra_info\": \"<string,null>\",\n    \"notice_period_after_probation\": \"<double>\",\n    \"notice_period_during_probation\": \"<double>\",\n    \"is_auto_quote_validation_passed\": \"<boolean,null>\",\n    \"probation_period_type_for_definite\": \"CUSTOM\",\n    \"allow_consultant_equipment_reimbursement\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/contract/:contract_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "contract",
+                            ":contract_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"status\": \"<integer>\",\n    \"message\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-449c4947-cc30-4307-bab4-5d49f4ec2254"
+                    },
+                    {
+                      "id": "8a463b33-c76f-42ab-a7cf-2ebefd038572",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"salary\": \"<double>\",\n    \"job_title\": \"<string>\",\n    \"start_date\": \"<date>\",\n    \"employee_email\": \"<email>\",\n    \"employment_type\": \"Full-time\",\n    \"employee_last_name\": \"<string>\",\n    \"employment_country\": \"<string>\",\n    \"employee_first_name\": \"<string>\",\n    \"scope\": \"<string>\",\n    \"benefits\": null,\n    \"currency\": \"<string>\",\n    \"end_date\": \"<string,null-date>\",\n    \"holidays\": \"<number,null-double>\",\n    \"is_hourly\": \"<boolean,null>\",\n    \"work_visa\": \"<boolean,null>\",\n    \"employee_id\": \"<string>\",\n    \"hourly_rate\": \"<number,null-double>\",\n    \"is_resubmit\": \"<boolean,null>\",\n    \"schedule_id\": \"<string,null>\",\n    \"seniority_id\": \"<double>\",\n    \"work_pension\": \"<boolean,null>\",\n    \"signing_bonus\": \"<number,null-double>\",\n    \"time_off_type\": \"SPECIFIC\",\n    \"seniority_date\": \"<date>\",\n    \"sick_leave_days\": \"<number,null-double>\",\n    \"employee_address\": {\n      \"city\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"state\": \"<string>\",\n      \"province\": \"<string>\",\n      \"calling_code\": \"<string>\"\n    },\n    \"employment_state\": \"<string,null>\",\n    \"hiring_objective\": \"EXPANDING_TO_NEW_COUNTRY\",\n    \"probation_period\": \"<number,null-double>\",\n    \"work_arrangement\": \"REMOTE\",\n    \"work_eligibility\": {\n      \"key\": \"<string>\",\n      \"file_name\": \"<string>\"\n    },\n    \"medical_insurance\": \"<boolean>\",\n    \"contract_term_type\": \"DEFINITE\",\n    \"notice_period_type\": \"STANDARD\",\n    \"work_hours_per_week\": \"<double>\",\n    \"employee_nationality\": \"<string>\",\n    \"reason_for_fixed_term\": \"TRIAL_PERIODS_FOR_NEW_ROLES_OR_BUSINESSES\",\n    \"quote_additional_fields\": {\n      \"employee_type\": \"Manager\",\n      \"qualifications\": \"<string>\",\n      \"scope_german_translation\": \"<string>\",\n      \"qualifications_german_translation\": \"<string>\"\n    },\n    \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n    \"hiring_objective_extra_info\": \"<string,null>\",\n    \"notice_period_after_probation\": \"<double>\",\n    \"notice_period_during_probation\": \"<double>\",\n    \"is_auto_quote_validation_passed\": \"<boolean,null>\",\n    \"probation_period_type_for_definite\": \"CUSTOM\",\n    \"allow_consultant_equipment_reimbursement\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/contract/:contract_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "contract",
+                            ":contract_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"status\": \"<integer>\",\n    \"message\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-8a463b33-c76f-42ab-a7cf-2ebefd038572"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:42.000Z",
+                  "updatedAt": "2026-07-28T01:30:42.000Z",
+                  "uid": "35240-4b8021d2-7003-41fa-8ee2-161c125727a5"
+                }
+              ],
+              "id": "da5ed71e-81e9-4da4-9698-0a9a3a22ff60",
+              "createdAt": "2026-07-28T01:30:42.000Z",
+              "updatedAt": "2026-07-28T01:30:42.000Z",
+              "uid": "35240-da5ed71e-81e9-4da4-9698-0a9a3a22ff60"
+            }
+          ],
+          "id": "38c4b51f-2e76-4d49-97df-299a0da682f4",
+          "createdAt": "2026-07-28T01:30:42.000Z",
+          "updatedAt": "2026-07-28T01:30:42.000Z",
+          "uid": "35240-38c4b51f-2e76-4d49-97df-299a0da682f4"
+        },
+        {
+          "name": "Create an EOR contract",
+          "id": "259accb6-1945-4803-b9c9-4b75824296a5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"client\": {\n      \"team\": {\n        \"id\": \"<string>\"\n      },\n      \"legal_entity\": {\n        \"id\": \"<string>\"\n      }\n    },\n    \"employee\": {\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"nationality\": \"<string>\",\n      \"email\": \"<string>\",\n      \"address\": {\n        \"zip\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string,null>\",\n        \"street\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"external_id\": \"<string>\",\n      \"pf_deductions\": \"12% of Rs 15,000 (Rs 1,800)\"\n    },\n    \"job_title\": \"<string>\",\n    \"seniority\": {\n      \"id\": \"<string>\"\n    },\n    \"employment\": {\n      \"country\": \"<string>\",\n      \"start_date\": \"<date>\",\n      \"scope_of_work\": \"<string>\",\n      \"work_visa_required\": false,\n      \"type\": \"Part-time\",\n      \"state\": \"<string,null>\",\n      \"end_date\": \"<string,null-date>\",\n      \"holidays\": \"<number,null-double>\",\n      \"is_hourly\": \"<boolean>\",\n      \"time_off_type\": \"STANDARD\",\n      \"seniority_date\": \"<date>\",\n      \"sick_leave_days\": \"<integer>\",\n      \"probation_period\": \"<number,null-double>\",\n      \"notice_period_type\": \"CUSTOM\",\n      \"work_hours_per_week\": \"<double>\",\n      \"probation_period_time_unit\": \"MONTH\",\n      \"notice_period_after_probation\": \"<number,null-double>\",\n      \"notice_period_during_probation\": \"<number,null-double>\",\n      \"employee_completed_past_probation\": false,\n      \"probation_period_type_for_definite\": \"CUSTOM\",\n      \"notice_period_after_probation_time_unit\": \"DAY\",\n      \"notice_period_during_probation_time_unit\": \"MONTH\"\n    },\n    \"compensation_details\": {\n      \"currency\": \"<string>\",\n      \"salary\": \"<double>\",\n      \"hourly_rate\": \"<double>\",\n      \"signing_bonus\": \"<number,null-double>\",\n      \"fixed_adjustments\": [\n        {\n          \"name\": \"<string>\",\n          \"value\": \"<double>\",\n          \"opt_out\": \"<boolean>\",\n          \"optional\": \"<boolean>\",\n          \"description\": \"<string>\",\n          \"is_recurring\": \"<boolean>\",\n          \"rule_cost_id\": \"<string>\",\n          \"is_country_specific\": \"<boolean>\",\n          \"skipping_confirmation_text\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"value\": \"<double>\",\n          \"opt_out\": \"<boolean>\",\n          \"optional\": \"<boolean>\",\n          \"description\": \"<string>\",\n          \"is_recurring\": \"<boolean>\",\n          \"rule_cost_id\": \"<string>\",\n          \"is_country_specific\": \"<boolean>\",\n          \"skipping_confirmation_text\": \"<string>\"\n        }\n      ],\n      \"variable_compensation\": \"<number,null-double>\",\n      \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n      \"variable_compensation_type\": \"PERCENTAGE\",\n      \"variable_compensation_title\": \"<string>\",\n      \"variable_compensation_timeline\": \"QUARTERLY\",\n      \"variable_compensation_effective_date\": \"<date>\"\n    },\n    \"pension\": {\n      \"id\": \"<string>\",\n      \"contribution\": \"<string>\"\n    },\n    \"benefits\": [\n      {\n        \"plan_id\": \"<string>\",\n        \"cover_all\": \"<boolean>\",\n        \"provider_id\": \"<string>\",\n        \"contribution\": \"<double>\",\n        \"cover_dependents\": \"<boolean>\"\n      },\n      {\n        \"plan_id\": \"<string>\",\n        \"cover_all\": \"<boolean>\",\n        \"provider_id\": \"<string>\",\n        \"contribution\": \"<double>\",\n        \"cover_dependents\": \"<boolean>\"\n      }\n    ],\n    \"health_plan_id\": \"<string>\",\n    \"quote_additional_fields\": {\n      \"dob\": \"<string>\",\n      \"gender\": \"<string>\",\n      \"worker_type\": \"Skilled\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/eor",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "eor"
+              ]
+            },
+            "description": "Creates an Employee of Record (EOR) contract quote. This endpoint allows to submit details for an EOR contract. Deel will process the information and return a quote for the requested contract.\n **Token scopes**: `contracts:write`"
+          },
+          "response": [
+            {
+              "id": "445c915c-cec7-423a-b407-9ad9f51ff317",
+              "name": "Successfully created the EOR contract quote.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"client\": {\n      \"team\": {\n        \"id\": \"<string>\"\n      },\n      \"legal_entity\": {\n        \"id\": \"<string>\"\n      }\n    },\n    \"employee\": {\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"nationality\": \"<string>\",\n      \"email\": \"<string>\",\n      \"address\": {\n        \"zip\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string,null>\",\n        \"street\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"external_id\": \"<string>\",\n      \"pf_deductions\": \"12% of Rs 15,000 (Rs 1,800)\"\n    },\n    \"job_title\": \"<string>\",\n    \"seniority\": {\n      \"id\": \"<string>\"\n    },\n    \"employment\": {\n      \"country\": \"<string>\",\n      \"start_date\": \"<date>\",\n      \"scope_of_work\": \"<string>\",\n      \"work_visa_required\": false,\n      \"type\": \"Part-time\",\n      \"state\": \"<string,null>\",\n      \"end_date\": \"<string,null-date>\",\n      \"holidays\": \"<number,null-double>\",\n      \"is_hourly\": \"<boolean>\",\n      \"time_off_type\": \"STANDARD\",\n      \"seniority_date\": \"<date>\",\n      \"sick_leave_days\": \"<integer>\",\n      \"probation_period\": \"<number,null-double>\",\n      \"notice_period_type\": \"CUSTOM\",\n      \"work_hours_per_week\": \"<double>\",\n      \"probation_period_time_unit\": \"MONTH\",\n      \"notice_period_after_probation\": \"<number,null-double>\",\n      \"notice_period_during_probation\": \"<number,null-double>\",\n      \"employee_completed_past_probation\": false,\n      \"probation_period_type_for_definite\": \"CUSTOM\",\n      \"notice_period_after_probation_time_unit\": \"DAY\",\n      \"notice_period_during_probation_time_unit\": \"MONTH\"\n    },\n    \"compensation_details\": {\n      \"currency\": \"<string>\",\n      \"salary\": \"<double>\",\n      \"hourly_rate\": \"<double>\",\n      \"signing_bonus\": \"<number,null-double>\",\n      \"fixed_adjustments\": [\n        {\n          \"name\": \"<string>\",\n          \"value\": \"<double>\",\n          \"opt_out\": \"<boolean>\",\n          \"optional\": \"<boolean>\",\n          \"description\": \"<string>\",\n          \"is_recurring\": \"<boolean>\",\n          \"rule_cost_id\": \"<string>\",\n          \"is_country_specific\": \"<boolean>\",\n          \"skipping_confirmation_text\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"value\": \"<double>\",\n          \"opt_out\": \"<boolean>\",\n          \"optional\": \"<boolean>\",\n          \"description\": \"<string>\",\n          \"is_recurring\": \"<boolean>\",\n          \"rule_cost_id\": \"<string>\",\n          \"is_country_specific\": \"<boolean>\",\n          \"skipping_confirmation_text\": \"<string>\"\n        }\n      ],\n      \"variable_compensation\": \"<number,null-double>\",\n      \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n      \"variable_compensation_type\": \"PERCENTAGE\",\n      \"variable_compensation_title\": \"<string>\",\n      \"variable_compensation_timeline\": \"QUARTERLY\",\n      \"variable_compensation_effective_date\": \"<date>\"\n    },\n    \"pension\": {\n      \"id\": \"<string>\",\n      \"contribution\": \"<string>\"\n    },\n    \"benefits\": [\n      {\n        \"plan_id\": \"<string>\",\n        \"cover_all\": \"<boolean>\",\n        \"provider_id\": \"<string>\",\n        \"contribution\": \"<double>\",\n        \"cover_dependents\": \"<boolean>\"\n      },\n      {\n        \"plan_id\": \"<string>\",\n        \"cover_all\": \"<boolean>\",\n        \"provider_id\": \"<string>\",\n        \"contribution\": \"<double>\",\n        \"cover_dependents\": \"<boolean>\"\n      }\n    ],\n    \"health_plan_id\": \"<string>\",\n    \"quote_additional_fields\": {\n      \"dob\": \"<string>\",\n      \"gender\": \"<string>\",\n      \"worker_type\": \"Skilled\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/eor",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "eor"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"type\": \"ongoing_time_based\",\n    \"costs\": {\n      \"summary\": {\n        \"salary\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"exchange_rate\": \"<string>\",\n        \"totals_formatted\": [\n          {\n            \"title\": \"<string>\",\n            \"total\": \"<string>\",\n            \"frequency\": \"<string>\",\n            \"total_supporting\": \"<string>\"\n          },\n          {\n            \"title\": \"<string>\",\n            \"total\": \"<string>\",\n            \"frequency\": \"<string>\",\n            \"total_supporting\": \"<string>\"\n          }\n        ],\n        \"supporting_currency\": \"<string>\"\n      },\n      \"sections\": [\n        {\n          \"name\": \"<string>\",\n          \"label\": \"<string>\",\n          \"groups\": [\n            {\n              \"name\": \"<string>\",\n              \"costs\": [\n                {\n                  \"label\": \"<string>\",\n                  \"totals\": [\n                    {\n                      \"total\": \"<string>\",\n                      \"frequency\": \"<string>\",\n                      \"total_supporting\": \"<string>\"\n                    },\n                    {\n                      \"total\": \"<string>\",\n                      \"frequency\": \"<string>\",\n                      \"total_supporting\": \"<string>\"\n                    }\n                  ]\n                },\n                {\n                  \"label\": \"<string>\",\n                  \"totals\": [\n                    {\n                      \"total\": \"<string>\",\n                      \"frequency\": \"<string>\",\n                      \"total_supporting\": \"<string>\"\n                    },\n                    {\n                      \"total\": \"<string>\",\n                      \"frequency\": \"<string>\",\n                      \"total_supporting\": \"<string>\"\n                    }\n                  ]\n                }\n              ],\n              \"label\": \"<string>\",\n              \"totals\": [\n                {\n                  \"total\": \"<string>\",\n                  \"frequency\": \"<string>\",\n                  \"total_supporting\": \"<string>\"\n                },\n                {\n                  \"total\": \"<string>\",\n                  \"frequency\": \"<string>\",\n                  \"total_supporting\": \"<string>\"\n                }\n              ],\n              \"has_breakdown\": \"<boolean>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"costs\": [\n                {\n                  \"label\": \"<string>\",\n                  \"totals\": [\n                    {\n                      \"total\": \"<string>\",\n                      \"frequency\": \"<string>\",\n                      \"total_supporting\": \"<string>\"\n                    },\n                    {\n                      \"total\": \"<string>\",\n                      \"frequency\": \"<string>\",\n                      \"total_supporting\": \"<string>\"\n                    }\n                  ]\n                },\n                {\n                  \"label\": \"<string>\",\n                  \"totals\": [\n                    {\n                      \"total\": \"<string>\",\n                      \"frequency\": \"<string>\",\n                      \"total_supporting\": \"<string>\"\n                    },\n                    {\n                      \"total\": \"<string>\",\n                      \"frequency\": \"<string>\",\n                      \"total_supporting\": \"<string>\"\n                    }\n                  ]\n                }\n              ],\n              \"label\": \"<string>\",\n              \"totals\": [\n                {\n                  \"total\": \"<string>\",\n                  \"frequency\": \"<string>\",\n                  \"total_supporting\": \"<string>\"\n                },\n                {\n                  \"total\": \"<string>\",\n                  \"frequency\": \"<string>\",\n                  \"total_supporting\": \"<string>\"\n                }\n              ],\n              \"has_breakdown\": \"<boolean>\"\n            }\n          ],\n          \"totals\": [\n            {\n              \"total\": \"<string>\",\n              \"frequency\": \"<string>\",\n              \"total_supporting\": \"<string>\"\n            },\n            {\n              \"total\": \"<string>\",\n              \"frequency\": \"<string>\",\n              \"total_supporting\": \"<string>\"\n            }\n          ],\n          \"is_summarized\": \"<boolean>\",\n          \"standalone_items\": [\n            {\n              \"name\": \"<string>\",\n              \"label\": \"<string>\",\n              \"totals\": [\n                {\n                  \"total\": \"<string>\",\n                  \"frequency\": \"<string>\",\n                  \"total_supporting\": \"<string>\"\n                },\n                {\n                  \"total\": \"<string>\",\n                  \"frequency\": \"<string>\",\n                  \"total_supporting\": \"<string>\"\n                }\n              ]\n            },\n            {\n              \"name\": \"<string>\",\n              \"label\": \"<string>\",\n              \"totals\": [\n                {\n                  \"total\": \"<string>\",\n                  \"frequency\": \"<string>\",\n                  \"total_supporting\": \"<string>\"\n                },\n                {\n                  \"total\": \"<string>\",\n                  \"frequency\": \"<string>\",\n                  \"total_supporting\": \"<string>\"\n                }\n              ]\n            }\n          ]\n        },\n        {\n          \"name\": \"<string>\",\n          \"label\": \"<string>\",\n          \"groups\": [\n            {\n              \"name\": \"<string>\",\n              \"costs\": [\n                {\n                  \"label\": \"<string>\",\n                  \"totals\": [\n                    {\n                      \"total\": \"<string>\",\n                      \"frequency\": \"<string>\",\n                      \"total_supporting\": \"<string>\"\n                    },\n                    {\n                      \"total\": \"<string>\",\n                      \"frequency\": \"<string>\",\n                      \"total_supporting\": \"<string>\"\n                    }\n                  ]\n                },\n                {\n                  \"label\": \"<string>\",\n                  \"totals\": [\n                    {\n                      \"total\": \"<string>\",\n                      \"frequency\": \"<string>\",\n                      \"total_supporting\": \"<string>\"\n                    },\n                    {\n                      \"total\": \"<string>\",\n                      \"frequency\": \"<string>\",\n                      \"total_supporting\": \"<string>\"\n                    }\n                  ]\n                }\n              ],\n              \"label\": \"<string>\",\n              \"totals\": [\n                {\n                  \"total\": \"<string>\",\n                  \"frequency\": \"<string>\",\n                  \"total_supporting\": \"<string>\"\n                },\n                {\n                  \"total\": \"<string>\",\n                  \"frequency\": \"<string>\",\n                  \"total_supporting\": \"<string>\"\n                }\n              ],\n              \"has_breakdown\": \"<boolean>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"costs\": [\n                {\n                  \"label\": \"<string>\",\n                  \"totals\": [\n                    {\n                      \"total\": \"<string>\",\n                      \"frequency\": \"<string>\",\n                      \"total_supporting\": \"<string>\"\n                    },\n                    {\n                      \"total\": \"<string>\",\n                      \"frequency\": \"<string>\",\n                      \"total_supporting\": \"<string>\"\n                    }\n                  ]\n                },\n                {\n                  \"label\": \"<string>\",\n                  \"totals\": [\n                    {\n                      \"total\": \"<string>\",\n                      \"frequency\": \"<string>\",\n                      \"total_supporting\": \"<string>\"\n                    },\n                    {\n                      \"total\": \"<string>\",\n                      \"frequency\": \"<string>\",\n                      \"total_supporting\": \"<string>\"\n                    }\n                  ]\n                }\n              ],\n              \"label\": \"<string>\",\n              \"totals\": [\n                {\n                  \"total\": \"<string>\",\n                  \"frequency\": \"<string>\",\n                  \"total_supporting\": \"<string>\"\n                },\n                {\n                  \"total\": \"<string>\",\n                  \"frequency\": \"<string>\",\n                  \"total_supporting\": \"<string>\"\n                }\n              ],\n              \"has_breakdown\": \"<boolean>\"\n            }\n          ],\n          \"totals\": [\n            {\n              \"total\": \"<string>\",\n              \"frequency\": \"<string>\",\n              \"total_supporting\": \"<string>\"\n            },\n            {\n              \"total\": \"<string>\",\n              \"frequency\": \"<string>\",\n              \"total_supporting\": \"<string>\"\n            }\n          ],\n          \"is_summarized\": \"<boolean>\",\n          \"standalone_items\": [\n            {\n              \"name\": \"<string>\",\n              \"label\": \"<string>\",\n              \"totals\": [\n                {\n                  \"total\": \"<string>\",\n                  \"frequency\": \"<string>\",\n                  \"total_supporting\": \"<string>\"\n                },\n                {\n                  \"total\": \"<string>\",\n                  \"frequency\": \"<string>\",\n                  \"total_supporting\": \"<string>\"\n                }\n              ]\n            },\n            {\n              \"name\": \"<string>\",\n              \"label\": \"<string>\",\n              \"totals\": [\n                {\n                  \"total\": \"<string>\",\n                  \"frequency\": \"<string>\",\n                  \"total_supporting\": \"<string>\"\n                },\n                {\n                  \"total\": \"<string>\",\n                  \"frequency\": \"<string>\",\n                  \"total_supporting\": \"<string>\"\n                }\n              ]\n            }\n          ]\n        }\n      ],\n      \"additional_data\": {\n        \"annual_notes\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"monthly_notes\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"once_off_notes\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"additional_notes\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    \"client\": {\n      \"legal_entity\": {\n        \"name\": \"<string>\"\n      }\n    },\n    \"status\": \"waiting_for_client_payment\",\n    \"employee\": {\n      \"email\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"legal_name\": \"<string>\"\n    },\n    \"job_title\": \"<string>\",\n    \"seniority\": {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"employment\": {\n      \"state\": \"<string,null>\",\n      \"country\": \"<string>\",\n      \"end_date\": \"<string,null-date-time>\",\n      \"start_date\": \"<dateTime>\",\n      \"scope_of_work\": \"<string>\",\n      \"time_off_type\": \"<string>\",\n      \"probation_period\": \"<integer,null>\",\n      \"work_visa_required\": \"<boolean>\",\n      \"calculated_holidays\": \"<string>\"\n    },\n    \"health_plan\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"compensation_details\": {\n      \"salary\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"variable_compensation\": \"<string>\",\n      \"variable_compensation_type\": \"<string,null>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:30:42.000Z",
+              "updatedAt": "2026-07-28T01:30:42.000Z",
+              "uid": "35240-445c915c-cec7-423a-b407-9ad9f51ff317"
+            },
+            {
+              "id": "a85caf22-a4c7-4aa3-85a6-67276fc37794",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"client\": {\n      \"team\": {\n        \"id\": \"<string>\"\n      },\n      \"legal_entity\": {\n        \"id\": \"<string>\"\n      }\n    },\n    \"employee\": {\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"nationality\": \"<string>\",\n      \"email\": \"<string>\",\n      \"address\": {\n        \"zip\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string,null>\",\n        \"street\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"external_id\": \"<string>\",\n      \"pf_deductions\": \"12% of Rs 15,000 (Rs 1,800)\"\n    },\n    \"job_title\": \"<string>\",\n    \"seniority\": {\n      \"id\": \"<string>\"\n    },\n    \"employment\": {\n      \"country\": \"<string>\",\n      \"start_date\": \"<date>\",\n      \"scope_of_work\": \"<string>\",\n      \"work_visa_required\": false,\n      \"type\": \"Part-time\",\n      \"state\": \"<string,null>\",\n      \"end_date\": \"<string,null-date>\",\n      \"holidays\": \"<number,null-double>\",\n      \"is_hourly\": \"<boolean>\",\n      \"time_off_type\": \"STANDARD\",\n      \"seniority_date\": \"<date>\",\n      \"sick_leave_days\": \"<integer>\",\n      \"probation_period\": \"<number,null-double>\",\n      \"notice_period_type\": \"CUSTOM\",\n      \"work_hours_per_week\": \"<double>\",\n      \"probation_period_time_unit\": \"MONTH\",\n      \"notice_period_after_probation\": \"<number,null-double>\",\n      \"notice_period_during_probation\": \"<number,null-double>\",\n      \"employee_completed_past_probation\": false,\n      \"probation_period_type_for_definite\": \"CUSTOM\",\n      \"notice_period_after_probation_time_unit\": \"DAY\",\n      \"notice_period_during_probation_time_unit\": \"MONTH\"\n    },\n    \"compensation_details\": {\n      \"currency\": \"<string>\",\n      \"salary\": \"<double>\",\n      \"hourly_rate\": \"<double>\",\n      \"signing_bonus\": \"<number,null-double>\",\n      \"fixed_adjustments\": [\n        {\n          \"name\": \"<string>\",\n          \"value\": \"<double>\",\n          \"opt_out\": \"<boolean>\",\n          \"optional\": \"<boolean>\",\n          \"description\": \"<string>\",\n          \"is_recurring\": \"<boolean>\",\n          \"rule_cost_id\": \"<string>\",\n          \"is_country_specific\": \"<boolean>\",\n          \"skipping_confirmation_text\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"value\": \"<double>\",\n          \"opt_out\": \"<boolean>\",\n          \"optional\": \"<boolean>\",\n          \"description\": \"<string>\",\n          \"is_recurring\": \"<boolean>\",\n          \"rule_cost_id\": \"<string>\",\n          \"is_country_specific\": \"<boolean>\",\n          \"skipping_confirmation_text\": \"<string>\"\n        }\n      ],\n      \"variable_compensation\": \"<number,null-double>\",\n      \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n      \"variable_compensation_type\": \"PERCENTAGE\",\n      \"variable_compensation_title\": \"<string>\",\n      \"variable_compensation_timeline\": \"QUARTERLY\",\n      \"variable_compensation_effective_date\": \"<date>\"\n    },\n    \"pension\": {\n      \"id\": \"<string>\",\n      \"contribution\": \"<string>\"\n    },\n    \"benefits\": [\n      {\n        \"plan_id\": \"<string>\",\n        \"cover_all\": \"<boolean>\",\n        \"provider_id\": \"<string>\",\n        \"contribution\": \"<double>\",\n        \"cover_dependents\": \"<boolean>\"\n      },\n      {\n        \"plan_id\": \"<string>\",\n        \"cover_all\": \"<boolean>\",\n        \"provider_id\": \"<string>\",\n        \"contribution\": \"<double>\",\n        \"cover_dependents\": \"<boolean>\"\n      }\n    ],\n    \"health_plan_id\": \"<string>\",\n    \"quote_additional_fields\": {\n      \"dob\": \"<string>\",\n      \"gender\": \"<string>\",\n      \"worker_type\": \"Skilled\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/eor",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "eor"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:30:42.000Z",
+              "updatedAt": "2026-07-28T01:30:42.000Z",
+              "uid": "35240-a85caf22-a4c7-4aa3-85a6-67276fc37794"
+            },
+            {
+              "id": "754b798d-bdda-4183-aeb8-2cc997255bac",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"client\": {\n      \"team\": {\n        \"id\": \"<string>\"\n      },\n      \"legal_entity\": {\n        \"id\": \"<string>\"\n      }\n    },\n    \"employee\": {\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"nationality\": \"<string>\",\n      \"email\": \"<string>\",\n      \"address\": {\n        \"zip\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string,null>\",\n        \"street\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"external_id\": \"<string>\",\n      \"pf_deductions\": \"12% of Rs 15,000 (Rs 1,800)\"\n    },\n    \"job_title\": \"<string>\",\n    \"seniority\": {\n      \"id\": \"<string>\"\n    },\n    \"employment\": {\n      \"country\": \"<string>\",\n      \"start_date\": \"<date>\",\n      \"scope_of_work\": \"<string>\",\n      \"work_visa_required\": false,\n      \"type\": \"Part-time\",\n      \"state\": \"<string,null>\",\n      \"end_date\": \"<string,null-date>\",\n      \"holidays\": \"<number,null-double>\",\n      \"is_hourly\": \"<boolean>\",\n      \"time_off_type\": \"STANDARD\",\n      \"seniority_date\": \"<date>\",\n      \"sick_leave_days\": \"<integer>\",\n      \"probation_period\": \"<number,null-double>\",\n      \"notice_period_type\": \"CUSTOM\",\n      \"work_hours_per_week\": \"<double>\",\n      \"probation_period_time_unit\": \"MONTH\",\n      \"notice_period_after_probation\": \"<number,null-double>\",\n      \"notice_period_during_probation\": \"<number,null-double>\",\n      \"employee_completed_past_probation\": false,\n      \"probation_period_type_for_definite\": \"CUSTOM\",\n      \"notice_period_after_probation_time_unit\": \"DAY\",\n      \"notice_period_during_probation_time_unit\": \"MONTH\"\n    },\n    \"compensation_details\": {\n      \"currency\": \"<string>\",\n      \"salary\": \"<double>\",\n      \"hourly_rate\": \"<double>\",\n      \"signing_bonus\": \"<number,null-double>\",\n      \"fixed_adjustments\": [\n        {\n          \"name\": \"<string>\",\n          \"value\": \"<double>\",\n          \"opt_out\": \"<boolean>\",\n          \"optional\": \"<boolean>\",\n          \"description\": \"<string>\",\n          \"is_recurring\": \"<boolean>\",\n          \"rule_cost_id\": \"<string>\",\n          \"is_country_specific\": \"<boolean>\",\n          \"skipping_confirmation_text\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"value\": \"<double>\",\n          \"opt_out\": \"<boolean>\",\n          \"optional\": \"<boolean>\",\n          \"description\": \"<string>\",\n          \"is_recurring\": \"<boolean>\",\n          \"rule_cost_id\": \"<string>\",\n          \"is_country_specific\": \"<boolean>\",\n          \"skipping_confirmation_text\": \"<string>\"\n        }\n      ],\n      \"variable_compensation\": \"<number,null-double>\",\n      \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n      \"variable_compensation_type\": \"PERCENTAGE\",\n      \"variable_compensation_title\": \"<string>\",\n      \"variable_compensation_timeline\": \"QUARTERLY\",\n      \"variable_compensation_effective_date\": \"<date>\"\n    },\n    \"pension\": {\n      \"id\": \"<string>\",\n      \"contribution\": \"<string>\"\n    },\n    \"benefits\": [\n      {\n        \"plan_id\": \"<string>\",\n        \"cover_all\": \"<boolean>\",\n        \"provider_id\": \"<string>\",\n        \"contribution\": \"<double>\",\n        \"cover_dependents\": \"<boolean>\"\n      },\n      {\n        \"plan_id\": \"<string>\",\n        \"cover_all\": \"<boolean>\",\n        \"provider_id\": \"<string>\",\n        \"contribution\": \"<double>\",\n        \"cover_dependents\": \"<boolean>\"\n      }\n    ],\n    \"health_plan_id\": \"<string>\",\n    \"quote_additional_fields\": {\n      \"dob\": \"<string>\",\n      \"gender\": \"<string>\",\n      \"worker_type\": \"Skilled\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/eor",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "eor"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:30:42.000Z",
+              "updatedAt": "2026-07-28T01:30:42.000Z",
+              "uid": "35240-754b798d-bdda-4183-aeb8-2cc997255bac"
+            },
+            {
+              "id": "b27c162d-5be2-471a-8a81-ff48a270e4b9",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"client\": {\n      \"team\": {\n        \"id\": \"<string>\"\n      },\n      \"legal_entity\": {\n        \"id\": \"<string>\"\n      }\n    },\n    \"employee\": {\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"nationality\": \"<string>\",\n      \"email\": \"<string>\",\n      \"address\": {\n        \"zip\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string,null>\",\n        \"street\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"external_id\": \"<string>\",\n      \"pf_deductions\": \"12% of Rs 15,000 (Rs 1,800)\"\n    },\n    \"job_title\": \"<string>\",\n    \"seniority\": {\n      \"id\": \"<string>\"\n    },\n    \"employment\": {\n      \"country\": \"<string>\",\n      \"start_date\": \"<date>\",\n      \"scope_of_work\": \"<string>\",\n      \"work_visa_required\": false,\n      \"type\": \"Part-time\",\n      \"state\": \"<string,null>\",\n      \"end_date\": \"<string,null-date>\",\n      \"holidays\": \"<number,null-double>\",\n      \"is_hourly\": \"<boolean>\",\n      \"time_off_type\": \"STANDARD\",\n      \"seniority_date\": \"<date>\",\n      \"sick_leave_days\": \"<integer>\",\n      \"probation_period\": \"<number,null-double>\",\n      \"notice_period_type\": \"CUSTOM\",\n      \"work_hours_per_week\": \"<double>\",\n      \"probation_period_time_unit\": \"MONTH\",\n      \"notice_period_after_probation\": \"<number,null-double>\",\n      \"notice_period_during_probation\": \"<number,null-double>\",\n      \"employee_completed_past_probation\": false,\n      \"probation_period_type_for_definite\": \"CUSTOM\",\n      \"notice_period_after_probation_time_unit\": \"DAY\",\n      \"notice_period_during_probation_time_unit\": \"MONTH\"\n    },\n    \"compensation_details\": {\n      \"currency\": \"<string>\",\n      \"salary\": \"<double>\",\n      \"hourly_rate\": \"<double>\",\n      \"signing_bonus\": \"<number,null-double>\",\n      \"fixed_adjustments\": [\n        {\n          \"name\": \"<string>\",\n          \"value\": \"<double>\",\n          \"opt_out\": \"<boolean>\",\n          \"optional\": \"<boolean>\",\n          \"description\": \"<string>\",\n          \"is_recurring\": \"<boolean>\",\n          \"rule_cost_id\": \"<string>\",\n          \"is_country_specific\": \"<boolean>\",\n          \"skipping_confirmation_text\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"value\": \"<double>\",\n          \"opt_out\": \"<boolean>\",\n          \"optional\": \"<boolean>\",\n          \"description\": \"<string>\",\n          \"is_recurring\": \"<boolean>\",\n          \"rule_cost_id\": \"<string>\",\n          \"is_country_specific\": \"<boolean>\",\n          \"skipping_confirmation_text\": \"<string>\"\n        }\n      ],\n      \"variable_compensation\": \"<number,null-double>\",\n      \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n      \"variable_compensation_type\": \"PERCENTAGE\",\n      \"variable_compensation_title\": \"<string>\",\n      \"variable_compensation_timeline\": \"QUARTERLY\",\n      \"variable_compensation_effective_date\": \"<date>\"\n    },\n    \"pension\": {\n      \"id\": \"<string>\",\n      \"contribution\": \"<string>\"\n    },\n    \"benefits\": [\n      {\n        \"plan_id\": \"<string>\",\n        \"cover_all\": \"<boolean>\",\n        \"provider_id\": \"<string>\",\n        \"contribution\": \"<double>\",\n        \"cover_dependents\": \"<boolean>\"\n      },\n      {\n        \"plan_id\": \"<string>\",\n        \"cover_all\": \"<boolean>\",\n        \"provider_id\": \"<string>\",\n        \"contribution\": \"<double>\",\n        \"cover_dependents\": \"<boolean>\"\n      }\n    ],\n    \"health_plan_id\": \"<string>\",\n    \"quote_additional_fields\": {\n      \"dob\": \"<string>\",\n      \"gender\": \"<string>\",\n      \"worker_type\": \"Skilled\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/eor",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "eor"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:30:42.000Z",
+              "updatedAt": "2026-07-28T01:30:42.000Z",
+              "uid": "35240-b27c162d-5be2-471a-8a81-ff48a270e4b9"
+            }
+          ],
+          "createdAt": "2026-07-28T01:30:42.000Z",
+          "updatedAt": "2026-07-28T01:30:42.000Z",
+          "uid": "35240-259accb6-1945-4803-b9c9-4b75824296a5"
+        }
+      ],
+      "id": "3edcf54e-2e74-45a7-9a79-7522f933d428",
+      "createdAt": "2026-07-28T01:30:42.000Z",
+      "updatedAt": "2026-07-28T01:30:42.000Z",
+      "uid": "35240-3edcf54e-2e74-45a7-9a79-7522f933d428"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

@@ -1,0 +1,367 @@
+{
+  "info": {
+    "_postman_id": "9a7be01e-2fa7-4059-b607-a54b95cd3a1f",
+    "name": "Endpoints subpackage_payslips API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:48.000Z",
+    "updatedAt": "2026-07-28T01:32:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9a7be01e-2fa7-4059-b607-a54b95cd3a1f"
+  },
+  "item": [
+    {
+      "name": "gp",
+      "item": [
+        {
+          "name": "workers",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "payslips",
+                  "item": [
+                    {
+                      "name": "Retrieve employee payslips",
+                      "id": "25728973-c6d3-49ed-8d2a-81ab7542714c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gp/workers/:id/payslips",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gp",
+                            "workers",
+                            ":id",
+                            "payslips"
+                          ],
+                          "variable": [
+                            {
+                              "id": "7701dffe-8d54-43d4-810a-77341b4681bb",
+                              "key": "id",
+                              "value": "<uuid>",
+                              "description": "(Required) Unique identifier for the worker."
+                            }
+                          ]
+                        },
+                        "description": "Returns a list of payslips for a Global Payroll (GP) employee, including each payslip's date range and current status. Use this endpoint to display payslip history or verify that payslips have been published before initiating a download. Requires the worker id (UUID), which can be obtained from the List GPworkers endpoint. Each payslip in the response includes an id that is required for the download endpoint. Supports only GP contract types.\n **Token scopes**: `payslips:read`"
+                      },
+                      "response": [
+                        {
+                          "id": "e805da0a-7463-40df-91e4-84659523407a",
+                          "name": "Successful operation.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gp/workers/:id/payslips",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gp",
+                                "workers",
+                                ":id",
+                                "payslips"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"to\": \"<date>\",\n      \"from\": \"<date>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"to\": \"<date>\",\n      \"from\": \"<date>\",\n      \"status\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:49.000Z",
+                          "updatedAt": "2026-07-28T01:32:49.000Z",
+                          "uid": "35240-e805da0a-7463-40df-91e4-84659523407a"
+                        },
+                        {
+                          "id": "b8c24206-51db-4a04-ab6b-cd96186e24fc",
+                          "name": "Bad Request - Validation error or invalid parameters",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gp/workers/:id/payslips",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gp",
+                                "workers",
+                                ":id",
+                                "payslips"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ],\n  \"request\": {\n    \"method\": \"<string>\",\n    \"status\": \"<double>\"\n  }\n}",
+                          "createdAt": "2026-07-28T01:32:49.000Z",
+                          "updatedAt": "2026-07-28T01:32:49.000Z",
+                          "uid": "35240-b8c24206-51db-4a04-ab6b-cd96186e24fc"
+                        },
+                        {
+                          "id": "37db8803-5846-4ff8-9491-6abb3642da0a",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gp/workers/:id/payslips",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gp",
+                                "workers",
+                                ":id",
+                                "payslips"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:49.000Z",
+                          "updatedAt": "2026-07-28T01:32:49.000Z",
+                          "uid": "35240-37db8803-5846-4ff8-9491-6abb3642da0a"
+                        },
+                        {
+                          "id": "8fc06714-aa82-4f51-84ec-eefab0d58623",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gp/workers/:id/payslips",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gp",
+                                "workers",
+                                ":id",
+                                "payslips"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:49.000Z",
+                          "updatedAt": "2026-07-28T01:32:49.000Z",
+                          "uid": "35240-8fc06714-aa82-4f51-84ec-eefab0d58623"
+                        },
+                        {
+                          "id": "128ad5dd-2f8a-4208-9cba-92c63f27d7b9",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gp/workers/:id/payslips",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gp",
+                                "workers",
+                                ":id",
+                                "payslips"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:49.000Z",
+                          "updatedAt": "2026-07-28T01:32:49.000Z",
+                          "uid": "35240-128ad5dd-2f8a-4208-9cba-92c63f27d7b9"
+                        },
+                        {
+                          "id": "48ec978d-0eab-44fe-a233-19d252c57408",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gp/workers/:id/payslips",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gp",
+                                "workers",
+                                ":id",
+                                "payslips"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:49.000Z",
+                          "updatedAt": "2026-07-28T01:32:49.000Z",
+                          "uid": "35240-48ec978d-0eab-44fe-a233-19d252c57408"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:32:49.000Z",
+                      "updatedAt": "2026-07-28T01:32:49.000Z",
+                      "uid": "35240-25728973-c6d3-49ed-8d2a-81ab7542714c"
+                    }
+                  ],
+                  "id": "71658d3d-5066-4468-bf7b-4db2587a658d",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-71658d3d-5066-4468-bf7b-4db2587a658d"
+                }
+              ],
+              "id": "91851366-06d2-4342-a6ce-e8400b48c572",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-91851366-06d2-4342-a6ce-e8400b48c572"
+            }
+          ],
+          "id": "7cb8148a-2a4b-498b-add9-327fb86f80f6",
+          "createdAt": "2026-07-28T01:32:49.000Z",
+          "updatedAt": "2026-07-28T01:32:49.000Z",
+          "uid": "35240-7cb8148a-2a4b-498b-add9-327fb86f80f6"
+        }
+      ],
+      "id": "f2fc1893-b26b-48bf-984e-7285baf3d0e8",
+      "createdAt": "2026-07-28T01:32:49.000Z",
+      "updatedAt": "2026-07-28T01:32:49.000Z",
+      "uid": "35240-f2fc1893-b26b-48bf-984e-7285baf3d0e8"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

@@ -1,0 +1,1936 @@
+{
+  "info": {
+    "_postman_id": "3ba366a8-ca25-47df-b38b-e4c4e10bc6db",
+    "name": "Endpoints subpackage_groups API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:31:40.000Z",
+    "updatedAt": "2026-07-28T01:31:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3ba366a8-ca25-47df-b38b-e4c4e10bc6db"
+  },
+  "item": [
+    {
+      "name": "groups",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "clone",
+              "item": [
+                {
+                  "name": "Clone a Group",
+                  "id": "daac3845-b826-4597-a7d1-699ab30279e7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"external_metadata\": {}\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:id/clone",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":id",
+                        "clone"
+                      ],
+                      "variable": [
+                        {
+                          "id": "155ca3c9-af99-4ce5-91c9-221cdba0e2b8",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) Unique identifier of the group to be cloned."
+                        }
+                      ]
+                    },
+                    "description": "Clone an existing group within the organization. This creates a new group with the specified name, copying the structure and settings from the source group.\n **Token scopes**: `groups:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "3c89800e-6dcb-4558-b689-5b7e46fd1311",
+                      "name": "Group cloned successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"external_metadata\": {}\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:id/clone",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":id",
+                            "clone"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"external_metadata\": {}\n  }\n}",
+                      "createdAt": "2026-07-28T01:31:41.000Z",
+                      "updatedAt": "2026-07-28T01:31:41.000Z",
+                      "uid": "35240-3c89800e-6dcb-4558-b689-5b7e46fd1311"
+                    },
+                    {
+                      "id": "93121520-4a33-4387-8855-91700d9889fd",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"external_metadata\": {}\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:id/clone",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":id",
+                            "clone"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"message\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:41.000Z",
+                      "updatedAt": "2026-07-28T01:31:41.000Z",
+                      "uid": "35240-93121520-4a33-4387-8855-91700d9889fd"
+                    },
+                    {
+                      "id": "f6a61d0b-c3d6-4c23-988d-2b20dfc7992a",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"external_metadata\": {}\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:id/clone",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":id",
+                            "clone"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:41.000Z",
+                      "updatedAt": "2026-07-28T01:31:41.000Z",
+                      "uid": "35240-f6a61d0b-c3d6-4c23-988d-2b20dfc7992a"
+                    },
+                    {
+                      "id": "c8954aa5-d1b4-4ee4-9cf1-05dbc44b45fd",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"external_metadata\": {}\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:id/clone",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":id",
+                            "clone"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:41.000Z",
+                      "updatedAt": "2026-07-28T01:31:41.000Z",
+                      "uid": "35240-c8954aa5-d1b4-4ee4-9cf1-05dbc44b45fd"
+                    },
+                    {
+                      "id": "f53d8f49-dbaa-4160-bf56-bec68a5b9317",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"external_metadata\": {}\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:id/clone",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":id",
+                            "clone"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:41.000Z",
+                      "updatedAt": "2026-07-28T01:31:41.000Z",
+                      "uid": "35240-f53d8f49-dbaa-4160-bf56-bec68a5b9317"
+                    },
+                    {
+                      "id": "7fe0055f-576e-4e15-967a-b3d95f08c479",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"external_metadata\": {}\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:id/clone",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":id",
+                            "clone"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:31:41.000Z",
+                      "updatedAt": "2026-07-28T01:31:41.000Z",
+                      "uid": "35240-7fe0055f-576e-4e15-967a-b3d95f08c479"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:31:41.000Z",
+                  "updatedAt": "2026-07-28T01:31:41.000Z",
+                  "uid": "35240-daac3845-b826-4597-a7d1-699ab30279e7"
+                }
+              ],
+              "id": "9c739a17-c6d3-4567-bf34-4b8245838efc",
+              "createdAt": "2026-07-28T01:31:41.000Z",
+              "updatedAt": "2026-07-28T01:31:41.000Z",
+              "uid": "35240-9c739a17-c6d3-4567-bf34-4b8245838efc"
+            },
+            {
+              "name": "Delete a group",
+              "id": "3d778366-611c-4317-bdc2-2f57da514da9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/groups/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "52786907-29a9-43e6-8e6c-8b8f6948d8d3",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Archive an existing group.\n **Token scopes**: `groups:write`"
+              },
+              "response": [
+                {
+                  "id": "77d11bf9-c3d9-4840-a47b-1a9eeabb3982",
+                  "name": "Group archived successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"archived_at\": \"<dateTime>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:31:41.000Z",
+                  "updatedAt": "2026-07-28T01:31:41.000Z",
+                  "uid": "35240-77d11bf9-c3d9-4840-a47b-1a9eeabb3982"
+                },
+                {
+                  "id": "f681a866-878e-4e58-b34c-0a324033d83c",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"message\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:31:41.000Z",
+                  "updatedAt": "2026-07-28T01:31:41.000Z",
+                  "uid": "35240-f681a866-878e-4e58-b34c-0a324033d83c"
+                },
+                {
+                  "id": "ce97ce1d-02f6-4fa4-8e7c-7f4a0753e46b",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:41.000Z",
+                  "updatedAt": "2026-07-28T01:31:41.000Z",
+                  "uid": "35240-ce97ce1d-02f6-4fa4-8e7c-7f4a0753e46b"
+                },
+                {
+                  "id": "cba0714a-657d-4102-80c3-fb037947ca76",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:41.000Z",
+                  "updatedAt": "2026-07-28T01:31:41.000Z",
+                  "uid": "35240-cba0714a-657d-4102-80c3-fb037947ca76"
+                },
+                {
+                  "id": "19fff5eb-9bdb-40b4-9aad-2511e81c9191",
+                  "name": "Group not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"message\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:31:41.000Z",
+                  "updatedAt": "2026-07-28T01:31:41.000Z",
+                  "uid": "35240-19fff5eb-9bdb-40b4-9aad-2511e81c9191"
+                },
+                {
+                  "id": "f38fc0b6-61fe-47b5-9349-e16f371fbd30",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:41.000Z",
+                  "updatedAt": "2026-07-28T01:31:41.000Z",
+                  "uid": "35240-f38fc0b6-61fe-47b5-9349-e16f371fbd30"
+                }
+              ],
+              "createdAt": "2026-07-28T01:31:41.000Z",
+              "updatedAt": "2026-07-28T01:31:41.000Z",
+              "uid": "35240-3d778366-611c-4317-bdc2-2f57da514da9"
+            },
+            {
+              "name": "Edit a group",
+              "id": "09e41df8-0d13-47f6-a1ad-adb19f070e2b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/groups/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "155719fc-e63f-42ed-8e91-06b924b4bb8d",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Edit the details of an existing group.\n **Token scopes**: `groups:read`, `groups:write`"
+              },
+              "response": [
+                {
+                  "id": "550afd37-6f6a-44d8-9f2f-aa3508b3d163",
+                  "name": "Group updated successfully",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"name\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"external_metadata\": {}\n  }\n}",
+                  "createdAt": "2026-07-28T01:31:41.000Z",
+                  "updatedAt": "2026-07-28T01:31:41.000Z",
+                  "uid": "35240-550afd37-6f6a-44d8-9f2f-aa3508b3d163"
+                },
+                {
+                  "id": "358977ba-1b85-4c6a-a600-8ef1d8ee2634",
+                  "name": "Invalid request payload",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"name\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"message\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:31:41.000Z",
+                  "updatedAt": "2026-07-28T01:31:41.000Z",
+                  "uid": "35240-358977ba-1b85-4c6a-a600-8ef1d8ee2634"
+                },
+                {
+                  "id": "c46825ea-d447-4e4b-882e-42271820b7e5",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"name\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:41.000Z",
+                  "updatedAt": "2026-07-28T01:31:41.000Z",
+                  "uid": "35240-c46825ea-d447-4e4b-882e-42271820b7e5"
+                },
+                {
+                  "id": "e50f28c3-26b6-437d-bb20-db29929e3b30",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"name\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:41.000Z",
+                  "updatedAt": "2026-07-28T01:31:41.000Z",
+                  "uid": "35240-e50f28c3-26b6-437d-bb20-db29929e3b30"
+                },
+                {
+                  "id": "39e4fea0-4b88-4d2b-b5c4-b09d2707eb8b",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"name\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:41.000Z",
+                  "updatedAt": "2026-07-28T01:31:41.000Z",
+                  "uid": "35240-39e4fea0-4b88-4d2b-b5c4-b09d2707eb8b"
+                },
+                {
+                  "id": "854b7c77-6e96-479e-8e7d-f1eb9419f642",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"name\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:31:41.000Z",
+                  "updatedAt": "2026-07-28T01:31:41.000Z",
+                  "uid": "35240-854b7c77-6e96-479e-8e7d-f1eb9419f642"
+                }
+              ],
+              "createdAt": "2026-07-28T01:31:41.000Z",
+              "updatedAt": "2026-07-28T01:31:41.000Z",
+              "uid": "35240-09e41df8-0d13-47f6-a1ad-adb19f070e2b"
+            }
+          ],
+          "id": "6614ac55-e7b7-4833-8c54-4d7521a5fdcc",
+          "createdAt": "2026-07-28T01:31:41.000Z",
+          "updatedAt": "2026-07-28T01:31:41.000Z",
+          "uid": "35240-6614ac55-e7b7-4833-8c54-4d7521a5fdcc"
+        },
+        {
+          "name": "Create a group",
+          "id": "6f8cb42f-1c18-4532-bea8-51ff25038032",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"external_metadata\": {}\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/groups",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "groups"
+              ]
+            },
+            "description": "Create a new group within your organization.\n **Token scopes**: `groups:read`, `groups:write`"
+          },
+          "response": [
+            {
+              "id": "bdab3d55-f825-4321-b1ca-2d84e6aec321",
+              "name": "Group created successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"external_metadata\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/groups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"external_metadata\": {}\n  }\n}",
+              "createdAt": "2026-07-28T01:31:41.000Z",
+              "updatedAt": "2026-07-28T01:31:41.000Z",
+              "uid": "35240-bdab3d55-f825-4321-b1ca-2d84e6aec321"
+            },
+            {
+              "id": "69791327-c00a-4ebf-823c-c8bf4ab576d1",
+              "name": "Invalid request payload",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"external_metadata\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/groups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"message\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:31:41.000Z",
+              "updatedAt": "2026-07-28T01:31:41.000Z",
+              "uid": "35240-69791327-c00a-4ebf-823c-c8bf4ab576d1"
+            },
+            {
+              "id": "6ae6646d-2144-474e-8952-7b69184a2580",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"external_metadata\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/groups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:41.000Z",
+              "updatedAt": "2026-07-28T01:31:41.000Z",
+              "uid": "35240-6ae6646d-2144-474e-8952-7b69184a2580"
+            },
+            {
+              "id": "ab0a39d0-bbf4-4a60-8b7f-a908ad555c56",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"external_metadata\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/groups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:41.000Z",
+              "updatedAt": "2026-07-28T01:31:41.000Z",
+              "uid": "35240-ab0a39d0-bbf4-4a60-8b7f-a908ad555c56"
+            },
+            {
+              "id": "d56456c0-fc51-456e-8c81-07b3f40a6e56",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"external_metadata\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/groups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:41.000Z",
+              "updatedAt": "2026-07-28T01:31:41.000Z",
+              "uid": "35240-d56456c0-fc51-456e-8c81-07b3f40a6e56"
+            },
+            {
+              "id": "b1a99a14-6146-4596-a90f-1aabe93ab020",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"name\": \"<string>\",\n    \"external_metadata\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/groups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:41.000Z",
+              "updatedAt": "2026-07-28T01:31:41.000Z",
+              "uid": "35240-b1a99a14-6146-4596-a90f-1aabe93ab020"
+            }
+          ],
+          "createdAt": "2026-07-28T01:31:41.000Z",
+          "updatedAt": "2026-07-28T01:31:41.000Z",
+          "uid": "35240-6f8cb42f-1c18-4532-bea8-51ff25038032"
+        },
+        {
+          "name": "Return list of groups",
+          "id": "23fb4e1c-5497-4245-9a1f-579b49e5d2c5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/groups?limit=100&sort_order=ASC&cursor=<string>&include_archived_groups=true&external_metadata=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "groups"
+              ],
+              "query": [
+                {
+                  "description": "The maximum number of groups to return (between 1 and 100)",
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "description": "Sort the results in ascending (ASC) or descending (DESC) order based on the group name.",
+                  "key": "sort_order",
+                  "value": "ASC"
+                },
+                {
+                  "description": "The encoded cursor for paginated results. This is an opaque string that allows fetching the next set of results.",
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Include archived groups (soft deleted records). Defaults to `true`.",
+                  "key": "include_archived_groups",
+                  "value": "true"
+                },
+                {
+                  "description": "Extra information about the group.",
+                  "key": "external_metadata",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "List all the groups in your organization.\n **Token scopes**: `groups:read`"
+          },
+          "response": [
+            {
+              "id": "dc4f6544-345b-4349-8243-4a89f85e863c",
+              "name": "A list of groups in the organization.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/groups?limit=100&sort_order=ASC&cursor=<string>&include_archived_groups=true&external_metadata=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of groups to return (between 1 and 100)",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Sort the results in ascending (ASC) or descending (DESC) order based on the group name.",
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "The encoded cursor for paginated results. This is an opaque string that allows fetching the next set of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include archived groups (soft deleted records). Defaults to `true`.",
+                      "key": "include_archived_groups",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Extra information about the group.",
+                      "key": "external_metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"status\": \"active\",\n      \"managers\": \"<double>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"archived_at\": \"<string,null-date-time>\",\n      \"external_metadata\": {}\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"status\": \"archived\",\n      \"managers\": \"<double>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"archived_at\": \"<string,null-date-time>\",\n      \"external_metadata\": {}\n    }\n  ],\n  \"page\": {\n    \"cursor\": \"<string>\",\n    \"total_rows\": \"<integer>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:31:41.000Z",
+              "updatedAt": "2026-07-28T01:31:41.000Z",
+              "uid": "35240-dc4f6544-345b-4349-8243-4a89f85e863c"
+            },
+            {
+              "id": "3d9dfc55-b940-4e89-9c04-de63a8702a78",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/groups?limit=100&sort_order=ASC&cursor=<string>&include_archived_groups=true&external_metadata=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of groups to return (between 1 and 100)",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Sort the results in ascending (ASC) or descending (DESC) order based on the group name.",
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "The encoded cursor for paginated results. This is an opaque string that allows fetching the next set of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include archived groups (soft deleted records). Defaults to `true`.",
+                      "key": "include_archived_groups",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Extra information about the group.",
+                      "key": "external_metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:31:41.000Z",
+              "updatedAt": "2026-07-28T01:31:41.000Z",
+              "uid": "35240-3d9dfc55-b940-4e89-9c04-de63a8702a78"
+            },
+            {
+              "id": "b1b0cd3d-5f57-40e4-a86f-71adf70df4a0",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/groups?limit=100&sort_order=ASC&cursor=<string>&include_archived_groups=true&external_metadata=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of groups to return (between 1 and 100)",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Sort the results in ascending (ASC) or descending (DESC) order based on the group name.",
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "The encoded cursor for paginated results. This is an opaque string that allows fetching the next set of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include archived groups (soft deleted records). Defaults to `true`.",
+                      "key": "include_archived_groups",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Extra information about the group.",
+                      "key": "external_metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:41.000Z",
+              "updatedAt": "2026-07-28T01:31:41.000Z",
+              "uid": "35240-b1b0cd3d-5f57-40e4-a86f-71adf70df4a0"
+            },
+            {
+              "id": "41ba057d-e238-4769-9c49-efdd93d985a6",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/groups?limit=100&sort_order=ASC&cursor=<string>&include_archived_groups=true&external_metadata=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of groups to return (between 1 and 100)",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Sort the results in ascending (ASC) or descending (DESC) order based on the group name.",
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "The encoded cursor for paginated results. This is an opaque string that allows fetching the next set of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include archived groups (soft deleted records). Defaults to `true`.",
+                      "key": "include_archived_groups",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Extra information about the group.",
+                      "key": "external_metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:41.000Z",
+              "updatedAt": "2026-07-28T01:31:41.000Z",
+              "uid": "35240-41ba057d-e238-4769-9c49-efdd93d985a6"
+            },
+            {
+              "id": "8d964ce6-fb33-428b-ad5e-f3e0cbc2dd37",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/groups?limit=100&sort_order=ASC&cursor=<string>&include_archived_groups=true&external_metadata=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of groups to return (between 1 and 100)",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Sort the results in ascending (ASC) or descending (DESC) order based on the group name.",
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "The encoded cursor for paginated results. This is an opaque string that allows fetching the next set of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include archived groups (soft deleted records). Defaults to `true`.",
+                      "key": "include_archived_groups",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Extra information about the group.",
+                      "key": "external_metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:41.000Z",
+              "updatedAt": "2026-07-28T01:31:41.000Z",
+              "uid": "35240-8d964ce6-fb33-428b-ad5e-f3e0cbc2dd37"
+            },
+            {
+              "id": "99294754-3673-4e2d-bf5a-82b548f015a0",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/groups?limit=100&sort_order=ASC&cursor=<string>&include_archived_groups=true&external_metadata=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ],
+                  "query": [
+                    {
+                      "description": "The maximum number of groups to return (between 1 and 100)",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Sort the results in ascending (ASC) or descending (DESC) order based on the group name.",
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "description": "The encoded cursor for paginated results. This is an opaque string that allows fetching the next set of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include archived groups (soft deleted records). Defaults to `true`.",
+                      "key": "include_archived_groups",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Extra information about the group.",
+                      "key": "external_metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:31:41.000Z",
+              "updatedAt": "2026-07-28T01:31:41.000Z",
+              "uid": "35240-99294754-3673-4e2d-bf5a-82b548f015a0"
+            }
+          ],
+          "createdAt": "2026-07-28T01:31:41.000Z",
+          "updatedAt": "2026-07-28T01:31:41.000Z",
+          "uid": "35240-23fb4e1c-5497-4245-9a1f-579b49e5d2c5"
+        }
+      ],
+      "id": "4b5152ce-cc2d-4c5e-9b87-884bc8297e61",
+      "createdAt": "2026-07-28T01:31:41.000Z",
+      "updatedAt": "2026-07-28T01:31:41.000Z",
+      "uid": "35240-4b5152ce-cc2d-4c5e-9b87-884bc8297e61"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

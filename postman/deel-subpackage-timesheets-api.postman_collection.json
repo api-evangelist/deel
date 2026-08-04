@@ -1,0 +1,2956 @@
+{
+  "info": {
+    "_postman_id": "98de07a7-2789-468c-999b-2e4300c6f44a",
+    "name": "Endpoints subpackage_timesheets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:33:26.000Z",
+    "updatedAt": "2026-07-28T01:33:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-98de07a7-2789-468c-999b-2e4300c6f44a"
+  },
+  "item": [
+    {
+      "name": "timesheets",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "reviews",
+              "item": [
+                {
+                  "name": "Review a single timesheet",
+                  "id": "f5fe6907-6008-4ffb-ad56-ed8093d63418",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id/reviews",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id",
+                        "reviews"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4ee75729-7bad-4eae-b27c-209c880f6aa8",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) ID of an existing timesheet"
+                        }
+                      ]
+                    },
+                    "description": "Review a timesheet to approve or decline submitted work.\n **Token scopes**: `timesheets:write`"
+                  },
+                  "response": [
+                    {
+                      "id": "dfe817d2-1ee1-417d-96a7-1015de008976",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/timesheets/:id/reviews",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "timesheets",
+                            ":id",
+                            "reviews"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"created\": \"<boolean>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:33:27.000Z",
+                      "updatedAt": "2026-07-28T01:33:27.000Z",
+                      "uid": "35240-dfe817d2-1ee1-417d-96a7-1015de008976"
+                    },
+                    {
+                      "id": "fc399165-a428-44d7-bddd-b343593c415c",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/timesheets/:id/reviews",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "timesheets",
+                            ":id",
+                            "reviews"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:27.000Z",
+                      "updatedAt": "2026-07-28T01:33:27.000Z",
+                      "uid": "35240-fc399165-a428-44d7-bddd-b343593c415c"
+                    },
+                    {
+                      "id": "8dac5c25-504f-4564-b0a7-a107acee6d15",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/timesheets/:id/reviews",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "timesheets",
+                            ":id",
+                            "reviews"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:27.000Z",
+                      "updatedAt": "2026-07-28T01:33:27.000Z",
+                      "uid": "35240-8dac5c25-504f-4564-b0a7-a107acee6d15"
+                    },
+                    {
+                      "id": "bbcf8346-d70b-49ca-bf85-105fa4e62574",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/timesheets/:id/reviews",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "timesheets",
+                            ":id",
+                            "reviews"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:27.000Z",
+                      "updatedAt": "2026-07-28T01:33:27.000Z",
+                      "uid": "35240-bbcf8346-d70b-49ca-bf85-105fa4e62574"
+                    },
+                    {
+                      "id": "d7b89e85-6380-4119-89d6-31f6689b8ede",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/timesheets/:id/reviews",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "timesheets",
+                            ":id",
+                            "reviews"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:27.000Z",
+                      "updatedAt": "2026-07-28T01:33:27.000Z",
+                      "uid": "35240-d7b89e85-6380-4119-89d6-31f6689b8ede"
+                    },
+                    {
+                      "id": "754c6dea-0ae9-4d43-9931-5a43943bd738",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"status\": \"approved\",\n    \"reason\": \"<string,null>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/timesheets/:id/reviews",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "timesheets",
+                            ":id",
+                            "reviews"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:27.000Z",
+                      "updatedAt": "2026-07-28T01:33:27.000Z",
+                      "uid": "35240-754c6dea-0ae9-4d43-9931-5a43943bd738"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-f5fe6907-6008-4ffb-ad56-ed8093d63418"
+                }
+              ],
+              "id": "07bf4731-ae35-4a7c-afde-0869824c3abb",
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-07bf4731-ae35-4a7c-afde-0869824c3abb"
+            },
+            {
+              "name": "Retrieve a single timesheet entry",
+              "id": "31da961b-ce33-4f54-a80b-d35f85ceb8cd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/timesheets/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "timesheets",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "b59a97d7-f479-4303-bcd2-3374f8f4b38e",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) ID of an existing timesheet"
+                    }
+                  ]
+                },
+                "description": "Retrieve a single timesheet entry by Id.\n **Token scopes**: `timesheets:read`"
+              },
+              "response": [
+                {
+                  "id": "eb843f06-3826-4bdc-a9ce-e27f2e32dcb6",
+                  "name": "Successful operation.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"status\": \"paid\",\n    \"contract\": {\n      \"id\": \"<string>\",\n      \"type\": \"milestones\",\n      \"title\": \"<string>\"\n    },\n    \"quantity\": \"<number,null-double>\",\n    \"worksheet\": {\n      \"days\": \"<double>\",\n      \"hours\": \"<double>\",\n      \"weeks\": \"<double>\",\n      \"minutes\": \"<double>\"\n    },\n    \"attachment\": {\n      \"key\": \"<string>\",\n      \"filename\": \"<string>\"\n    },\n    \"created_at\": \"<string>\",\n    \"description\": \"<string>\",\n    \"reported_by\": {\n      \"id\": \"<string>\",\n      \"full_name\": \"<string>\"\n    },\n    \"reviewed_by\": {\n      \"id\": \"<string>\",\n      \"remarks\": \"<string>\",\n      \"reviewed_at\": \"<string>\",\n      \"full_name\": \"<string>\"\n    },\n    \"total_amount\": \"<string>\",\n    \"currency_code\": \"<string>\",\n    \"date_submitted\": \"<dateTime>\",\n    \"approvers\": [\n      {\n        \"approved\": \"<boolean>\",\n        \"email\": \"<string>\",\n        \"full_name\": \"<string>\"\n      },\n      {\n        \"approved\": \"<boolean>\",\n        \"email\": \"<string>\",\n        \"full_name\": \"<string>\"\n      }\n    ],\n    \"scale\": \"<string,null>\",\n    \"custom_scale\": \"<string,null>\",\n    \"payment_cycle\": {\n      \"end_date\": \"<string,null-date-time>\",\n      \"start_date\": \"<string,null-date-time>\"\n    },\n    \"hourly_report_preset\": {\n      \"id\": \"<string,null>\",\n      \"rate\": \"<number,null-double>\",\n      \"title\": \"<string,null>\",\n      \"description\": \"<string,null>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-eb843f06-3826-4bdc-a9ce-e27f2e32dcb6"
+                },
+                {
+                  "id": "1a253a7d-dd97-45a0-b6e7-7d3e8dfd9ea7",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-1a253a7d-dd97-45a0-b6e7-7d3e8dfd9ea7"
+                },
+                {
+                  "id": "3fe055b6-c4cf-4b80-9d8d-7546ce49fe4e",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-3fe055b6-c4cf-4b80-9d8d-7546ce49fe4e"
+                },
+                {
+                  "id": "75f2723e-e737-4346-8153-ce786c01852a",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-75f2723e-e737-4346-8153-ce786c01852a"
+                },
+                {
+                  "id": "40d97edc-4a99-4543-a027-7440bb0dc5b3",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-40d97edc-4a99-4543-a027-7440bb0dc5b3"
+                },
+                {
+                  "id": "2ad3faec-76a1-4f29-885f-70f8f8ae97a4",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-2ad3faec-76a1-4f29-885f-70f8f8ae97a4"
+                }
+              ],
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-31da961b-ce33-4f54-a80b-d35f85ceb8cd"
+            },
+            {
+              "name": "Update a timesheet entry",
+              "id": "4acde558-d4de-406d-84fd-0f06ab024a80",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"quantity\": \"<double>\",\n    \"description\": \"<string>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/timesheets/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "timesheets",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f0ed9270-b074-4fd8-9d3e-1863e8303934",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) ID of an existing timesheet."
+                    }
+                  ]
+                },
+                "description": "Use this endpoint to update an existing timesheet entry by its id when correcting logged hours or refining the work note. Send a PATCH request to /timesheets/:id with a data object containing fields to change, such as quantity, description, or hourly_report_preset_id. Both clients and contractors can perform this update.\n **Token scopes**: `timesheets:write`"
+              },
+              "response": [
+                {
+                  "id": "feb27158-816c-4bc8-8df2-03d6627ce5e7",
+                  "name": "Successful operation.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"quantity\": \"<double>\",\n    \"description\": \"<string>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"updated\": \"<boolean>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-feb27158-816c-4bc8-8df2-03d6627ce5e7"
+                },
+                {
+                  "id": "8003a4da-a2bc-46e7-925e-4d7019536618",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"quantity\": \"<double>\",\n    \"description\": \"<string>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-8003a4da-a2bc-46e7-925e-4d7019536618"
+                },
+                {
+                  "id": "2c6b35b7-8061-4efe-8a92-40b8ab7f80c3",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"quantity\": \"<double>\",\n    \"description\": \"<string>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-2c6b35b7-8061-4efe-8a92-40b8ab7f80c3"
+                },
+                {
+                  "id": "9b897bc1-11f3-4647-af0e-7e8db00dbb09",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"quantity\": \"<double>\",\n    \"description\": \"<string>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-9b897bc1-11f3-4647-af0e-7e8db00dbb09"
+                },
+                {
+                  "id": "acbe0f76-8197-4774-944d-58040d6e4d5c",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"quantity\": \"<double>\",\n    \"description\": \"<string>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-acbe0f76-8197-4774-944d-58040d6e4d5c"
+                },
+                {
+                  "id": "f55d32ff-beb1-4f3e-8368-b02d1f854ce2",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"quantity\": \"<double>\",\n    \"description\": \"<string>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-f55d32ff-beb1-4f3e-8368-b02d1f854ce2"
+                }
+              ],
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-4acde558-d4de-406d-84fd-0f06ab024a80"
+            },
+            {
+              "name": "Delete a timesheet entry",
+              "id": "d0d39bf4-5d27-4f07-82e3-d245ce19a7d4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/timesheets/:id?reason=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "timesheets",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Reason for deleting an existing task",
+                      "key": "reason",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "2cb1c9ff-3ffb-45b9-8b68-33edd325e6bc",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) ID of an existing timesheet"
+                    }
+                  ]
+                },
+                "description": "Delete a single timesheet entry.\n **Token scopes**: `timesheets:write`"
+              },
+              "response": [
+                {
+                  "id": "7eaf7eb9-6634-4cc8-a75d-857545b7faa0",
+                  "name": "Successful operation.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id?reason=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Reason for deleting an existing task",
+                          "key": "reason",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"deleted\": \"<boolean>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-7eaf7eb9-6634-4cc8-a75d-857545b7faa0"
+                },
+                {
+                  "id": "c369437d-ed2a-492d-96a6-5f207bb5e371",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id?reason=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Reason for deleting an existing task",
+                          "key": "reason",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-c369437d-ed2a-492d-96a6-5f207bb5e371"
+                },
+                {
+                  "id": "d9ece0c6-bac4-4a87-9f52-23d5d6d259c1",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id?reason=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Reason for deleting an existing task",
+                          "key": "reason",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-d9ece0c6-bac4-4a87-9f52-23d5d6d259c1"
+                },
+                {
+                  "id": "0333db96-6477-46cd-b716-8d5249a3de82",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id?reason=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Reason for deleting an existing task",
+                          "key": "reason",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-0333db96-6477-46cd-b716-8d5249a3de82"
+                },
+                {
+                  "id": "5f2a34de-6570-4703-a4e9-8a103174d3c8",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id?reason=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Reason for deleting an existing task",
+                          "key": "reason",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-5f2a34de-6570-4703-a4e9-8a103174d3c8"
+                },
+                {
+                  "id": "e5e28e27-dd04-4508-8b1f-f4e4a3148048",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/timesheets/:id?reason=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "timesheets",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Reason for deleting an existing task",
+                          "key": "reason",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-e5e28e27-dd04-4508-8b1f-f4e4a3148048"
+                }
+              ],
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-d0d39bf4-5d27-4f07-82e3-d245ce19a7d4"
+            }
+          ],
+          "id": "5f1d9eef-7722-46cc-bee0-bcaa016a2017",
+          "createdAt": "2026-07-28T01:33:27.000Z",
+          "updatedAt": "2026-07-28T01:33:27.000Z",
+          "uid": "35240-5f1d9eef-7722-46cc-bee0-bcaa016a2017"
+        },
+        {
+          "name": "Create a timesheet entry",
+          "id": "8ad5b5f5-a170-495b-a77a-f9e59bf8dd2f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"quantity\": \"<double>\",\n    \"contract_id\": \"<string>\",\n    \"description\": \"\",\n    \"date_submitted\": \"<date>\",\n    \"is_auto_approved\": \"<boolean>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/timesheets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "timesheets"
+              ]
+            },
+            "description": "Submit work for a contractor.\n **Token scopes**: `timesheets:write`"
+          },
+          "response": [
+            {
+              "id": "796e637f-2c2c-4566-9054-023bc3ceee6e",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"quantity\": \"<double>\",\n    \"contract_id\": \"<string>\",\n    \"description\": \"\",\n    \"date_submitted\": \"<date>\",\n    \"is_auto_approved\": \"<boolean>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/timesheets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "timesheets"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"created\": \"<boolean>\",\n    \"id\": \"<string>\",\n    \"status\": \"approved\",\n    \"created_at\": \"<string,null-date-time>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-796e637f-2c2c-4566-9054-023bc3ceee6e"
+            },
+            {
+              "id": "65d5a479-be0b-404d-9b23-395c0160eb1c",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"quantity\": \"<double>\",\n    \"contract_id\": \"<string>\",\n    \"description\": \"\",\n    \"date_submitted\": \"<date>\",\n    \"is_auto_approved\": \"<boolean>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/timesheets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "timesheets"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-65d5a479-be0b-404d-9b23-395c0160eb1c"
+            },
+            {
+              "id": "472396f3-da3c-4a17-942d-9e71039c8c50",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"quantity\": \"<double>\",\n    \"contract_id\": \"<string>\",\n    \"description\": \"\",\n    \"date_submitted\": \"<date>\",\n    \"is_auto_approved\": \"<boolean>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/timesheets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "timesheets"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-472396f3-da3c-4a17-942d-9e71039c8c50"
+            },
+            {
+              "id": "8530861f-4b5e-4ea9-98cd-327399b20953",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"quantity\": \"<double>\",\n    \"contract_id\": \"<string>\",\n    \"description\": \"\",\n    \"date_submitted\": \"<date>\",\n    \"is_auto_approved\": \"<boolean>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/timesheets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "timesheets"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-8530861f-4b5e-4ea9-98cd-327399b20953"
+            },
+            {
+              "id": "75319eb3-730d-494c-ad1e-81ecbd41e462",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"quantity\": \"<double>\",\n    \"contract_id\": \"<string>\",\n    \"description\": \"\",\n    \"date_submitted\": \"<date>\",\n    \"is_auto_approved\": \"<boolean>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/timesheets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "timesheets"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-75319eb3-730d-494c-ad1e-81ecbd41e462"
+            },
+            {
+              "id": "81e4858d-bf9c-4396-8cb0-71f4ee61b5ec",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"quantity\": \"<double>\",\n    \"contract_id\": \"<string>\",\n    \"description\": \"\",\n    \"date_submitted\": \"<date>\",\n    \"is_auto_approved\": \"<boolean>\",\n    \"hourly_report_preset_id\": \"<string,null>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/timesheets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "timesheets"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-81e4858d-bf9c-4396-8cb0-71f4ee61b5ec"
+            }
+          ],
+          "createdAt": "2026-07-28T01:33:27.000Z",
+          "updatedAt": "2026-07-28T01:33:27.000Z",
+          "uid": "35240-8ad5b5f5-a170-495b-a77a-f9e59bf8dd2f"
+        },
+        {
+          "name": "List of timesheets",
+          "id": "65da898f-1ca2-4856-996c-eeb1128b9616",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/timesheets?contract_id=<string>&contract_types=ongoing_time_based&contract_types=payg_tasks&statuses=not_payable&statuses=paid&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "timesheets"
+              ],
+              "query": [
+                {
+                  "description": "Id of an Deel contract.",
+                  "key": "contract_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "types of contracts to filter",
+                  "key": "contract_types",
+                  "value": "ongoing_time_based"
+                },
+                {
+                  "description": "types of contracts to filter",
+                  "key": "contract_types",
+                  "value": "payg_tasks"
+                },
+                {
+                  "key": "statuses",
+                  "value": "not_payable"
+                },
+                {
+                  "key": "statuses",
+                  "value": "paid"
+                },
+                {
+                  "key": "reporter_id",
+                  "value": "<uuid>"
+                },
+                {
+                  "key": "date_from",
+                  "value": "<date>"
+                },
+                {
+                  "key": "date_to",
+                  "value": "<date>"
+                },
+                {
+                  "key": "limit",
+                  "value": "<string>"
+                },
+                {
+                  "key": "offset",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve a list of timesheets in your Deel account. You can filter the list by providing additional paramters e.g. contract_id, contract_type etc.\n **Token scopes**: `timesheets:read`"
+          },
+          "response": [
+            {
+              "id": "c921215f-e966-4f91-a8d2-0b689b3b8649",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/timesheets?contract_id=<string>&contract_types=payg_tasks&statuses=paid&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "timesheets"
+                  ],
+                  "query": [
+                    {
+                      "description": "Id of an Deel contract.",
+                      "key": "contract_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "types of contracts to filter",
+                      "key": "contract_types",
+                      "value": "payg_tasks"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "paid"
+                    },
+                    {
+                      "key": "reporter_id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"type\": \"<string>\",\n      \"status\": \"approved\",\n      \"contract\": {\n        \"id\": \"<string>\",\n        \"type\": \"unknown\",\n        \"title\": \"<string>\"\n      },\n      \"quantity\": \"<number,null-double>\",\n      \"worksheet\": {\n        \"days\": \"<double>\",\n        \"hours\": \"<double>\",\n        \"weeks\": \"<double>\",\n        \"minutes\": \"<double>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"reported_by\": {\n        \"id\": \"<uuid>\",\n        \"full_name\": \"<string>\"\n      },\n      \"total_amount\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"date_submitted\": \"<dateTime>\",\n      \"scale\": \"<string,null>\",\n      \"attachment\": {\n        \"key\": \"<string>\",\n        \"filename\": \"<string>\"\n      },\n      \"reviewed_by\": {\n        \"id\": \"<uuid>\",\n        \"remarks\": \"<string>\",\n        \"reviewed_at\": \"<dateTime>\",\n        \"full_name\": \"<string>\"\n      },\n      \"custom_scale\": \"<string,null>\",\n      \"payment_cycle\": {\n        \"end_date\": \"<dateTime>\",\n        \"start_date\": \"<dateTime>\"\n      },\n      \"hourly_report_preset\": {\n        \"id\": \"<string,null>\",\n        \"rate\": \"<number,null-double>\",\n        \"title\": \"<string,null>\",\n        \"description\": \"<string,null>\"\n      }\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"type\": \"<string>\",\n      \"status\": \"not_payable\",\n      \"contract\": {\n        \"id\": \"<string>\",\n        \"type\": \"unknown\",\n        \"title\": \"<string>\"\n      },\n      \"quantity\": \"<number,null-double>\",\n      \"worksheet\": {\n        \"days\": \"<double>\",\n        \"hours\": \"<double>\",\n        \"weeks\": \"<double>\",\n        \"minutes\": \"<double>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"reported_by\": {\n        \"id\": \"<uuid>\",\n        \"full_name\": \"<string>\"\n      },\n      \"total_amount\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"date_submitted\": \"<dateTime>\",\n      \"scale\": \"<string,null>\",\n      \"attachment\": {\n        \"key\": \"<string>\",\n        \"filename\": \"<string>\"\n      },\n      \"reviewed_by\": {\n        \"id\": \"<uuid>\",\n        \"remarks\": \"<string>\",\n        \"reviewed_at\": \"<dateTime>\",\n        \"full_name\": \"<string>\"\n      },\n      \"custom_scale\": \"<string,null>\",\n      \"payment_cycle\": {\n        \"end_date\": \"<dateTime>\",\n        \"start_date\": \"<dateTime>\"\n      },\n      \"hourly_report_preset\": {\n        \"id\": \"<string,null>\",\n        \"rate\": \"<number,null-double>\",\n        \"title\": \"<string,null>\",\n        \"description\": \"<string,null>\"\n      }\n    }\n  ],\n  \"page\": {\n    \"total_rows\": \"<double>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-c921215f-e966-4f91-a8d2-0b689b3b8649"
+            },
+            {
+              "id": "47e9a1e8-4ec9-435c-8941-057a6cee0140",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/timesheets?contract_id=<string>&contract_types=payg_tasks&statuses=paid&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "timesheets"
+                  ],
+                  "query": [
+                    {
+                      "description": "Id of an Deel contract.",
+                      "key": "contract_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "types of contracts to filter",
+                      "key": "contract_types",
+                      "value": "payg_tasks"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "paid"
+                    },
+                    {
+                      "key": "reporter_id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-47e9a1e8-4ec9-435c-8941-057a6cee0140"
+            },
+            {
+              "id": "858f848c-4a48-43c2-888e-af07396f8f5a",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/timesheets?contract_id=<string>&contract_types=payg_tasks&statuses=paid&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "timesheets"
+                  ],
+                  "query": [
+                    {
+                      "description": "Id of an Deel contract.",
+                      "key": "contract_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "types of contracts to filter",
+                      "key": "contract_types",
+                      "value": "payg_tasks"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "paid"
+                    },
+                    {
+                      "key": "reporter_id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-858f848c-4a48-43c2-888e-af07396f8f5a"
+            },
+            {
+              "id": "24a9a463-2f86-4e39-9acb-789df94278ec",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/timesheets?contract_id=<string>&contract_types=payg_tasks&statuses=paid&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "timesheets"
+                  ],
+                  "query": [
+                    {
+                      "description": "Id of an Deel contract.",
+                      "key": "contract_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "types of contracts to filter",
+                      "key": "contract_types",
+                      "value": "payg_tasks"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "paid"
+                    },
+                    {
+                      "key": "reporter_id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-24a9a463-2f86-4e39-9acb-789df94278ec"
+            },
+            {
+              "id": "8eee5816-0595-4b34-a894-8d47e8058924",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/timesheets?contract_id=<string>&contract_types=payg_tasks&statuses=paid&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "timesheets"
+                  ],
+                  "query": [
+                    {
+                      "description": "Id of an Deel contract.",
+                      "key": "contract_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "types of contracts to filter",
+                      "key": "contract_types",
+                      "value": "payg_tasks"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "paid"
+                    },
+                    {
+                      "key": "reporter_id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-8eee5816-0595-4b34-a894-8d47e8058924"
+            },
+            {
+              "id": "160ea158-4eae-48a1-a3e8-0a7ebcb0af0b",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/timesheets?contract_id=<string>&contract_types=payg_tasks&statuses=paid&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "timesheets"
+                  ],
+                  "query": [
+                    {
+                      "description": "Id of an Deel contract.",
+                      "key": "contract_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "types of contracts to filter",
+                      "key": "contract_types",
+                      "value": "payg_tasks"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "paid"
+                    },
+                    {
+                      "key": "reporter_id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-160ea158-4eae-48a1-a3e8-0a7ebcb0af0b"
+            }
+          ],
+          "createdAt": "2026-07-28T01:33:27.000Z",
+          "updatedAt": "2026-07-28T01:33:27.000Z",
+          "uid": "35240-65da898f-1ca2-4856-996c-eeb1128b9616"
+        }
+      ],
+      "id": "aa41c126-8bea-43a7-a5b2-5e83d4f98698",
+      "createdAt": "2026-07-28T01:33:27.000Z",
+      "updatedAt": "2026-07-28T01:33:27.000Z",
+      "uid": "35240-aa41c126-8bea-43a7-a5b2-5e83d4f98698"
+    },
+    {
+      "name": "contracts",
+      "item": [
+        {
+          "name": "{contract_id}",
+          "item": [
+            {
+              "name": "timesheets",
+              "item": [
+                {
+                  "name": "List of timesheets by contract",
+                  "id": "b6a257cd-a9d0-42aa-8013-8aaf6ba59da2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contracts/:contract_id/timesheets?contract_types=unknown&contract_types=shield_msa&statuses=approved&statuses=approved&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contracts",
+                        ":contract_id",
+                        "timesheets"
+                      ],
+                      "query": [
+                        {
+                          "description": "Types of contracts to filter.",
+                          "key": "contract_types",
+                          "value": "unknown"
+                        },
+                        {
+                          "description": "Types of contracts to filter.",
+                          "key": "contract_types",
+                          "value": "shield_msa"
+                        },
+                        {
+                          "description": "Statuses of timesheets to filter.",
+                          "key": "statuses",
+                          "value": "approved"
+                        },
+                        {
+                          "description": "Statuses of timesheets to filter.",
+                          "key": "statuses",
+                          "value": "approved"
+                        },
+                        {
+                          "description": "ID of an existing profile",
+                          "key": "reporter_id",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filtered results will include records created on or after the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                          "key": "date_from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Filtered results will include records created before the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                          "key": "date_to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                          "key": "limit",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results after given index of row",
+                          "key": "offset",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "5fb08d0f-ebc8-4d84-8e06-568e771f9ab9",
+                          "key": "contract_id",
+                          "value": "<string>",
+                          "description": "(Required) Deel contract id."
+                        }
+                      ]
+                    },
+                    "description": "Retrieve a list of timesheets found for a contract.\n **Token scopes**: `timesheets:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "79d2033a-9237-40c0-8bc5-516026c09ef0",
+                      "name": "Successful operation.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/timesheets?contract_types=shield_msa&statuses=approved&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "timesheets"
+                          ],
+                          "query": [
+                            {
+                              "description": "Types of contracts to filter.",
+                              "key": "contract_types",
+                              "value": "shield_msa"
+                            },
+                            {
+                              "description": "Statuses of timesheets to filter.",
+                              "key": "statuses",
+                              "value": "approved"
+                            },
+                            {
+                              "description": "ID of an existing profile",
+                              "key": "reporter_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Filtered results will include records created on or after the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Filtered results will include records created before the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "limit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return a page of results after given index of row",
+                              "key": "offset",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"type\": \"<string>\",\n      \"status\": \"paid\",\n      \"contract\": {\n        \"id\": \"<string>\",\n        \"type\": \"ongoing_time_based\",\n        \"title\": \"<string>\"\n      },\n      \"quantity\": \"<number,null-double>\",\n      \"worksheet\": {\n        \"days\": \"<double>\",\n        \"hours\": \"<double>\",\n        \"weeks\": \"<double>\",\n        \"minutes\": \"<double>\"\n      },\n      \"created_at\": \"<string>\",\n      \"description\": \"<string>\",\n      \"reported_by\": {\n        \"id\": \"<uuid>\",\n        \"full_name\": \"<string>\"\n      },\n      \"total_amount\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"date_submitted\": \"<dateTime>\",\n      \"scale\": \"<string,null>\",\n      \"attachment\": {\n        \"key\": \"<string>\",\n        \"filename\": \"<string>\"\n      },\n      \"reviewed_by\": {\n        \"id\": \"<uuid>\",\n        \"remarks\": \"<string>\",\n        \"reviewed_at\": \"<string>\",\n        \"full_name\": \"<string>\"\n      },\n      \"custom_scale\": \"<string,null>\",\n      \"payment_cycle\": {\n        \"end_date\": \"<string,null-date-time>\",\n        \"start_date\": \"<string,null-date-time>\"\n      },\n      \"hourly_report_preset\": {\n        \"id\": \"<string,null>\",\n        \"rate\": \"<number,null-double>\",\n        \"title\": \"<string,null>\",\n        \"description\": \"<string,null>\"\n      }\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"type\": \"<string>\",\n      \"status\": \"processing\",\n      \"contract\": {\n        \"id\": \"<string>\",\n        \"type\": \"employee\",\n        \"title\": \"<string>\"\n      },\n      \"quantity\": \"<number,null-double>\",\n      \"worksheet\": {\n        \"days\": \"<double>\",\n        \"hours\": \"<double>\",\n        \"weeks\": \"<double>\",\n        \"minutes\": \"<double>\"\n      },\n      \"created_at\": \"<string>\",\n      \"description\": \"<string>\",\n      \"reported_by\": {\n        \"id\": \"<uuid>\",\n        \"full_name\": \"<string>\"\n      },\n      \"total_amount\": \"<string>\",\n      \"currency_code\": \"<string>\",\n      \"date_submitted\": \"<dateTime>\",\n      \"scale\": \"<string,null>\",\n      \"attachment\": {\n        \"key\": \"<string>\",\n        \"filename\": \"<string>\"\n      },\n      \"reviewed_by\": {\n        \"id\": \"<uuid>\",\n        \"remarks\": \"<string>\",\n        \"reviewed_at\": \"<string>\",\n        \"full_name\": \"<string>\"\n      },\n      \"custom_scale\": \"<string,null>\",\n      \"payment_cycle\": {\n        \"end_date\": \"<string,null-date-time>\",\n        \"start_date\": \"<string,null-date-time>\"\n      },\n      \"hourly_report_preset\": {\n        \"id\": \"<string,null>\",\n        \"rate\": \"<number,null-double>\",\n        \"title\": \"<string,null>\",\n        \"description\": \"<string,null>\"\n      }\n    }\n  ],\n  \"page\": {\n    \"total_rows\": \"<double>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:33:27.000Z",
+                      "updatedAt": "2026-07-28T01:33:27.000Z",
+                      "uid": "35240-79d2033a-9237-40c0-8bc5-516026c09ef0"
+                    },
+                    {
+                      "id": "00c3f62d-3160-4e18-a5cc-fd410e236649",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/timesheets?contract_types=shield_msa&statuses=approved&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "timesheets"
+                          ],
+                          "query": [
+                            {
+                              "description": "Types of contracts to filter.",
+                              "key": "contract_types",
+                              "value": "shield_msa"
+                            },
+                            {
+                              "description": "Statuses of timesheets to filter.",
+                              "key": "statuses",
+                              "value": "approved"
+                            },
+                            {
+                              "description": "ID of an existing profile",
+                              "key": "reporter_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Filtered results will include records created on or after the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Filtered results will include records created before the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "limit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return a page of results after given index of row",
+                              "key": "offset",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:27.000Z",
+                      "updatedAt": "2026-07-28T01:33:27.000Z",
+                      "uid": "35240-00c3f62d-3160-4e18-a5cc-fd410e236649"
+                    },
+                    {
+                      "id": "5e548b09-e9dc-426a-a500-2c23b36f0a3d",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/timesheets?contract_types=shield_msa&statuses=approved&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "timesheets"
+                          ],
+                          "query": [
+                            {
+                              "description": "Types of contracts to filter.",
+                              "key": "contract_types",
+                              "value": "shield_msa"
+                            },
+                            {
+                              "description": "Statuses of timesheets to filter.",
+                              "key": "statuses",
+                              "value": "approved"
+                            },
+                            {
+                              "description": "ID of an existing profile",
+                              "key": "reporter_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Filtered results will include records created on or after the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Filtered results will include records created before the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "limit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return a page of results after given index of row",
+                              "key": "offset",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:27.000Z",
+                      "updatedAt": "2026-07-28T01:33:27.000Z",
+                      "uid": "35240-5e548b09-e9dc-426a-a500-2c23b36f0a3d"
+                    },
+                    {
+                      "id": "6df3a05d-4daf-4ed4-b7a3-65d06a9474b5",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/timesheets?contract_types=shield_msa&statuses=approved&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "timesheets"
+                          ],
+                          "query": [
+                            {
+                              "description": "Types of contracts to filter.",
+                              "key": "contract_types",
+                              "value": "shield_msa"
+                            },
+                            {
+                              "description": "Statuses of timesheets to filter.",
+                              "key": "statuses",
+                              "value": "approved"
+                            },
+                            {
+                              "description": "ID of an existing profile",
+                              "key": "reporter_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Filtered results will include records created on or after the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Filtered results will include records created before the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "limit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return a page of results after given index of row",
+                              "key": "offset",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:27.000Z",
+                      "updatedAt": "2026-07-28T01:33:27.000Z",
+                      "uid": "35240-6df3a05d-4daf-4ed4-b7a3-65d06a9474b5"
+                    },
+                    {
+                      "id": "7545afba-bcef-407c-90a0-c4be5f67ed98",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/timesheets?contract_types=shield_msa&statuses=approved&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "timesheets"
+                          ],
+                          "query": [
+                            {
+                              "description": "Types of contracts to filter.",
+                              "key": "contract_types",
+                              "value": "shield_msa"
+                            },
+                            {
+                              "description": "Statuses of timesheets to filter.",
+                              "key": "statuses",
+                              "value": "approved"
+                            },
+                            {
+                              "description": "ID of an existing profile",
+                              "key": "reporter_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Filtered results will include records created on or after the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Filtered results will include records created before the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "limit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return a page of results after given index of row",
+                              "key": "offset",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:27.000Z",
+                      "updatedAt": "2026-07-28T01:33:27.000Z",
+                      "uid": "35240-7545afba-bcef-407c-90a0-c4be5f67ed98"
+                    },
+                    {
+                      "id": "cf4110c0-f6b7-41ea-ae37-59b6e9d2019d",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/contracts/:contract_id/timesheets?contract_types=shield_msa&statuses=approved&reporter_id=<uuid>&date_from=<date>&date_to=<date>&limit=<string>&offset=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contracts",
+                            ":contract_id",
+                            "timesheets"
+                          ],
+                          "query": [
+                            {
+                              "description": "Types of contracts to filter.",
+                              "key": "contract_types",
+                              "value": "shield_msa"
+                            },
+                            {
+                              "description": "Statuses of timesheets to filter.",
+                              "key": "statuses",
+                              "value": "approved"
+                            },
+                            {
+                              "description": "ID of an existing profile",
+                              "key": "reporter_id",
+                              "value": "<uuid>"
+                            },
+                            {
+                              "description": "Filtered results will include records created on or after the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Filtered results will include records created before the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31.",
+                              "key": "date_to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings",
+                              "key": "limit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return a page of results after given index of row",
+                              "key": "offset",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "contract_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:33:27.000Z",
+                      "updatedAt": "2026-07-28T01:33:27.000Z",
+                      "uid": "35240-cf4110c0-f6b7-41ea-ae37-59b6e9d2019d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:33:27.000Z",
+                  "updatedAt": "2026-07-28T01:33:27.000Z",
+                  "uid": "35240-b6a257cd-a9d0-42aa-8013-8aaf6ba59da2"
+                }
+              ],
+              "id": "8baea8e7-8aa4-4b15-8491-7005fdb5a8bc",
+              "createdAt": "2026-07-28T01:33:27.000Z",
+              "updatedAt": "2026-07-28T01:33:27.000Z",
+              "uid": "35240-8baea8e7-8aa4-4b15-8491-7005fdb5a8bc"
+            }
+          ],
+          "id": "56b3f8b4-733b-4928-8ba0-9763c478af05",
+          "createdAt": "2026-07-28T01:33:27.000Z",
+          "updatedAt": "2026-07-28T01:33:27.000Z",
+          "uid": "35240-56b3f8b4-733b-4928-8ba0-9763c478af05"
+        }
+      ],
+      "id": "475c6186-5f01-4cc9-ae6c-e0e180e41e56",
+      "createdAt": "2026-07-28T01:33:27.000Z",
+      "updatedAt": "2026-07-28T01:33:27.000Z",
+      "uid": "35240-475c6186-5f01-4cc9-ae6c-e0e180e41e56"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

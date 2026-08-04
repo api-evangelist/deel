@@ -1,0 +1,561 @@
+{
+  "info": {
+    "_postman_id": "05d0d7bd-c262-42a9-9a6f-e26c8958112c",
+    "name": "Endpoints subpackage_paystubs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:49.000Z",
+    "updatedAt": "2026-07-28T01:32:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-05d0d7bd-c262-42a9-9a6f-e26c8958112c"
+  },
+  "item": [
+    {
+      "name": "benefits",
+      "item": [
+        {
+          "name": "legal-entities",
+          "item": [
+            {
+              "name": "{legal_entity_id}",
+              "item": [
+                {
+                  "name": "paystubs",
+                  "item": [
+                    {
+                      "name": "Get paystubs from legal entity integrated with external benefits vendor",
+                      "id": "b8d7dca2-3db9-4347-8166-6c9d6a29ad13",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/paystubs?states=LOCKED&states=CLOSED&date_start=<string>&date_end=<string>&items_per_page=10&cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "benefits",
+                            "legal-entities",
+                            ":legal_entity_id",
+                            "paystubs"
+                          ],
+                          "query": [
+                            {
+                              "description": "Payroll states: OPEN | LOCKED | CLOSED (OPEN doesn't have `employees` info)",
+                              "key": "states",
+                              "value": "LOCKED"
+                            },
+                            {
+                              "description": "Payroll states: OPEN | LOCKED | CLOSED (OPEN doesn't have `employees` info)",
+                              "key": "states",
+                              "value": "CLOSED"
+                            },
+                            {
+                              "description": "Start date to fectch the paystubs from",
+                              "key": "date_start",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "End date to fectch the paystubs",
+                              "key": "date_end",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Items per page",
+                              "key": "items_per_page",
+                              "value": "10"
+                            },
+                            {
+                              "description": "The last fetched id to start querying from",
+                              "key": "cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "9c586069-439e-4546-a4e4-bf796811df58",
+                              "key": "legal_entity_id",
+                              "value": "<string>",
+                              "description": "(Required) Id from the legal entity to fetch data"
+                            }
+                          ]
+                        },
+                        "description": "Returns paginated paystubs for a legal entity that is integrated with an external benefits vendor. Results can be filtered by payroll state and date range; paystubs in the `OPEN` state do not include employee-level detail.\n **Token scopes**: `benefits:read`"
+                      },
+                      "response": [
+                        {
+                          "id": "df29d894-936b-4492-9dfb-941a6dd759ac",
+                          "name": "Successful operation.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/paystubs?states=CLOSED&date_start=<string>&date_end=<string>&items_per_page=10&cursor=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":legal_entity_id",
+                                "paystubs"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Payroll states: OPEN | LOCKED | CLOSED (OPEN doesn't have `employees` info)",
+                                  "key": "states",
+                                  "value": "CLOSED"
+                                },
+                                {
+                                  "description": "Start date to fectch the paystubs from",
+                                  "key": "date_start",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "End date to fectch the paystubs",
+                                  "key": "date_end",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Items per page",
+                                  "key": "items_per_page",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "The last fetched id to start querying from",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "legal_entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": {\n    \"data\": [\n      {\n        \"employees\": [\n          {\n            \"gross_pay\": \"<number,null-double>\",\n            \"contract_id\": \"<string>\",\n            \"employee_id\": \"<string>\",\n            \"hours_worked\": \"<number,null-double>\",\n            \"contributions\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Loan\",\n                \"amount\": \"<double>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Trad\",\n                \"amount\": \"<double>\"\n              }\n            ],\n            \"employerContributions\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Safe Harbor Type 1\",\n                \"amount\": \"<double>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Non Elective\",\n                \"amount\": \"<double>\"\n              }\n            ]\n          },\n          {\n            \"gross_pay\": \"<number,null-double>\",\n            \"contract_id\": \"<string>\",\n            \"employee_id\": \"<string>\",\n            \"hours_worked\": \"<number,null-double>\",\n            \"contributions\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Roth\",\n                \"amount\": \"<double>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Loan\",\n                \"amount\": \"<double>\"\n              }\n            ],\n            \"employerContributions\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Safe Harbor Type 1\",\n                \"amount\": \"<double>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Match Rate\",\n                \"amount\": \"<double>\"\n              }\n            ]\n          }\n        ],\n        \"payroll_id\": \"<string>\",\n        \"payment_date\": \"<string>\",\n        \"payroll_type\": \"HISTORICAL\",\n        \"payroll_state\": \"LOCKED\",\n        \"payroll_end_date\": \"<string>\",\n        \"payroll_schedule\": \"WEEKLY\",\n        \"payroll_start_date\": \"<string>\"\n      },\n      {\n        \"employees\": [\n          {\n            \"gross_pay\": \"<number,null-double>\",\n            \"contract_id\": \"<string>\",\n            \"employee_id\": \"<string>\",\n            \"hours_worked\": \"<number,null-double>\",\n            \"contributions\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Roth\",\n                \"amount\": \"<double>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Loan\",\n                \"amount\": \"<double>\"\n              }\n            ],\n            \"employerContributions\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Non Elective\",\n                \"amount\": \"<double>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Match Rate\",\n                \"amount\": \"<double>\"\n              }\n            ]\n          },\n          {\n            \"gross_pay\": \"<number,null-double>\",\n            \"contract_id\": \"<string>\",\n            \"employee_id\": \"<string>\",\n            \"hours_worked\": \"<number,null-double>\",\n            \"contributions\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Trad\",\n                \"amount\": \"<double>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Trad\",\n                \"amount\": \"<double>\"\n              }\n            ],\n            \"employerContributions\": [\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Safe Harbor Type 2\",\n                \"amount\": \"<double>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"type\": \"Match Rate\",\n                \"amount\": \"<double>\"\n              }\n            ]\n          }\n        ],\n        \"payroll_id\": \"<string>\",\n        \"payment_date\": \"<string>\",\n        \"payroll_type\": \"OFFCYCLE\",\n        \"payroll_state\": \"LOCKED\",\n        \"payroll_end_date\": \"<string>\",\n        \"payroll_schedule\": \"BIWEEKLY\",\n        \"payroll_start_date\": \"<string>\"\n      }\n    ],\n    \"page\": {\n      \"cursor\": \"<string,null>\",\n      \"total_rows\": \"<integer>\",\n      \"items_per_page\": \"<integer>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T01:32:49.000Z",
+                          "updatedAt": "2026-07-28T01:32:49.000Z",
+                          "uid": "35240-df29d894-936b-4492-9dfb-941a6dd759ac"
+                        },
+                        {
+                          "id": "3e779956-efac-4693-a336-79cf5ca0f487",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/paystubs?states=CLOSED&date_start=<string>&date_end=<string>&items_per_page=10&cursor=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":legal_entity_id",
+                                "paystubs"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Payroll states: OPEN | LOCKED | CLOSED (OPEN doesn't have `employees` info)",
+                                  "key": "states",
+                                  "value": "CLOSED"
+                                },
+                                {
+                                  "description": "Start date to fectch the paystubs from",
+                                  "key": "date_start",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "End date to fectch the paystubs",
+                                  "key": "date_end",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Items per page",
+                                  "key": "items_per_page",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "The last fetched id to start querying from",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "legal_entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:49.000Z",
+                          "updatedAt": "2026-07-28T01:32:49.000Z",
+                          "uid": "35240-3e779956-efac-4693-a336-79cf5ca0f487"
+                        },
+                        {
+                          "id": "97385439-ce20-46a0-b989-873db71b53c5",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/paystubs?states=CLOSED&date_start=<string>&date_end=<string>&items_per_page=10&cursor=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":legal_entity_id",
+                                "paystubs"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Payroll states: OPEN | LOCKED | CLOSED (OPEN doesn't have `employees` info)",
+                                  "key": "states",
+                                  "value": "CLOSED"
+                                },
+                                {
+                                  "description": "Start date to fectch the paystubs from",
+                                  "key": "date_start",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "End date to fectch the paystubs",
+                                  "key": "date_end",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Items per page",
+                                  "key": "items_per_page",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "The last fetched id to start querying from",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "legal_entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:49.000Z",
+                          "updatedAt": "2026-07-28T01:32:49.000Z",
+                          "uid": "35240-97385439-ce20-46a0-b989-873db71b53c5"
+                        },
+                        {
+                          "id": "2047f7e8-ad31-4ac3-b923-2e9898d6a156",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/paystubs?states=CLOSED&date_start=<string>&date_end=<string>&items_per_page=10&cursor=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":legal_entity_id",
+                                "paystubs"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Payroll states: OPEN | LOCKED | CLOSED (OPEN doesn't have `employees` info)",
+                                  "key": "states",
+                                  "value": "CLOSED"
+                                },
+                                {
+                                  "description": "Start date to fectch the paystubs from",
+                                  "key": "date_start",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "End date to fectch the paystubs",
+                                  "key": "date_end",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Items per page",
+                                  "key": "items_per_page",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "The last fetched id to start querying from",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "legal_entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:49.000Z",
+                          "updatedAt": "2026-07-28T01:32:49.000Z",
+                          "uid": "35240-2047f7e8-ad31-4ac3-b923-2e9898d6a156"
+                        },
+                        {
+                          "id": "54fc6ae7-5029-4667-93ae-2ed1a5ea84e0",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/paystubs?states=CLOSED&date_start=<string>&date_end=<string>&items_per_page=10&cursor=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":legal_entity_id",
+                                "paystubs"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Payroll states: OPEN | LOCKED | CLOSED (OPEN doesn't have `employees` info)",
+                                  "key": "states",
+                                  "value": "CLOSED"
+                                },
+                                {
+                                  "description": "Start date to fectch the paystubs from",
+                                  "key": "date_start",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "End date to fectch the paystubs",
+                                  "key": "date_end",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Items per page",
+                                  "key": "items_per_page",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "The last fetched id to start querying from",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "legal_entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:49.000Z",
+                          "updatedAt": "2026-07-28T01:32:49.000Z",
+                          "uid": "35240-54fc6ae7-5029-4667-93ae-2ed1a5ea84e0"
+                        },
+                        {
+                          "id": "20225444-7fd9-4ffc-9425-3bdbd2a7ee7a",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/benefits/legal-entities/:legal_entity_id/paystubs?states=CLOSED&date_start=<string>&date_end=<string>&items_per_page=10&cursor=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "benefits",
+                                "legal-entities",
+                                ":legal_entity_id",
+                                "paystubs"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Payroll states: OPEN | LOCKED | CLOSED (OPEN doesn't have `employees` info)",
+                                  "key": "states",
+                                  "value": "CLOSED"
+                                },
+                                {
+                                  "description": "Start date to fectch the paystubs from",
+                                  "key": "date_start",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "End date to fectch the paystubs",
+                                  "key": "date_end",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Items per page",
+                                  "key": "items_per_page",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "The last fetched id to start querying from",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "legal_entity_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:32:49.000Z",
+                          "updatedAt": "2026-07-28T01:32:49.000Z",
+                          "uid": "35240-20225444-7fd9-4ffc-9425-3bdbd2a7ee7a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:32:49.000Z",
+                      "updatedAt": "2026-07-28T01:32:49.000Z",
+                      "uid": "35240-b8d7dca2-3db9-4347-8166-6c9d6a29ad13"
+                    }
+                  ],
+                  "id": "c3c23c16-4465-45a2-a6d4-f780c9386f4e",
+                  "createdAt": "2026-07-28T01:32:49.000Z",
+                  "updatedAt": "2026-07-28T01:32:49.000Z",
+                  "uid": "35240-c3c23c16-4465-45a2-a6d4-f780c9386f4e"
+                }
+              ],
+              "id": "48141d46-4489-4ef5-8140-a721760fa904",
+              "createdAt": "2026-07-28T01:32:49.000Z",
+              "updatedAt": "2026-07-28T01:32:49.000Z",
+              "uid": "35240-48141d46-4489-4ef5-8140-a721760fa904"
+            }
+          ],
+          "id": "edf4a50b-24bf-4c80-9d5d-99eb1632e8b3",
+          "createdAt": "2026-07-28T01:32:49.000Z",
+          "updatedAt": "2026-07-28T01:32:49.000Z",
+          "uid": "35240-edf4a50b-24bf-4c80-9d5d-99eb1632e8b3"
+        }
+      ],
+      "id": "35650dcc-b208-47e7-9518-14fea93aa01b",
+      "createdAt": "2026-07-28T01:32:49.000Z",
+      "updatedAt": "2026-07-28T01:32:49.000Z",
+      "uid": "35240-35650dcc-b208-47e7-9518-14fea93aa01b"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

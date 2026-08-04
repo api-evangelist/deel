@@ -1,0 +1,695 @@
+{
+  "info": {
+    "_postman_id": "c92ba6a5-e6eb-4d4f-88dd-292360959be1",
+    "name": "Endpoints subpackage_orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:32:38.000Z",
+    "updatedAt": "2026-07-28T01:32:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c92ba6a5-e6eb-4d4f-88dd-292360959be1"
+  },
+  "item": [
+    {
+      "name": "it",
+      "item": [
+        {
+          "name": "orders",
+          "item": [
+            {
+              "name": "{order_id}",
+              "item": [
+                {
+                  "name": "Retrieve an IT order",
+                  "id": "23dddb0b-84e4-4a50-b06f-9d9edd9ce1aa",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/it/orders/:order_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "it",
+                        "orders",
+                        ":order_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "19cf46e1-5742-4095-a8b3-f8fcbe23c286",
+                          "key": "order_id",
+                          "value": "<uuid>",
+                          "description": "(Required) Unique identifier of the IT order"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve detailed information about a single IT equipment order using its unique identifier. This allows you to track the order's status, review shipping details, and see the associated product.  For more info, visit [Orders](https://developer.deel.com/docs/deel-it-api#orders)\n **Token scopes**: `it-orders:read`"
+                  },
+                  "response": [
+                    {
+                      "id": "4247c344-fc69-4566-b175-289306fb97f2",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/it/orders/:order_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "it",
+                            "orders",
+                            ":order_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "order_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"id\": \"<uuid>\",\n    \"user\": {\n      \"emails\": [\n        \"<email>\",\n        \"<email>\"\n      ],\n      \"address\": {\n        \"id\": \"<uuid>\",\n        \"city\": \"<string,null>\",\n        \"type\": \"PARTIAL\",\n        \"line1\": \"<string,null>\",\n        \"line2\": \"<string,null>\",\n        \"state\": \"<string,null>\",\n        \"country\": \"CX\",\n        \"is_valid\": \"<boolean>\",\n        \"post_code\": \"<string,null>\",\n        \"phone_number\": \"<string,null>\",\n        \"date_of_birth\": \"<string,null-date>\",\n        \"tax_id_number\": \"<string,null>\",\n        \"passport_number\": \"<string,null>\",\n        \"delivery_instructions\": \"<string,null>\"\n      },\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"hris_profile_id\": \"<uuid>\"\n    },\n    \"status\": \"REQUESTED\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"order_items\": [\n      {\n        \"status\": \"AWAITING_PAYMENT\",\n        \"product\": {\n          \"id\": \"<uuid>\",\n          \"name\": \"<string>\",\n          \"brand\": \"<string>\",\n          \"category\": \"TABLET\"\n        },\n        \"is_approved\": \"<boolean>\",\n        \"pricing_details\": {\n          \"asset_price\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"KES\"\n          },\n          \"storefront_fee\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"KZT\"\n          },\n          \"acquisition_type\": \"RENTAL\"\n        },\n        \"is_express_delivery_requested\": \"<boolean>\"\n      },\n      {\n        \"status\": \"READY_TO_SHIP\",\n        \"product\": {\n          \"id\": \"<uuid>\",\n          \"name\": \"<string>\",\n          \"brand\": \"<string>\",\n          \"category\": \"OTHER\"\n        },\n        \"is_approved\": \"<boolean>\",\n        \"pricing_details\": {\n          \"asset_price\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"BSD\"\n          },\n          \"storefront_fee\": {\n            \"amount\": \"<string>\",\n            \"currency\": \"NAD\"\n          },\n          \"acquisition_type\": \"RENTAL\"\n        },\n        \"is_express_delivery_requested\": \"<boolean>\"\n      }\n    ],\n    \"delivery_address\": {\n      \"id\": \"<uuid>\",\n      \"city\": \"<string,null>\",\n      \"type\": \"BILLING\",\n      \"line1\": \"<string,null>\",\n      \"line2\": \"<string,null>\",\n      \"state\": \"<string,null>\",\n      \"country\": \"KH\",\n      \"is_valid\": \"<boolean>\",\n      \"post_code\": \"<string,null>\",\n      \"phone_number\": \"<string,null>\",\n      \"date_of_birth\": \"<string,null-date>\",\n      \"tax_id_number\": \"<string,null>\",\n      \"passport_number\": \"<string,null>\",\n      \"delivery_instructions\": \"<string,null>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T01:32:39.000Z",
+                      "updatedAt": "2026-07-28T01:32:39.000Z",
+                      "uid": "35240-4247c344-fc69-4566-b175-289306fb97f2"
+                    },
+                    {
+                      "id": "17ff8e46-d548-4def-be46-030d28143590",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/it/orders/:order_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "it",
+                            "orders",
+                            ":order_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "order_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:39.000Z",
+                      "updatedAt": "2026-07-28T01:32:39.000Z",
+                      "uid": "35240-17ff8e46-d548-4def-be46-030d28143590"
+                    },
+                    {
+                      "id": "85034cb3-158c-4d31-80ff-b8c6415366c0",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/it/orders/:order_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "it",
+                            "orders",
+                            ":order_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "order_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:39.000Z",
+                      "updatedAt": "2026-07-28T01:32:39.000Z",
+                      "uid": "35240-85034cb3-158c-4d31-80ff-b8c6415366c0"
+                    },
+                    {
+                      "id": "0a7f7142-9eff-4030-8024-51048aa7831b",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/it/orders/:order_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "it",
+                            "orders",
+                            ":order_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "order_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:39.000Z",
+                      "updatedAt": "2026-07-28T01:32:39.000Z",
+                      "uid": "35240-0a7f7142-9eff-4030-8024-51048aa7831b"
+                    },
+                    {
+                      "id": "b14f8294-6e62-49a2-b1cc-a6d128ebaf78",
+                      "name": "Operation failed.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/it/orders/:order_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "it",
+                            "orders",
+                            ":order_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "order_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:39.000Z",
+                      "updatedAt": "2026-07-28T01:32:39.000Z",
+                      "uid": "35240-b14f8294-6e62-49a2-b1cc-a6d128ebaf78"
+                    },
+                    {
+                      "id": "b73d4263-8066-4c00-a534-e8fedb2228f4",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/it/orders/:order_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "it",
+                            "orders",
+                            ":order_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "order_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:32:39.000Z",
+                      "updatedAt": "2026-07-28T01:32:39.000Z",
+                      "uid": "35240-b73d4263-8066-4c00-a534-e8fedb2228f4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:32:39.000Z",
+                  "updatedAt": "2026-07-28T01:32:39.000Z",
+                  "uid": "35240-23dddb0b-84e4-4a50-b06f-9d9edd9ce1aa"
+                }
+              ],
+              "id": "29632125-5162-4ab6-b18e-cf72279c69cb",
+              "createdAt": "2026-07-28T01:32:39.000Z",
+              "updatedAt": "2026-07-28T01:32:39.000Z",
+              "uid": "35240-29632125-5162-4ab6-b18e-cf72279c69cb"
+            },
+            {
+              "name": "List IT orders",
+              "id": "dbc01250-3453-40fe-b4c8-fdebdb57ef13",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/it/orders?cursor=<string>&limit=20",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "it",
+                    "orders"
+                  ],
+                  "query": [
+                    {
+                      "description": "Indicates where the next page of results starts, as returned in a paginated list response",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return a page of results with given number of records",
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ]
+                },
+                "description": "Retrieve a paginated list of all IT equipment orders for the organization. This is useful for reviewing both historical and current procurement requests to track overall equipment provisioning.  For more info, visit [Orders](https://developer.deel.com/docs/deel-it-api#orders).\n **Token scopes**: `it-orders:read`"
+              },
+              "response": [
+                {
+                  "id": "0cf9698e-b78b-4adc-9aae-dd7e8377f688",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/it/orders?cursor=<string>&limit=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "it",
+                        "orders"
+                      ],
+                      "query": [
+                        {
+                          "description": "Indicates where the next page of results starts, as returned in a paginated list response",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results with given number of records",
+                          "key": "limit",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"user\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"address\": {\n          \"id\": \"<uuid>\",\n          \"city\": \"<string,null>\",\n          \"type\": \"PARTIAL\",\n          \"line1\": \"<string,null>\",\n          \"line2\": \"<string,null>\",\n          \"state\": \"<string,null>\",\n          \"country\": \"SM\",\n          \"is_valid\": \"<boolean>\",\n          \"post_code\": \"<string,null>\",\n          \"phone_number\": \"<string,null>\",\n          \"date_of_birth\": \"<string,null-date>\",\n          \"tax_id_number\": \"<string,null>\",\n          \"passport_number\": \"<string,null>\",\n          \"delivery_instructions\": \"<string,null>\"\n        },\n        \"last_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"hris_profile_id\": \"<uuid>\"\n      },\n      \"status\": \"CANCELLED\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"order_items\": [\n        {\n          \"status\": \"COMPLETED\",\n          \"product\": {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"brand\": \"<string>\",\n            \"category\": \"SHREDDER\"\n          },\n          \"is_approved\": \"<boolean>\",\n          \"pricing_details\": {\n            \"asset_price\": {\n              \"amount\": \"<string>\",\n              \"currency\": \"CHF\"\n            },\n            \"storefront_fee\": {\n              \"amount\": \"<string>\",\n              \"currency\": \"MUR\"\n            },\n            \"acquisition_type\": \"PURCHASE\"\n          },\n          \"is_express_delivery_requested\": \"<boolean>\"\n        },\n        {\n          \"status\": \"PLACED\",\n          \"product\": {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"brand\": \"<string>\",\n            \"category\": \"DESKTOP\"\n          },\n          \"is_approved\": \"<boolean>\",\n          \"pricing_details\": {\n            \"asset_price\": {\n              \"amount\": \"<string>\",\n              \"currency\": \"MXN\"\n            },\n            \"storefront_fee\": {\n              \"amount\": \"<string>\",\n              \"currency\": \"BHD\"\n            },\n            \"acquisition_type\": \"PURCHASE\"\n          },\n          \"is_express_delivery_requested\": \"<boolean>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"user\": {\n        \"emails\": [\n          \"<email>\",\n          \"<email>\"\n        ],\n        \"address\": {\n          \"id\": \"<uuid>\",\n          \"city\": \"<string,null>\",\n          \"type\": \"PARTIAL\",\n          \"line1\": \"<string,null>\",\n          \"line2\": \"<string,null>\",\n          \"state\": \"<string,null>\",\n          \"country\": \"BI\",\n          \"is_valid\": \"<boolean>\",\n          \"post_code\": \"<string,null>\",\n          \"phone_number\": \"<string,null>\",\n          \"date_of_birth\": \"<string,null-date>\",\n          \"tax_id_number\": \"<string,null>\",\n          \"passport_number\": \"<string,null>\",\n          \"delivery_instructions\": \"<string,null>\"\n        },\n        \"last_name\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"hris_profile_id\": \"<uuid>\"\n      },\n      \"status\": \"APPROVED\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"order_items\": [\n        {\n          \"status\": \"PROCESSING\",\n          \"product\": {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"brand\": \"<string>\",\n            \"category\": \"DONGLE\"\n          },\n          \"is_approved\": \"<boolean>\",\n          \"pricing_details\": {\n            \"asset_price\": {\n              \"amount\": \"<string>\",\n              \"currency\": \"TJS\"\n            },\n            \"storefront_fee\": {\n              \"amount\": \"<string>\",\n              \"currency\": \"BRL\"\n            },\n            \"acquisition_type\": \"REUSE\"\n          },\n          \"is_express_delivery_requested\": \"<boolean>\"\n        },\n        {\n          \"status\": \"PROCESSING\",\n          \"product\": {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"brand\": \"<string>\",\n            \"category\": \"KEYBOARD\"\n          },\n          \"is_approved\": \"<boolean>\",\n          \"pricing_details\": {\n            \"asset_price\": {\n              \"amount\": \"<string>\",\n              \"currency\": \"SSP\"\n            },\n            \"storefront_fee\": {\n              \"amount\": \"<string>\",\n              \"currency\": \"ILS\"\n            },\n            \"acquisition_type\": \"PURCHASE\"\n          },\n          \"is_express_delivery_requested\": \"<boolean>\"\n        }\n      ]\n    }\n  ],\n  \"has_more\": \"<boolean>\",\n  \"next_cursor\": \"<string,null>\",\n  \"total_count\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:32:39.000Z",
+                  "updatedAt": "2026-07-28T01:32:39.000Z",
+                  "uid": "35240-0cf9698e-b78b-4adc-9aae-dd7e8377f688"
+                },
+                {
+                  "id": "2adb880f-af78-4505-a9b9-da4b214962b1",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/it/orders?cursor=<string>&limit=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "it",
+                        "orders"
+                      ],
+                      "query": [
+                        {
+                          "description": "Indicates where the next page of results starts, as returned in a paginated list response",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results with given number of records",
+                          "key": "limit",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:39.000Z",
+                  "updatedAt": "2026-07-28T01:32:39.000Z",
+                  "uid": "35240-2adb880f-af78-4505-a9b9-da4b214962b1"
+                },
+                {
+                  "id": "517908d1-654e-4769-8e7d-0241512f9f21",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/it/orders?cursor=<string>&limit=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "it",
+                        "orders"
+                      ],
+                      "query": [
+                        {
+                          "description": "Indicates where the next page of results starts, as returned in a paginated list response",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results with given number of records",
+                          "key": "limit",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:39.000Z",
+                  "updatedAt": "2026-07-28T01:32:39.000Z",
+                  "uid": "35240-517908d1-654e-4769-8e7d-0241512f9f21"
+                },
+                {
+                  "id": "fd114fc8-b6b7-45bb-92a3-3d59d5db6746",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/it/orders?cursor=<string>&limit=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "it",
+                        "orders"
+                      ],
+                      "query": [
+                        {
+                          "description": "Indicates where the next page of results starts, as returned in a paginated list response",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results with given number of records",
+                          "key": "limit",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:39.000Z",
+                  "updatedAt": "2026-07-28T01:32:39.000Z",
+                  "uid": "35240-fd114fc8-b6b7-45bb-92a3-3d59d5db6746"
+                },
+                {
+                  "id": "4e28da6f-91aa-4d17-bc83-67523bc24155",
+                  "name": "Operation failed.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/it/orders?cursor=<string>&limit=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "it",
+                        "orders"
+                      ],
+                      "query": [
+                        {
+                          "description": "Indicates where the next page of results starts, as returned in a paginated list response",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results with given number of records",
+                          "key": "limit",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:39.000Z",
+                  "updatedAt": "2026-07-28T01:32:39.000Z",
+                  "uid": "35240-4e28da6f-91aa-4d17-bc83-67523bc24155"
+                },
+                {
+                  "id": "0fe9ad5a-0f4d-4cdc-ad79-63a76b23f5c6",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/it/orders?cursor=<string>&limit=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "it",
+                        "orders"
+                      ],
+                      "query": [
+                        {
+                          "description": "Indicates where the next page of results starts, as returned in a paginated list response",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a page of results with given number of records",
+                          "key": "limit",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:32:39.000Z",
+                  "updatedAt": "2026-07-28T01:32:39.000Z",
+                  "uid": "35240-0fe9ad5a-0f4d-4cdc-ad79-63a76b23f5c6"
+                }
+              ],
+              "createdAt": "2026-07-28T01:32:39.000Z",
+              "updatedAt": "2026-07-28T01:32:39.000Z",
+              "uid": "35240-dbc01250-3453-40fe-b4c8-fdebdb57ef13"
+            }
+          ],
+          "id": "7eb2cc6d-04f7-4a27-b6d0-2df95865c9f3",
+          "createdAt": "2026-07-28T01:32:39.000Z",
+          "updatedAt": "2026-07-28T01:32:39.000Z",
+          "uid": "35240-7eb2cc6d-04f7-4a27-b6d0-2df95865c9f3"
+        }
+      ],
+      "id": "20459974-cc8c-4636-b35a-b39817749b16",
+      "createdAt": "2026-07-28T01:32:39.000Z",
+      "updatedAt": "2026-07-28T01:32:39.000Z",
+      "uid": "35240-20459974-cc8c-4636-b35a-b39817749b16"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

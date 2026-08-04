@@ -1,0 +1,803 @@
+{
+  "info": {
+    "_postman_id": "5c8656bb-6479-4918-b294-851380a79c85",
+    "name": "Endpoints subpackage_hrxDocuments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:31:41.000Z",
+    "updatedAt": "2026-07-28T01:31:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5c8656bb-6479-4918-b294-851380a79c85"
+  },
+  "item": [
+    {
+      "name": "eor",
+      "item": [
+        {
+          "name": "contracts",
+          "item": [
+            {
+              "name": "{contract_id}",
+              "item": [
+                {
+                  "name": "hrx-documents",
+                  "item": [
+                    {
+                      "name": "{document_id}",
+                      "item": [
+                        {
+                          "name": "Download HRX documents",
+                          "id": "1cd1d6bc-2984-480c-a343-b9d24d8252e3",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/hrx-documents/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "hrx-documents",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "402d5c4a-ea08-4de2-a961-d00ae5bde936",
+                                  "key": "contract_id",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique identifier of the employee contract."
+                                },
+                                {
+                                  "id": "29df69d5-8949-411b-a6e5-486b026aabd4",
+                                  "key": "document_id",
+                                  "value": "<uuid>",
+                                  "description": "(Required) The unique identifier of the document to download."
+                                }
+                              ]
+                            },
+                            "description": "Generates a pre-signed URL to download a specific HRX document as a PDF file for a given EOR contract. The URL is valid for 15 minutes. The document is generated and managed by HRX (Human Resources Experience) and includes various employment-related documents such as employment agreements, onboarding materials, tax documents, visa support letters, and other official documentation required throughout the employment lifecycle.\n **Token scopes**: `contracts:read`, `worker:read`"
+                          },
+                          "response": [
+                            {
+                              "id": "759fe1f3-69ae-4763-af8f-656f4142c0f1",
+                              "name": "Successfully generated pre-signed URL for HRX document download",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/hrx-documents/:document_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "hrx-documents",
+                                    ":document_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    },
+                                    {
+                                      "key": "document_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": {\n    \"url\": \"<uri>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:31:42.000Z",
+                              "updatedAt": "2026-07-28T01:31:42.000Z",
+                              "uid": "35240-759fe1f3-69ae-4763-af8f-656f4142c0f1"
+                            },
+                            {
+                              "id": "993538df-96c2-4ccf-a1f0-565fad853d00",
+                              "name": "Bad Request",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/hrx-documents/:document_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "hrx-documents",
+                                    ":document_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    },
+                                    {
+                                      "key": "document_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:42.000Z",
+                              "updatedAt": "2026-07-28T01:31:42.000Z",
+                              "uid": "35240-993538df-96c2-4ccf-a1f0-565fad853d00"
+                            },
+                            {
+                              "id": "135a6b8b-d635-496d-80ea-9248e12fd776",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/hrx-documents/:document_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "hrx-documents",
+                                    ":document_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    },
+                                    {
+                                      "key": "document_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:42.000Z",
+                              "updatedAt": "2026-07-28T01:31:42.000Z",
+                              "uid": "35240-135a6b8b-d635-496d-80ea-9248e12fd776"
+                            },
+                            {
+                              "id": "7b700bd8-f8bd-4bfa-8b53-b3020d051323",
+                              "name": "Operation failed.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/hrx-documents/:document_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "hrx-documents",
+                                    ":document_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    },
+                                    {
+                                      "key": "document_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:42.000Z",
+                              "updatedAt": "2026-07-28T01:31:42.000Z",
+                              "uid": "35240-7b700bd8-f8bd-4bfa-8b53-b3020d051323"
+                            },
+                            {
+                              "id": "27fec1cc-d66d-4359-80e8-188acec4d184",
+                              "name": "Operation failed.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/hrx-documents/:document_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "hrx-documents",
+                                    ":document_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    },
+                                    {
+                                      "key": "document_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:42.000Z",
+                              "updatedAt": "2026-07-28T01:31:42.000Z",
+                              "uid": "35240-27fec1cc-d66d-4359-80e8-188acec4d184"
+                            },
+                            {
+                              "id": "244b5140-47cc-4733-86b1-9a9a9a776066",
+                              "name": "Operation failed.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/hrx-documents/:document_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "hrx-documents",
+                                    ":document_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    },
+                                    {
+                                      "key": "document_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:42.000Z",
+                              "updatedAt": "2026-07-28T01:31:42.000Z",
+                              "uid": "35240-244b5140-47cc-4733-86b1-9a9a9a776066"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:31:42.000Z",
+                          "updatedAt": "2026-07-28T01:31:42.000Z",
+                          "uid": "35240-1cd1d6bc-2984-480c-a343-b9d24d8252e3"
+                        }
+                      ],
+                      "id": "6282df09-687c-45eb-ae77-d65a3e4dc3a1",
+                      "createdAt": "2026-07-28T01:31:42.000Z",
+                      "updatedAt": "2026-07-28T01:31:42.000Z",
+                      "uid": "35240-6282df09-687c-45eb-ae77-d65a3e4dc3a1"
+                    },
+                    {
+                      "name": "Retrieve HRX documents",
+                      "id": "1bfcc965-30a7-466e-b5ca-58838e387c4b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/contracts/:contract_id/hrx-documents?cursor=<string>&limit=20",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "contracts",
+                            ":contract_id",
+                            "hrx-documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "Cursor for pagination. Use the cursor from the previous response to get the next page of results.",
+                              "key": "cursor",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Number of items to return per page. Maximum is 100, default is 20.",
+                              "key": "limit",
+                              "value": "20"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "8d29a280-b48c-4a6f-a709-0ec01535d1b0",
+                              "key": "contract_id",
+                              "value": "<string>",
+                              "description": "(Required) The unique identifier of the employee contract."
+                            }
+                          ]
+                        },
+                        "description": "Retrieves a list of HRX documents that have been shared with an employee for a specific EOR contract. These documents are generated and managed by HRX (Human Resources Experience) and include various employment-related documents such as employment agreements, onboarding materials, tax documents, visa support letters, and other official documentation required throughout the employment lifecycle.\n **Token scopes**: `worker:read`, `contracts:read`"
+                      },
+                      "response": [
+                        {
+                          "id": "0384665b-23c7-4058-b71d-c35a8e553c75",
+                          "name": "HRX documents successfully retrieved for EOR contract",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/hrx-documents?cursor=<string>&limit=20",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "hrx-documents"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Cursor for pagination. Use the cursor from the previous response to get the next page of results.",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Number of items to return per page. Maximum is 100, default is 20.",
+                                  "key": "limit",
+                                  "value": "20"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"category_id\": \"<uuid>\",\n      \"category_type\": \"TAX_FISCAL\",\n      \"category_description\": \"<string>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"category\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"category_id\": \"<uuid>\",\n      \"category_type\": \"ONBOARDING_REGISTRATION\",\n      \"category_description\": \"<string>\"\n    }\n  ],\n  \"has_more\": \"<boolean>\",\n  \"next_cursor\": \"<string,null>\",\n  \"total_count\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T01:31:42.000Z",
+                          "updatedAt": "2026-07-28T01:31:42.000Z",
+                          "uid": "35240-0384665b-23c7-4058-b71d-c35a8e553c75"
+                        },
+                        {
+                          "id": "193c02c6-2c2e-4440-ae8c-993ae0620008",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/hrx-documents?cursor=<string>&limit=20",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "hrx-documents"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Cursor for pagination. Use the cursor from the previous response to get the next page of results.",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Number of items to return per page. Maximum is 100, default is 20.",
+                                  "key": "limit",
+                                  "value": "20"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:42.000Z",
+                          "updatedAt": "2026-07-28T01:31:42.000Z",
+                          "uid": "35240-193c02c6-2c2e-4440-ae8c-993ae0620008"
+                        },
+                        {
+                          "id": "89c0d8f3-b5be-4b90-82bb-cc38248f3268",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/hrx-documents?cursor=<string>&limit=20",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "hrx-documents"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Cursor for pagination. Use the cursor from the previous response to get the next page of results.",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Number of items to return per page. Maximum is 100, default is 20.",
+                                  "key": "limit",
+                                  "value": "20"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:42.000Z",
+                          "updatedAt": "2026-07-28T01:31:42.000Z",
+                          "uid": "35240-89c0d8f3-b5be-4b90-82bb-cc38248f3268"
+                        },
+                        {
+                          "id": "01e2d99c-4f41-4d8f-ad57-d52871f15c34",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/hrx-documents?cursor=<string>&limit=20",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "hrx-documents"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Cursor for pagination. Use the cursor from the previous response to get the next page of results.",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Number of items to return per page. Maximum is 100, default is 20.",
+                                  "key": "limit",
+                                  "value": "20"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:42.000Z",
+                          "updatedAt": "2026-07-28T01:31:42.000Z",
+                          "uid": "35240-01e2d99c-4f41-4d8f-ad57-d52871f15c34"
+                        },
+                        {
+                          "id": "5312d875-f7c4-4161-a457-9695e6c75723",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/hrx-documents?cursor=<string>&limit=20",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "hrx-documents"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Cursor for pagination. Use the cursor from the previous response to get the next page of results.",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Number of items to return per page. Maximum is 100, default is 20.",
+                                  "key": "limit",
+                                  "value": "20"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:42.000Z",
+                          "updatedAt": "2026-07-28T01:31:42.000Z",
+                          "uid": "35240-5312d875-f7c4-4161-a457-9695e6c75723"
+                        },
+                        {
+                          "id": "37065c82-0c6d-4120-ad0f-1119fc5ee9ca",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/hrx-documents?cursor=<string>&limit=20",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "hrx-documents"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Cursor for pagination. Use the cursor from the previous response to get the next page of results.",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Number of items to return per page. Maximum is 100, default is 20.",
+                                  "key": "limit",
+                                  "value": "20"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:42.000Z",
+                          "updatedAt": "2026-07-28T01:31:42.000Z",
+                          "uid": "35240-37065c82-0c6d-4120-ad0f-1119fc5ee9ca"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:31:42.000Z",
+                      "updatedAt": "2026-07-28T01:31:42.000Z",
+                      "uid": "35240-1bfcc965-30a7-466e-b5ca-58838e387c4b"
+                    }
+                  ],
+                  "id": "2f37e422-4613-4601-8a5b-d8af16406a88",
+                  "createdAt": "2026-07-28T01:31:42.000Z",
+                  "updatedAt": "2026-07-28T01:31:42.000Z",
+                  "uid": "35240-2f37e422-4613-4601-8a5b-d8af16406a88"
+                }
+              ],
+              "id": "0b50c0f6-cf3d-453e-b309-ae87548a266c",
+              "createdAt": "2026-07-28T01:31:42.000Z",
+              "updatedAt": "2026-07-28T01:31:42.000Z",
+              "uid": "35240-0b50c0f6-cf3d-453e-b309-ae87548a266c"
+            }
+          ],
+          "id": "cb15fd65-e9a7-4f43-bf82-ace71000973d",
+          "createdAt": "2026-07-28T01:31:42.000Z",
+          "updatedAt": "2026-07-28T01:31:42.000Z",
+          "uid": "35240-cb15fd65-e9a7-4f43-bf82-ace71000973d"
+        }
+      ],
+      "id": "373a5a6e-9eff-433e-8c3e-3995bf55c513",
+      "createdAt": "2026-07-28T01:31:42.000Z",
+      "updatedAt": "2026-07-28T01:31:42.000Z",
+      "uid": "35240-373a5a6e-9eff-433e-8c3e-3995bf55c513"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}

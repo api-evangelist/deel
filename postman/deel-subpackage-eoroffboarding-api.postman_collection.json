@@ -1,0 +1,3111 @@
+{
+  "info": {
+    "_postman_id": "a99b81a6-0bbb-4a57-9a4c-3b04194fc235",
+    "name": "Endpoints subpackage_eorOffboarding API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:46.000Z",
+    "updatedAt": "2026-07-28T01:30:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a99b81a6-0bbb-4a57-9a4c-3b04194fc235"
+  },
+  "item": [
+    {
+      "name": "eor",
+      "item": [
+        {
+          "name": "contracts",
+          "item": [
+            {
+              "name": "{contract_id}",
+              "item": [
+                {
+                  "name": "offboarding",
+                  "item": [
+                    {
+                      "name": "review-client-sign-offs",
+                      "item": [
+                        {
+                          "name": "Create client sign off",
+                          "id": "6ab2c0e3-1cd2-4acb-b094-47178204f938",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"has_client_approved\": \"<boolean>\",\n    \"reviewer_feedback\": \"<string,null>\",\n    \"has_employee_been_notified\": \"<boolean,null>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/review-client-sign-offs",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "offboarding",
+                                "review-client-sign-offs"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "43198f4b-6c44-407b-82ae-87005f2212ae",
+                                  "key": "contract_id",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique identifier of the employee contract."
+                                }
+                              ]
+                            },
+                            "description": "Use this endpoint to review, approve, or request changes to EOR employee offboarding documents for a specific contract during the client sign\u2011off step.\n **Token scopes**: `contracts:write`"
+                          },
+                          "response": [
+                            {
+                              "id": "60003b5d-c346-4d1f-b5d3-42ea80489a53",
+                              "name": "Approval submitted successfully.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"has_client_approved\": \"<boolean>\",\n    \"reviewer_feedback\": \"<string,null>\",\n    \"has_employee_been_notified\": \"<boolean,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/review-client-sign-offs",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "review-client-sign-offs"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": {\n    \"id\": \"<uuid>\",\n    \"end_date\": \"<string,null-date-time>\",\n    \"documents\": {\n      \"supporting\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"is_additional_supporting_document\": \"<boolean>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"is_additional_supporting_document\": \"<boolean>\"\n        }\n      ],\n      \"offboarding\": [\n        {\n          \"files\": [\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            }\n          ],\n          \"status\": \"CHANGES_REQUESTED_BY_EMPLOYEE\",\n          \"reviewer_type\": \"CLIENT\",\n          \"is_employee_notification_required\": \"<boolean>\",\n          \"id\": \"<uuid>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"reviewed_at\": \"<string,null-date-time>\",\n          \"reviewed_by\": \"<string,null>\",\n          \"reviewer_feedback\": \"<string,null>\",\n          \"notification_instructions\": \"<string,null>\"\n        },\n        {\n          \"files\": [\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            }\n          ],\n          \"status\": \"CHANGES_REQUESTED_BY_EMPLOYEE\",\n          \"reviewer_type\": \"EMPLOYEE\",\n          \"is_employee_notification_required\": \"<boolean>\",\n          \"id\": \"<uuid>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"reviewed_at\": \"<string,null-date-time>\",\n          \"reviewed_by\": \"<string,null>\",\n          \"reviewer_feedback\": \"<string,null>\",\n          \"notification_instructions\": \"<string,null>\"\n        }\n      ],\n      \"resignation_letter\": {\n        \"id\": \"<uuid>\",\n        \"signature\": \"<string,null>\",\n        \"signed_at\": \"<string,null-date-time>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\"\n      }\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"contract_id\": \"<string>\",\n    \"is_sensitive\": \"<boolean>\",\n    \"request_data\": {\n      \"reason\": \"VIOLENCE\",\n      \"end_date\": \"<string,null-date-time>\",\n      \"reason_detail\": \"<string,null>\",\n      \"used_time_off\": {\n        \"time_offs\": [\n          {\n            \"unit\": \"HOUR\",\n            \"policy_type\": \"<string>\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          },\n          {\n            \"unit\": \"BUSINESS_DAY\",\n            \"policy_type\": \"<string>\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          }\n        ],\n        \"is_deel_pto_confirmed\": \"<boolean>\",\n        \"additional_details\": {\n          \"notes\": \"<string,null>\",\n          \"updated_by\": \"<string,null>\",\n          \"last_updated_at\": \"<string,null-date-time>\"\n        }\n      },\n      \"desired_end_date\": \"<string,null-date>\",\n      \"eligible_for_rehire\": \"DONT_KNOW\",\n      \"eligible_for_rehire_reason\": \"<string,null>\"\n    },\n    \"desired_end_date\": \"<string,null-date-time>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-60003b5d-c346-4d1f-b5d3-42ea80489a53"
+                            },
+                            {
+                              "id": "67b7f303-2025-4636-8733-cc6f2486b715",
+                              "name": "Bad Request",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"has_client_approved\": \"<boolean>\",\n    \"reviewer_feedback\": \"<string,null>\",\n    \"has_employee_been_notified\": \"<boolean,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/review-client-sign-offs",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "review-client-sign-offs"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-67b7f303-2025-4636-8733-cc6f2486b715"
+                            },
+                            {
+                              "id": "1b9cf483-2867-48b5-a8a5-be7f6ca6ea7e",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"has_client_approved\": \"<boolean>\",\n    \"reviewer_feedback\": \"<string,null>\",\n    \"has_employee_been_notified\": \"<boolean,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/review-client-sign-offs",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "review-client-sign-offs"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-1b9cf483-2867-48b5-a8a5-be7f6ca6ea7e"
+                            },
+                            {
+                              "id": "5b36678c-a899-4455-a081-cd90bbe66b91",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"has_client_approved\": \"<boolean>\",\n    \"reviewer_feedback\": \"<string,null>\",\n    \"has_employee_been_notified\": \"<boolean,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/review-client-sign-offs",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "review-client-sign-offs"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-5b36678c-a899-4455-a081-cd90bbe66b91"
+                            },
+                            {
+                              "id": "fe54becb-f76f-427f-a953-3cf6e183d646",
+                              "name": "Operation failed.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"has_client_approved\": \"<boolean>\",\n    \"reviewer_feedback\": \"<string,null>\",\n    \"has_employee_been_notified\": \"<boolean,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/review-client-sign-offs",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "review-client-sign-offs"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-fe54becb-f76f-427f-a953-3cf6e183d646"
+                            },
+                            {
+                              "id": "c5e795e8-a489-4da2-8660-8afbc489c1f4",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"has_client_approved\": \"<boolean>\",\n    \"reviewer_feedback\": \"<string,null>\",\n    \"has_employee_been_notified\": \"<boolean,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/review-client-sign-offs",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "review-client-sign-offs"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-c5e795e8-a489-4da2-8660-8afbc489c1f4"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:47.000Z",
+                          "updatedAt": "2026-07-28T01:30:47.000Z",
+                          "uid": "35240-6ab2c0e3-1cd2-4acb-b094-47178204f938"
+                        }
+                      ],
+                      "id": "b1172577-f238-435b-af03-7507b54d2fff",
+                      "createdAt": "2026-07-28T01:30:47.000Z",
+                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                      "uid": "35240-b1172577-f238-435b-af03-7507b54d2fff"
+                    },
+                    {
+                      "name": "required-information",
+                      "item": [
+                        {
+                          "name": "Get additional information required to request employee termination",
+                          "id": "87bb4032-773e-409e-ad30-ef13594e1b91",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/required-information",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "offboarding",
+                                "required-information"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "355c75c9-92ad-4a1e-ad7e-70e4ffc2ae3d",
+                                  "key": "contract_id",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique identifier of the employee contract."
+                                }
+                              ]
+                            },
+                            "description": "This endpoint provides additional country-specific requirements for employee offboarding. It specifies any mandatory or optional questions that the client must answer and identifies required supporting documents that must be uploaded during the offboarding process. This ensures compliance with local regulations and streamlines the offboarding workflow.\n **Token scopes**: `contracts:read`"
+                          },
+                          "response": [
+                            {
+                              "id": "be3e95d0-8999-4d0a-be65-8ddf5cd05e56",
+                              "name": "Ok response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/required-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "required-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": {\n    \"documents\": \"<string,null>\",\n    \"questions\": [\n      {\n        \"text\": \"<string>\",\n        \"is_optional\": \"<boolean>\"\n      },\n      {\n        \"text\": \"<string>\",\n        \"is_optional\": \"<boolean>\"\n      }\n    ]\n  }\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-be3e95d0-8999-4d0a-be65-8ddf5cd05e56"
+                            },
+                            {
+                              "id": "6f6df8d1-b4a0-4c6e-b090-07dbe9b388bc",
+                              "name": "Bad Request",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/required-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "required-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-6f6df8d1-b4a0-4c6e-b090-07dbe9b388bc"
+                            },
+                            {
+                              "id": "88ab80a1-0ee6-4017-b7b2-26499a09d912",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/required-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "required-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-88ab80a1-0ee6-4017-b7b2-26499a09d912"
+                            },
+                            {
+                              "id": "e1a6d37a-8721-43ad-90c8-2837ec551817",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/required-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "required-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-e1a6d37a-8721-43ad-90c8-2837ec551817"
+                            },
+                            {
+                              "id": "0a5dfb40-cda3-42d1-9c97-dda30c83d97b",
+                              "name": "Operation failed.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/required-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "required-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-0a5dfb40-cda3-42d1-9c97-dda30c83d97b"
+                            },
+                            {
+                              "id": "86e75b14-65ed-465f-b8ef-7262478cb97e",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/required-information",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "required-information"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-86e75b14-65ed-465f-b8ef-7262478cb97e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:47.000Z",
+                          "updatedAt": "2026-07-28T01:30:47.000Z",
+                          "uid": "35240-87bb4032-773e-409e-ad30-ef13594e1b91"
+                        }
+                      ],
+                      "id": "abd2542e-f845-4fd8-9ddd-f27120d53716",
+                      "createdAt": "2026-07-28T01:30:47.000Z",
+                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                      "uid": "35240-abd2542e-f845-4fd8-9ddd-f27120d53716"
+                    },
+                    {
+                      "name": "time-offs",
+                      "item": [
+                        {
+                          "name": "Retrieve Employee Time Off Data for Offboarding",
+                          "id": "cc8c90fc-322f-4075-a561-e4e5e403d83a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/time-offs?end_date=<date>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "offboarding",
+                                "time-offs"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Desired end date for offboarding",
+                                  "key": "end_date",
+                                  "value": "<date>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b43a9625-0512-4e5c-9c3f-eb82eeb1b9d4",
+                                  "key": "contract_id",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique identifier of the employee contract."
+                                }
+                              ]
+                            },
+                            "description": "This endpoint provides detailed time off information for an employee, including accrued, used, and scheduled days across all tracking periods. It also includes policy details, tracking configurations, and additional metadata to support the offboarding request process. The data is used to display comprehensive time off information on the offboarding request page.\n **Token scopes**: `contracts:read`"
+                          },
+                          "response": [
+                            {
+                              "id": "982b81cf-5ee1-454e-a8a5-10a58d7021ac",
+                              "name": "Successfully retrieved used time off information",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/time-offs?end_date=<date>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "time-offs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Desired end date for offboarding",
+                                      "key": "end_date",
+                                      "value": "<date>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": {\n    \"contract_id\": \"<string>\",\n    \"entitlements\": [\n      {\n        \"id\": \"<uuid>\",\n        \"used\": \"<double>\",\n        \"requests\": \"<integer>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"tracking_period\": \"<date>\",\n        \"entitlement_unit\": \"CALENDAR_DAY\",\n        \"tracking_period_end_date\": \"<date>\"\n      },\n      {\n        \"id\": \"<uuid>\",\n        \"used\": \"<double>\",\n        \"requests\": \"<integer>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"tracking_period\": \"<date>\",\n        \"entitlement_unit\": \"CALENDAR_DAY\",\n        \"tracking_period_end_date\": \"<date>\"\n      }\n    ],\n    \"tracking_type\": \"ON_PLATFORM\",\n    \"policy_settings\": {\n      \"entitlement_unit\": \"<string>\",\n      \"is_accrued_days_available\": \"<boolean>\",\n      \"is_estimated_payout_available\": \"<boolean>\"\n    },\n    \"upcoming_time_offs\": [\n      {\n        \"id\": \"<uuid>\",\n        \"amount\": \"<double>\",\n        \"status\": \"<string>\",\n        \"end_date\": \"<dateTime>\",\n        \"created_at\": \"<dateTime>\",\n        \"start_date\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"approved_at\": \"<dateTime>\",\n        \"requested_at\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<uuid>\",\n        \"amount\": \"<double>\",\n        \"status\": \"<string>\",\n        \"end_date\": \"<dateTime>\",\n        \"created_at\": \"<dateTime>\",\n        \"start_date\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"approved_at\": \"<dateTime>\",\n        \"requested_at\": \"<dateTime>\"\n      }\n    ],\n    \"has_external_integration\": \"<boolean>\",\n    \"remaining_balance\": \"<number,null-double>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-982b81cf-5ee1-454e-a8a5-10a58d7021ac"
+                            },
+                            {
+                              "id": "bac4c0c1-08ab-40eb-ae79-ae304f8d958c",
+                              "name": "Bad Request",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/time-offs?end_date=<date>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "time-offs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Desired end date for offboarding",
+                                      "key": "end_date",
+                                      "value": "<date>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-bac4c0c1-08ab-40eb-ae79-ae304f8d958c"
+                            },
+                            {
+                              "id": "308f53c4-b338-41f9-bb0e-775eadb0421b",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/time-offs?end_date=<date>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "time-offs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Desired end date for offboarding",
+                                      "key": "end_date",
+                                      "value": "<date>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-308f53c4-b338-41f9-bb0e-775eadb0421b"
+                            },
+                            {
+                              "id": "6cceef3a-332d-436b-a01a-2c660618aa4c",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/time-offs?end_date=<date>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "time-offs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Desired end date for offboarding",
+                                      "key": "end_date",
+                                      "value": "<date>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-6cceef3a-332d-436b-a01a-2c660618aa4c"
+                            },
+                            {
+                              "id": "4c7b59cf-b0e9-4192-a37a-96296b8937f8",
+                              "name": "Operation failed.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/time-offs?end_date=<date>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "time-offs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Desired end date for offboarding",
+                                      "key": "end_date",
+                                      "value": "<date>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-4c7b59cf-b0e9-4192-a37a-96296b8937f8"
+                            },
+                            {
+                              "id": "fbda950f-0cb7-4230-8dae-a04fc9864ab6",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/time-offs?end_date=<date>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "time-offs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Desired end date for offboarding",
+                                      "key": "end_date",
+                                      "value": "<date>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-fbda950f-0cb7-4230-8dae-a04fc9864ab6"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:47.000Z",
+                          "updatedAt": "2026-07-28T01:30:47.000Z",
+                          "uid": "35240-cc8c90fc-322f-4075-a561-e4e5e403d83a"
+                        }
+                      ],
+                      "id": "5ce9863c-7aa3-494c-8a5c-fb565699e34a",
+                      "createdAt": "2026-07-28T01:30:47.000Z",
+                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                      "uid": "35240-5ce9863c-7aa3-494c-8a5c-fb565699e34a"
+                    },
+                    {
+                      "name": "attachments",
+                      "item": [
+                        {
+                          "name": "{attachment_id}",
+                          "item": [
+                            {
+                              "name": "Retrieve offboarding attachment",
+                              "id": "0f7181e7-622e-49ec-bd6f-1f3386f9b122",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/octet-stream"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/attachments/:attachment_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "attachments",
+                                    ":attachment_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "6a68e92c-b435-478f-9c56-e7d04f31f229",
+                                      "key": "contract_id",
+                                      "value": "<string>",
+                                      "description": "(Required) The unique identifier of the employee contract."
+                                    },
+                                    {
+                                      "id": "73130568-cedc-4e6b-9a55-6d26a92a3efd",
+                                      "key": "attachment_id",
+                                      "value": "<uuid>",
+                                      "description": "(Required) The unique identifier of the attachment to download."
+                                    }
+                                  ]
+                                },
+                                "description": "This endpoint allows client and employee download the content of a specific attachment associated with a termination for the given contract.\n **Token scopes**: `contracts:read`"
+                              },
+                              "response": [
+                                {
+                                  "id": "0834e703-c964-4045-904d-aec649a25b7f",
+                                  "name": "File download successful",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/octet-stream"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/attachments/:attachment_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "eor",
+                                        "contracts",
+                                        ":contract_id",
+                                        "offboarding",
+                                        "attachments",
+                                        ":attachment_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "contract_id"
+                                        },
+                                        {
+                                          "key": "attachment_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/octet-stream"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "<binary>",
+                                  "createdAt": "2026-07-28T01:30:47.000Z",
+                                  "updatedAt": "2026-07-28T01:30:47.000Z",
+                                  "uid": "35240-0834e703-c964-4045-904d-aec649a25b7f"
+                                },
+                                {
+                                  "id": "e9298970-4aae-47ef-9f1d-b2439b5690aa",
+                                  "name": "Bad Request",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/attachments/:attachment_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "eor",
+                                        "contracts",
+                                        ":contract_id",
+                                        "offboarding",
+                                        "attachments",
+                                        ":attachment_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "contract_id"
+                                        },
+                                        {
+                                          "key": "attachment_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:30:47.000Z",
+                                  "updatedAt": "2026-07-28T01:30:47.000Z",
+                                  "uid": "35240-e9298970-4aae-47ef-9f1d-b2439b5690aa"
+                                },
+                                {
+                                  "id": "13ca7141-4cde-4f54-a85f-5ee2c86c4872",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/attachments/:attachment_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "eor",
+                                        "contracts",
+                                        ":contract_id",
+                                        "offboarding",
+                                        "attachments",
+                                        ":attachment_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "contract_id"
+                                        },
+                                        {
+                                          "key": "attachment_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:30:47.000Z",
+                                  "updatedAt": "2026-07-28T01:30:47.000Z",
+                                  "uid": "35240-13ca7141-4cde-4f54-a85f-5ee2c86c4872"
+                                },
+                                {
+                                  "id": "6e755a36-6c4f-415b-9cce-62594138d87b",
+                                  "name": "Forbidden",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/attachments/:attachment_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "eor",
+                                        "contracts",
+                                        ":contract_id",
+                                        "offboarding",
+                                        "attachments",
+                                        ":attachment_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "contract_id"
+                                        },
+                                        {
+                                          "key": "attachment_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:30:47.000Z",
+                                  "updatedAt": "2026-07-28T01:30:47.000Z",
+                                  "uid": "35240-6e755a36-6c4f-415b-9cce-62594138d87b"
+                                },
+                                {
+                                  "id": "a3fc1249-8953-4a5b-bcd5-fe602b780cde",
+                                  "name": "Operation failed.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/attachments/:attachment_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "eor",
+                                        "contracts",
+                                        ":contract_id",
+                                        "offboarding",
+                                        "attachments",
+                                        ":attachment_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "contract_id"
+                                        },
+                                        {
+                                          "key": "attachment_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:30:47.000Z",
+                                  "updatedAt": "2026-07-28T01:30:47.000Z",
+                                  "uid": "35240-a3fc1249-8953-4a5b-bcd5-fe602b780cde"
+                                },
+                                {
+                                  "id": "9978e6f3-a19c-4615-b4ce-3c121c0e96ce",
+                                  "name": "Internal Server Error",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/attachments/:attachment_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "eor",
+                                        "contracts",
+                                        ":contract_id",
+                                        "offboarding",
+                                        "attachments",
+                                        ":attachment_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "contract_id"
+                                        },
+                                        {
+                                          "key": "attachment_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:30:47.000Z",
+                                  "updatedAt": "2026-07-28T01:30:47.000Z",
+                                  "uid": "35240-9978e6f3-a19c-4615-b4ce-3c121c0e96ce"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-0f7181e7-622e-49ec-bd6f-1f3386f9b122"
+                            }
+                          ],
+                          "id": "4c787a0a-e112-4e50-8ece-d74434e88359",
+                          "createdAt": "2026-07-28T01:30:47.000Z",
+                          "updatedAt": "2026-07-28T01:30:47.000Z",
+                          "uid": "35240-4c787a0a-e112-4e50-8ece-d74434e88359"
+                        }
+                      ],
+                      "id": "9e893e99-ea70-4d7e-9685-7b65a653c5a8",
+                      "createdAt": "2026-07-28T01:30:47.000Z",
+                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                      "uid": "35240-9e893e99-ea70-4d7e-9685-7b65a653c5a8"
+                    },
+                    {
+                      "name": "restricted-dates",
+                      "item": [
+                        {
+                          "name": "Retrieve restricted offboarding dates",
+                          "id": "1296de1f-d518-4a4d-a316-f7e4a0bcf9c0",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/restricted-dates?termination_type=TERMINATION",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "offboarding",
+                                "restricted-dates"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Type of offboarding.",
+                                  "key": "termination_type",
+                                  "value": "TERMINATION"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ff421251-1722-4997-a5f7-bacc84765280",
+                                  "key": "contract_id",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique identifier of the employee contract."
+                                }
+                              ]
+                            },
+                            "description": "Retrieves a list of dates, including weekends and public holidays, that are restricted for employee offboarding based on country-specific rules. Use this endpoint to plan employee offboarding by validating end-date selection. Call it when initiating an EOR offboarding flow to determine which dates are unavailable and what is the first day available.\n **Token scopes**: `contracts:read`"
+                          },
+                          "response": [
+                            {
+                              "id": "858d204d-1761-4fb0-ab67-482f0f2f5e3f",
+                              "name": "Successful retrieval of restricted dates.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/restricted-dates?termination_type=TERMINATION",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "restricted-dates"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Type of offboarding.",
+                                      "key": "termination_type",
+                                      "value": "TERMINATION"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": {\n    \"restricted_dates\": [\n      \"<dateTime>\",\n      \"<dateTime>\"\n    ],\n    \"earliest_available_end_date\": \"<dateTime>\",\n    \"is_out_work_scheduled_allowed\": \"<boolean>\",\n    \"is_end_date_allowed_on_holidays\": \"<boolean>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-858d204d-1761-4fb0-ab67-482f0f2f5e3f"
+                            },
+                            {
+                              "id": "7edd874b-e1b8-4f5e-ba68-095a07186436",
+                              "name": "Bad Request",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/restricted-dates?termination_type=TERMINATION",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "restricted-dates"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Type of offboarding.",
+                                      "key": "termination_type",
+                                      "value": "TERMINATION"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-7edd874b-e1b8-4f5e-ba68-095a07186436"
+                            },
+                            {
+                              "id": "8c692356-b0f4-4d82-81a6-13b03dd5c0cf",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/restricted-dates?termination_type=TERMINATION",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "restricted-dates"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Type of offboarding.",
+                                      "key": "termination_type",
+                                      "value": "TERMINATION"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-8c692356-b0f4-4d82-81a6-13b03dd5c0cf"
+                            },
+                            {
+                              "id": "3486fe62-f40d-429a-a8f0-46368aadf17c",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/restricted-dates?termination_type=TERMINATION",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "restricted-dates"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Type of offboarding.",
+                                      "key": "termination_type",
+                                      "value": "TERMINATION"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-3486fe62-f40d-429a-a8f0-46368aadf17c"
+                            },
+                            {
+                              "id": "6cc047d8-0e92-4064-8453-3f4ffe41905f",
+                              "name": "Operation failed.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/restricted-dates?termination_type=TERMINATION",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "restricted-dates"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Type of offboarding.",
+                                      "key": "termination_type",
+                                      "value": "TERMINATION"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-6cc047d8-0e92-4064-8453-3f4ffe41905f"
+                            },
+                            {
+                              "id": "ace7b73b-2a65-4087-afb3-9b3f336eb61d",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/restricted-dates?termination_type=TERMINATION",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "restricted-dates"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Type of offboarding.",
+                                      "key": "termination_type",
+                                      "value": "TERMINATION"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-ace7b73b-2a65-4087-afb3-9b3f336eb61d"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:47.000Z",
+                          "updatedAt": "2026-07-28T01:30:47.000Z",
+                          "uid": "35240-1296de1f-d518-4a4d-a316-f7e4a0bcf9c0"
+                        }
+                      ],
+                      "id": "470f2ada-8166-4888-9ee2-f287c4ea3447",
+                      "createdAt": "2026-07-28T01:30:47.000Z",
+                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                      "uid": "35240-470f2ada-8166-4888-9ee2-f287c4ea3447"
+                    },
+                    {
+                      "name": "resignations",
+                      "item": [
+                        {
+                          "name": "review-pto",
+                          "item": [
+                            {
+                              "name": "Submit employee resignation PTO review",
+                              "id": "52d12411-5716-4bee-9375-446a801e0dfc",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"used_time_off\": {\n      \"tracking_type\": \"OFF_PLATFORM\",\n      \"off_platform_used_time_off\": {\n        \"entitlements\": [\n          {\n            \"used\": \"<double>\",\n            \"tracking_period\": \"<date>\",\n            \"tracking_period_end_date\": \"<date>\"\n          },\n          {\n            \"used\": \"<double>\",\n            \"tracking_period\": \"<date>\",\n            \"tracking_period_end_date\": \"<date>\"\n          }\n        ],\n        \"total_scheduled\": \"<double>\",\n        \"entitlement_unit\": \"MONTH\"\n      }\n    },\n    \"decline_reason\": \"OTHER\",\n    \"severance_type\": \"CASH\",\n    \"severance_amount\": \"<double>\",\n    \"decline_reason_detail\": \"<string>\",\n    \"has_client_accepted_resignation_request\": \"<boolean>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/resignations/review-pto",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "resignations",
+                                    "review-pto"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "a6f08c44-d407-4a50-a7c8-712cef257ab3",
+                                      "key": "contract_id",
+                                      "value": "<string>",
+                                      "description": "(Required) The unique identifier of the employee contract."
+                                    }
+                                  ]
+                                },
+                                "description": "Allows a client to review and submit the Paid Time Off (PTO) details for an employee resignation request. This endpoint updates the resignation with the provided PTO information, triggers related notifications, and finalizes the PTO review process. Only available when the resignation status is AWAITING_PTO.\n **Token scopes**: `contracts:write`"
+                              },
+                              "response": [
+                                {
+                                  "id": "74e0d510-98b4-4a33-a8f5-c5f608f3edaf",
+                                  "name": "PTO review submitted successfully.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"data\": {\n    \"used_time_off\": {\n      \"tracking_type\": \"OFF_PLATFORM\",\n      \"off_platform_used_time_off\": {\n        \"entitlements\": [\n          {\n            \"used\": \"<double>\",\n            \"tracking_period\": \"<date>\",\n            \"tracking_period_end_date\": \"<date>\"\n          },\n          {\n            \"used\": \"<double>\",\n            \"tracking_period\": \"<date>\",\n            \"tracking_period_end_date\": \"<date>\"\n          }\n        ],\n        \"total_scheduled\": \"<double>\",\n        \"entitlement_unit\": \"MONTH\"\n      }\n    },\n    \"decline_reason\": \"OTHER\",\n    \"severance_type\": \"CASH\",\n    \"severance_amount\": \"<double>\",\n    \"decline_reason_detail\": \"<string>\",\n    \"has_client_accepted_resignation_request\": \"<boolean>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/resignations/review-pto",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "eor",
+                                        "contracts",
+                                        ":contract_id",
+                                        "offboarding",
+                                        "resignations",
+                                        "review-pto"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "contract_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Created",
+                                  "code": 201,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"data\": {\n    \"id\": \"<uuid>\",\n    \"end_date\": \"<string,null-date-time>\",\n    \"documents\": {\n      \"supporting\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"is_additional_supporting_document\": \"<boolean>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"is_additional_supporting_document\": \"<boolean>\"\n        }\n      ],\n      \"offboarding\": [\n        {\n          \"files\": [\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            }\n          ],\n          \"status\": \"APPROVED\",\n          \"reviewer_type\": \"EMPLOYEE\",\n          \"is_employee_notification_required\": \"<boolean>\",\n          \"id\": \"<uuid>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"reviewed_at\": \"<string,null-date-time>\",\n          \"reviewed_by\": \"<string,null>\",\n          \"reviewer_feedback\": \"<string,null>\",\n          \"notification_instructions\": \"<string,null>\"\n        },\n        {\n          \"files\": [\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            }\n          ],\n          \"status\": \"FEEDBACK_PROVIDED\",\n          \"reviewer_type\": \"EMPLOYEE\",\n          \"is_employee_notification_required\": \"<boolean>\",\n          \"id\": \"<uuid>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"reviewed_at\": \"<string,null-date-time>\",\n          \"reviewed_by\": \"<string,null>\",\n          \"reviewer_feedback\": \"<string,null>\",\n          \"notification_instructions\": \"<string,null>\"\n        }\n      ]\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"contract_id\": \"<string>\",\n    \"is_sensitive\": \"<boolean>\",\n    \"request_data\": {\n      \"reason\": \"PERFORMANCE\",\n      \"end_date\": \"<string,null-date-time>\",\n      \"reason_detail\": \"<string,null>\",\n      \"used_time_off\": {\n        \"time_offs\": [\n          {\n            \"unit\": \"BUSINESS_DAY\",\n            \"policy_type\": \"<string>\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          },\n          {\n            \"unit\": \"BUSINESS_DAY\",\n            \"policy_type\": \"<string>\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          }\n        ],\n        \"is_deel_pto_confirmed\": \"<boolean>\",\n        \"additional_details\": {\n          \"notes\": \"<string,null>\",\n          \"updated_by\": \"<string,null>\",\n          \"last_updated_at\": \"<string,null-date-time>\"\n        }\n      },\n      \"desired_end_date\": \"<string,null-date>\",\n      \"eligible_for_rehire\": \"YES\",\n      \"eligible_for_rehire_reason\": \"<string,null>\"\n    },\n    \"desired_end_date\": \"<string,null-date-time>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:30:47.000Z",
+                                  "updatedAt": "2026-07-28T01:30:47.000Z",
+                                  "uid": "35240-74e0d510-98b4-4a33-a8f5-c5f608f3edaf"
+                                },
+                                {
+                                  "id": "e4bcf00f-4256-40ec-aa0e-f6f7f496df86",
+                                  "name": "Bad Request",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"data\": {\n    \"used_time_off\": {\n      \"tracking_type\": \"OFF_PLATFORM\",\n      \"off_platform_used_time_off\": {\n        \"entitlements\": [\n          {\n            \"used\": \"<double>\",\n            \"tracking_period\": \"<date>\",\n            \"tracking_period_end_date\": \"<date>\"\n          },\n          {\n            \"used\": \"<double>\",\n            \"tracking_period\": \"<date>\",\n            \"tracking_period_end_date\": \"<date>\"\n          }\n        ],\n        \"total_scheduled\": \"<double>\",\n        \"entitlement_unit\": \"MONTH\"\n      }\n    },\n    \"decline_reason\": \"OTHER\",\n    \"severance_type\": \"CASH\",\n    \"severance_amount\": \"<double>\",\n    \"decline_reason_detail\": \"<string>\",\n    \"has_client_accepted_resignation_request\": \"<boolean>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/resignations/review-pto",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "eor",
+                                        "contracts",
+                                        ":contract_id",
+                                        "offboarding",
+                                        "resignations",
+                                        "review-pto"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "contract_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:30:47.000Z",
+                                  "updatedAt": "2026-07-28T01:30:47.000Z",
+                                  "uid": "35240-e4bcf00f-4256-40ec-aa0e-f6f7f496df86"
+                                },
+                                {
+                                  "id": "d31ce1fd-ff73-49f4-8d48-28174d7ff8b3",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"data\": {\n    \"used_time_off\": {\n      \"tracking_type\": \"OFF_PLATFORM\",\n      \"off_platform_used_time_off\": {\n        \"entitlements\": [\n          {\n            \"used\": \"<double>\",\n            \"tracking_period\": \"<date>\",\n            \"tracking_period_end_date\": \"<date>\"\n          },\n          {\n            \"used\": \"<double>\",\n            \"tracking_period\": \"<date>\",\n            \"tracking_period_end_date\": \"<date>\"\n          }\n        ],\n        \"total_scheduled\": \"<double>\",\n        \"entitlement_unit\": \"MONTH\"\n      }\n    },\n    \"decline_reason\": \"OTHER\",\n    \"severance_type\": \"CASH\",\n    \"severance_amount\": \"<double>\",\n    \"decline_reason_detail\": \"<string>\",\n    \"has_client_accepted_resignation_request\": \"<boolean>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/resignations/review-pto",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "eor",
+                                        "contracts",
+                                        ":contract_id",
+                                        "offboarding",
+                                        "resignations",
+                                        "review-pto"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "contract_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:30:47.000Z",
+                                  "updatedAt": "2026-07-28T01:30:47.000Z",
+                                  "uid": "35240-d31ce1fd-ff73-49f4-8d48-28174d7ff8b3"
+                                },
+                                {
+                                  "id": "6dfc636e-7191-4d6e-92c5-7aca04028a15",
+                                  "name": "Forbidden",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"data\": {\n    \"used_time_off\": {\n      \"tracking_type\": \"OFF_PLATFORM\",\n      \"off_platform_used_time_off\": {\n        \"entitlements\": [\n          {\n            \"used\": \"<double>\",\n            \"tracking_period\": \"<date>\",\n            \"tracking_period_end_date\": \"<date>\"\n          },\n          {\n            \"used\": \"<double>\",\n            \"tracking_period\": \"<date>\",\n            \"tracking_period_end_date\": \"<date>\"\n          }\n        ],\n        \"total_scheduled\": \"<double>\",\n        \"entitlement_unit\": \"MONTH\"\n      }\n    },\n    \"decline_reason\": \"OTHER\",\n    \"severance_type\": \"CASH\",\n    \"severance_amount\": \"<double>\",\n    \"decline_reason_detail\": \"<string>\",\n    \"has_client_accepted_resignation_request\": \"<boolean>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/resignations/review-pto",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "eor",
+                                        "contracts",
+                                        ":contract_id",
+                                        "offboarding",
+                                        "resignations",
+                                        "review-pto"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "contract_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:30:47.000Z",
+                                  "updatedAt": "2026-07-28T01:30:47.000Z",
+                                  "uid": "35240-6dfc636e-7191-4d6e-92c5-7aca04028a15"
+                                },
+                                {
+                                  "id": "b334818d-074b-4ec5-83f3-ae45508a2ab7",
+                                  "name": "Operation failed.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"data\": {\n    \"used_time_off\": {\n      \"tracking_type\": \"OFF_PLATFORM\",\n      \"off_platform_used_time_off\": {\n        \"entitlements\": [\n          {\n            \"used\": \"<double>\",\n            \"tracking_period\": \"<date>\",\n            \"tracking_period_end_date\": \"<date>\"\n          },\n          {\n            \"used\": \"<double>\",\n            \"tracking_period\": \"<date>\",\n            \"tracking_period_end_date\": \"<date>\"\n          }\n        ],\n        \"total_scheduled\": \"<double>\",\n        \"entitlement_unit\": \"MONTH\"\n      }\n    },\n    \"decline_reason\": \"OTHER\",\n    \"severance_type\": \"CASH\",\n    \"severance_amount\": \"<double>\",\n    \"decline_reason_detail\": \"<string>\",\n    \"has_client_accepted_resignation_request\": \"<boolean>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/resignations/review-pto",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "eor",
+                                        "contracts",
+                                        ":contract_id",
+                                        "offboarding",
+                                        "resignations",
+                                        "review-pto"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "contract_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:30:47.000Z",
+                                  "updatedAt": "2026-07-28T01:30:47.000Z",
+                                  "uid": "35240-b334818d-074b-4ec5-83f3-ae45508a2ab7"
+                                },
+                                {
+                                  "id": "fe6e6901-3728-4762-9e30-9498c5416ff1",
+                                  "name": "Internal Server Error",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"data\": {\n    \"used_time_off\": {\n      \"tracking_type\": \"OFF_PLATFORM\",\n      \"off_platform_used_time_off\": {\n        \"entitlements\": [\n          {\n            \"used\": \"<double>\",\n            \"tracking_period\": \"<date>\",\n            \"tracking_period_end_date\": \"<date>\"\n          },\n          {\n            \"used\": \"<double>\",\n            \"tracking_period\": \"<date>\",\n            \"tracking_period_end_date\": \"<date>\"\n          }\n        ],\n        \"total_scheduled\": \"<double>\",\n        \"entitlement_unit\": \"MONTH\"\n      }\n    },\n    \"decline_reason\": \"OTHER\",\n    \"severance_type\": \"CASH\",\n    \"severance_amount\": \"<double>\",\n    \"decline_reason_detail\": \"<string>\",\n    \"has_client_accepted_resignation_request\": \"<boolean>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/resignations/review-pto",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "eor",
+                                        "contracts",
+                                        ":contract_id",
+                                        "offboarding",
+                                        "resignations",
+                                        "review-pto"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "contract_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:30:47.000Z",
+                                  "updatedAt": "2026-07-28T01:30:47.000Z",
+                                  "uid": "35240-fe6e6901-3728-4762-9e30-9498c5416ff1"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-52d12411-5716-4bee-9375-446a801e0dfc"
+                            }
+                          ],
+                          "id": "bb9a698e-b53c-483a-9ec1-2dbbda633903",
+                          "createdAt": "2026-07-28T01:30:47.000Z",
+                          "updatedAt": "2026-07-28T01:30:47.000Z",
+                          "uid": "35240-bb9a698e-b53c-483a-9ec1-2dbbda633903"
+                        }
+                      ],
+                      "id": "748c3455-ee81-4712-8851-015a7cfb0222",
+                      "createdAt": "2026-07-28T01:30:47.000Z",
+                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                      "uid": "35240-748c3455-ee81-4712-8851-015a7cfb0222"
+                    },
+                    {
+                      "name": "review-employee-sign-offs",
+                      "item": [
+                        {
+                          "name": "Submit employee sign-off review for offboarding documents",
+                          "id": "23dec3d3-90a1-431d-a16d-b9dc117f5db0",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"data\": {\n    \"approved\": \"<boolean>\",\n    \"requested_changes\": \"<string,null>\",\n    \"reviewer_signature\": \"<string,null>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/review-employee-sign-offs",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "offboarding",
+                                "review-employee-sign-offs"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e3858940-1184-4f20-802e-7604991078f8",
+                                  "key": "contract_id",
+                                  "value": "<string>",
+                                  "description": "(Required) The unique identifier of the employee contract."
+                                }
+                              ]
+                            },
+                            "description": "Use this endpoint to submit an employee's review decision for the EOR offboarding document set for contract. Employees can approve the documents or request changes by providing feedback.\n **Token scopes**: `worker:write`"
+                          },
+                          "response": [
+                            {
+                              "id": "56a34d79-cf3d-435d-904a-12d8b4dd0f7e",
+                              "name": "Approval submitted successfully.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"approved\": \"<boolean>\",\n    \"requested_changes\": \"<string,null>\",\n    \"reviewer_signature\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/review-employee-sign-offs",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "review-employee-sign-offs"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": {\n    \"id\": \"<uuid>\",\n    \"end_date\": \"<string,null-date-time>\",\n    \"documents\": {\n      \"supporting\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"is_additional_supporting_document\": \"<boolean>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"is_additional_supporting_document\": \"<boolean>\"\n        }\n      ],\n      \"offboarding\": [\n        {\n          \"files\": [\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            }\n          ],\n          \"status\": \"CHANGES_REQUESTED_BY_EMPLOYEE\",\n          \"reviewer_type\": \"EMPLOYEE\",\n          \"is_employee_notification_required\": \"<boolean>\",\n          \"id\": \"<uuid>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"reviewed_at\": \"<string,null-date-time>\",\n          \"reviewed_by\": \"<string,null>\",\n          \"reviewer_feedback\": \"<string,null>\",\n          \"notification_instructions\": \"<string,null>\"\n        },\n        {\n          \"files\": [\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            }\n          ],\n          \"status\": \"AWAITING_FEEDBACK\",\n          \"reviewer_type\": \"CLIENT\",\n          \"is_employee_notification_required\": \"<boolean>\",\n          \"id\": \"<uuid>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"reviewed_at\": \"<string,null-date-time>\",\n          \"reviewed_by\": \"<string,null>\",\n          \"reviewer_feedback\": \"<string,null>\",\n          \"notification_instructions\": \"<string,null>\"\n        }\n      ],\n      \"resignation_letter\": {\n        \"id\": \"<uuid>\",\n        \"signature\": \"<string,null>\",\n        \"signed_at\": \"<string,null-date-time>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\"\n      }\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"contract_id\": \"<string>\",\n    \"is_sensitive\": \"<boolean>\",\n    \"request_data\": {\n      \"reason\": \"UNAUTHORIZED_ABSENCES_OR_LACK_OF_ATTENDANCE\",\n      \"end_date\": \"<string,null-date-time>\",\n      \"reason_detail\": \"<string,null>\",\n      \"used_time_off\": {\n        \"time_offs\": [\n          {\n            \"unit\": \"HOUR\",\n            \"policy_type\": \"<string>\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          },\n          {\n            \"unit\": \"CALENDAR_DAY\",\n            \"policy_type\": \"<string>\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          }\n        ],\n        \"is_deel_pto_confirmed\": \"<boolean>\",\n        \"additional_details\": {\n          \"notes\": \"<string,null>\",\n          \"updated_by\": \"<string,null>\",\n          \"last_updated_at\": \"<string,null-date-time>\"\n        }\n      },\n      \"desired_end_date\": \"<string,null-date>\",\n      \"eligible_for_rehire\": \"NO\",\n      \"eligible_for_rehire_reason\": \"<string,null>\"\n    },\n    \"desired_end_date\": \"<string,null-date-time>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-56a34d79-cf3d-435d-904a-12d8b4dd0f7e"
+                            },
+                            {
+                              "id": "b3fe3489-6752-4394-aa8c-cd8bb4ae70b3",
+                              "name": "Bad Request",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"approved\": \"<boolean>\",\n    \"requested_changes\": \"<string,null>\",\n    \"reviewer_signature\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/review-employee-sign-offs",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "review-employee-sign-offs"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-b3fe3489-6752-4394-aa8c-cd8bb4ae70b3"
+                            },
+                            {
+                              "id": "dcd38b93-893e-4f62-9c0f-b9e798aa8c69",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"approved\": \"<boolean>\",\n    \"requested_changes\": \"<string,null>\",\n    \"reviewer_signature\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/review-employee-sign-offs",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "review-employee-sign-offs"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-dcd38b93-893e-4f62-9c0f-b9e798aa8c69"
+                            },
+                            {
+                              "id": "536b3fd1-e9b6-4680-8b30-5fe1699b7068",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"approved\": \"<boolean>\",\n    \"requested_changes\": \"<string,null>\",\n    \"reviewer_signature\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/review-employee-sign-offs",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "review-employee-sign-offs"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-536b3fd1-e9b6-4680-8b30-5fe1699b7068"
+                            },
+                            {
+                              "id": "c11ad770-74ca-491b-8e97-5213a63704a6",
+                              "name": "Operation failed.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"approved\": \"<boolean>\",\n    \"requested_changes\": \"<string,null>\",\n    \"reviewer_signature\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/review-employee-sign-offs",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "review-employee-sign-offs"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-c11ad770-74ca-491b-8e97-5213a63704a6"
+                            },
+                            {
+                              "id": "67024e77-d6a5-44b1-a8fb-fd39b4df147f",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"data\": {\n    \"approved\": \"<boolean>\",\n    \"requested_changes\": \"<string,null>\",\n    \"reviewer_signature\": \"<string,null>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding/review-employee-sign-offs",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "eor",
+                                    "contracts",
+                                    ":contract_id",
+                                    "offboarding",
+                                    "review-employee-sign-offs"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "contract_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-67024e77-d6a5-44b1-a8fb-fd39b4df147f"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:47.000Z",
+                          "updatedAt": "2026-07-28T01:30:47.000Z",
+                          "uid": "35240-23dec3d3-90a1-431d-a16d-b9dc117f5db0"
+                        }
+                      ],
+                      "id": "8a46e2b5-b370-4863-9cf9-1c535446ea05",
+                      "createdAt": "2026-07-28T01:30:47.000Z",
+                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                      "uid": "35240-8a46e2b5-b370-4863-9cf9-1c535446ea05"
+                    },
+                    {
+                      "name": "Retrieve Offboarding Request",
+                      "id": "d7e651eb-7f18-412d-a157-6585fa163024",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eor",
+                            "contracts",
+                            ":contract_id",
+                            "offboarding"
+                          ],
+                          "variable": [
+                            {
+                              "id": "e21b9c11-1e0b-4e00-9185-a4014f9bb4c2",
+                              "key": "contract_id",
+                              "value": "<string>",
+                              "description": "(Required) The unique identifier of the employee contract."
+                            }
+                          ]
+                        },
+                        "description": "Retrieve the offboarding request associated with a specific EOR contract (contract_id). Use it to review termination details, document review status, offboarding request data, and notifications required for the employee.\n **Token scopes**: `contracts:read`, `worker:read`"
+                      },
+                      "response": [
+                        {
+                          "id": "84a9a39c-ec63-4483-83f1-e34c0e2ffc1c",
+                          "name": "Successful retrieval of the offboarding request.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "offboarding"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": {\n    \"id\": \"<uuid>\",\n    \"end_date\": \"<string,null-date-time>\",\n    \"documents\": {\n      \"supporting\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"is_additional_supporting_document\": \"<boolean>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"is_additional_supporting_document\": \"<boolean>\"\n        }\n      ],\n      \"offboarding\": [\n        {\n          \"files\": [\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            }\n          ],\n          \"status\": \"FEEDBACK_PROVIDED\",\n          \"reviewer_type\": \"EMPLOYEE\",\n          \"is_employee_notification_required\": \"<boolean>\",\n          \"id\": \"<uuid>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"reviewed_at\": \"<string,null-date-time>\",\n          \"reviewed_by\": \"<string,null>\",\n          \"reviewer_feedback\": \"<string,null>\",\n          \"notification_instructions\": \"<string,null>\"\n        },\n        {\n          \"files\": [\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<string>\",\n              \"name\": \"<string>\",\n              \"type\": \"<string>\",\n              \"created_at\": \"<dateTime>\",\n              \"updated_at\": \"<dateTime>\"\n            }\n          ],\n          \"status\": \"AWAITING_REVIEW\",\n          \"reviewer_type\": \"EMPLOYEE\",\n          \"is_employee_notification_required\": \"<boolean>\",\n          \"id\": \"<uuid>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"reviewed_at\": \"<string,null-date-time>\",\n          \"reviewed_by\": \"<string,null>\",\n          \"reviewer_feedback\": \"<string,null>\",\n          \"notification_instructions\": \"<string,null>\"\n        }\n      ]\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"contract_id\": \"<string>\",\n    \"is_sensitive\": \"<boolean>\",\n    \"request_data\": {\n      \"reason\": \"PERSONAL\",\n      \"end_date\": \"<string,null-date-time>\",\n      \"reason_detail\": \"<string,null>\",\n      \"used_time_off\": {\n        \"time_offs\": [\n          {\n            \"unit\": \"BUSINESS_DAY\",\n            \"policy_type\": \"<string>\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          },\n          {\n            \"unit\": \"BUSINESS_DAY\",\n            \"policy_type\": \"<string>\",\n            \"tracking_periods\": [\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              },\n              {\n                \"used\": \"<double>\",\n                \"end_date\": \"<dateTime>\",\n                \"start_date\": \"<dateTime>\"\n              }\n            ],\n            \"scheduled_until_end_date\": \"<double>\"\n          }\n        ],\n        \"is_deel_pto_confirmed\": \"<boolean>\",\n        \"additional_details\": {\n          \"notes\": \"<string,null>\",\n          \"updated_by\": \"<string,null>\",\n          \"last_updated_at\": \"<string,null-date-time>\"\n        }\n      },\n      \"desired_end_date\": \"<string,null-date>\",\n      \"eligible_for_rehire\": \"DONT_KNOW\",\n      \"eligible_for_rehire_reason\": \"<string,null>\"\n    },\n    \"desired_end_date\": \"<string,null-date-time>\"\n  }\n}",
+                          "createdAt": "2026-07-28T01:30:47.000Z",
+                          "updatedAt": "2026-07-28T01:30:47.000Z",
+                          "uid": "35240-84a9a39c-ec63-4483-83f1-e34c0e2ffc1c"
+                        },
+                        {
+                          "id": "104cef6e-c5d4-4164-bedf-027e7e50d1ee",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "offboarding"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:30:47.000Z",
+                          "updatedAt": "2026-07-28T01:30:47.000Z",
+                          "uid": "35240-104cef6e-c5d4-4164-bedf-027e7e50d1ee"
+                        },
+                        {
+                          "id": "c5c74ae9-391b-4a04-bdc5-2effe9b9d8e7",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "offboarding"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:30:47.000Z",
+                          "updatedAt": "2026-07-28T01:30:47.000Z",
+                          "uid": "35240-c5c74ae9-391b-4a04-bdc5-2effe9b9d8e7"
+                        },
+                        {
+                          "id": "407446c2-fcc8-4ac4-8280-7642e3f38dd1",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "offboarding"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:30:47.000Z",
+                          "updatedAt": "2026-07-28T01:30:47.000Z",
+                          "uid": "35240-407446c2-fcc8-4ac4-8280-7642e3f38dd1"
+                        },
+                        {
+                          "id": "9a4c81e1-312d-4f8a-92e7-ee1aef0ad9ef",
+                          "name": "Operation failed.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "offboarding"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request\": {\n    \"method\": \"<string>\",\n    \"url\": \"<string>\",\n    \"status\": \"<double>\",\n    \"api_req_id\": \"<string>\",\n    \"docs\": \"<string>\",\n    \"source\": \"<string>\",\n    \"code\": \"<double>\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    },\n    {\n      \"message\": \"<string>\",\n      \"path\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:30:47.000Z",
+                          "updatedAt": "2026-07-28T01:30:47.000Z",
+                          "uid": "35240-9a4c81e1-312d-4f8a-92e7-ee1aef0ad9ef"
+                        },
+                        {
+                          "id": "d66a5b0c-0c34-457c-b286-a6af56f6643c",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/eor/contracts/:contract_id/offboarding",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eor",
+                                "contracts",
+                                ":contract_id",
+                                "offboarding"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "contract_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:30:47.000Z",
+                          "updatedAt": "2026-07-28T01:30:47.000Z",
+                          "uid": "35240-d66a5b0c-0c34-457c-b286-a6af56f6643c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:47.000Z",
+                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                      "uid": "35240-d7e651eb-7f18-412d-a157-6585fa163024"
+                    }
+                  ],
+                  "id": "d6ef3e19-5883-4eb8-97d4-7f9bd6d8be1e",
+                  "createdAt": "2026-07-28T01:30:47.000Z",
+                  "updatedAt": "2026-07-28T01:30:47.000Z",
+                  "uid": "35240-d6ef3e19-5883-4eb8-97d4-7f9bd6d8be1e"
+                }
+              ],
+              "id": "028bdffb-0823-43c8-8c6c-6d5f6931c8fc",
+              "createdAt": "2026-07-28T01:30:47.000Z",
+              "updatedAt": "2026-07-28T01:30:47.000Z",
+              "uid": "35240-028bdffb-0823-43c8-8c6c-6d5f6931c8fc"
+            }
+          ],
+          "id": "848454f3-70e7-4418-a844-eb1c2a7bdc0d",
+          "createdAt": "2026-07-28T01:30:47.000Z",
+          "updatedAt": "2026-07-28T01:30:47.000Z",
+          "uid": "35240-848454f3-70e7-4418-a844-eb1c2a7bdc0d"
+        }
+      ],
+      "id": "6d4e7875-6271-42d6-a25b-ef604da5e787",
+      "createdAt": "2026-07-28T01:30:47.000Z",
+      "updatedAt": "2026-07-28T01:30:47.000Z",
+      "uid": "35240-6d4e7875-6271-42d6-a25b-ef604da5e787"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.letsdeel.com/rest/v2"
+    }
+  ]
+}
