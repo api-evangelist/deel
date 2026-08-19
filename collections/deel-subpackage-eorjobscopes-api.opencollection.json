@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_eorJobScopes API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_eorJobScopes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of job scope templates for EOR contracts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/job-scopes",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "team",
+                "value": "",
+                "type": "query",
+                "description": "Team public id"
+              }
+            ]
+          },
+          "docs": "Returns a list of predefined job scope templates for an EOR contract, which can be filtered by team. The list includes both predefined and custom job scope templates belonging to the user's teams.\n **Token scopes**: `organizations:read`"
+        },
+        {
+          "info": {
+            "name": "Request job scope validation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/job-scopes/validate",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint allows client to validate job scope description.\n **Token scopes**: `contracts:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,240 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_people API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_people",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a person without a contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/pwac",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a person without a contract hired under your own entity to Deel's HRIS.\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "List of People",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/people",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results with given number of records."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results with given number of records."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Include a contract if by name or contractor name contains given search term."
+              },
+              {
+                "name": "teams",
+                "value": "",
+                "type": "query",
+                "description": "Filter the results based on the team(group) the users contract is associated with"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Pick the fields you want to see in the response in order to avoid a bloated people list output. Supports dot notation (e.g., 'employments[0].contract_status') to access nested fields."
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Sort people by given field name."
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Order direction of results; ascending or descending."
+              },
+              {
+                "name": "hiring_statuses",
+                "value": "",
+                "type": "query",
+                "description": "Employee's current hiring status."
+              },
+              {
+                "name": "band_placements",
+                "value": "",
+                "type": "query",
+                "description": "Employee's current band placement."
+              },
+              {
+                "name": "comparative_ratios_from",
+                "value": "",
+                "type": "query",
+                "description": "Employee's minimum band placement"
+              },
+              {
+                "name": "comparative_ratios_to",
+                "value": "",
+                "type": "query",
+                "description": "Employee's maximum band placement"
+              },
+              {
+                "name": "hiring_types",
+                "value": "",
+                "type": "query",
+                "description": "Filter people by hiring types"
+              },
+              {
+                "name": "person_statuses",
+                "value": "",
+                "type": "query",
+                "description": "Filter people by person (worker profile) lifecycle status."
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve people in your organization for building directories or syncing HR data. Paginate with offset/limit and filter with search, teams, and other query parameters. This operation is non-destructive.\n **Token scopes**: `people:read`"
+        },
+        {
+          "info": {
+            "name": "Create a direct employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/people",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create employee hired under your own entity to Deel's HRIS. Manage your employee through Deel and export a payroll report to your own providers.\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a single person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/people/:hris_profile_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hris_profile_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the person."
+              },
+              {
+                "name": "include_custom_fields",
+                "value": "",
+                "type": "query",
+                "description": "Include custom fields in the response."
+              },
+              {
+                "name": "include_worker_relations",
+                "value": "",
+                "type": "query",
+                "description": "Include worker relations in the response."
+              }
+            ]
+          },
+          "docs": "Retrieves detailed information about a single person (employee, contractor, or worker) in the organization by their HRIS profile OID, including personal details, employment information, organizational structure, direct manager and reports, custom fields, and related metadata.\n **Token scopes**: `people:read`"
+        },
+        {
+          "info": {
+            "name": "Update working location",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.letsdeel.com/rest/v2/people/:id/working-location",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Hris profile ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "undefined\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Get my current personal profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/people/me",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve the current user's profile.\n **Token scopes**: `worker:read`, `people:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

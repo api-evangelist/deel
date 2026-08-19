@@ -1,0 +1,248 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_eorOffboarding API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_eorOffboarding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create client sign off",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/review-client-sign-offs",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to review, approve, or request changes to EOR employee offboarding documents for a specific contract during the client sign‑off step.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Get additional information required to request employee termination",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/required-information",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ]
+          },
+          "docs": "This endpoint provides additional country-specific requirements for employee offboarding. It specifies any mandatory or optional questions that the client must answer and identifies required supporting documents that must be uploaded during the offboarding process. This ensures compliance with local regulations and streamlines the offboarding workflow.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve Employee Time Off Data for Offboarding",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/time-offs",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "Desired end date for offboarding"
+              }
+            ]
+          },
+          "docs": "This endpoint provides detailed time off information for an employee, including accrued, used, and scheduled days across all tracking periods. It also includes policy details, tracking configurations, and additional metadata to support the offboarding request process. The data is used to display comprehensive time off information on the offboarding request page.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve offboarding attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/attachments/:attachment_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              },
+              {
+                "name": "attachment_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the attachment to download."
+              }
+            ]
+          },
+          "docs": "This endpoint allows client and employee download the content of a specific attachment associated with a termination for the given contract.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve Offboarding Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ]
+          },
+          "docs": "Retrieve the offboarding request associated with a specific EOR contract (contract_id). Use it to review termination details, document review status, offboarding request data, and notifications required for the employee.\n **Token scopes**: `contracts:read`, `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve restricted offboarding dates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/restricted-dates",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              },
+              {
+                "name": "termination_type",
+                "value": "",
+                "type": "query",
+                "description": "Type of offboarding."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of dates, including weekends and public holidays, that are restricted for employee offboarding based on country-specific rules. Use this endpoint to plan employee offboarding by validating end-date selection. Call it when initiating an EOR offboarding flow to determine which dates are unavailable and what is the first day available.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Submit employee resignation PTO review",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/resignations/review-pto",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows a client to review and submit the Paid Time Off (PTO) details for an employee resignation request. This endpoint updates the resignation with the provided PTO information, triggers related notifications, and finalizes the PTO review process. Only available when the resignation status is AWAITING_PTO.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Submit employee sign-off review for offboarding documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/review-employee-sign-offs",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to submit an employee's review decision for the EOR offboarding document set for contract. Employees can approve the documents or request changes by providing feedback.\n **Token scopes**: `worker:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

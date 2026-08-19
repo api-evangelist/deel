@@ -1,0 +1,510 @@
+{
+  "item": [
+    {
+      "id": "16a19fb8-83f2-4543-9d9a-5a03c50992f1",
+      "name": "subpackage_listCycles",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "50a780b4-5b7b-4b43-8233-af25cdd8859d",
+          "name": "List payroll cycles",
+          "request": {
+            "name": "List payroll cycles",
+            "description": {
+              "content": "Use this endpoint to retrieve a list of payroll events for a specified legal entity.\n **Token scopes**: `legal-entity:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "legal-entities",
+                ":legal_entity_id",
+                "payroll-events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date_start",
+                  "value": "<date>",
+                  "description": "Start date in the format 'YYYY-MM-DD'. Must not be earlier than 5 years ago."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_end",
+                  "value": "<date>",
+                  "description": "End date in the format 'YYYY-MM-DD'. Must not exceed 5 years in the future."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Maximum number of items to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Pagination cursor, CUID or UUID format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "legal_entity_id",
+                  "description": "(Required) The unique identifier (public ID) for the legal entity."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e065b74c-6c56-4fe9-abfe-d4e07b4aafa0",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "legal-entities",
+                    ":legal_entity_id",
+                    "payroll-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "legal_entity_id",
+                      "description": "(Required) The unique identifier (public ID) for the legal entity."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"OFFCYCLE\",\n      \"date_end\": \"1988-08-15T09:29:52.746Z\",\n      \"date_start\": \"1991-12-29T10:51:39.098Z\",\n      \"legal_entity_id\": \"string\",\n      \"payroll_group_id\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"REGULAR\",\n      \"date_end\": \"2002-04-21T21:37:49.655Z\",\n      \"date_start\": \"1963-03-21T14:52:55.298Z\",\n      \"legal_entity_id\": \"string\",\n      \"payroll_group_id\": \"string\"\n    }\n  ],\n  \"has_more\": true,\n  \"items_per_page\": 548,\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a9884dc-8c8f-463b-9e63-577518e543ad",
+              "name": "Validation error or bad input.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "legal-entities",
+                    ":legal_entity_id",
+                    "payroll-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "legal_entity_id",
+                      "description": "(Required) The unique identifier (public ID) for the legal entity."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1b686b1-747e-4bf9-8600-517272682340",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "legal-entities",
+                    ":legal_entity_id",
+                    "payroll-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "legal_entity_id",
+                      "description": "(Required) The unique identifier (public ID) for the legal entity."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 3940.1710695151314,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9526.771493302515\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "070a8cab-e2b2-476d-9638-314115063341",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "legal-entities",
+                    ":legal_entity_id",
+                    "payroll-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "legal_entity_id",
+                      "description": "(Required) The unique identifier (public ID) for the legal entity."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 3940.1710695151314,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9526.771493302515\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52c1aff1-486d-45c0-ad00-daf2ce5766ca",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "legal-entities",
+                    ":legal_entity_id",
+                    "payroll-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "legal_entity_id",
+                      "description": "(Required) The unique identifier (public ID) for the legal entity."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 3940.1710695151314,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9526.771493302515\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c7d294b-582f-48b7-bd37-6b31d2164629",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "legal-entities",
+                    ":legal_entity_id",
+                    "payroll-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "legal_entity_id",
+                      "description": "(Required) The unique identifier (public ID) for the legal entity."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.letsdeel.com/rest/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9465e625-6a56-4596-801a-10d263e29440",
+    "name": "Endpoints subpackage_listCycles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

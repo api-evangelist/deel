@@ -1,0 +1,240 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_accounting API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_accounting",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Download invoice PDF",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/invoices/:id/download",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The invoice ID used to identify the invoice to be downloaded."
+              }
+            ]
+          },
+          "docs": "Get a link to download the invoice PDF.\n **Token scopes**: `accounting:read`"
+        },
+        {
+          "info": {
+            "name": "Get invoice by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/invoices/:invoice_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "invoice_id",
+                "value": "",
+                "type": "path",
+                "description": "The invoice ID used to identify the invoice to be retireved."
+              }
+            ]
+          },
+          "docs": "Retrieve invoice details\n **Token scopes**: `accounting:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a payment breakdown",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/payments/:payment_id/breakdown",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "payment_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the payment to retrieve the breakdown."
+              }
+            ]
+          },
+          "docs": "Get a full breakdown of a payment made to Deel. Breakdown will include individual invoices and Deel fee as line items.\n **Token scopes**: `accounting:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve Deel invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/invoices/deel",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results with given number of records; NOTE technically ALL query parameters are strings or array of strings"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results after given index of row; NOTE technically ALL query parameters are strings or array of strings'"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of invoices related to Deel fees.\n **Token scopes**: `accounting:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/invoices",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "issued_from_date",
+                "value": "",
+                "type": "query",
+                "description": "Filter invoices issued on or after the specified date."
+              },
+              {
+                "name": "issued_to_date",
+                "value": "",
+                "type": "query",
+                "description": "Filter invoices issued before the specified date."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "If status query has value of all, all invoices will be returned. Otherwise only paid invoices will be fetched."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to retrieve per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Index of the first record to return."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Return next page of results after the given cursor."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Will include invoices from COR workers in the response."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of paid invoices for your workforce.\n **Token scopes**: `accounting:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve payment receipts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/payments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Filters results to include payments created on or after this date (in ISO 8601 format)."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "Filters results to include payments created before this date (in ISO 8601 format)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "A cursor for pagination. Use the value returned in the 'next_cursor' field to get the next page of results."
+              },
+              {
+                "name": "currencies",
+                "value": "",
+                "type": "query",
+                "description": "Filters payments by their currency codes. Can be a single currency code or an array of codes."
+              },
+              {
+                "name": "entities",
+                "value": "",
+                "type": "query",
+                "description": "Filters payments by legal entity type (e.g., 'individual' or 'company'). Can be a single entity type or an array."
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "Filters payments by their status (e.g., 'paid' or 'processing'). Can be a single status type or an array."
+              }
+            ]
+          },
+          "docs": "Returns a cursor-paginated list of payments made to Deel, including worker details, payment status, and payment methods. Use the `next_cursor` value from the response to retrieve subsequent pages.\n **Token scopes**: `accounting:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

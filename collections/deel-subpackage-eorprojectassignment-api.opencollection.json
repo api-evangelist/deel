@@ -1,0 +1,138 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_eorProjectAssignment API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_eorProjectAssignment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Accept EOR project assignment as client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/project-assignment/accept",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Utilize this endpoint to accept a project assignment for an EOR contract once the client has reviewed and approved the terms.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Fetch EOR project assignment PDF",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/project-assignment",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "This field is to ensure that the latest version of the project assignment PDF matches the version received from the webhook. If it is not sent, the version validation is not performed and the endpoint returns the PDF. If it is sent, it is checked whether the current version is equal to the version sent; if not, a 409 error occurs, otherwise, the PDF is returned."
+              }
+            ]
+          },
+          "docs": "Utilize this endpoint to retrieve the PDF of the project assignment for an EOR contract that a client is required to approve.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Fetch Project Assignment Checkin Questionnaire Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/project-assignment/checkin",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the contract."
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "This field is to ensure that the latest version of the project assignment checkin matches the version received from the webhook. If it is not sent, the version validation is not performed. If it is sent, it is checked whether the current version is equal to the version sent; if not, a 409 error occurs, otherwise, the data is returned."
+              }
+            ]
+          },
+          "docs": "Use this endpoint to fetch the project assignment checkin data with all necessary information to render in your side the questionnaire\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Submit Project Assignment Checkin Questionnaire Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/project-assignment/checkin",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to submit the checkin questionnaire. It is necessary to send all required questionnaire answers.\n **Token scopes**: `contracts:read`, `contracts:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

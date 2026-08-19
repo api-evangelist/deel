@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_forms API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_forms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch multiple EOR Contract forms",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/forms/eor/create-contract/definitions",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of countries to return in a single response. Defaults to 10."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor for fetching subsequent pages of results."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve paginated, versioned form definitions for creating EOR contracts for the specified countries. Use this endpoint when initializing or resuming a contract-creation flow to determine the required sections, fields, validation rules, and conditional logic per country (and optional contract type/locale). Always consume the latest effective version from the response and handle pagination. Not intended for reading or updating existing contracts.\n **Token scopes**: `forms:read`"
+        },
+        {
+          "info": {
+            "name": "Get worker additional fields for (EOR)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/forms/eor/worker-additional-fields/:country_code",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "path",
+                "description": "Country code"
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve the additional form fields required for EOR workers in a specified country.\n **Token scopes**: `forms:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

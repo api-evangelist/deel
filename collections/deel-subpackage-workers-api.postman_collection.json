@@ -1,0 +1,2414 @@
+{
+  "item": [
+    {
+      "id": "b5b606ff-d804-49e3-8e84-c96b5620dca0",
+      "name": "subpackage_workers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b44d5370-4954-4999-a04d-929c975fb5ac",
+          "name": "/ic/workers/invoices/:invoice_id/pdf",
+          "request": {
+            "name": "/ic/workers/invoices/:invoice_id/pdf",
+            "description": {
+              "content": "This endpoint provides embedded worker flows access to download a pdf of a specific invoice while using a worker:PAT token.\n **Token scopes**: `accounting:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ic",
+                "workers",
+                "invoices",
+                ":invoice_id",
+                "pdf"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "invoice_id",
+                  "description": "(Required) Public invoice identifier (UUID) for the invoice whose PDF URL is returned."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d38a950-d0fd-4d30-bfcf-a7fae284c93c",
+              "name": "Signed PDF URL for download.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "invoices",
+                    ":invoice_id",
+                    "pdf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "invoice_id",
+                      "description": "(Required) Public invoice identifier (UUID) for the invoice whose PDF URL is returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"url\": \"https://VdUBMGtLBBElAPdocq.oelS2icFoZUhs3V3KPlCtK3qJu9zyBAmUV4W7Ndh-a3LsBjZJPRGSvuf6wFO+n\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d674d237-8211-4d26-b12c-1f7357f3fa1f",
+              "name": "Bad request (invalid query parameters).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "invoices",
+                    ":invoice_id",
+                    "pdf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "invoice_id",
+                      "description": "(Required) Public invoice identifier (UUID) for the invoice whose PDF URL is returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1ca92c6-64f3-4aed-8a7c-4dc4bc2b44e3",
+              "name": "Unauthorized (missing or invalid worker token).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "invoices",
+                    ":invoice_id",
+                    "pdf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "invoice_id",
+                      "description": "(Required) Public invoice identifier (UUID) for the invoice whose PDF URL is returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {}\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af11b85d-e194-49ee-8fb6-89956c521b09",
+              "name": "Forbidden (invoice not found or not accessible to this worker).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "invoices",
+                    ":invoice_id",
+                    "pdf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "invoice_id",
+                      "description": "(Required) Public invoice identifier (UUID) for the invoice whose PDF URL is returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {},\n        \"key_3\": {}\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {}\n      }\n    }\n  ],\n  \"request\": {\n    \"url\": \"string\",\n    \"method\": \"string\",\n    \"status\": 4761\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7eaa742-c7b3-48bf-87c6-c2d3149f6c97",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "invoices",
+                    ":invoice_id",
+                    "pdf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "invoice_id",
+                      "description": "(Required) Public invoice identifier (UUID) for the invoice whose PDF URL is returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 9874.637050982295,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 1858.3732211380066\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3021812-5ff5-4b22-a588-395a171471c8",
+              "name": "Precondition failed (e.g. icEmbeddedWorkerSetup is not enabled for the organization).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "invoices",
+                    ":invoice_id",
+                    "pdf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "invoice_id",
+                      "description": "(Required) Public invoice identifier (UUID) for the invoice whose PDF URL is returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Precondition Failed",
+              "code": 412,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {}\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6184b781-4a81-46af-afe2-8b1c37825d87",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "invoices",
+                    ":invoice_id",
+                    "pdf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "invoice_id",
+                      "description": "(Required) Public invoice identifier (UUID) for the invoice whose PDF URL is returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "894d11d1-017a-4236-a6ad-cdbd5a455e0e",
+          "name": "Create a new worker",
+          "request": {
+            "name": "Create a new worker",
+            "description": {
+              "content": "Creates a new worker account with the specified profile type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "worker"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"email\": \"<email>\",\n    \"company\": {\n      \"type\": \"<string>\",\n      \"personal\": {\n        \"zip\": \"<double>\",\n        \"city\": \"<string>\",\n        \"phone\": \"<double>\",\n        \"street\": \"<string>\",\n        \"citizen\": \"<string>\",\n        \"personal_id\": \"<double>\",\n        \"country\": \"<string>\",\n        \"id_type\": \"<string>\",\n        \"province\": \"<string,null>\",\n        \"timezone\": \"<string>\",\n        \"legal_status\": \"<string>\",\n        \"tax_residence\": \"<string>\",\n        \"entity_tax_residence\": \"<string>\"\n      }\n    },\n    \"timezone\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"contract_id\": \"<string>\",\n    \"profile_type\": \"<string>\",\n    \"middle_name\": \"<string,null>\",\n    \"preferred_name\": \"<string,null>\",\n    \"preferred_lastName\": \"<string,null>\",\n    \"preferred_firstname\": \"<string,null>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1c19409d-7c5f-4c31-9ee9-5dc3631cfd9f",
+              "name": "Worker created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "worker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"email\": \"Ge5q4T@wPKRZNEDIal.phge\",\n    \"company\": {\n      \"type\": \"INDIVIDUAL\",\n      \"personal\": {\n        \"zip\": 5818.042146061621,\n        \"city\": \"string\",\n        \"phone\": 8817.889640325342,\n        \"street\": \"string\",\n        \"citizen\": \"string\",\n        \"personal_id\": 2428.864321237347,\n        \"country\": \"string\",\n        \"id_type\": \"string\",\n        \"province\": \"string\",\n        \"timezone\": \"string\",\n        \"legal_status\": \"string\",\n        \"tax_residence\": \"string\",\n        \"entity_tax_residence\": \"string\"\n      }\n    },\n    \"timezone\": \"string\",\n    \"last_name\": \"string\",\n    \"first_name\": \"string\",\n    \"contract_id\": \"string\",\n    \"profile_type\": \"EOR\",\n    \"middle_name\": \"string\",\n    \"preferred_name\": \"string\",\n    \"preferred_lastName\": \"string\",\n    \"preferred_firstname\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"user_id\": \"string\",\n    \"profile_id\": \"string\",\n    \"contract_id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72e31df4-f539-4ba3-a26e-e5fff09d7889",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "worker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"email\": \"Ge5q4T@wPKRZNEDIal.phge\",\n    \"company\": {\n      \"type\": \"INDIVIDUAL\",\n      \"personal\": {\n        \"zip\": 5818.042146061621,\n        \"city\": \"string\",\n        \"phone\": 8817.889640325342,\n        \"street\": \"string\",\n        \"citizen\": \"string\",\n        \"personal_id\": 2428.864321237347,\n        \"country\": \"string\",\n        \"id_type\": \"string\",\n        \"province\": \"string\",\n        \"timezone\": \"string\",\n        \"legal_status\": \"string\",\n        \"tax_residence\": \"string\",\n        \"entity_tax_residence\": \"string\"\n      }\n    },\n    \"timezone\": \"string\",\n    \"last_name\": \"string\",\n    \"first_name\": \"string\",\n    \"contract_id\": \"string\",\n    \"profile_type\": \"EOR\",\n    \"middle_name\": \"string\",\n    \"preferred_name\": \"string\",\n    \"preferred_lastName\": \"string\",\n    \"preferred_firstname\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "70b93981-e28e-45f2-8584-c5e9496f78c4",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "worker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"email\": \"Ge5q4T@wPKRZNEDIal.phge\",\n    \"company\": {\n      \"type\": \"INDIVIDUAL\",\n      \"personal\": {\n        \"zip\": 5818.042146061621,\n        \"city\": \"string\",\n        \"phone\": 8817.889640325342,\n        \"street\": \"string\",\n        \"citizen\": \"string\",\n        \"personal_id\": 2428.864321237347,\n        \"country\": \"string\",\n        \"id_type\": \"string\",\n        \"province\": \"string\",\n        \"timezone\": \"string\",\n        \"legal_status\": \"string\",\n        \"tax_residence\": \"string\",\n        \"entity_tax_residence\": \"string\"\n      }\n    },\n    \"timezone\": \"string\",\n    \"last_name\": \"string\",\n    \"first_name\": \"string\",\n    \"contract_id\": \"string\",\n    \"profile_type\": \"EOR\",\n    \"middle_name\": \"string\",\n    \"preferred_name\": \"string\",\n    \"preferred_lastName\": \"string\",\n    \"preferred_firstname\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 9874.637050982295,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 1858.3732211380066\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b56fa88-70fd-463e-9110-c71cf158ad4b",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "worker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"email\": \"Ge5q4T@wPKRZNEDIal.phge\",\n    \"company\": {\n      \"type\": \"INDIVIDUAL\",\n      \"personal\": {\n        \"zip\": 5818.042146061621,\n        \"city\": \"string\",\n        \"phone\": 8817.889640325342,\n        \"street\": \"string\",\n        \"citizen\": \"string\",\n        \"personal_id\": 2428.864321237347,\n        \"country\": \"string\",\n        \"id_type\": \"string\",\n        \"province\": \"string\",\n        \"timezone\": \"string\",\n        \"legal_status\": \"string\",\n        \"tax_residence\": \"string\",\n        \"entity_tax_residence\": \"string\"\n      }\n    },\n    \"timezone\": \"string\",\n    \"last_name\": \"string\",\n    \"first_name\": \"string\",\n    \"contract_id\": \"string\",\n    \"profile_type\": \"EOR\",\n    \"middle_name\": \"string\",\n    \"preferred_name\": \"string\",\n    \"preferred_lastName\": \"string\",\n    \"preferred_firstname\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 9874.637050982295,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 1858.3732211380066\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a5affe7d-38a2-494c-8293-3980683c217f",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "worker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"email\": \"Ge5q4T@wPKRZNEDIal.phge\",\n    \"company\": {\n      \"type\": \"INDIVIDUAL\",\n      \"personal\": {\n        \"zip\": 5818.042146061621,\n        \"city\": \"string\",\n        \"phone\": 8817.889640325342,\n        \"street\": \"string\",\n        \"citizen\": \"string\",\n        \"personal_id\": 2428.864321237347,\n        \"country\": \"string\",\n        \"id_type\": \"string\",\n        \"province\": \"string\",\n        \"timezone\": \"string\",\n        \"legal_status\": \"string\",\n        \"tax_residence\": \"string\",\n        \"entity_tax_residence\": \"string\"\n      }\n    },\n    \"timezone\": \"string\",\n    \"last_name\": \"string\",\n    \"first_name\": \"string\",\n    \"contract_id\": \"string\",\n    \"profile_type\": \"EOR\",\n    \"middle_name\": \"string\",\n    \"preferred_name\": \"string\",\n    \"preferred_lastName\": \"string\",\n    \"preferred_firstname\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 9874.637050982295,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 1858.3732211380066\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f4e31e6-4afa-407d-8e8e-7e2f09ed7188",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "worker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"email\": \"Ge5q4T@wPKRZNEDIal.phge\",\n    \"company\": {\n      \"type\": \"INDIVIDUAL\",\n      \"personal\": {\n        \"zip\": 5818.042146061621,\n        \"city\": \"string\",\n        \"phone\": 8817.889640325342,\n        \"street\": \"string\",\n        \"citizen\": \"string\",\n        \"personal_id\": 2428.864321237347,\n        \"country\": \"string\",\n        \"id_type\": \"string\",\n        \"province\": \"string\",\n        \"timezone\": \"string\",\n        \"legal_status\": \"string\",\n        \"tax_residence\": \"string\",\n        \"entity_tax_residence\": \"string\"\n      }\n    },\n    \"timezone\": \"string\",\n    \"last_name\": \"string\",\n    \"first_name\": \"string\",\n    \"contract_id\": \"string\",\n    \"profile_type\": \"EOR\",\n    \"middle_name\": \"string\",\n    \"preferred_name\": \"string\",\n    \"preferred_lastName\": \"string\",\n    \"preferred_firstname\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7fc23913-7878-47c1-8d7e-3d1e586c00fa",
+          "name": "Get invoice details by ID",
+          "request": {
+            "name": "Get invoice details by ID",
+            "description": {
+              "content": "This endpoint retrieves invoice information by ID. Use it to access detailed invoice data for reference or verification.\n **Token scopes**: `worker:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ic",
+                "workers",
+                "invoices",
+                ":invoice_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "invoice_id",
+                  "description": "(Required) Public invoice id for the invoice to return."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bd538248-a826-4138-ba8f-0d722fa7b83f",
+              "name": "Invoice detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "invoices",
+                    ":invoice_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoice_id",
+                      "description": "(Required) Public invoice id for the invoice to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"string\",\n    \"status\": \"string\",\n    \"currency\": \"string\",\n    \"created_at\": \"1971-08-13T11:59:37.300Z\",\n    \"title\": \"string\",\n    \"total\": \"string\",\n    \"amount\": \"string\",\n    \"issued_at\": \"1989-08-09T21:53:36.987Z\",\n    \"payment_display_status\": {\n      \"key\": \"string\",\n      \"label\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c4cedb89-1504-44b9-a468-79c0abb96ed6",
+              "name": "Bad request (invalid query or path parameters).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "invoices",
+                    ":invoice_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoice_id",
+                      "description": "(Required) Public invoice id for the invoice to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea012296-bcc9-453d-8097-4829f950e5e2",
+              "name": "Unauthorized (missing or invalid worker token).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "invoices",
+                    ":invoice_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoice_id",
+                      "description": "(Required) Public invoice id for the invoice to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3770c67-3787-4f24-b570-d894b5ab4fc7",
+              "name": "Forbidden (invoice not found or not accessible to this worker).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "invoices",
+                    ":invoice_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoice_id",
+                      "description": "(Required) Public invoice id for the invoice to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {}\n      }\n    }\n  ],\n  \"request\": {\n    \"url\": \"string\",\n    \"method\": \"string\",\n    \"status\": 3053\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb7ba79d-e77e-489a-97ea-275ba5dcafee",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "invoices",
+                    ":invoice_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoice_id",
+                      "description": "(Required) Public invoice id for the invoice to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 9874.637050982295,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 1858.3732211380066\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa39a4a0-cc30-4ab2-afc1-598927954735",
+              "name": "Precondition failed (e.g. `icEmbeddedWorkerSetup` is not enabled for the organization).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "invoices",
+                    ":invoice_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoice_id",
+                      "description": "(Required) Public invoice id for the invoice to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Precondition Failed",
+              "code": 412,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {}\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09e9bf3d-6fdc-4e1d-9860-6f171eb4fb54",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "invoices",
+                    ":invoice_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "invoice_id",
+                      "description": "(Required) Public invoice id for the invoice to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d41a123f-0dcf-4d57-842a-be337eab5375",
+          "name": "List of worker compliance documents",
+          "request": {
+            "name": "List of worker compliance documents",
+            "description": {
+              "content": "Retrieve the list of compliance document requirements for a worker, grouped by country. Returns all required and optional documents with their current submission status. Applicable for both independent contractors and EOR employees.\n **Token scopes**: `worker:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "workers",
+                "compliance-documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "332d44a1-52ff-45a0-a48f-35536afbf92e",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workers",
+                    "compliance-documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"documents\": [\n      {\n        \"id\": \"1b8fc2eb-8961-e6db-4b45-a5f146a45d00\",\n        \"name\": \"string\",\n        \"status\": \"AWAITING_EXTERNAL_REVIEW\",\n        \"country\": \"string\",\n        \"fillable\": false,\n        \"filenames\": [\n          \"string\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"is_optional\": true,\n        \"uploaded_at\": \"1981-06-13T19:23:24.976Z\",\n        \"has_template\": false,\n        \"rejection_message\": \"string\",\n        \"required_in_30_days\": false,\n        \"is_acknowledgement_only_document\": false,\n        \"is_consent_required\": false\n      },\n      {\n        \"id\": \"8197b536-bdad-0642-1e1b-2aa274071005\",\n        \"name\": \"string\",\n        \"status\": \"ON_HOLD\",\n        \"country\": \"string\",\n        \"fillable\": false,\n        \"filenames\": [\n          \"string\",\n          \"string\"\n        ],\n        \"description\": \"string\",\n        \"is_optional\": true,\n        \"uploaded_at\": \"1978-04-12T18:02:27.435Z\",\n        \"has_template\": true,\n        \"rejection_message\": \"string\",\n        \"required_in_30_days\": false,\n        \"is_acknowledgement_only_document\": false,\n        \"is_consent_required\": true\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d33b2af3-a258-4b8e-a4a7-bf415e1a83d1",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workers",
+                    "compliance-documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 9874.637050982295,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 1858.3732211380066\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b68ab73-8759-469c-9d8e-73b099e208a3",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workers",
+                    "compliance-documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 9874.637050982295,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 1858.3732211380066\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08300354-2b94-48aa-9c43-d4fc6adfb13c",
+              "name": "Forbidden. The caller does not have the required profile type (employee or contractor).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workers",
+                    "compliance-documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fafdf40b-ec8c-41d5-9dbe-a807b7fcdfe1",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workers",
+                    "compliance-documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 9874.637050982295,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 1858.3732211380066\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4170ac9-3f40-4a67-93c3-4cd642eb246b",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workers",
+                    "compliance-documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f965afef-3a88-4efe-803d-14343af0966c",
+          "name": "Retrieve worker transaction history",
+          "request": {
+            "name": "Retrieve worker transaction history",
+            "description": {
+              "content": "Use this endpoint to access a worker's transaction history quickly. This integration works with white-label clients and ensures compliance by not following the generic contractor route\n **Token scopes**: `worker:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ic",
+                "workers",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum number of transactions to return in this page (page size)."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "ALL",
+                  "description": "Subset of transactions by processing state. Public enum is UPPER_SNAKE; the server lowercases for validation (legacy lowercase query values are still accepted)."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "Lower bound on transaction `created_at` (inclusive), ISO-8601 date-time."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "Upper bound on transaction `created_at` (inclusive), ISO-8601 date-time."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor from the previous response field `next_cursor`. Omit on the first page; pass the last `next_cursor` value as `cursor` to fetch the next page."
+                },
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>",
+                  "description": "Filter listed transactions to these mapped status values (applied after fetch; may affect how rows align with `total_count`)."
+                },
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>",
+                  "description": "Filter listed transactions to these mapped status values (applied after fetch; may affect how rows align with `total_count`)."
+                },
+                {
+                  "disabled": false,
+                  "key": "amount_from",
+                  "value": "<double>",
+                  "description": "Minimum transaction amount to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "amount_to",
+                  "value": "<double>",
+                  "description": "Maximum transaction amount to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "currencies",
+                  "value": "<string>",
+                  "description": "Only include transactions in one of these currency codes."
+                },
+                {
+                  "disabled": false,
+                  "key": "currencies",
+                  "value": "<string>",
+                  "description": "Only include transactions in one of these currency codes."
+                },
+                {
+                  "disabled": false,
+                  "key": "transaction_type",
+                  "value": "<string>",
+                  "description": "Restrict to pay-in or pay-out. Public enum is UPPER_SNAKE; the server lowercases for validation (legacy lowercase query values are still accepted)."
+                },
+                {
+                  "disabled": false,
+                  "key": "withdrawal_methods",
+                  "value": "<string>",
+                  "description": "Filter by withdrawal / payout method identifiers."
+                },
+                {
+                  "disabled": false,
+                  "key": "withdrawal_methods",
+                  "value": "<string>",
+                  "description": "Filter by withdrawal / payout method identifiers."
+                },
+                {
+                  "disabled": false,
+                  "key": "last_days",
+                  "value": "<integer>",
+                  "description": "Only include transactions created in the last N days."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Additional transaction type filter (backend-specific string)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include_running_total",
+                  "value": "false",
+                  "description": "When true, each row may include a running total over the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "861e5bc2-588b-4739-a7a3-2cf457450fbe",
+              "name": "Successful operation — paginated contractor transactions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount_from",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "amount_to",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_type",
+                      "value": "PAY_IN"
+                    },
+                    {
+                      "key": "withdrawal_methods",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withdrawal_methods",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_running_total",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"created_at\": \"2007-06-02T20:24:33.917Z\",\n      \"amount\": \"string\",\n      \"status\": \"string\",\n      \"currency\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"created_at\": \"2014-06-05T02:13:27.635Z\",\n      \"amount\": \"string\",\n      \"status\": \"string\",\n      \"currency\": \"string\"\n    }\n  ],\n  \"has_more\": false,\n  \"total_count\": 6194,\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16d89d34-c6a7-4cae-a09e-371c418927fa",
+              "name": "Bad request (invalid query parameters).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount_from",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "amount_to",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_type",
+                      "value": "PAY_IN"
+                    },
+                    {
+                      "key": "withdrawal_methods",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withdrawal_methods",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_running_total",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {}\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e546ac1e-7b12-40ea-8f90-cf10b6dd131f",
+              "name": "Unauthorized (missing or invalid worker token).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount_from",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "amount_to",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_type",
+                      "value": "PAY_IN"
+                    },
+                    {
+                      "key": "withdrawal_methods",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withdrawal_methods",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_running_total",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {},\n        \"key_3\": {}\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7806ee48-a3a2-4bd7-911d-bf8e0afd2e76",
+              "name": "Forbidden (not allowed for this worker or token).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount_from",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "amount_to",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_type",
+                      "value": "PAY_IN"
+                    },
+                    {
+                      "key": "withdrawal_methods",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withdrawal_methods",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_running_total",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {}\n      }\n    }\n  ],\n  \"request\": {\n    \"url\": \"string\",\n    \"method\": \"string\",\n    \"status\": 7711\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d1c647e-008f-48b5-b587-e11fbedae80e",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount_from",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "amount_to",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_type",
+                      "value": "PAY_IN"
+                    },
+                    {
+                      "key": "withdrawal_methods",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withdrawal_methods",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_running_total",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 9874.637050982295,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 1858.3732211380066\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5feb7424-2fa8-4097-ac71-d8ed608ca2fa",
+              "name": "Precondition failed (e.g. icEmbeddedWorkerSetup is not enabled for the organization).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount_from",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "amount_to",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_type",
+                      "value": "PAY_IN"
+                    },
+                    {
+                      "key": "withdrawal_methods",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withdrawal_methods",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_running_total",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Precondition Failed",
+              "code": 412,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "024ffd34-9c64-4215-a1f3-1eda32f7f254",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ic",
+                    "workers",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "amount_from",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "amount_to",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "currencies",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transaction_type",
+                      "value": "PAY_IN"
+                    },
+                    {
+                      "key": "withdrawal_methods",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withdrawal_methods",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_days",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_running_total",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\",\n      \"details\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.letsdeel.com/rest/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "daade437-acc0-4211-b4c5-45093671ac5e",
+    "name": "Endpoints subpackage_workers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

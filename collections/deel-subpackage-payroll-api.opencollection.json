@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_payroll API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_payroll",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get pay stub from employees from organization integrated with external benefits vendor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/benefits/legal-entities/:id/pay-stub",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id from the legal entity to fetch data"
+              },
+              {
+                "name": "payroll_start_date",
+                "value": "",
+                "type": "query",
+                "description": "Payroll start date"
+              },
+              {
+                "name": "payroll_end_date",
+                "value": "",
+                "type": "query",
+                "description": "Payroll end date"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Payroll status"
+              },
+              {
+                "name": "items_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Items per page"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Items to be skipped when searching"
+              }
+            ]
+          },
+          "docs": "Returns pay stub records for employees within a legal entity integrated with an external benefits vendor, with support for filtering by payroll date range, status, and offset-based pagination.\n **Token scopes**: `organizations:read`"
+        },
+        {
+          "info": {
+            "name": "Get year to date payment for benefits 401k.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/benefits/legal-entities/:id/year-to-date-pay",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id from the legal entity to fetch data"
+              },
+              {
+                "name": "date_start",
+                "value": "",
+                "type": "query",
+                "description": "Start date to fetch aggregated pay data"
+              },
+              {
+                "name": "date_end",
+                "value": "",
+                "type": "query",
+                "description": "End date to fetch aggregated pay data"
+              }
+            ]
+          },
+          "docs": "Get year to date from employees from organization integrated with external benefits vendor\n **Token scopes**: `organizations:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

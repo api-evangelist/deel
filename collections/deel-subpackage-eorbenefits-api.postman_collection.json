@@ -1,0 +1,281 @@
+{
+  "item": [
+    {
+      "id": "ab5fcf70-6713-411b-9f3c-4be0ef94e4e5",
+      "name": "subpackage_eorBenefits",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "285878fd-ebba-4ae5-8595-fb9d35c4b3e8",
+          "name": "Retrieve Benefits for EOR Contract",
+          "request": {
+            "name": "Retrieve Benefits for EOR Contract",
+            "description": {
+              "content": "Fetch detailed information about benefits associated with a specific Employee of Record (EOR) contract. The benefits include plan details, provider information, and enrollment statuses.\n **Token scopes**: `contracts:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "eor",
+                ":contract_id",
+                "benefits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contract_id",
+                  "description": "(Required) Deel contract ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8b53493a-6fcc-4e06-a68e-a16e10dfaf4a",
+              "name": "Successfully retrieved the list of EOR contract benefits.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    ":contract_id",
+                    "benefits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contract_id",
+                      "description": "(Required) Deel contract ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"plan\": {\n        \"name\": \"string\"\n      },\n      \"provider\": {\n        \"name\": \"string\"\n      },\n      \"offer_status\": \"Offered\",\n      \"enrollment_details\": {\n        \"plan\": {\n          \"name\": \"string\"\n        },\n        \"status\": \"string\",\n        \"standard\": {\n          \"monthly_cost\": \"string\",\n          \"employee_monthly_contribution\": \"string\"\n        },\n        \"current_cycle\": {\n          \"monthly_cost\": \"string\",\n          \"employee_monthly_contribution\": \"string\"\n        }\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"plan\": {\n        \"name\": \"string\"\n      },\n      \"provider\": {\n        \"name\": \"string\"\n      },\n      \"offer_status\": \"Offered\",\n      \"enrollment_details\": {\n        \"plan\": {\n          \"name\": \"string\"\n        },\n        \"status\": \"string\",\n        \"standard\": {\n          \"monthly_cost\": \"string\",\n          \"employee_monthly_contribution\": \"string\"\n        },\n        \"current_cycle\": {\n          \"monthly_cost\": \"string\",\n          \"employee_monthly_contribution\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3fac9a3f-4c59-40e7-ab1d-5894dec90be4",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    ":contract_id",
+                    "benefits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contract_id",
+                      "description": "(Required) Deel contract ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 9521.2276497966,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 7497.569323687404\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c402dce7-c251-4b3d-9af5-c14cad44bccd",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    ":contract_id",
+                    "benefits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contract_id",
+                      "description": "(Required) Deel contract ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 9521.2276497966,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 7497.569323687404\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58aff9c0-3934-4d2a-908d-83ceb6af1e9e",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    ":contract_id",
+                    "benefits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contract_id",
+                      "description": "(Required) Deel contract ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 9521.2276497966,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 7497.569323687404\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.letsdeel.com/rest/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c101dcad-428a-4113-9431-cd175c0fb453",
+    "name": "Endpoints subpackage_eorBenefits API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,820 @@
+{
+  "item": [
+    {
+      "id": "878ca68f-367e-461d-b7c5-8dafc4ee3df9",
+      "name": "subpackage_forms",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ef9bce97-4ff8-412b-8e62-2ea9ce97fa1d",
+          "name": "Fetch multiple EOR Contract forms",
+          "request": {
+            "name": "Fetch multiple EOR Contract forms",
+            "description": {
+              "content": "Retrieve paginated, versioned form definitions for creating EOR contracts for the specified countries. Use this endpoint when initializing or resuming a contract-creation flow to determine the required sections, fields, validation rules, and conditional logic per country (and optional contract type/locale). Always consume the latest effective version from the response and handle pagination. Not intended for reading or updating existing contracts.\n **Token scopes**: `forms:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                "eor",
+                "create-contract",
+                "definitions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Maximum number of countries to return in a single response. Defaults to 10."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Pagination cursor for fetching subsequent pages of results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"countries\": [\n      {\n        \"country_code\": \"<string>\",\n        \"state\": \"<string>\"\n      },\n      {\n        \"country_code\": \"<string>\",\n        \"state\": \"<string>\"\n      }\n    ],\n    \"start_date\": \"<date>\",\n    \"work_hours_per_week\": \"<integer>\",\n    \"contract_duration_in_days\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0b525268-e68e-4081-90ab-6ba5e914dbe5",
+              "name": "Successful response containing multiple form configuration data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "eor",
+                    "create-contract",
+                    "definitions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"countries\": [\n      {\n        \"country_code\": \"string\",\n        \"state\": \"string\"\n      },\n      {\n        \"country_code\": \"string\",\n        \"state\": \"string\"\n      }\n    ],\n    \"start_date\": \"1953-03-30\",\n    \"work_hours_per_week\": 2236,\n    \"contract_duration_in_days\": 9265\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"pages\": [\n        {\n          \"title\": \"string\",\n          \"sections\": [\n            {\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"questions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"subtitle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"questions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"subtitle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"title\": \"string\",\n          \"sections\": [\n            {\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"questions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"subtitle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"questions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"subtitle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"country\": \"string\",\n      \"state\": \"string\"\n    },\n    {\n      \"pages\": [\n        {\n          \"title\": \"string\",\n          \"sections\": [\n            {\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"questions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"subtitle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"questions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"subtitle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"title\": \"string\",\n          \"sections\": [\n            {\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"questions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"subtitle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"questions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"subtitle\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"country\": \"string\",\n      \"state\": \"string\"\n    }\n  ],\n  \"has_more\": true,\n  \"total_count\": 8446,\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11cf8023-d56b-4771-b156-a6de9e25b693",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "eor",
+                    "create-contract",
+                    "definitions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"countries\": [\n      {\n        \"country_code\": \"string\",\n        \"state\": \"string\"\n      },\n      {\n        \"country_code\": \"string\",\n        \"state\": \"string\"\n      }\n    ],\n    \"start_date\": \"1953-03-30\",\n    \"work_hours_per_week\": 2236,\n    \"contract_duration_in_days\": 9265\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c5ba4c8-2cf5-4a6b-9bea-6bf7406e3531",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "eor",
+                    "create-contract",
+                    "definitions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"countries\": [\n      {\n        \"country_code\": \"string\",\n        \"state\": \"string\"\n      },\n      {\n        \"country_code\": \"string\",\n        \"state\": \"string\"\n      }\n    ],\n    \"start_date\": \"1953-03-30\",\n    \"work_hours_per_week\": 2236,\n    \"contract_duration_in_days\": 9265\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 7881.191779079425,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 16.24408120721954\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21849482-d9a9-4981-95bd-d8867f623648",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "eor",
+                    "create-contract",
+                    "definitions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"countries\": [\n      {\n        \"country_code\": \"string\",\n        \"state\": \"string\"\n      },\n      {\n        \"country_code\": \"string\",\n        \"state\": \"string\"\n      }\n    ],\n    \"start_date\": \"1953-03-30\",\n    \"work_hours_per_week\": 2236,\n    \"contract_duration_in_days\": 9265\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 7881.191779079425,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 16.24408120721954\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3beefb4-6f51-440e-8efd-5fcc6ff590a2",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "eor",
+                    "create-contract",
+                    "definitions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"countries\": [\n      {\n        \"country_code\": \"string\",\n        \"state\": \"string\"\n      },\n      {\n        \"country_code\": \"string\",\n        \"state\": \"string\"\n      }\n    ],\n    \"start_date\": \"1953-03-30\",\n    \"work_hours_per_week\": 2236,\n    \"contract_duration_in_days\": 9265\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 7881.191779079425,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 16.24408120721954\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd13026e-ad3a-4007-970b-6986f4476a57",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "eor",
+                    "create-contract",
+                    "definitions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"countries\": [\n      {\n        \"country_code\": \"string\",\n        \"state\": \"string\"\n      },\n      {\n        \"country_code\": \"string\",\n        \"state\": \"string\"\n      }\n    ],\n    \"start_date\": \"1953-03-30\",\n    \"work_hours_per_week\": 2236,\n    \"contract_duration_in_days\": 9265\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddc41a2f-95bb-44cd-a2fb-55baf1ae073b",
+          "name": "Get worker additional fields for (EOR)",
+          "request": {
+            "name": "Get worker additional fields for (EOR)",
+            "description": {
+              "content": "Use this endpoint to retrieve the additional form fields required for EOR workers in a specified country.\n **Token scopes**: `forms:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                "eor",
+                "worker-additional-fields",
+                ":country_code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "country_code",
+                  "description": "(Required) Country code"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c1df34cf-4cc0-494f-9418-98c677371f8f",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "eor",
+                    "worker-additional-fields",
+                    ":country_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country_code",
+                      "description": "(Required) Country code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"key\": \"string\",\n      \"type\": \"string\",\n      \"ui_guide\": {\n        \"label\": \"string\",\n        \"order\": 9412,\n        \"field_type\": \"string\",\n        \"description\": \"string\",\n        \"helper_text\": \"string\",\n        \"local_label\": \"string\"\n      },\n      \"validation\": [\n        {\n          \"type\": \"string\",\n          \"error_message\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"error_message\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"is_required\": false,\n      \"dependencies\": [\n        {\n          \"key\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"required_by\": \"string\",\n      \"values_allowed\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"key\": \"string\",\n      \"type\": \"string\",\n      \"ui_guide\": {\n        \"label\": \"string\",\n        \"order\": 2619,\n        \"field_type\": \"string\",\n        \"description\": \"string\",\n        \"helper_text\": \"string\",\n        \"local_label\": \"string\"\n      },\n      \"validation\": [\n        {\n          \"type\": \"string\",\n          \"error_message\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"error_message\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"is_required\": false,\n      \"dependencies\": [\n        {\n          \"key\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"required_by\": \"string\",\n      \"values_allowed\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6b953fe-3442-4ade-af98-a4880ca1f1bf",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "eor",
+                    "worker-additional-fields",
+                    ":country_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country_code",
+                      "description": "(Required) Country code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f456501-0fc4-4fd9-b5e4-479c08bbbc05",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "eor",
+                    "worker-additional-fields",
+                    ":country_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country_code",
+                      "description": "(Required) Country code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 7881.191779079425,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 16.24408120721954\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9753c42e-e6f0-40a3-be82-9a03d01680d5",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "eor",
+                    "worker-additional-fields",
+                    ":country_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country_code",
+                      "description": "(Required) Country code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 7881.191779079425,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 16.24408120721954\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c97ed6ab-b408-4920-bb1c-63eb8c5e87d0",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "eor",
+                    "worker-additional-fields",
+                    ":country_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country_code",
+                      "description": "(Required) Country code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 7881.191779079425,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 16.24408120721954\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e8fcf40-e220-4240-b032-a68f3841c593",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "eor",
+                    "worker-additional-fields",
+                    ":country_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country_code",
+                      "description": "(Required) Country code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.letsdeel.com/rest/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ae059df7-c0e5-46c5-8b5e-9b0a3e065d91",
+    "name": "Endpoints subpackage_forms API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

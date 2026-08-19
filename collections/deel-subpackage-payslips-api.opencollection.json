@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_payslips API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_payslips",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve employee payslips",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:id/payslips",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the worker."
+              }
+            ]
+          },
+          "docs": "Returns a list of payslips for a Global Payroll (GP) employee, including each payslip's date range and current status. Use this endpoint to display payslip history or verify that payslips have been published before initiating a download. Requires the worker id (UUID), which can be obtained from the List GPworkers endpoint. Each payslip in the response includes an id that is required for the download endpoint. Supports only GP contract types.\n **Token scopes**: `payslips:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

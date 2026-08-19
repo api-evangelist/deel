@@ -1,0 +1,328 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_payouts API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_payouts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Bank Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/payouts/employees/methods",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get Bank Details\n **Token scopes**: `worker:read`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Add/Edit Bank Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/payouts/employees/methods",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add/Edit Bank Details\n **Token scopes**: `worker:read`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Get the auto-withdrawal setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/payouts/auto-withdrawal-setting",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get whether auto-withdrawal is turned on and which method is selected to withdraw to\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Change the auto-withdrawal setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/payouts/auto-withdrawal-setting",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Turn auto-withdrawal on or off and choose a method to withdraw to\n **Token scopes**: `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Fetch all payout methods",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/payouts/contractors/methods",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "is_default",
+                "value": "",
+                "type": "query",
+                "description": "Filter by whether the method is default. If true, only default methods will be returned."
+              }
+            ]
+          },
+          "docs": "Retrieves all payout methods associated with the current user or account. Supports filtering by default method status.\n **Token scopes**: `worker:read`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Create a bank transfer method",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/payouts/contractors/methods",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a bank transfer method with dynamic payload properties based on the selected option.\n **Token scopes**: `worker:read`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Delete Bank Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/payouts/employees/methods/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "method ID"
+              }
+            ]
+          },
+          "docs": "Delete Bank Details\n **Token scopes**: `worker:read`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Dynamic Requirements",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/payouts/employees/methods/bank_transfers/requirements",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Dynamic Requirements\n **Token scopes**: `worker:read`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Get bank transfer requirements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/payouts/contractors/methods/bank_transfers/requirements",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country code"
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query",
+                "description": "Currency code"
+              },
+              {
+                "name": "amount",
+                "value": "",
+                "type": "query",
+                "description": "Amount for calculating fees, if not provided, the default amount of 100.00 is used"
+              }
+            ]
+          },
+          "docs": "Retrieve requireements for bank transfer method creation\n **Token scopes**: `worker:read`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Get bank transfer supported routes for contractor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/payouts/contractors/methods/bank_transfers/supported_routes",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get all bank transfer supported routes for specific contractor.\n **Token scopes**: `worker:read`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "List Contractor Balances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/payouts/balances",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieves the total available balances for the authenticated contractor, broken down by currency and in total.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Request to withdraw funds",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/payouts/withdrawals",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request to withdraw some or all of the available funds to a method\n **Token scopes**: `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Update a bank transfer method",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.letsdeel.com/rest/v2/payouts/contractors/methods/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Method unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a bank transfer method\n **Token scopes**: `worker:read`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Update auto withdraw setting for contractor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/payouts/contractors/settings/auto_withdraw",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates auto withdraw setting for contractor\n **Token scopes**: `worker:read`, `worker:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

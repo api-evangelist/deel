@@ -1,0 +1,306 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_workerInformation API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_workerInformation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve bank accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/banks",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker."
+              }
+            ]
+          },
+          "docs": "Retrieve all bank accounts for an employee.\n **Token scopes**: `people:read`"
+        },
+        {
+          "info": {
+            "name": "Add bank account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/banks",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker in UUID format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new bank account for an employee.\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Add GP Workers Additional Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/contracts/:contract_id/additional-information",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique public identifier of the contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to add additional information to a GP worker's contract. Provide the extra fields in the request body under 'data' for the contract identified by 'contract_id'.\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Update GP Workers Additional Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/contracts/:contract_id/additional-information",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique public identifier of the contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to update additional information for a GP worker's contract.  Provide the extra fields in the request body under 'data' for the contract identified by 'contract_id'.\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Modify bank account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/banks/:bank_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker in UUID format."
+              },
+              {
+                "name": "bank_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the bank account in UUID format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modify bank account for an employee.\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve bank guide",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/banks/guide",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker in UUID format."
+              }
+            ]
+          },
+          "docs": "Retrieve the bank form guide for an employee.\n **Token scopes**: `people:read`"
+        },
+        {
+          "info": {
+            "name": "Update address",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/address",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker in UUID format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the address of a Global Payroll employee.\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Update compensation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/compensation",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker in UUID format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the compensation of a Global Payroll employee. Returns the full compensation history including the update.\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Update employee information",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/employee-information",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker in UUID format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update employee number identifier used for integration\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Update PTO policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/pto-policy",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker in UUID format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the PTO policy of a Global Payroll employee.\n **Token scopes**: `people:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

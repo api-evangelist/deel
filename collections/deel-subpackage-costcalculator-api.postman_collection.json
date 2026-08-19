@@ -1,0 +1,281 @@
+{
+  "item": [
+    {
+      "id": "9c81e482-8995-4a18-9bf0-cedca23a9610",
+      "name": "subpackage_costCalculator",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a04f222f-8e04-4783-8dd3-bfbf61a70b0c",
+          "name": "Calculate Employee Costs Globally",
+          "request": {
+            "name": "Calculate Employee Costs Globally",
+            "description": {
+              "content": "Determine the total employment costs for an Employee of Record (EOR) arrangement across different countries, including salary, employer costs, benefits, and additional fees.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "eor",
+                "employment_cost"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"salary\": \"<double>\",\n    \"country\": \"<string>\",\n    \"currency\": \"<string>\",\n    \"state\": \"<string>\",\n    \"benefits\": [\n      {\n        \"provider_id\": \"<string>\",\n        \"plan_id\": \"<string,null>\"\n      },\n      {\n        \"provider_id\": \"<string>\",\n        \"plan_id\": \"<string,null>\"\n      }\n    ],\n    \"country_code\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "00fd36b9-444f-4fd8-92d3-98c0a7c4d789",
+              "name": "Successfully calculated employee costs.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    "employment_cost"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"salary\": 3489.8644157707213,\n    \"country\": \"string\",\n    \"currency\": \"string\",\n    \"state\": \"string\",\n    \"benefits\": [\n      {\n        \"provider_id\": \"string\",\n        \"plan_id\": \"string\"\n      },\n      {\n        \"provider_id\": \"string\",\n        \"plan_id\": \"string\"\n      }\n    ],\n    \"country_code\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"costs\": [\n    {\n      \"name\": \"string\",\n      \"amount\": \"string\",\n      \"country\": \"string\",\n      \"frequency\": \"string\",\n      \"country_code\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"amount\": \"string\",\n      \"country\": \"string\",\n      \"frequency\": \"string\",\n      \"country_code\": \"string\"\n    }\n  ],\n  \"salary\": \"string\",\n  \"country\": \"string\",\n  \"currency\": \"string\",\n  \"deel_fee\": \"string\",\n  \"frequency\": \"string\",\n  \"total_costs\": \"string\",\n  \"country_code\": \"string\",\n  \"benefits_data\": [\n    {\n      \"name\": \"string\",\n      \"plan\": \"string\",\n      \"amount\": \"string\",\n      \"fee_amount\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"plan\": \"string\",\n      \"amount\": \"string\",\n      \"fee_amount\": \"string\"\n    }\n  ],\n  \"employer_costs\": \"string\",\n  \"additional_data\": {\n    \"additional_notes\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"severance_accural\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ad3d72d-47a1-432a-bd9e-2d336a9c3517",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    "employment_cost"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"salary\": 3489.8644157707213,\n    \"country\": \"string\",\n    \"currency\": \"string\",\n    \"state\": \"string\",\n    \"benefits\": [\n      {\n        \"provider_id\": \"string\",\n        \"plan_id\": \"string\"\n      },\n      {\n        \"provider_id\": \"string\",\n        \"plan_id\": \"string\"\n      }\n    ],\n    \"country_code\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 3022.2958989039616,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 349.0976111760291\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00e287f2-4d92-4333-9068-547b4e1c61eb",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    "employment_cost"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"salary\": 3489.8644157707213,\n    \"country\": \"string\",\n    \"currency\": \"string\",\n    \"state\": \"string\",\n    \"benefits\": [\n      {\n        \"provider_id\": \"string\",\n        \"plan_id\": \"string\"\n      },\n      {\n        \"provider_id\": \"string\",\n        \"plan_id\": \"string\"\n      }\n    ],\n    \"country_code\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 3022.2958989039616,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 349.0976111760291\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f3a6153-3493-45f0-a2a9-31443c5567b8",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    "employment_cost"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"salary\": 3489.8644157707213,\n    \"country\": \"string\",\n    \"currency\": \"string\",\n    \"state\": \"string\",\n    \"benefits\": [\n      {\n        \"provider_id\": \"string\",\n        \"plan_id\": \"string\"\n      },\n      {\n        \"provider_id\": \"string\",\n        \"plan_id\": \"string\"\n      }\n    ],\n    \"country_code\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 3022.2958989039616,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 349.0976111760291\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.letsdeel.com/rest/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3f00c507-130a-4113-9aca-8f5a189c34a7",
+    "name": "Endpoints subpackage_costCalculator API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

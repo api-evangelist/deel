@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_deelAsAService API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_deelAsAService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get list of payslips for an EOR employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/daas/payslips",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get list of payslips for an EOR employee.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Modify bank account for an EOR employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/daas/banks/:bank_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "bank_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a bank in UUID format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modify bank account for an EOR employee.\n **Token scopes**: `worker:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

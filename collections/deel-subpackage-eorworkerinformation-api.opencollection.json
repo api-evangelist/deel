@@ -1,0 +1,114 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_eorWorkerInformation API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_eorWorkerInformation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add additional information",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/additional-information",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add additional information for an EOR employee.\n **Token scopes**: `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Update additional information",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/additional-information",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates additional information for an EOR employee agreement. Only works if the employee’s contract status is new, under_review, or waiting_for_employee_contract. Using other statuses can cause errors.\n **Token scopes**: `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Add bank account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/banks",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add bank account for an EOR employee.\n **Token scopes**: `worker:write`"
+        },
+        {
+          "info": {
+            "name": "List of tax documents for an employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/tax-documents",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get list of tax documents for an employee.\n **Token scopes**: `worker:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

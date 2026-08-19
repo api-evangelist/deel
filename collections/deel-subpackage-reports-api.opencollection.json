@@ -1,0 +1,154 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_reports API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Download gross to net report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/gp/reports/:id/gross_to_net/csv",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the gp payroll report."
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query",
+                "description": "Currency to be used in the report calculation."
+              }
+            ]
+          },
+          "docs": "Download global payroll reports detailing gross-to-net calculations.\n **Token scopes**: `global-payroll:read`"
+        },
+        {
+          "info": {
+            "name": "List gross-to-net report.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/gp/reports/:id/gross_to_net",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the gp payroll report."
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query",
+                "description": "Currency to be used in the report calculation."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset/index of record for the next page of records to return."
+              }
+            ]
+          },
+          "docs": "Get a list of global payroll reports detailing gross-to-net calculations. Supports pagination through limit and offset query parameters.\n **Token scopes**: `global-payroll:read`"
+        },
+        {
+          "info": {
+            "name": "List payroll events by legal entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/gp/legal-entities/:legal_entity_id/reports",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "legal_entity_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the legal entity."
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve payroll events for a specific legal entity when preparing payroll reports or auditing pay cycles. This operation is read-only and does not modify any data.\n **Token scopes**: `global-payroll:read`"
+        },
+        {
+          "info": {
+            "name": "Gets G2N report data for a given payroll cycle by it's ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/reports/payroll/cycles/:cycle_id/gross-to-net",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cycle_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the payroll event."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return. Defaults to 20."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for pagination of results."
+              }
+            ]
+          },
+          "docs": "This endpoint gets categorized G2N data (including category group, category, sub-category and label) for each contract within a given payroll cycle for the provided id.\n **Token scopes**: `payslips:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

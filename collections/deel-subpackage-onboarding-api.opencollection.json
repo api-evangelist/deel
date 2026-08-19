@@ -1,0 +1,183 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_onboarding API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_onboarding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get onboarding details by employee HRIS profile ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/onboarding/tracker/hris_profile/:hris_profile_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hris_profile_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee HRIS profile."
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve a comprehensive overview of a worker's onboarding status, including their profile details, contract status, and checklist progress.\n **Token scopes**: `contracts:read`, `people:read`"
+        },
+        {
+          "info": {
+            "name": "Get onboarding details by onboarding tracker ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/onboarding/tracker/:tracker_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "tracker_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the onboarding tracker."
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve a comprehensive overview of a worker's onboarding status, including their profile details, contract status, and checklist progress.\n **Token scopes**: `contracts:read`, `people:read`"
+        },
+        {
+          "info": {
+            "name": "List onboarding employees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/onboarding/tracker",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term to filter contracts by name or other attributes"
+              },
+              {
+                "name": "contractOid",
+                "value": "",
+                "type": "query",
+                "description": "Search attribute to filter onboarding list by contract id"
+              },
+              {
+                "name": "hiringTypes",
+                "value": "",
+                "type": "query",
+                "description": "Search attribute to filter onboarding list by hiring type"
+              },
+              {
+                "name": "progressStatuses",
+                "value": "",
+                "type": "query",
+                "description": "Search attribute to filter onboarding list by progress status"
+              },
+              {
+                "name": "countries",
+                "value": "",
+                "type": "query",
+                "description": "Search attribute to filter onboarding list by country"
+              },
+              {
+                "name": "teams",
+                "value": "",
+                "type": "query",
+                "description": "Search attribute to filter onboarding list by team"
+              },
+              {
+                "name": "legalEntities",
+                "value": "",
+                "type": "query",
+                "description": "Search attribute to filter onboarding list by legal entity"
+              },
+              {
+                "name": "hrisDirectManagers",
+                "value": "",
+                "type": "query",
+                "description": "Search attribute to filter onboarding list by HRIS direct manager"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query",
+                "description": "Start date for filtering contracts"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query",
+                "description": "End date for filtering contracts"
+              },
+              {
+                "name": "actions",
+                "value": "",
+                "type": "query",
+                "description": "Onboarding actions"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort by"
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for pagination"
+              },
+              {
+                "name": "include_overview",
+                "value": "",
+                "type": "query",
+                "description": "Include an overview of the contract"
+              }
+            ]
+          },
+          "docs": "Returns a list of all workers currently going through the onboarding process, including contract details, HRIS profile information, current onboarding status, and onboarding due dates. Use this endpoint to monitor onboarding progress, track pending actions, and ensure deadlines are met.\n **Token scopes**: `contracts:read`, `people:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

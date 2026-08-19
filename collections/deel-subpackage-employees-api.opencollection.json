@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_employees API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_employees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get employee from organization integrated with external benefits vendor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/benefits/legal-entities/:id/employees/:employee_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id from the legal entity to fetch data"
+              },
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "path",
+                "description": "Employee id from the legal entity to fetch data"
+              },
+              {
+                "name": "active_contracts",
+                "value": "",
+                "type": "query",
+                "description": "Fetch only active contracts for employees"
+              }
+            ]
+          },
+          "docs": "Returns profile and contract data for a single employee within a legal entity integrated with an external benefits vendor. When `active_contracts` is `true`, only active contracts are included in the response.\n\n**Related endpoints**\n- use `contract_id` from contracts in response with `GET /benefits/legal-entities/{legal_entity_id}/contracts/{contract_id}/plans/{plan_id}`\n- use `contract_id` from contracts in response with `DELETE /benefits/legal-entities/{id}/contracts/{contract_id}/plans/{plan_"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

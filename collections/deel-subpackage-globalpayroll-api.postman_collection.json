@@ -1,0 +1,1480 @@
+{
+  "item": [
+    {
+      "id": "79301c9b-9a80-4468-8c55-b02c1c95e9ef",
+      "name": "subpackage_globalPayroll",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1692dd2c-ccee-4278-8c56-b0d6b57a4272",
+          "name": "Download a GP worker payslip",
+          "request": {
+            "name": "Download a GP worker payslip",
+            "description": {
+              "content": "Returns a pre-signed download URL for a specific Global Payroll (GP) employee payslip PDF. Use this after calling Retrieve employee payslips to obtain the payslipId. Requires the worker id (UUID) and the payslipId from the list response. The returned URL is temporary and should be used promptly to download the file. Supports only GP contract types.\n **Token scopes**: `payslips:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gp",
+                "workers",
+                ":id",
+                "payslips",
+                ":payslip_id",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the worker."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "payslipId",
+                  "description": "(Required) Unique identifier for the payslip."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "payslip_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "48bae349-d885-4aad-abc7-fba221a2e206",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gp",
+                    "workers",
+                    ":id",
+                    "payslips",
+                    ":payslip_id",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the worker."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "payslipId",
+                      "description": "(Required) Unique identifier for the payslip."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payslip_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e618486a-8da8-4272-8226-1716d7323a61",
+              "name": "Bad Request - Validation error or invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gp",
+                    "workers",
+                    ":id",
+                    "payslips",
+                    ":payslip_id",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the worker."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "payslipId",
+                      "description": "(Required) Unique identifier for the payslip."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payslip_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ],\n  \"request\": {\n    \"method\": \"string\",\n    \"status\": 9077.33211457402\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d78547a6-c928-4fbf-ab7c-e1d5d4df9e86",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gp",
+                    "workers",
+                    ":id",
+                    "payslips",
+                    ":payslip_id",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the worker."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "payslipId",
+                      "description": "(Required) Unique identifier for the payslip."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payslip_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1861.6910467020243,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9376.35496466948\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77e445cf-7a13-4433-addd-f4f409fa7642",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gp",
+                    "workers",
+                    ":id",
+                    "payslips",
+                    ":payslip_id",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the worker."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "payslipId",
+                      "description": "(Required) Unique identifier for the payslip."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payslip_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1861.6910467020243,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9376.35496466948\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "312e2842-d612-4332-ad68-c72a4826dc61",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gp",
+                    "workers",
+                    ":id",
+                    "payslips",
+                    ":payslip_id",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the worker."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "payslipId",
+                      "description": "(Required) Unique identifier for the payslip."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payslip_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1861.6910467020243,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9376.35496466948\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca472897-fa36-47ca-ac49-355c98ecb6c7",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gp",
+                    "workers",
+                    ":id",
+                    "payslips",
+                    ":payslip_id",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the worker."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "payslipId",
+                      "description": "(Required) Unique identifier for the payslip."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payslip_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1861.6910467020243,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9376.35496466948\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f657848-4808-4ee8-8a8f-05232b37c6b9",
+          "name": "Get Payroll Report",
+          "request": {
+            "name": "Get Payroll Report",
+            "description": {
+              "content": "Get payroll report data for a payroll cycle, including available columns, employee row values, and optional previous report items. Use this response to discover payroll_report_column_id and payroll_id before updating entries.\n **Token scopes**: `global-payroll:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cycles",
+                ":cycle_id",
+                "payroll-report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "contract_oids",
+                  "value": "<string>",
+                  "description": "Contract OID(s) to filter report rows."
+                },
+                {
+                  "disabled": false,
+                  "key": "contract_oids",
+                  "value": "<string>",
+                  "description": "Contract OID(s) to filter report rows."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Filter by employee name."
+                },
+                {
+                  "disabled": false,
+                  "key": "employee_status",
+                  "value": "<string>",
+                  "description": "Employee status filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "employee_status",
+                  "value": "<string>",
+                  "description": "Employee status filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum number of report rows."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor for pagination."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "cycle_id",
+                  "description": "(Required) Payroll event/cycle id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c2783f66-df74-4b53-a8f2-65e445855b48",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cycles",
+                    ":cycle_id",
+                    "payroll-report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_oids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "contract_oids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "string"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cycle_id",
+                      "description": "(Required) Payroll event/cycle id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"count\": 3346,\n    \"event_entity_items\": [\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"label\": \"string\",\n        \"scope\": \"string\",\n        \"status\": \"string\",\n        \"tooltip\": \"string\",\n        \"countries\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_global\": true,\n        \"created_at\": \"1947-01-16T09:57:43.804Z\",\n        \"item_order\": 8790,\n        \"updated_at\": \"1988-08-11T06:06:12.630Z\",\n        \"description\": \"string\",\n        \"system_name\": \"string\",\n        \"deel_enabled\": false,\n        \"is_adjustable\": true,\n        \"appears_on_g2n\": true,\n        \"client_enabled\": false,\n        \"unit_of_measure\": \"string\",\n        \"can_be_recurring\": false,\n        \"employer_cost_type\": \"string\",\n        \"add_to_employer_cost\": false,\n        \"included_in_g2n_report\": false,\n        \"payroll_legal_entity_id\": 1239,\n        \"is_recurring_in_offcycle\": false,\n        \"appears_on_recurring_items\": false,\n        \"client_payroll_report_label\": \"string\",\n        \"supported_in_payroll_report\": false,\n        \"payroll_report_sub_category_id\": \"string\",\n        \"adjustment_payroll_report_column_id\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"label\": \"string\",\n        \"scope\": \"string\",\n        \"status\": \"string\",\n        \"tooltip\": \"string\",\n        \"countries\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_global\": true,\n        \"created_at\": \"1950-07-09T09:48:42.459Z\",\n        \"item_order\": 5059,\n        \"updated_at\": \"1973-08-18T08:35:41.456Z\",\n        \"description\": \"string\",\n        \"system_name\": \"string\",\n        \"deel_enabled\": true,\n        \"is_adjustable\": true,\n        \"appears_on_g2n\": true,\n        \"client_enabled\": false,\n        \"unit_of_measure\": \"string\",\n        \"can_be_recurring\": false,\n        \"employer_cost_type\": \"string\",\n        \"add_to_employer_cost\": false,\n        \"included_in_g2n_report\": false,\n        \"payroll_legal_entity_id\": 1248,\n        \"is_recurring_in_offcycle\": false,\n        \"appears_on_recurring_items\": true,\n        \"client_payroll_report_label\": \"string\",\n        \"supported_in_payroll_report\": false,\n        \"payroll_report_sub_category_id\": \"string\",\n        \"adjustment_payroll_report_column_id\": \"string\"\n      }\n    ],\n    \"employment_payroll_events\": [\n      {\n        \"contract\": {\n          \"id\": 1397,\n          \"oid\": \"string\",\n          \"status\": \"string\",\n          \"hris_profile\": {\n            \"oid\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"contract_type\": \"string\",\n          \"completion_date\": \"1950-08-13T23:47:29.546Z\"\n        },\n        \"employment\": {\n          \"employee\": {\n            \"last_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"first_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"middle_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"employment_id\": \"string\",\n          \"employee_status\": \"string\",\n          \"employee_recurring_items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"payroll_report_items\": [\n          {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"source\": \"string\",\n            \"qtd_value\": \"string\",\n            \"ytd_value\": \"string\",\n            \"created_at\": \"1962-10-13T19:47:27.055Z\",\n            \"updated_at\": \"1991-07-01T23:17:50.956Z\",\n            \"is_prorated\": true,\n            \"is_recurring\": false,\n            \"is_overwritten\": false,\n            \"last_change_by\": 5110,\n            \"unit_of_measure\": \"string\",\n            \"updated_by_profile\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"payroll_report_column\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"payroll_report_column_id\": \"string\",\n            \"employment_payroll_event_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"source\": \"string\",\n            \"qtd_value\": \"string\",\n            \"ytd_value\": \"string\",\n            \"created_at\": \"2001-11-27T00:24:22.549Z\",\n            \"updated_at\": \"2008-04-10T15:36:35.540Z\",\n            \"is_prorated\": false,\n            \"is_recurring\": true,\n            \"is_overwritten\": true,\n            \"last_change_by\": 3154,\n            \"unit_of_measure\": \"string\",\n            \"updated_by_profile\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"payroll_report_column\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"payroll_report_column_id\": \"string\",\n            \"employment_payroll_event_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"previous_payroll_report_items\": [\n          {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"source\": \"string\",\n            \"qtd_value\": \"string\",\n            \"ytd_value\": \"string\",\n            \"created_at\": \"1999-08-27T07:22:02.391Z\",\n            \"updated_at\": \"1954-06-16T04:50:25.231Z\",\n            \"is_prorated\": false,\n            \"is_overwritten\": false,\n            \"last_change_by\": 5305,\n            \"unit_of_measure\": \"string\",\n            \"payroll_report_column\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"payroll_report_column_id\": \"string\",\n            \"employment_payroll_event_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"source\": \"string\",\n            \"qtd_value\": \"string\",\n            \"ytd_value\": \"string\",\n            \"created_at\": \"1974-05-02T09:43:47.895Z\",\n            \"updated_at\": \"1977-02-03T20:52:29.311Z\",\n            \"is_prorated\": true,\n            \"is_overwritten\": false,\n            \"last_change_by\": 5482,\n            \"unit_of_measure\": \"string\",\n            \"payroll_report_column\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"payroll_report_column_id\": \"string\",\n            \"employment_payroll_event_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"contract\": {\n          \"id\": 3702,\n          \"oid\": \"string\",\n          \"status\": \"string\",\n          \"hris_profile\": {\n            \"oid\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"contract_type\": \"string\",\n          \"completion_date\": \"1956-10-17T16:46:29.237Z\"\n        },\n        \"employment\": {\n          \"employee\": {\n            \"last_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"first_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"middle_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"employment_id\": \"string\",\n          \"employee_status\": \"string\",\n          \"employee_recurring_items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"payroll_report_items\": [\n          {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"source\": \"string\",\n            \"qtd_value\": \"string\",\n            \"ytd_value\": \"string\",\n            \"created_at\": \"1985-01-07T10:17:37.232Z\",\n            \"updated_at\": \"1973-07-21T19:26:07.224Z\",\n            \"is_prorated\": false,\n            \"is_recurring\": true,\n            \"is_overwritten\": true,\n            \"last_change_by\": 183,\n            \"unit_of_measure\": \"string\",\n            \"updated_by_profile\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"payroll_report_column\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"payroll_report_column_id\": \"string\",\n            \"employment_payroll_event_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"source\": \"string\",\n            \"qtd_value\": \"string\",\n            \"ytd_value\": \"string\",\n            \"created_at\": \"1982-11-20T06:44:22.200Z\",\n            \"updated_at\": \"2020-09-08T09:09:07.808Z\",\n            \"is_prorated\": false,\n            \"is_recurring\": false,\n            \"is_overwritten\": true,\n            \"last_change_by\": 4705,\n            \"unit_of_measure\": \"string\",\n            \"updated_by_profile\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"payroll_report_column\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"payroll_report_column_id\": \"string\",\n            \"employment_payroll_event_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"previous_payroll_report_items\": [\n          {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"source\": \"string\",\n            \"qtd_value\": \"string\",\n            \"ytd_value\": \"string\",\n            \"created_at\": \"2026-02-01T09:27:27.218Z\",\n            \"updated_at\": \"2017-07-21T15:55:16.133Z\",\n            \"is_prorated\": false,\n            \"is_overwritten\": true,\n            \"last_change_by\": 1529,\n            \"unit_of_measure\": \"string\",\n            \"payroll_report_column\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"payroll_report_column_id\": \"string\",\n            \"employment_payroll_event_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"source\": \"string\",\n            \"qtd_value\": \"string\",\n            \"ytd_value\": \"string\",\n            \"created_at\": \"2009-06-06T21:04:02.822Z\",\n            \"updated_at\": \"1984-12-12T13:38:27.110Z\",\n            \"is_prorated\": true,\n            \"is_overwritten\": false,\n            \"last_change_by\": 9449,\n            \"unit_of_measure\": \"string\",\n            \"payroll_report_column\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"payroll_report_column_id\": \"string\",\n            \"employment_payroll_event_id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"cursor\": \"string\",\n    \"overview\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7013412c-a6a6-477c-b3db-7194517eb3d4",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cycles",
+                    ":cycle_id",
+                    "payroll-report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_oids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "contract_oids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "string"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cycle_id",
+                      "description": "(Required) Payroll event/cycle id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "048d4769-eafd-46b5-97be-6fdde5e9d1e2",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cycles",
+                    ":cycle_id",
+                    "payroll-report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_oids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "contract_oids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "string"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cycle_id",
+                      "description": "(Required) Payroll event/cycle id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1861.6910467020243,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9376.35496466948\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4cbc35f3-b638-468e-9825-06ee0f075637",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cycles",
+                    ":cycle_id",
+                    "payroll-report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_oids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "contract_oids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "string"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cycle_id",
+                      "description": "(Required) Payroll event/cycle id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1861.6910467020243,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9376.35496466948\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "adb6e201-0514-4614-be7a-f99b21df9a50",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cycles",
+                    ":cycle_id",
+                    "payroll-report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_oids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "contract_oids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "string"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cycle_id",
+                      "description": "(Required) Payroll event/cycle id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1861.6910467020243,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9376.35496466948\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c254d605-89ff-4315-8340-78cf89b2e5f5",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cycles",
+                    ":cycle_id",
+                    "payroll-report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contract_oids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "contract_oids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "string"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cycle_id",
+                      "description": "(Required) Payroll event/cycle id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03536d85-1791-4a78-99aa-dacadbdcd4d6",
+          "name": "Retrieve additional information fields for GP workers by country",
+          "request": {
+            "name": "Retrieve additional information fields for GP workers by country",
+            "description": {
+              "content": "Retrieves GP workers additional information fields that are required for running payroll depending on the country regulations\n **Token scopes**: `forms:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                "gp",
+                "worker-additional-fields",
+                ":country_code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "country_code",
+                  "description": "(Required) ISO 3166-1 alpha-2 country code for which to retrieve GP worker additional fields."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e77b81bc-973d-4552-8452-68d988b1b2ce",
+              "name": "Use this response to render dynamic form fields for GP worker onboarding. Contains field configuration, validation rules, display metadata, and dependency logic needed to build country-specific additional information forms.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "gp",
+                    "worker-additional-fields",
+                    ":country_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country_code",
+                      "description": "(Required) ISO 3166-1 alpha-2 country code for which to retrieve GP worker additional fields."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"key\": \"string\",\n      \"type\": \"\",\n      \"ui_guide\": {\n        \"label\": \"string\",\n        \"order\": 6584,\n        \"field_type\": \"string\",\n        \"description\": \"string\",\n        \"helper_text\": \"string\",\n        \"local_label\": \"string\"\n      },\n      \"validation\": [\n        {\n          \"type\": \"string\",\n          \"error_message\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"error_message\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"is_required\": false,\n      \"dependencies\": [\n        {\n          \"key\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"required_by\": \"string\",\n      \"values_allowed\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"key\": \"string\",\n      \"type\": \"number\",\n      \"ui_guide\": {\n        \"label\": \"string\",\n        \"order\": 8261,\n        \"field_type\": \"string\",\n        \"description\": \"string\",\n        \"helper_text\": \"string\",\n        \"local_label\": \"string\"\n      },\n      \"validation\": [\n        {\n          \"type\": \"string\",\n          \"error_message\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"error_message\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"is_required\": true,\n      \"dependencies\": [\n        {\n          \"key\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"key\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"required_by\": \"string\",\n      \"values_allowed\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41b93ec2-51d8-4d68-bc49-08648f308cd3",
+              "name": "Returned when the country_code path parameter is not a recognized ISO 3166-1 alpha-2 code.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "gp",
+                    "worker-additional-fields",
+                    ":country_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country_code",
+                      "description": "(Required) ISO 3166-1 alpha-2 country code for which to retrieve GP worker additional fields."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac57a2da-ac7f-429b-bf9c-c59f170c000c",
+              "name": "Authentication failed. The access token is missing, expired, or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "gp",
+                    "worker-additional-fields",
+                    ":country_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country_code",
+                      "description": "(Required) ISO 3166-1 alpha-2 country code for which to retrieve GP worker additional fields."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc73dd9a-817e-4da6-83ca-0d93da94b7c1",
+              "name": "Access denied. The authenticated user does not have the required forms:read scope.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "gp",
+                    "worker-additional-fields",
+                    ":country_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country_code",
+                      "description": "(Required) ISO 3166-1 alpha-2 country code for which to retrieve GP worker additional fields."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a532f653-485e-4d28-bc76-4985bccd04bf",
+              "name": "The country_code is a valid ISO code but no additional information template exists for it in the Employee Data Management system.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "gp",
+                    "worker-additional-fields",
+                    ":country_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country_code",
+                      "description": "(Required) ISO 3166-1 alpha-2 country code for which to retrieve GP worker additional fields."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9baa355-86b1-45e6-8291-951b852837f5",
+              "name": "Rate limit exceeded. The client has sent too many requests in a given time window.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "gp",
+                    "worker-additional-fields",
+                    ":country_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country_code",
+                      "description": "(Required) ISO 3166-1 alpha-2 country code for which to retrieve GP worker additional fields."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c395756f-83b1-46bc-91a4-1a360e5325a8",
+              "name": "Internal server error. Returned when the Employee Data Management service is unreachable, or an unexpected error occurs during field retrieval.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    "gp",
+                    "worker-additional-fields",
+                    ":country_code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country_code",
+                      "description": "(Required) ISO 3166-1 alpha-2 country code for which to retrieve GP worker additional fields."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.letsdeel.com/rest/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "114a72bf-cf8a-4140-9507-085c46591fe0",
+    "name": "Endpoints subpackage_globalPayroll API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

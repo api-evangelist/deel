@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_eorWorkerPayslips API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_eorWorkerPayslips",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve payslip PDF download link",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/:worker_id/payslips/:payslip_id/download",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the worker whose payslip download link is being requested."
+              },
+              {
+                "name": "payslip_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the specific payslip to download."
+              }
+            ]
+          },
+          "docs": "Retrieve a URL to download a specific payslip PDF for a EoR worker. This endpoint is useful for accessing detailed payment records in a portable document format.\n **Token scopes**: `payslips:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

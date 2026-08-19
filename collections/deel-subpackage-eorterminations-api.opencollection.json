@@ -1,0 +1,142 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_eorTerminations API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_eorTerminations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get termination",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/:oid/terminations/:terminationId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "oid",
+                "value": "",
+                "type": "path",
+                "description": "Public contract oid"
+              },
+              {
+                "name": "terminationId",
+                "value": "",
+                "type": "path",
+                "description": "Termination id"
+              }
+            ]
+          },
+          "docs": "This API allows clients and employees with viewer permissions to retrieve termination data. It ensures that only authorized users can access sensitive information related to terminations.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Initiate EOR contract termination request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/termination",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "data",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Enables clients to initiate a request for the termination of an Employee of Record (EOR) contract for members of their team.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Request EOR Contract Resignation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/:oid/terminations/resignation",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "oid",
+                "value": "",
+                "type": "path",
+                "description": "Public contract oid"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enable clients with group admin and people manager permissions to initiate a resignation request for an Employee of Record (EOR) contract within their team.\n **Token scopes**: `contracts:read`, `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Termination Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/:oid/terminations/regular",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "oid",
+                "value": "",
+                "type": "path",
+                "description": "Public contract id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API enables clients with group admin and people manager permissions to initiate a request for the termination of an Employee of Record (EOR) contract for members of their team.\n **Token scopes**: `contracts:read`, `contracts:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

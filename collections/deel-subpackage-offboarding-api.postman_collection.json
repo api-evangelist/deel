@@ -1,0 +1,1448 @@
+{
+  "item": [
+    {
+      "id": "3ad330eb-6587-4a53-a5e9-a8a59362d770",
+      "name": "subpackage_offboarding",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c6e67a49-1101-4df6-a42c-63db82e50209",
+          "name": "Retrieve offboarding list",
+          "request": {
+            "name": "Retrieve offboarding list",
+            "description": {
+              "content": "Retrieve offboarding list\n **Token scopes**: `contracts:read`, `people:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "offboarding",
+                "tracker"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search term to filter contracts by name or other attributes"
+                },
+                {
+                  "disabled": false,
+                  "key": "hiring_types",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "hiring_types",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "progress_statuses",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "progress_statuses",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of results to return per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "progressStatusWeight",
+                  "description": "Field to sort by"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_order",
+                  "value": "ASC",
+                  "description": "Sorting order"
+                },
+                {
+                  "disabled": false,
+                  "key": "contractId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "effectiveDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "referenceDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "progressStatusWeight",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_overview",
+                  "value": "false",
+                  "description": "Include an overview of the contract"
+                },
+                {
+                  "disabled": false,
+                  "key": "ignore_date_range",
+                  "value": "false",
+                  "description": "Ignore the default 45-day date range and retrieve all terminations"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a4c5cb7-84dd-4f75-9993-401c213276f5",
+              "name": "Successfully retrieved list of offboarding",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hiring_types",
+                      "value": "contractor"
+                    },
+                    {
+                      "key": "hiring_types",
+                      "value": "employee"
+                    },
+                    {
+                      "key": "progress_statuses",
+                      "value": "ONBOARDING"
+                    },
+                    {
+                      "key": "progress_statuses",
+                      "value": "ONBOARDING"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "progressStatusWeight"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "contractId",
+                      "value": "string"
+                    },
+                    {
+                      "key": "effectiveDate",
+                      "value": "2026-05-13T13:27:37.060Z"
+                    },
+                    {
+                      "key": "referenceDate",
+                      "value": "2004-07-25T22:17:45.357Z"
+                    },
+                    {
+                      "key": "progressStatusWeight",
+                      "value": "463"
+                    },
+                    {
+                      "key": "include_overview",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ignore_date_range",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"name\": \"string\",\n      \"contract\": {\n        \"id\": \"string\"\n      },\n      \"progress\": {\n        \"status\": \"string\",\n        \"reference_date\": \"string\",\n        \"reference_date_type\": \"string\",\n        \"reference_date_timezone\": \"string\"\n      },\n      \"unique_id\": \"string\",\n      \"hiring_type\": \"string\",\n      \"hris_profile\": {\n        \"oid\": \"string\"\n      },\n      \"app_experience\": {\n        \"is_minimal_requirements\": true\n      },\n      \"termination_id\": \"string\",\n      \"offboarding_type\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"contract\": {\n        \"id\": \"string\"\n      },\n      \"progress\": {\n        \"status\": \"string\",\n        \"reference_date\": \"string\",\n        \"reference_date_type\": \"string\",\n        \"reference_date_timezone\": \"string\"\n      },\n      \"unique_id\": \"string\",\n      \"hiring_type\": \"string\",\n      \"hris_profile\": {\n        \"oid\": \"string\"\n      },\n      \"app_experience\": {\n        \"is_minimal_requirements\": false\n      },\n      \"termination_id\": \"string\",\n      \"offboarding_type\": \"string\"\n    }\n  ],\n  \"page\": {\n    \"cursor\": \"string\",\n    \"total_rows\": 9133\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87f72076-5c23-44f8-81cf-f207eea1f135",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hiring_types",
+                      "value": "contractor"
+                    },
+                    {
+                      "key": "hiring_types",
+                      "value": "employee"
+                    },
+                    {
+                      "key": "progress_statuses",
+                      "value": "ONBOARDING"
+                    },
+                    {
+                      "key": "progress_statuses",
+                      "value": "ONBOARDING"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "progressStatusWeight"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "contractId",
+                      "value": "string"
+                    },
+                    {
+                      "key": "effectiveDate",
+                      "value": "2026-05-13T13:27:37.060Z"
+                    },
+                    {
+                      "key": "referenceDate",
+                      "value": "2004-07-25T22:17:45.357Z"
+                    },
+                    {
+                      "key": "progressStatusWeight",
+                      "value": "463"
+                    },
+                    {
+                      "key": "include_overview",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ignore_date_range",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 6797.380940642303,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9983.629833137567\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "576d05ef-079f-403a-a27f-7c6f60272cee",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hiring_types",
+                      "value": "contractor"
+                    },
+                    {
+                      "key": "hiring_types",
+                      "value": "employee"
+                    },
+                    {
+                      "key": "progress_statuses",
+                      "value": "ONBOARDING"
+                    },
+                    {
+                      "key": "progress_statuses",
+                      "value": "ONBOARDING"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "progressStatusWeight"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "contractId",
+                      "value": "string"
+                    },
+                    {
+                      "key": "effectiveDate",
+                      "value": "2026-05-13T13:27:37.060Z"
+                    },
+                    {
+                      "key": "referenceDate",
+                      "value": "2004-07-25T22:17:45.357Z"
+                    },
+                    {
+                      "key": "progressStatusWeight",
+                      "value": "463"
+                    },
+                    {
+                      "key": "include_overview",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ignore_date_range",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 6797.380940642303,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9983.629833137567\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "debcd03c-85a0-4750-8d57-78f65d3e3ba2",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hiring_types",
+                      "value": "contractor"
+                    },
+                    {
+                      "key": "hiring_types",
+                      "value": "employee"
+                    },
+                    {
+                      "key": "progress_statuses",
+                      "value": "ONBOARDING"
+                    },
+                    {
+                      "key": "progress_statuses",
+                      "value": "ONBOARDING"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "progressStatusWeight"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "contractId",
+                      "value": "string"
+                    },
+                    {
+                      "key": "effectiveDate",
+                      "value": "2026-05-13T13:27:37.060Z"
+                    },
+                    {
+                      "key": "referenceDate",
+                      "value": "2004-07-25T22:17:45.357Z"
+                    },
+                    {
+                      "key": "progressStatusWeight",
+                      "value": "463"
+                    },
+                    {
+                      "key": "include_overview",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ignore_date_range",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 6797.380940642303,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9983.629833137567\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64acd7f1-b84d-4dfc-b927-503cc6baa72d",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hiring_types",
+                      "value": "contractor"
+                    },
+                    {
+                      "key": "hiring_types",
+                      "value": "employee"
+                    },
+                    {
+                      "key": "progress_statuses",
+                      "value": "ONBOARDING"
+                    },
+                    {
+                      "key": "progress_statuses",
+                      "value": "ONBOARDING"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "progressStatusWeight"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "contractId",
+                      "value": "string"
+                    },
+                    {
+                      "key": "effectiveDate",
+                      "value": "2026-05-13T13:27:37.060Z"
+                    },
+                    {
+                      "key": "referenceDate",
+                      "value": "2004-07-25T22:17:45.357Z"
+                    },
+                    {
+                      "key": "progressStatusWeight",
+                      "value": "463"
+                    },
+                    {
+                      "key": "include_overview",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ignore_date_range",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 6797.380940642303,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9983.629833137567\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d36c928-63f3-45d0-9a5f-d8e4646236cb",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hiring_types",
+                      "value": "contractor"
+                    },
+                    {
+                      "key": "hiring_types",
+                      "value": "employee"
+                    },
+                    {
+                      "key": "progress_statuses",
+                      "value": "ONBOARDING"
+                    },
+                    {
+                      "key": "progress_statuses",
+                      "value": "ONBOARDING"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "progressStatusWeight"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "contractId",
+                      "value": "string"
+                    },
+                    {
+                      "key": "effectiveDate",
+                      "value": "2026-05-13T13:27:37.060Z"
+                    },
+                    {
+                      "key": "referenceDate",
+                      "value": "2004-07-25T22:17:45.357Z"
+                    },
+                    {
+                      "key": "progressStatusWeight",
+                      "value": "463"
+                    },
+                    {
+                      "key": "include_overview",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ignore_date_range",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 6797.380940642303,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9983.629833137567\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65446816-fe22-41dd-aa00-7c41a12e8e31",
+          "name": "Retrieve termination details",
+          "request": {
+            "name": "Retrieve termination details",
+            "description": {
+              "content": "Retrieve termination details by tracker id\n **Token scopes**: `contracts:read`, `people:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "offboarding",
+                "tracker",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique onboarding tracker identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cdac3c83-e959-45dc-8f4a-7b2850512c94",
+              "name": "Successfully retrieved offboarding details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique onboarding tracker identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"summary\": [\n      {\n        \"data\": {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"data\": {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"contract\": {\n      \"id\": \"string\",\n      \"eor\": {\n        \"probation_period\": {\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"period_end_at\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"period_in_days\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"oid\": \"string\",\n      \"name\": \"string\",\n      \"timezone\": \"string\",\n      \"contract_type\": \"string\"\n    },\n    \"progress\": {\n      \"status\": \"string\",\n      \"reference_date\": \"string\",\n      \"reference_date_type\": \"string\",\n      \"reference_date_timezone\": \"string\"\n    },\n    \"hiring_type\": \"string\",\n    \"termination\": {\n      \"id\": \"string\",\n      \"end_date\": \"string\",\n      \"ending_type\": \"string\",\n      \"initiated_at\": \"string\",\n      \"initiated_by\": {\n        \"name\": \"string\",\n        \"profile_type\": \"string\"\n      },\n      \"public_message\": \"string\",\n      \"termination_impact\": {\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"eligible_for_rehire\": \"string\",\n      \"eligible_for_rehire_reason\": \"string\"\n    },\n    \"hris_profile\": {\n      \"oid\": \"string\",\n      \"name\": \"string\",\n      \"work_email\": \"string\"\n    },\n    \"app_experience\": {\n      \"is_minimal_requirements\": false\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "543a2243-7773-4da5-a5fd-7bd661732646",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique onboarding tracker identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 6797.380940642303,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9983.629833137567\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4fd85301-0333-4f6b-8aa6-597fb6678152",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique onboarding tracker identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 6797.380940642303,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9983.629833137567\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "053b8ac1-64ec-4abf-b847-bec8a755b97a",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique onboarding tracker identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 6797.380940642303,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9983.629833137567\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81978faa-8a0b-4891-aa5c-2f2980de1828",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique onboarding tracker identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 6797.380940642303,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9983.629833137567\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d4bd59e-7fec-4623-bfa1-b44153291d1d",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique onboarding tracker identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ab8d9ee-3ff3-4060-a9fe-bcdfb28f227b",
+          "name": "Retrieve termination details by HRIS profile identifier",
+          "request": {
+            "name": "Retrieve termination details by HRIS profile identifier",
+            "description": {
+              "content": "Retrieve termination details by hris profile oid\n **Token scopes**: `contracts:read`, `people:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "offboarding",
+                "tracker",
+                "hris_profile",
+                ":oid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "oid",
+                  "description": "(Required) Unique hris profile oid"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d3017e94-df2b-4c23-a331-f33f39184973",
+              "name": "Successfully retrieved offboarding details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker",
+                    "hris_profile",
+                    ":oid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "oid",
+                      "description": "(Required) Unique hris profile oid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"summary\": [\n      {\n        \"data\": {\n          \"id\": \"string\"\n        },\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"data\": {\n          \"id\": \"string\"\n        },\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"contract\": {\n      \"id\": \"string\",\n      \"eor\": {\n        \"probation_period\": {\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"period_end_at\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"period_in_days\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"oid\": \"string\",\n      \"name\": \"string\",\n      \"timezone\": \"string\",\n      \"contract_type\": \"string\"\n    },\n    \"progress\": {\n      \"status\": \"string\",\n      \"reference_date\": \"string\",\n      \"reference_date_type\": \"string\",\n      \"reference_date_timezone\": \"string\"\n    },\n    \"hiring_type\": \"string\",\n    \"termination\": {\n      \"id\": \"string\",\n      \"end_date\": \"string\",\n      \"ending_type\": \"string\",\n      \"initiated_at\": \"string\",\n      \"initiated_by\": {\n        \"name\": \"string\",\n        \"profile_type\": \"string\"\n      },\n      \"public_message\": \"string\",\n      \"termination_impact\": {\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"eligible_for_rehire\": \"string\",\n      \"eligible_for_rehire_reason\": \"string\"\n    },\n    \"hris_profile\": {\n      \"oid\": \"string\",\n      \"name\": \"string\",\n      \"work_email\": \"string\"\n    },\n    \"app_experience\": {\n      \"is_minimal_requirements\": false\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47d801f1-5e9f-49da-a5e2-80b5222cb5e4",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker",
+                    "hris_profile",
+                    ":oid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "oid",
+                      "description": "(Required) Unique hris profile oid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 6797.380940642303,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9983.629833137567\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e5e89da-67df-4eb0-8c97-4170dcf00548",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker",
+                    "hris_profile",
+                    ":oid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "oid",
+                      "description": "(Required) Unique hris profile oid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 6797.380940642303,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9983.629833137567\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1aec2ed6-0b7a-4eef-b94c-dbd66b23b7b6",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker",
+                    "hris_profile",
+                    ":oid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "oid",
+                      "description": "(Required) Unique hris profile oid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 6797.380940642303,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9983.629833137567\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "512a1a23-dce0-4fee-936a-159fe2d14d80",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker",
+                    "hris_profile",
+                    ":oid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "oid",
+                      "description": "(Required) Unique hris profile oid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 6797.380940642303,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9983.629833137567\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7ffe357c-b64e-4717-af74-a79a1e889a9f",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "offboarding",
+                    "tracker",
+                    "hris_profile",
+                    ":oid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "oid",
+                      "description": "(Required) Unique hris profile oid"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 6797.380940642303,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 9983.629833137567\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.letsdeel.com/rest/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1afe8da2-69d4-41c9-9c50-77a9fc75953d",
+    "name": "Endpoints subpackage_offboarding API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

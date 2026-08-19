@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_listCycles API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_listCycles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List payroll cycles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/legal-entities/:legal_entity_id/payroll-events",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "legal_entity_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier (public ID) for the legal entity."
+              },
+              {
+                "name": "date_start",
+                "value": "",
+                "type": "query",
+                "description": "Start date in the format 'YYYY-MM-DD'. Must not be earlier than 5 years ago."
+              },
+              {
+                "name": "date_end",
+                "value": "",
+                "type": "query",
+                "description": "End date in the format 'YYYY-MM-DD'. Must not exceed 5 years in the future."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor, CUID or UUID format."
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve a list of payroll events for a specified legal entity.\n **Token scopes**: `legal-entity:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

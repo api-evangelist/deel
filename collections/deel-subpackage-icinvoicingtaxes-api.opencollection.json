@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_icInvoicingTaxes API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_icInvoicingTaxes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get IC invoicing taxes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/ic-invoicing-taxes",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel Contract ID"
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve invoicing tax settings for an IC contract. Provide the contract_id to fetch vat.percentage and withholding_tax.percentage, which can be used when displaying or calculating taxes on invoices for the contract.\n **Token scopes**: `invoice-adjustments:read`"
+        },
+        {
+          "info": {
+            "name": "Create IC invoicing tax",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/ic-invoicing-taxes",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel Contract ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to create an invoicing tax for an independent contractor contract.\n **Token scopes**: `invoice-adjustments:write`"
+        },
+        {
+          "info": {
+            "name": "Update IC invoicing tax",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/ic-invoicing-taxes",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel Contract ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to update the invoicing tax for an independent contractor’s contract. Provide tax_type (WITHHOLDING_TAX or VAT) and percentage to adjust how taxes are applied to invoices.\n **Token scopes**: `invoice-adjustments:write`"
+        },
+        {
+          "info": {
+            "name": "Delete IC invoicing tax",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/ic-invoicing-taxes/:tax_type",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel Contract ID"
+              },
+              {
+                "name": "tax_type",
+                "value": "",
+                "type": "path",
+                "description": "IC tax type"
+              }
+            ]
+          },
+          "docs": "Use this endpoint to remove an IC invoicing tax from a contract when it no longer applies. Specify the contract_id and tax_type in the path. This action is irreversible and removes the tax from future invoicing.\n **Token scopes**: `invoice-adjustments:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

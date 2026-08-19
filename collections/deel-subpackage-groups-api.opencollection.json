@@ -1,0 +1,169 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_groups API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Clone a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/groups/:id/clone",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the group to be cloned."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Clone an existing group within the organization. This creates a new group with the specified name, copying the structure and settings from the source group.\n **Token scopes**: `groups:write`"
+        },
+        {
+          "info": {
+            "name": "Return list of groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/groups",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of groups to return (between 1 and 100)"
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sort the results in ascending (ASC) or descending (DESC) order based on the group name."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The encoded cursor for paginated results. This is an opaque string that allows fetching the next set of results."
+              },
+              {
+                "name": "include_archived_groups",
+                "value": "",
+                "type": "query",
+                "description": "Include archived groups (soft deleted records). Defaults to `true`."
+              },
+              {
+                "name": "external_metadata",
+                "value": "",
+                "type": "query",
+                "description": "Extra information about the group."
+              }
+            ]
+          },
+          "docs": "List all the groups in your organization.\n **Token scopes**: `groups:read`"
+        },
+        {
+          "info": {
+            "name": "Create a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/groups",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new group within your organization.\n **Token scopes**: `groups:read`, `groups:write`"
+        },
+        {
+          "info": {
+            "name": "Edit a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/groups/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit the details of an existing group.\n **Token scopes**: `groups:read`, `groups:write`"
+        },
+        {
+          "info": {
+            "name": "Delete a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/groups/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Archive an existing group.\n **Token scopes**: `groups:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

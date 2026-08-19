@@ -1,0 +1,909 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_ats API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_ats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add note to an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/ats/applications/:application_id/notes",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "application_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the application which the note will be added"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create application note: Adds a new note to a specific candidate application. Use this to record interview feedback, recruiter observations, or internal comments during the hiring process. The 'authorId' must correspond to a valid HRIS user. Scope: ats:write\n **Token scopes**: `ats:write`"
+        },
+        {
+          "info": {
+            "name": "Associate application with an interview plan stage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/ats/applications/:application_id/interview-plan-stages",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "application_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the application to be associated with the interview plan stage"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to associate an application with a specific interview plan stage in the hiring workflow. Use it when moving a candidate into a stage or backfilling history. Set is_current_stage to true to update the application's current stage; set it to false to record a historical entry without changing the current stage. To control triggered activities, pass applicable_job_activities; omit it to trigger all activities or pass an empty array to trigger none. If the candidate is being archive"
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of ATS applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/applications",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for pagination. Use the nextCursor value from the previous response to get the next page of results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of applications to return per page"
+              },
+              {
+                "name": "search_text",
+                "value": "",
+                "type": "query",
+                "description": "Search text to filter applications by candidate name or email"
+              },
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter applications by specific job ID"
+              },
+              {
+                "name": "interview_plan_stage_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter applications by specific interview plan stage IDs"
+              },
+              {
+                "name": "candidate_tag_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter applications by candidate tag IDs"
+              },
+              {
+                "name": "source_slugs",
+                "value": "",
+                "type": "query",
+                "description": "Filter applications by source slugs"
+              },
+              {
+                "name": "job_criterias_matchings",
+                "value": "",
+                "type": "query",
+                "description": "Filter applications by job criteria matching state. Each object specifies a job criteria ID and whether the candidate matches it."
+              },
+              {
+                "name": "current_stage_category_type_slugs",
+                "value": "",
+                "type": "query",
+                "description": "Filter applications by current stage category type slugs"
+              },
+              {
+                "name": "current_stage_default_type_slugs",
+                "value": "",
+                "type": "query",
+                "description": "Filter applications by current stage default type slugs. Use 'others' for custom stages."
+              },
+              {
+                "name": "updated_after",
+                "value": "",
+                "type": "query",
+                "description": "Filter applications updated after this timestamp (ISO 8601 format)"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort applications by"
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for applications"
+              }
+            ]
+          },
+          "docs": "List applications: Returns a paginated list of candidate applications for an organization. Use this to track and review the progress of candidates across all open positions. Supports cursor-based pagination and filtering via query parameters. Scope: ats:read\n **Token scopes**: `ats:read`"
+        },
+        {
+          "info": {
+            "name": "Create ATS Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/ats/applications",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to create a new application linking an existing candidate to a job in your ATS. Call it when a candidate applies or when importing applications from another system.\n **Token scopes**: `ats:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve paginated list of ATS Candidates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/candidates",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The cursor for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records returned in one response"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search text for filtering candidates"
+              },
+              {
+                "name": "job_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter candidates by job IDs"
+              },
+              {
+                "name": "department_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter candidates by department IDs"
+              },
+              {
+                "name": "tag_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter candidates by tag IDs"
+              },
+              {
+                "name": "current_stage_category_type_slugs",
+                "value": "",
+                "type": "query",
+                "description": "Filter candidates by current stage category type slugs"
+              },
+              {
+                "name": "current_stage_default_type_slugs",
+                "value": "",
+                "type": "query",
+                "description": "Filter candidates by current stage default type slugs"
+              },
+              {
+                "name": "updated_after",
+                "value": "",
+                "type": "query",
+                "description": "Filter applications updated after this timestamp (ISO 8601 format)"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of candidates in the Applicant Tracking System. You can filter candidates by jobs, departments, and tags to narrow down the results\n **Token scopes**: `ats:read`"
+        },
+        {
+          "info": {
+            "name": "Create ATS Candidate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/ats/candidates",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint allows the creation of a new candidate within the ATS system. The user must provide all required fields, and the candidate will be created with the specified details.\n **Token scopes**: `ats:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of ATS jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/jobs",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The cursor for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records returned in one response"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Text to search for in job records (optional)"
+              },
+              {
+                "name": "interview_plan_id",
+                "value": "",
+                "type": "query",
+                "description": "Interview plan UUID (optional)"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query",
+                "description": "Array of location UUIDs (optional)"
+              },
+              {
+                "name": "team_ids",
+                "value": "",
+                "type": "query",
+                "description": "Array of team UUIDs (optional)"
+              },
+              {
+                "name": "employment_type_ids",
+                "value": "",
+                "type": "query",
+                "description": "Array of employment type UUIDs (optional)"
+              },
+              {
+                "name": "department_ids",
+                "value": "",
+                "type": "query",
+                "description": "Array of department UUIDs (optional)"
+              },
+              {
+                "name": "updated_after",
+                "value": "",
+                "type": "query",
+                "description": "Filter jobs updated after this timestamp (ISO 8601 format)"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Array of job status values (optional)"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of all jobs in the Applicant Tracking System. Results can be filtered by query parameters.\n **Token scopes**: `ats:read`"
+        },
+        {
+          "info": {
+            "name": "Create ATS Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/ats/jobs",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint allows the creation of a new job within the ATS system. The user must provide all required fields, and the job will be created with the specified details.\n **Token scopes**: `ats:write`"
+        },
+        {
+          "info": {
+            "name": "Create candidate tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/ats/candidates/:candidate_id/tags",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "candidate_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the candidate."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint replaces all existing tags associated with a candidate with a new set. Use this when updating candidate tags is necessary.\n **Token scopes**: `ats:write`"
+        },
+        {
+          "info": {
+            "name": "List tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/tags",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "search_text",
+                "value": "",
+                "type": "query",
+                "description": "Filter tags by label (case-insensitive partial match)"
+              },
+              {
+                "name": "tag_group_slug",
+                "value": "",
+                "type": "query",
+                "description": "Filter by tag group. Use CANDIDATE for candidate tags."
+              },
+              {
+                "name": "include_counts",
+                "value": "",
+                "type": "query",
+                "description": "When true, each tag includes candidates_count (number of candidates with that tag)"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque cursor for pagination. Use the value from next_cursor of the previous response to fetch the next page."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of tags to return per page (default: 20, max: 100)."
+              }
+            ]
+          },
+          "docs": "Use this endpoint to list all tags associated with the organization. View or organize tags based on filters like label or tag group.\n **Token scopes**: `ats:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of ATS application sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/application-sources",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The cursor for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records returned in one response"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of the available application sources in the Applicant Tracking System.\n **Token scopes**: `ats:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of ATS departments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/departments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The cursor for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records returned in one response"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of all departments in the Applicant Tracking System\n **Token scopes**: `ats:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of ATS employment types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/employment-types",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The cursor for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records returned in one response"
+              }
+            ]
+          },
+          "docs": "Use this endpoint to fetch employment types available in ATS for syncing and validation workflows.\n **Token scopes**: `ats:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of ATS job postings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/job-boards/:job_board_id/job-postings",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "job_board_id",
+                "value": "",
+                "type": "path",
+                "description": "Job Board ID must be a valid UUID"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The cursor for pagination (optional)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records returned in one response (optional)"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of all job postings in the Applicant Tracking System. Results can be filtered by query parameters.\n **Token scopes**: `ats:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of ATS locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/locations",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The cursor for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records returned in one response"
+              }
+            ]
+          },
+          "docs": "List locations: Returns a paginated list of all locations associated with an organization in ATS. Use this to retrieve available work locations when creating job postings or filtering candidates by location. Scope: ats:read\n **Token scopes**: `ats:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of ATS offers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/offers",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "List offers: Returns all offers associated with an organization, including worker type and offer status. Use this to review outstanding or accepted offers before initiating onboarding or contract creation workflows. Scope: ats:read\n **Token scopes**: `ats:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of published ATS email templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/email-templates",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for pagination. Use the nextCursor value from the previous response to get the next page of results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of email templates to return per page"
+              },
+              {
+                "name": "updated_after",
+                "value": "",
+                "type": "query",
+                "description": "Return only email templates that were updated after this timestamp (ISO 8601 format)"
+              }
+            ]
+          },
+          "docs": "List email templates: Returns a paginated list of published email templates for an organization. Use this to populate template selectors when composing candidate communications or automating outreach workflows. Supports cursor-based pagination and filtering by update time via the 'updatedAfter' query parameter. Scope: ats:read\n **Token scopes**: `ats:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve ATS application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/applications/:application_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "application_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the application to retrieve"
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves a single application by its ID for a specific organization. It provides detailed information about the application, including its associated job details, job posting details, and other relevant metadata.\n **Token scopes**: `ats:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve ATS hiring members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/hiring-members",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The cursor for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records returned in one response"
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves a list of ATS hiring members. It provides detailed information about each hiring member, including their unique identifier, name, job title, email, profile picture URL, etc. The response also includes pagination details to help navigate through large sets of hiring members.\n **Token scopes**: `ats:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve ATS job posting",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/job-postings/:job_posting_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "job_posting_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the job posting to retrieve"
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves a single job posting by its ID. It provides detailed information about the job posting, including its associated job details, publication status, and other relevant metadata.\n **Token scopes**: `ats:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve ATS job postings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/job-postings",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "job_board_id",
+                "value": "",
+                "type": "query",
+                "description": "Job board to list postings from (UUID)."
+              },
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "query",
+                "description": "When set, only postings for this job are returned (UUID)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque cursor for pagination. Use the value from next_cursor of the previous response to fetch the next page."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of job postings to return per page (min: 1, max: 100)."
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve job postings by specifying the job board ID or job ID. It provides detailed postings with job details, publication status, and relevant metadata.\n **Token scopes**: `ats:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve paginated list of ATS attachment files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/attachments/:attachable_type_slug/:attachable_id/:attachment_type_slug",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "attachable_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the attachable entity"
+              },
+              {
+                "name": "attachment_type_slug",
+                "value": "",
+                "type": "path",
+                "description": "Type of the attachment"
+              },
+              {
+                "name": "attachable_type_slug",
+                "value": "",
+                "type": "path",
+                "description": "Type of the attachable entity"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The cursor for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records returned in one response"
+              }
+            ]
+          },
+          "docs": "Use this endpoint to list attachment files for a specific ATS entity. Provide attachable_type_slug, attachable_id, and attachment_type_slug to specify which entity and attachment type to list.\n **Token scopes**: `ats:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve paginated list of ATS Rejection/Archivation reasons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/ats/reasons",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The cursor for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records returned in one response"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search text for filtering candidates"
+              },
+              {
+                "name": "reason_group_slug",
+                "value": "",
+                "type": "query",
+                "description": "Reason group enum"
+              },
+              {
+                "name": "include_counts",
+                "value": "",
+                "type": "query",
+                "description": "If sent true, it will fetch result with counts"
+              },
+              {
+                "name": "subgroup_slug",
+                "value": "",
+                "type": "query",
+                "description": "Reason subgroup enum"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of rejection or archivation reasons in the Applicant Tracking System. You can filter reasons by group and subgroup to narrow down the results\n **Token scopes**: `ats:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

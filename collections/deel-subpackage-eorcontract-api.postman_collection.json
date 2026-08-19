@@ -1,0 +1,1046 @@
+{
+  "item": [
+    {
+      "id": "8128461c-efda-494d-b9e9-ea4450e7cb8b",
+      "name": "subpackage_eorContract",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5f796044-30df-4ad1-94e2-805cfb25646e",
+          "name": "Create an EOR contract",
+          "request": {
+            "name": "Create an EOR contract",
+            "description": {
+              "content": "Creates an Employee of Record (EOR) contract quote. This endpoint allows to submit details for an EOR contract. Deel will process the information and return a quote for the requested contract.\n **Token scopes**: `contracts:write`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "eor"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"client\": {\n      \"team\": {\n        \"id\": \"<string>\"\n      },\n      \"legal_entity\": {\n        \"id\": \"<string>\"\n      }\n    },\n    \"employee\": {\n      \"last_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"nationality\": \"<string>\",\n      \"email\": \"<string>\",\n      \"address\": {\n        \"zip\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string,null>\",\n        \"street\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"external_id\": \"<string>\",\n      \"pf_deductions\": \"<string>\"\n    },\n    \"job_title\": \"<string>\",\n    \"seniority\": {\n      \"id\": \"<string>\"\n    },\n    \"employment\": {\n      \"country\": \"<string>\",\n      \"start_date\": \"<date>\",\n      \"scope_of_work\": \"<string>\",\n      \"work_visa_required\": false,\n      \"type\": \"<string>\",\n      \"state\": \"<string,null>\",\n      \"end_date\": \"<string,null-date>\",\n      \"holidays\": \"<number,null-double>\",\n      \"is_hourly\": \"<boolean>\",\n      \"time_off_type\": \"<string>\",\n      \"seniority_date\": \"<date>\",\n      \"sick_leave_days\": \"<integer>\",\n      \"probation_period\": \"<number,null-double>\",\n      \"notice_period_type\": \"<string>\",\n      \"work_hours_per_week\": \"<double>\",\n      \"probation_period_time_unit\": \"<string>\",\n      \"notice_period_after_probation\": \"<number,null-double>\",\n      \"notice_period_during_probation\": \"<number,null-double>\",\n      \"employee_completed_past_probation\": false,\n      \"probation_period_type_for_definite\": \"<string>\",\n      \"notice_period_after_probation_time_unit\": \"<string>\",\n      \"notice_period_during_probation_time_unit\": \"<string>\"\n    },\n    \"compensation_details\": {\n      \"currency\": \"<string>\",\n      \"salary\": \"<double>\",\n      \"hourly_rate\": \"<double>\",\n      \"signing_bonus\": \"<number,null-double>\",\n      \"fixed_adjustments\": [\n        {\n          \"name\": \"<string>\",\n          \"value\": \"<double>\",\n          \"opt_out\": \"<boolean>\",\n          \"optional\": \"<boolean>\",\n          \"description\": \"<string>\",\n          \"is_recurring\": \"<boolean>\",\n          \"rule_cost_id\": \"<string>\",\n          \"is_country_specific\": \"<boolean>\",\n          \"skipping_confirmation_text\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"value\": \"<double>\",\n          \"opt_out\": \"<boolean>\",\n          \"optional\": \"<boolean>\",\n          \"description\": \"<string>\",\n          \"is_recurring\": \"<boolean>\",\n          \"rule_cost_id\": \"<string>\",\n          \"is_country_specific\": \"<boolean>\",\n          \"skipping_confirmation_text\": \"<string>\"\n        }\n      ],\n      \"variable_compensation\": \"<number,null-double>\",\n      \"signing_bonus_payout_type\": \"<string>\",\n      \"variable_compensation_type\": \"<string>\",\n      \"variable_compensation_title\": \"<string>\",\n      \"variable_compensation_timeline\": \"<string>\",\n      \"variable_compensation_effective_date\": \"<date>\"\n    },\n    \"pension\": {\n      \"id\": \"<string>\",\n      \"contribution\": \"<string>\"\n    },\n    \"benefits\": [\n      {\n        \"plan_id\": \"<string>\",\n        \"cover_all\": \"<boolean>\",\n        \"provider_id\": \"<string>\",\n        \"contribution\": \"<double>\",\n        \"cover_dependents\": \"<boolean>\"\n      },\n      {\n        \"plan_id\": \"<string>\",\n        \"cover_all\": \"<boolean>\",\n        \"provider_id\": \"<string>\",\n        \"contribution\": \"<double>\",\n        \"cover_dependents\": \"<boolean>\"\n      }\n    ],\n    \"health_plan_id\": \"<string>\",\n    \"quote_additional_fields\": {\n      \"dob\": \"<string>\",\n      \"gender\": \"<string>\",\n      \"worker_type\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b36421b9-4d32-48f5-9fa0-747c23fb9c8a",
+              "name": "Successfully created the EOR contract quote.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"client\": {\n      \"team\": {\n        \"id\": \"string\"\n      },\n      \"legal_entity\": {\n        \"id\": \"string\"\n      }\n    },\n    \"employee\": {\n      \"last_name\": \"string\",\n      \"first_name\": \"string\",\n      \"nationality\": \"string\",\n      \"email\": \"string\",\n      \"address\": {\n        \"zip\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"street\": \"string\",\n        \"country\": \"string\"\n      },\n      \"external_id\": \"string\",\n      \"pf_deductions\": \"12% of Rs 15,000 (Rs 1,800)\"\n    },\n    \"job_title\": \"string\",\n    \"seniority\": {\n      \"id\": \"string\"\n    },\n    \"employment\": {\n      \"country\": \"string\",\n      \"start_date\": \"1951-11-18\",\n      \"scope_of_work\": \"string\",\n      \"work_visa_required\": false,\n      \"type\": \"Full-time\",\n      \"state\": \"string\",\n      \"end_date\": \"1960-03-13\",\n      \"holidays\": 8315.885053087188,\n      \"is_hourly\": false,\n      \"time_off_type\": \"STANDARD\",\n      \"seniority_date\": \"1948-03-07\",\n      \"sick_leave_days\": 5305,\n      \"probation_period\": 369.0279111875083,\n      \"notice_period_type\": \"STANDARD\",\n      \"work_hours_per_week\": 7887.049221847685,\n      \"probation_period_time_unit\": \"MONTH\",\n      \"notice_period_after_probation\": 115.6445978809939,\n      \"notice_period_during_probation\": 8644.25283707663,\n      \"employee_completed_past_probation\": false,\n      \"probation_period_type_for_definite\": \"CUSTOM\",\n      \"notice_period_after_probation_time_unit\": \"MONTH\",\n      \"notice_period_during_probation_time_unit\": \"MONTH\"\n    },\n    \"compensation_details\": {\n      \"currency\": \"string\",\n      \"salary\": 9485.168272712417,\n      \"hourly_rate\": 6990.086880597874,\n      \"signing_bonus\": 538.8844444038155,\n      \"fixed_adjustments\": [\n        {\n          \"name\": \"string\",\n          \"value\": 5343.610757188064,\n          \"opt_out\": true,\n          \"optional\": false,\n          \"description\": \"string\",\n          \"is_recurring\": true,\n          \"rule_cost_id\": \"string\",\n          \"is_country_specific\": true,\n          \"skipping_confirmation_text\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"value\": 6106.752712588162,\n          \"opt_out\": true,\n          \"optional\": false,\n          \"description\": \"string\",\n          \"is_recurring\": true,\n          \"rule_cost_id\": \"string\",\n          \"is_country_specific\": false,\n          \"skipping_confirmation_text\": \"string\"\n        }\n      ],\n      \"variable_compensation\": 2736.9394428371884,\n      \"signing_bonus_payout_type\": \"AFTER_FIRST_CONTRACT_ANNIVERSARY\",\n      \"variable_compensation_type\": \"FIXED\",\n      \"variable_compensation_title\": \"string\",\n      \"variable_compensation_timeline\": \"BIANNUALLY\",\n      \"variable_compensation_effective_date\": \"1973-11-07\"\n    },\n    \"pension\": {\n      \"id\": \"string\",\n      \"contribution\": \"string\"\n    },\n    \"benefits\": [\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": true,\n        \"provider_id\": \"string\",\n        \"contribution\": 1593.5888549621213,\n        \"cover_dependents\": false\n      },\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": true,\n        \"provider_id\": \"string\",\n        \"contribution\": 9232.61986459222,\n        \"cover_dependents\": true\n      }\n    ],\n    \"health_plan_id\": \"string\",\n    \"quote_additional_fields\": {\n      \"dob\": \"string\",\n      \"gender\": \"string\",\n      \"worker_type\": \"Unskilled\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"string\",\n    \"type\": \"payg_tasks\",\n    \"costs\": {\n      \"summary\": {\n        \"salary\": \"string\",\n        \"currency\": \"string\",\n        \"exchange_rate\": \"string\",\n        \"totals_formatted\": [\n          {\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_supporting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_supporting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"supporting_currency\": \"string\"\n      },\n      \"sections\": [\n        {\n          \"name\": \"string\",\n          \"label\": \"string\",\n          \"groups\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"totals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"is_summarized\": false,\n          \"standalone_items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"name\": \"string\",\n          \"label\": \"string\",\n          \"groups\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"totals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"is_summarized\": true,\n          \"standalone_items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"additional_data\": {\n        \"annual_notes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"monthly_notes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"once_off_notes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"additional_notes\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    \"client\": {\n      \"legal_entity\": {\n        \"name\": \"string\"\n      }\n    },\n    \"status\": \"user_cancelled\",\n    \"employee\": {\n      \"email\": \"string\",\n      \"last_name\": \"string\",\n      \"first_name\": \"string\",\n      \"legal_name\": \"string\"\n    },\n    \"job_title\": \"string\",\n    \"seniority\": {\n      \"id\": 8942,\n      \"name\": \"string\"\n    },\n    \"created_at\": \"1983-08-07T05:03:19.540Z\",\n    \"employment\": {\n      \"state\": \"string\",\n      \"country\": \"string\",\n      \"end_date\": \"2005-06-07T10:33:59.665Z\",\n      \"start_date\": \"1989-09-07T03:44:35.882Z\",\n      \"scope_of_work\": \"string\",\n      \"time_off_type\": \"string\",\n      \"probation_period\": 1711,\n      \"work_visa_required\": false,\n      \"calculated_holidays\": \"string\"\n    },\n    \"health_plan\": {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    },\n    \"compensation_details\": {\n      \"salary\": \"string\",\n      \"currency\": \"string\",\n      \"variable_compensation\": \"string\",\n      \"variable_compensation_type\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c448434-ca6f-424e-b0cc-6ca4de0687d7",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"client\": {\n      \"team\": {\n        \"id\": \"string\"\n      },\n      \"legal_entity\": {\n        \"id\": \"string\"\n      }\n    },\n    \"employee\": {\n      \"last_name\": \"string\",\n      \"first_name\": \"string\",\n      \"nationality\": \"string\",\n      \"email\": \"string\",\n      \"address\": {\n        \"zip\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"street\": \"string\",\n        \"country\": \"string\"\n      },\n      \"external_id\": \"string\",\n      \"pf_deductions\": \"12% of Rs 15,000 (Rs 1,800)\"\n    },\n    \"job_title\": \"string\",\n    \"seniority\": {\n      \"id\": \"string\"\n    },\n    \"employment\": {\n      \"country\": \"string\",\n      \"start_date\": \"1951-11-18\",\n      \"scope_of_work\": \"string\",\n      \"work_visa_required\": false,\n      \"type\": \"Full-time\",\n      \"state\": \"string\",\n      \"end_date\": \"1960-03-13\",\n      \"holidays\": 8315.885053087188,\n      \"is_hourly\": false,\n      \"time_off_type\": \"STANDARD\",\n      \"seniority_date\": \"1948-03-07\",\n      \"sick_leave_days\": 5305,\n      \"probation_period\": 369.0279111875083,\n      \"notice_period_type\": \"STANDARD\",\n      \"work_hours_per_week\": 7887.049221847685,\n      \"probation_period_time_unit\": \"MONTH\",\n      \"notice_period_after_probation\": 115.6445978809939,\n      \"notice_period_during_probation\": 8644.25283707663,\n      \"employee_completed_past_probation\": false,\n      \"probation_period_type_for_definite\": \"CUSTOM\",\n      \"notice_period_after_probation_time_unit\": \"MONTH\",\n      \"notice_period_during_probation_time_unit\": \"MONTH\"\n    },\n    \"compensation_details\": {\n      \"currency\": \"string\",\n      \"salary\": 9485.168272712417,\n      \"hourly_rate\": 6990.086880597874,\n      \"signing_bonus\": 538.8844444038155,\n      \"fixed_adjustments\": [\n        {\n          \"name\": \"string\",\n          \"value\": 5343.610757188064,\n          \"opt_out\": true,\n          \"optional\": false,\n          \"description\": \"string\",\n          \"is_recurring\": true,\n          \"rule_cost_id\": \"string\",\n          \"is_country_specific\": true,\n          \"skipping_confirmation_text\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"value\": 6106.752712588162,\n          \"opt_out\": true,\n          \"optional\": false,\n          \"description\": \"string\",\n          \"is_recurring\": true,\n          \"rule_cost_id\": \"string\",\n          \"is_country_specific\": false,\n          \"skipping_confirmation_text\": \"string\"\n        }\n      ],\n      \"variable_compensation\": 2736.9394428371884,\n      \"signing_bonus_payout_type\": \"AFTER_FIRST_CONTRACT_ANNIVERSARY\",\n      \"variable_compensation_type\": \"FIXED\",\n      \"variable_compensation_title\": \"string\",\n      \"variable_compensation_timeline\": \"BIANNUALLY\",\n      \"variable_compensation_effective_date\": \"1973-11-07\"\n    },\n    \"pension\": {\n      \"id\": \"string\",\n      \"contribution\": \"string\"\n    },\n    \"benefits\": [\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": true,\n        \"provider_id\": \"string\",\n        \"contribution\": 1593.5888549621213,\n        \"cover_dependents\": false\n      },\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": true,\n        \"provider_id\": \"string\",\n        \"contribution\": 9232.61986459222,\n        \"cover_dependents\": true\n      }\n    ],\n    \"health_plan_id\": \"string\",\n    \"quote_additional_fields\": {\n      \"dob\": \"string\",\n      \"gender\": \"string\",\n      \"worker_type\": \"Unskilled\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1775.0087781125455,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 6420.158810926854\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "28a5b544-cb4c-4fa0-9464-f636654dfc29",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"client\": {\n      \"team\": {\n        \"id\": \"string\"\n      },\n      \"legal_entity\": {\n        \"id\": \"string\"\n      }\n    },\n    \"employee\": {\n      \"last_name\": \"string\",\n      \"first_name\": \"string\",\n      \"nationality\": \"string\",\n      \"email\": \"string\",\n      \"address\": {\n        \"zip\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"street\": \"string\",\n        \"country\": \"string\"\n      },\n      \"external_id\": \"string\",\n      \"pf_deductions\": \"12% of Rs 15,000 (Rs 1,800)\"\n    },\n    \"job_title\": \"string\",\n    \"seniority\": {\n      \"id\": \"string\"\n    },\n    \"employment\": {\n      \"country\": \"string\",\n      \"start_date\": \"1951-11-18\",\n      \"scope_of_work\": \"string\",\n      \"work_visa_required\": false,\n      \"type\": \"Full-time\",\n      \"state\": \"string\",\n      \"end_date\": \"1960-03-13\",\n      \"holidays\": 8315.885053087188,\n      \"is_hourly\": false,\n      \"time_off_type\": \"STANDARD\",\n      \"seniority_date\": \"1948-03-07\",\n      \"sick_leave_days\": 5305,\n      \"probation_period\": 369.0279111875083,\n      \"notice_period_type\": \"STANDARD\",\n      \"work_hours_per_week\": 7887.049221847685,\n      \"probation_period_time_unit\": \"MONTH\",\n      \"notice_period_after_probation\": 115.6445978809939,\n      \"notice_period_during_probation\": 8644.25283707663,\n      \"employee_completed_past_probation\": false,\n      \"probation_period_type_for_definite\": \"CUSTOM\",\n      \"notice_period_after_probation_time_unit\": \"MONTH\",\n      \"notice_period_during_probation_time_unit\": \"MONTH\"\n    },\n    \"compensation_details\": {\n      \"currency\": \"string\",\n      \"salary\": 9485.168272712417,\n      \"hourly_rate\": 6990.086880597874,\n      \"signing_bonus\": 538.8844444038155,\n      \"fixed_adjustments\": [\n        {\n          \"name\": \"string\",\n          \"value\": 5343.610757188064,\n          \"opt_out\": true,\n          \"optional\": false,\n          \"description\": \"string\",\n          \"is_recurring\": true,\n          \"rule_cost_id\": \"string\",\n          \"is_country_specific\": true,\n          \"skipping_confirmation_text\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"value\": 6106.752712588162,\n          \"opt_out\": true,\n          \"optional\": false,\n          \"description\": \"string\",\n          \"is_recurring\": true,\n          \"rule_cost_id\": \"string\",\n          \"is_country_specific\": false,\n          \"skipping_confirmation_text\": \"string\"\n        }\n      ],\n      \"variable_compensation\": 2736.9394428371884,\n      \"signing_bonus_payout_type\": \"AFTER_FIRST_CONTRACT_ANNIVERSARY\",\n      \"variable_compensation_type\": \"FIXED\",\n      \"variable_compensation_title\": \"string\",\n      \"variable_compensation_timeline\": \"BIANNUALLY\",\n      \"variable_compensation_effective_date\": \"1973-11-07\"\n    },\n    \"pension\": {\n      \"id\": \"string\",\n      \"contribution\": \"string\"\n    },\n    \"benefits\": [\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": true,\n        \"provider_id\": \"string\",\n        \"contribution\": 1593.5888549621213,\n        \"cover_dependents\": false\n      },\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": true,\n        \"provider_id\": \"string\",\n        \"contribution\": 9232.61986459222,\n        \"cover_dependents\": true\n      }\n    ],\n    \"health_plan_id\": \"string\",\n    \"quote_additional_fields\": {\n      \"dob\": \"string\",\n      \"gender\": \"string\",\n      \"worker_type\": \"Unskilled\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1775.0087781125455,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 6420.158810926854\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e687f67-f71a-46fc-82a5-31fa9ee10dd3",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"client\": {\n      \"team\": {\n        \"id\": \"string\"\n      },\n      \"legal_entity\": {\n        \"id\": \"string\"\n      }\n    },\n    \"employee\": {\n      \"last_name\": \"string\",\n      \"first_name\": \"string\",\n      \"nationality\": \"string\",\n      \"email\": \"string\",\n      \"address\": {\n        \"zip\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"street\": \"string\",\n        \"country\": \"string\"\n      },\n      \"external_id\": \"string\",\n      \"pf_deductions\": \"12% of Rs 15,000 (Rs 1,800)\"\n    },\n    \"job_title\": \"string\",\n    \"seniority\": {\n      \"id\": \"string\"\n    },\n    \"employment\": {\n      \"country\": \"string\",\n      \"start_date\": \"1951-11-18\",\n      \"scope_of_work\": \"string\",\n      \"work_visa_required\": false,\n      \"type\": \"Full-time\",\n      \"state\": \"string\",\n      \"end_date\": \"1960-03-13\",\n      \"holidays\": 8315.885053087188,\n      \"is_hourly\": false,\n      \"time_off_type\": \"STANDARD\",\n      \"seniority_date\": \"1948-03-07\",\n      \"sick_leave_days\": 5305,\n      \"probation_period\": 369.0279111875083,\n      \"notice_period_type\": \"STANDARD\",\n      \"work_hours_per_week\": 7887.049221847685,\n      \"probation_period_time_unit\": \"MONTH\",\n      \"notice_period_after_probation\": 115.6445978809939,\n      \"notice_period_during_probation\": 8644.25283707663,\n      \"employee_completed_past_probation\": false,\n      \"probation_period_type_for_definite\": \"CUSTOM\",\n      \"notice_period_after_probation_time_unit\": \"MONTH\",\n      \"notice_period_during_probation_time_unit\": \"MONTH\"\n    },\n    \"compensation_details\": {\n      \"currency\": \"string\",\n      \"salary\": 9485.168272712417,\n      \"hourly_rate\": 6990.086880597874,\n      \"signing_bonus\": 538.8844444038155,\n      \"fixed_adjustments\": [\n        {\n          \"name\": \"string\",\n          \"value\": 5343.610757188064,\n          \"opt_out\": true,\n          \"optional\": false,\n          \"description\": \"string\",\n          \"is_recurring\": true,\n          \"rule_cost_id\": \"string\",\n          \"is_country_specific\": true,\n          \"skipping_confirmation_text\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"value\": 6106.752712588162,\n          \"opt_out\": true,\n          \"optional\": false,\n          \"description\": \"string\",\n          \"is_recurring\": true,\n          \"rule_cost_id\": \"string\",\n          \"is_country_specific\": false,\n          \"skipping_confirmation_text\": \"string\"\n        }\n      ],\n      \"variable_compensation\": 2736.9394428371884,\n      \"signing_bonus_payout_type\": \"AFTER_FIRST_CONTRACT_ANNIVERSARY\",\n      \"variable_compensation_type\": \"FIXED\",\n      \"variable_compensation_title\": \"string\",\n      \"variable_compensation_timeline\": \"BIANNUALLY\",\n      \"variable_compensation_effective_date\": \"1973-11-07\"\n    },\n    \"pension\": {\n      \"id\": \"string\",\n      \"contribution\": \"string\"\n    },\n    \"benefits\": [\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": true,\n        \"provider_id\": \"string\",\n        \"contribution\": 1593.5888549621213,\n        \"cover_dependents\": false\n      },\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": true,\n        \"provider_id\": \"string\",\n        \"contribution\": 9232.61986459222,\n        \"cover_dependents\": true\n      }\n    ],\n    \"health_plan_id\": \"string\",\n    \"quote_additional_fields\": {\n      \"dob\": \"string\",\n      \"gender\": \"string\",\n      \"worker_type\": \"Unskilled\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1775.0087781125455,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 6420.158810926854\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "625f5a0b-7133-48da-9c11-249298613638",
+          "name": "Retrieve EOR Contract Details",
+          "request": {
+            "name": "Retrieve EOR Contract Details",
+            "description": {
+              "content": "Returns the basic information for an EOR contract, along with employment costs associated to it\n **Token scopes**: `contracts:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "eor",
+                "contracts",
+                ":contract_id",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contract_id",
+                  "description": "(Required) The unique identifier for the Deel contract"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "044d6d30-86a8-4b03-a3a0-6fba4ee999e7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    "contracts",
+                    ":contract_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contract_id",
+                      "description": "(Required) The unique identifier for the Deel contract"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"team\": {\n    \"id\": \"string\",\n    \"name\": \"string\"\n  },\n  \"salary\": \"string\",\n  \"status\": \"waiting_for_employee_sign\",\n  \"creator\": {\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"firstname\": \"string\"\n  },\n  \"currency\": \"string\",\n  \"employee\": {\n    \"email\": \"string\",\n    \"pic_url\": \"string\",\n    \"last_name\": \"string\",\n    \"first_name\": \"string\",\n    \"legal_name\": \"string\",\n    \"nationality\": \"string\"\n  },\n  \"end_date\": \"2016-10-23T01:13:48.330Z\",\n  \"timezone\": \"string\",\n  \"seniority\": {\n    \"id\": 1381.2602543607989,\n    \"name\": \"string\"\n  },\n  \"sick_days\": {\n    \"max\": \"string\",\n    \"min\": \"string\"\n  },\n  \"work_visa\": true,\n  \"created_at\": \"2020-05-26T12:30:57.539Z\",\n  \"start_date\": \"1991-05-20T14:19:04.067Z\",\n  \"updated_at\": \"2018-12-11T20:43:16.925Z\",\n  \"description\": \"string\",\n  \"signed_date\": \"1949-11-03T00:42:23.803Z\",\n  \"cancelled_at\": \"2024-03-08T19:56:50.887Z\",\n  \"completed_at\": \"1985-03-06T00:46:11.809Z\",\n  \"payroll_type\": \"MONTHLY\",\n  \"can_adjust_on\": {\n    \"end\": \"string\",\n    \"start\": \"string\"\n  },\n  \"contract_type\": \"eor\",\n  \"scope_of_work\": \"string\",\n  \"signing_bonus\": \"string\",\n  \"time_off_type\": \"PRORATED\",\n  \"deposit_months\": \"string\",\n  \"effective_date\": \"1975-12-12T02:50:06.742Z\",\n  \"job_title_name\": \"string\",\n  \"completion_date\": \"1980-03-20T06:11:49.687Z\",\n  \"employment_type\": \"Part-time\",\n  \"client_signature\": \"string\",\n  \"client_signed_at\": \"1988-06-28T17:05:00.115Z\",\n  \"employment_costs\": {\n    \"summary\": {\n      \"salary\": \"string\",\n      \"currency\": \"string\",\n      \"exchange_rate\": \"string\",\n      \"totals_formatted\": [\n        {\n          \"title\": \"string\",\n          \"total\": \"string\",\n          \"frequency\": \"string\",\n          \"total_supporting\": \"string\"\n        },\n        {\n          \"title\": \"string\",\n          \"total\": \"string\",\n          \"frequency\": \"string\",\n          \"total_supporting\": \"string\"\n        }\n      ],\n      \"supporting_currency\": \"string\"\n    },\n    \"sections\": [\n      {\n        \"name\": \"string\",\n        \"label\": \"string\",\n        \"groups\": [\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"costs\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"totals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"has_breakdown\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"costs\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"totals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"has_breakdown\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"totals\": [\n          {\n            \"total\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_supporting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"total\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_supporting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"is_summarized\": false,\n        \"standalone_items\": [\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"totals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"totals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"label\": \"string\",\n        \"groups\": [\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"costs\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"totals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"has_breakdown\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"costs\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"totals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"has_breakdown\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"totals\": [\n          {\n            \"total\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_supporting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"total\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"frequency\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total_supporting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"is_summarized\": true,\n        \"standalone_items\": [\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"totals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"totals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"additional_data\": {\n      \"annual_notes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"monthly_notes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"once_off_notes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"additional_notes\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  },\n  \"employment_state\": \"string\",\n  \"hiring_objective\": {\n    \"type\": \"TEMP_EOR_OPENING_ENTITY\",\n    \"extra_info\": \"string\"\n  },\n  \"probation_period\": 5440,\n  \"employee_signed_at\": \"2016-05-15T02:04:24.188Z\",\n  \"employment_country\": \"string\",\n  \"notice_period_type\": \"STANDARD\",\n  \"original_start_date\": \"1989-09-12T22:23:49.116Z\",\n  \"work_hours_per_week\": \"string\",\n  \"contractor_signature\": \"string\",\n  \"contractor_signed_at\": \"2000-01-12T08:14:34.527Z\",\n  \"effective_plain_date\": \"1980-04-04\",\n  \"fixed_adjustment_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"invited_client_email\": \"string\",\n  \"last_quote_rejection\": {\n    \"created_at\": \"string\",\n    \"rejected_by\": {\n      \"name\": \"string\",\n      \"profile_public_id\": \"988a79d7-1451-8095-215f-22b407d89d1c\"\n    },\n    \"rejection_type\": \"CLIENT\",\n    \"rejection_reason\": \"INACCURATE_INFO_JOB_DUTIES_SCOPE_OF_WORK\",\n    \"rejection_message\": \"string\"\n  },\n  \"completion_plain_date\": \"2013-02-26\",\n  \"is_onboarding_on_hold\": true,\n  \"monthly_employer_cost\": \"string\",\n  \"employee_late_sign_start\": \"1980-08-15T06:04:18.784Z\",\n  \"is_early_invoice_enabled\": false,\n  \"onboarding_step_duration\": 3948,\n  \"variable_compensation_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"can_remind_employee_to_sign\": true,\n  \"initial_effective_plain_date\": \"1990-01-13\",\n  \"is_foreign_currency_contract\": true,\n  \"is_employee_onboarding_delayed\": true,\n  \"monthly_eor_management_fee_usd\": \"string\",\n  \"work_schedule_assignment_settings\": \"GENERAL_SCHEDULES\",\n  \"probation_period_type_for_definite\": \"CUSTOM\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee8f0917-4d9d-4ad1-a607-294b37ef62fd",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    "contracts",
+                    ":contract_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contract_id",
+                      "description": "(Required) The unique identifier for the Deel contract"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1775.0087781125455,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 6420.158810926854\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7679464c-11e9-4dd9-9bfd-78322a88217f",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    "contracts",
+                    ":contract_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contract_id",
+                      "description": "(Required) The unique identifier for the Deel contract"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1775.0087781125455,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 6420.158810926854\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d9e658a-e144-4304-84a1-f25452a35e59",
+              "name": "Access denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    "contracts",
+                    ":contract_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contract_id",
+                      "description": "(Required) The unique identifier for the Deel contract"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7992870-b486-4a9f-8748-6f8963aa7a8f",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    "contracts",
+                    ":contract_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contract_id",
+                      "description": "(Required) The unique identifier for the Deel contract"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1775.0087781125455,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 6420.158810926854\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b523efc-5148-485d-807e-3fad84b92e62",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    "contracts",
+                    ":contract_id",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contract_id",
+                      "description": "(Required) The unique identifier for the Deel contract"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1775.0087781125455,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 6420.158810926854\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f67cee1-4be3-43f1-aed3-87f509cf023d",
+          "name": "Update EOR Contract",
+          "request": {
+            "name": "Update EOR Contract",
+            "description": {
+              "content": "This endpoint is used to modify mutable fields of an EOR contract, such as salary, job title, or benefits. It supports partial updates—only include fields that should be updated. Required fields must still be present for validation.\n **Token scopes**: `contracts:write`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "eor",
+                "contract",
+                ":contract_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contract_id",
+                  "description": "(Required) The unique identifier of the employee contract."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"salary\": \"<double>\",\n    \"job_title\": \"<string>\",\n    \"start_date\": \"<date>\",\n    \"employee_email\": \"<email>\",\n    \"employment_type\": \"<string>\",\n    \"employee_last_name\": \"<string>\",\n    \"employment_country\": \"<string>\",\n    \"employee_first_name\": \"<string>\",\n    \"scope\": \"<string>\",\n    \"benefits\": [\n      {\n        \"plan_id\": \"<string,null>\",\n        \"cover_all\": \"<boolean>\",\n        \"provider_id\": \"<string,null>\",\n        \"contribution\": \"<number,null-double>\",\n        \"cover_dependents\": \"<boolean>\"\n      },\n      {\n        \"plan_id\": \"<string,null>\",\n        \"cover_all\": \"<boolean>\",\n        \"provider_id\": \"<string,null>\",\n        \"contribution\": \"<number,null-double>\",\n        \"cover_dependents\": \"<boolean>\"\n      }\n    ],\n    \"currency\": \"<string>\",\n    \"end_date\": \"<string,null-date>\",\n    \"holidays\": \"<number,null-double>\",\n    \"is_hourly\": \"<boolean,null>\",\n    \"work_visa\": \"<boolean,null>\",\n    \"employee_id\": \"<string>\",\n    \"hourly_rate\": \"<number,null-double>\",\n    \"is_resubmit\": \"<boolean,null>\",\n    \"schedule_id\": \"<string,null>\",\n    \"seniority_id\": \"<double>\",\n    \"work_pension\": \"<boolean,null>\",\n    \"signing_bonus\": \"<number,null-double>\",\n    \"time_off_type\": \"<string>\",\n    \"seniority_date\": \"<date>\",\n    \"sick_leave_days\": \"<number,null-double>\",\n    \"employee_address\": {\n      \"city\": \"<string>\",\n      \"street\": \"<string>\",\n      \"country\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"state\": \"<string>\",\n      \"province\": \"<string>\",\n      \"calling_code\": \"<string>\"\n    },\n    \"employment_state\": \"<string,null>\",\n    \"hiring_objective\": \"<string>\",\n    \"probation_period\": \"<number,null-double>\",\n    \"work_arrangement\": \"<string>\",\n    \"work_eligibility\": {\n      \"key\": \"<string>\",\n      \"file_name\": \"<string>\"\n    },\n    \"medical_insurance\": \"<boolean>\",\n    \"contract_term_type\": \"<string>\",\n    \"notice_period_type\": \"<string>\",\n    \"work_hours_per_week\": \"<double>\",\n    \"employee_nationality\": \"<string>\",\n    \"reason_for_fixed_term\": \"<string>\",\n    \"quote_additional_fields\": {\n      \"employee_type\": \"<string>\",\n      \"qualifications\": \"<string>\",\n      \"scope_german_translation\": \"<string>\",\n      \"qualifications_german_translation\": \"<string>\"\n    },\n    \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n    \"hiring_objective_extra_info\": \"<string,null>\",\n    \"notice_period_after_probation\": \"<double>\",\n    \"notice_period_during_probation\": \"<double>\",\n    \"is_auto_quote_validation_passed\": \"<boolean,null>\",\n    \"probation_period_type_for_definite\": \"<string>\",\n    \"allow_consultant_equipment_reimbursement\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "92f5a4f5-1bd6-45d8-b9bc-c971d1405080",
+              "name": "Contract updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    "contract",
+                    ":contract_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contract_id",
+                      "description": "(Required) The unique identifier of the employee contract."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"salary\": 327.11653824794905,\n    \"job_title\": \"string\",\n    \"start_date\": \"1993-03-27\",\n    \"employee_email\": \"Fr1ULfJRh0Sh@jVUAUAtjeXJPqhwWKXO.hgl\",\n    \"employment_type\": \"Part-time\",\n    \"employee_last_name\": \"string\",\n    \"employment_country\": \"string\",\n    \"employee_first_name\": \"string\",\n    \"scope\": \"string\",\n    \"benefits\": [\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": false,\n        \"provider_id\": \"string\",\n        \"contribution\": 1071.6220591782067,\n        \"cover_dependents\": false\n      },\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": true,\n        \"provider_id\": \"string\",\n        \"contribution\": 2163.389345157545,\n        \"cover_dependents\": false\n      }\n    ],\n    \"currency\": \"string\",\n    \"end_date\": \"2025-08-09\",\n    \"holidays\": 7816.781849719575,\n    \"is_hourly\": false,\n    \"work_visa\": false,\n    \"employee_id\": \"string\",\n    \"hourly_rate\": 7917.452761891124,\n    \"is_resubmit\": true,\n    \"schedule_id\": \"string\",\n    \"seniority_id\": 1002.5919746785738,\n    \"work_pension\": true,\n    \"signing_bonus\": 7013.990053413882,\n    \"time_off_type\": \"SPECIFIC\",\n    \"seniority_date\": \"1989-12-27\",\n    \"sick_leave_days\": 79.88777161747507,\n    \"employee_address\": {\n      \"city\": \"string\",\n      \"street\": \"string\",\n      \"country\": \"string\",\n      \"zip\": \"string\",\n      \"phone\": \"string\",\n      \"state\": \"string\",\n      \"province\": \"string\",\n      \"calling_code\": \"string\"\n    },\n    \"employment_state\": \"string\",\n    \"hiring_objective\": \"CONVERTING_CONTRACTOR\",\n    \"probation_period\": 2232.8450742893747,\n    \"work_arrangement\": \"ON_SITE_OR_HYBRID\",\n    \"work_eligibility\": {\n      \"key\": \"string\",\n      \"file_name\": \"string\"\n    },\n    \"medical_insurance\": false,\n    \"contract_term_type\": \"DEFINITE\",\n    \"notice_period_type\": \"CUSTOM\",\n    \"work_hours_per_week\": 8510.936261338042,\n    \"employee_nationality\": \"string\",\n    \"reason_for_fixed_term\": \"REPLACEMENT_FOR_PERMANENT_STAFF\",\n    \"quote_additional_fields\": {\n      \"employee_type\": \"Employee\",\n      \"qualifications\": \"string\",\n      \"scope_german_translation\": \"string\",\n      \"qualifications_german_translation\": \"string\"\n    },\n    \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n    \"hiring_objective_extra_info\": \"string\",\n    \"notice_period_after_probation\": 2967.833940014932,\n    \"notice_period_during_probation\": 6267.858739212491,\n    \"is_auto_quote_validation_passed\": false,\n    \"probation_period_type_for_definite\": \"STANDARD\",\n    \"allow_consultant_equipment_reimbursement\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"oid\": \"string\",\n  \"status\": \"rejected\",\n  \"scope_of_work\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd8260aa-2cd3-465a-aff5-5db33ec01d41",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    "contract",
+                    ":contract_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contract_id",
+                      "description": "(Required) The unique identifier of the employee contract."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"salary\": 327.11653824794905,\n    \"job_title\": \"string\",\n    \"start_date\": \"1993-03-27\",\n    \"employee_email\": \"Fr1ULfJRh0Sh@jVUAUAtjeXJPqhwWKXO.hgl\",\n    \"employment_type\": \"Part-time\",\n    \"employee_last_name\": \"string\",\n    \"employment_country\": \"string\",\n    \"employee_first_name\": \"string\",\n    \"scope\": \"string\",\n    \"benefits\": [\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": false,\n        \"provider_id\": \"string\",\n        \"contribution\": 1071.6220591782067,\n        \"cover_dependents\": false\n      },\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": true,\n        \"provider_id\": \"string\",\n        \"contribution\": 2163.389345157545,\n        \"cover_dependents\": false\n      }\n    ],\n    \"currency\": \"string\",\n    \"end_date\": \"2025-08-09\",\n    \"holidays\": 7816.781849719575,\n    \"is_hourly\": false,\n    \"work_visa\": false,\n    \"employee_id\": \"string\",\n    \"hourly_rate\": 7917.452761891124,\n    \"is_resubmit\": true,\n    \"schedule_id\": \"string\",\n    \"seniority_id\": 1002.5919746785738,\n    \"work_pension\": true,\n    \"signing_bonus\": 7013.990053413882,\n    \"time_off_type\": \"SPECIFIC\",\n    \"seniority_date\": \"1989-12-27\",\n    \"sick_leave_days\": 79.88777161747507,\n    \"employee_address\": {\n      \"city\": \"string\",\n      \"street\": \"string\",\n      \"country\": \"string\",\n      \"zip\": \"string\",\n      \"phone\": \"string\",\n      \"state\": \"string\",\n      \"province\": \"string\",\n      \"calling_code\": \"string\"\n    },\n    \"employment_state\": \"string\",\n    \"hiring_objective\": \"CONVERTING_CONTRACTOR\",\n    \"probation_period\": 2232.8450742893747,\n    \"work_arrangement\": \"ON_SITE_OR_HYBRID\",\n    \"work_eligibility\": {\n      \"key\": \"string\",\n      \"file_name\": \"string\"\n    },\n    \"medical_insurance\": false,\n    \"contract_term_type\": \"DEFINITE\",\n    \"notice_period_type\": \"CUSTOM\",\n    \"work_hours_per_week\": 8510.936261338042,\n    \"employee_nationality\": \"string\",\n    \"reason_for_fixed_term\": \"REPLACEMENT_FOR_PERMANENT_STAFF\",\n    \"quote_additional_fields\": {\n      \"employee_type\": \"Employee\",\n      \"qualifications\": \"string\",\n      \"scope_german_translation\": \"string\",\n      \"qualifications_german_translation\": \"string\"\n    },\n    \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n    \"hiring_objective_extra_info\": \"string\",\n    \"notice_period_after_probation\": 2967.833940014932,\n    \"notice_period_during_probation\": 6267.858739212491,\n    \"is_auto_quote_validation_passed\": false,\n    \"probation_period_type_for_definite\": \"STANDARD\",\n    \"allow_consultant_equipment_reimbursement\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"status\": 5227,\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dabd5bf3-092c-43a1-9307-8add17fb3477",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    "contract",
+                    ":contract_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contract_id",
+                      "description": "(Required) The unique identifier of the employee contract."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"salary\": 327.11653824794905,\n    \"job_title\": \"string\",\n    \"start_date\": \"1993-03-27\",\n    \"employee_email\": \"Fr1ULfJRh0Sh@jVUAUAtjeXJPqhwWKXO.hgl\",\n    \"employment_type\": \"Part-time\",\n    \"employee_last_name\": \"string\",\n    \"employment_country\": \"string\",\n    \"employee_first_name\": \"string\",\n    \"scope\": \"string\",\n    \"benefits\": [\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": false,\n        \"provider_id\": \"string\",\n        \"contribution\": 1071.6220591782067,\n        \"cover_dependents\": false\n      },\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": true,\n        \"provider_id\": \"string\",\n        \"contribution\": 2163.389345157545,\n        \"cover_dependents\": false\n      }\n    ],\n    \"currency\": \"string\",\n    \"end_date\": \"2025-08-09\",\n    \"holidays\": 7816.781849719575,\n    \"is_hourly\": false,\n    \"work_visa\": false,\n    \"employee_id\": \"string\",\n    \"hourly_rate\": 7917.452761891124,\n    \"is_resubmit\": true,\n    \"schedule_id\": \"string\",\n    \"seniority_id\": 1002.5919746785738,\n    \"work_pension\": true,\n    \"signing_bonus\": 7013.990053413882,\n    \"time_off_type\": \"SPECIFIC\",\n    \"seniority_date\": \"1989-12-27\",\n    \"sick_leave_days\": 79.88777161747507,\n    \"employee_address\": {\n      \"city\": \"string\",\n      \"street\": \"string\",\n      \"country\": \"string\",\n      \"zip\": \"string\",\n      \"phone\": \"string\",\n      \"state\": \"string\",\n      \"province\": \"string\",\n      \"calling_code\": \"string\"\n    },\n    \"employment_state\": \"string\",\n    \"hiring_objective\": \"CONVERTING_CONTRACTOR\",\n    \"probation_period\": 2232.8450742893747,\n    \"work_arrangement\": \"ON_SITE_OR_HYBRID\",\n    \"work_eligibility\": {\n      \"key\": \"string\",\n      \"file_name\": \"string\"\n    },\n    \"medical_insurance\": false,\n    \"contract_term_type\": \"DEFINITE\",\n    \"notice_period_type\": \"CUSTOM\",\n    \"work_hours_per_week\": 8510.936261338042,\n    \"employee_nationality\": \"string\",\n    \"reason_for_fixed_term\": \"REPLACEMENT_FOR_PERMANENT_STAFF\",\n    \"quote_additional_fields\": {\n      \"employee_type\": \"Employee\",\n      \"qualifications\": \"string\",\n      \"scope_german_translation\": \"string\",\n      \"qualifications_german_translation\": \"string\"\n    },\n    \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n    \"hiring_objective_extra_info\": \"string\",\n    \"notice_period_after_probation\": 2967.833940014932,\n    \"notice_period_during_probation\": 6267.858739212491,\n    \"is_auto_quote_validation_passed\": false,\n    \"probation_period_type_for_definite\": \"STANDARD\",\n    \"allow_consultant_equipment_reimbursement\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1775.0087781125455,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 6420.158810926854\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01a68559-88bf-4c97-933b-59b4993c3e23",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    "contract",
+                    ":contract_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contract_id",
+                      "description": "(Required) The unique identifier of the employee contract."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"salary\": 327.11653824794905,\n    \"job_title\": \"string\",\n    \"start_date\": \"1993-03-27\",\n    \"employee_email\": \"Fr1ULfJRh0Sh@jVUAUAtjeXJPqhwWKXO.hgl\",\n    \"employment_type\": \"Part-time\",\n    \"employee_last_name\": \"string\",\n    \"employment_country\": \"string\",\n    \"employee_first_name\": \"string\",\n    \"scope\": \"string\",\n    \"benefits\": [\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": false,\n        \"provider_id\": \"string\",\n        \"contribution\": 1071.6220591782067,\n        \"cover_dependents\": false\n      },\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": true,\n        \"provider_id\": \"string\",\n        \"contribution\": 2163.389345157545,\n        \"cover_dependents\": false\n      }\n    ],\n    \"currency\": \"string\",\n    \"end_date\": \"2025-08-09\",\n    \"holidays\": 7816.781849719575,\n    \"is_hourly\": false,\n    \"work_visa\": false,\n    \"employee_id\": \"string\",\n    \"hourly_rate\": 7917.452761891124,\n    \"is_resubmit\": true,\n    \"schedule_id\": \"string\",\n    \"seniority_id\": 1002.5919746785738,\n    \"work_pension\": true,\n    \"signing_bonus\": 7013.990053413882,\n    \"time_off_type\": \"SPECIFIC\",\n    \"seniority_date\": \"1989-12-27\",\n    \"sick_leave_days\": 79.88777161747507,\n    \"employee_address\": {\n      \"city\": \"string\",\n      \"street\": \"string\",\n      \"country\": \"string\",\n      \"zip\": \"string\",\n      \"phone\": \"string\",\n      \"state\": \"string\",\n      \"province\": \"string\",\n      \"calling_code\": \"string\"\n    },\n    \"employment_state\": \"string\",\n    \"hiring_objective\": \"CONVERTING_CONTRACTOR\",\n    \"probation_period\": 2232.8450742893747,\n    \"work_arrangement\": \"ON_SITE_OR_HYBRID\",\n    \"work_eligibility\": {\n      \"key\": \"string\",\n      \"file_name\": \"string\"\n    },\n    \"medical_insurance\": false,\n    \"contract_term_type\": \"DEFINITE\",\n    \"notice_period_type\": \"CUSTOM\",\n    \"work_hours_per_week\": 8510.936261338042,\n    \"employee_nationality\": \"string\",\n    \"reason_for_fixed_term\": \"REPLACEMENT_FOR_PERMANENT_STAFF\",\n    \"quote_additional_fields\": {\n      \"employee_type\": \"Employee\",\n      \"qualifications\": \"string\",\n      \"scope_german_translation\": \"string\",\n      \"qualifications_german_translation\": \"string\"\n    },\n    \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n    \"hiring_objective_extra_info\": \"string\",\n    \"notice_period_after_probation\": 2967.833940014932,\n    \"notice_period_during_probation\": 6267.858739212491,\n    \"is_auto_quote_validation_passed\": false,\n    \"probation_period_type_for_definite\": \"STANDARD\",\n    \"allow_consultant_equipment_reimbursement\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"status\": 8178,\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0abe6fd3-a5e1-4cc2-a43a-f4b3bf6042c7",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    "contract",
+                    ":contract_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contract_id",
+                      "description": "(Required) The unique identifier of the employee contract."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"salary\": 327.11653824794905,\n    \"job_title\": \"string\",\n    \"start_date\": \"1993-03-27\",\n    \"employee_email\": \"Fr1ULfJRh0Sh@jVUAUAtjeXJPqhwWKXO.hgl\",\n    \"employment_type\": \"Part-time\",\n    \"employee_last_name\": \"string\",\n    \"employment_country\": \"string\",\n    \"employee_first_name\": \"string\",\n    \"scope\": \"string\",\n    \"benefits\": [\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": false,\n        \"provider_id\": \"string\",\n        \"contribution\": 1071.6220591782067,\n        \"cover_dependents\": false\n      },\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": true,\n        \"provider_id\": \"string\",\n        \"contribution\": 2163.389345157545,\n        \"cover_dependents\": false\n      }\n    ],\n    \"currency\": \"string\",\n    \"end_date\": \"2025-08-09\",\n    \"holidays\": 7816.781849719575,\n    \"is_hourly\": false,\n    \"work_visa\": false,\n    \"employee_id\": \"string\",\n    \"hourly_rate\": 7917.452761891124,\n    \"is_resubmit\": true,\n    \"schedule_id\": \"string\",\n    \"seniority_id\": 1002.5919746785738,\n    \"work_pension\": true,\n    \"signing_bonus\": 7013.990053413882,\n    \"time_off_type\": \"SPECIFIC\",\n    \"seniority_date\": \"1989-12-27\",\n    \"sick_leave_days\": 79.88777161747507,\n    \"employee_address\": {\n      \"city\": \"string\",\n      \"street\": \"string\",\n      \"country\": \"string\",\n      \"zip\": \"string\",\n      \"phone\": \"string\",\n      \"state\": \"string\",\n      \"province\": \"string\",\n      \"calling_code\": \"string\"\n    },\n    \"employment_state\": \"string\",\n    \"hiring_objective\": \"CONVERTING_CONTRACTOR\",\n    \"probation_period\": 2232.8450742893747,\n    \"work_arrangement\": \"ON_SITE_OR_HYBRID\",\n    \"work_eligibility\": {\n      \"key\": \"string\",\n      \"file_name\": \"string\"\n    },\n    \"medical_insurance\": false,\n    \"contract_term_type\": \"DEFINITE\",\n    \"notice_period_type\": \"CUSTOM\",\n    \"work_hours_per_week\": 8510.936261338042,\n    \"employee_nationality\": \"string\",\n    \"reason_for_fixed_term\": \"REPLACEMENT_FOR_PERMANENT_STAFF\",\n    \"quote_additional_fields\": {\n      \"employee_type\": \"Employee\",\n      \"qualifications\": \"string\",\n      \"scope_german_translation\": \"string\",\n      \"qualifications_german_translation\": \"string\"\n    },\n    \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n    \"hiring_objective_extra_info\": \"string\",\n    \"notice_period_after_probation\": 2967.833940014932,\n    \"notice_period_during_probation\": 6267.858739212491,\n    \"is_auto_quote_validation_passed\": false,\n    \"probation_period_type_for_definite\": \"STANDARD\",\n    \"allow_consultant_equipment_reimbursement\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"status\": 4668,\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71a195cd-95cc-49db-8ce3-ccec8c32f628",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "eor",
+                    "contract",
+                    ":contract_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contract_id",
+                      "description": "(Required) The unique identifier of the employee contract."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"salary\": 327.11653824794905,\n    \"job_title\": \"string\",\n    \"start_date\": \"1993-03-27\",\n    \"employee_email\": \"Fr1ULfJRh0Sh@jVUAUAtjeXJPqhwWKXO.hgl\",\n    \"employment_type\": \"Part-time\",\n    \"employee_last_name\": \"string\",\n    \"employment_country\": \"string\",\n    \"employee_first_name\": \"string\",\n    \"scope\": \"string\",\n    \"benefits\": [\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": false,\n        \"provider_id\": \"string\",\n        \"contribution\": 1071.6220591782067,\n        \"cover_dependents\": false\n      },\n      {\n        \"plan_id\": \"string\",\n        \"cover_all\": true,\n        \"provider_id\": \"string\",\n        \"contribution\": 2163.389345157545,\n        \"cover_dependents\": false\n      }\n    ],\n    \"currency\": \"string\",\n    \"end_date\": \"2025-08-09\",\n    \"holidays\": 7816.781849719575,\n    \"is_hourly\": false,\n    \"work_visa\": false,\n    \"employee_id\": \"string\",\n    \"hourly_rate\": 7917.452761891124,\n    \"is_resubmit\": true,\n    \"schedule_id\": \"string\",\n    \"seniority_id\": 1002.5919746785738,\n    \"work_pension\": true,\n    \"signing_bonus\": 7013.990053413882,\n    \"time_off_type\": \"SPECIFIC\",\n    \"seniority_date\": \"1989-12-27\",\n    \"sick_leave_days\": 79.88777161747507,\n    \"employee_address\": {\n      \"city\": \"string\",\n      \"street\": \"string\",\n      \"country\": \"string\",\n      \"zip\": \"string\",\n      \"phone\": \"string\",\n      \"state\": \"string\",\n      \"province\": \"string\",\n      \"calling_code\": \"string\"\n    },\n    \"employment_state\": \"string\",\n    \"hiring_objective\": \"CONVERTING_CONTRACTOR\",\n    \"probation_period\": 2232.8450742893747,\n    \"work_arrangement\": \"ON_SITE_OR_HYBRID\",\n    \"work_eligibility\": {\n      \"key\": \"string\",\n      \"file_name\": \"string\"\n    },\n    \"medical_insurance\": false,\n    \"contract_term_type\": \"DEFINITE\",\n    \"notice_period_type\": \"CUSTOM\",\n    \"work_hours_per_week\": 8510.936261338042,\n    \"employee_nationality\": \"string\",\n    \"reason_for_fixed_term\": \"REPLACEMENT_FOR_PERMANENT_STAFF\",\n    \"quote_additional_fields\": {\n      \"employee_type\": \"Employee\",\n      \"qualifications\": \"string\",\n      \"scope_german_translation\": \"string\",\n      \"qualifications_german_translation\": \"string\"\n    },\n    \"signing_bonus_payout_type\": \"FIRST_CYCLE\",\n    \"hiring_objective_extra_info\": \"string\",\n    \"notice_period_after_probation\": 2967.833940014932,\n    \"notice_period_during_probation\": 6267.858739212491,\n    \"is_auto_quote_validation_passed\": false,\n    \"probation_period_type_for_definite\": \"STANDARD\",\n    \"allow_consultant_equipment_reimbursement\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"status\": 5621,\n    \"message\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.letsdeel.com/rest/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "227cf7bc-0fed-4762-bdaf-ac112eab8cd3",
+    "name": "Endpoints subpackage_eorContract API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

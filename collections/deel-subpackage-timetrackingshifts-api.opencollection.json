@@ -1,0 +1,209 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_timeTrackingShifts API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_timeTrackingShifts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create raw time tracking shifts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shifts/raw",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create raw shifts for the specified contract ID. “Raw shifts” refers to uncategorized entries—simply submit the clock-in and clock-out times. The classification of those hours (e.g., regular or overtime) will be handled by the Deel platform.\n **Token scopes**: `time-tracking:write`"
+        },
+        {
+          "info": {
+            "name": "List of shifts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shifts",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset/index of record for the next page of records to return."
+              },
+              {
+                "name": "from_date",
+                "value": "",
+                "type": "query",
+                "description": "Filter shifts from this date (YYYY-MM-DD)."
+              },
+              {
+                "name": "to_date",
+                "value": "",
+                "type": "query",
+                "description": "Filter shifts until this date (YYYY-MM-DD)."
+              },
+              {
+                "name": "contract_id[]",
+                "value": "",
+                "type": "query",
+                "description": "Filter shifts by one or more contract IDs."
+              }
+            ]
+          },
+          "docs": "Retrieve a paginated list of shifts with details such as start and end times, breaks, metadata, and summary metrics. Supports pagination through `limit` and `offset` query parameters and filtering by `contractId`, date range (`fromDate` and `toDate`).\n **Token scopes**: `time-tracking:read`"
+        },
+        {
+          "info": {
+            "name": "Create shifts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shifts",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates multiple time tracking shifts for a contract, supporting both regular shift submissions and corrections that adjust hours for previously processed shifts.\n **Token scopes**: `time-tracking:write`"
+        },
+        {
+          "info": {
+            "name": "Get shift details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shifts/:external_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the shift to retrieve."
+              }
+            ]
+          },
+          "docs": "Retrieve details of a specific shift by external ID.\n **Token scopes**: `time-tracking:read`"
+        },
+        {
+          "info": {
+            "name": "Update a shift",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shifts/:external_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the shift to be updated."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update specific fields of an existing shift by its unique `external_id`. This includes shift summary details, description etc.\n **Token scopes**: `time-tracking:write`"
+        },
+        {
+          "info": {
+            "name": "Delete a Shift by External ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shifts/:external_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique external identifier of the shift to be deleted."
+              }
+            ]
+          },
+          "docs": "This endpoint deletes a shift using its external ID. Once deleted, the shift will no longer be retrievable or editable.\n **Token scopes**: `time-tracking:write`"
+        },
+        {
+          "info": {
+            "name": "Delete multiple shifts by External ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shifts/bulk-delete",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint deletes shifts using external IDs. Once deleted, the shifts will no longer be retrievable or editable.\n **Token scopes**: `time-tracking:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

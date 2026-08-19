@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_positions API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_positions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apply changes to positions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/hris/positions/apply_changes",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Applies a set of position changes (add, edit, delete) for a given HRIS profile.\n **Token scopes**: `profile:write`"
+        },
+        {
+          "info": {
+            "name": "Get Positions By Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/hris/positions/profile/:hrisProfileId",
+            "params": [
+              {
+                "name": "hrisProfileId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Positions By Profile"
+        },
+        {
+          "info": {
+            "name": "Fetch HrisPositions from a HrisProfile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/hris/positions/profile/:hris_profile_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hris_profile_id",
+                "value": "",
+                "type": "path",
+                "description": "HRIS Profile ID"
+              }
+            ]
+          },
+          "docs": "Retrieves all positions assigned to a given HRIS profile, including the associated role, team, and organization structure for each position.\n **Token scopes**: `profile:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

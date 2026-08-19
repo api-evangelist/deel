@@ -1,0 +1,144 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_lookups API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_lookups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Job titles list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/lookups/job-titles",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "after_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for pagination. Use this to retrieve the next page of results."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of pre-defined job titles in Deel platform."
+        },
+        {
+          "info": {
+            "name": "Retrieve Country List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/lookups/countries",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve a list of countries supported by Deel, along with details about visa and EoR support, sub-territories, and their classifications."
+        },
+        {
+          "info": {
+            "name": "Retrieve Seniority Levels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/lookups/seniorities",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "is_eor_contract",
+                "value": "",
+                "type": "query",
+                "description": "when `true`, exclude C-level seniorities for EOR contracts. Set to `false` to return all seniorities"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of predefined seniority levels for roles in the Deel platform, including their names, hierarchical levels, and unique identifiers."
+        },
+        {
+          "info": {
+            "name": "Retrieve Supported Currency List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/lookups/currencies",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve the list of currencies supported by Deel, including their ISO codes and names"
+        },
+        {
+          "info": {
+            "name": "Retrieve Time-Off Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/lookups/time-off-types",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve a list of predefined time-off types that can be registered in the Deel platform."
+        },
+        {
+          "info": {
+            "name": "Retrieve lookup information for currencies, countries, entity types, etc",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/lookups",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "documents",
+                "value": "",
+                "type": "query",
+                "description": "The type of lookup data to retrieve. Options are `currencies`, `countries`, `entity_types`, and `sic_numbers`."
+              }
+            ]
+          },
+          "docs": "Retrieve lookup information such as currencies, countries, entity types, or SIC numbers. Use the `type` query parameter to specify which data to retrieve.\n **Token scopes**: `legal-entity:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,223 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_contractorHiring API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_contractorHiring",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Attach a file to contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/documents",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Attach a file to contract document.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Get worker invite link",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/invite",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale to use for the invite link."
+              }
+            ]
+          },
+          "docs": "Generates and returns a signed invitation URL that allows a worker to review and sign their contract securely. Use this endpoint to initiate or resend the contract signing process after the contract has been created. Requires the contract_id, which is provided during the initial Create Contract workflow.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Preview a contract agreement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/preview",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              },
+              {
+                "name": "templateId",
+                "value": "",
+                "type": "query",
+                "description": "ID of an existing contract template."
+              }
+            ]
+          },
+          "docs": "Retrieve an IC and EOR contract agreement content in HTML. If no template is specified, the default or currently assigned template will be used. This endpoint does not support Global Payroll contract type.\n **Token scopes**: `contracts:read`, `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Send contract to worker",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/invitations",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invite a worker to sign the contract. Worker will be notified via email\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Remove invite",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/invitations",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              }
+            ]
+          },
+          "docs": "Remove invite in order to re-invite a worker to sign the contract\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve contractor payment dates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/payment_cycles",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The Deel contract ID for which payment dates are being retrieved."
+              }
+            ]
+          },
+          "docs": "Fetches a list of payment dates associated with a specific contract. This endpoint provides information on when contractors are scheduled to be paid, along with the current status of each payment cycle.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Sign a contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/signatures",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sign a contract as a client.\n **Token scopes**: `contracts:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

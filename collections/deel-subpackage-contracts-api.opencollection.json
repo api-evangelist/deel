@@ -1,0 +1,408 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_contracts API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_contracts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a single contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the contract."
+              },
+              {
+                "name": "expand",
+                "value": "",
+                "type": "query",
+                "description": "Include cost centers in the response."
+              }
+            ]
+          },
+          "docs": "Retrieve a single contract.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Add external Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add an external Id to a Deel contract. You can use this to add a Deel contract's refernece Id in your platform. External Id can be passed as a query parameter in List contract endpoint to find this contract later.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "List of contracts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "after_cursor",
+                "value": "",
+                "type": "query",
+                "description": "Return next page of results after the given cursor."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results with the given number of records."
+              },
+              {
+                "name": "order_direction",
+                "value": "",
+                "type": "query",
+                "description": "Order direction of results; ascending or descending."
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "Filter contracts by type. A contract is included in the results if its type is in this list."
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "Filter contracts by current status. A contract is included in the results if its status is in this list."
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter contracts for the given team ID. NOTE: All query parameters are technically strings or arrays of strings."
+              },
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter contracts for the given external ID."
+              },
+              {
+                "name": "external_id_absent",
+                "value": "",
+                "type": "query",
+                "description": "Filter contracts by external ID presence. When true, returns contracts without an external ID. When false, returns contracts with an external ID. Cannot be used with external_id query param when set to true."
+              },
+              {
+                "name": "countries",
+                "value": "",
+                "type": "query",
+                "description": "Filter contracts by country codes."
+              },
+              {
+                "name": "currencies",
+                "value": "",
+                "type": "query",
+                "description": "Filter contracts by currency codes."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Include a contract if its name or the contractor's name contains the given search term."
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Sort contracts by the given field name."
+              },
+              {
+                "name": "expand",
+                "value": "",
+                "type": "query",
+                "description": "Include cost centers in the response."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of contracts.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Create a new contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new Deel contract.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Approve an equity exercise",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/equity/exercise/:public_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "public_id",
+                "value": "",
+                "type": "path",
+                "description": "Equity exercise public ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Approve an equity exercise.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Create a request to exercise equity.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/equity/exercise",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a request to exercise equity.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Get an estimate of withholding amount given an equity event.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/equity_withholding_estimate",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              },
+              {
+                "name": "event_value",
+                "value": "",
+                "type": "query",
+                "description": "The monetary value of the equity event."
+              },
+              {
+                "name": "event_currency",
+                "value": "",
+                "type": "query",
+                "description": "Three-letter currency code for the payment, following ISO 4217."
+              }
+            ]
+          },
+          "docs": "Get an estimate of the withholding amount required as well as the assumptions behind the estimate, given a contract id, event amount and currency code.\n **Token scopes**: `contracts:read`, `global-payroll:read`"
+        },
+        {
+          "info": {
+            "name": "Reject contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/workers/contracts/:contract_id/reject",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique public identifier of the contract to reject. This is the contract's public ID that can be used to identify the specific contract in the system."
+              }
+            ]
+          },
+          "docs": "Rejects a contract that is in the pending (unsigned) state by specifying its public ID in the contract_id parameter. Use this endpoint when you do not wish to proceed with the agreement. Only contracts that have not yet been signed or previously rejected are eligible for this action\n **Token scopes**: `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve contract PDF download link",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/workers/contracts/:contract_id/pdf",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique public identifier of the contract."
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve a secure URL for downloading the PDF version of a specific contract. Provide the contract_id in the path to get the download link. This link can be used by the authenticated worker to access the contract document.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve contract templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contract-templates",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Fetches a collection of contract templates available within your organization. Use this endpoint to retrieve metadata about the templates.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Sign amendment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/workers/amendments/:amendment_id/sign",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "amendment_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the amendment to sign"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sign amendment as worker\n **Token scopes**: `worker:read`, `worker:write`, `benefits:read`"
+        },
+        {
+          "info": {
+            "name": "Sign worker contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/workers/contracts/:contract_id/signatures",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sign contract as worker\n **Token scopes**: `worker:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

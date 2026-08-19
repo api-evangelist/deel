@@ -1,0 +1,157 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_plans401K API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_plans401K",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Activate the 401k integration for the legal entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/benefits/legal-entities/:id/benefits/401k/activate",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id from the legal entity to activate 401k integration"
+              }
+            ]
+          },
+          "docs": "Activate the 401k integration for the legal entity\n **Token scopes**: `benefits:write`"
+        },
+        {
+          "info": {
+            "name": "Clean up plan for a given legal entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/benefits/legal-entities/:id/401k/plans/clean-up",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id from the legal entity to clean up"
+              }
+            ]
+          },
+          "docs": "Clean up plan for a given legal entity\n **Token scopes**: `benefits:write`"
+        },
+        {
+          "info": {
+            "name": "Create 401k plan for legal entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/benefits/legal-entities/:legal_entity_id/401k/plans",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "legal_entity_id",
+                "value": "",
+                "type": "path",
+                "description": "Id from the legal entity to receive a new 401k plan"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new 401k plan for existing provider to legal entity\n **Token scopes**: `benefits:write`"
+        },
+        {
+          "info": {
+            "name": "Get 401k plans for legal entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/benefits/legal-entities/:id/401k/plans",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id from the legal entity to fetch 401k plans"
+              }
+            ]
+          },
+          "docs": "Get 401k plans legal entity\n **Token scopes**: `benefits:read`"
+        },
+        {
+          "info": {
+            "name": "Update 401k plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.letsdeel.com/rest/v2/benefits/legal-entities/:legal_entity_id/401k/plans/:plan_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "legal_entity_id",
+                "value": "",
+                "type": "path",
+                "description": "Id from the legal entity to update a 401k plan"
+              },
+              {
+                "name": "plan_id",
+                "value": "",
+                "type": "path",
+                "description": "401K plan id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update 401k plan\n **Token scopes**: `benefits:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

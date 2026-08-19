@@ -1,0 +1,232 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_screenings API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_screenings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create manual verification screening",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/screenings/manual-verification",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "back",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "front",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "additional",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "document_type",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "operation_type",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "selfie_with_id",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "document_country",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "proof_of_residence",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "translation_required",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Use this endpoint to create a manual identity verification submission (in case automated one has failed multiple times or document country is not supported by automated solution)\n **Token scopes**: `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Create Veriff session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/veriff/session",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Veriff session\n **Token scopes**: `screenings:write`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Get entity screening details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/screenings/aml/:entity_type/:entity_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "entity_type",
+                "value": "",
+                "type": "path",
+                "description": "The type of entity to screen. Only 'profile', 'hris_profile', 'legal_entity' are accepted."
+              },
+              {
+                "name": "entity_id",
+                "value": "",
+                "type": "path",
+                "description": "UUID v4 of the entity"
+              }
+            ]
+          },
+          "docs": "Get the latest screening for an entity.\n **Token scopes**: `screenings:read`"
+        },
+        {
+          "info": {
+            "name": "Get verification method",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/screenings/verification-method",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "The document's issuing country code (ISO 3166-1 alpha-2)"
+              },
+              {
+                "name": "document_type",
+                "value": "",
+                "type": "query",
+                "description": "The document to be provided during KYC"
+              }
+            ]
+          },
+          "docs": "Get verification method by provided country and document type\n **Token scopes**: `screenings:read`, `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Get worker's KYC details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/screenings/kyc/details",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_profile_id",
+                "value": "",
+                "type": "query",
+                "description": "Worker's HRIS profile public ID client requests to fetch KYC details for. This parameter is mutually exclusive with profile_id"
+              },
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "query",
+                "description": "Worker's contract ID. This parameter is required in case there are multiple profiles associated to the target worker. For example, when worker used to work for the former company he had another profile ID. So we need contract ID to properly resolve profile's KYC details.  In case this parameter is not provided and multiple associated profiles are found, exception with 409 status code will be thrown"
+              },
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "query",
+                "description": "Worker's profile public ID client requests to fetch KYC details for, This parameter is mutually exclusive with worker_profile_id "
+              }
+            ]
+          },
+          "docs": "This endpoint allows organizations managing workers on Deel to retrieve detailed KYC verification data using the worker’s profile ID. It provides comprehensive information including verification status, document type, submission, approval, rejection, and expiry dates, supporting compliance monitoring and onboarding workflows\n **Token scopes**: `screenings:read`"
+        },
+        {
+          "info": {
+            "name": "Submit external KYC",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/screenings/kyc/external",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "data",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "The endpoint standardizes identity verification and compliance processes, combining automated Live ID verification (IDV) and manual review workflows\n **Token scopes**: `worker:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

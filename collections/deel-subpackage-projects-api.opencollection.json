@@ -1,0 +1,268 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_projects API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Hourly Report Preset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/presets",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new hourly report preset.\n **Token scopes**: `timesheets:write`"
+        },
+        {
+          "info": {
+            "name": "Get Hourly Report Root Presets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/root-presets",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return per page (max: 100)"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to order the results by"
+              },
+              {
+                "name": "order_direction",
+                "value": "",
+                "type": "query",
+                "description": "Direction to order the results (ascending or descending)"
+              },
+              {
+                "name": "work_statement_statuses",
+                "value": "",
+                "type": "query",
+                "description": "Filter results by work statement status"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor for fetching the next page of results"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of hourly report root presets.\n **Token scopes**: `timesheets:read`"
+        },
+        {
+          "info": {
+            "name": "Create Hourly Report Root Preset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/root-presets",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new hourly report root preset.\n **Token scopes**: `timesheets:write`"
+        },
+        {
+          "info": {
+            "name": "Get Hourly Report Preset by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/presets/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the hourly report preset to retrieve"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific hourly report preset by its ID.\n **Token scopes**: `timesheets:read`"
+        },
+        {
+          "info": {
+            "name": "Update Hourly Report Preset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/presets/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the hourly report preset to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing hourly report preset.\n **Token scopes**: `timesheets:write`"
+        },
+        {
+          "info": {
+            "name": "Delete Hourly Report Preset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/presets/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the hourly report preset to delete"
+              }
+            ]
+          },
+          "docs": "Delete an existing hourly report preset.\n **Token scopes**: `timesheets:write`"
+        },
+        {
+          "info": {
+            "name": "Get Hourly Report Presets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/timesheets/presets",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the Deel contract"
+              },
+              {
+                "name": "work_statement_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of the work statement (optional)"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to order results by (title or created_at)"
+              },
+              {
+                "name": "order_direction",
+                "value": "",
+                "type": "query",
+                "description": "Direction of ordering (ASC or DESC)"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor for fetching next set of results"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page"
+              }
+            ]
+          },
+          "docs": "Retrieve hourly report presets for a given contract and work statement.\n **Token scopes**: `timesheets:read`"
+        },
+        {
+          "info": {
+            "name": "Get Hourly Report Root Preset by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/root-presets/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the hourly report root preset to retrieve"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific hourly report root preset by its ID.\n **Token scopes**: `timesheets:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

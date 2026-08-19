@@ -1,0 +1,281 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_timesheets API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_timesheets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of timesheets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "query",
+                "description": "Id of an Deel contract."
+              },
+              {
+                "name": "contract_types",
+                "value": "",
+                "type": "query",
+                "description": "types of contracts to filter"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "reporter_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of timesheets in your Deel account. You can filter the list by providing additional paramters e.g. contract_id, contract_type etc.\n **Token scopes**: `timesheets:read`"
+        },
+        {
+          "info": {
+            "name": "Create a timesheet entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit work for a contractor.\n **Token scopes**: `timesheets:write`"
+        },
+        {
+          "info": {
+            "name": "List of timesheets by contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/timesheets",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              },
+              {
+                "name": "contract_types",
+                "value": "",
+                "type": "query",
+                "description": "Types of contracts to filter."
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "Statuses of timesheets to filter."
+              },
+              {
+                "name": "reporter_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of an existing profile"
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Filtered results will include records created on or after the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "Filtered results will include records created before the provided date. Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results after given index of row"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of timesheets found for a contract.\n **Token scopes**: `timesheets:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a single timesheet entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of an existing timesheet"
+              }
+            ]
+          },
+          "docs": "Retrieve a single timesheet entry by Id.\n **Token scopes**: `timesheets:read`"
+        },
+        {
+          "info": {
+            "name": "Update a timesheet entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of an existing timesheet."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to update an existing timesheet entry by its id when correcting logged hours or refining the work note. Send a PATCH request to /timesheets/:id with a data object containing fields to change, such as quantity, description, or hourly_report_preset_id. Both clients and contractors can perform this update.\n **Token scopes**: `timesheets:write`"
+        },
+        {
+          "info": {
+            "name": "Delete a timesheet entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of an existing timesheet"
+              },
+              {
+                "name": "reason",
+                "value": "",
+                "type": "query",
+                "description": "Reason for deleting an existing task"
+              }
+            ]
+          },
+          "docs": "Delete a single timesheet entry.\n **Token scopes**: `timesheets:write`"
+        },
+        {
+          "info": {
+            "name": "Review a single timesheet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/timesheets/:id/reviews",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of an existing timesheet"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Review a timesheet to approve or decline submitted work.\n **Token scopes**: `timesheets:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

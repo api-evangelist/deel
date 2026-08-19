@@ -1,0 +1,174 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_organizations API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create child organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/organizations/children",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new organization along with:\n\n- An API token scoped to the new organization. This token can be used to perform API operations on behalf of the new organization.\n- A default group for the organization.\n- A hierarchy linking the authenticated organization (the Parent Organization) with the new one (the Child Organization).\n- A user from the parent organization who will be assigned to the child organization.\n\nThis endpoint sets up the bare minimum required for the new organization to be o"
+        },
+        {
+          "info": {
+            "name": "Get Current Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/organizations",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve details of the current organization associated with the authenticated user. The organization is automatically detected based on the authentication token provided in the request.\n **Token scopes**: `organizations:read`"
+        },
+        {
+          "info": {
+            "name": "Get the roles of the current organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/roles",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve a list of roles assigned within the current organization. Each role has a unique identifier, name, scope, and optional HRIS structure ID. This helps determine the types of roles within the organization and their corresponding access levels.\n **Token scopes**: `organizations:read`"
+        },
+        {
+          "info": {
+            "name": "Create organization custom role.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/roles",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create organization custom role.\n **Token scopes**: `organizations:write`"
+        },
+        {
+          "info": {
+            "name": "Get Team List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/teams",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve a list of teams within the organization associated with the authenticated user. This list provides basic details about each team, including the team ID and name.\n **Token scopes**: `organizations:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve Departments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/departments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve a list of departments within the organization associated with the authenticated user. Each department contains its unique identifier, name, and optionally, the parent department if applicable.\n **Token scopes**: `organizations:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve working locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/working-locations",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieves the list of available work location labels configured in the HRIS system for the organization.\n **Token scopes**: `organizations:read`"
+        },
+        {
+          "info": {
+            "name": "Update organization custom role",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/roles/:roleId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the role"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "undefined\n **Token scopes**: `organizations:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

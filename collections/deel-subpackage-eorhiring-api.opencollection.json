@@ -1,0 +1,355 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_eorHiring API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_eorHiring",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cancel EOR Contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contract/:oid/cancel",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "oid",
+                "value": "",
+                "type": "path",
+                "description": "Contract oid"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancel EOR Contract\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Delay EOR employee onboarding",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contract/:oid/delay-onboarding",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "oid",
+                "value": "",
+                "type": "path",
+                "description": "Contract oid"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delay EOR employee onboarding\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Fetch EOR Contract form",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/forms/eor/create-contract/:country_code",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter country code in ISO 3166-1 alpha-2 format"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "The selected state code of the contract. This is only required for countries that specify it."
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "The selected start date of the contract in ISO 8601 formatted date string."
+              },
+              {
+                "name": "work_hours_per_week",
+                "value": "",
+                "type": "query",
+                "description": "The selected number of work hours per week."
+              },
+              {
+                "name": "contract_duration_in_days",
+                "value": "",
+                "type": "query",
+                "description": "The contract duration in days for definite contracts."
+              }
+            ]
+          },
+          "docs": "Returns a formulary for creating EOR Contracts\n **Token scopes**: `forms:read`"
+        },
+        {
+          "info": {
+            "name": "Fetch Start Date for EOR Contracts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/start-date",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "employment_country",
+                "value": "",
+                "type": "query",
+                "description": "Employment country in ISO 3166-1 alpha-2 format"
+              },
+              {
+                "name": "employee_nationality",
+                "value": "",
+                "type": "query",
+                "description": "Employee nationality in ISO 3166-1 alpha-2 format"
+              },
+              {
+                "name": "work_visa",
+                "value": "",
+                "type": "query",
+                "description": "Whether a work visa is required"
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "query",
+                "description": "Team ID"
+              },
+              {
+                "name": "legal_entity_id",
+                "value": "",
+                "type": "query",
+                "description": "Legal entity ID"
+              },
+              {
+                "name": "employment_state",
+                "value": "",
+                "type": "query",
+                "description": "State or province of employment"
+              },
+              {
+                "name": "special_job_id",
+                "value": "",
+                "type": "query",
+                "description": "Special job ID (if applicable)"
+              }
+            ]
+          },
+          "docs": "Returns the earliest allowed start date for a new EOR contract quote based on employment parameters.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Get EOR Additional Costs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/additional-costs/:country",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "path",
+                "description": "The two-letter ISO code of the country for which to retrieve the EOR additional costs."
+              }
+            ]
+          },
+          "docs": "Retrieve all additional costs to eor quote flow by country\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve Benefits by Country",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/benefits",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "query",
+                "description": "Country code."
+              },
+              {
+                "name": "work_visa",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if work visa is required."
+              },
+              {
+                "name": "work_hours_per_week",
+                "value": "",
+                "type": "query",
+                "description": "Working hours per week"
+              },
+              {
+                "name": "employment_type",
+                "value": "",
+                "type": "query",
+                "description": "Type of employment"
+              },
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the team the worker belongs to."
+              },
+              {
+                "name": "legal_entity_id",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the legal entity."
+              }
+            ]
+          },
+          "docs": "Retrieves list of benefits available in a specific country based work visa requirement, work hours, employment type, team, and legal entity.\n **Token scopes**: `benefits:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve detailed hiring guide for a country",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/validations/:country_code",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "path",
+                "description": "The two-letter ISO code of the country for which to retrieve the hiring guide."
+              }
+            ]
+          },
+          "docs": "Retrieve comprehensive hiring guide data for a specific country. This data can be used in creation and validation of Employee of Record (EOR) contract quotes, providing details on salaries, holidays, insurance, and other employment specifics.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Sign EOR contract document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/documents/:type/sign",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "EOR contract ID"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "The type of document. Currently only FRAMEWORK_AGREEMENT is supported."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Signs a document with the provided signature and title\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Update Employee Information for EOR Contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/employee-information",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates employee information related to an EOR Contract. This endpoint supports partial updates. Attempting to update any undocumented fields will result in a validation error. This endpoint will only work for contracts with status `new`, `under_review`, `waiting_for_client_sign`, `waiting_for_eor_sign`, `waiting_for_employee_contract`, `waiting_for_employee_sign`, `awaiting_deposit_payment`, or `rejected`.\n **Token scopes**: `contracts:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_users API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/Users",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter results using [SCIM's filtering syntax](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.2). Currently supports only `eq` operator and filtering by a user's email. Expected format 'email eq \"email@domain.com\"'."
+              },
+              {
+                "name": "startIndex",
+                "value": "",
+                "type": "query",
+                "description": "The 1-based index of the first result to return. Used for pagination. Minimum value is 1. Defaults to 1 if not provided."
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results to return per page. Used for pagination. A value of 0 is treated as a special case and returns 1 result. Typically should be a positive integer."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of users in Deel's HRIS.\n **Token scopes**: `Users:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a single User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/Users/:hrisProfileOid",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hrisProfileOid",
+                "value": "",
+                "type": "path",
+                "description": "Retrieve a single user by id."
+              }
+            ]
+          },
+          "docs": "Retrieve a single user by id."
+        },
+        {
+          "info": {
+            "name": "Search or list users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/Users/.search",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search or list users"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_organizationTasks API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_organizationTasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List organization tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/organizations/tasks",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "Filter by task statuses."
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Filter by task category."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search string for task display name or description."
+              },
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by external ID (for tasks created with an external reference)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque cursor for cursor-based pagination. When provided, use with limit only (do not use offset)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return (1-100)."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of tasks for the current organization. Intended for client users with organization.manage permission (Example: org admins). Use this to see all tasks for the organization, not only those assigned to the caller. Supports filtering by status, category, search, and external ID, and either offset/limit or cursor-based pagination.\n **Token scopes**: `tasks:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,138 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_offboarding API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_offboarding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve offboarding list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/offboarding/tracker",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term to filter contracts by name or other attributes"
+              },
+              {
+                "name": "hiring_types",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "progress_statuses",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort by"
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order"
+              },
+              {
+                "name": "pagination",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_overview",
+                "value": "",
+                "type": "query",
+                "description": "Include an overview of the contract"
+              },
+              {
+                "name": "ignore_date_range",
+                "value": "",
+                "type": "query",
+                "description": "Ignore the default 45-day date range and retrieve all terminations"
+              }
+            ]
+          },
+          "docs": "Retrieve offboarding list\n **Token scopes**: `contracts:read`, `people:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve termination details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/offboarding/tracker/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique onboarding tracker identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve termination details by tracker id\n **Token scopes**: `contracts:read`, `people:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve termination details by HRIS profile identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/offboarding/tracker/hris_profile/:oid",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "oid",
+                "value": "",
+                "type": "path",
+                "description": "Unique hris profile oid"
+              }
+            ]
+          },
+          "docs": "Retrieve termination details by hris profile oid\n **Token scopes**: `contracts:read`, `people:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

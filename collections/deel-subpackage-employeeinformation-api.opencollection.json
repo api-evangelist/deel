@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_employeeInformation API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_employeeInformation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Employee additional info template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/employee-info/contract-types/:type/countries/:country",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "The contract type. Must be 'eor' (Employer of Record) or 'gp' (Global Payroll)."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "path",
+                "description": "ISO 3166-1 alpha-2 country code."
+              }
+            ]
+          },
+          "docs": "Lists employee additional info template by the contract type and the employment country\n **Token scopes**: `contracts:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,510 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_timeOff API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_timeOff",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Approve/Reject time-off requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/time_offs/review",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Approve/Reject time-off requests in batch. The request body should contain a list of time-off IDs and the desired status (either APPROVED or REJECTED). The response will indicate which requests were successfully processed and which ones encountered errors.\n **Token scopes**: `time-off:write`"
+        },
+        {
+          "info": {
+            "name": "Update time-off request",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/time_offs/:time_off_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "time_off_id",
+                "value": "",
+                "type": "path",
+                "description": "Time off request id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update time-off request\n **Token scopes**: `time-off:write`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Cancel time-off request",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/time_offs/:time_off_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "time_off_id",
+                "value": "",
+                "type": "path",
+                "description": "Time off request id"
+              }
+            ]
+          },
+          "docs": "Cancels a time-off request regardless of its current status. This endpoint provides a simplified approach to time-off management by always setting the request status to CANCELED.\n **Token scopes**: `time-off:write`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "List time-off requests for Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time_offs",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Time off status"
+              },
+              {
+                "name": "time_off_ids",
+                "value": "",
+                "type": "query",
+                "description": "Time off ids"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of time off"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of time off"
+              },
+              {
+                "name": "approval_start_date",
+                "value": "",
+                "type": "query",
+                "description": "Approval start date"
+              },
+              {
+                "name": "approval_end_date",
+                "value": "",
+                "type": "query",
+                "description": "Approval end date"
+              },
+              {
+                "name": "updated_start_date",
+                "value": "",
+                "type": "query",
+                "description": "Updated start date"
+              },
+              {
+                "name": "updated_end_date",
+                "value": "",
+                "type": "query",
+                "description": "Updated end date"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              },
+              {
+                "name": "policy_types",
+                "value": "",
+                "type": "query",
+                "description": "Policy types"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "Next page"
+              }
+            ]
+          },
+          "docs": "List time-off requests for Organization\n **Token scopes**: `time-off:read`"
+        },
+        {
+          "info": {
+            "name": "Create time-off request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/time_offs",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create time-off request\n **Token scopes**: `time-off:write`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "External HR Time Off Synchronization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/time_offs/global-payroll/sync",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Synchronize time off requests from an external HRIS to Deel. Only Global Payroll contracts are allowed for this operation. This endpoint can perform 2 different operations with the provided time off list: i) upsert - time off requests identified by an external ID will be either inserted or updated at Deel. ii) delete - existing time off requests identified by an external ID with the parameter 'deleted: true' will be deleted. Deel will identify the impacts of each operation on each payroll cycle."
+        },
+        {
+          "info": {
+            "name": "Get Profile Entitlements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time_offs/profile/:hris_profile_id/entitlements",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hris_profile_id",
+                "value": "",
+                "type": "path",
+                "description": "HRIS profile ID"
+              },
+              {
+                "name": "policy_type_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tracking_period_date",
+                "value": "",
+                "type": "query",
+                "description": "Tracking period date"
+              }
+            ]
+          },
+          "docs": "List time-off entitlements.\n **Token scopes**: `time-off:read`"
+        },
+        {
+          "info": {
+            "name": "Get Time Off Events for Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time_offs/time-off-events",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hris_profile_id",
+                "value": "",
+                "type": "query",
+                "description": "Worker hris profile id"
+              },
+              {
+                "name": "time_off_type_id",
+                "value": "",
+                "type": "query",
+                "description": "Time off type id"
+              },
+              {
+                "name": "policy_id",
+                "value": "",
+                "type": "query",
+                "description": "Policy id"
+              }
+            ]
+          },
+          "docs": "List time off events for profile\n **Token scopes**: `time-off:read`"
+        },
+        {
+          "info": {
+            "name": "Get Work Schedule and Holidays",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time_offs/dailies",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of non working days date range"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of non working days date range"
+              },
+              {
+                "name": "hris_profile_ids",
+                "value": "",
+                "type": "query",
+                "description": "HRIS profile ids"
+              },
+              {
+                "name": "countries",
+                "value": "",
+                "type": "query",
+                "description": "List of countries to be fetched"
+              }
+            ]
+          },
+          "docs": "Given a date range (start date, end date) gets the holidays, work schedule and time off dailies for a list of hrisProfileIds or countries.\n **Token scopes**: `time-off:read`"
+        },
+        {
+          "info": {
+            "name": "List policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time_offs/profile/:hris_profile_id/policies",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hris_profile_id",
+                "value": "",
+                "type": "path",
+                "description": "hrisProfileId id."
+              },
+              {
+                "name": "policy_type_name",
+                "value": "",
+                "type": "query",
+                "description": "Policy type name."
+              },
+              {
+                "name": "policy_type_id",
+                "value": "",
+                "type": "query",
+                "description": "policy type id"
+              }
+            ]
+          },
+          "docs": "List policies for profile\n **Token scopes**: `time-off:read`"
+        },
+        {
+          "info": {
+            "name": "List time-off requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time_offs/profile/:hris_profile_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hris_profile_id",
+                "value": "",
+                "type": "path",
+                "description": "HRIS profile id"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Time off status"
+              },
+              {
+                "name": "time_off_ids",
+                "value": "",
+                "type": "query",
+                "description": "Time off ids"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of time off"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of time off"
+              },
+              {
+                "name": "approval_start_date",
+                "value": "",
+                "type": "query",
+                "description": "Approval start date"
+              },
+              {
+                "name": "approval_end_date",
+                "value": "",
+                "type": "query",
+                "description": "Approval end date"
+              },
+              {
+                "name": "updated_start_date",
+                "value": "",
+                "type": "query",
+                "description": "Updated start date"
+              },
+              {
+                "name": "updated_end_date",
+                "value": "",
+                "type": "query",
+                "description": "Updated end date"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Page size"
+              },
+              {
+                "name": "policy_types",
+                "value": "",
+                "type": "query",
+                "description": "Policy types"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "Next page"
+              }
+            ]
+          },
+          "docs": "List time-off requests\n **Token scopes**: `time-off:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve policy validation templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time_offs/policy-validation-templates",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "countries",
+                "value": "",
+                "type": "query",
+                "description": "List of countries (ISO 3166-1 alpha-2 codes) to fetch policy templates and types for."
+              }
+            ]
+          },
+          "docs": "Retrieves policy validation templates and policy types based on the provided countries. Policy types are unique.\n **Token scopes**: `time-off:read`"
+        },
+        {
+          "info": {
+            "name": "Validate time-off request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/time_offs/validate",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate time-off requests and updates\n **Token scopes**: `time-off:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

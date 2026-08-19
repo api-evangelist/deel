@@ -1,0 +1,383 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_organizationStructure API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_organizationStructure",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Organization Structure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/hris/organization_structures",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results with given number of records."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results with given number of records."
+              }
+            ]
+          },
+          "docs": "Retrieves detailed information about the organization's hierarchical structure, including departments and teams.\n **Token scopes**: `organizations:read`"
+        },
+        {
+          "info": {
+            "name": "Create a new HRIS Organization Structure.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/hris/organization_structures",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new HRIS Organization Structure.\n **Token scopes**: `organizations:write`"
+        },
+        {
+          "info": {
+            "name": "Fetch an Org Structure from the Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/hris/organization_structures/external/:external_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path",
+                "description": "External ID"
+              }
+            ]
+          },
+          "docs": "undefined\n **Token scopes**: `organizations:read`"
+        },
+        {
+          "info": {
+            "name": "Update an existing HRIS Org Structure by external ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/hris/organization_structures/external/:external_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path",
+                "description": "External ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "undefined\n **Token scopes**: `organizations:write`"
+        },
+        {
+          "info": {
+            "name": "Delete an Org Structure from the Organization by external ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/hris/organization_structures/external/:external_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path",
+                "description": "External ID"
+              }
+            ]
+          },
+          "docs": "undefined\n **Token scopes**: `organizations:write`"
+        },
+        {
+          "info": {
+            "name": "Get Organization Structure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/hris/organization_structures/:hrisOrgStr_id",
+            "params": [
+              {
+                "name": "hrisOrgStr_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Organization Structure"
+        },
+        {
+          "info": {
+            "name": "Update Organization Structure",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/hris/organization_structures/:hrisOrgStr_id",
+            "params": [
+              {
+                "name": "hrisOrgStr_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update Organization Structure"
+        },
+        {
+          "info": {
+            "name": "Delete Organization Structure",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/hris/organization_structures/:hrisOrgStr_id",
+            "params": [
+              {
+                "name": "hrisOrgStr_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Organization Structure"
+        },
+        {
+          "info": {
+            "name": "Retrieve custom fields for organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/hris/organization-structures/teams/:team_id/custom-fields",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "Public ID (UUID) of the HRIS team/organization structure"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Max items per page (default 20, max 100)"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque cursor for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieves custom field values for a specific organization structure (team). This endpoint returns all custom fields configured for organization structures, including their current values, inheritance status, and any pending change requests. Custom fields can be inherited from parent teams in the organizational hierarchy, and the response indicates whether each value is inherited or set directly on the specified team. If the user has permission to view data change requests, pending changes will a"
+        },
+        {
+          "info": {
+            "name": "Update organization structure team custom fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/hris/organization-structures/teams/:team_id/custom-fields",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "Public ID (UUID) of the HRIS team/organization structure"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this endpoint to keep team metadata current or to schedule future organizational changes. Provide the custom field IDs to modify and use an effective date to schedule updates. Set the value to null to delete a field value.\n **Token scopes**: `organizations:read`"
+        },
+        {
+          "info": {
+            "name": "Update organization structure",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.letsdeel.com/rest/v2/people/:id/department",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Hris profile ID"
+              },
+              {
+                "name": "replace_other_positions",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if this department position should replace all other positions or only append to the existing ones."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update worker's department\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Fetch an Org Structure from the Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/hris/organization_structures/:hris_org_structure_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hris_org_structure_id",
+                "value": "",
+                "type": "path",
+                "description": "HRIS Organization Structure ID"
+              }
+            ]
+          },
+          "docs": "Retrieves detailed information about a specific organizational structure including its teams and roles.\n **Token scopes**: `organizations:read`"
+        },
+        {
+          "info": {
+            "name": "Update an existing HRIS Org Structure",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/hris/organization_structures/:hris_org_structure_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hris_org_structure_id",
+                "value": "",
+                "type": "path",
+                "description": "Org Structure"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing HRIS Org Structure including its name, settings, and teams hierarchy.\n **Token scopes**: `organizations:write`"
+        },
+        {
+          "info": {
+            "name": "Delete an Org Structure from the Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/hris/organization_structures/:hris_org_structure_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hris_org_structure_id",
+                "value": "",
+                "type": "path",
+                "description": "Org Structure"
+              }
+            ]
+          },
+          "docs": "Delete an Org Structure from the Organization. Use the force flag to bypass validation checks and remove the structure even when profiles are still assigned to it.\n **Token scopes**: `organizations:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

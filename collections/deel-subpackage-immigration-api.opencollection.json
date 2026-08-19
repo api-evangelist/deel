@@ -1,0 +1,419 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_immigration API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_immigration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get business visa eligibility and requirements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/visa-requirement/business",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "destination_country",
+                "value": "",
+                "type": "query",
+                "description": "The destination country code of the trip in ISO 3166-1 alpha-2 format"
+              },
+              {
+                "name": "nationality",
+                "value": "",
+                "type": "query",
+                "description": "The nationality country code of the person in ISO 3166-1 alpha-2 format"
+              },
+              {
+                "name": "residence_country",
+                "value": "",
+                "type": "query",
+                "description": "The residence country code of the person in ISO 3166-1 alpha-2 format"
+              },
+              {
+                "name": "trip_start_date",
+                "value": "",
+                "type": "query",
+                "description": "The trip start date in ISO 8601 format (YYYY-MM-DD)"
+              },
+              {
+                "name": "trip_end_date",
+                "value": "",
+                "type": "query",
+                "description": "The trip end date in ISO 8601 format (YYYY-MM-DD)"
+              },
+              {
+                "name": "trip_reason",
+                "value": "",
+                "type": "query",
+                "description": "The reason for the trip"
+              },
+              {
+                "name": "second_nationality",
+                "value": "",
+                "type": "query",
+                "description": "The second nationality country code of the person in ISO 3166-1 alpha-2 format (optional)"
+              }
+            ]
+          },
+          "docs": "This endpoint receives personal information and desired travel information, analyzes and returns the possible business visa options for the given data.\n **Token scopes**: `immigration:read`"
+        },
+        {
+          "info": {
+            "name": "Get immigration case details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/client/cases/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Immigration case id"
+              }
+            ]
+          },
+          "docs": "Get detailed information for a specific immigration case. Use this to check case status and track process progress. The id path parameter is the case UUID returned from the 'Create Client Case' endpoint. Response is enriched with applicant profile, visa type, case status, estimated completion date, process details, and compliance document details.\n **Token scopes**: `immigration:read`"
+        },
+        {
+          "info": {
+            "name": "Get specific immigration case details ",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/workers/cases/:case_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "case_id",
+                "value": "",
+                "type": "path",
+                "description": "Filter by case ID"
+              }
+            ]
+          },
+          "docs": "Get detailed information for a specific immigration case. Use this to check case status and track process progress. The id path parameter is the case UUID returned from the 'Create Client Case' endpoint. Response is enriched with applicant profile, visa type, case status, estimated completion date, process details, and compliance document details.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Immigration document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/documents/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Immigration case document id "
+              }
+            ]
+          },
+          "docs": "Fetch immigration document details by document id\n **Token scopes**: `immigration:read`"
+        },
+        {
+          "info": {
+            "name": "Immigration visa types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/visa-types/:country_code",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "path",
+                "description": "Alpha 2 country code"
+              }
+            ]
+          },
+          "docs": "Fetch immigration supported visa types by country\n **Token scopes**: `immigration:read`"
+        },
+        {
+          "info": {
+            "name": "List of immigration cases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/client/cases",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search by applicant name or code"
+              },
+              {
+                "name": "case_type_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter by case type IDs"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "Filter by case status"
+              },
+              {
+                "name": "countries",
+                "value": "",
+                "type": "query",
+                "description": "Filter by country. Uses ISO 3166-1 alpha-2 codes (https://www.iban.com/country-codes)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor for fetching next set of results"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Max number of results to return"
+              }
+            ]
+          },
+          "docs": "Retrieves a paginated list of immigration cases with filters for applicant name, case type, status, and country. Returns case details including type, status, process, timestamps, and optional closure information.\n **Token scopes**: `immigration:read`"
+        },
+        {
+          "info": {
+            "name": "Create an immigration case",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/client/cases",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an immigration case.\n **Token scopes**: `immigration:write`"
+        },
+        {
+          "info": {
+            "name": "List of immigration cases for workers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/workers/cases",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search by applicant name or code"
+              },
+              {
+                "name": "case_type_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter by case type IDs"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "Filter by case status"
+              },
+              {
+                "name": "countries",
+                "value": "",
+                "type": "query",
+                "description": "Filter by country. Uses ISO 3166-1 alpha-2 codes (https://www.iban.com/country-codes)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor for fetching next set of results"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Max number of results to return"
+              }
+            ]
+          },
+          "docs": "Retrieves a paginated list of immigration cases with filters for applicant name, case type, status, and country. Returns case details including type, status, process, timestamps, and optional closure information.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a required document for a case",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/workers/:worker_id/cases/:case_id/required-document",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "The hris profile oid (public id) of the worker."
+              },
+              {
+                "name": "case_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the case for which the required document is being requested."
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve the details of a specific document requirement for a worker's case. This includes the requirement's status and information about any previously rejected documents\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve onboarding right-to-work case for a worker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/workers/:worker_id/onboarding-case",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "The hris profile oid (public id) of the worker."
+              },
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "query",
+                "description": "Filters the worker's onboarding case to a specific contract. If the worker has multiple contracts and this parameter is omitted, the response may return a case from any associated contract; the response includes contract.id to indicate which contract was used. Provide this parameter for deterministic results."
+              }
+            ]
+          },
+          "docs": "Returns the right to work case for employee onboarding including the documents if any. In case no right to work case is open, the response will be empty.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Upload a required immigration document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/immigration/workers/:worker_id/cases/:case_id/required-document/:document_request_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "The hris profile oid (public id) of the worker."
+              },
+              {
+                "name": "case_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the case for which the required document is being requested."
+              },
+              {
+                "name": "document_request_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the document request fo which this document is being uplodaded"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "data",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload a required immigration document for a specific case. The document will be submitted for review.\n **Token scopes**: `worker:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

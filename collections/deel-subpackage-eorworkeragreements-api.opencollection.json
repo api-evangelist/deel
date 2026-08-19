@@ -1,0 +1,103 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_eorWorkerAgreements API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_eorWorkerAgreements",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Download employee agreement PDF",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/employee-agreement/download",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "Optional version of the Employment Agreement to be signed. If informed and in the case of a mismatch, the API will return an error."
+              }
+            ]
+          },
+          "docs": "Get link to download the employee agreement PDF.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Preview job offer letter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/offer-letter",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              }
+            ]
+          },
+          "docs": "Retrieve an EOR job offer letter in HTML. This endpoint does not support IC and Global Payroll contract types.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Sign a contract ",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/signatures",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sign a contract as a employee.\n **Token scopes**: `worker:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

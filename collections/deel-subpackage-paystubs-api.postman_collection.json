@@ -1,0 +1,577 @@
+{
+  "item": [
+    {
+      "id": "fcea52bf-c7b7-44f7-bc0e-4c28563f8e75",
+      "name": "subpackage_paystubs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "de960d81-ff78-4e8b-afc5-3dc3870518ab",
+          "name": "Get paystubs from legal entity integrated with external benefits vendor",
+          "request": {
+            "name": "Get paystubs from legal entity integrated with external benefits vendor",
+            "description": {
+              "content": "Returns paginated paystubs for a legal entity that is integrated with an external benefits vendor. Results can be filtered by payroll state and date range; paystubs in the `OPEN` state do not include employee-level detail.\n **Token scopes**: `benefits:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "benefits",
+                "legal-entities",
+                ":legal_entity_id",
+                "paystubs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "states",
+                  "value": "<string>",
+                  "description": "Payroll states: OPEN | LOCKED | CLOSED (OPEN doesn't have `employees` info)"
+                },
+                {
+                  "disabled": false,
+                  "key": "states",
+                  "value": "<string>",
+                  "description": "Payroll states: OPEN | LOCKED | CLOSED (OPEN doesn't have `employees` info)"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_start",
+                  "value": "<string>",
+                  "description": "Start date to fectch the paystubs from"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_end",
+                  "value": "<string>",
+                  "description": "End date to fectch the paystubs"
+                },
+                {
+                  "disabled": false,
+                  "key": "items_per_page",
+                  "value": "10",
+                  "description": "Items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "The last fetched id to start querying from"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "legal_entity_id",
+                  "description": "(Required) Id from the legal entity to fetch data"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3f496dc2-a710-4bad-ac45-5a60db5ac364",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "benefits",
+                    "legal-entities",
+                    ":legal_entity_id",
+                    "paystubs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "states",
+                      "value": "LOCKED"
+                    },
+                    {
+                      "key": "states",
+                      "value": "CLOSED"
+                    },
+                    {
+                      "key": "date_start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "items_per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "legal_entity_id",
+                      "description": "(Required) Id from the legal entity to fetch data"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"data\": [\n      {\n        \"employees\": [\n          {\n            \"gross_pay\": 4378.439653523683,\n            \"contract_id\": \"string\",\n            \"employee_id\": \"string\",\n            \"hours_worked\": 6367.905054798693,\n            \"contributions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"employerContributions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"gross_pay\": 267.1545912333173,\n            \"contract_id\": \"string\",\n            \"employee_id\": \"string\",\n            \"hours_worked\": 5927.801419317826,\n            \"contributions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"employerContributions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"payroll_id\": \"string\",\n        \"payment_date\": \"string\",\n        \"payroll_type\": \"CORRECTION\",\n        \"payroll_state\": \"OPEN\",\n        \"payroll_end_date\": \"string\",\n        \"payroll_schedule\": \"MONTHLY\",\n        \"payroll_start_date\": \"string\"\n      },\n      {\n        \"employees\": [\n          {\n            \"gross_pay\": 3635.860301989634,\n            \"contract_id\": \"string\",\n            \"employee_id\": \"string\",\n            \"hours_worked\": 7701.780437397526,\n            \"contributions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"employerContributions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"gross_pay\": 981.6115835345107,\n            \"contract_id\": \"string\",\n            \"employee_id\": \"string\",\n            \"hours_worked\": 3749.0594821759373,\n            \"contributions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"employerContributions\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ],\n        \"payroll_id\": \"string\",\n        \"payment_date\": \"string\",\n        \"payroll_type\": \"OFFCYCLE\",\n        \"payroll_state\": \"LOCKED\",\n        \"payroll_end_date\": \"string\",\n        \"payroll_schedule\": \"WEEKLY\",\n        \"payroll_start_date\": \"string\"\n      }\n    ],\n    \"page\": {\n      \"cursor\": \"string\",\n      \"total_rows\": 7094,\n      \"items_per_page\": 3326\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6e578d6-a05a-4e3f-a0cb-ae735cf2b8ac",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "benefits",
+                    "legal-entities",
+                    ":legal_entity_id",
+                    "paystubs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "states",
+                      "value": "LOCKED"
+                    },
+                    {
+                      "key": "states",
+                      "value": "CLOSED"
+                    },
+                    {
+                      "key": "date_start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "items_per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "legal_entity_id",
+                      "description": "(Required) Id from the legal entity to fetch data"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1993.1570834055813,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 3947.2879885120906\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c8f5d48-4e96-46ad-802b-1982ba7e883d",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "benefits",
+                    "legal-entities",
+                    ":legal_entity_id",
+                    "paystubs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "states",
+                      "value": "LOCKED"
+                    },
+                    {
+                      "key": "states",
+                      "value": "CLOSED"
+                    },
+                    {
+                      "key": "date_start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "items_per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "legal_entity_id",
+                      "description": "(Required) Id from the legal entity to fetch data"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1993.1570834055813,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 3947.2879885120906\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a53f2b99-537f-479c-b1cc-d3953f04327a",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "benefits",
+                    "legal-entities",
+                    ":legal_entity_id",
+                    "paystubs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "states",
+                      "value": "LOCKED"
+                    },
+                    {
+                      "key": "states",
+                      "value": "CLOSED"
+                    },
+                    {
+                      "key": "date_start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "items_per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "legal_entity_id",
+                      "description": "(Required) Id from the legal entity to fetch data"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1993.1570834055813,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 3947.2879885120906\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3e93470-9061-4fb7-a0fb-060fb3151c9a",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "benefits",
+                    "legal-entities",
+                    ":legal_entity_id",
+                    "paystubs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "states",
+                      "value": "LOCKED"
+                    },
+                    {
+                      "key": "states",
+                      "value": "CLOSED"
+                    },
+                    {
+                      "key": "date_start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "items_per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "legal_entity_id",
+                      "description": "(Required) Id from the legal entity to fetch data"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1993.1570834055813,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 3947.2879885120906\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52ddde08-83e3-4ab6-8ca9-e99b0d268a70",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "benefits",
+                    "legal-entities",
+                    ":legal_entity_id",
+                    "paystubs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "states",
+                      "value": "LOCKED"
+                    },
+                    {
+                      "key": "states",
+                      "value": "CLOSED"
+                    },
+                    {
+                      "key": "date_start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "items_per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "legal_entity_id",
+                      "description": "(Required) Id from the legal entity to fetch data"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 1993.1570834055813,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 3947.2879885120906\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.letsdeel.com/rest/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "be0344fc-20f0-47c9-8783-981e27787cf6",
+    "name": "Endpoints subpackage_paystubs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

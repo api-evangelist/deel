@@ -1,0 +1,202 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_tasks API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/tasks",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the Deel contract."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of tasks associated with a specific contract. Each task contains details such as its ID, amount, submission date, status, and description. This endpoint is useful for tracking the progress and status of tasks related to contracts.\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Create a new task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/tasks",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique Deel contract ID associated with the task."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new task for a contractor associated with a specific Deel contract. A task can include details like amount, description, submission date.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Delete task",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/tasks/:task_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the Deel contract."
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the task to be deleted."
+              },
+              {
+                "name": "reason",
+                "value": "",
+                "type": "query",
+                "description": "The reason for deleting the task. This can be used for auditing purposes."
+              }
+            ]
+          },
+          "docs": "Delete a specific task associated with the contract. Optionally, a reason can be provided for auditing or documentation purposes.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Review a single task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/tasks/:task_id/reviews",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique Deel contract ID associated with the task."
+              },
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID of the task to be reviewed."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Review a specific task associated with a Deel contract to approve or decline the submitted work. The review includes the status (approved or declined) and an optional reason if declined.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Review multiple tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/tasks/many/reviews",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique Deel contract ID associated with the tasks."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Review multiple tasks associated with a Deel contract to approve or decline the submitted work. The review includes a status (approved or declined) for each task and an optional reason for declined tasks.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Update Task By ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/tasks/:task_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path",
+                "description": "The id of an existing task"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a task by id, returns whether the update was successful or not.\n **Token scopes**: `tasks:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

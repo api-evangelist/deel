@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_paystubs API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_paystubs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get paystubs from legal entity integrated with external benefits vendor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/benefits/legal-entities/:legal_entity_id/paystubs",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "legal_entity_id",
+                "value": "",
+                "type": "path",
+                "description": "Id from the legal entity to fetch data"
+              },
+              {
+                "name": "states",
+                "value": "",
+                "type": "query",
+                "description": "Payroll states: OPEN | LOCKED | CLOSED (OPEN doesn't have `employees` info)"
+              },
+              {
+                "name": "date_start",
+                "value": "",
+                "type": "query",
+                "description": "Start date to fectch the paystubs from"
+              },
+              {
+                "name": "date_end",
+                "value": "",
+                "type": "query",
+                "description": "End date to fectch the paystubs"
+              },
+              {
+                "name": "items_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Items per page"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The last fetched id to start querying from"
+              }
+            ]
+          },
+          "docs": "Returns paginated paystubs for a legal entity that is integrated with an external benefits vendor. Results can be filtered by payroll state and date range; paystubs in the `OPEN` state do not include employee-level detail.\n **Token scopes**: `benefits:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

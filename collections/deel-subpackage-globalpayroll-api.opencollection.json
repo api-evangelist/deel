@@ -1,0 +1,134 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_globalPayroll API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_globalPayroll",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Download a GP worker payslip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:id/payslips/:payslip_id/download",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the worker."
+              },
+              {
+                "name": "payslipId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the payslip."
+              },
+              {
+                "name": "payslip_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a pre-signed download URL for a specific Global Payroll (GP) employee payslip PDF. Use this after calling Retrieve employee payslips to obtain the payslipId. Requires the worker id (UUID) and the payslipId from the list response. The returned URL is temporary and should be used promptly to download the file. Supports only GP contract types.\n **Token scopes**: `payslips:read`"
+        },
+        {
+          "info": {
+            "name": "Get Payroll Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/cycles/:cycle_id/payroll-report",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cycle_id",
+                "value": "",
+                "type": "path",
+                "description": "Payroll event/cycle id."
+              },
+              {
+                "name": "contract_oids",
+                "value": "",
+                "type": "query",
+                "description": "Contract OID(s) to filter report rows."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Filter by employee name."
+              },
+              {
+                "name": "employee_status",
+                "value": "",
+                "type": "query",
+                "description": "Employee status filter."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of report rows."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for pagination."
+              }
+            ]
+          },
+          "docs": "Get payroll report data for a payroll cycle, including available columns, employee row values, and optional previous report items. Use this response to discover payroll_report_column_id and payroll_id before updating entries.\n **Token scopes**: `global-payroll:read`"
+        },
+        {
+          "info": {
+            "name": "Retrieve additional information fields for GP workers by country",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/forms/gp/worker-additional-fields/:country_code",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "path",
+                "description": "ISO 3166-1 alpha-2 country code for which to retrieve GP worker additional fields."
+              }
+            ]
+          },
+          "docs": "Retrieves GP workers additional information fields that are required for running payroll depending on the country regulations\n **Token scopes**: `forms:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

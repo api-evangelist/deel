@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_treasury API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_treasury",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Vendor Bill",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/accounts-payable/vendor-bills",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates vendor bills from structured invoice data submitted by an external invoice provider integration.\n **Token scopes**: `treasury-vendorbill:write`"
+        },
+        {
+          "info": {
+            "name": "Upload Vendor Bill Attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/accounts-payable/vendor-bills/:vendor_bill_id/attachments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "vendor_bill_id",
+                "value": "",
+                "type": "path",
+                "description": "Vendor bill id to attach the file to"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "data",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Use this endpoint to attach a PDF invoice file to an existing vendor bill entity. Submit the file via multipart/form-data with the file in the request body.\n **Token scopes**: `treasury-vendorbill:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

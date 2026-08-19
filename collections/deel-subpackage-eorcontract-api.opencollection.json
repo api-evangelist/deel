@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_eorContract API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_eorContract",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an EOR contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an Employee of Record (EOR) contract quote. This endpoint allows to submit details for an EOR contract. Deel will process the information and return a quote for the requested contract.\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve EOR Contract Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/details",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the Deel contract"
+              }
+            ]
+          },
+          "docs": "Returns the basic information for an EOR contract, along with employment costs associated to it\n **Token scopes**: `contracts:read`"
+        },
+        {
+          "info": {
+            "name": "Update EOR Contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contract/:contract_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint is used to modify mutable fields of an EOR contract, such as salary, job title, or benefits. It supports partial updates—only include fields that should be updated. Required fields must still be present for validation.\n **Token scopes**: `contracts:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

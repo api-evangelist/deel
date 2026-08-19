@@ -1,0 +1,234 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_legalEntities API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_legalEntities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of legal entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/legal-entities",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of results to return per page."
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order of the results."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for pagination."
+              },
+              {
+                "name": "include_archived",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include archived legal entities in the results."
+              },
+              {
+                "name": "legal_entity_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by specific legal entity ID."
+              },
+              {
+                "name": "global_payroll",
+                "value": "",
+                "type": "query",
+                "description": "Filter by global payroll flag."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by entity type."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Filter by country."
+              },
+              {
+                "name": "include_payroll_settings",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include payroll settings in the response."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of legal entities in your account.\n **Token scopes**: `organizations:read`, `accounting:read`"
+        },
+        {
+          "info": {
+            "name": "Create a new legal entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/legal-entities",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new legal entity under an organization.\n **Token scopes**: `legal-entity:write`, `legal-entity:read`"
+        },
+        {
+          "info": {
+            "name": "Edit a legal entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/legal-entities/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the legal entity to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the details of an existing legal entity.\n **Token scopes**: `legal-entity:read`, `legal-entity:write`"
+        },
+        {
+          "info": {
+            "name": "Delete a legal entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/legal-entities/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the legal entity to archive."
+              }
+            ]
+          },
+          "docs": "Archive a legal entity. This marks the entity as inactive but does not permanently remove it.\n **Token scopes**: `legal-entity:read`, `legal-entity:write`"
+        },
+        {
+          "info": {
+            "name": "List all industry subcategories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/industries",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return per page."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order of the results."
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Field used to sort the results."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor used for paginating to the next page of results."
+              }
+            ]
+          },
+          "docs": "List industry subcategories with their parent category details, supporting cursor-based pagination and sorting by category or subcategory name. Each subcategory is identified by a UUID and includes NAICS codes. Used during entity setup to select an industry classification.\n **Token scopes**: `legal-entity:read`"
+        },
+        {
+          "info": {
+            "name": "Get legal entity data from organization integrated with external benefits vendor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/benefits/legal-entities/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Id from the legal entity to fetch data"
+              }
+            ]
+          },
+          "docs": "Returns legal entity data for an organization integrated with an external benefits vendor, identified by `id`, including registration details, address, entity type, and employment classification.\n **Token scopes**: `organizations:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

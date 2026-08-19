@@ -1,0 +1,494 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_workerRelations API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_workerRelations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add Worker Relation Child",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/profile/:hrisProfileOid/child",
+            "params": [
+              {
+                "name": "hrisProfileOid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Add Worker Relation Child"
+        },
+        {
+          "info": {
+            "name": "Add Worker Relation Parent By External Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/profile/external/:profileId/parent",
+            "params": [
+              {
+                "name": "profileId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Add Worker Relation Parent By External Id"
+        },
+        {
+          "info": {
+            "name": "Create a parent worker relation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/profile/:hrisProfileOid/parent",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hrisProfileOid",
+                "value": "",
+                "type": "path",
+                "description": "HrisProfile ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a parent worker relation.\n **Token scopes**: `profile:write`"
+        },
+        {
+          "info": {
+            "name": "Create a worker relation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/profile",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a hierarchical relation between a worker and its subordinates.\n **Token scopes**: `profile:write`"
+        },
+        {
+          "info": {
+            "name": "Create child worker relation with external Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/profile/external/:profileId/child",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "profileId",
+                "value": "",
+                "type": "path",
+                "description": "HrisProfile external ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create child worker relation with external Id.\n **Token scopes**: `profile:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve all worker relation types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/types",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieves all worker relationship types defined for the organization.\n **Token scopes**: `organizations:read`"
+        },
+        {
+          "info": {
+            "name": "Create worker relation type",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/types",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create worker relation type.\n **Token scopes**: `organizations:write`"
+        },
+        {
+          "info": {
+            "name": "Create worker relation with external Ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/profile/external",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a hierarchical relation between a worker and its subordinates using external IDs to identify them.\n **Token scopes**: `profile:write`"
+        },
+        {
+          "info": {
+            "name": "List of worker relations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/profile/:hrisProfileOid",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hrisProfileOid",
+                "value": "",
+                "type": "path",
+                "description": "HrisProfile ID"
+              }
+            ]
+          },
+          "docs": "List of worker relations.\n **Token scopes**: `profile:read`"
+        },
+        {
+          "info": {
+            "name": "Delete a worker relation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/profile/:hrisProfileOid",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hrisProfileOid",
+                "value": "",
+                "type": "path",
+                "description": "Worker Relation ID"
+              }
+            ]
+          },
+          "docs": "Delete a worker relation.\n **Token scopes**: `profile:write`"
+        },
+        {
+          "info": {
+            "name": "Get Worker Relation Profile By External Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/profile/external/:profileId",
+            "params": [
+              {
+                "name": "profileId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Worker Relation Profile By External Id"
+        },
+        {
+          "info": {
+            "name": "Delete a worker relation by external id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/profile/external/:profileId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "profileId",
+                "value": "",
+                "type": "path",
+                "description": "Worker Relation external ID"
+              }
+            ]
+          },
+          "docs": "Delete a worker relation by external id.\n **Token scopes**: `profile:write`"
+        },
+        {
+          "info": {
+            "name": "Update a worker relation type by external id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/types/external/:externalId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "path",
+                "description": "Worker Relation Type external ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a worker relation type by external id.\n **Token scopes**: `organizations:write`"
+        },
+        {
+          "info": {
+            "name": "Delete a worker relation type by external id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/types/external/:externalId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "path",
+                "description": "Worker Relation Type external ID"
+              }
+            ]
+          },
+          "docs": "Delete a Worker Relation Type by the external ID.\n **Token scopes**: `organizations:write`"
+        },
+        {
+          "info": {
+            "name": "Update a worker relation type",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/types/:typeId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "typeId",
+                "value": "",
+                "type": "path",
+                "description": "Worker Relation Type id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a worker relation type.\n **Token scopes**: `organizations:write`"
+        },
+        {
+          "info": {
+            "name": "Delete Worker Relation Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/types/:typeId",
+            "params": [
+              {
+                "name": "typeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Worker Relation Type"
+        },
+        {
+          "info": {
+            "name": "Create a parent worker relation with external id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/profile/external/:profile_id/parent",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "path",
+                "description": "HrisProfile external ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets or replaces the parent relationship for the specified HRIS profile, using external identifiers. Pass null as parent_profile_external_id to remove the existing parent relationship.\n **Token scopes**: `profile:write`"
+        },
+        {
+          "info": {
+            "name": "Create child worker relation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/profile/:hris_profile_oid/child",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hris_profile_oid",
+                "value": "",
+                "type": "path",
+                "description": "HrisProfile ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces all child relationships of a given type for the specified HRIS profile. Any existing child relationships of that type not included in the request will be removed.\n **Token scopes**: `profile:write`"
+        },
+        {
+          "info": {
+            "name": "Delete a worker relation type",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/types/:type_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "type_id",
+                "value": "",
+                "type": "path",
+                "description": "Worker Relation Type ID"
+              }
+            ]
+          },
+          "docs": "Deletes an existing worker relationship type.\n **Token scopes**: `organizations:write`"
+        },
+        {
+          "info": {
+            "name": "Fetch Worker Relations of a given HrisProfile by external id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/hris/worker_relations/profile/external/:profile_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "path",
+                "description": "HrisProfile external ID"
+              }
+            ]
+          },
+          "docs": "Retrieves all worker relationships for a given HRIS profile identified by its external identifier, including parent and child relationships.\n **Token scopes**: `profile:read`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

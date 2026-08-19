@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_workerSession API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_workerSession",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create worker access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/workers/session",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a worker access token\n **Token scopes**: `admin:worker`"
+        },
+        {
+          "info": {
+            "name": "Delete worker access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/workers/:worker_id/session",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the worker whose access token you want to delete."
+              }
+            ]
+          },
+          "docs": "Deletes the worker access token\n **Token scopes**: `admin:worker`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_costCenters API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_costCenters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get cost centers by legal entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/legal-entities/:legal_entity_id/cost-centers",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "legal_entity_id",
+                "value": "",
+                "type": "path",
+                "description": "Legal entity id"
+              }
+            ]
+          },
+          "docs": "Fetch all cost centers related to a given legal entity id\n **Token scopes**: `legal-entity:read`"
+        },
+        {
+          "info": {
+            "name": "Assign cost centers to an employment contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/cost-centers",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Employment's contract ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assign cost centers to employment by contract id\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Sync cost centers for legal entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/legal-entities/:legal_entity_id/cost-centers/synchronize",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "legal_entity_id",
+                "value": "",
+                "type": "path",
+                "description": "Legal entity id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update legal entity cost center's data to replicate the data provided on the request\n **Token scopes**: `legal-entity:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,230 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_timeTracking API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_timeTracking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a Paginated List of Shift Rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shift_rates",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of records to return per page. For example, '10' to return up to 10 records."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The starting index for the records to retrieve. For example, '0' for the first page or '10' for the second page when limit=10."
+              }
+            ]
+          },
+          "docs": "Retrieve a paginated list of shift rates, including details such as rate name, type, value, and timestamps. Pagination parameters can be used to control the size and position of the result set.\n **Token scopes**: `time-tracking:read`"
+        },
+        {
+          "info": {
+            "name": "Create a New Shift Rate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shift_rates",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new shift rate with the specified attributes such as name, type, value, and a unique external identifier.\n **Token scopes**: `time-tracking:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a Shift Rate by External ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shift_rates/:external_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique external identifier of the shift rate to retrieve."
+              }
+            ]
+          },
+          "docs": "Retrieve details of a specific shift rate using its external ID. The response includes information such as the name, type, value, and unique identifier of the shift rate.\n **Token scopes**: `time-tracking:read`"
+        },
+        {
+          "info": {
+            "name": "Update a shift rate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shift_rates/:external_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the shift rate to be updated."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update specific fields of an existing shift rate.\n **Token scopes**: `time-tracking:write`"
+        },
+        {
+          "info": {
+            "name": "Delete a Shift Rate by external ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/time_tracking/shift_rates/:external_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path",
+                "description": "external ID"
+              }
+            ]
+          },
+          "docs": "Delete a Shift Rate using its external ID, which is the custom ID provided when the shift rate is created. A ShiftRate can only be deleted if it is not currently associated with any active shift.\n **Token scopes**: `time-tracking:write`"
+        },
+        {
+          "info": {
+            "name": "Generate timesheet upload url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/time-tracking/timesheets/upload-url",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Receives timesheet file metadata and generates a link to upload timesheet file. Please note that this endpoint supports EOR contracts as of now\n **Token scopes**: `time-tracking:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve a timesheet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/time-tracking/timesheets/:timesheet_id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "timesheet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the timesheet to fetch file for"
+              },
+              {
+                "name": "extend",
+                "value": "",
+                "type": "query",
+                "description": "Optional list of fields to extend in the response. Currently only `file_data` is supported, which includes file details (file_id, file_name) and download URL."
+              }
+            ]
+          },
+          "docs": "Retrieves a timesheet by ID, including its submission, review, and processing status. When expand=file_data is provided, the response also includes file-related details such as the file name, download URL.\n **Token scopes**: `time-tracking:read`"
+        },
+        {
+          "info": {
+            "name": "Review a submitted timesheet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/time-tracking/timesheets/:timesheet_id/review",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "timesheet_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the timesheet to review"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Review a successfully submitted timesheet. Only PENDING_REVIEW timesheets can be reviewed, and all associated hours will be approved/rejected at once.\n **Token scopes**: `time-tracking:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

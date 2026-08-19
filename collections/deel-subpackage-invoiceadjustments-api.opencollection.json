@@ -1,0 +1,313 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_invoiceAdjustments API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_invoiceAdjustments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List invoice adjustments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/invoice-adjustments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "query",
+                "description": "Id of an Deel contract."
+              },
+              {
+                "name": "contract_types",
+                "value": "",
+                "type": "query",
+                "description": "types of contracts to filter"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "types of invoice adjustments to filter"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "statuses of invoice adjustment to filter"
+              },
+              {
+                "name": "invoice_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of an existing invoice"
+              },
+              {
+                "name": "reporter_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of an existing profile"
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "To get invoice adjustments submitted on or after given start date (inclusive). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date). Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings"
+              }
+            ]
+          },
+          "docs": "Retrieve invoice adjustments. You can filter the list by providing additional parameters e.g. contract_id, contract_type etc.\n **Token scopes**: `invoice-adjustments:read`"
+        },
+        {
+          "info": {
+            "name": "Create an invoice adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/invoice-adjustments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "recurring",
+                "value": "",
+                "type": "query",
+                "description": "Add this invoice adjustment as recurring"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an invoice adjustment using this endpoint. For example, you can add a bonus, commission, VAT %, deduction etc. to an invoice.\n **Token scopes**: `invoice-adjustments:write`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Invoice line item by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/invoice-adjustments/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of an existing invoice"
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve the details of a specific invoice adjustment (line item) by its id. Call it when you need to display or audit a charge, deduction, or expense on an invoice, or to reconcile a payment discrepancy. Provide the adjustment id in the path parameter. This operation is read-only.\n **Token scopes**: `invoice-adjustments:read`, `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Update an invoice adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/invoice-adjustments/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Invoice adjustment id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an invoice adjustment.\n **Token scopes**: `invoice-adjustments:write`, `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Delete adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.letsdeel.com/rest/v2/invoice-adjustments/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Invoice adjustment id."
+              }
+            ]
+          },
+          "docs": "Delete an adjustment.\n **Token scopes**: `invoice-adjustments:write`"
+        },
+        {
+          "info": {
+            "name": "Invoice line items by contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/:contract_id/invoice-adjustments",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "Deel contract id."
+              },
+              {
+                "name": "contract_types",
+                "value": "",
+                "type": "query",
+                "description": "types of contracts to filter"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "types of invoice adjustments to filter"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "statuses of invoice adjustment to filter"
+              },
+              {
+                "name": "invoice_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of an existing invoice"
+              },
+              {
+                "name": "reporter_id",
+                "value": "",
+                "type": "query",
+                "description": "ID of an existing profile"
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "To get invoice adjustments submitted on or after given start date (inclusive).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "To get invoice adjustments submitted before given end date (excludes records submitted on this date).    Short date in format ISO-8601 (YYYY-MM-DD). For example: 2022-12-31."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results with given number of records; NOTE: technically ALL query parameters are strings or array of strings"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Return a page of results after given index of row; NOTE: technically ALL query parameters are strings or array of strings"
+              }
+            ]
+          },
+          "docs": "Retrieve invoice line items for a given contract id.\n **Token scopes**: `invoice-adjustments:read`"
+        },
+        {
+          "info": {
+            "name": "Review a single invoice adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/invoice-adjustments/:id/reviews",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of an existing invoice adjustment."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Review a single invoice adjustment to approve or decline it.\n **Token scopes**: `invoice-adjustments:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

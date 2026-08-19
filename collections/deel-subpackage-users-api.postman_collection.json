@@ -1,0 +1,1100 @@
+{
+  "item": [
+    {
+      "id": "5b33b313-f8df-4876-b2ba-7ecf395096e4",
+      "name": "subpackage_users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c521a3fa-96ba-4d1b-9bb3-37cc5ce6271c",
+          "name": "List users",
+          "request": {
+            "name": "List users",
+            "description": {
+              "content": "Retrieve a list of users in Deel's HRIS.\n **Token scopes**: `Users:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter results using [SCIM's filtering syntax](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.2). Currently supports only `eq` operator and filtering by a user's email. Expected format 'email eq \"email@domain.com\"'."
+                },
+                {
+                  "disabled": false,
+                  "key": "startIndex",
+                  "value": "<string>",
+                  "description": "The 1-based index of the first result to return. Used for pagination. Minimum value is 1. Defaults to 1 if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<string>",
+                  "description": "The maximum number of results to return per page. Used for pagination. A value of 0 is treated as a special case and returns 1 result. Typically should be a positive integer."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fa1ba11f-217b-4cbd-a4f5-42bb36100431",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "string"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:ListResponse\",\n    \"urn:ietf:params:scim:api:messages:2.0:ListResponse\"\n  ],\n  \"Resources\": [\n    {\n      \"meta\": {\n        \"created\": \"string\",\n        \"location\": \"string\",\n        \"lastModified\": \"string\",\n        \"resourceType\": \"User\"\n      },\n      \"name\": {\n        \"givenName\": \"string\",\n        \"familyName\": \"string\"\n      },\n      \"emails\": [\n        {\n          \"type\": \"other\",\n          \"value\": \"string\",\n          \"primary\": false\n        },\n        {\n          \"type\": \"other\",\n          \"value\": \"string\",\n          \"primary\": false\n        }\n      ],\n      \"schemas\": [\n        \"urn:ietf:params:scim:schemas:core:2.0:User\",\n        \"urn:ietf:params:scim:schemas:core:2.0:User\"\n      ],\n      \"userName\": \"string\",\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"active\": false,\n      \"userType\": \"string\",\n      \"addresses\": [\n        {\n          \"type\": \"string\",\n          \"region\": \"string\",\n          \"country\": \"string\",\n          \"lineTwo\": \"string\",\n          \"locality\": \"string\",\n          \"postalCode\": \"string\",\n          \"streetAddress\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"region\": \"string\",\n          \"country\": \"string\",\n          \"lineTwo\": \"string\",\n          \"locality\": \"string\",\n          \"postalCode\": \"string\",\n          \"streetAddress\": \"string\"\n        }\n      ],\n      \"urn:ietf:params:scim:schemas:extension:2.0:User\": {\n        \"state\": \"string\",\n        \"country\": \"string\",\n        \"endDate\": \"string\",\n        \"birthday\": \"string\",\n        \"workerId\": \"string\",\n        \"isManager\": false,\n        \"startDate\": \"string\",\n        \"employments\": [\n          {\n            \"team\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": \"string\",\n            \"title\": \"string\",\n            \"active\": false,\n            \"country\": \"string\",\n            \"startDate\": \"string\",\n            \"contractId\": \"string\",\n            \"contractType\": \"string\",\n            \"customFields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"employeeNumber\": \"string\"\n          },\n          {\n            \"team\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": \"string\",\n            \"title\": \"string\",\n            \"active\": false,\n            \"country\": \"string\",\n            \"startDate\": \"string\",\n            \"contractId\": \"string\",\n            \"contractType\": \"string\",\n            \"customFields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"employeeNumber\": \"string\"\n          }\n        ],\n        \"customFields\": [\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"hiringStatus\": \"string\",\n        \"workLocation\": \"string\",\n        \"preferredName\": \"string\",\n        \"preferredLastName\": \"string\",\n        \"preferredFirstName\": \"string\",\n        \"departmentHierarchy\": \"string\",\n        \"departmentExternalId\": \"string\",\n        \"organizationalStructures\": [\n          {\n            \"name\": \"string\",\n            \"externalId\": \"string\",\n            \"structureId\": \"string\",\n            \"nameHierarchy\": \"string\",\n            \"structureName\": \"string\",\n            \"externalIdHierarchy\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"externalId\": \"string\",\n            \"structureId\": \"string\",\n            \"nameHierarchy\": \"string\",\n            \"structureName\": \"string\",\n            \"externalIdHierarchy\": \"string\"\n          }\n        ],\n        \"departmentExternalIdHierarchy\": \"string\",\n        \"workerTerminationLastDateOfWork\": \"string\"\n      },\n      \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n        \"manager\": {\n          \"value\": \"string\",\n          \"email\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"costCenter\": \"string\",\n        \"department\": \"string\",\n        \"customFields\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"organization\": \"string\",\n        \"preferredLastName\": \"string\",\n        \"preferredFirstName\": \"string\"\n      }\n    },\n    {\n      \"meta\": {\n        \"created\": \"string\",\n        \"location\": \"string\",\n        \"lastModified\": \"string\",\n        \"resourceType\": \"Group\"\n      },\n      \"name\": {\n        \"givenName\": \"string\",\n        \"familyName\": \"string\"\n      },\n      \"emails\": [\n        {\n          \"type\": \"home\",\n          \"value\": \"string\",\n          \"primary\": false\n        },\n        {\n          \"type\": \"work\",\n          \"value\": \"string\",\n          \"primary\": false\n        }\n      ],\n      \"schemas\": [\n        \"urn:ietf:params:scim:schemas:core:2.0:User\",\n        \"urn:ietf:params:scim:schemas:core:2.0:User\"\n      ],\n      \"userName\": \"string\",\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"active\": false,\n      \"userType\": \"string\",\n      \"addresses\": [\n        {\n          \"type\": \"string\",\n          \"region\": \"string\",\n          \"country\": \"string\",\n          \"lineTwo\": \"string\",\n          \"locality\": \"string\",\n          \"postalCode\": \"string\",\n          \"streetAddress\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"region\": \"string\",\n          \"country\": \"string\",\n          \"lineTwo\": \"string\",\n          \"locality\": \"string\",\n          \"postalCode\": \"string\",\n          \"streetAddress\": \"string\"\n        }\n      ],\n      \"urn:ietf:params:scim:schemas:extension:2.0:User\": {\n        \"state\": \"string\",\n        \"country\": \"string\",\n        \"endDate\": \"string\",\n        \"birthday\": \"string\",\n        \"workerId\": \"string\",\n        \"isManager\": false,\n        \"startDate\": \"string\",\n        \"employments\": [\n          {\n            \"team\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": \"string\",\n            \"title\": \"string\",\n            \"active\": false,\n            \"country\": \"string\",\n            \"startDate\": \"string\",\n            \"contractId\": \"string\",\n            \"contractType\": \"string\",\n            \"customFields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"employeeNumber\": \"string\"\n          },\n          {\n            \"team\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"state\": \"string\",\n            \"title\": \"string\",\n            \"active\": false,\n            \"country\": \"string\",\n            \"startDate\": \"string\",\n            \"contractId\": \"string\",\n            \"contractType\": \"string\",\n            \"customFields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"employeeNumber\": \"string\"\n          }\n        ],\n        \"customFields\": [\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"hiringStatus\": \"string\",\n        \"workLocation\": \"string\",\n        \"preferredName\": \"string\",\n        \"preferredLastName\": \"string\",\n        \"preferredFirstName\": \"string\",\n        \"departmentHierarchy\": \"string\",\n        \"departmentExternalId\": \"string\",\n        \"organizationalStructures\": [\n          {\n            \"name\": \"string\",\n            \"externalId\": \"string\",\n            \"structureId\": \"string\",\n            \"nameHierarchy\": \"string\",\n            \"structureName\": \"string\",\n            \"externalIdHierarchy\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"externalId\": \"string\",\n            \"structureId\": \"string\",\n            \"nameHierarchy\": \"string\",\n            \"structureName\": \"string\",\n            \"externalIdHierarchy\": \"string\"\n          }\n        ],\n        \"departmentExternalIdHierarchy\": \"string\",\n        \"workerTerminationLastDateOfWork\": \"string\"\n      },\n      \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n        \"manager\": {\n          \"value\": \"string\",\n          \"email\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"costCenter\": \"string\",\n        \"department\": \"string\",\n        \"customFields\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"organization\": \"string\",\n        \"preferredLastName\": \"string\",\n        \"preferredFirstName\": \"string\"\n      }\n    }\n  ],\n  \"startIndex\": 5291,\n  \"itemsPerPage\": 7953,\n  \"totalResults\": 8334\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0db7b9e-cdb2-416b-ab5f-05f49efaa723",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "string"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:Error\",\n    \"urn:ietf:params:scim:api:messages:2.0:Error\"\n  ],\n  \"scimType\": \"sensitive\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42202b79-a1d4-4b44-8aa7-1a652899e5ed",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "string"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:Error\",\n    \"urn:ietf:params:scim:api:messages:2.0:Error\"\n  ],\n  \"scimType\": \"sensitive\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04c3bc80-ebf9-433c-b42a-0acb73e5fd63",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "string"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:Error\",\n    \"urn:ietf:params:scim:api:messages:2.0:Error\"\n  ],\n  \"scimType\": \"sensitive\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e3507b1-591b-47c1-b708-8c4fce9bd09c",
+              "name": "Too many requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "string"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:Error\",\n    \"urn:ietf:params:scim:api:messages:2.0:Error\"\n  ],\n  \"scimType\": \"sensitive\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6cc8b149-803d-44b3-ac70-fab04d42b13c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "string"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"details\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41752adc-d204-4f4f-b46a-6de12cb30794",
+          "name": "Retrieve a single User",
+          "request": {
+            "name": "Retrieve a single User",
+            "description": {
+              "content": "Retrieve a single user by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Users",
+                ":hrisProfileOid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hrisProfileOid",
+                  "description": "(Required) Retrieve a single user by id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a9c7f37-afcb-4dad-8ccd-9d058c18846b",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":hrisProfileOid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hrisProfileOid",
+                      "description": "(Required) Retrieve a single user by id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"emails\": [\n    {\n      \"type\": \"work\",\n      \"value\": \"string\",\n      \"primary\": false\n    },\n    {\n      \"type\": \"work\",\n      \"value\": \"string\",\n      \"primary\": false\n    }\n  ],\n  \"name\": {\n    \"familyName\": \"string\",\n    \"givenName\": \"string\"\n  },\n  \"schemas\": [\n    \"urn:ietf:params:scim:schemas:core:2.0:User\",\n    \"urn:ietf:params:scim:schemas:core:2.0:User\"\n  ],\n  \"userName\": \"string\",\n  \"meta\": {\n    \"created\": \"2002-01-27T06:08:05.549Z\",\n    \"lastModified\": \"1968-04-12T07:06:23.642Z\",\n    \"location\": \"string\",\n    \"resourceType\": \"Group\"\n  },\n  \"active\": false,\n  \"title\": \"string\",\n  \"userType\": \"string\",\n  \"addresses\": [\n    {\n      \"streetAddress\": \"string\",\n      \"locality\": \"string\",\n      \"region\": \"string\",\n      \"postalCode\": \"string\",\n      \"country\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"streetAddress\": \"string\",\n      \"locality\": \"string\",\n      \"region\": \"string\",\n      \"postalCode\": \"string\",\n      \"country\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"id\": \"string\",\n  \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n    \"department\": \"string\",\n    \"costCenter\": \"string\",\n    \"organization\": \"string\",\n    \"manager\": {\n      \"value\": \"string\",\n      \"displayName\": \"string\",\n      \"email\": \"string\"\n    }\n  },\n  \"urn:ietf:params:scim:schemas:extension:2.0:User\": {\n    \"preferredFirstName\": \"string\",\n    \"preferredLastName\": \"string\",\n    \"preferredName\": \"string\",\n    \"workerId\": 9026.20030026152,\n    \"startDate\": \"1979-02-12T04:38:26.411Z\",\n    \"endDate\": \"2015-01-31T16:39:11.536Z\",\n    \"birthday\": \"string\",\n    \"hiringStatus\": \"string\",\n    \"state\": \"string\",\n    \"country\": \"string\",\n    \"employments\": [\n      {\n        \"contractId\": \"string\",\n        \"title\": \"string\",\n        \"startDate\": \"string\",\n        \"contractType\": \"string\",\n        \"active\": false,\n        \"state\": \"string\",\n        \"country\": \"string\",\n        \"team\": {\n          \"name\": \"string\"\n        }\n      },\n      {\n        \"contractId\": \"string\",\n        \"title\": \"string\",\n        \"startDate\": \"string\",\n        \"contractType\": \"string\",\n        \"active\": false,\n        \"state\": \"string\",\n        \"country\": \"string\",\n        \"team\": {\n          \"name\": \"string\"\n        }\n      }\n    ],\n    \"customFields\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"organizationalStructures\": [\n      {\n        \"structureId\": \"string\",\n        \"structureName\": \"string\",\n        \"nameHierarchy\": \"string\",\n        \"name\": \"string\",\n        \"externalId\": \"string\",\n        \"externalIdHierarchy\": \"string\"\n      },\n      {\n        \"structureId\": \"string\",\n        \"structureName\": \"string\",\n        \"nameHierarchy\": \"string\",\n        \"name\": \"string\",\n        \"externalId\": \"string\",\n        \"externalIdHierarchy\": \"string\"\n      }\n    ],\n    \"isManager\": true,\n    \"departmentHierarchy\": \"string\",\n    \"departmentExternalId\": \"string\",\n    \"departmentExternalIdHierarchy\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68ba42c4-d429-4295-a193-1d62a701ecdb",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":hrisProfileOid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hrisProfileOid",
+                      "description": "(Required) Retrieve a single user by id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:Error\",\n    \"urn:ietf:params:scim:api:messages:2.0:Error\"\n  ],\n  \"scimType\": \"sensitive\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ef51580-2886-466c-a58e-2b6cd5cceb65",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":hrisProfileOid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hrisProfileOid",
+                      "description": "(Required) Retrieve a single user by id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:Error\",\n    \"urn:ietf:params:scim:api:messages:2.0:Error\"\n  ],\n  \"scimType\": \"sensitive\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "acceac61-4c0b-4973-ad1c-360f3c92243f",
+              "name": "Not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":hrisProfileOid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hrisProfileOid",
+                      "description": "(Required) Retrieve a single user by id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:Error\",\n    \"urn:ietf:params:scim:api:messages:2.0:Error\"\n  ],\n  \"scimType\": \"sensitive\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "926582ce-1c19-4d7b-87db-ee2909528c95",
+              "name": "Too many requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":hrisProfileOid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hrisProfileOid",
+                      "description": "(Required) Retrieve a single user by id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:Error\",\n    \"urn:ietf:params:scim:api:messages:2.0:Error\"\n  ],\n  \"scimType\": \"sensitive\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a1cae99-379f-4959-9806-7de6251adc33",
+              "name": "Internal server error,",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ":hrisProfileOid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hrisProfileOid",
+                      "description": "(Required) Retrieve a single user by id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:Error\",\n    \"urn:ietf:params:scim:api:messages:2.0:Error\"\n  ],\n  \"scimType\": \"sensitive\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0728b4a-5785-4254-9e87-e9e4b10e2352",
+          "name": "Search or list users",
+          "request": {
+            "name": "Search or list users",
+            "description": {},
+            "url": {
+              "path": [
+                "Users",
+                ".search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"count\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"startIndex\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d53dcc90-1545-4c77-b8a8-1d2c0c1f60ec",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ".search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"count\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:SearchRequest\",\n    \"urn:ietf:params:scim:api:messages:2.0:SearchRequest\"\n  ],\n  \"startIndex\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Resources\": [\n    {\n      \"emails\": [\n        {\n          \"type\": \"work\",\n          \"value\": \"string\",\n          \"primary\": false\n        },\n        {\n          \"type\": \"work\",\n          \"value\": \"string\",\n          \"primary\": false\n        }\n      ],\n      \"name\": {\n        \"familyName\": \"string\",\n        \"givenName\": \"string\"\n      },\n      \"schemas\": [\n        \"urn:ietf:params:scim:schemas:core:2.0:User\",\n        \"urn:ietf:params:scim:schemas:core:2.0:User\"\n      ],\n      \"userName\": \"string\",\n      \"meta\": {\n        \"created\": \"1982-03-29T13:22:52.025Z\",\n        \"lastModified\": \"2026-04-23T16:25:37.313Z\",\n        \"location\": \"string\",\n        \"resourceType\": \"Group\"\n      },\n      \"active\": false,\n      \"title\": \"string\",\n      \"userType\": \"string\",\n      \"addresses\": [\n        {\n          \"streetAddress\": \"string\",\n          \"locality\": \"string\",\n          \"region\": \"string\",\n          \"postalCode\": \"string\",\n          \"country\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"streetAddress\": \"string\",\n          \"locality\": \"string\",\n          \"region\": \"string\",\n          \"postalCode\": \"string\",\n          \"country\": \"string\",\n          \"type\": \"string\"\n        }\n      ],\n      \"id\": \"string\",\n      \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n        \"department\": \"string\",\n        \"costCenter\": \"string\",\n        \"organization\": \"string\",\n        \"manager\": {\n          \"value\": \"string\",\n          \"displayName\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"urn:ietf:params:scim:schemas:extension:2.0:User\": {\n        \"preferredFirstName\": \"string\",\n        \"preferredLastName\": \"string\",\n        \"preferredName\": \"string\",\n        \"workerId\": 5790.46679333289,\n        \"startDate\": \"1965-12-20T23:56:51.765Z\",\n        \"endDate\": \"1951-12-28T04:22:12.715Z\",\n        \"birthday\": \"string\",\n        \"hiringStatus\": \"string\",\n        \"state\": \"string\",\n        \"country\": \"string\",\n        \"employments\": [\n          {\n            \"contractId\": \"string\",\n            \"title\": \"string\",\n            \"startDate\": \"string\",\n            \"contractType\": \"string\",\n            \"active\": false,\n            \"state\": \"string\",\n            \"country\": \"string\",\n            \"team\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"contractId\": \"string\",\n            \"title\": \"string\",\n            \"startDate\": \"string\",\n            \"contractType\": \"string\",\n            \"active\": false,\n            \"state\": \"string\",\n            \"country\": \"string\",\n            \"team\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"customFields\": [\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"organizationalStructures\": [\n          {\n            \"structureId\": \"string\",\n            \"structureName\": \"string\",\n            \"nameHierarchy\": \"string\",\n            \"name\": \"string\",\n            \"externalId\": \"string\",\n            \"externalIdHierarchy\": \"string\"\n          },\n          {\n            \"structureId\": \"string\",\n            \"structureName\": \"string\",\n            \"nameHierarchy\": \"string\",\n            \"name\": \"string\",\n            \"externalId\": \"string\",\n            \"externalIdHierarchy\": \"string\"\n          }\n        ],\n        \"isManager\": false,\n        \"departmentHierarchy\": \"string\",\n        \"departmentExternalId\": \"string\",\n        \"departmentExternalIdHierarchy\": \"string\"\n      }\n    },\n    {\n      \"emails\": [\n        {\n          \"type\": \"work\",\n          \"value\": \"string\",\n          \"primary\": false\n        },\n        {\n          \"type\": \"work\",\n          \"value\": \"string\",\n          \"primary\": false\n        }\n      ],\n      \"name\": {\n        \"familyName\": \"string\",\n        \"givenName\": \"string\"\n      },\n      \"schemas\": [\n        \"urn:ietf:params:scim:schemas:core:2.0:User\",\n        \"urn:ietf:params:scim:schemas:core:2.0:User\"\n      ],\n      \"userName\": \"string\",\n      \"meta\": {\n        \"created\": \"1973-06-10T05:46:59.355Z\",\n        \"lastModified\": \"1993-06-17T06:25:03.896Z\",\n        \"location\": \"string\",\n        \"resourceType\": \"User\"\n      },\n      \"active\": false,\n      \"title\": \"string\",\n      \"userType\": \"string\",\n      \"addresses\": [\n        {\n          \"streetAddress\": \"string\",\n          \"locality\": \"string\",\n          \"region\": \"string\",\n          \"postalCode\": \"string\",\n          \"country\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"streetAddress\": \"string\",\n          \"locality\": \"string\",\n          \"region\": \"string\",\n          \"postalCode\": \"string\",\n          \"country\": \"string\",\n          \"type\": \"string\"\n        }\n      ],\n      \"id\": \"string\",\n      \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\": {\n        \"department\": \"string\",\n        \"costCenter\": \"string\",\n        \"organization\": \"string\",\n        \"manager\": {\n          \"value\": \"string\",\n          \"displayName\": \"string\",\n          \"email\": \"string\"\n        }\n      },\n      \"urn:ietf:params:scim:schemas:extension:2.0:User\": {\n        \"preferredFirstName\": \"string\",\n        \"preferredLastName\": \"string\",\n        \"preferredName\": \"string\",\n        \"workerId\": 3014.318101924944,\n        \"startDate\": \"2006-10-06T17:21:24.634Z\",\n        \"endDate\": \"2025-06-10T00:25:01.280Z\",\n        \"birthday\": \"string\",\n        \"hiringStatus\": \"string\",\n        \"state\": \"string\",\n        \"country\": \"string\",\n        \"employments\": [\n          {\n            \"contractId\": \"string\",\n            \"title\": \"string\",\n            \"startDate\": \"string\",\n            \"contractType\": \"string\",\n            \"active\": false,\n            \"state\": \"string\",\n            \"country\": \"string\",\n            \"team\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"contractId\": \"string\",\n            \"title\": \"string\",\n            \"startDate\": \"string\",\n            \"contractType\": \"string\",\n            \"active\": false,\n            \"state\": \"string\",\n            \"country\": \"string\",\n            \"team\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"customFields\": [\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"value\": \"string\"\n          }\n        ],\n        \"organizationalStructures\": [\n          {\n            \"structureId\": \"string\",\n            \"structureName\": \"string\",\n            \"nameHierarchy\": \"string\",\n            \"name\": \"string\",\n            \"externalId\": \"string\",\n            \"externalIdHierarchy\": \"string\"\n          },\n          {\n            \"structureId\": \"string\",\n            \"structureName\": \"string\",\n            \"nameHierarchy\": \"string\",\n            \"name\": \"string\",\n            \"externalId\": \"string\",\n            \"externalIdHierarchy\": \"string\"\n          }\n        ],\n        \"isManager\": false,\n        \"departmentHierarchy\": \"string\",\n        \"departmentExternalId\": \"string\",\n        \"departmentExternalIdHierarchy\": \"string\"\n      }\n    }\n  ],\n  \"itemsPerPage\": 895,\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:ListResponse\",\n    \"urn:ietf:params:scim:api:messages:2.0:ListResponse\"\n  ],\n  \"startIndex\": 1401,\n  \"totalResults\": 8995\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55f029a8-bc25-44cd-8c62-7ac08674a71f",
+              "name": "bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ".search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"count\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:SearchRequest\",\n    \"urn:ietf:params:scim:api:messages:2.0:SearchRequest\"\n  ],\n  \"startIndex\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:Error\",\n    \"urn:ietf:params:scim:api:messages:2.0:Error\"\n  ],\n  \"scimType\": \"sensitive\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c356f69b-162e-4a3b-af1b-b306f0562636",
+              "name": "authorization failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ".search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"count\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:SearchRequest\",\n    \"urn:ietf:params:scim:api:messages:2.0:SearchRequest\"\n  ],\n  \"startIndex\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:Error\",\n    \"urn:ietf:params:scim:api:messages:2.0:Error\"\n  ],\n  \"scimType\": \"sensitive\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "665ecfbe-1df9-48fd-b2ed-5bd3fcf9a113",
+              "name": "permissions denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ".search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"count\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:SearchRequest\",\n    \"urn:ietf:params:scim:api:messages:2.0:SearchRequest\"\n  ],\n  \"startIndex\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:Error\",\n    \"urn:ietf:params:scim:api:messages:2.0:Error\"\n  ],\n  \"scimType\": \"sensitive\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22a2e6ad-cfd3-41c6-ae1e-632f9f75b9d0",
+              "name": "too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ".search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"count\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:SearchRequest\",\n    \"urn:ietf:params:scim:api:messages:2.0:SearchRequest\"\n  ],\n  \"startIndex\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:Error\",\n    \"urn:ietf:params:scim:api:messages:2.0:Error\"\n  ],\n  \"scimType\": \"sensitive\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a81a00c-78aa-42d5-b8c5-85e8c4a398a9",
+              "name": "internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Users",
+                    ".search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"count\": \"<integer>\",\n  \"filter\": \"<string>\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:SearchRequest\",\n    \"urn:ietf:params:scim:api:messages:2.0:SearchRequest\"\n  ],\n  \"startIndex\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:Error\",\n    \"urn:ietf:params:scim:api:messages:2.0:Error\"\n  ],\n  \"scimType\": \"sensitive\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.letsdeel.com/rest/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6f7a8086-06ca-4d1d-a03f-d8e703086da6",
+    "name": "Endpoints subpackage_users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

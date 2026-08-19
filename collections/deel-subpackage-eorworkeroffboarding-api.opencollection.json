@@ -1,0 +1,167 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_eorWorkerOffboarding API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_eorWorkerOffboarding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Preview Resignation Letter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/offboarding/resignation-letter",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ]
+          },
+          "docs": "This endpoint allows workers to preview a resignation letter for an EOR Contract.\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Request contract resignation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/contracts/:contract_id/offboarding/resignation",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "data",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Enable clients to initiate a resignation request for an Employee of Record (EOR) contract within their team\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Retrieve worker resignations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/resignations",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by resignation letter status"
+              }
+            ]
+          },
+          "docs": "Use this endpoint to retrieve resignations submitted by Employer of Record (EOR) workers. Use it when you need to review resignation progress, confirm desired and confirmed end dates, and access resignation letter details. Filter results by resignation letter status using the query parameter\n **Token scopes**: `worker:read`"
+        },
+        {
+          "info": {
+            "name": "Sign Resignation Letter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/offboarding/resignation-letter/sign",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint allows workers to provide their signature for a resignation letter. The signature is required to finalize the resignation process. Upon successful submission, the resignation letter is queued for PDF generation and further processing.\n **Token scopes**: `worker:write`"
+        },
+        {
+          "info": {
+            "name": "Submit EOR Worker Resignation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/eor/workers/contracts/:contract_id/offboarding",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "contract_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the employee contract."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "data",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows workers to formally request the resignation of their EOR contract\n **Token scopes**: `worker:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

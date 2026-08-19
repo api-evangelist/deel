@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_managers API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_managers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve List of Managers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/managers",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of records to return in the response."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset or starting point for pagination."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of all managers in the organization along with pagination details.\n **Token scopes**: `organizations:read`"
+        },
+        {
+          "info": {
+            "name": "Create a Manager",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/managers",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new manager for the organization by providing the required user details. This endpoint returns the newly created manager's information.\n **Token scopes**: `organizations:write`"
+        },
+        {
+          "info": {
+            "name": "Generate magic link for manager login",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/managers/magic-links",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate a one-time magic link that allows a manager to log in to Deel without entering credentials. The target manager must belong to the requesting organization and cannot be an organization admin. Only available for White Label enabled organizations or Partners or Child organizations. The magic link expires after 5 minutes and can only be used once. After clicking the link, the manager will be automatically authenticated and redirected to Deel.\n **Token scopes**: `auth:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

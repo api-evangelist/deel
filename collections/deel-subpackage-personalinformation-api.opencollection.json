@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_personalInformation API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_personalInformation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get personal information by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/people/:worker_id/personal",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker (External ID)."
+              }
+            ]
+          },
+          "docs": "Get worker's personal information by using identifier.\n **Token scopes**: `people:read`"
+        },
+        {
+          "info": {
+            "name": "Update personal information",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/people/:worker_id/personal",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update worker's personal information.\n **Token scopes**: `people:write`"
+        },
+        {
+          "info": {
+            "name": "Get worker profile by external ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.letsdeel.com/rest/v2/people/external/:worker_id/personal",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "System-wide external identifier for a worker record."
+              }
+            ]
+          },
+          "docs": "Retrieve a worker profile record using an external worker identifier.\n **Token scopes**: `people:read`"
+        },
+        {
+          "info": {
+            "name": "Update personal information by external id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.letsdeel.com/rest/v2/people/external/:worker_id/personal",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker (External ID)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update worker's personal information by using an external identifier.\n **Token scopes**: `people:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

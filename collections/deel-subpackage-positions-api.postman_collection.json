@@ -1,0 +1,823 @@
+{
+  "item": [
+    {
+      "id": "5842bc89-beaf-4378-bd6c-8c9b6207d812",
+      "name": "subpackage_positions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5606c2d8-0d1d-40a9-9f2b-1281d301b188",
+          "name": "Apply changes to positions.",
+          "request": {
+            "name": "Apply changes to positions.",
+            "description": {
+              "content": "Applies a set of position changes (add, edit, delete) for a given HRIS profile.\n **Token scopes**: `profile:write`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hris",
+                "positions",
+                "apply_changes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"profile_id\": \"<uuid>\",\n    \"add\": [\n      {\n        \"team_id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      },\n      {\n        \"team_id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      }\n    ],\n    \"edit\": [\n      {\n        \"id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<uuid>\",\n        \"role_id\": \"<string,null-uuid>\",\n        \"is_supportive\": \"<boolean>\"\n      }\n    ],\n    \"delete\": [\n      {\n        \"id\": \"<uuid>\"\n      },\n      {\n        \"id\": \"<uuid>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "31a7de12-f5f5-472f-bfc7-3e5c645d4ac4",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hris",
+                    "positions",
+                    "apply_changes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"profile_id\": \"da7ec4c5-987b-72a0-461c-4e284a49d183\",\n    \"add\": [\n      {\n        \"team_id\": \"5a9cd17a-aff3-bd8c-4d7f-648b19a62ef2\",\n        \"role_id\": \"15538af4-2f33-d650-1a1a-c17bdc626726\",\n        \"is_supportive\": true\n      },\n      {\n        \"team_id\": \"06afa331-53a2-825f-a89a-74d5e9417692\",\n        \"role_id\": \"25d6db9c-3452-6258-8384-b240bb8bf1ea\",\n        \"is_supportive\": false\n      }\n    ],\n    \"edit\": [\n      {\n        \"id\": \"d07a8a6f-d850-5a17-e252-962f9d22da53\",\n        \"role_id\": \"5baa14a2-bd6a-4599-4ee4-76c3029ec769\",\n        \"is_supportive\": true\n      },\n      {\n        \"id\": \"5d17b41f-658a-1a8c-bf7a-c045103be1ca\",\n        \"role_id\": \"7fd3ee06-1093-5777-32b1-f20386e5f00f\",\n        \"is_supportive\": true\n      }\n    ],\n    \"delete\": [\n      {\n        \"id\": \"0901f169-7823-d378-7728-4921c42995d2\"\n      },\n      {\n        \"id\": \"1a87948f-4f28-3890-3b40-eb84fa2be88c\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4dc39cfd-c448-41f1-9a50-b1daea114a2e",
+              "name": "Bad Request. Invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hris",
+                    "positions",
+                    "apply_changes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"profile_id\": \"da7ec4c5-987b-72a0-461c-4e284a49d183\",\n    \"add\": [\n      {\n        \"team_id\": \"5a9cd17a-aff3-bd8c-4d7f-648b19a62ef2\",\n        \"role_id\": \"15538af4-2f33-d650-1a1a-c17bdc626726\",\n        \"is_supportive\": true\n      },\n      {\n        \"team_id\": \"06afa331-53a2-825f-a89a-74d5e9417692\",\n        \"role_id\": \"25d6db9c-3452-6258-8384-b240bb8bf1ea\",\n        \"is_supportive\": false\n      }\n    ],\n    \"edit\": [\n      {\n        \"id\": \"d07a8a6f-d850-5a17-e252-962f9d22da53\",\n        \"role_id\": \"5baa14a2-bd6a-4599-4ee4-76c3029ec769\",\n        \"is_supportive\": true\n      },\n      {\n        \"id\": \"5d17b41f-658a-1a8c-bf7a-c045103be1ca\",\n        \"role_id\": \"7fd3ee06-1093-5777-32b1-f20386e5f00f\",\n        \"is_supportive\": true\n      }\n    ],\n    \"delete\": [\n      {\n        \"id\": \"0901f169-7823-d378-7728-4921c42995d2\"\n      },\n      {\n        \"id\": \"1a87948f-4f28-3890-3b40-eb84fa2be88c\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e132a5bb-4bad-4614-9c1a-5b954bd510b3",
+              "name": "Unauthorized. Invalid or expired token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hris",
+                    "positions",
+                    "apply_changes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"profile_id\": \"da7ec4c5-987b-72a0-461c-4e284a49d183\",\n    \"add\": [\n      {\n        \"team_id\": \"5a9cd17a-aff3-bd8c-4d7f-648b19a62ef2\",\n        \"role_id\": \"15538af4-2f33-d650-1a1a-c17bdc626726\",\n        \"is_supportive\": true\n      },\n      {\n        \"team_id\": \"06afa331-53a2-825f-a89a-74d5e9417692\",\n        \"role_id\": \"25d6db9c-3452-6258-8384-b240bb8bf1ea\",\n        \"is_supportive\": false\n      }\n    ],\n    \"edit\": [\n      {\n        \"id\": \"d07a8a6f-d850-5a17-e252-962f9d22da53\",\n        \"role_id\": \"5baa14a2-bd6a-4599-4ee4-76c3029ec769\",\n        \"is_supportive\": true\n      },\n      {\n        \"id\": \"5d17b41f-658a-1a8c-bf7a-c045103be1ca\",\n        \"role_id\": \"7fd3ee06-1093-5777-32b1-f20386e5f00f\",\n        \"is_supportive\": true\n      }\n    ],\n    \"delete\": [\n      {\n        \"id\": \"0901f169-7823-d378-7728-4921c42995d2\"\n      },\n      {\n        \"id\": \"1a87948f-4f28-3890-3b40-eb84fa2be88c\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a148164d-a3b6-4105-8cf6-20d19a2d7b82",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hris",
+                    "positions",
+                    "apply_changes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"profile_id\": \"da7ec4c5-987b-72a0-461c-4e284a49d183\",\n    \"add\": [\n      {\n        \"team_id\": \"5a9cd17a-aff3-bd8c-4d7f-648b19a62ef2\",\n        \"role_id\": \"15538af4-2f33-d650-1a1a-c17bdc626726\",\n        \"is_supportive\": true\n      },\n      {\n        \"team_id\": \"06afa331-53a2-825f-a89a-74d5e9417692\",\n        \"role_id\": \"25d6db9c-3452-6258-8384-b240bb8bf1ea\",\n        \"is_supportive\": false\n      }\n    ],\n    \"edit\": [\n      {\n        \"id\": \"d07a8a6f-d850-5a17-e252-962f9d22da53\",\n        \"role_id\": \"5baa14a2-bd6a-4599-4ee4-76c3029ec769\",\n        \"is_supportive\": true\n      },\n      {\n        \"id\": \"5d17b41f-658a-1a8c-bf7a-c045103be1ca\",\n        \"role_id\": \"7fd3ee06-1093-5777-32b1-f20386e5f00f\",\n        \"is_supportive\": true\n      }\n    ],\n    \"delete\": [\n      {\n        \"id\": \"0901f169-7823-d378-7728-4921c42995d2\"\n      },\n      {\n        \"id\": \"1a87948f-4f28-3890-3b40-eb84fa2be88c\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 8133.944151334851,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 1640.994108088385\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "295a3134-21bb-4057-aac0-824ea4dacc1a",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hris",
+                    "positions",
+                    "apply_changes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"profile_id\": \"da7ec4c5-987b-72a0-461c-4e284a49d183\",\n    \"add\": [\n      {\n        \"team_id\": \"5a9cd17a-aff3-bd8c-4d7f-648b19a62ef2\",\n        \"role_id\": \"15538af4-2f33-d650-1a1a-c17bdc626726\",\n        \"is_supportive\": true\n      },\n      {\n        \"team_id\": \"06afa331-53a2-825f-a89a-74d5e9417692\",\n        \"role_id\": \"25d6db9c-3452-6258-8384-b240bb8bf1ea\",\n        \"is_supportive\": false\n      }\n    ],\n    \"edit\": [\n      {\n        \"id\": \"d07a8a6f-d850-5a17-e252-962f9d22da53\",\n        \"role_id\": \"5baa14a2-bd6a-4599-4ee4-76c3029ec769\",\n        \"is_supportive\": true\n      },\n      {\n        \"id\": \"5d17b41f-658a-1a8c-bf7a-c045103be1ca\",\n        \"role_id\": \"7fd3ee06-1093-5777-32b1-f20386e5f00f\",\n        \"is_supportive\": true\n      }\n    ],\n    \"delete\": [\n      {\n        \"id\": \"0901f169-7823-d378-7728-4921c42995d2\"\n      },\n      {\n        \"id\": \"1a87948f-4f28-3890-3b40-eb84fa2be88c\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 8133.944151334851,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 1640.994108088385\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0e2e08c-177c-4d69-83ba-691d61e40fbb",
+              "name": "Internal Server Error. Could not process the request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hris",
+                    "positions",
+                    "apply_changes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"profile_id\": \"da7ec4c5-987b-72a0-461c-4e284a49d183\",\n    \"add\": [\n      {\n        \"team_id\": \"5a9cd17a-aff3-bd8c-4d7f-648b19a62ef2\",\n        \"role_id\": \"15538af4-2f33-d650-1a1a-c17bdc626726\",\n        \"is_supportive\": true\n      },\n      {\n        \"team_id\": \"06afa331-53a2-825f-a89a-74d5e9417692\",\n        \"role_id\": \"25d6db9c-3452-6258-8384-b240bb8bf1ea\",\n        \"is_supportive\": false\n      }\n    ],\n    \"edit\": [\n      {\n        \"id\": \"d07a8a6f-d850-5a17-e252-962f9d22da53\",\n        \"role_id\": \"5baa14a2-bd6a-4599-4ee4-76c3029ec769\",\n        \"is_supportive\": true\n      },\n      {\n        \"id\": \"5d17b41f-658a-1a8c-bf7a-c045103be1ca\",\n        \"role_id\": \"7fd3ee06-1093-5777-32b1-f20386e5f00f\",\n        \"is_supportive\": true\n      }\n    ],\n    \"delete\": [\n      {\n        \"id\": \"0901f169-7823-d378-7728-4921c42995d2\"\n      },\n      {\n        \"id\": \"1a87948f-4f28-3890-3b40-eb84fa2be88c\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd8340a8-e7f5-43a7-b4d1-374131e98b2e",
+          "name": "Get Positions By Profile",
+          "request": {
+            "name": "Get Positions By Profile",
+            "description": {},
+            "url": {
+              "path": [
+                "hris",
+                "positions",
+                "profile",
+                ":hrisProfileId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hrisProfileId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c9ae96f6-079f-4ce3-aa8d-8361827aa0b8",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hris",
+                    "positions",
+                    "profile",
+                    ":hrisProfileId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hrisProfileId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e33c8e3-d9f0-45a7-a1fd-f225e049d189",
+          "name": "Fetch HrisPositions from a HrisProfile",
+          "request": {
+            "name": "Fetch HrisPositions from a HrisProfile",
+            "description": {
+              "content": "Retrieves all positions assigned to a given HRIS profile, including the associated role, team, and organization structure for each position.\n **Token scopes**: `profile:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hris",
+                "positions",
+                "profile",
+                ":hris_profile_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hris_profile_id",
+                  "description": "(Required) HRIS Profile ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8aa0a3ed-95b9-4e03-b42d-ec3647fc9db1",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hris",
+                    "positions",
+                    "profile",
+                    ":hris_profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hris_profile_id",
+                      "description": "(Required) HRIS Profile ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"cc515fdd-2481-e92e-0339-547ff0c3c365\",\n      \"role\": {\n        \"id\": \"7298d338-f936-e296-202a-5b34a2293332\",\n        \"name\": \"string\"\n      },\n      \"team\": {\n        \"id\": \"442501e7-d5fa-afe2-0044-456b9a900a72\",\n        \"name\": \"string\",\n        \"organization_structure\": {\n          \"id\": \"954a9b77-f7d2-2064-401f-3c83b957ea18\",\n          \"name\": \"string\"\n        }\n      },\n      \"is_supportive\": false\n    },\n    {\n      \"id\": \"5d0e7a80-4341-5671-6e38-10a0557f9b35\",\n      \"role\": {\n        \"id\": \"d6b9c621-6f02-c66a-8ae4-211b5747ff08\",\n        \"name\": \"string\"\n      },\n      \"team\": {\n        \"id\": \"e043d9c7-8cd2-6add-1375-6ff216f7e793\",\n        \"name\": \"string\",\n        \"organization_structure\": {\n          \"id\": \"2d16e4d9-9f35-2531-9569-56cc92ddfef0\",\n          \"name\": \"string\"\n        }\n      },\n      \"is_supportive\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d81553b-8bfe-4975-bbaf-b32814b12a65",
+              "name": "Bad request - The provided hrisProfileId or hrisOrgStructureId is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hris",
+                    "positions",
+                    "profile",
+                    ":hris_profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hris_profile_id",
+                      "description": "(Required) HRIS Profile ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "793c3762-9bf4-49dd-8390-c4385db411a1",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hris",
+                    "positions",
+                    "profile",
+                    ":hris_profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hris_profile_id",
+                      "description": "(Required) HRIS Profile ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 8133.944151334851,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 1640.994108088385\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c55f51af-a09b-4f3c-8399-b685ee98a388",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hris",
+                    "positions",
+                    "profile",
+                    ":hris_profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hris_profile_id",
+                      "description": "(Required) HRIS Profile ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 8133.944151334851,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 1640.994108088385\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8030566e-088c-4320-92cf-f94d81e27238",
+              "name": "Not found - No HRIS profile exists for the provided ID.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hris",
+                    "positions",
+                    "profile",
+                    ":hris_profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hris_profile_id",
+                      "description": "(Required) HRIS Profile ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"message\": \"string\",\n      \"field\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d586221-9c51-4a8c-ae40-d08dc952980b",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hris",
+                    "positions",
+                    "profile",
+                    ":hris_profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hris_profile_id",
+                      "description": "(Required) HRIS Profile ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 8133.944151334851,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 1640.994108088385\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.letsdeel.com/rest/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e0a091a0-516b-4f64-a75d-a868896a54dc",
+    "name": "Endpoints subpackage_positions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

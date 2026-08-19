@@ -1,0 +1,483 @@
+{
+  "item": [
+    {
+      "id": "985dad7f-7109-476c-8164-b117f7eaac3c",
+      "name": "subpackage_employees",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2f6086cf-90fa-470a-8098-ccf0951cffd0",
+          "name": "Get employee from organization integrated with external benefits vendor",
+          "request": {
+            "name": "Get employee from organization integrated with external benefits vendor",
+            "description": {
+              "content": "Returns profile and contract data for a single employee within a legal entity integrated with an external benefits vendor. When `active_contracts` is `true`, only active contracts are included in the response.\n\n**Related endpoints**\n- use `contract_id` from contracts in response with `GET /benefits/legal-entities/{legal_entity_id}/contracts/{contract_id}/plans/{plan_id}`\n- use `contract_id` from contracts in response with `DELETE /benefits/legal-entities/{id}/contracts/{contract_id}/plans/{plan_id}`\n **Token scopes**: `people:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "benefits",
+                "legal-entities",
+                ":id",
+                "employees",
+                ":employee_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "active_contracts",
+                  "value": "true",
+                  "description": "Fetch only active contracts for employees"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Id from the legal entity to fetch data"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) Employee id from the legal entity to fetch data"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45027dd2-0c76-4c27-8fa3-472d63096808",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "benefits",
+                    "legal-entities",
+                    ":id",
+                    "employees",
+                    ":employee_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "active_contracts",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id from the legal entity to fetch data"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) Employee id from the legal entity to fetch data"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"phones\": [\n    {\n      \"type\": \"string\",\n      \"dial_code\": \"string\",\n      \"phone_number\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"dial_code\": \"string\",\n      \"phone_number\": \"string\"\n    }\n  ],\n  \"status\": \"string\",\n  \"addresses\": [\n    {\n      \"zip\": \"string\",\n      \"city\": \"string\",\n      \"type\": \"string\",\n      \"state\": \"string\",\n      \"street\": \"string\",\n      \"country\": \"string\"\n    },\n    {\n      \"zip\": \"string\",\n      \"city\": \"string\",\n      \"type\": \"string\",\n      \"state\": \"string\",\n      \"street\": \"string\",\n      \"country\": \"string\"\n    }\n  ],\n  \"contracts\": [\n    {\n      \"id\": \"string\",\n      \"flsa\": false,\n      \"status\": \"string\",\n      \"end_date\": \"string\",\n      \"job_title\": \"string\",\n      \"start_date\": \"string\",\n      \"compensations\": [\n        {\n          \"rate\": 1938.3473466322987,\n          \"type\": \"VARIABLE\",\n          \"scale\": \"string\",\n          \"currency\": \"string\",\n          \"cycle_scale\": \"string\",\n          \"variable_compensation_type\": \"FIXED\"\n        },\n        {\n          \"rate\": 1324.4283259158174,\n          \"type\": \"MAIN\",\n          \"scale\": \"string\",\n          \"currency\": \"string\",\n          \"cycle_scale\": \"string\",\n          \"variable_compensation_type\": \"FIXED\"\n        }\n      ],\n      \"contract_type\": \"contractor\",\n      \"employment_type\": \"full_time\",\n      \"estimated_week_working_hours\": 430.99008566492626\n    },\n    {\n      \"id\": \"string\",\n      \"flsa\": false,\n      \"status\": \"string\",\n      \"end_date\": \"string\",\n      \"job_title\": \"string\",\n      \"start_date\": \"string\",\n      \"compensations\": [\n        {\n          \"rate\": 9994.242556303874,\n          \"type\": \"VARIABLE\",\n          \"scale\": \"string\",\n          \"currency\": \"string\",\n          \"cycle_scale\": \"string\",\n          \"variable_compensation_type\": \"PERCENTAGE\"\n        },\n        {\n          \"rate\": 1180.3506162228705,\n          \"type\": \"VARIABLE\",\n          \"scale\": \"string\",\n          \"currency\": \"string\",\n          \"cycle_scale\": \"string\",\n          \"variable_compensation_type\": \"FIXED\"\n        }\n      ],\n      \"contract_type\": \"contractor\",\n      \"employment_type\": \"full_time\",\n      \"estimated_week_working_hours\": 3864.2500371092615\n    }\n  ],\n  \"hire_date\": \"string\",\n  \"work_email\": \"string\",\n  \"date_of_birth\": \"string\",\n  \"marital_status\": \"Widowed\",\n  \"personal_email\": \"string\",\n  \"document_number\": \"string\",\n  \"legal_last_name\": \"string\",\n  \"legal_first_name\": \"string\",\n  \"legal_middle_name\": \"string\",\n  \"takes_owners_draw\": true,\n  \"ownership_percentage\": 5994.58142329522\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e3d35af-a2d8-4d24-a7ff-72d1a3a7ec56",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "benefits",
+                    "legal-entities",
+                    ":id",
+                    "employees",
+                    ":employee_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "active_contracts",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id from the legal entity to fetch data"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) Employee id from the legal entity to fetch data"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 8075.4995389713895,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 6998.086726420462\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93a0dcba-9aff-4a51-8c6b-4071db1fb64d",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "benefits",
+                    "legal-entities",
+                    ":id",
+                    "employees",
+                    ":employee_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "active_contracts",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id from the legal entity to fetch data"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) Employee id from the legal entity to fetch data"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 8075.4995389713895,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 6998.086726420462\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad988c65-6cdf-4cb8-a1b4-d301c629e280",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "benefits",
+                    "legal-entities",
+                    ":id",
+                    "employees",
+                    ":employee_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "active_contracts",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id from the legal entity to fetch data"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) Employee id from the legal entity to fetch data"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 8075.4995389713895,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 6998.086726420462\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01de212f-24bf-4f86-8d0f-fd7b9beb8766",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "benefits",
+                    "legal-entities",
+                    ":id",
+                    "employees",
+                    ":employee_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "active_contracts",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id from the legal entity to fetch data"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) Employee id from the legal entity to fetch data"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 8075.4995389713895,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 6998.086726420462\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0aab09e1-913a-4ff4-b4b2-a17856c3d8d3",
+              "name": "Operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "benefits",
+                    "legal-entities",
+                    ":id",
+                    "employees",
+                    ":employee_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "active_contracts",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Id from the legal entity to fetch data"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) Employee id from the legal entity to fetch data"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request\": {\n    \"method\": \"string\",\n    \"url\": \"string\",\n    \"status\": 8075.4995389713895,\n    \"api_req_id\": \"string\",\n    \"docs\": \"string\",\n    \"source\": \"string\",\n    \"code\": 6998.086726420462\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.letsdeel.com/rest/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cc46e4dc-ee01-4cc5-99e1-5b0009301d83",
+    "name": "Endpoints subpackage_employees API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

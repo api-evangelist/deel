@@ -1,0 +1,506 @@
+{
+  "item": [
+    {
+      "id": "30bb58d7-6798-442a-9c23-0d4977a2277d",
+      "name": "subpackage_employeeInformation",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "df5b6344-7858-4e3a-a1ee-a592d5b97882",
+          "name": "Employee additional info template",
+          "request": {
+            "name": "Employee additional info template",
+            "description": {
+              "content": "Lists employee additional info template by the contract type and the employment country\n **Token scopes**: `contracts:read`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employee-info",
+                "contract-types",
+                ":type",
+                "countries",
+                ":country"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) The contract type. Must be 'eor' (Employer of Record) or 'gp' (Global Payroll)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "country",
+                  "description": "(Required) ISO 3166-1 alpha-2 country code."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b63cc045-68b9-44c0-b869-948a7d40beb0",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employee-info",
+                    "contract-types",
+                    ":type",
+                    "countries",
+                    ":country"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) The contract type. Must be 'eor' (Employer of Record) or 'gp' (Global Payroll)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country",
+                      "description": "(Required) ISO 3166-1 alpha-2 country code."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"alias\": \"string\",\n      \"label\": \"string\",\n      \"options\": [\n        \"string\",\n        \"string\"\n      ],\n      \"footnote\": \"string\",\n      \"input_type\": \"string\",\n      \"local_name\": \"string\",\n      \"description\": \"string\",\n      \"is_optional\": true,\n      \"required_by\": \"string\",\n      \"dependencies\": [\n        {\n          \"id\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"display_order\": \"string\",\n      \"how_to_obtain\": \"string\",\n      \"can_be_skipped\": false,\n      \"link_to_obtain\": \"string\",\n      \"validation_rule\": \"string\",\n      \"input_configuration\": {\n        \"type\": \"string\",\n        \"format\": {\n          \"pattern\": \"string\",\n          \"separator\": \"string\"\n        }\n      },\n      \"link_to_obtain_label\": \"string\",\n      \"validation_error_message\": \"string\",\n      \"dependency_condition_match_mode\": \"ALL\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"alias\": \"string\",\n      \"label\": \"string\",\n      \"options\": [\n        \"string\",\n        \"string\"\n      ],\n      \"footnote\": \"string\",\n      \"input_type\": \"string\",\n      \"local_name\": \"string\",\n      \"description\": \"string\",\n      \"is_optional\": true,\n      \"required_by\": \"string\",\n      \"dependencies\": [\n        {\n          \"id\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"display_order\": \"string\",\n      \"how_to_obtain\": \"string\",\n      \"can_be_skipped\": true,\n      \"link_to_obtain\": \"string\",\n      \"validation_rule\": \"string\",\n      \"input_configuration\": {\n        \"type\": \"string\",\n        \"format\": {\n          \"pattern\": \"string\",\n          \"separator\": \"string\"\n        }\n      },\n      \"link_to_obtain_label\": \"string\",\n      \"validation_error_message\": \"string\",\n      \"dependency_condition_match_mode\": \"ALL\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e969d37c-0420-48b3-84ef-a27c5a853749",
+              "name": "Invalid country code or contract type.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employee-info",
+                    "contract-types",
+                    ":type",
+                    "countries",
+                    ":country"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) The contract type. Must be 'eor' (Employer of Record) or 'gp' (Global Payroll)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country",
+                      "description": "(Required) ISO 3166-1 alpha-2 country code."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f14c924a-1af4-4e9b-a97d-450313cdf8b3",
+              "name": "Authentication failed. The access token is missing, expired, or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employee-info",
+                    "contract-types",
+                    ":type",
+                    "countries",
+                    ":country"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) The contract type. Must be 'eor' (Employer of Record) or 'gp' (Global Payroll)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country",
+                      "description": "(Required) ISO 3166-1 alpha-2 country code."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "010d13ff-4533-42fc-8879-84f6a891a5ea",
+              "name": "Access denied. The authenticated user does not have the required contracts:read scope or contracts.view permission.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employee-info",
+                    "contract-types",
+                    ":type",
+                    "countries",
+                    ":country"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) The contract type. Must be 'eor' (Employer of Record) or 'gp' (Global Payroll)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country",
+                      "description": "(Required) ISO 3166-1 alpha-2 country code."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6cd9672-3fca-4301-ac61-595dd76543d7",
+              "name": "No additional info template exists for the given country and contract type combination in the Employee Data Management system.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employee-info",
+                    "contract-types",
+                    ":type",
+                    "countries",
+                    ":country"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) The contract type. Must be 'eor' (Employer of Record) or 'gp' (Global Payroll)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country",
+                      "description": "(Required) ISO 3166-1 alpha-2 country code."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23df7fee-7fa3-4fc0-9829-ef5014013010",
+              "name": "Rate limit exceeded. The client has sent too many requests in a given time window.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employee-info",
+                    "contract-types",
+                    ":type",
+                    "countries",
+                    ":country"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) The contract type. Must be 'eor' (Employer of Record) or 'gp' (Global Payroll)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country",
+                      "description": "(Required) ISO 3166-1 alpha-2 country code."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b9c1e14-2e76-4b6f-a3a9-09729f3c3b00",
+              "name": "Internal server error. Returned when the Employee Data Management service is unreachable or an unexpected error occurs.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employee-info",
+                    "contract-types",
+                    ":type",
+                    "countries",
+                    ":country"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) The contract type. Must be 'eor' (Employer of Record) or 'gp' (Global Payroll)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country",
+                      "description": "(Required) ISO 3166-1 alpha-2 country code."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ## Authentication\nThe Deel API uses bearer tokens to authenticate requests. All API calls must be made over HTTPS — calls over plain HTTP or without authentication will fail.\n\n```curl\ncurl -X GET 'https://api.letsdeel.com/rest/v2/contracts' \\\n  -H 'Authorization: Bearer YOUR-TOKEN-HERE'\n```\n\n[Learn more about authentication](/api/authentication)\n",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.letsdeel.com/rest/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "31934430-9fbc-4115-b21f-3a6dab84825c",
+    "name": "Endpoints subpackage_employeeInformation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Endpoints subpackage_gpHiring API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_gpHiring",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a Global Payroll (GP) contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/contracts/gp",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Global Payroll contract, including dataset such as employment, employee address, client legal_entity/team, compensation_details, job_title, invite_employee_to_app, work_location for US\n **Token scopes**: `contracts:write`"
+        },
+        {
+          "info": {
+            "name": "Request termination",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.letsdeel.com/rest/v2/gp/workers/:worker_id/terminations",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "worker_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a worker in UUID format."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request a termination for a global payroll employee. A successful call starts the termination process and does not confirm termination.\n **Token scopes**: `global-payroll:write`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
