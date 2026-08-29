@@ -1,0 +1,463 @@
+slug: deel
+provider: Deel
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 45
+edges:
+- tag: subpackage_ats
+  spec_file: deel-subpackage-ats-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.95
+  evidence: '''Create ATS Candidate'', ''Create ATS Job'', ''Associate application with an interview plan
+    stage'', ''Retrieve a list of ATS departments'''
+  reason: A full applicant tracking surface — jobs, job postings, job boards, candidates, applications,
+    interview stages, rejection reasons — is recruiting/hiring, i.e. Talent Acquisition Management.
+- tag: subpackage_enrollments
+  spec_file: deel-subpackage-enrollments-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.9
+  evidence: POST .../plans/{plan_id}  Enroll an employee in a 401k plan; Get enrollment settings from
+    an employee in a 401k plan
+  reason: Retirement plan enrollment is benefits administration — Compensation & Benefits Management.
+- tag: subpackage_eorPayslips
+  spec_file: deel-subpackage-eorpayslips-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.9
+  evidence: GET /eor/workers/{worker_id}/payslips — "Retrieve employee payslip records"
+  reason: Payslip records are payroll administration output, a core HR Operations Management function.
+- tag: subpackage_eorWorkerBenefits
+  spec_file: deel-subpackage-eorworkerbenefits-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.9
+  evidence: GET /eor/worker/benefits — "Retrieve Benefits for Employee"; schema ...BenefitsItemsEnrollmentDetailsSelectedPlan
+  reason: Employee benefit plans, providers and enrolment details are Compensation & Benefits administration.
+- tag: subpackage_eorTerminations
+  spec_file: deel-subpackage-eorterminations-api-openapi.yml
+  capability_id: BC-300
+  capability_id_l1: BC-300
+  capability_name: Human Capital Management
+  confidence: 0.88
+  evidence: '"Initiate EOR contract termination request"; "Request EOR Contract Resignation"; "Termination
+    Request"'
+  reason: Employment termination and resignation processing for EOR workers is employee lifecycle management
+    under HCM; sub-capability split between HR Operations and Employee & Labour Relations, so L1 only.
+- tag: subpackage_globalPayroll
+  spec_file: deel-subpackage-globalpayroll-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.88
+  evidence: GET /cycles/{cycle_id}/payroll-report  Get Payroll Report; Download a GP worker payslip
+  reason: Payroll cycle reports and worker payslips are payroll administration, squarely HR Operations
+    Management within Human Capital Management.
+- tag: subpackage_plans401K
+  spec_file: deel-subpackage-plans401k-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.88
+  evidence: POST /benefits/legal-entities/{legal_entity_id}/401k/plans  create-401-k-plan-for-legal-entity;
+    schema ...ContributionValueForMatchRateItems
+  reason: Creates, reads and updates 401k retirement plans and employer match/contribution rules for legal
+    entities — benefits administration under Compensation & Benefits Management.
+- tag: subpackage_candidates
+  spec_file: deel-subpackage-candidates-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.85
+  evidence: '''POST /candidates  add-candidate  Add Candidate'' with CandidatesPostRequestBodyContentApplicationJsonSchemaDataStatus'
+  reason: Creating a hiring candidate record is recruiting/sourcing activity; single operation but the
+    object is unambiguous within Deel's HR/hiring context.
+- tag: subpackage_deelAsAService
+  spec_file: deel-subpackage-deelasaservice-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.85
+  evidence: GET /daas/payslips  Get list of payslips for an EOR employee; PATCH /daas/banks/{bank_id}  Modify
+    bank account for an EOR employee
+  reason: Payslip retrieval and employee bank-account maintenance are payroll administration operations,
+    squarely HR Operations Management.
+- tag: subpackage_eorBenefits
+  spec_file: deel-subpackage-eorbenefits-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.85
+  evidence: GET /eor/{contract_id}/benefits  Retrieve Benefits for EOR Contract; schema ...EnrollmentDetailsPlan
+  reason: Retrieval of benefit plans and enrollment details for an employed worker — benefits administration.
+- tag: subpackage_eorOffboarding
+  spec_file: deel-subpackage-eoroffboarding-api-openapi.yml
+  capability_id: BC-300
+  capability_id_l1: BC-300
+  capability_name: Human Capital Management
+  confidence: 0.85
+  evidence: '"Get additional information required to request employee termination"; "Retrieve Employee
+    Time Off Data for Offboarding"; "Submit employee resignation PTO review"'
+  reason: Operations orchestrate employee offboarding/termination workflow for Employer-of-Record contracts
+    — squarely employee lifecycle (Human Capital Management). Ambiguous between HR Operations and Employee
+    & Labour Relations, so only L1 is asserted.
+- tag: subpackage_eorWorkerPayslips
+  spec_file: deel-subpackage-eorworkerpayslips-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.85
+  evidence: GET /eor/workers/{worker_id}/payslips/{payslip_id}/download  Retrieve payslip PDF download
+    link
+  reason: Payslip retrieval for employed workers is payroll administration, an HR Operations function
+    within Human Capital Management.
+- tag: subpackage_payslips
+  spec_file: deel-subpackage-payslips-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.85
+  evidence: GET /gp/workers/{id}/payslips  get-gp-worker-payslips  Retrieve employee payslips
+  reason: Employee payslip retrieval is squarely payroll administration within HR operations.
+- tag: subpackage_people
+  spec_file: deel-subpackage-people-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.85
+  evidence: POST /people  create-a-direct-employee  Create a direct employee; GET /people  get-people  List
+    of People
+  reason: Creates and reads employee/person records including employment and working location — employee
+    record management in HR operations.
+- tag: subpackage_personalInformation
+  spec_file: deel-subpackage-personalinformation-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.85
+  evidence: GET /people/{worker_id}/personal  get-person-personal-info  Get personal information by id;
+    schema ...DataEmergencyContactsItems
+  reason: Reads and updates worker personal data (addresses, phone numbers, emergency contacts, demographics)
+    — core employee record administration.
+- tag: subpackage_eorWorkerAccounts
+  spec_file: deel-subpackage-eorworkeraccounts-api-openapi.yml
+  capability_id: BC-300
+  capability_id_l1: BC-300
+  capability_name: Human Capital Management
+  confidence: 0.82
+  evidence: POST /eor/worker — "Create EOR Worker"
+  reason: Creating an Employer-of-Record worker record establishes an employee in the HR system; HCM at
+    L1, but too thin to choose between talent acquisition/onboarding and HR employee records.
+- tag: subpackage_treasury
+  spec_file: deel-subpackage-treasury-api-openapi.yml
+  capability_id: BC-200.20
+  capability_id_l1: BC-200
+  capability_name: Accounts Payable Management
+  confidence: 0.82
+  evidence: POST /accounts-payable/vendor-bills  Create Vendor Bill; POST /accounts-payable/vendor-bills/{vendor_bill_id}/attachments  Upload
+    Vendor Bill Attachment
+  reason: Despite the 'treasury' tag, the operations create vendor bills with line items under an accounts-payable
+    path — vendor invoice processing, i.e. Accounts Payable Management.
+- tag: subpackage_eorHiring
+  spec_file: deel-subpackage-eorhiring-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.8
+  evidence: PATCH /eor/contract/{oid}/delay-onboarding  Delay EOR employee onboarding; GET /eor/validations/{country_code}  Retrieve
+    detailed hiring guide for a country; POST .../documents/{type}/sign  Sign EOR contract document
+  reason: Operations cover hiring guidance, contract creation forms, start dates, document signing and
+    onboarding delay — the hire-and-onboard motion of Talent Acquisition Management.
+- tag: subpackage_eorWorkerDocuments
+  spec_file: deel-subpackage-eorworkerdocuments-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: GET /eor/workers/contracts/{contract_id}/hr-documents — "List HR verification letters and
+    documents"
+  reason: HR verification letters and employee documents are HR service delivery / employee records, i.e.
+    HR Operations Management.
+- tag: subpackage_offboarding
+  spec_file: deel-subpackage-offboarding-api-openapi.yml
+  capability_id: BC-300
+  capability_id_l1: BC-300
+  capability_name: Human Capital Management
+  confidence: 0.8
+  evidence: GET /offboarding/tracker 'Retrieve offboarding list'; GET /offboarding/tracker/{id} 'Retrieve
+    termination details'; OffboardingTrackerIdGet...DataTermination
+  reason: 'Tracks employee offboarding and termination details including HRIS profile and contract data
+    — employee lifecycle management. L1 only: the candidate list has no dedicated offboarding/termination
+    sub-capability, so naming one would over-specify.'
+- tag: subpackage_paystubs
+  spec_file: deel-subpackage-paystubs-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: GET /benefits/legal-entities/{legal_entity_id}/paystubs  Get paystubs from legal entity integrated
+    with external benefits vendor
+  reason: Paystub retrieval per legal entity with payroll state/type schemas is payroll administration
+    data delivery.
+- tag: subpackage_reports
+  spec_file: deel-subpackage-reports-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: GET /reports/payroll/cycles/{cycle_id}/gross-to-net  Gets G2N report data for a given payroll
+    cycle; GET /gp/legal-entities/{legal_entity_id}/reports  List payroll events by legal entity
+  reason: Gross-to-net and payroll-cycle event reporting is payroll administration output, squarely HR
+    Operations Management. Not financial reporting since the subject is payroll cycles for workers.
+- tag: subpackage_timeOff
+  spec_file: deel-subpackage-timeoff-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: POST /time_offs  Create time-off request; GET /time_offs/profile/{hris_profile_id}/entitlements  Get
+    Profile Entitlements; POST /time_offs/global-payroll/sync  External HR Time Off Synchronization
+  reason: Leave request, approval, entitlement and policy administration synced to global payroll — classic
+    absence/leave administration under HR Operations Management.
+- tag: subpackage_workerInformation
+  spec_file: deel-subpackage-workerinformation-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: update-gp-worker-employee-information  Update employee information; POST /gp/workers/{worker_id}/banks  Add
+    bank account; update-gp-worker-compensation  Update compensation
+  reason: Maintenance of worker master data — bank details for pay, address, compensation, PTO policy
+    — which is employee record and payroll administration. Compensation edits touch BC-300.30 but the
+    surface is predominantly record keeping.
+- tag: subpackage_eorWorkerInformation
+  spec_file: deel-subpackage-eorworkerinformation-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.78
+  evidence: '"Update additional information"; "Add bank account"; "List of tax documents for an employee"'
+  reason: Maintaining employee personal data, payment details and payroll tax documents is HR/payroll
+    administration (HR Operations Management).
+- tag: subpackage_immigration
+  spec_file: deel-subpackage-immigration-api-openapi.yml
+  capability_id: BC-300
+  capability_id_l1: BC-300
+  capability_name: Human Capital Management
+  confidence: 0.78
+  evidence: GET /immigration/visa-requirement/business  Get business visa eligibility and requirements;
+    GET /immigration/workers/{worker_id}/onboarding-case  Retrieve onboarding right-to-work case for a
+    worker
+  reason: Visa eligibility, immigration cases and right-to-work onboarding documentation for workers are
+    global-mobility/work-authorisation activities within Human Capital Management; no listed L2 covers
+    immigration specifically, so only the L1 is asserted.
+- tag: subpackage_learning
+  spec_file: deel-subpackage-learning-api-openapi.yml
+  capability_id: BC-300.40
+  capability_id_l1: BC-300
+  capability_name: Learning & Development Management
+  confidence: 0.78
+  evidence: GET /engage/learning/actionable-journeys 'Retrieve worker's actionable journeys'; EngageLearningActionableJourneys...DataItemsCompletion
+    / ...DataItemsStepJourney
+  reason: Learning journeys assigned to workers with steps and completion tracking on an HR platform —
+    training/capability building, i.e. Learning & Development. Some ambiguity as 'journeys' also cover
+    onboarding-style engagement flows, hence not maximal confidence.
+- tag: subpackage_listCycles
+  spec_file: deel-subpackage-listcycles-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.78
+  evidence: GET /legal-entities/{legal_entity_id}/payroll-events 'List payroll cycles'
+  reason: Lists payroll cycles/events for a legal entity — payroll administration, which sits in HR Operations
+    Management. Straightforward, though the surface is a single read operation.
+- tag: subpackage_assets
+  spec_file: deel-subpackage-assets-api-openapi.yml
+  capability_id: BC-600
+  capability_id_l1: BC-600
+  capability_name: Information Technology Management
+  confidence: 0.75
+  evidence: '''GET /it/assets  get-it-assets  List IT assets'' with schemas ...DataItemsAssignedUser,
+    ...DataOwnership, ...DataPurchaseValueCurrency'
+  reason: Read-only inventory of IT assets with assigned user, location, ownership and purchase value
+    is IT hardware asset tracking — Information Technology Management. No candidate L2 cleanly covers
+    IT asset inventory, so no sub-capability is asserted.
+- tag: subpackage_eorContract
+  spec_file: deel-subpackage-eorcontract-api-openapi.yml
+  capability_id: BC-300
+  capability_id_l1: BC-300
+  capability_name: Human Capital Management
+  confidence: 0.75
+  evidence: POST /eor  create-eor-contract  Create an EOR contract; schema EorContractsContractIdDetailsGetResponsesContentApplicationJsonSchemaEmploymentCostsSummary
+  reason: Creation and maintenance of employer-of-record employment contracts with employment cost breakdowns
+    — clearly Human Capital Management, but the evidence spans hiring, employment administration and payroll
+    cost, so no single L2 is named.
+- tag: subpackage_eorWorkerCompliance
+  spec_file: deel-subpackage-eorworkercompliance-api-openapi.yml
+  capability_id: BC-300
+  capability_id_l1: BC-300
+  capability_name: Human Capital Management
+  confidence: 0.75
+  evidence: '"Upload employee compliance document"; "List of employee compliance documents"; "Acknowledge
+    a compliance document"'
+  reason: Employee-level compliance document collection and acknowledgement is part of HR employment administration;
+    whether HR Operations or Employee & Labour Relations is unclear, so L1 only.
+- tag: subpackage_eorWorkerOffboarding
+  spec_file: deel-subpackage-eorworkeroffboarding-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.75
+  evidence: POST /eor/contracts/{contract_id}/offboarding/resignation  create-employee-resignation  Request
+    contract resignation; Sign Resignation Letter
+  reason: Operations manage employee resignation and offboarding of Employer-of-Record workers (resignation
+    requests, letters, retrieval of resignations) — employee lifecycle administration under Human Capital
+    Management. HR Operations is the closest sub-capability for offboarding record handling; some ambiguity
+    vs labour relations.
+- tag: subpackage_onboarding
+  spec_file: deel-subpackage-onboarding-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.75
+  evidence: GET /onboarding/tracker 'List onboarding employees'; 'Get onboarding details by employee HRIS
+    profile ID'; OnboardingTrackerTrackerIdGet...DataChecklist
+  reason: Onboarding trackers with checklists and stepper progress for new employees; Talent Acquisition
+    Management explicitly includes onboarding. Slight uncertainty because the surface is post-hire administration
+    rather than sourcing/hiring.
+- tag: subpackage_timesheets
+  spec_file: deel-subpackage-timesheets-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.75
+  evidence: POST /timesheets  Create a timesheet entry; POST /timesheets/{id}/reviews  Review a single
+    timesheet; TimesheetsIdGetResponsesContentApplicationJsonSchemaDataPaymentCycle
+  reason: Timesheet entry lifecycle with approvers and payment cycle linkage is worker time administration
+    feeding payroll — HR Operations Management.
+- tag: subpackage_payroll
+  spec_file: deel-subpackage-payroll-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.72
+  evidence: GET /benefits/legal-entities/{id}/pay-stub  Get pay stub from employees from organization
+    integrated with external benefits vendor; schema ...PayrollSchedule
+  reason: Retrieves employee pay stubs and year-to-date pay for a legal entity, i.e. payroll administration
+    data. Benefit-contribution schemas mean Compensation & Benefits is an alternative reading, so confidence
+    is moderate.
+- tag: subpackage_terminations
+  spec_file: deel-subpackage-terminations-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.72
+  evidence: POST /contracts/{contract_id}/terminations  Terminate contract; ...DataEligibleForRehire,
+    ...DataTerminationType
+  reason: Employment/contractor contract termination with termination type and rehire eligibility is offboarding
+    within the employee lifecycle, handled as HR operations record-keeping.
+- tag: subpackage_timeTracking
+  spec_file: deel-subpackage-timetracking-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.72
+  evidence: POST /time_tracking/shift_rates  Create a New Shift Rate; POST /time-tracking/timesheets/{timesheet_id}/review  Review
+    a submitted timesheet
+  reason: Shift rate maintenance and timesheet submission/review are workforce time-and-attendance administration
+    feeding payroll, i.e. HR operations.
+- tag: subpackage_timeTrackingShifts
+  spec_file: deel-subpackage-timetrackingshifts-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.72
+  evidence: POST /time_tracking/shifts  Create shifts; GET /time_tracking/shifts  List of shifts; TimeTrackingShiftsPostResponsesContentApplicationJsonSchemaDataItemsPayrollCycleRef
+  reason: Shift records with breaks, corrections and a payroll cycle reference constitute time-and-attendance
+    capture for payroll administration within HCM.
+- tag: subpackage_accounting
+  spec_file: deel-subpackage-accounting-api-openapi.yml
+  capability_id: BC-200
+  capability_id_l1: BC-200
+  capability_name: Financial Management
+  confidence: 0.7
+  evidence: '''Retrieve Deel invoices'', ''Download invoice PDF'', ''Retrieve payment receipts'', ''Retrieve
+    a payment breakdown'''
+  reason: Operations expose invoices, invoice PDFs, payment receipts and payment breakdowns — accounting/financial
+    documents. Direction (payable to Deel vs receivable from clients) is ambiguous from the context, so
+    only the L1 Financial Management is asserted.
+- tag: subpackage_contractorHiring
+  spec_file: deel-subpackage-contractorhiring-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.7
+  evidence: '''Get worker invite link'', ''Send contract to worker'', ''Sign a contract'', ''Preview a
+    contract agreement'''
+  reason: Inviting a worker, sending and signing the engagement agreement is the hiring/onboarding step
+    of the worker lifecycle, mapping to Talent Acquisition (hiring, onboarding); payment-cycle retrieval
+    adds some ambiguity.
+- tag: subpackage_contracts
+  spec_file: deel-subpackage-contracts-api-openapi.yml
+  capability_id: BC-300
+  capability_id_l1: BC-300
+  capability_name: Human Capital Management
+  confidence: 0.7
+  evidence: '''Create a new contract'', ''Sign worker contract'', ''Retrieve contract templates'', ''Approve
+    an equity exercise'''
+  reason: CRUD and signature flows over worker/contractor employment contracts plus equity exercise handling
+    sit in the employee lifecycle; the mix of contracting and equity means no single L2 is safely identifiable.
+- tag: subpackage_eorProjectAssignment
+  spec_file: deel-subpackage-eorprojectassignment-api-openapi.yml
+  capability_id: BC-300
+  capability_id_l1: BC-300
+  capability_name: Human Capital Management
+  confidence: 0.7
+  evidence: '"Accept EOR project assignment as client"; "Fetch Project Assignment Checkin Questionnaire
+    Data"'
+  reason: Assignment documents and check-in questionnaires for EOR-employed workers are part of the employment
+    lifecycle; which HCM sub-capability (HR ops vs employee experience) is not determinable, so L1 only.
+- tag: subpackage_eorWorkerAgreements
+  spec_file: deel-subpackage-eorworkeragreements-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.7
+  evidence: '"Preview job offer letter"; "Download employee agreement PDF"; "Sign a contract"'
+  reason: Offer letters and employment agreement signature are hiring/onboarding artefacts, mapping to
+    Talent Acquisition Management; some chance this is better read as generic HR document operations.
+- tag: subpackage_hrxDocuments
+  spec_file: deel-subpackage-hrxdocuments-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: GET /eor/contracts/{contract_id}/hrx-documents  retrieve-hrx-documents  Retrieve HRX documents
+  reason: Retrieval and download of HR documents attached to employment (EOR) contracts is employee-record
+    keeping / HR service delivery. Document categories are unspecified, so confidence is moderate.
+- tag: subpackage_organizationStructure
+  spec_file: deel-subpackage-organizationstructure-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: POST /hris/organization_structures create-organization-structure 'Create a new HRIS Organization
+    Structure'; PUT /people/{id}/department 'update-person-department'
+  reason: Operations maintain HRIS organisational structures, teams and a person's department assignment
+    — HR master-data/records administration within human capital management, not a technical construct.
+    L2 HR Operations chosen as the records-keeping home, though organisation design could also touch workforce
+    planning, hence moderate confidence.
